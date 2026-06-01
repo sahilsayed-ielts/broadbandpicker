@@ -8,6 +8,7 @@ interface ProviderLogoProps {
   width?: number
   height?: number
   className?: string
+  preload?: boolean
 }
 
 export default function ProviderLogo({
@@ -16,6 +17,7 @@ export default function ProviderLogo({
   width = 80,
   height = 40,
   className = '',
+  preload = false,
 }: ProviderLogoProps) {
   return (
     <div
@@ -29,6 +31,7 @@ export default function ProviderLogo({
         width={width - 16}
         height={height - 8}
         className="object-contain"
+        preload={preload}
         onError={() => {}}
       />
     </div>

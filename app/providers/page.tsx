@@ -7,7 +7,7 @@ import ProviderLogo from '@/components/ProviderLogo'
 export const metadata: Metadata = {
   title: 'UK Broadband Provider Reviews 2026',
   description:
-    'In-depth reviews of every major UK broadband provider — BT, Sky, Virgin Media, EE, TalkTalk, Vodafone, Plusnet and more. Compare speeds, prices, and customer ratings.',
+    'In-depth reviews of major UK broadband providers, including BT, Sky, Virgin Media, EE and TalkTalk. Compare speeds, prices and customer ratings.',
   alternates: { canonical: 'https://broadbandpicker.co.uk/providers' },
   openGraph: {
     title: 'UK Broadband Provider Reviews 2026 | BroadbandPicker',
@@ -69,6 +69,10 @@ export default function ProvidersPage() {
       <p className="text-slate-600 mb-8 max-w-2xl">
         We&apos;ve reviewed every major UK broadband provider to help you choose the right one.
         Sorted by customer rating.
+      </p>
+      <p className="text-xs text-slate-400 mb-6 max-w-2xl">
+        Some provider review pages and deal links may earn us a commission. This does not affect
+        our editorial independence.
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

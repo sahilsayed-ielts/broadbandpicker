@@ -79,7 +79,13 @@ export default function DealTable({ deals, showDisclosure = true, compact = fals
             {sorted.map((deal, i) => (
               <tr key={i} className="bg-white hover:bg-slate-50 transition-colors">
                 <td className="px-4 py-4">
-                  <ProviderLogo slug={deal.provider.slug} name={deal.provider.name} width={72} height={36} />
+                  <ProviderLogo
+                    slug={deal.provider.slug}
+                    name={deal.provider.name}
+                    width={72}
+                    height={36}
+                    preload={i === 0}
+                  />
                 </td>
                 <td className="px-4 py-4">
                   <div className="font-semibold text-slate-900">{deal.download} Mbps</div>

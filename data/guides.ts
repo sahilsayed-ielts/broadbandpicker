@@ -33,7 +33,7 @@ export const guides: GuideMetadata[] = [
   {
     slug: 'full-fibre-broadband-explained',
     title: 'Full Fibre Broadband Explained: Is FTTP Worth It?',
-    metaTitle: 'Full Fibre Broadband Explained: Is FTTP Worth It? | BroadbandPicker',
+    metaTitle: 'Full Fibre Broadband Explained | BroadbandPicker',
     metaDescription: 'Full fibre (FTTP) broadband delivers speeds up to 1Gbps with no copper wiring. Find out if it\'s available at your address and whether it\'s worth upgrading.',
     publishDate: '2026-01-15',
     updatedDate: '2026-06-01',
@@ -43,7 +43,7 @@ export const guides: GuideMetadata[] = [
   {
     slug: 'broadband-speeds-explained',
     title: 'Broadband Speeds Explained: What Speed Do You Actually Need?',
-    metaTitle: 'Broadband Speeds Explained: What Speed Do You Need? | BroadbandPicker',
+    metaTitle: 'Broadband Speeds Explained | BroadbandPicker',
     metaDescription: 'Not sure what broadband speed you need? Our guide explains download vs upload speeds, Mbps vs Gbps, and exactly what speed suits your household.',
     publishDate: '2026-01-20',
     updatedDate: '2026-06-01',
@@ -53,7 +53,7 @@ export const guides: GuideMetadata[] = [
   {
     slug: 'cheapest-broadband-uk',
     title: 'Cheapest Broadband Deals in the UK 2026',
-    metaTitle: 'Cheapest Broadband Deals UK 2026 | From £17.99/mo | BroadbandPicker',
+    metaTitle: 'Cheapest Broadband Deals UK 2026 | BroadbandPicker',
     metaDescription: 'Looking for the cheapest broadband in the UK? Compare the lowest-priced deals from every provider. Budget packages from £17.99/month.',
     publishDate: '2026-01-25',
     updatedDate: '2026-06-01',
@@ -63,7 +63,7 @@ export const guides: GuideMetadata[] = [
   {
     slug: 'best-broadband-for-working-from-home',
     title: 'Best Broadband for Working From Home UK 2026',
-    metaTitle: 'Best Broadband for Working From Home UK 2026 | BroadbandPicker',
+    metaTitle: 'Best Broadband for Working From Home | BroadbandPicker',
     metaDescription: 'Working from home? You need fast, reliable broadband with a strong upload speed. Compare the best home office broadband packages in the UK.',
     publishDate: '2026-02-01',
     updatedDate: '2026-06-01',

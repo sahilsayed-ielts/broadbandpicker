@@ -24,11 +24,11 @@ export async function generateMetadata({
   const prefix = postcodeArea.prefix.toUpperCase()
 
   return {
-    title: `Best Broadband in ${postcodeArea.town} ${prefix} | Compare Deals`,
+    title: `${prefix} Broadband Deals | BroadbandPicker`,
     description: `Compare broadband deals in ${postcodeArea.town} (${prefix}). ${postcodeArea.availableProviders.length} providers from £${postcodeArea.cheapestMonthly}/mo. Avg speed ${postcodeArea.avgDownloadSpeed} Mbps.`,
     alternates: { canonical: `https://broadbandpicker.co.uk/postcode/${area.toLowerCase()}` },
     openGraph: {
-      title: `Best Broadband in ${postcodeArea.town} ${prefix} | BroadbandPicker`,
+      title: `${prefix} Broadband Deals | BroadbandPicker`,
       description: `${postcodeArea.availableProviders.length} providers available in ${postcodeArea.town} from £${postcodeArea.cheapestMonthly}/month.`,
       url: `https://broadbandpicker.co.uk/postcode/${area.toLowerCase()}`,
     },

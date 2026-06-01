@@ -138,6 +138,10 @@ export default async function ProviderPage({
           size="lg"
         />
       </div>
+      <p className="text-xs text-slate-400 mb-6 max-w-2xl">
+        We may earn a commission if you click through to {provider.name} and take out a service.
+        This does not affect our editorial independence.
+      </p>
 
       {/* Highlights */}
       <div className="bg-sky-50 border border-sky-200 rounded-xl p-6 mb-8">
