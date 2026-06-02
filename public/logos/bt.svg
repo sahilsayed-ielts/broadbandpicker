@@ -1,4 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" width="120" height="40">
-  <rect width="120" height="40" rx="4" fill="#5514B4"/>
-  <text x="60" y="27" font-family="Arial,sans-serif" font-weight="700" font-size="18" fill="white" text-anchor="middle">BT</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="84" height="37" viewBox="0 0 84 37">
+  <g id="BT-logo" transform="translate(-1727 -4653)">
+    <rect id="Rectangle_6510" data-name="Rectangle 6510" width="84" height="37" transform="translate(1727 4653)" fill="#fff" opacity="0"/>
+    <g id="layer1" transform="translate(1751 4653.433)">
+      <path id="path3008" d="M-180.934,140.344A18.066,18.066,0,0,0-199,158.41a18.067,18.067,0,0,0,18.066,18.068,18.068,18.068,0,0,0,18.068-18.068A18.067,18.067,0,0,0-180.934,140.344Zm-.008,2.228a15.859,15.859,0,0,1,15.859,15.859,15.859,15.859,0,0,1-15.859,15.859A15.859,15.859,0,0,1-196.8,158.43,15.859,15.859,0,0,1-180.942,142.571Z" transform="translate(199 -140.344)" fill="#7509b7"/>
+      <path id="path2998" d="M51.544,469.085v12.3H56.55c2.275,0,4.023-1.42,4.023-3.67a3.064,3.064,0,0,0-1.549-2.741,2.952,2.952,0,0,0,1.188-2.447,3.517,3.517,0,0,0-3.831-3.443Zm2.768,2.4h1.479c1.051,0,1.51.54,1.51,1.207,0,.724-.519,1.181-1.44,1.181H54.312Zm0,4.853h1.479c1.051,0,1.51.54,1.51,1.208,0,.724-.519,1.181-1.44,1.181H54.312Z" transform="translate(-42.482 -457.194)" fill="#7509b7"/>
+      <path id="path3000" d="M330.016,480.734v-9.441h-2.768v-2.844h8.607v2.844h-2.882v9.441Z" transform="translate(-308.214 -456.581)" fill="#7509b7"/>
+    </g>
+  </g>
 </svg>

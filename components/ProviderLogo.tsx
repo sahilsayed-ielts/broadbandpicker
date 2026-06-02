@@ -11,6 +11,10 @@ interface ProviderLogoProps {
   preload?: boolean
 }
 
+const providerTheme: Record<string, string> = {
+  'now-broadband': 'bg-black border-black',
+}
+
 export default function ProviderLogo({
   slug,
   name,
@@ -19,9 +23,11 @@ export default function ProviderLogo({
   className = '',
   preload = false,
 }: ProviderLogoProps) {
+  const themeClass = providerTheme[slug] ?? 'bg-white border-slate-100'
+
   return (
     <div
-      className={`flex items-center justify-center bg-white rounded border border-slate-100 p-2 ${className}`}
+      className={`flex items-center justify-center rounded border p-2 ${themeClass} ${className}`}
       style={{ width, minHeight: height }}
       aria-label={`${name} logo`}
     >
