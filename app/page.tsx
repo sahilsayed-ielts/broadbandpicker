@@ -3,6 +3,7 @@ import Link from 'next/link'
 import PostcodeChecker from '@/components/PostcodeChecker'
 import DealTable from '@/components/DealTable'
 import ProviderLogo from '@/components/ProviderLogo'
+import NewsletterSignup from '@/components/NewsletterSignup'
 import { providers, getTopDeals } from '@/data/providers'
 
 export const metadata: Metadata = {
@@ -253,6 +254,9 @@ export default function HomePage() {
           </Link>
         </p>
       </section>
+
+      {/* Email alerts */}
+      <NewsletterSignup variant="inline" source="homepage" />
 
       {/* How it works */}
       <section className="bg-white py-14 border-y border-slate-200">

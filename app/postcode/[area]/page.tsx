@@ -7,6 +7,7 @@ import BreadcrumbNav from '@/components/BreadcrumbNav'
 import DealTable from '@/components/DealTable'
 import FAQAccordion from '@/components/FAQAccordion'
 import AffiliateCTA from '@/components/AffiliateCTA'
+import NewsletterSignup from '@/components/NewsletterSignup'
 
 export async function generateStaticParams() {
   return getAllPostcodePrefixes().map((prefix) => ({ area: prefix }))
@@ -180,6 +181,16 @@ export default async function PostcodeAreaPage({
           Learn more.
         </Link>
       </p>
+
+      {/* Deal alert signup — contextual to this postcode area */}
+      <div className="mt-8">
+        <NewsletterSignup
+          variant="postcode"
+          source={`postcode-${area.toLowerCase()}`}
+          postcodeArea={prefix}
+          postcodeTown={postcodeArea.town}
+        />
+      </div>
 
       {/* Provider cards */}
       <h2 className="text-xl font-bold text-slate-900 mt-10 mb-4">
