@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import PostcodeChecker from '@/components/PostcodeChecker'
 import DealTable from '@/components/DealTable'
+import ProviderLogo from '@/components/ProviderLogo'
 import { providers, getTopDeals } from '@/data/providers'
 
 export const metadata: Metadata = {
@@ -115,21 +116,6 @@ const HOW_IT_WORKS = [
   },
 ]
 
-const PROVIDER_NAMES = [
-  'BT',
-  'Sky',
-  'Virgin Media',
-  'EE',
-  'TalkTalk',
-  'Vodafone',
-  'Plusnet',
-  'NOW',
-  'Hyperoptic',
-  'Zen Internet',
-  'Toob',
-  'Community Fibre',
-]
-
 export default function HomePage() {
   const topDeals = getTopDeals(5)
   const updatedDate = new Date().toLocaleDateString('en-GB', {
@@ -215,14 +201,26 @@ export default function HomePage() {
           <p className="text-center text-xs text-slate-500 mb-3 font-medium uppercase tracking-wide">
             Compare deals from Britain&apos;s biggest broadband providers
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-3">
-            {PROVIDER_NAMES.map((name) => (
-              <span
-                key={name}
-                className="text-sm font-semibold text-slate-500 px-3 py-1 bg-slate-50 rounded-full border border-slate-100"
-              >
-                {name}
-              </span>
+          <div className="-mx-4 overflow-x-auto px-4 pb-2 sm:mx-0 sm:px-0">
+            <div className="flex min-w-max items-center gap-3 sm:min-w-0 sm:flex-wrap sm:justify-center">
+              {providers.map((provider) => (
+                <ProviderLogo
+                  key={provider.slug}
+                  slug={provider.slug}
+                  name={provider.name}
+                  width={132}
+                  height={52}
+                  className="shrink-0 rounded-xl shadow-sm"
+                />
+              ))}
+            </div>
+          </div>
+          <p className="mt-2 text-center text-xs text-slate-400 sm:hidden">
+            Swipe to see all providers
+          </p>
+          <div className="sr-only">
+            {providers.map((provider) => (
+              <span key={`${provider.slug}-name`}>{provider.name}</span>
             ))}
           </div>
         </div>
