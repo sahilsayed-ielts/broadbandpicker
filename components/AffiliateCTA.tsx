@@ -31,8 +31,8 @@ export default function AffiliateCTA({
 
   const variantClass =
     variant === 'primary'
-      ? 'bg-green-500 hover:bg-green-600 text-white font-semibold'
-      : 'border-2 border-sky-500 text-sky-600 hover:bg-sky-50 font-semibold'
+      ? 'bg-green-700 hover:bg-green-800 text-white font-semibold'
+      : 'border-2 border-sky-700 text-sky-700 hover:bg-sky-50 font-semibold'
 
   function handleClick() {
     trackAffiliateClick({

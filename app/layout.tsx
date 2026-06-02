@@ -147,10 +147,10 @@ function Footer() {
         </div>
 
         <div className="border-t border-slate-800 pt-8 space-y-3">
-          <p className="text-xs text-slate-500 max-w-3xl">
+          <p className="text-xs text-slate-300 max-w-3xl">
             BroadbandPicker.co.uk is a free comparison service. We may receive a commission when you click through to a provider and take out a service. This does not affect our editorial independence or the prices you are quoted. All prices shown are monthly. Contract terms, prices and availability are subject to change — always verify with the provider before signing up.
           </p>
-          <p className="text-xs text-slate-600">
+          <p className="text-xs text-slate-400">
             &copy; {year} BroadbandPicker.co.uk — We are not affiliated with any broadband provider. All trademarks belong to their respective owners.
           </p>
         </div>

@@ -36,8 +36,8 @@ export default function PostcodeChecker({
 
   const btnClass =
     size === 'large'
-      ? 'px-7 py-4 text-lg bg-sky-500 hover:bg-sky-600 text-white font-bold rounded-r-xl transition-colors whitespace-nowrap'
-      : 'px-5 py-3 bg-sky-500 hover:bg-sky-600 text-white font-semibold rounded-r-lg transition-colors whitespace-nowrap'
+      ? 'px-7 py-4 text-lg bg-sky-700 hover:bg-sky-800 text-white font-bold rounded-r-xl transition-colors whitespace-nowrap'
+      : 'px-5 py-3 bg-sky-700 hover:bg-sky-800 text-white font-semibold rounded-r-lg transition-colors whitespace-nowrap'
 
   return (
     <form onSubmit={handleSubmit} className="w-full">

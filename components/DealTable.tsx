@@ -48,7 +48,7 @@ export default function DealTable({ deals, showDisclosure = true, compact = fals
             onClick={() => setSort(k)}
             className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
               sort === k
-                ? 'bg-sky-500 text-white'
+                ? 'bg-sky-700 text-white'
                 : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
             }`}
           >
@@ -58,7 +58,7 @@ export default function DealTable({ deals, showDisclosure = true, compact = fals
       </div>
 
       {showDisclosure && (
-        <p className="text-xs text-slate-400 mb-3">
+        <p className="text-xs text-slate-500 mb-3">
           We may earn a commission when you click a &ldquo;Get Deal&rdquo; button. This does not affect our editorial independence.
         </p>
       )}
@@ -67,12 +67,12 @@ export default function DealTable({ deals, showDisclosure = true, compact = fals
         <table className="w-full min-w-[640px] text-sm">
           <thead className="bg-slate-50 border-b border-slate-200">
             <tr>
-              <th className="text-left px-4 py-3 font-semibold text-slate-700">Provider</th>
-              <th className="text-left px-4 py-3 font-semibold text-slate-700">Speed</th>
-              <th className="text-left px-4 py-3 font-semibold text-slate-700">Monthly price</th>
-              <th className="text-left px-4 py-3 font-semibold text-slate-700">Contract</th>
-              {!compact && <th className="text-left px-4 py-3 font-semibold text-slate-700">Setup</th>}
-              <th className="px-4 py-3"></th>
+              <th scope="col" className="text-left px-4 py-3 font-semibold text-slate-700">Provider</th>
+              <th scope="col" className="text-left px-4 py-3 font-semibold text-slate-700">Speed</th>
+              <th scope="col" className="text-left px-4 py-3 font-semibold text-slate-700">Monthly price</th>
+              <th scope="col" className="text-left px-4 py-3 font-semibold text-slate-700">Contract</th>
+              {!compact && <th scope="col" className="text-left px-4 py-3 font-semibold text-slate-700">Setup</th>}
+              <th scope="col" className="px-4 py-3"><span className="sr-only">Affiliate link</span></th>
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-100">
@@ -99,7 +99,7 @@ export default function DealTable({ deals, showDisclosure = true, compact = fals
                 {!compact && (
                   <td className="px-4 py-4 text-slate-600">
                     {deal.setupFee === 0 ? (
-                      <span className="text-green-600 font-medium">Free</span>
+                      <span className="text-green-700 font-medium">Free</span>
                     ) : (
                       `£${deal.setupFee}`
                     )}

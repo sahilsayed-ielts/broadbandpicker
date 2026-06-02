@@ -48,7 +48,7 @@ export default function NewsletterSignup({ source = 'footer', postcodeArea }: Ne
   return (
     <div className="bg-slate-800 rounded-xl px-6 py-8">
       <h3 className="text-white font-bold text-lg mb-1">Get deal alerts by email</h3>
-      <p className="text-slate-400 text-sm mb-4">
+      <p className="text-slate-300 text-sm mb-4">
         We&apos;ll send you the best new broadband deals — no spam, unsubscribe any time.
       </p>
       {status === 'success' ? (
@@ -67,7 +67,7 @@ export default function NewsletterSignup({ source = 'footer', postcodeArea }: Ne
           <button
             type="submit"
             disabled={status === 'loading'}
-            className="px-5 py-2.5 bg-sky-500 hover:bg-sky-600 text-white font-semibold rounded-lg text-sm transition-colors disabled:opacity-60"
+            className="px-5 py-2.5 bg-sky-700 hover:bg-sky-800 text-white font-semibold rounded-lg text-sm transition-colors disabled:opacity-60"
           >
             {status === 'loading' ? 'Subscribing…' : 'Get alerts'}
           </button>

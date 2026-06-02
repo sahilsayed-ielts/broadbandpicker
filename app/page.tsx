@@ -215,7 +215,7 @@ export default function HomePage() {
               ))}
             </div>
           </div>
-          <p className="mt-2 text-center text-xs text-slate-400 sm:hidden">
+          <p className="mt-2 text-center text-xs text-slate-500 sm:hidden">
             Swipe to see all providers
           </p>
           <div className="sr-only">
@@ -237,7 +237,7 @@ export default function HomePage() {
           </div>
           <Link
             href="/deals"
-            className="text-sky-600 font-semibold text-sm hover:underline underline-offset-2"
+            className="text-sky-700 font-semibold text-sm hover:underline underline-offset-2"
           >
             See all deals &rarr;
           </Link>
@@ -245,10 +245,10 @@ export default function HomePage() {
 
         <DealTable deals={topDeals} showDisclosure={true} compact={false} />
 
-        <p className="text-xs text-slate-400 mt-3">
+        <p className="text-xs text-slate-500 mt-3">
           Prices correct as of {updatedDate}. We may earn a commission when you click a
           &ldquo;Get Deal&rdquo; button.{' '}
-          <Link href="/about" className="underline hover:text-slate-600">
+          <Link href="/about" className="underline hover:text-slate-700">
             See how we make money.
           </Link>
         </p>
@@ -264,11 +264,11 @@ export default function HomePage() {
             {HOW_IT_WORKS.map((step) => (
               <div key={step.step} className="text-center">
                 <div className="flex justify-center mb-4">
-                  <div className="w-16 h-16 bg-sky-50 rounded-2xl flex items-center justify-center">
-                    {step.icon}
+                    <div className="w-16 h-16 bg-sky-50 rounded-2xl flex items-center justify-center">
+                      {step.icon}
+                    </div>
                   </div>
-                </div>
-                <div className="text-xs font-bold text-sky-500 uppercase tracking-widest mb-2">
+                <div className="text-xs font-bold text-sky-700 uppercase tracking-widest mb-2">
                   Step {step.step}
                 </div>
                 <h3 className="text-lg font-bold text-slate-900 mb-2">{step.title}</h3>

@@ -6,7 +6,7 @@ interface DealBadgeProps {
 
 const config: Record<BadgeType, { bg: string; text: string; icon: React.ReactNode }> = {
   'Best Value': {
-    bg: 'bg-green-500',
+    bg: 'bg-green-700',
     text: 'text-white',
     icon: (
       <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
@@ -15,7 +15,7 @@ const config: Record<BadgeType, { bg: string; text: string; icon: React.ReactNod
     ),
   },
   'Fastest': {
-    bg: 'bg-sky-500',
+    bg: 'bg-sky-700',
     text: 'text-white',
     icon: (
       <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
@@ -24,7 +24,7 @@ const config: Record<BadgeType, { bg: string; text: string; icon: React.ReactNod
     ),
   },
   "Editor's Pick": {
-    bg: 'bg-amber-500',
+    bg: 'bg-amber-700',
     text: 'text-white',
     icon: (
       <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
