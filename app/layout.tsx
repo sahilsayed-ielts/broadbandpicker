@@ -135,6 +135,9 @@ function Footer() {
             <ul className="space-y-2 text-sm">
               <li><Link href="/about" className="hover:text-white transition-colors">About us</Link></li>
               <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
+              <li><Link href="/editorial-policy" className="hover:text-white transition-colors">Editorial policy</Link></li>
+              <li><Link href="/how-we-make-money" className="hover:text-white transition-colors">How we make money</Link></li>
+              <li><Link href="/how-we-review-broadband" className="hover:text-white transition-colors">How we review</Link></li>
             </ul>
           </div>
           <div>
@@ -142,6 +145,7 @@ function Footer() {
             <ul className="space-y-2 text-sm">
               <li><Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy policy</Link></li>
               <li><Link href="/terms" className="hover:text-white transition-colors">Terms of use</Link></li>
+              <li><Link href="/broadband-glossary" className="hover:text-white transition-colors">Broadband glossary</Link></li>
             </ul>
           </div>
         </div>
