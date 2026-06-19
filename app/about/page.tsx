@@ -80,6 +80,17 @@ export default function AboutPage() {
           >
             Contact us
           </Link>
+          <a
+            href="https://x.com/BroadbanPicker"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-5 py-2.5 border border-slate-200 text-slate-700 font-semibold rounded-lg text-sm hover:bg-slate-50 transition-colors flex items-center gap-2"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631Zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg>
+            @BroadbanPicker
+          </a>
           <Link
             href="/privacy-policy"
             className="px-5 py-2.5 border border-slate-200 text-slate-700 font-semibold rounded-lg text-sm hover:bg-slate-50 transition-colors"
