@@ -5,7 +5,7 @@ export const providers: Provider[] = [
     slug: 'bt',
     name: 'BT',
     logo: '/logos/bt.svg',
-    affiliateUrl: '#awin-bt',
+    affiliateUrl: 'https://www.bt.com/broadband',
     speeds: [
       { download: 36, upload: 9, type: 'FTTC' },
       { download: 67, upload: 17, type: 'FTTC' },
@@ -40,7 +40,7 @@ export const providers: Provider[] = [
     slug: 'sky',
     name: 'Sky',
     logo: '/logos/sky.svg',
-    affiliateUrl: '#awin-sky',
+    affiliateUrl: 'https://www.sky.com/shop/broadband',
     speeds: [
       { download: 36, upload: 9, type: 'FTTC' },
       { download: 59, upload: 17, type: 'FTTC' },
@@ -74,7 +74,7 @@ export const providers: Provider[] = [
     slug: 'virgin-media',
     name: 'Virgin Media',
     logo: '/logos/virgin-media.svg',
-    affiliateUrl: '#awin-virgin-media',
+    affiliateUrl: 'https://www.virginmedia.com/broadband',
     speeds: [
       { download: 132, upload: 20, type: 'Cable' },
       { download: 264, upload: 36, type: 'Cable' },
@@ -108,7 +108,7 @@ export const providers: Provider[] = [
     slug: 'ee',
     name: 'EE',
     logo: '/logos/ee.svg',
-    affiliateUrl: '#awin-ee',
+    affiliateUrl: 'https://ee.co.uk/broadband',
     speeds: [
       { download: 36, upload: 9, type: 'FTTC' },
       { download: 67, upload: 17, type: 'FTTC' },
@@ -142,7 +142,7 @@ export const providers: Provider[] = [
     slug: 'talktalk',
     name: 'TalkTalk',
     logo: '/logos/talktalk.svg',
-    affiliateUrl: '#awin-talktalk',
+    affiliateUrl: 'https://www.talktalk.co.uk/broadband',
     speeds: [
       { download: 38, upload: 9, type: 'FTTC' },
       { download: 67, upload: 17, type: 'FTTC' },
@@ -175,7 +175,7 @@ export const providers: Provider[] = [
     slug: 'plusnet',
     name: 'Plusnet',
     logo: '/logos/plusnet.svg',
-    affiliateUrl: '#awin-plusnet',
+    affiliateUrl: 'https://www.plus.net/broadband/',
     speeds: [
       { download: 36, upload: 8, type: 'FTTC' },
       { download: 66, upload: 17, type: 'FTTC' },
@@ -207,7 +207,7 @@ export const providers: Provider[] = [
     slug: 'vodafone',
     name: 'Vodafone',
     logo: '/logos/vodafone.svg',
-    affiliateUrl: '#awin-vodafone',
+    affiliateUrl: 'https://www.vodafone.co.uk/broadband',
     speeds: [
       { download: 38, upload: 9, type: 'FTTC' },
       { download: 76, upload: 19, type: 'FTTC' },
@@ -240,7 +240,7 @@ export const providers: Provider[] = [
     slug: 'now-broadband',
     name: 'NOW Broadband',
     logo: '/logos/now-broadband.svg',
-    affiliateUrl: '#awin-now-broadband',
+    affiliateUrl: 'https://www.nowtv.com/broadband',
     speeds: [
       { download: 36, upload: 9, type: 'FTTC' },
       { download: 67, upload: 17, type: 'FTTC' },
@@ -272,7 +272,7 @@ export const providers: Provider[] = [
     slug: 'hyperoptic',
     name: 'Hyperoptic',
     logo: '/logos/hyperoptic.svg',
-    affiliateUrl: '#awin-hyperoptic',
+    affiliateUrl: 'https://www.hyperoptic.com/',
     speeds: [
       { download: 150, upload: 150, type: 'FTTP' },
       { download: 500, upload: 500, type: 'FTTP' },
@@ -303,7 +303,7 @@ export const providers: Provider[] = [
     slug: 'community-fibre',
     name: 'Community Fibre',
     logo: '/logos/community-fibre.svg',
-    affiliateUrl: '#awin-community-fibre',
+    affiliateUrl: 'https://www.communityfibre.co.uk/',
     speeds: [
       { download: 150, upload: 150, type: 'FTTP' },
       { download: 500, upload: 500, type: 'FTTP' },
@@ -334,7 +334,7 @@ export const providers: Provider[] = [
     slug: 'zen-internet',
     name: 'Zen Internet',
     logo: '/logos/zen-internet.svg',
-    affiliateUrl: '#awin-zen-internet',
+    affiliateUrl: 'https://www.zen.co.uk/broadband',
     speeds: [
       { download: 67, upload: 17, type: 'FTTC' },
       { download: 160, upload: 30, type: 'FTTP' },
@@ -367,7 +367,7 @@ export const providers: Provider[] = [
     slug: 'toob',
     name: 'Toob',
     logo: '/logos/toob.svg',
-    affiliateUrl: '#awin-toob',
+    affiliateUrl: 'https://www.toob.co.uk/',
     speeds: [
       { download: 500, upload: 500, type: 'FTTP' },
       { download: 900, upload: 900, type: 'FTTP' },
