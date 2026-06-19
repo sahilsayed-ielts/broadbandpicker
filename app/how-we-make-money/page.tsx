@@ -157,6 +157,20 @@ export default function HowWeMakeMoneyPage() {
           make claims about provider speeds that exceed those published by Ofcom or the providers
           themselves.
         </p>
+        <p>
+          BroadbandPicker participates in the Awin affiliate network. Awin operates a public
+          resource explaining how affiliate marketing works and how free online content is
+          commercially supported:{' '}
+          <a
+            href="https://www.awin.com/gb/consumers"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sky-600 hover:underline"
+          >
+            Awin consumer information
+          </a>
+          .
+        </p>
 
         <h2>Questions about our commercial relationships</h2>
         <p>

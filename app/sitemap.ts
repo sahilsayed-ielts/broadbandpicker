@@ -18,6 +18,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/contact`, lastModified: now, changeFrequency: 'monthly', priority: 0.3 },
     { url: `${BASE_URL}/privacy-policy`, lastModified: now, changeFrequency: 'monthly', priority: 0.2 },
     { url: `${BASE_URL}/terms`, lastModified: now, changeFrequency: 'monthly', priority: 0.2 },
+    { url: `${BASE_URL}/broadband-glossary`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${BASE_URL}/how-we-make-money`, lastModified: now, changeFrequency: 'monthly', priority: 0.3 },
+    { url: `${BASE_URL}/how-we-review-broadband`, lastModified: now, changeFrequency: 'monthly', priority: 0.3 },
+    { url: `${BASE_URL}/editorial-policy`, lastModified: now, changeFrequency: 'monthly', priority: 0.3 },
   ]
 
   const providerPages: MetadataRoute.Sitemap = providers.map((p) => ({

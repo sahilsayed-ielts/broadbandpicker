@@ -5,6 +5,7 @@ import Link from 'next/link'
 import './globals.css'
 import PostcodeChecker from '@/components/PostcodeChecker'
 import NewsletterSignup from '@/components/NewsletterSignup'
+import CookieBanner from '@/components/CookieBanner'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -175,15 +176,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <CookieBanner />
 
         {gaId && (
           <>
+            {/* Consent Mode v2 defaults — analytics denied until user accepts banner */}
+            <Script id="ga-consent-default" strategy="beforeInteractive">
+              {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('consent','default',{analytics_storage:'denied',wait_for_update:500});`}
+            </Script>
             <Script
               src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
               strategy="lazyOnload"
             />
             <Script id="ga-init" strategy="lazyOnload">
-              {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${gaId}');`}
+              {`gtag('js',new Date());gtag('config','${gaId}');`}
             </Script>
           </>
         )}
