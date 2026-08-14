@@ -3,7 +3,7 @@ import Link from 'next/link'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
 
 export const metadata: Metadata = {
-  title: 'Broadband Glossary: Every Term Explained | BroadbandPicker',
+  title: { absolute: 'Broadband Glossary: Every Term Explained | BroadbandPicker' },
   description:
     'Plain-English definitions of every broadband term used in the UK — from ADSL and FTTP to One Touch Switching, social tariffs, and latency. Updated June 2026.',
   alternates: { canonical: 'https://broadbandpicker.co.uk/broadband-glossary' },

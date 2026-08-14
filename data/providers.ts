@@ -1,6 +1,98 @@
-import type { Provider } from '@/types'
+import liveDealData from './provider-live-deals.json'
+import type { Provider, ProviderLiveDealsFile, ProviderLiveOffer } from '@/types'
 
-export const providers: Provider[] = [
+const fallbackProviderReviewedDate = '2026-06-21'
+const providerLiveDeals = liveDealData as ProviderLiveDealsFile
+
+export const providerDatasetUpdatedDate =
+  providerLiveDeals.generatedAt ?? fallbackProviderReviewedDate
+
+function createReviewMetadata(
+  providerName: string,
+  providerSite: string,
+  trustpilotDomain: string
+) {
+  return {
+    reviewedDate: fallbackProviderReviewedDate,
+    pricingVerifiedDate: fallbackProviderReviewedDate,
+    reviewSources: [
+      {
+        label: `${providerName} broadband packages and pricing`,
+        href: providerSite,
+        note: `Used for package lineup, pricing snapshot, contract length, and setup-fee checks verified on ${fallbackProviderReviewedDate}.`,
+      },
+      {
+        label: `${providerName} public Trustpilot profile`,
+        href: `https://uk.trustpilot.com/review/${trustpilotDomain}`,
+        note: 'Used as a customer-sentiment reference alongside our published review methodology rather than as a standalone ranking input.',
+      },
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+        note: 'Explains how we weigh price, speed, coverage, customer experience, and use-case fit across provider reviews.',
+      },
+      {
+        label: 'BroadbandPicker editorial policy',
+        href: '/editorial-policy',
+        note: 'Sets out our editorial independence, correction standards, and how commercial relationships are handled.',
+      },
+    ],
+  }
+}
+
+function createSpeedOptionsFromLiveOffers(offers: ProviderLiveOffer[]) {
+  const speedMap = new Map<string, Provider['speeds'][number]>()
+
+  for (const offer of offers) {
+    const key = `${offer.download}-${offer.upload}-${offer.type}`
+    if (!speedMap.has(key)) {
+      speedMap.set(key, {
+        download: offer.download,
+        upload: offer.upload,
+        type: offer.type,
+      })
+    }
+  }
+
+  return [...speedMap.values()].sort((a, b) => a.download - b.download || a.upload - b.upload)
+}
+
+function applyLiveDealOverlay(base: Provider): Provider {
+  const snapshot = providerLiveDeals.providers[base.slug]
+  if (!snapshot || snapshot.offers.length === 0) return base
+
+  const offers = [...snapshot.offers].sort(
+    (a, b) => a.monthlyPrice - b.monthlyPrice || a.download - b.download
+  )
+  const cheapestOffer = offers[0]
+  const contractLengths = [...new Set(offers.map((offer) => offer.contractLength))].sort(
+    (a, b) => a - b
+  )
+  const liveSpeeds = createSpeedOptionsFromLiveOffers(offers)
+  const primaryNote =
+    snapshot.notes[0] ??
+    `${offers.length} live offers were normalised from the provider source page using the ${snapshot.extractionMethod} extractor.`
+
+  return {
+    ...base,
+    affiliateUrl: snapshot.affiliateUrl || base.affiliateUrl,
+    speeds: liveSpeeds.length > 0 ? liveSpeeds : base.speeds,
+    monthlyPriceFrom: cheapestOffer.monthlyPrice,
+    contractLengths: contractLengths.length > 0 ? contractLengths : base.contractLengths,
+    setupFee: cheapestOffer.setupFee,
+    pricingVerifiedDate: snapshot.verifiedAt,
+    reviewSources: [
+      {
+        label: snapshot.sourceLabel,
+        href: snapshot.sourceUrl,
+        note: `Used for live package lineup, pricing snapshot, contract length, and setup-fee checks verified on ${snapshot.verifiedAt}. ${primaryNote}`,
+      },
+      ...base.reviewSources.slice(1),
+    ],
+  }
+}
+
+const baseProviders: Provider[] = [
   {
     slug: 'bt',
     name: 'BT',
@@ -34,7 +126,8 @@ export const providers: Provider[] = [
       'Long 24-month contracts',
       'Speed upgrades cost extra',
     ],
-    awinProgramId: 'bt-placeholder',
+    ...createReviewMetadata('BT', 'https://www.bt.com/broadband', 'bt.com'),
+    awinProgramId: null,
   },
   {
     slug: 'sky',
@@ -68,7 +161,8 @@ export const providers: Provider[] = [
       'Average upload speeds on FTTC',
       'Customer service can be slow',
     ],
-    awinProgramId: 'sky-placeholder',
+    ...createReviewMetadata('Sky', 'https://www.sky.com/shop/broadband', 'sky.com'),
+    awinProgramId: null,
   },
   {
     slug: 'virgin-media',
@@ -102,7 +196,8 @@ export const providers: Provider[] = [
       'Price hikes mid-contract',
       'Customer service scores are below average',
     ],
-    awinProgramId: 'virgin-media-placeholder',
+    ...createReviewMetadata('Virgin Media', 'https://www.virginmedia.com/broadband', 'virginmedia.com'),
+    awinProgramId: null,
   },
   {
     slug: 'ee',
@@ -136,7 +231,8 @@ export const providers: Provider[] = [
       'Slightly pricier than budget options',
       'Limited FTTP rollout in some areas',
     ],
-    awinProgramId: 'ee-placeholder',
+    ...createReviewMetadata('EE', 'https://ee.co.uk/broadband', 'ee.co.uk'),
+    awinProgramId: null,
   },
   {
     slug: 'talktalk',
@@ -169,7 +265,8 @@ export const providers: Provider[] = [
       'Speed reliability complaints',
       'Past data security incidents',
     ],
-    awinProgramId: 'talktalk-placeholder',
+    ...createReviewMetadata('TalkTalk', 'https://www.talktalk.co.uk/broadband', 'talktalk.co.uk'),
+    awinProgramId: null,
   },
   {
     slug: 'plusnet',
@@ -201,7 +298,8 @@ export const providers: Provider[] = [
       'Less competitive than budget rivals on price',
       'Smaller FTTP footprint',
     ],
-    awinProgramId: 'plusnet-placeholder',
+    ...createReviewMetadata('Plusnet', 'https://www.plus.net/broadband/', 'plus.net'),
+    awinProgramId: null,
   },
   {
     slug: 'vodafone',
@@ -234,7 +332,8 @@ export const providers: Provider[] = [
       'Customer service scores are mixed',
       'Coverage lower than BT/EE/Sky',
     ],
-    awinProgramId: 'vodafone-placeholder',
+    ...createReviewMetadata('Vodafone', 'https://www.vodafone.co.uk/broadband', 'vodafone.co.uk'),
+    awinProgramId: null,
   },
   {
     slug: 'now-broadband',
@@ -266,7 +365,8 @@ export const providers: Provider[] = [
       'Customer service rated poorly',
       'Setup fee on some plans',
     ],
-    awinProgramId: 'now-broadband-placeholder',
+    ...createReviewMetadata('NOW Broadband', 'https://www.nowtv.com/broadband', 'nowtv.com'),
+    awinProgramId: null,
   },
   {
     slug: 'hyperoptic',
@@ -297,7 +397,8 @@ export const providers: Provider[] = [
       'Very limited coverage — mainly London and major cities',
       'Building must be wired — no on-demand install',
     ],
-    awinProgramId: 'hyperoptic-placeholder',
+    ...createReviewMetadata('Hyperoptic', 'https://www.hyperoptic.com/', 'hyperoptic.com'),
+    awinProgramId: null,
   },
   {
     slug: 'community-fibre',
@@ -328,7 +429,8 @@ export const providers: Provider[] = [
       'London-only coverage currently',
       'Limited package options vs large ISPs',
     ],
-    awinProgramId: 'community-fibre-placeholder',
+    ...createReviewMetadata('Community Fibre', 'https://www.communityfibre.co.uk/', 'communityfibre.co.uk'),
+    awinProgramId: null,
   },
   {
     slug: 'zen-internet',
@@ -361,7 +463,8 @@ export const providers: Provider[] = [
       'More expensive than most rivals',
       'Coverage not as wide as BT/Sky/EE',
     ],
-    awinProgramId: 'zen-internet-placeholder',
+    ...createReviewMetadata('Zen Internet', 'https://www.zen.co.uk/broadband', 'zen.co.uk'),
+    awinProgramId: null,
   },
   {
     slug: 'toob',
@@ -391,9 +494,44 @@ export const providers: Provider[] = [
       'Currently only available in Southampton and surrounding areas',
       'Very limited geographic coverage',
     ],
-    awinProgramId: 'toob-placeholder',
+    ...createReviewMetadata('Toob', 'https://www.toob.co.uk/', 'toob.co.uk'),
+    awinProgramId: null,
+  },
+  {
+    slug: 'youfibre',
+    name: 'YouFibre',
+    logo: '/logos/youfibre.svg',
+    affiliateUrl: 'https://www.youfibre.com/',
+    speeds: [
+      { download: 200, upload: 200, type: 'FTTP' },
+      { download: 900, upload: 900, type: 'FTTP' },
+      { download: 1800, upload: 1800, type: 'FTTP' },
+    ],
+    monthlyPriceFrom: 20.00,
+    contractLengths: [1, 12, 24],
+    setupFee: 0,
+    trustpilotScore: 4.6,
+    coveragePercent: 10,
+    highlights: [
+      'Rolling monthly contract option — unusual among full-fibre altnets',
+      'No mid-contract price rises on any deal',
+      'Symmetrical upload and download on every tier, including a 1.8 Gbps option',
+    ],
+    pros: [
+      'Flexible contract lengths, including rolling monthly',
+      'Fixed pricing for the full term — no scheduled mid-contract increases',
+      'Wi-Fi 7 router included on current deals',
+    ],
+    cons: [
+      'Coverage limited to selected towns and cities on the Netomnia network',
+      'Trustpilot sentiment has been mixed since absorbing BRSK customers in 2025/26',
+    ],
+    ...createReviewMetadata('YouFibre', 'https://www.youfibre.com/', 'youfibre.com'),
+    awinProgramId: null,
   },
 ]
+
+export const providers: Provider[] = baseProviders.map(applyLiveDealOverlay)
 
 export function getProviderBySlug(slug: string): Provider | undefined {
   return providers.find((p) => p.slug === slug)

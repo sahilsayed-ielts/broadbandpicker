@@ -4,7 +4,7 @@ import { providers } from '@/data/providers'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
 
 export const metadata: Metadata = {
-  title: 'About BroadbandPicker — How We Compare Broadband Deals',
+  title: { absolute: 'About BroadbandPicker — How We Compare Broadband Deals' },
   description:
     'BroadbandPicker is an independent UK broadband comparison service. Learn how we compare deals, how we make money, and our editorial standards.',
   alternates: { canonical: 'https://broadbandpicker.co.uk/about' },
@@ -57,20 +57,22 @@ export default function AboutPage() {
 
         <h2 className="text-xl font-bold text-slate-900 pt-4">Editorial standards</h2>
         <p>
-          We update our deals data daily to ensure the prices and packages shown are as accurate
-          as possible. However, broadband deals change frequently — always verify the current
-          price and terms directly with the provider before signing up.
+          We review commercial information on a scheduled and event-led basis and show a
+          verification date where a page relies on a pricing snapshot. Broadband deals change
+          frequently, so always verify the current price and terms directly with the provider
+          before signing up.
         </p>
         <p>
-          Our editorial guides are written by our in-house team and reviewed regularly for
-          accuracy. We do not accept sponsored content or paid-for editorial placements.
+          Our editorial guides are produced under our published methodology and reviewed when
+          relevant pricing, provider terms or regulator guidance changes. We do not accept
+          sponsored content or paid-for editorial placements.
         </p>
 
         <h2 className="text-xl font-bold text-slate-900 pt-4">Regulatory compliance</h2>
         <p>
-          BroadbandPicker complies with the ASA&apos;s CAP Code requirements for comparison
-          websites and follows Ofcom&apos;s guidelines for broadband speed advertising. All affiliate
-          relationships are disclosed in accordance with FCA and CMA requirements.
+          We aim to follow the CAP Code and applicable UK consumer-protection and data-protection
+          requirements. Affiliate relationships are disclosed clearly, and advertised speeds,
+          prices and availability are presented with their relevant limitations.
         </p>
 
         <div className="flex flex-wrap gap-4 pt-4">

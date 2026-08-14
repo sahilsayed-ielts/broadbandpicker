@@ -4,10 +4,11 @@ import PostcodeChecker from '@/components/PostcodeChecker'
 import DealTable from '@/components/DealTable'
 import ProviderLogo from '@/components/ProviderLogo'
 import NewsletterSignup from '@/components/NewsletterSignup'
-import { providers, getTopDeals } from '@/data/providers'
+import SocialProofCounter from '@/components/SocialProofCounter'
+import { providers, getTopDeals, providerDatasetUpdatedDate } from '@/data/providers'
 
 export const metadata: Metadata = {
-  title: 'Compare Broadband Deals for Your Postcode | BroadbandPicker',
+  title: { absolute: 'Compare Broadband Deals for Your Postcode | BroadbandPicker' },
   description:
     'Compare broadband deals from BT, Sky, Virgin Media, EE and more. Enter your postcode to find the cheapest fibre deals available at your address.',
   alternates: { canonical: 'https://broadbandpicker.co.uk' },
@@ -41,6 +42,22 @@ const organizationJsonLd = {
   url: 'https://broadbandpicker.co.uk',
   logo: 'https://broadbandpicker.co.uk/logo.png',
   description: 'UK broadband comparison service',
+}
+
+const homePageCommercialJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Compare Broadband Deals for Your Postcode',
+  description:
+    'BroadbandPicker homepage for UK broadband comparison, postcode checking, provider reviews, and deals discovery.',
+  url: 'https://broadbandpicker.co.uk',
+  dateModified: providerDatasetUpdatedDate,
+  citation: [
+    'https://broadbandpicker.co.uk/providers',
+    'https://broadbandpicker.co.uk/compare',
+    'https://broadbandpicker.co.uk/how-we-review-broadband',
+    'https://broadbandpicker.co.uk/editorial-policy',
+  ],
 }
 
 const HOW_IT_WORKS = [
@@ -119,11 +136,33 @@ const HOW_IT_WORKS = [
 
 export default function HomePage() {
   const topDeals = getTopDeals(5)
-  const updatedDate = new Date().toLocaleDateString('en-GB', {
+  const verifiedDateLabel = new Date(providerDatasetUpdatedDate).toLocaleDateString('en-GB', {
     day: 'numeric',
     month: 'long',
     year: 'numeric',
   })
+  const sourceNotes = [
+    {
+      label: 'BroadbandPicker provider reviews',
+      href: '/providers',
+      note: 'Our homepage deal modules inherit pricing, speed, contract, and coverage context from the provider review dataset maintained across the site.',
+    },
+    {
+      label: 'BroadbandPicker comparison table',
+      href: '/compare',
+      note: 'Lets readers verify how the same commercial data is normalised side by side before clicking through to individual provider or postcode pages.',
+    },
+    {
+      label: 'BroadbandPicker review methodology',
+      href: '/how-we-review-broadband',
+      note: 'Explains how we assess pricing, network performance, contract terms, and customer sentiment across guides and commercial templates.',
+    },
+    {
+      label: 'BroadbandPicker editorial policy',
+      href: '/editorial-policy',
+      note: 'Sets out our editorial independence, corrections standards, and how affiliate relationships are handled.',
+    },
+  ]
 
   return (
     <>
@@ -134,6 +173,10 @@ export default function HomePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homePageCommercialJsonLd) }}
       />
 
       {/* Hero */}
@@ -151,7 +194,9 @@ export default function HomePage() {
             <PostcodeChecker size="large" />
           </div>
 
-          <div className="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-sky-300">
+          <SocialProofCounter />
+
+          <div className="mt-4 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-sky-300">
             <span className="flex items-center gap-1.5">
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                 <path
@@ -170,7 +215,7 @@ export default function HomePage() {
                   clipRule="evenodd"
                 />
               </svg>
-              Updated daily
+              Prices verified regularly
             </span>
             <span className="flex items-center gap-1.5">
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
@@ -244,10 +289,18 @@ export default function HomePage() {
           </Link>
         </div>
 
+        <div className="flex flex-wrap items-center gap-4 text-sm text-slate-500 mb-4 pb-6 border-b border-slate-200">
+          <span>Featured deals reviewed {verifiedDateLabel}</span>
+          <span>&middot;</span>
+          <span>Prices verified {verifiedDateLabel}</span>
+          <span>&middot;</span>
+          <span>Reviewed by BroadbandPicker editorial team</span>
+        </div>
+
         <DealTable deals={topDeals} showDisclosure={true} compact={false} />
 
         <p className="text-xs text-slate-500 mt-3">
-          Prices correct as of {updatedDate}. We may earn a commission when you click a
+          Prices verified {verifiedDateLabel}. We may earn a commission when you click a
           &ldquo;Get Deal&rdquo; button.{' '}
           <Link href="/about" className="underline hover:text-slate-700">
             See how we make money.
@@ -304,12 +357,13 @@ export default function HomePage() {
           exactly which providers serve your area and what speeds are available.
         </p>
         <p className="text-slate-600 leading-relaxed mb-8">
-          We update our deals data daily to ensure the prices and packages shown are accurate. Our
-          comparison covers contract lengths from 12 to 24 months, speeds from standard ADSL
-          through to gigabit full-fibre, and providers ranging from UK-wide networks to regional
-          full-fibre specialists like Hyperoptic, Community Fibre, and Toob. Use our speed guide
-          to understand what broadband speed you actually need, then compare deals to find the best
-          broadband provider for your household.
+          Our featured deals and provider review data are refreshed regularly, with the latest
+          pricing snapshot verified on {verifiedDateLabel}. Our comparison covers contract lengths
+          from 12 to 24 months, speeds from standard ADSL through to gigabit full-fibre, and
+          providers ranging from UK-wide networks to regional full-fibre specialists like
+          Hyperoptic, Community Fibre, and Toob. Use our speed guide to understand what broadband
+          speed you actually need, then compare deals to find the best broadband provider for your
+          household.
         </p>
 
         <div className="flex flex-wrap gap-3">
@@ -331,6 +385,27 @@ export default function HomePage() {
           >
             Cheapest broadband UK &rarr;
           </Link>
+        </div>
+      </section>
+
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-14">
+        <div className="rounded-xl border border-slate-200 bg-white p-6">
+          <h2 className="text-xl font-bold text-slate-900 mb-3">Editorial and Source Notes</h2>
+          <p className="mb-4 text-sm text-slate-600">
+            BroadbandPicker&apos;s homepage combines postcode lookup, featured deals, and provider
+            review evidence to help visitors understand what is available before switching. The
+            source links below show where the main commercial modules get their editorial context.
+          </p>
+          <ul className="space-y-2 text-sm">
+            {sourceNotes.map((source) => (
+              <li key={source.href}>
+                <Link href={source.href} className="text-sky-600 hover:underline">
+                  {source.label}
+                </Link>
+                <p className="mt-1 text-xs leading-relaxed text-slate-500">{source.note}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
     </>

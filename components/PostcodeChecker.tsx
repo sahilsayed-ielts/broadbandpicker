@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from 'react'
 import { useRouter } from 'next/navigation'
-import { isValidUKPostcode, normalisePostcodeForUrl } from '@/lib/postcode'
+import { isValidUKPostcode, normalisePostcodeForUrl, sanitizePostcode } from '@/lib/postcode'
 
 interface PostcodeCheckerProps {
   size?: 'large' | 'default'
@@ -19,13 +19,13 @@ export default function PostcodeChecker({
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault()
-    const trimmed = value.trim().toUpperCase()
-    if (!isValidUKPostcode(trimmed)) {
-      setError('Please enter a valid UK postcode.')
+    const sanitized = sanitizePostcode(value)
+    if (!isValidUKPostcode(sanitized)) {
+      setError('Please enter a valid UK postcode, e.g. SW1A 1AA')
       return
     }
     setError('')
-    const area = normalisePostcodeForUrl(trimmed)
+    const area = normalisePostcodeForUrl(sanitized)
     router.push(`/postcode/${area}`)
   }
 

@@ -44,6 +44,16 @@ export default async function ProviderPage({
   if (!provider) notFound()
 
   const maxSpeed = provider.speeds.reduce((a, b) => (b.download > a.download ? b : a))
+  const reviewedDateLabel = new Date(provider.reviewedDate).toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  })
+  const pricingVerifiedDateLabel = new Date(provider.pricingVerifiedDate).toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  })
 
   const faqItems = [
     {
@@ -64,25 +74,36 @@ export default async function ProviderPage({
     },
   ]
 
-  const reviewJsonLd = {
+  const articleJsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'Product',
-    name: `${provider.name} Broadband`,
-    description: provider.highlights[0],
+    '@type': 'Article',
+    headline: `${provider.name} Broadband Review 2026`,
+    description: `Read our ${provider.name} broadband review, including pricing, speeds, coverage, and support trade-offs.`,
     url: `https://broadbandpicker.co.uk/providers/${provider.slug}`,
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: provider.trustpilotScore,
-      bestRating: 5,
-      worstRating: 1,
-      reviewCount: 100,
+    datePublished: provider.reviewedDate,
+    dateModified: provider.pricingVerifiedDate,
+    author: {
+      '@type': 'Organization',
+      name: 'BroadbandPicker',
     },
-    offers: {
-      '@type': 'Offer',
-      price: provider.monthlyPriceFrom.toFixed(2),
-      priceCurrency: 'GBP',
-      url: provider.affiliateUrl,
+    publisher: {
+      '@type': 'Organization',
+      name: 'BroadbandPicker',
+      url: 'https://broadbandpicker.co.uk',
     },
+    about: {
+      '@type': 'Service',
+      name: `${provider.name} Broadband`,
+      provider: {
+        '@type': 'Organization',
+        name: provider.name,
+      },
+    },
+    citation: provider.reviewSources.map((source) =>
+      source.href.startsWith('http')
+        ? source.href
+        : `https://broadbandpicker.co.uk${source.href}`
+    ),
   }
 
   const faqJsonLd = {
@@ -99,7 +120,7 @@ export default async function ProviderPage({
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
       <script
         type="application/ld+json"
@@ -137,6 +158,13 @@ export default async function ProviderPage({
           label={`See ${provider.name} deals →`}
           size="lg"
         />
+      </div>
+      <div className="flex flex-wrap items-center gap-4 text-sm text-slate-500 mb-4 pb-6 border-b border-slate-200">
+        <span>Reviewed {reviewedDateLabel}</span>
+        <span>&middot;</span>
+        <span>Prices verified {pricingVerifiedDateLabel}</span>
+        <span>&middot;</span>
+        <span>Reviewed by BroadbandPicker editorial team</span>
       </div>
       <p className="text-xs text-slate-400 mb-6 max-w-2xl">
         We may earn a commission if you click through to {provider.name} and take out a service.
@@ -256,11 +284,57 @@ export default async function ProviderPage({
         ))}
       </div>
 
+      <section className="mb-10 rounded-xl border border-slate-200 bg-white p-6">
+        <h2 className="text-xl font-bold text-slate-900 mb-3">How We Assess {provider.name}</h2>
+        <div className="space-y-3 text-sm text-slate-700 leading-relaxed">
+          <p>
+            This review combines our provider dataset with the methodology published on
+            BroadbandPicker. We look at headline price, contract length, speed tiers, setup
+            fees, coverage, and service trade-offs rather than just the cheapest headline deal.
+          </p>
+          <p>
+            The evidence inputs for this page are listed below, including the pricing snapshot
+            date and customer-sentiment reference we used during review. Trustpilot is treated
+            as one input rather than a standalone ranking system.
+          </p>
+        </div>
+      </section>
+
       {/* FAQ */}
       <h2 className="text-xl font-bold text-slate-900 mb-4">
         {provider.name} Broadband — Frequently Asked Questions
       </h2>
       <FAQAccordion items={faqItems} />
+
+      <section className="mt-10 rounded-xl border border-slate-200 bg-white p-6">
+        <h2 className="text-xl font-bold text-slate-900 mb-3">Editorial and Source Notes</h2>
+        <p className="mb-4 text-sm text-slate-600">
+          These are the main review inputs used for this provider page. They show where package,
+          pricing, customer-sentiment, and editorial-methodology references came from at the time
+          of review.
+        </p>
+        <ul className="space-y-2 text-sm">
+          {provider.reviewSources.map((source) => (
+            <li key={source.href}>
+              {source.href.startsWith('http') ? (
+                <a
+                  href={source.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sky-600 hover:underline"
+                >
+                  {source.label}
+                </a>
+              ) : (
+                <Link href={source.href} className="text-sky-600 hover:underline">
+                  {source.label}
+                </Link>
+              )}
+              <p className="mt-1 text-xs leading-relaxed text-slate-500">{source.note}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
 
       {/* CTA */}
       <div className="mt-10 p-6 bg-sky-50 border border-sky-200 rounded-xl flex flex-wrap items-center justify-between gap-4">

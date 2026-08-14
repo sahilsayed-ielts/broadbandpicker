@@ -1,5 +1,21 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Deal Sync Agent
+
+The repo includes a provider deal sync worker that can update live commercial deal fields from official provider broadband pages.
+
+```bash
+npm run deals:sync
+```
+
+Dry run:
+
+```bash
+npm run deals:sync:dry
+```
+
+More detail: [docs/provider-deal-agent.md](./docs/provider-deal-agent.md)
+
 ## Getting Started
 
 First, run the development server:

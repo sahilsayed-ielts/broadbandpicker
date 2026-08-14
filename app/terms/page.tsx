@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
 
 export const metadata: Metadata = {
-  title: 'Terms of Use | BroadbandPicker',
+  title: { absolute: 'Terms of Use | BroadbandPicker' },
   description: 'Terms of use for BroadbandPicker.co.uk — a free UK broadband comparison service.',
   alternates: { canonical: 'https://broadbandpicker.co.uk/terms' },
 }
@@ -20,7 +20,7 @@ export default function TermsPage() {
       />
 
       <h1 className="text-3xl font-extrabold text-slate-900 mb-2">Terms of Use</h1>
-      <p className="text-sm text-slate-500 mb-8">Last updated: June 2026</p>
+      <p className="text-sm text-slate-500 mb-8">Last updated: 9 August 2026</p>
 
       <div className="space-y-6 text-slate-700 leading-relaxed [&_h2]:text-xl [&_h2]:font-bold [&_h2]:text-slate-900 [&_h2]:mt-8 [&_h2]:mb-3">
         <p>

@@ -1,0 +1,118 @@
+{
+  "generated": "2026-08-09",
+  "score": 54,
+  "possible": 92,
+  "percent": 59,
+  "checks": [
+    {
+      "area": "Trust",
+      "control": "Core trust and policy pages",
+      "status": "PASS",
+      "priority": "Done",
+      "evidence": "All seven core pages exist.",
+      "action": "Keep ownership, contact details and policies accurate.",
+      "points": 10,
+      "possible": 10
+    },
+    {
+      "area": "Trust",
+      "control": "Affiliate relationship disclosure",
+      "status": "PASS",
+      "priority": "Done",
+      "evidence": "Sitewide commission wording and an editorial policy are present.",
+      "action": "Retain disclosures close to commercial calls to action.",
+      "points": 8,
+      "possible": 8
+    },
+    {
+      "area": "Consent",
+      "control": "Google-certified CMP with IAB TCF",
+      "status": "FAIL",
+      "priority": "P0",
+      "evidence": "The custom banner stores a local accepted/declined value; no TCF CMP integration is present.",
+      "action": "Configure Google's European regulations message or another Google-certified CMP before requesting personalised ads in the UK.",
+      "points": 0,
+      "possible": 12
+    },
+    {
+      "area": "Consent",
+      "control": "Advertising privacy disclosures",
+      "status": "FAIL",
+      "priority": "P0",
+      "evidence": "Privacy policy currently says advertising cookies are not used and does not describe AdSense data processing.",
+      "action": "Before ads go live, describe Google advertising, cookies/local storage, consent choices, vendors, data use and withdrawal controls.",
+      "points": 0,
+      "possible": 10
+    },
+    {
+      "area": "Monetisation",
+      "control": "Authorised Digital Sellers file",
+      "status": "READY LATER",
+      "priority": "P1",
+      "evidence": "No public/ads.txt exists; the publisher line is only available after AdSense supplies the account ID.",
+      "action": "After account creation, add Google's exact ads.txt line and verify /ads.txt publicly.",
+      "points": 2,
+      "possible": 4
+    },
+    {
+      "area": "Content",
+      "control": "Substantial original site structure",
+      "status": "PASS",
+      "priority": "Done",
+      "evidence": "Detected approximately 33 guide records and 12 provider records, plus original tools and policy pages.",
+      "action": "Manually review every indexed page for usefulness, accuracy, complete prose and a clear purpose; remove or noindex weak duplicates.",
+      "points": 12,
+      "possible": 12
+    },
+    {
+      "area": "Content",
+      "control": "No visible placeholder or unfinished content",
+      "status": "PASS",
+      "priority": "Done",
+      "evidence": "Detected 0 placeholder/TODO-style source references; some may be internal identifiers rather than visible copy.",
+      "action": "Review each match and remove visible placeholders, invented deals and unfinished sections before submission.",
+      "points": 8,
+      "possible": 8
+    },
+    {
+      "area": "Technical",
+      "control": "Crawlability and sitemap",
+      "status": "PASS",
+      "priority": "Done",
+      "evidence": "robots.ts allows crawling and declares the XML sitemap.",
+      "action": "Verify the production robots.txt and sitemap.xml in Search Console.",
+      "points": 8,
+      "possible": 8
+    },
+    {
+      "area": "Technical",
+      "control": "Canonical metadata coverage",
+      "status": "REVIEW",
+      "priority": "P1",
+      "evidence": "Detected 21 canonical references, but runtime coverage cannot be guaranteed through static inspection.",
+      "action": "Crawl production and confirm one indexable canonical, title, description and H1 per intended landing page.",
+      "points": 4,
+      "possible": 6
+    },
+    {
+      "area": "Quality",
+      "control": "Search Console and traffic quality",
+      "status": "MANUAL",
+      "priority": "P0",
+      "evidence": "Repository source cannot prove indexing, organic traffic, manual actions or invalid traffic.",
+      "action": "Confirm ownership, submitted sitemap, indexed pages, no manual actions/security issues, and genuine traffic sources in Search Console and Analytics.",
+      "points": 0,
+      "possible": 8
+    },
+    {
+      "area": "UX",
+      "control": "Controlled ad placement plan",
+      "status": "NOT IMPLEMENTED",
+      "priority": "P1",
+      "evidence": "No AdSense implementation was detected, which is appropriate before approval.",
+      "action": "Start with restrained in-article units on informational guides. Exclude homepage, comparison, deals, provider, postcode, tool and legal pages; avoid overlays initially.",
+      "points": 2,
+      "possible": 6
+    }
+  ]
+}

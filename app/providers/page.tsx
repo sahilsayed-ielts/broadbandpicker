@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { providers } from '@/data/providers'
+import { providers, providerDatasetUpdatedDate } from '@/data/providers'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
 import ProviderLogo from '@/components/ProviderLogo'
 
@@ -28,6 +28,21 @@ const itemListJsonLd = {
   })),
 }
 
+const providersPageJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'UK Broadband Provider Reviews',
+  description:
+    'BroadbandPicker provider review hub covering price, maximum speed, coverage, and customer-sentiment context for major UK broadband providers.',
+  url: 'https://broadbandpicker.co.uk/providers',
+  dateModified: providerDatasetUpdatedDate,
+  citation: [
+    'https://broadbandpicker.co.uk/how-we-review-broadband',
+    'https://broadbandpicker.co.uk/editorial-policy',
+    'https://broadbandpicker.co.uk/compare',
+  ],
+}
+
 function Stars({ score }: { score: number }) {
   return (
     <span className="flex items-center gap-0.5" aria-label={`${score} out of 5 stars`}>
@@ -49,12 +64,38 @@ function Stars({ score }: { score: number }) {
 
 export default function ProvidersPage() {
   const sorted = [...providers].sort((a, b) => b.trustpilotScore - a.trustpilotScore)
+  const verifiedDateLabel = new Date(providerDatasetUpdatedDate).toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  })
+  const sourceNotes = [
+    {
+      label: 'BroadbandPicker review methodology',
+      href: '/how-we-review-broadband',
+      note: 'Explains how we weigh price, speed, coverage, customer sentiment, and household fit across provider reviews.',
+    },
+    {
+      label: 'BroadbandPicker editorial policy',
+      href: '/editorial-policy',
+      note: 'Sets out our editorial independence, corrections process, and how affiliate relationships are handled.',
+    },
+    {
+      label: 'BroadbandPicker comparison table',
+      href: '/compare',
+      note: 'Shows how the same provider dataset is normalised for side-by-side commercial comparison across major UK ISPs.',
+    },
+  ]
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(providersPageJsonLd) }}
       />
       <BreadcrumbNav
         items={[
@@ -70,6 +111,13 @@ export default function ProvidersPage() {
         We&apos;ve reviewed every major UK broadband provider to help you choose the right one.
         Sorted by customer rating.
       </p>
+      <div className="flex flex-wrap items-center gap-4 text-sm text-slate-500 mb-4 pb-6 border-b border-slate-200">
+        <span>Provider review dataset reviewed {verifiedDateLabel}</span>
+        <span>&middot;</span>
+        <span>Prices verified {verifiedDateLabel}</span>
+        <span>&middot;</span>
+        <span>Reviewed by BroadbandPicker editorial team</span>
+      </div>
       <p className="text-xs text-slate-400 mb-6 max-w-2xl">
         Some provider review pages and deal links may earn us a commission. This does not affect
         our editorial independence.
@@ -139,6 +187,25 @@ export default function ProvidersPage() {
         })}
       </div>
 
+      <section className="mt-10 rounded-xl border border-slate-200 bg-white p-6">
+        <h2 className="text-xl font-bold text-slate-900 mb-3">Editorial and Source Notes</h2>
+        <p className="mb-4 text-sm text-slate-600">
+          This provider hub groups the same editorial review dataset used across BroadbandPicker&apos;s
+          comparison and deals pages. Each provider card links through to a dedicated review with
+          more specific source notes and commercial context.
+        </p>
+        <ul className="space-y-2 text-sm">
+          {sourceNotes.map((source) => (
+            <li key={source.href}>
+              <Link href={source.href} className="text-sky-600 hover:underline">
+                {source.label}
+              </Link>
+              <p className="mt-1 text-xs leading-relaxed text-slate-500">{source.note}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+
       <div className="mt-10 p-6 bg-slate-50 rounded-xl border border-slate-200">
         <h2 className="text-lg font-bold text-slate-900 mb-2">
           Not sure which provider to choose?
@@ -159,6 +226,12 @@ export default function ProvidersPage() {
             className="px-4 py-2 bg-white border border-slate-200 text-slate-700 font-semibold rounded-lg text-sm hover:bg-slate-50 transition-colors"
           >
             How to switch broadband
+          </Link>
+          <Link
+            href="/providers/compare"
+            className="px-4 py-2 bg-white border border-slate-200 text-slate-700 font-semibold rounded-lg text-sm hover:bg-slate-50 transition-colors"
+          >
+            Compare two providers
           </Link>
         </div>
       </div>

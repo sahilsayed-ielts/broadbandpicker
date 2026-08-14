@@ -18,7 +18,14 @@ export interface Provider {
   highlights: string[]
   pros: string[]
   cons: string[]
-  awinProgramId: string
+  reviewedDate: string
+  pricingVerifiedDate: string
+  reviewSources: {
+    label: string
+    href: string
+    note: string
+  }[]
+  awinProgramId: string | null
 }
 
 export interface Deal {
@@ -31,6 +38,34 @@ export interface Deal {
   contractLength: number
   setupFee: number
   badge?: 'Best Value' | 'Fastest' | "Editor's Pick"
+}
+
+export interface ProviderLiveOffer {
+  packageName: string
+  download: number
+  upload: number
+  type: SpeedOption['type']
+  monthlyPrice: number
+  contractLength: number
+  setupFee: number
+  sourceUrl: string
+}
+
+export interface ProviderLiveSnapshot {
+  slug: string
+  providerName: string
+  sourceLabel: string
+  sourceUrl: string
+  affiliateUrl: string
+  verifiedAt: string
+  extractionMethod: string
+  offers: ProviderLiveOffer[]
+  notes: string[]
+}
+
+export interface ProviderLiveDealsFile {
+  generatedAt: string | null
+  providers: Record<string, ProviderLiveSnapshot>
 }
 
 export interface PostcodeArea {

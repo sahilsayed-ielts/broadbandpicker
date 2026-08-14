@@ -6,6 +6,7 @@ import Link from 'next/link'
 export type ConsentState = 'accepted' | 'declined' | null
 
 export const CONSENT_KEY = 'bbp_cookie_consent'
+export const OPEN_CONSENT_EVENT = 'bbp:open-cookie-preferences'
 
 export function getConsent(): ConsentState {
   if (typeof window === 'undefined') return null
@@ -18,21 +19,32 @@ export default function CookieBanner() {
   useEffect(() => {
     const stored = localStorage.getItem(CONSENT_KEY)
     if (!stored) setVisible(true)
+
+    const openPreferences = () => setVisible(true)
+    window.addEventListener(OPEN_CONSENT_EVENT, openPreferences)
+    return () => window.removeEventListener(OPEN_CONSENT_EVENT, openPreferences)
   }, [])
 
-  function accept() {
-    localStorage.setItem(CONSENT_KEY, 'accepted')
-    setVisible(false)
-    // Update GA4 Consent Mode v2 — analytics_storage granted
+  function updateGoogleConsent(analyticsStorage: 'granted' | 'denied') {
     if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
       ;(window as any).gtag('consent', 'update', {
-        analytics_storage: 'granted',
+        analytics_storage: analyticsStorage,
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
       })
     }
   }
 
+  function accept() {
+    localStorage.setItem(CONSENT_KEY, 'accepted')
+    setVisible(false)
+    updateGoogleConsent('granted')
+  }
+
   function decline() {
     localStorage.setItem(CONSENT_KEY, 'declined')
+    updateGoogleConsent('denied')
     setVisible(false)
   }
 
@@ -48,9 +60,10 @@ export default function CookieBanner() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-start sm:items-center gap-4">
         <p className="text-sm text-slate-300 flex-1 leading-relaxed">
           We use analytics cookies to understand how visitors use our site so we can improve it.
-          We do not use advertising cookies or sell your data.{' '}
-          <Link href="/privacy-policy" className="text-sky-400 hover:underline">
-            Privacy policy
+          Advertising cookies remain disabled unless a separate certified advertising-consent
+          message is introduced. We do not sell your data.{' '}
+          <Link href="/cookie-policy" className="text-sky-400 hover:underline">
+            Cookie policy
           </Link>
         </p>
         <div className="flex items-center gap-3 flex-shrink-0">

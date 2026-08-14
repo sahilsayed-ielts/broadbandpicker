@@ -3,7 +3,7 @@ import Link from 'next/link'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
 
 export const metadata: Metadata = {
-  title: 'Editorial Policy | BroadbandPicker',
+  title: { absolute: 'Editorial Policy | BroadbandPicker' },
   description:
     'BroadbandPicker\'s editorial policy — our independence standards, how content is produced, and how commercial relationships are kept separate from editorial decisions.',
   alternates: { canonical: 'https://broadbandpicker.co.uk/editorial-policy' },

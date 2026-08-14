@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | BroadbandPicker',
+  title: { absolute: 'Privacy Policy | BroadbandPicker' },
   description: 'BroadbandPicker privacy policy — how we collect, use, and protect your personal data.',
   alternates: { canonical: 'https://broadbandpicker.co.uk/privacy-policy' },
 }
@@ -20,7 +20,7 @@ export default function PrivacyPolicyPage() {
       />
 
       <h1 className="text-3xl font-extrabold text-slate-900 mb-2">Privacy Policy</h1>
-      <p className="text-sm text-slate-500 mb-8">Last updated: June 2026</p>
+      <p className="text-sm text-slate-500 mb-8">Last updated: 9 August 2026</p>
 
       <div className="prose prose-slate max-w-none space-y-6 text-slate-700 leading-relaxed [&_h2]:text-xl [&_h2]:font-bold [&_h2]:text-slate-900 [&_h2]:mt-8 [&_h2]:mb-3">
         <p>
@@ -47,9 +47,12 @@ export default function PrivacyPolicyPage() {
 
         <h2>Cookies</h2>
         <p>
-          We use essential cookies to make the site function and analytics cookies (via Google
-          Analytics) to understand how visitors use our site. We do not use advertising cookies or
-          sell data to third parties.
+          We use essential browser storage to remember your choices and, with permission, Google
+          Analytics cookies to understand how visitors use our site. Analytics storage is denied
+          by default. Google AdSense site-verification code is installed, but we do not currently
+          serve approved display advertising and advertising consent remains denied by default.
+          We do not sell personal data. See our{' '}
+          <a href="/cookie-policy" className="text-sky-600 hover:underline">cookie policy</a>.
         </p>
 
         <h2>Affiliate links</h2>
@@ -62,8 +65,9 @@ export default function PrivacyPolicyPage() {
 
         <h2>Data retention</h2>
         <p>
-          Anonymised analytics data is retained for up to 26 months. Contact form submissions are
-          retained for 12 months. Postcode searches are not stored permanently.
+          Google Analytics data is configured for a limited retention period and may also be
+          retained in aggregated reports. Direct enquiries are retained only as long as reasonably
+          necessary to answer and administer them. Postcode searches are not stored permanently.
         </p>
 
         <h2>Your rights</h2>
@@ -78,8 +82,11 @@ export default function PrivacyPolicyPage() {
 
         <h2>Third-party services</h2>
         <p>
-          We use Google Analytics for website analytics. Google&apos;s privacy policy is available
-          at google.com/policies/privacy.
+          We use Google Analytics for consented website analytics, Google AdSense for site
+          verification and future approved advertising, and affiliate networks or broadband
+          providers when you choose to follow an affiliate link. Read{' '}
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:underline">Google&apos;s privacy policy</a>{' '}
+          and the destination provider&apos;s privacy information for details of their processing.
         </p>
 
         <h2>Changes to this policy</h2>

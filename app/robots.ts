@@ -10,6 +10,8 @@ export default function robots(): MetadataRoute.Robots {
       },
       // AI crawlers — allow for AI Overview / citation potential
       { userAgent: 'Googlebot', allow: '/' },
+      // OpenAI Search uses OAI-SearchBot; GPTBot governs training access instead.
+      { userAgent: 'OAI-SearchBot', allow: '/' },
       { userAgent: 'GPTBot', allow: '/' },
       { userAgent: 'ClaudeBot', allow: '/' },
       { userAgent: 'anthropic-ai', allow: '/' },

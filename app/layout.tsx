@@ -6,12 +6,15 @@ import './globals.css'
 import PostcodeChecker from '@/components/PostcodeChecker'
 import NewsletterSignup from '@/components/NewsletterSignup'
 import CookieBanner from '@/components/CookieBanner'
+import CookiePreferencesButton from '@/components/CookiePreferencesButton'
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
 })
+
+const adsensePublisherId = 'ca-pub-9056289061141918'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://broadbandpicker.co.uk'),
@@ -58,6 +61,7 @@ function Header() {
             <Link href="/deals" className="text-slate-600 hover:text-sky-600 transition-colors">Deals</Link>
             <Link href="/providers" className="text-slate-600 hover:text-sky-600 transition-colors">Providers</Link>
             <Link href="/guides" className="text-slate-600 hover:text-sky-600 transition-colors">Guides</Link>
+            <Link href="/speed-test" className="text-slate-600 hover:text-sky-600 transition-colors">Speed Test</Link>
           </nav>
 
           {/* Header postcode checker */}
@@ -88,6 +92,7 @@ function MobileMenuButton() {
           { href: '/deals', label: 'Deals' },
           { href: '/providers', label: 'Providers' },
           { href: '/guides', label: 'Guides' },
+          { href: '/speed-test', label: 'Speed Test' },
           { href: '/about', label: 'About' },
           { href: '/contact', label: 'Contact' },
         ].map(({ href, label }) => (
@@ -145,6 +150,10 @@ function Footer() {
             <h3 className="text-white font-semibold text-sm mb-3">Legal</h3>
             <ul className="space-y-2 text-sm">
               <li><Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy policy</Link></li>
+              <li>
+                <CookiePreferencesButton />
+              </li>
+              <li><Link href="/cookie-policy" className="hover:text-white transition-colors">Cookie policy</Link></li>
               <li><Link href="/terms" className="hover:text-white transition-colors">Terms of use</Link></li>
               <li><Link href="/broadband-glossary" className="hover:text-white transition-colors">Broadband glossary</Link></li>
             </ul>
@@ -187,6 +196,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en-GB" className={`${inter.variable} h-full`}>
       <head>
         <link rel="alternate" hrefLang="en-GB" href="https://broadbandpicker.co.uk" />
+        <script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsensePublisherId}`}
+          crossOrigin="anonymous"
+        />
       </head>
       <body className="min-h-full flex flex-col font-[family-name:var(--font-inter)]">
         <Header />
@@ -196,9 +210,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         {gaId && (
           <>
-            {/* Consent Mode v2 defaults — analytics denied until user accepts banner */}
+            {/* Consent Mode v2 defaults — all optional storage denied until valid consent. */}
             <Script id="ga-consent-default" strategy="beforeInteractive">
-              {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('consent','default',{analytics_storage:'denied',wait_for_update:500});`}
+              {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});`}
             </Script>
             <Script
               src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}

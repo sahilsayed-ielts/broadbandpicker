@@ -1,5 +1,25 @@
 import type { PostcodeArea } from '@/types'
 
+export const postcodeDatasetUpdatedDate = '2026-06-21'
+
+export const postcodeSourceNotes = [
+  {
+    label: 'BroadbandPicker provider reviews',
+    href: '/providers',
+    note: 'Used to map provider availability, baseline price points, and package context into postcode-area summaries.',
+  },
+  {
+    label: 'BroadbandPicker review methodology',
+    href: '/how-we-review-broadband',
+    note: 'Explains how we handle provider pricing, coverage, customer sentiment, and update frequency across commercial pages.',
+  },
+  {
+    label: 'BroadbandPicker editorial policy',
+    href: '/editorial-policy',
+    note: 'Sets out our editorial independence, corrections approach, and how commercial relationships are handled.',
+  },
+] as const
+
 export const postcodeAreas: PostcodeArea[] = [
   { prefix: 'E1', town: 'Whitechapel', city: 'London', region: 'London', populationTier: 'high', availableProviders: ['bt', 'sky', 'ee', 'talktalk', 'plusnet', 'vodafone', 'now-broadband', 'virgin-media', 'hyperoptic', 'community-fibre'], avgDownloadSpeed: 145, cheapestMonthly: 17.99 },
   { prefix: 'E2', town: 'Bethnal Green', city: 'London', region: 'London', populationTier: 'high', availableProviders: ['bt', 'sky', 'ee', 'talktalk', 'plusnet', 'vodafone', 'now-broadband', 'virgin-media', 'hyperoptic', 'community-fibre'], avgDownloadSpeed: 140, cheapestMonthly: 17.99 },
