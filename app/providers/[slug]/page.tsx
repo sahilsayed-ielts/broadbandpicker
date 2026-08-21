@@ -6,6 +6,7 @@ import BreadcrumbNav from '@/components/BreadcrumbNav'
 import AffiliateCTA from '@/components/AffiliateCTA'
 import SpeedBadge from '@/components/SpeedBadge'
 import FAQAccordion from '@/components/FAQAccordion'
+import { buildProviderOfferJsonLd } from '@/lib/dealSchema'
 
 export async function generateStaticParams() {
   return providers.map((p) => ({ slug: p.slug }))
@@ -116,6 +117,8 @@ export default async function ProviderPage({
     })),
   }
 
+  const offerJsonLd = buildProviderOfferJsonLd(provider)
+
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <script
@@ -125,6 +128,10 @@ export default async function ProviderPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(offerJsonLd) }}
       />
 
       <BreadcrumbNav

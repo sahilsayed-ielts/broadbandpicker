@@ -12,6 +12,7 @@ import DealTable from '@/components/DealTable'
 import FAQAccordion from '@/components/FAQAccordion'
 import AffiliateCTA from '@/components/AffiliateCTA'
 import NewsletterSignup from '@/components/NewsletterSignup'
+import { buildDealListJsonLd } from '@/lib/dealSchema'
 
 export async function generateStaticParams() {
   return getAllPostcodePrefixes().map((prefix) => ({ area: prefix }))
@@ -70,8 +71,13 @@ export default async function PostcodeAreaPage({
       contractLength: d.contractLength,
       setupFee: d.setupFee,
     }))
+    const nationalDealListJsonLd = buildDealListJsonLd(nationalDeals, `Broadband deals available in ${prefix}`)
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(nationalDealListJsonLd) }}
+        />
         <BreadcrumbNav
           items={[
             { name: 'Home', href: '/' },
@@ -219,12 +225,20 @@ export default async function PostcodeAreaPage({
       `https://broadbandpicker.co.uk/editorial-policy`,
     ],
   }
+  const areaDealListJsonLd = buildDealListJsonLd(
+    areaDeals,
+    `Broadband deals in ${postcodeArea.town} (${prefix})`
+  )
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageWithCitationsJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(areaDealListJsonLd) }}
       />
       <script
         type="application/ld+json"

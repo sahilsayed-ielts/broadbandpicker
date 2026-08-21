@@ -4,6 +4,7 @@ import { providers, providerDatasetUpdatedDate } from '@/data/providers'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
 import PostcodeChecker from '@/components/PostcodeChecker'
 import DealsClient from '@/components/DealsClient'
+import { buildDealListJsonLd } from '@/lib/dealSchema'
 
 export const metadata: Metadata = {
   title: 'Best Broadband Deals UK June 2026',
@@ -15,18 +16,6 @@ export const metadata: Metadata = {
     description: 'Compare all UK broadband deals — filter by speed, price and contract.',
     url: 'https://broadbandpicker.co.uk/deals',
   },
-}
-
-const itemListJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'ItemList',
-  name: 'UK Broadband Deals',
-  itemListElement: providers.slice(0, 10).map((p, i) => ({
-    '@type': 'ListItem',
-    position: i + 1,
-    name: `${p.name} Broadband`,
-    url: `https://broadbandpicker.co.uk/providers/${p.slug}`,
-  })),
 }
 
 const dealsPageJsonLd = {
@@ -61,6 +50,7 @@ function getAllDeals() {
 
 export default function DealsPage() {
   const allDeals = getAllDeals()
+  const dealListJsonLd = buildDealListJsonLd(allDeals.slice(0, 30), 'UK Broadband Deals')
   const verifiedDateLabel = new Date(providerDatasetUpdatedDate).toLocaleDateString('en-GB', {
     day: 'numeric',
     month: 'long',
@@ -88,7 +78,7 @@ export default function DealsPage() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(dealListJsonLd) }}
       />
       <script
         type="application/ld+json"

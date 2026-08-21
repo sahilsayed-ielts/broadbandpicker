@@ -58,6 +58,20 @@ against the *live* `data/providers.ts`, not the keyword-mapping snapshot —
 
 ## Stage 3 — Fact-gathering (research)
 
+**3.0 — Keyword and SERP research, required every build.** The keyword-mapping
+dataset gives a starting keyword, volume and difficulty — it is not a
+substitute for checking what is actually ranking right now. Before writing:
+search the primary keyword and read the top UK results to see their rough
+depth and structure (word count ballpark, heading pattern, tables, FAQs,
+what specific fact they lead with); check whether an AI Overview currently
+appears for the term and, if so, what it cites and from where. Match or
+exceed that depth and structure — a niche long-tail term may only need a few
+hundred well-organised words; a broad commercial term may need much more.
+There is no fixed target word count; the ranking pages are the target.
+Optionally run `python3 scripts/scrape_competitor_landscape.py` for general
+structural context on the established UK comparison sites, but treat it as
+background, not a substitute for researching the specific keyword.
+
 For every entity involved (each provider; each claim in a guide topic):
 
 1. `WebFetch` the entity's own site — homepage plus a pricing/plans page if
