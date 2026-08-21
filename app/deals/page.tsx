@@ -4,6 +4,7 @@ import { providers, providerDatasetUpdatedDate } from '@/data/providers'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
 import PostcodeChecker from '@/components/PostcodeChecker'
 import DealsClient from '@/components/DealsClient'
+import PostcodeContextBar from '@/components/PostcodeContextBar'
 import { buildDealListJsonLd } from '@/lib/dealSchema'
 
 export const metadata: Metadata = {
@@ -90,6 +91,8 @@ export default function DealsPage() {
           { name: 'Broadband deals', href: '/deals' },
         ]}
       />
+
+      <PostcodeContextBar />
 
       <h1 className="text-3xl font-extrabold text-slate-900 mb-2">All UK Broadband Deals</h1>
       <p className="text-slate-600 mb-6 max-w-2xl">

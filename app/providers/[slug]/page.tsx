@@ -7,6 +7,7 @@ import AffiliateCTA from '@/components/AffiliateCTA'
 import SpeedBadge from '@/components/SpeedBadge'
 import FAQAccordion from '@/components/FAQAccordion'
 import { buildProviderOfferJsonLd } from '@/lib/dealSchema'
+import PostcodeContextBar from '@/components/PostcodeContextBar'
 
 export async function generateStaticParams() {
   return providers.map((p) => ({ slug: p.slug }))
@@ -141,6 +142,8 @@ export default async function ProviderPage({
           { name: `${provider.name} review`, href: `/providers/${provider.slug}` },
         ]}
       />
+
+      <PostcodeContextBar />
 
       {/* Header */}
       <div className="flex flex-wrap items-start justify-between gap-4 mb-8">

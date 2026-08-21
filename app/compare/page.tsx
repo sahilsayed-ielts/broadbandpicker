@@ -4,6 +4,7 @@ import { providers, providerDatasetUpdatedDate } from '@/data/providers'
 import ComparisonTable from '@/components/ComparisonTable'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
 import PostcodeChecker from '@/components/PostcodeChecker'
+import PostcodeContextBar from '@/components/PostcodeContextBar'
 
 export const metadata: Metadata = {
   title: 'Compare All UK Broadband Providers 2026',
@@ -84,6 +85,8 @@ export default function ComparePage() {
           { name: 'Compare providers', href: '/compare' },
         ]}
       />
+
+      <PostcodeContextBar />
 
       <h1 className="text-3xl font-extrabold text-slate-900 mb-2">
         Compare UK Broadband Providers
