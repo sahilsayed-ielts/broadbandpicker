@@ -18,6 +18,7 @@ export function priorityMetadata(key: PriorityPageKey): Metadata {
 
 export default function PrioritySeoPage({ pageKey }: { pageKey: PriorityPageKey }) {
   const page = priorityPages[pageKey]
+  const reviewedDate = new Date(`${page.updated}T00:00:00Z`).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' })
   const jsonLd = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -47,7 +48,7 @@ export default function PrioritySeoPage({ pageKey }: { pageKey: PriorityPageKey 
           <p className="text-sm font-semibold uppercase tracking-wider text-sky-700">{page.eyebrow}</p>
           <h1 className="text-4xl font-extrabold text-slate-900 mt-2 leading-tight">{page.title}</h1>
           <p className="text-xl text-slate-600 mt-4 leading-relaxed">{page.dek}</p>
-          <p className="text-sm text-slate-500 mt-4">Last researched and reviewed: 1 August 2026 · By the BroadbandPicker editorial team</p>
+          <p className="text-sm text-slate-500 mt-4">Last researched and reviewed: {reviewedDate} · By the BroadbandPicker editorial team</p>
         </header>
 
         <aside className="mt-8 rounded-xl border border-amber-200 bg-amber-50 p-5 text-sm leading-relaxed text-slate-700">
@@ -95,7 +96,7 @@ export default function PrioritySeoPage({ pageKey }: { pageKey: PriorityPageKey 
         <section className="mt-12 border-t border-slate-200 pt-8 text-sm">
           <h2 className="text-lg font-bold text-slate-900">Sources and methodology</h2>
           <p className="mt-2 text-slate-600">We use official provider pages and primary UK regulatory or government sources. We do not copy competitor rankings. Provider claims are treated as claims and availability-dependent details are not presented as universal facts.</p>
-          <ul className="list-disc pl-5 mt-4 space-y-2">{page.sources.map(source => <li key={source.href}><a href={source.href} rel="noopener noreferrer" className="text-sky-700 underline">{source.label}</a></li>)}</ul>
+          <ul className="list-disc pl-5 mt-4 space-y-2">{page.sources.map(source => <li key={source.href}><a href={source.href} rel="noopener noreferrer" className="text-sky-700 underline">{source.label}</a>{source.verified && <span className="text-slate-500"> · Verified {new Date(`${source.verified}T00:00:00Z`).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' })}</span>}</li>)}</ul>
           <p className="mt-4"><Link href="/how-we-review-broadband" className="text-sky-700 underline">Review methodology</Link> · <Link href="/editorial-policy" className="text-sky-700 underline">Editorial policy</Link> · <Link href="/how-we-make-money" className="text-sky-700 underline">How we make money</Link></p>
         </section>
       </div>

@@ -55,11 +55,13 @@ export default async function ProviderComparisonPage({
       provider: providerA,
       bestFor: comparison.bestForA,
       maxSpeed: getMaxDownload(providerA.slug),
+      facts: comparison.factSnapshot?.providerA,
     },
     {
       provider: providerB,
       bestFor: comparison.bestForB,
       maxSpeed: getMaxDownload(providerB.slug),
+      facts: comparison.factSnapshot?.providerB,
     },
   ]
 
@@ -130,26 +132,26 @@ export default async function ProviderComparisonPage({
       </section>
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 mb-10">
-        {providers.map(({ provider, bestFor, maxSpeed }) => (
+        {providers.map(({ provider, bestFor, maxSpeed, facts }) => (
           <section key={provider.slug} className="rounded-xl border border-slate-200 bg-white p-6">
             <h2 className="text-xl font-bold text-slate-900 mb-1">{provider.name}</h2>
             <p className="text-sm text-slate-500 mb-4">Best for: {bestFor}</p>
             <div className="grid grid-cols-2 gap-3 text-sm">
               <div className="rounded-lg bg-slate-50 p-3">
                 <div className="text-xs text-slate-500 mb-1">From</div>
-                <div className="font-semibold text-slate-900">£{provider.monthlyPriceFrom.toFixed(2)}/mo</div>
+                <div className="font-semibold text-slate-900">{facts?.fromPrice ?? `£${provider.monthlyPriceFrom.toFixed(2)}/mo`}</div>
               </div>
               <div className="rounded-lg bg-slate-50 p-3">
                 <div className="text-xs text-slate-500 mb-1">Max speed</div>
-                <div className="font-semibold text-slate-900">{maxSpeed} Mbps</div>
+                <div className="font-semibold text-slate-900">{facts?.maxSpeed ?? `${maxSpeed} Mbps`}</div>
               </div>
               <div className="rounded-lg bg-slate-50 p-3">
                 <div className="text-xs text-slate-500 mb-1">Coverage</div>
-                <div className="font-semibold text-slate-900">{provider.coveragePercent}%</div>
+                <div className="font-semibold text-slate-900">{facts?.coverage ?? `${provider.coveragePercent}%`}</div>
               </div>
               <div className="rounded-lg bg-slate-50 p-3">
                 <div className="text-xs text-slate-500 mb-1">Trustpilot</div>
-                <div className="font-semibold text-slate-900">{provider.trustpilotScore.toFixed(1)}/5</div>
+                <div className="font-semibold text-slate-900">{facts?.trustpilot ?? `${provider.trustpilotScore.toFixed(1)}/5`}</div>
               </div>
             </div>
             <ul className="mt-4 space-y-2 text-sm text-slate-700">
@@ -167,7 +169,7 @@ export default async function ProviderComparisonPage({
                       clipRule="evenodd"
                     />
                   </svg>
-                  {highlight}
+                  {highlight.replaceAll('—', ':')}
                 </li>
               ))}
             </ul>
@@ -201,14 +203,21 @@ export default async function ProviderComparisonPage({
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
-              {[
+              {(comparison.factSnapshot ? [
+                ['From price', comparison.factSnapshot.providerA.fromPrice, comparison.factSnapshot.providerB.fromPrice],
+                ['Max speed', comparison.factSnapshot.providerA.maxSpeed, comparison.factSnapshot.providerB.maxSpeed],
+                ['Setup fee', comparison.factSnapshot.providerA.setupFee, comparison.factSnapshot.providerB.setupFee],
+                ['Typical contract', comparison.factSnapshot.providerA.contract, comparison.factSnapshot.providerB.contract],
+                ['Coverage', comparison.factSnapshot.providerA.coverage, comparison.factSnapshot.providerB.coverage],
+                ['Trustpilot', comparison.factSnapshot.providerA.trustpilot, comparison.factSnapshot.providerB.trustpilot],
+              ] : [
                 ['From price', `£${providerA.monthlyPriceFrom.toFixed(2)}/mo`, `£${providerB.monthlyPriceFrom.toFixed(2)}/mo`],
                 ['Max speed', `${getMaxDownload(providerA.slug)} Mbps`, `${getMaxDownload(providerB.slug)} Mbps`],
                 ['Setup fee', providerA.setupFee === 0 ? 'Free' : `£${providerA.setupFee}`, providerB.setupFee === 0 ? 'Free' : `£${providerB.setupFee}`],
                 ['Typical contract', `${providerA.contractLengths[0]} months`, `${providerB.contractLengths[0]} months`],
                 ['Coverage', `${providerA.coveragePercent}% of UK homes`, `${providerB.coveragePercent}% of UK homes`],
                 ['Trustpilot', `${providerA.trustpilotScore.toFixed(1)}/5`, `${providerB.trustpilotScore.toFixed(1)}/5`],
-              ].map(([label, left, right]) => (
+              ]).map(([label, left, right]) => (
                 <tr key={label}>
                   <td className="px-4 py-3 font-medium text-slate-900">{label}</td>
                   <td className="px-4 py-3 text-slate-700">{left}</td>

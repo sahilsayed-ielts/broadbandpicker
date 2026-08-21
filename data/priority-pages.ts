@@ -1,4 +1,4 @@
-export type PriorityPageKey = 'business' | 'postcode' | 'phone' | 'btDeals' | 'skyDeals' | 'eeDeals' | 'virginDeals' | 'satisfaction' | 'satellite' | 'london'
+export type PriorityPageKey = 'business' | 'postcode' | 'phone' | 'btDeals' | 'skyDeals' | 'eeDeals' | 'virginDeals' | 'satisfaction' | 'satellite' | 'london' | 'sheffield' | 'edinburgh' | 'glasgow' | 'liverpool' | 'leeds' | 'bristol' | 'birmingham' | 'manchester'
 
 type Page = {
   path: string
@@ -14,7 +14,7 @@ type Page = {
   table?: { title: string; headers: string[]; rows: string[][] }
   sections: { heading: string; paragraphs: string[]; bullets?: string[] }[]
   faqs: { question: string; answer: string }[]
-  sources: { label: string; href: string }[]
+  sources: { label: string; href: string; verified?: string }[]
 }
 
 const guideCrumbs = (name: string, path: string) => [{ name: 'Home', href: '/' }, { name: 'Guides', href: '/guides' }, { name, href: path }]
@@ -138,6 +138,266 @@ export const priorityPages: Record<PriorityPageKey, Page> = {
     ],
     faqs: [{ question: 'Who is the fastest broadband provider in London?', answer: 'Several full-fibre and cable networks offer gigabit tiers. The fastest available provider depends on the building.' }, { question: 'Can I get Community Fibre in London?', answer: 'It serves many London areas, but the full address must be checked because coverage is not universal.' }, { question: 'Why does my London flat have fewer choices?', answer: 'Building access, wayleaves and internal cabling can limit networks even when the surrounding street is covered.' }],
     sources: [{ label: 'Ofcom broadband coverage checker', href: 'https://checker.ofcom.org.uk/en-gb/broadband-coverage' }, { label: 'London Datastore connectivity', href: 'https://data.london.gov.uk/' }, { label: 'Ofcom Connected Nations', href: 'https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/connected-nations' }],
+  },
+  sheffield: {
+    path: '/postcode/sheffield', title: 'Broadband providers in Sheffield: coverage and best deals', metaTitle: 'Broadband Providers Sheffield: Coverage and Deals',
+    metaDescription: 'Compare broadband providers in Sheffield, including services using Openreach, Virgin Media and CityFibre. Check coverage, speeds and terms for your address.',
+    eyebrow: 'Sheffield broadband hub', dek: 'Sheffield households may have a choice of broadband networks and retail providers, but the options can change from one property to the next.',
+    quickAnswer: 'Broadband providers in Sheffield include retailers using the Openreach network, alongside Virgin Media and providers selling over CityFibre where those networks reach the property. Local full-fibre availability is not uniform, so there is no citywide best deal. Check the full address first, then compare the speed estimate, upload speed, total contract cost and scheduled price changes.',
+    updated: '2026-08-14', schemaType: 'CollectionPage', breadcrumbs: [{ name: 'Home', href: '/' }, { name: 'Broadband by postcode', href: '/postcode' }, { name: 'Sheffield', href: '/postcode/sheffield' }],
+    table: { title: 'Main broadband routes to check in Sheffield', headers: ['Network/route', 'Provider choice', 'What to verify'], rows: [
+      ['Openreach', 'Retailers include BT, EE, Plusnet, Sky, TalkTalk, Vodafone and Zen', 'Whether FTTP is ready at the exact address and which speed tiers each retailer sells'],
+      ['Virgin Media', 'Virgin Media sells services over its own network', 'Property-level availability, upload speed, bundle terms and the technology used'],
+      ['CityFibre', 'A wholesale full-fibre network used by participating retail providers', 'Whether the address is live and which retail providers are currently offered'],
+      ['Other local networks', 'Smaller full-fibre operators may serve selected Sheffield addresses', 'Installation status, contract terms and support arrangements'],
+    ]},
+    sections: [
+      { heading: 'Which broadband providers cover Sheffield?', paragraphs: ['Sheffield has services delivered over several physical networks. Openreach supports a broad range of retail providers, while Virgin Media operates separately and CityFibre supplies wholesale full fibre to participating internet providers. Smaller network operators may add another choice in selected streets or buildings. A provider name alone does not show which cable reaches a home, so begin with the full address.'] },
+      { heading: 'How to find the best broadband deals in Sheffield', paragraphs: ['Run an address check with each network available to the property, then compare the personalised download estimate and any minimum guaranteed speed. Add every monthly payment, setup charge and scheduled increase across the minimum term. Check upload speed, router features, installation timing and the price after the introductory contract before deciding.'] },
+      { heading: 'Why Sheffield coverage varies by address', paragraphs: ['Network builds progress street by street, and flats can also depend on building access and internal cabling. An exchange area or postcode may therefore contain homes with different technologies and provider lists. Ofcom, Openreach, CityFibre and GOV.UK all provide coverage tools, but the provider must confirm that a service is orderable at the chosen property.'] },
+    ],
+    faqs: [
+      { question: 'Which broadband providers are available in Sheffield?', answer: 'Sheffield addresses may be served by retail providers using Openreach, Virgin Media, providers using CityFibre, or a smaller local network. The exact list depends on the property, not just the city or outward postcode. Use an address-level checker before comparing prices, because a provider shown elsewhere in Sheffield may not be orderable at your home.' },
+      { question: 'Can I get full-fibre broadband in Sheffield?', answer: 'Full fibre is available at some Sheffield addresses through networks including Openreach and CityFibre, with other operators serving selected locations. Coverage is not uniform and a planned build is not the same as a service ready to order. Check the full address with the relevant network, then confirm the available package with the retail provider.' },
+      { question: 'What is the best broadband deal in Sheffield?', answer: 'There is no single best Sheffield deal because availability, speed estimates and offers vary by address. Compare the total minimum-term cost of every service you can actually order, including setup charges and scheduled increases. Then weigh download and upload speeds, the minimum guarantee, contract length, router, installation and support against your household’s needs.' },
+    ],
+    sources: [
+      { label: 'Ofcom broadband and mobile coverage checker', href: 'https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/ofcom-checker', verified: '2026-08-14' },
+      { label: 'GOV.UK gigabit broadband availability checker', href: 'https://www.gov.uk/guidance/check-your-gigabit-broadband-availability', verified: '2026-08-14' },
+      { label: 'Openreach fibre availability checker', href: 'https://www.openreach.com/fibre-checker', verified: '2026-08-14' },
+      { label: 'Openreach full-fibre provider list', href: 'https://www.openreach.com/fibre-broadband/fttp-providers', verified: '2026-08-14' },
+      { label: 'CityFibre availability and network support', href: 'https://cityfibre.com/help-support', verified: '2026-08-14' },
+      { label: 'Sheffield City Council digital connectivity strategy', href: 'https://www.sheffield.gov.uk/your-city-council/digital-connectivity-strategy', verified: '2026-08-14' },
+      { label: 'Go.Compare broadband in Sheffield guide', href: 'https://www.gocompare.com/broadband/areas/sheffield/', verified: '2026-08-14' },
+    ],
+  },
+  edinburgh: {
+    path: '/postcode/edinburgh', title: 'Broadband providers in Edinburgh: coverage and best deals', metaTitle: 'Broadband Providers Edinburgh: Coverage and Deals',
+    metaDescription: 'Compare broadband providers in Edinburgh, including services using Openreach, Virgin Media and CityFibre. Check coverage, speeds and terms for your address.',
+    eyebrow: 'Edinburgh broadband hub', dek: 'Broadband providers in Edinburgh include retailers using Openreach, Virgin Media and providers on CityFibre, but the exact choice depends on the property.',
+    quickAnswer: 'Broadband providers Edinburgh households can check include retailers using the Openreach network, Virgin Media and providers selling over CityFibre where those networks reach the property. There is no single citywide best deal because availability, speed estimates and offers vary by address. Check the full address first, then compare upload speed, the minimum speed guarantee, total contract cost and scheduled price changes.',
+    updated: '2026-08-15', schemaType: 'CollectionPage', breadcrumbs: [{ name: 'Home', href: '/' }, { name: 'Broadband by postcode', href: '/postcode' }, { name: 'Edinburgh', href: '/postcode/edinburgh' }],
+    table: { title: 'Main broadband routes to check in Edinburgh', headers: ['Network/route', 'Provider choice', 'What to verify'], rows: [
+      ['Openreach', 'A range of retail providers sell services over Openreach', 'Whether FTTP is ready at the exact address and which speed tiers each retailer sells'],
+      ['Virgin Media', 'Virgin Media sells broadband over its own network', 'Property-level availability, upload speed, bundle terms and the technology used'],
+      ['CityFibre', 'A wholesale full-fibre network used by participating providers', 'Whether the address is live and which retail providers are currently offered'],
+      ['Other local networks', 'Building-focused or smaller full-fibre networks may serve selected properties', 'Installation status, building access, contract terms and support arrangements'],
+    ]},
+    sections: [
+      { heading: 'Which broadband providers cover Edinburgh?', paragraphs: ['Edinburgh broadband reaches homes over several physical networks. Openreach supports a range of retail providers, while Virgin Media operates its own network and CityFibre supplies wholesale full fibre to participating providers. Other networks may serve selected streets or buildings. A provider available elsewhere in the city may not serve a particular flat or house, so begin with the full address.'] },
+      { heading: 'How to find the best broadband deals in Edinburgh', paragraphs: ['Check every network available at the property, then compare the personalised download estimate and any minimum guaranteed speed. Add monthly payments, setup charges and scheduled increases across the minimum term. Upload speed, router features, installation timing and the price after the introductory contract can all matter more than a short-lived headline offer.'] },
+      { heading: 'Why Edinburgh coverage varies by address', paragraphs: ['Network builds progress street by street, while tenements, flats and other shared buildings can require access agreements and internal cabling. Nearby properties can therefore receive different technologies and provider lists. Ofcom, GOV.UK and individual networks provide coverage tools, but a retail provider must confirm that its service is ready to order at the chosen address.'] },
+    ],
+    faqs: [
+      { question: 'Which broadband providers are available in Edinburgh?', answer: 'Edinburgh addresses may be served by retail providers using Openreach, Virgin Media, providers using CityFibre, or another network serving selected properties. The exact list depends on the address rather than the city alone. Use a full-address checker before comparing prices, because a provider shown in another Edinburgh neighbourhood may not be ready to order at your home.' },
+      { question: 'Can I get full-fibre broadband in Edinburgh?', answer: 'Full fibre is available at some Edinburgh addresses through networks including Openreach and CityFibre, with other operators serving selected buildings or areas. Coverage is not uniform, and a network near the property is not proof that installation is available. Check the full address with the relevant network, then confirm the package with the chosen retail provider.' },
+      { question: 'What is the best broadband deal in Edinburgh?', answer: 'There is no single best Edinburgh deal because networks, speed estimates and offers vary by address. Compare the total minimum-term cost of services you can actually order, including setup charges and scheduled increases. Then weigh download and upload speeds, the minimum guarantee, contract length, router, installation and support against the needs of your household.' },
+    ],
+    sources: [
+      { label: 'Ofcom broadband and mobile coverage checker', href: 'https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/ofcom-checker', verified: '2026-08-15' },
+      { label: 'GOV.UK gigabit broadband availability checker', href: 'https://www.gov.uk/guidance/check-your-gigabit-broadband-availability', verified: '2026-08-15' },
+      { label: 'Openreach fibre availability checker', href: 'https://www.openreach.com/fibre-checker', verified: '2026-08-15' },
+      { label: 'Openreach full-fibre provider list', href: 'https://www.openreach.com/fibre-broadband/fttp-providers', verified: '2026-08-15' },
+      { label: 'Virgin Media broadband in Edinburgh', href: 'https://www.virginmedia.com/broadband/edinburgh', verified: '2026-08-15' },
+      { label: 'CityFibre Edinburgh network and council housing agreement', href: 'https://cityfibre.com/news/cityfibre-to-deliver-full-fibre-to-council-tenants-across-edinburgh', verified: '2026-08-15' },
+      { label: 'Go.Compare broadband in Edinburgh guide', href: 'https://www.gocompare.com/broadband/areas/edinburgh/', verified: '2026-08-15' },
+    ],
+  },
+  glasgow: {
+    path: '/postcode/glasgow', title: 'Broadband providers in Glasgow: coverage and best deals', metaTitle: 'Broadband Providers Glasgow: Coverage and Deals',
+    metaDescription: 'Compare broadband providers in Glasgow, including services using Openreach, Virgin Media and CityFibre. Check coverage, speeds and terms for your address.',
+    eyebrow: 'Glasgow broadband hub', dek: 'Broadband providers in Glasgow include retailers using Openreach, Virgin Media and providers on CityFibre, but the exact choice depends on the property.',
+    quickAnswer: 'Broadband providers Glasgow households can check include retailers using the Openreach network, Virgin Media and providers selling over CityFibre where those networks reach the property. There is no single citywide best deal because availability, speed estimates and offers vary by address. Check the full address first, then compare upload speed, the minimum speed guarantee, total contract cost and scheduled price changes.',
+    updated: '2026-08-15', schemaType: 'CollectionPage', breadcrumbs: [{ name: 'Home', href: '/' }, { name: 'Broadband by postcode', href: '/postcode' }, { name: 'Glasgow', href: '/postcode/glasgow' }],
+    table: { title: 'Main broadband routes to check in Glasgow', headers: ['Network/route', 'Provider choice', 'What to verify'], rows: [
+      ['Openreach', 'A range of retail providers sell services over Openreach', 'Whether FTTP is ready at the exact address and which speed tiers each retailer sells'],
+      ['Virgin Media', 'Virgin Media sells broadband over its own network', 'Property-level availability, upload speed, bundle terms and the technology used'],
+      ['CityFibre', 'A wholesale full-fibre network used by participating providers', 'Whether the address is live and which retail providers are currently offered'],
+      ['Other local networks', 'Building-focused or smaller full-fibre networks may serve selected properties', 'Installation status, building access, contract terms and support arrangements'],
+    ]},
+    sections: [
+      { heading: 'Which broadband providers cover Glasgow?', paragraphs: ['Glasgow broadband reaches homes over several physical networks. Openreach supports a range of retail providers, while Virgin Media operates its own network and CityFibre has built full-fibre infrastructure across the city region. Other networks may serve selected streets or buildings. A provider available elsewhere in Glasgow may not serve a particular flat or house, so begin with the full address.'] },
+      { heading: 'How to find the best broadband deals in Glasgow', paragraphs: ['Check every network available at the property, then compare the personalised download estimate and any minimum guaranteed speed. Add monthly payments, setup charges and scheduled increases across the minimum term. Upload speed, router features, installation timing and the price after the introductory contract can all matter more than a short-lived headline offer.'] },
+      { heading: 'Why Glasgow coverage varies by address', paragraphs: ['Network builds progress street by street, while tenements, flats and other shared buildings can require access agreements and internal cabling. Nearby properties can therefore receive different technologies and provider lists. Ofcom, GOV.UK and individual networks provide coverage tools, but a retail provider must confirm that its service is ready to order at the chosen address.'] },
+    ],
+    faqs: [
+      { question: 'Which broadband providers are available in Glasgow?', answer: 'Glasgow addresses may be served by retail providers using Openreach, Virgin Media, providers using CityFibre, or another network serving selected properties. The exact list depends on the address rather than the city alone. Use a full-address checker before comparing prices, because a provider shown in another Glasgow neighbourhood may not be ready to order at your home.' },
+      { question: 'Can I get full-fibre broadband in Glasgow?', answer: 'Full fibre is available at some Glasgow addresses through networks including Openreach and CityFibre, with other operators serving selected buildings or areas. Coverage is not uniform, and a network near the property is not proof that installation is available. Check the full address with the relevant network, then confirm the package with the chosen retail provider.' },
+      { question: 'What is the best broadband deal in Glasgow?', answer: 'There is no single best Glasgow deal because networks, speed estimates and offers vary by address. Compare the total minimum-term cost of services you can actually order, including setup charges and scheduled increases. Then weigh download and upload speeds, the minimum guarantee, contract length, router, installation and support against the needs of your household.' },
+    ],
+    sources: [
+      { label: 'Ofcom broadband and mobile coverage checker', href: 'https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/ofcom-checker', verified: '2026-08-15' },
+      { label: 'Ofcom Connected Nations 2025', href: 'https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/connected-nations-20252', verified: '2026-08-15' },
+      { label: 'GOV.UK gigabit broadband availability checker', href: 'https://www.gov.uk/guidance/check-your-gigabit-broadband-availability', verified: '2026-08-15' },
+      { label: 'Openreach fibre availability checker', href: 'https://www.openreach.com/fibre-checker', verified: '2026-08-15' },
+      { label: 'Openreach full-fibre provider list', href: 'https://www.openreach.com/fibre-broadband/fttp-providers', verified: '2026-08-15' },
+      { label: 'Virgin Media broadband and postcode checker', href: 'https://www.virginmedia.com/broadband/postcode-checker', verified: '2026-08-15' },
+      { label: 'CityFibre Glasgow full-fibre rollout', href: 'https://cityfibre.com/news/glasgow-to-get-full-fibre-boost-as-cityfibre-begins-work-on-city-wide-roll-out', verified: '2026-08-15' },
+      { label: 'Go.Compare broadband in Glasgow guide', href: 'https://www.gocompare.com/broadband/areas/glasgow/', verified: '2026-08-15' },
+    ],
+  },
+  liverpool: {
+    path: '/postcode/liverpool', title: 'Broadband providers in Liverpool: coverage and best deals', metaTitle: 'Broadband Providers Liverpool: Coverage and Deals',
+    metaDescription: 'Compare broadband providers in Liverpool, including services using Openreach, Virgin Media and CityFibre. Check coverage, speeds and terms for your address.',
+    eyebrow: 'Liverpool broadband hub', dek: 'Broadband providers in Liverpool include retailers using Openreach, Virgin Media and providers on CityFibre, but the exact choice depends on the property.',
+    quickAnswer: 'The broadband providers Liverpool households can check include retailers using the Openreach network, Virgin Media and providers selling over CityFibre where those networks reach the property. There is no single citywide best deal because availability, speed estimates and offers vary by address. Check the full address first, then compare upload speed, the minimum speed guarantee, total contract cost and scheduled price changes.',
+    updated: '2026-08-15', schemaType: 'CollectionPage', breadcrumbs: [{ name: 'Home', href: '/' }, { name: 'Broadband by postcode', href: '/postcode' }, { name: 'Liverpool', href: '/postcode/liverpool' }],
+    table: { title: 'Main broadband routes to check in Liverpool', headers: ['Network/route', 'Provider choice', 'What to verify'], rows: [
+      ['Openreach', 'A range of retail providers sell services over Openreach', 'Whether FTTP is ready at the exact address and which speed tiers each retailer sells'],
+      ['Virgin Media', 'Virgin Media sells broadband over its own network', 'Property-level availability, upload speed, bundle terms and the technology used'],
+      ['CityFibre', 'A wholesale full-fibre network used by participating providers', 'Whether the address is live and which retail providers are currently offered'],
+      ['Other local networks', 'Building-focused or smaller full-fibre networks may serve selected properties', 'Installation status, building access, contract terms and support arrangements'],
+    ]},
+    sections: [
+      { heading: 'Which broadband providers cover Liverpool?', paragraphs: ['Liverpool broadband reaches homes over several physical networks. Openreach supports a range of retail providers, while Virgin Media operates its own network and CityFibre supplies wholesale full fibre to participating providers. Other networks may serve selected streets or buildings. A provider available elsewhere in Liverpool may not serve a particular flat or house, so begin with the full address.'] },
+      { heading: 'How to find the best broadband deals in Liverpool', paragraphs: ['Check every network available at the property, then compare the personalised download estimate and any minimum guaranteed speed. Add monthly payments, setup charges and scheduled increases across the minimum term. Upload speed, router features, installation timing and the price after the introductory contract can all matter more than a short-lived headline offer.'] },
+      { heading: 'Why Liverpool coverage varies by address', paragraphs: ['Network builds progress street by street, while flats and other shared buildings can require access agreements and internal cabling. Nearby properties can therefore receive different technologies and provider lists. Ofcom, GOV.UK and individual networks provide coverage tools, but a retail provider must confirm that its service is ready to order at the chosen address.'] },
+    ],
+    faqs: [
+      { question: 'Which broadband providers are available in Liverpool?', answer: 'Liverpool addresses may be served by retail providers using Openreach, Virgin Media, providers using CityFibre, or another network serving selected properties. The exact list depends on the address rather than the city alone. Use a full-address checker before comparing prices, because a provider shown in another Liverpool neighbourhood may not be ready to order at your home.' },
+      { question: 'Can I get full-fibre broadband in Liverpool?', answer: 'Full fibre is available at some Liverpool addresses through networks including Openreach and CityFibre, with other operators serving selected buildings or areas. Coverage is not uniform, and a network near the property is not proof that installation is available. Check the full address with the relevant network, then confirm the package with the chosen retail provider.' },
+      { question: 'What is the best broadband deal in Liverpool?', answer: 'There is no single best Liverpool deal because networks, speed estimates and offers vary by address. Compare the total minimum-term cost of services you can actually order, including setup charges and scheduled increases. Then weigh download and upload speeds, the minimum guarantee, contract length, router, installation and support against the needs of your household.' },
+    ],
+    sources: [
+      { label: 'Ofcom broadband and mobile coverage checker', href: 'https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/ofcom-checker', verified: '2026-08-15' },
+      { label: 'GOV.UK gigabit broadband availability checker', href: 'https://www.gov.uk/guidance/check-your-gigabit-broadband-availability', verified: '2026-08-15' },
+      { label: 'Openreach fibre availability checker', href: 'https://www.openreach.com/fibre-checker', verified: '2026-08-15' },
+      { label: 'Openreach full-fibre provider list', href: 'https://www.openreach.com/fibre-broadband/fttp-providers', verified: '2026-08-15' },
+      { label: 'Virgin Media broadband and postcode checker', href: 'https://www.virginmedia.com/broadband/postcode-checker', verified: '2026-08-15' },
+      { label: 'CityFibre rollout and availability checker', href: 'https://cityfibre.com/about-us/rollout', verified: '2026-08-15' },
+      { label: 'Go.Compare broadband in Liverpool guide', href: 'https://www.gocompare.com/broadband/areas/liverpool/', verified: '2026-08-15' },
+    ],
+  },
+  leeds: {
+    path: '/postcode/leeds', title: 'Broadband providers in Leeds: coverage and best deals', metaTitle: 'Broadband Providers Leeds: Coverage and Deals',
+    metaDescription: 'Compare broadband providers in Leeds, including services using Openreach, Virgin Media and CityFibre. Check coverage, speeds and terms for your address.',
+    eyebrow: 'Leeds broadband hub', dek: 'Broadband providers in Leeds include retailers using Openreach, Virgin Media and providers on CityFibre, but the exact choice depends on the property.',
+    quickAnswer: 'Broadband providers Leeds households can check include retailers using the Openreach network, Virgin Media and providers selling over CityFibre where those networks reach the property. There is no single citywide best deal because availability, speed estimates and offers vary by address. Check the full address first, then compare upload speed, the minimum speed guarantee, total contract cost and scheduled price changes.',
+    updated: '2026-08-15', schemaType: 'CollectionPage', breadcrumbs: [{ name: 'Home', href: '/' }, { name: 'Broadband by postcode', href: '/postcode' }, { name: 'Leeds', href: '/postcode/leeds' }],
+    table: { title: 'Main broadband routes to check in Leeds', headers: ['Network/route', 'Provider choice', 'What to verify'], rows: [
+      ['Openreach', 'A range of retail providers sell services over Openreach', 'Whether FTTP is ready at the exact address and which speed tiers each retailer sells'],
+      ['Virgin Media', 'Virgin Media sells broadband over its own network', 'Property-level availability, upload speed, bundle terms and the technology used'],
+      ['CityFibre', 'A wholesale full-fibre network used by participating providers', 'Whether the address is live and which retail providers are currently offered'],
+      ['Other local networks', 'Building-focused or smaller full-fibre networks may serve selected properties', 'Installation status, building access, contract terms and support arrangements'],
+    ]},
+    sections: [
+      { heading: 'Which broadband providers cover Leeds?', paragraphs: ['Leeds broadband reaches homes over several physical networks. Openreach supports a range of retail providers, while Virgin Media operates its own network and CityFibre has rolled out full-fibre infrastructure across the city. Other networks may serve selected streets or buildings. A provider available elsewhere in Leeds may not serve a particular flat or house, so begin with the full address.'] },
+      { heading: 'How to find the best broadband deals in Leeds', paragraphs: ['Check every network available at the property, then compare the personalised download estimate and any minimum guaranteed speed. Add monthly payments, setup charges and scheduled increases across the minimum term. Upload speed, router features, installation timing and the price after the introductory contract can all matter more than a short-lived headline offer.'] },
+      { heading: 'Why Leeds coverage varies by address', paragraphs: ['Network builds progress street by street, while flats and other shared buildings can require access agreements and internal cabling. Nearby properties can therefore receive different technologies and provider lists. Ofcom, GOV.UK and individual networks provide coverage tools, but a retail provider must confirm that its service is ready to order at the chosen address.'] },
+    ],
+    faqs: [
+      { question: 'Which broadband providers are available in Leeds?', answer: 'Leeds addresses may be served by retail providers using Openreach, Virgin Media, providers using CityFibre, or another network serving selected properties. The exact list depends on the address rather than the city alone. Use a full-address checker before comparing prices, because a provider shown in another Leeds neighbourhood may not be ready to order at your home.' },
+      { question: 'Can I get full-fibre broadband in Leeds?', answer: 'Full fibre is available at some Leeds addresses through networks including Openreach and CityFibre, with other operators serving selected buildings or areas. Coverage is not uniform, and a network near the property is not proof that installation is available. Check the full address with the relevant network, then confirm the package with the chosen retail provider.' },
+      { question: 'What is the best broadband deal in Leeds?', answer: 'There is no single best Leeds deal because networks, speed estimates and offers vary by address. Compare the total minimum-term cost of services you can actually order, including setup charges and scheduled increases. Then weigh download and upload speeds, the minimum guarantee, contract length, router, installation and support against the needs of your household.' },
+    ],
+    sources: [
+      { label: 'Ofcom broadband and mobile coverage checker', href: 'https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/ofcom-checker', verified: '2026-08-15' },
+      { label: 'GOV.UK gigabit broadband availability checker', href: 'https://www.gov.uk/guidance/check-your-gigabit-broadband-availability', verified: '2026-08-15' },
+      { label: 'Openreach fibre availability checker', href: 'https://www.openreach.com/fibre-checker', verified: '2026-08-15' },
+      { label: 'Openreach full-fibre provider list', href: 'https://www.openreach.com/fibre-broadband/fttp-providers', verified: '2026-08-15' },
+      { label: 'Virgin Media broadband and postcode checker', href: 'https://www.virginmedia.com/broadband/postcode-checker', verified: '2026-08-15' },
+      { label: 'CityFibre full-fibre rollout in Leeds', href: 'https://cityfibre.com/news/leeds-set-to-enjoy-economic-boost-of-over-1-4-billion-from-cityfibres-full-fibre-rollout', verified: '2026-08-15' },
+      { label: 'Go.Compare broadband in Leeds guide', href: 'https://www.gocompare.com/broadband/areas/leeds/', verified: '2026-08-15' },
+    ],
+  },
+  bristol: {
+    path: '/postcode/bristol', title: 'Broadband providers in Bristol: coverage and best deals', metaTitle: 'Broadband Providers Bristol: Coverage and Deals',
+    metaDescription: 'Compare broadband providers in Bristol, including services using Openreach, Virgin Media and local full-fibre networks. Check coverage and terms by address.',
+    eyebrow: 'Bristol broadband hub', dek: 'Broadband providers in Bristol include retailers using Openreach, Virgin Media and local full-fibre networks, but the exact choice depends on the property.',
+    quickAnswer: 'Broadband providers Bristol households can check include retailers using Openreach, Virgin Media and local full-fibre networks such as Truespeed where they reach the property. There is no universal best deal across Bristol because coverage, speed estimates and offers vary by address. Check the full address first, then compare upload speed, the minimum speed guarantee, total contract cost and scheduled price changes.',
+    updated: '2026-08-16', schemaType: 'CollectionPage', breadcrumbs: [{ name: 'Home', href: '/' }, { name: 'Broadband by postcode', href: '/postcode' }, { name: 'Bristol', href: '/postcode/bristol' }],
+    table: { title: 'Main broadband routes to check in Bristol', headers: ['Network/route', 'Provider choice', 'What to verify'], rows: [
+      ['Openreach', 'A range of retail providers sell services over Openreach', 'Whether FTTP is ready at the exact address and which speed tiers each retailer sells'],
+      ['Virgin Media', 'Virgin Media sells broadband over its own network', 'Property-level availability, upload speed, bundle terms and the technology used'],
+      ['Truespeed', 'A regional full-fibre network serving parts of Bristol and the South West', 'Whether the property can order now, the upload speed and the fixed-price terms'],
+      ['Other local networks', 'Building-focused or smaller full-fibre networks may serve selected properties', 'Installation status, building access, contract terms and support arrangements'],
+    ]},
+    sections: [
+      { heading: 'Which broadband providers cover Bristol?', paragraphs: ['Bristol broadband reaches homes over several physical networks. Openreach supports a range of retail providers, Virgin Media operates its own network, and Truespeed says it has built full fibre across parts of Bristol and the South West. Openreach reported in February 2026 that its full fibre reached more than 165,000 Bristol homes and businesses, or over 75% of properties in the area. These are separate network claims and do not prove that any particular address can order a service.'] },
+      { heading: 'How to find the best broadband deals in Bristol', paragraphs: ['Check every network available at the property, then compare the personalised download estimate and any minimum guaranteed speed. Add monthly payments, setup charges and scheduled increases across the minimum term. Upload speed, router features, installation timing and the price after the introductory contract can all matter more than a short-lived headline offer.'] },
+      { heading: 'Why Bristol coverage varies by address', paragraphs: ['Network builds progress street by street, while flats and other shared buildings can require access agreements and internal cabling. Nearby properties can therefore receive different technologies and provider lists. Ofcom, GOV.UK and individual networks provide coverage tools, but their methods and update schedules differ. A retail provider must confirm that its service is ready to order at the chosen address.'] },
+    ],
+    faqs: [
+      { question: 'Which broadband providers are available in Bristol?', answer: 'Bristol addresses may be served by retail providers using Openreach, Virgin Media, Truespeed or another network serving selected properties. The exact list depends on the address rather than the city alone. Use a full-address checker before comparing prices, because a provider shown in another Bristol neighbourhood may not be ready to order at your home.' },
+      { question: 'Can I get full-fibre broadband in Bristol?', answer: 'Full fibre is available at many Bristol addresses, but coverage is not uniform. Openreach reported that its network reached more than 165,000 local premises in February 2026, while Truespeed publishes its own Bristol availability page. Check the full address with each relevant network, then confirm the package and installation status with the chosen retail provider.' },
+      { question: 'What is the best broadband deal in Bristol?', answer: 'There is no single best Bristol deal because networks, speed estimates and offers vary by address. Compare the total minimum-term cost of services you can actually order, including setup charges and scheduled increases. Then weigh download and upload speeds, the minimum guarantee, contract length, router, installation and support against the needs of your household.' },
+    ],
+    sources: [
+      { label: 'Ofcom broadband and mobile coverage checker', href: 'https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/ofcom-checker', verified: '2026-08-16' },
+      { label: 'GOV.UK gigabit broadband availability checker', href: 'https://www.gov.uk/guidance/check-your-gigabit-broadband-availability', verified: '2026-08-16' },
+      { label: 'Openreach Bristol full-fibre update', href: 'https://www.openreach.com/news/thousands-in-bristol-yet-to-benefit-from-major-broadband-upgrade/', verified: '2026-08-16' },
+      { label: 'Openreach fibre availability checker', href: 'https://www.openreach.com/fibre-checker', verified: '2026-08-16' },
+      { label: 'Virgin Media broadband and postcode checker', href: 'https://www.virginmedia.com/broadband/postcode-checker', verified: '2026-08-16' },
+      { label: 'Truespeed full-fibre broadband in Bristol', href: 'https://www.truespeed.com/locations/bristol/', verified: '2026-08-16' },
+      { label: 'Go.Compare broadband in Bristol guide', href: 'https://www.gocompare.com/broadband/areas/bristol/', verified: '2026-08-16' },
+    ],
+  },
+  birmingham: {
+    path: '/postcode/birmingham', title: 'Broadband providers in Birmingham: coverage and best deals', metaTitle: 'Broadband Providers Birmingham: Coverage and Deals',
+    metaDescription: 'Compare broadband providers in Birmingham, including services using Openreach, Virgin Media, CityFibre and local full-fibre networks. Check by address.',
+    eyebrow: 'Birmingham broadband hub', dek: 'Broadband providers in Birmingham include retailers using Openreach, Virgin Media, CityFibre providers and local full-fibre networks, subject to the exact property.',
+    quickAnswer: 'Broadband providers Birmingham households can check include retailers using Openreach, Virgin Media, providers selling over CityFibre and local full-fibre networks such as Brsk where they reach the property. There is no universal best deal across Birmingham because network availability, speed estimates and offers vary by address. Check the full address first, then compare upload speed, the minimum speed guarantee, total contract cost and scheduled price changes.',
+    updated: '2026-08-16', schemaType: 'CollectionPage', breadcrumbs: [{ name: 'Home', href: '/' }, { name: 'Broadband by postcode', href: '/postcode' }, { name: 'Birmingham', href: '/postcode/birmingham' }],
+    table: { title: 'Main broadband routes to check in Birmingham', headers: ['Network/route', 'Provider choice', 'What to verify'], rows: [
+      ['Openreach', 'A range of retail providers sell services over Openreach', 'Whether FTTP is ready at the exact address and which speed tiers each retailer sells'],
+      ['Virgin Media', 'Virgin Media sells broadband over its own network', 'Property-level availability, upload speed, bundle terms and the technology used'],
+      ['CityFibre', 'A wholesale full-fibre network used by participating providers', 'Whether the address is live and which retail providers are currently offered'],
+      ['Brsk and other local networks', 'Independent or building-focused full-fibre networks may serve selected properties', 'Installation status, building access, contract terms and support arrangements'],
+    ]},
+    sections: [
+      { heading: 'Which broadband providers cover Birmingham?', paragraphs: ['Birmingham broadband reaches homes over several physical networks. Openreach supports a range of retail providers, Virgin Media operates its own network, and CityFibre supplies wholesale full fibre to participating providers. Brsk also identifies Birmingham as one of the areas served by its independent full-fibre network. These network footprints are separate and none proves that a particular address can order, so begin with the full property details.'] },
+      { heading: 'How to find the best broadband deals in Birmingham', paragraphs: ['Check every network available at the property, then compare the personalised download estimate and any minimum guaranteed speed. Add monthly payments, setup charges and scheduled increases across the minimum term. Upload speed, router features, installation timing and the price after the introductory contract can all matter more than a short-lived headline offer.'] },
+      { heading: 'Why Birmingham coverage varies by address', paragraphs: ['Network builds progress street by street, while flats and other shared buildings can require access agreements and internal cabling. Nearby properties can therefore receive different technologies and provider lists. Ofcom, GOV.UK and individual networks provide coverage tools, but their methods and update schedules differ. A retail provider must confirm that its service is ready to order at the chosen address.'] },
+    ],
+    faqs: [
+      { question: 'Which broadband providers are available in Birmingham?', answer: 'Birmingham addresses may be served by retail providers using Openreach, Virgin Media, providers using CityFibre, Brsk or another network serving selected properties. The exact list depends on the address rather than the city alone. Use a full-address checker before comparing prices, because a provider shown in another Birmingham neighbourhood may not be ready to order at your home.' },
+      { question: 'Can I get full-fibre broadband in Birmingham?', answer: 'Full fibre is available at some Birmingham addresses through Openreach, CityFibre, Brsk and other networks, but coverage is not uniform. A network operating in the city is not proof that an individual property is connected. Check the full address with each relevant network, then confirm the available package and installation status with the chosen retail provider.' },
+      { question: 'What is the best broadband deal in Birmingham?', answer: 'There is no single best Birmingham deal because networks, speed estimates and offers vary by address. Compare the total minimum-term cost of services you can actually order, including setup charges and scheduled increases. Then weigh download and upload speeds, the minimum guarantee, contract length, router, installation and support against the needs of your household.' },
+    ],
+    sources: [
+      { label: 'Ofcom broadband and mobile coverage checker', href: 'https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/ofcom-checker', verified: '2026-08-16' },
+      { label: 'Ofcom Connected Nations 2025', href: 'https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/connected-nations-interactive-report-2025', verified: '2026-08-16' },
+      { label: 'GOV.UK gigabit broadband availability checker', href: 'https://www.gov.uk/guidance/check-your-gigabit-broadband-availability', verified: '2026-08-16' },
+      { label: 'Openreach fibre availability checker', href: 'https://www.openreach.com/fibre-checker', verified: '2026-08-16' },
+      { label: 'Openreach full-fibre provider list', href: 'https://www.openreach.com/fibre-broadband/fttp-providers', verified: '2026-08-16' },
+      { label: 'Virgin Media broadband and postcode checker', href: 'https://www.virginmedia.com/broadband/postcode-checker', verified: '2026-08-16' },
+      { label: 'CityFibre rollout and availability checker', href: 'https://cityfibre.com/about-us/rollout', verified: '2026-08-16' },
+      { label: 'Brsk Birmingham full-fibre availability', href: 'https://www.brsk.co.uk/locations/birmingham', verified: '2026-08-16' },
+      { label: 'Go.Compare broadband in Birmingham guide', href: 'https://www.gocompare.com/broadband/areas/birmingham/', verified: '2026-08-16' },
+    ],
+  },
+  manchester: {
+    path: '/postcode/manchester', title: 'Broadband providers in Manchester: coverage and best deals', metaTitle: 'Broadband Providers Manchester: Coverage and Deals',
+    metaDescription: 'Compare broadband providers in Manchester, including services using Openreach, Virgin Media and alternative full-fibre networks. Check your address.',
+    eyebrow: 'Manchester broadband hub', dek: 'Broadband providers Manchester households can consider include retailers using Openreach, Virgin Media and alternative full-fibre networks, but the exact choice depends on the property.',
+    quickAnswer: 'Broadband providers Manchester households may find include retailers using Openreach, Virgin Media and alternative full-fibre networks serving selected streets or buildings. There is no universal best provider or deal for the city because network access, speed estimates and offers vary by address. Check the full property first, then compare the minimum guaranteed speed, upload speed, total contract cost, scheduled price changes and installation requirements.',
+    updated: '2026-08-16', schemaType: 'CollectionPage', breadcrumbs: [{ name: 'Home', href: '/' }, { name: 'Broadband by postcode', href: '/postcode' }, { name: 'Manchester', href: '/postcode/manchester' }],
+    table: { title: 'Main broadband routes to check in Manchester', headers: ['Network/route', 'Provider choice', 'What to verify'], rows: [
+      ['Openreach', 'A range of retail providers sell services over Openreach', 'Whether FTTP is ready at the exact address and which speed tiers each retailer sells'],
+      ['Virgin Media', 'Virgin Media sells broadband over its own network', 'Property-level availability, upload speed, bundle terms and the connection technology'],
+      ['Alternative full-fibre networks', 'Networks such as Freedom Fibre and building-focused operators may serve selected locations', 'Whether the property is live, which retail provider sells the service and any installation requirements'],
+      ['Mobile broadband', 'EE, O2, Three and Vodafone sell 4G or 5G home-broadband options', 'Indoor signal at the property, data terms, expected performance and whether an external antenna is needed'],
+    ]},
+    sections: [
+      { heading: 'Which broadband providers cover Manchester?', paragraphs: ['Manchester homes can receive broadband over several physical networks. Openreach supports many retail providers, Virgin Media operates its own network, and alternative networks may cover selected streets or apartment buildings. A provider operating somewhere in Manchester does not prove that it can serve a particular home. Use the full address with Ofcom and the relevant network checkers before comparing packages.'] },
+      { heading: 'How to find the best broadband deals in Manchester', paragraphs: ['Start with services that are ready to order at the property, then compare the personalised download estimate and any minimum guaranteed speed. Add monthly payments, setup charges and scheduled increases across the minimum term. Upload speed, router features, installation timing, support and the post-contract price can be more important than a temporary headline discount. There is no universal winner across Manchester.'] },
+      { heading: 'Why Manchester coverage varies by address', paragraphs: ['Network builds progress street by street, while flats, converted buildings and other shared premises can require a wayleave and internal cabling. Nearby homes may therefore receive different technologies and provider lists. Ofcom, GOV.UK and network checkers also use different source data and update schedules, so their results should be considered separately and the chosen retail provider should confirm that service is ready to order.'] },
+    ],
+    faqs: [
+      { question: 'Which broadband providers are available in Manchester?', answer: 'Manchester addresses may be served by retail providers using Openreach, Virgin Media, an alternative full-fibre network or a mobile broadband operator. The exact list depends on the property rather than the city name alone. Use a full-address checker before comparing prices, because a provider available elsewhere in Manchester may not be ready to order at your home.' },
+      { question: 'Can I get full-fibre broadband in Manchester?', answer: 'Full fibre is available at some Manchester addresses through Openreach and alternative networks, but coverage is not uniform. A network operating in Manchester or Greater Manchester is not proof that an individual property is connected. Check the complete address with relevant network checkers, then confirm the package, installation status and expected activation date with the chosen retail provider.' },
+      { question: 'What is the best broadband deal in Manchester?', answer: 'There is no single best Manchester broadband deal because network availability, speed estimates and current offers vary by address. Compare the total minimum-term cost of services you can actually order, including setup charges and scheduled increases. Then weigh download and upload speeds, the minimum guarantee, contract length, router, installation and support against your household’s needs.' },
+    ],
+    sources: [
+      { label: 'Ofcom broadband availability checker', href: 'https://checker.ofcom.org.uk/en-gb/broadband-coverage', verified: '2026-08-16' },
+      { label: 'Ofcom Connected Nations 2025', href: 'https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/connected-nations-20252', verified: '2026-08-16' },
+      { label: 'GOV.UK gigabit broadband availability checker', href: 'https://www.gov.uk/guidance/check-your-gigabit-broadband-availability', verified: '2026-08-16' },
+      { label: 'Openreach fibre availability checker', href: 'https://www.openreach.com/fibre-checker', verified: '2026-08-16' },
+      { label: 'Openreach full-fibre provider list', href: 'https://www.openreach.com/fibre-broadband/fttp-providers', verified: '2026-08-16' },
+      { label: 'Virgin Media broadband and postcode checker', href: 'https://www.virginmedia.com/broadband/postcode-checker', verified: '2026-08-16' },
+      { label: 'Freedom Fibre residential availability checker', href: 'https://www.freedomfibre.com/residential', verified: '2026-08-16' },
+      { label: 'Go.Compare broadband in Manchester guide', href: 'https://www.gocompare.com/broadband/areas/manchester/', verified: '2026-08-16' },
+    ],
   },
 }
 

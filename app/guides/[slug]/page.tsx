@@ -1735,6 +1735,1175 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
       { question: 'Should I renegotiate or switch?', answer: 'Do both. First compare what is available at your postcode, then ask your existing provider whether they can match or beat it. If the answer is weak, switching is often the better-value move.' },
     ],
   },
+
+  'static-ip-business-broadband-explained': {
+    body: (
+      <>
+        <p className="text-lg">
+          A <strong>static public IP address</strong> keeps the same internet-facing address for
+          your business connection. You need one when another system must consistently recognise
+          or connect back to that address. It does not make broadband faster, and it is not a
+          security feature by itself.
+        </p>
+
+        <div className="rounded-xl border border-amber-200 bg-amber-50 p-5">
+          <p className="mb-0 text-sm">
+            <strong>Price check:</strong> provider features and the price example below were
+            checked on 14 August 2026. Business broadband prices are commonly shown without VAT,
+            and availability depends on the premises. Confirm the live order summary before
+            signing a contract.
+          </p>
+        </div>
+
+        <h2>What a static IP address changes</h2>
+        <p>
+          Your broadband router presents an Internet Protocol address to the wider internet. With
+          a dynamic service, the provider can replace that address over time. A static IP remains
+          assigned to the connection, giving authorised users and services a predictable
+          destination or identity.
+        </p>
+        <p>
+          This is different from giving a printer or computer a fixed address inside the office.
+          That local network setting does not create a static public IP. Also ask whether the
+          provider supplies a public IPv4 address rather than placing the connection behind
+          carrier-grade network address translation, which can prevent unsolicited inbound
+          connections.
+        </p>
+
+        <h2>When does a business need a static IP?</h2>
+        <p>A static address is useful when you have a specific inbound or identification need:</p>
+        <ul>
+          <li><strong>IP allowlisting:</strong> a supplier, bank or cloud platform accepts connections only from approved office addresses</li>
+          <li><strong>An on-site VPN gateway:</strong> remote workers or another branch must connect to a predictable office endpoint</li>
+          <li><strong>Remote equipment:</strong> authorised administrators need to reach an on-site firewall, server or monitoring system</li>
+          <li><strong>Self-hosted services:</strong> a service at your premises must remain reachable from outside the network</li>
+          <li><strong>Multiple public services:</strong> a larger address block may be needed where separate systems cannot share one address through port forwarding</li>
+        </ul>
+        <p>
+          Do not expose CCTV, storage or administration pages directly to the internet merely
+          because a static IP makes it possible. A properly secured VPN or managed remote-access
+          service is usually a safer route.
+        </p>
+
+        <h2>When you probably do not need one</h2>
+        <p>
+          A dynamic IP is normally sufficient if the business mainly uses hosted email, web-based
+          accounting, cloud storage, card terminals, video meetings and ordinary browsing. These
+          are outbound connections and do not usually require the office to keep the same public
+          address. Faster downloads, better Wi-Fi and improved fault support are separate buying
+          decisions.
+        </p>
+
+        <h2>How much does a static IP cost?</h2>
+        <p>
+          There is no single UK price. Some business broadband packages include one address,
+          while others charge an add-on or reserve it for a higher tier. On 14 August 2026, BT
+          Business listed one static IP at <strong>£5 per month excluding VAT</strong> on its
+          Essential plan and included it with Enhanced. Zen&apos;s published business fibre guide
+          described a static IP as included. These are provider examples, not a promise that the
+          same terms are available at every address.
+        </p>
+        <p>
+          Compare the full minimum-term cost. Moving to a dearer package solely to obtain an
+          included address can cost more than a modest add-on. If you need several addresses, ask
+          for the usable address count, monthly charge, setup work and router requirements in
+          writing.
+        </p>
+
+        <h2>Static IP security: what it does and does not do</h2>
+        <p>
+          A fixed IP can support security controls such as allowlisting, but the address itself
+          does not encrypt traffic or stop an attack. Because it remains easy to locate, any
+          internet-facing service should use a correctly configured firewall, current software,
+          restricted ports, strong authentication and monitoring. Limit remote access to the
+          smallest group that needs it.
+        </p>
+
+        <h2>What to ask a provider before ordering</h2>
+        <ul>
+          <li>Is the address a static public IPv4 address, and is IPv6 also available?</li>
+          <li>Is one address included, or what is the monthly price excluding and including VAT?</li>
+          <li>Will the address stay with the service after a package change or premises move?</li>
+          <li>Does the supplied router support a single address, port forwarding and any ordered address block?</li>
+          <li>Who will configure the firewall, VPN and services that use it?</li>
+          <li>What fault-response commitment and backup connection does the broadband package provide?</li>
+        </ul>
+
+        <h2>The practical decision</h2>
+        <p>
+          Ask the application supplier or IT administrator to state exactly why a fixed public
+          address is required. If the answer is allowlisting, an inbound VPN or an on-site service,
+          include static IP support in the broadband shortlist. If there is no defined use, choose
+          on availability, total cost, upload speed and support instead.
+        </p>
+      </>
+    ),
+    faqs: [
+      {
+        question: 'Does a small business need a static IP address?',
+        answer: 'Only if a system must consistently recognise or reach the business connection. Common reasons include an IP-allowlisted portal, an on-site VPN gateway or securely managed equipment at the premises. A small firm that only uses cloud applications, hosted email, video calls and ordinary web services will normally work perfectly well with a dynamic IP address.',
+      },
+      {
+        question: 'Does a static IP make business broadband faster or more reliable?',
+        answer: 'No. A static IP keeps the public address predictable, but it does not increase download speed, upload speed, Wi-Fi coverage or fault resilience. Compare those features separately. If downtime matters, look at the provider’s fault-response commitment and backup connectivity rather than treating a fixed address as a reliability upgrade.',
+      },
+      {
+        question: 'How much is a static IP on UK business broadband?',
+        answer: 'It may be included, charged monthly or available only with a higher package. BT Business listed one static IP for £5 per month excluding VAT on its Essential plan when checked on 14 August 2026, while Enhanced included it. Treat that as a dated provider example and compare the full contract cost on the live quote.',
+      },
+      {
+        question: 'Is a static IP address secure?',
+        answer: 'A fixed address can help with IP allowlisting, but it is not inherently secure. It also gives attackers a consistent target if an internet-facing system is poorly protected. Use a firewall, install security updates, expose only necessary services and require strong authentication. For remote access, a properly configured VPN or managed service is safer than opening equipment directly to the internet.',
+      },
+      {
+        question: 'Can dynamic DNS replace a static IP?',
+        answer: 'Sometimes. Dynamic DNS updates a hostname when your public address changes, which can suit a low-risk service that does not require IP allowlisting. It will not solve every case, particularly if the provider uses carrier-grade network address translation or the third party insists on a fixed source IP. Check the application and provider requirements first.',
+      },
+    ],
+  },
+
+  'student-broadband-by-university-city': {
+    body: (
+      <>
+        <p className="text-lg">
+          The right student broadband deal is determined by the <strong>property</strong>, not just
+          the university city. First check whether internet is included in your accommodation. If
+          you need your own connection, use the full address to compare networks and choose a
+          minimum term that ends no later than your tenancy.
+        </p>
+
+        <div className="rounded-xl border border-amber-200 bg-amber-50 p-5">
+          <p className="mb-0 text-sm">
+            <strong>Offer and availability check:</strong> contract options and network information
+            on this page were checked on 14 August 2026. Deals can change and availability varies
+            by building, so confirm the contract summary, setup cost and installation date before
+            ordering.
+          </p>
+        </div>
+
+        <h2>Student broadband choices by university city</h2>
+        <p>
+          Treat the table as a city-specific shortlist of checks, not a promise that a provider
+          serves every student address. Ofcom&apos;s coverage checker reports predicted services for a
+          postcode or address, while each provider performs its own final availability check.
+        </p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm border-collapse">
+            <caption className="pb-3 text-left text-sm text-slate-600">
+              What to check before comparing live student broadband offers at your address.
+            </caption>
+            <thead>
+              <tr className="bg-slate-50">
+                {['University city', 'Useful starting point', 'Address-level check'].map((heading) => (
+                  <th scope="col" key={heading} className="text-left px-4 py-3 border border-slate-200 font-semibold text-slate-700">{heading}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                ['London', 'Check national providers, building-focused full-fibre networks and Community Fibre', 'Coverage can vary by street and individual block'],
+                ['Manchester, Liverpool and Leeds', 'Compare fixed fibre, cable and any full-fibre network shown for the property', 'Do not assume neighbouring student areas have identical choices'],
+                ['Birmingham, Nottingham and Sheffield', 'Start with the exact house or flat, then compare contract length and total cost', 'Ask the landlord whether fibre equipment is already installed'],
+                ['Bristol, Cardiff and Newcastle', 'Check fixed broadband alongside a mobile backup for move-in week', 'Test mobile coverage indoors before relying on a router or tethering'],
+                ['Glasgow and Edinburgh', 'Compare the networks serving the accommodation rather than city-wide averages', 'Allow time for an engineer if the property is not ready for service'],
+                ['Oxford and Cambridge', 'Check the individual address early, especially for older or subdivided properties', 'The fastest city-wide technology may not reach the chosen building'],
+                ['Belfast', 'Use the address checker to compare available full-fibre and other fixed services', 'Choose by live package terms, not broad regional coverage'],
+                ['Hull', 'Include KCOM in the address check; its Roll student packages are advertised without a minimum contract', 'KCOM states geographical and network restrictions apply'],
+              ].map(([city, startingPoint, check]) => (
+                <tr key={city} className="border-b border-slate-100 hover:bg-slate-50">
+                  <td className="px-4 py-3 font-semibold text-slate-900">{city}</td>
+                  <td className="px-4 py-3 text-slate-700">{startingPoint}</td>
+                  <td className="px-4 py-3 text-slate-600">{check}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Do you need to buy broadband at all?</h2>
+        <p>
+          UCAS says university halls usually include broadband, although inclusions vary. Private
+          halls may include it too. Read the accommodation agreement and ask whether Wi-Fi reaches
+          the bedroom, whether you can connect by Ethernet, and whether there are device or usage
+          restrictions. Ordering another fixed line without the landlord&apos;s permission can create
+          unnecessary cost or installation problems.
+        </p>
+        <p>
+          In a privately rented house, ask whether an active service will remain after the previous
+          tenants leave. An installed router or fibre box does not necessarily mean the account is
+          live. Agree which housemate will hold the new account and how the final bill will be
+          settled before anyone signs.
+        </p>
+
+        <h2>12-month student broadband or a rolling deal?</h2>
+        <h3>Choose 12 months for a full academic-year tenancy</h3>
+        <p>
+          A 12-month deal is usually the cleaner match when the household will occupy the property
+          for a full year. Virgin Media&apos;s current student page advertises 12-month contracts with
+          no setup cost for eligible students with an academic email address. Eligibility,
+          availability and the live contract summary still need checking before purchase.
+        </p>
+        <h3>Choose rolling broadband for uncertain or shorter stays</h3>
+        <p>
+          A monthly rolling service can suit a placement, short course, summer stay or tenancy with
+          an uncertain end date. Virgin Media advertises rolling broadband with 30 days&apos; notice,
+          and KCOM currently lists no-contract Roll packages for eligible Hull-area postcodes.
+          Flexibility may cost more, so compare the total amount for the months you expect to use it.
+        </p>
+        <h3>Consider mobile broadband as a temporary bridge</h3>
+        <p>
+          A phone hotspot or 4G or 5G router can cover the period before fixed broadband is
+          installed. Check indoor coverage, the data allowance and the cancellation terms first.
+          It may be practical for one person, but performance can fluctuate and a busy shared house
+          may use a large amount of data.
+        </p>
+
+        <h2>How city network differences affect your shortlist</h2>
+        <p>
+          UK cities do not have one uniform broadband market. National networks overlap with cable
+          and local full-fibre networks, and some operators serve particular buildings rather than
+          every street. London students may see Community Fibre at some addresses, while Hull has
+          the locally distinctive KCOM network. Elsewhere, a CityFibre-built connection may be sold
+          by one of several retail providers rather than by CityFibre itself.
+        </p>
+        <p>
+          City-level percentages are not a substitute for an address check. Ofcom&apos;s 2025 data also
+          shows substantial differences in full-fibre coverage between UK nations and local
+          authorities. Use that as context only, then check the actual accommodation with Ofcom and
+          the shortlisted providers.
+        </p>
+
+        <h2>Compare the full student broadband cost</h2>
+        <ul>
+          <li><strong>Minimum term:</strong> count the months between activation and the tenancy end date</li>
+          <li><strong>Monthly charges:</strong> include any stated price change during the contract</li>
+          <li><strong>Upfront cost:</strong> check activation, delivery and engineer fees</li>
+          <li><strong>Leaving early:</strong> ask for the early termination calculation before signing</li>
+          <li><strong>Moving home:</strong> confirm whether moving transfers the service or starts a new minimum term</li>
+          <li><strong>Equipment:</strong> record who must return the router and by what date</li>
+        </ul>
+        <p>
+          Ofcom says providers must give you a written contract summary before you are bound. It
+          should include key charges, the contract length and cancellation information. Read that
+          document rather than relying only on the headline monthly price.
+        </p>
+
+        <h2>Order without creating a house-share headache</h2>
+        <ol>
+          <li>Confirm the tenancy dates and whether broadband is included.</li>
+          <li>Run address checks once you have the complete accommodation postcode.</li>
+          <li>Choose a realistic speed for simultaneous study, calls, streaming and gaming.</li>
+          <li>Pick an account holder who expects to remain for the whole contract.</li>
+          <li>Save the contract summary, activation date and equipment return instructions.</li>
+          <li>Set a reminder at least one month before the tenancy and minimum term end.</li>
+        </ol>
+        <p>
+          Order early enough to allow for delivery or an engineer visit, but do not activate a
+          service before you are entitled to access the property. If installation requires drilling
+          or new cabling, get the landlord or managing agent&apos;s permission in writing.
+        </p>
+      </>
+    ),
+    faqs: [
+      {
+        question: 'Which student broadband is best in my university city?',
+        answer: 'There is no reliable city-wide winner because networks and offers vary by individual address. Check whether broadband is included, enter the complete accommodation postcode into Ofcom’s checker, and then confirm availability with each provider. Compare contract length, total cost and installation timing. A provider serving one student block may not serve another building nearby.',
+      },
+      {
+        question: 'Can students get a 12-month broadband contract?',
+        answer: 'Yes. Virgin Media currently advertises 12-month student broadband for eligible customers with an academic email address, subject to its terms and address availability. Other providers may also offer shorter contracts at particular times. Check that the activation and end dates fit your tenancy, and read the written contract summary for charges and cancellation terms before agreeing.',
+      },
+      {
+        question: 'Is rolling monthly broadband better for students?',
+        answer: 'Rolling broadband is useful when your stay is shorter than an academic year or your move-out date is uncertain. It can cost more than a fixed contract, so compare the full cost for the time you expect to use it. Also check the notice period. Virgin Media advertises 30-day rolling broadband, while KCOM lists no-contract student packages in eligible Hull-area postcodes.',
+      },
+      {
+        question: 'Do university halls include broadband?',
+        answer: 'Many university halls include broadband, and UCAS says this is usually part of halls accommodation, but the exact service and rules vary. Check the accommodation agreement before buying anything. Ask about bedroom Wi-Fi, Ethernet access, device limits and support. Private halls and rented houses can have different arrangements, even within the same university city.',
+      },
+      {
+        question: 'What happens to student broadband when the tenancy ends?',
+        answer: 'Contact the provider before moving and follow the notice and equipment-return rules in your contract. Leaving during a minimum term may trigger an early termination charge, while moving the service can sometimes begin a new term. Do not assume the account ends with the tenancy. Keep proof of cancellation and agree how housemates will divide the final bill.',
+      },
+    ],
+  },
+
+  'small-office-broadband-setup-uk': {
+    body: (
+      <>
+        <p className="text-lg">
+          A good <strong>small office broadband setup</strong> is more than a fast package. It is a
+          documented connection, router and backup arrangement that still lets staff work when
+          Wi-Fi is busy or the main line fails. Plan it before move-in, then test it with the
+          applications and devices the office actually uses.
+        </p>
+
+        <div className="rounded-xl border border-amber-200 bg-amber-50 p-5">
+          <p className="mb-0 text-sm">
+            <strong>Information check:</strong> regulator, cyber security and provider guidance on
+            this page was verified on 15 August 2026. Availability, support commitments and backup
+            features vary by address and package. Confirm them in the written contract before
+            ordering.
+          </p>
+        </div>
+
+        <h2>Small office broadband setup checklist</h2>
+        <ol>
+          <li>List the cloud services, calls, tills and other systems that stop when internet access fails.</li>
+          <li>Count normal and peak users, including visitors and personal devices allowed on the network.</li>
+          <li>Check fixed and mobile coverage at the complete office address.</li>
+          <li>Get expected download and upload speeds, the minimum term and support commitments in writing.</li>
+          <li>Agree the router, cabling and wireless access-point locations before the installation visit.</li>
+          <li>Separate staff, guest and equipment access where the router or network design supports it.</li>
+          <li>Set up and test mobile backup, including a simulated failure of the main connection.</li>
+          <li>Record the network layout, provider contacts and recovery steps for the people responsible.</li>
+        </ol>
+
+        <h2>Choose the connection around the work</h2>
+        <p>
+          Start with what happens at the busiest point of the day. Video meetings and sending large
+          files depend on upload performance as well as download speed. Cloud telephony, payment
+          systems and remote desktops make interruption more costly. Ask the provider for the
+          service available at the exact premises rather than relying on a national headline speed.
+        </p>
+        <p>
+          Ofcom advises businesses to compare service levels as well as price. A business package
+          may offer priority support, a repair commitment, a static IP option or resilience features,
+          but the bundle varies. Read the service level wording carefully: response time, target fix
+          time and guaranteed restoration are not interchangeable promises.
+        </p>
+
+        <h2>Plan the router, Wi-Fi and cabling</h2>
+        <p>
+          Put the router or wireless access point in an open, raised and reasonably central position,
+          away from metal, water and electrical equipment that can obstruct or interfere with the
+          signal. Do not hide it in a comms cupboard and assume one unit will cover every meeting
+          room. Walk the premises and test signal and performance at desks, reception and shared
+          spaces after installation.
+        </p>
+        <p>
+          Use Ethernet for fixed equipment where it is practical, especially desktop workstations,
+          network storage, printers, access points and other devices that should not depend on radio
+          conditions. If the office is spread over several rooms or floors, arrange proper cabling
+          and additional access points rather than choosing extenders only after coverage problems
+          appear.
+        </p>
+
+        <h2>Separate staff and guest access</h2>
+        <p>
+          If clients or visitors need internet access, use a separate guest network when the router
+          or managed Wi-Fi system provides one. Keep router administration available only to the
+          people who manage the network. Change any default administration credentials, apply
+          firmware and software updates, keep the firewall enabled and record who is responsible
+          for reviewing the setup.
+        </p>
+        <p>
+          Broadband resilience is not a data backup. NCSC guidance says organisations should copy
+          the data they need to operate and be able to restore it. Keep that process separate from
+          the broadband plan so a working connection is not mistaken for protection against lost,
+          corrupted or inaccessible files.
+        </p>
+
+        <h2>Set up broadband backup that works</h2>
+        <p>
+          A mobile backup can be a phone hotspot, a separate 4G or 5G router, or a provider feature
+          that switches automatically when the fixed line fails. BT Business, for example, documents
+          automatic 4G switching for compatible broadband and hub equipment. That is one provider
+          implementation, not a feature of every business package.
+        </p>
+        <ul>
+          <li><strong>Check independence:</strong> a second fixed service using the same local infrastructure may share the original point of failure.</li>
+          <li><strong>Test indoor signal:</strong> mobile coverage predictions do not guarantee performance inside the office.</li>
+          <li><strong>Check capacity:</strong> decide which calls and applications take priority when backup is slower.</li>
+          <li><strong>Check data terms:</strong> confirm allowances, traffic controls and additional charges.</li>
+          <li><strong>Check power:</strong> the router, fibre termination equipment, switches and access points need electricity during a power cut.</li>
+          <li><strong>Practise failover:</strong> disconnect the main service safely and confirm that essential devices reconnect and work.</li>
+        </ul>
+
+        <h2>Write down the support and recovery plan</h2>
+        <p>
+          Keep the provider account number, support route, service address, expected speeds and any
+          fault commitment in a shared operational record. Add the make and location of the router,
+          fibre equipment, switches and backup device. Note who may restart equipment, who can make
+          account changes and which supplier supports the internal network.
+        </p>
+        <p>
+          During a fault, test one wired device before assuming the broadband line has failed. Record
+          status lights and error messages, then follow the provider&apos;s checks without repeatedly
+          resetting equipment that another service depends on. Tell staff how to use the backup and
+          which non-essential activity to pause until the main connection returns.
+        </p>
+
+        <h2>Run a launch-day test</h2>
+        <ul>
+          <li>Confirm the wired speed and compare it with the provider&apos;s written estimate.</li>
+          <li>Test Wi-Fi in every normal working area, not only beside the router.</li>
+          <li>Make simultaneous video or internet calls and use the main cloud applications.</li>
+          <li>Check printers, payment equipment, alarms and phones that depend on the connection.</li>
+          <li>Trigger the documented backup process and check how long recovery takes.</li>
+          <li>Confirm that a second responsible person can find the support and recovery record.</li>
+        </ul>
+        <p>
+          Repeat the essential tests after changing the router, cabling, provider or office layout.
+          The useful outcome is not a perfect speed test on one laptop. It is a setup that supports
+          the real working day and has a known response when something breaks.
+        </p>
+      </>
+    ),
+    faqs: [
+      {
+        question: 'What broadband speed does a small office need?',
+        answer: 'There is no dependable speed based only on headcount. Count simultaneous video calls, cloud applications, large uploads, guest devices and internet-dependent phones or tills. Ask providers for address-specific download and upload estimates, then leave capacity for busy periods. If interruption would stop trading, support and backup arrangements can matter more than buying the highest advertised headline speed.',
+      },
+      {
+        question: 'Where should a small office broadband router go?',
+        answer: 'Place it in an open, raised and reasonably central location, away from metal cabinets, water and equipment that can interfere with Wi-Fi. Test every normal work area after installation. A larger or divided office may need Ethernet cabling and extra wireless access points. Fixed critical equipment should use a wired connection where practical.',
+      },
+      {
+        question: 'Should a small office have backup broadband?',
+        answer: 'Yes if losing the connection would stop important work, calls, payments or customer service. The backup could use 4G or 5G, but it should be tested inside the premises and have enough data and capacity for essential applications. Check whether switching is automatic, what happens during a power cut and whether the backup shares infrastructure with the main service.',
+      },
+      {
+        question: 'Is business broadband necessary for a small office?',
+        answer: 'Not automatically, but check the terms before using a residential service for business. A business package may add priority support, service commitments, static IP options, guest Wi-Fi or mobile backup. Compare the precise contract against the cost of downtime. A higher monthly price is useful only when the included support and features solve a real operational requirement.',
+      },
+      {
+        question: 'How should guest Wi-Fi be set up in a small office?',
+        answer: 'Use a separate guest network if the router or managed Wi-Fi system supports one, and do not give visitors access to the staff network or router administration. Use a suitable guest password, review it when necessary and keep the router updated. Ask a network professional for help if the office handles sensitive systems or the supplied router cannot provide the required separation.',
+      },
+    ],
+  },
+
+  'broadband-for-landlords-and-hmos-uk': {
+    body: (
+      <>
+        <p className="text-lg">
+          <strong>The practical answer:</strong> a landlord does not automatically have to supply
+          broadband merely because a property is rented or is an HMO. Decide whether the landlord
+          or tenants will hold the provider contract, put the payment arrangement in the tenancy
+          agreement, obtain any installation permission and test Wi-Fi throughout the property.
+        </p>
+
+        <div className="rounded-xl border border-amber-200 bg-amber-50 p-5">
+          <p className="mb-0 text-sm">
+            <strong>Information check:</strong> housing, regulator and provider guidance on this
+            page was verified on 15 August 2026. HMO licensing and tenancy rules vary across the UK
+            and by local authority. Check the rules for the property and take legal advice where
+            the tenancy or licence conditions are unclear.
+          </p>
+        </div>
+
+        <h2>Who should arrange and pay for broadband?</h2>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm border-collapse">
+            <thead>
+              <tr className="bg-slate-50">
+                {['Setup', 'Best fit', 'Main advantage', 'Main risk'].map((heading) => (
+                  <th scope="col" key={heading} className="text-left px-4 py-3 border border-slate-200 font-semibold text-slate-700">{heading}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                ['Landlord holds the contract', 'Room-by-room HMO with bills included', 'Service can continue when individual tenants change', 'Landlord manages cost, faults and acceptable use'],
+                ['Joint tenants arrange it', 'One household renting the whole property', 'Tenants choose the package and control the account', 'The named account holder remains responsible to the provider'],
+                ['Broadband ready, tenant activates it', 'Managed building with suitable infrastructure', 'Faster occupation without a fresh physical installation', 'Availability and account model depend on the building and provider'],
+              ].map(([setup, fit, advantage, risk]) => (
+                <tr key={setup} className="border-b border-slate-100 hover:bg-slate-50">
+                  <td className="px-4 py-3 font-semibold text-slate-900">{setup}</td>
+                  <td className="px-4 py-3 text-slate-700">{fit}</td>
+                  <td className="px-4 py-3 text-slate-700">{advantage}</td>
+                  <td className="px-4 py-3 text-slate-600">{risk}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p>
+          In England, government guidance says broadband and landline costs may be included in rent
+          or charged separately, but included bills must be set out in the tenancy agreement. The
+          wider UK position and the wording needed for a particular tenancy can differ, so do not
+          treat an informal advert saying &ldquo;bills included&rdquo; as the operating plan.
+        </p>
+
+        <h2>What the tenancy agreement should cover</h2>
+        <ul>
+          <li>whether broadband is included in rent or paid directly by tenants</li>
+          <li>the person or business that holds the provider account</li>
+          <li>who reports faults, approves engineer visits and can change the package</li>
+          <li>any fair-use or lawful-use rules and how planned outages are communicated</li>
+          <li>ownership and return of the router, mesh units and other provider equipment</li>
+          <li>what happens to service and charges when occupiers move in or out</li>
+        </ul>
+        <p>
+          Do not promise a particular speed in every room unless the setup has been designed and
+          tested to deliver it, and the agreement explains how performance is measured. Broadband
+          speed to the router and Wi-Fi performance inside bedrooms are different things.
+        </p>
+
+        <h2>Choose the connection at the exact property</h2>
+        <p>
+          Run provider availability checks using the full address, not only the postcode. Record the
+          expected download and upload speeds, minimum term, setup cost, annual price changes and
+          fault support before ordering. If broadband is included for several unrelated occupiers,
+          compare packages for simultaneous use rather than choosing from the tenant count alone.
+        </p>
+        <p>
+          There is no sound universal Mbps figure for each HMO tenant. Video calls, gaming, large
+          uploads and 4K streaming create different loads, while the building layout changes Wi-Fi
+          performance. List the likely simultaneous activities, allow sensible headroom and confirm
+          whether the provider&apos;s router and support are suitable for the number of rooms and devices.
+        </p>
+
+        <h2>Get installation permission before the appointment</h2>
+        <p>
+          A new connection may involve drilling, external cabling, an optical network terminal or
+          work in communal parts of a building. Virgin Media, for example, says a rented home that
+          has not had its service before may need landlord permission. Flats and converted buildings
+          can also require consent from a freeholder, managing agent or another party.
+        </p>
+        <p>
+          Agree the cable route, entry point, equipment position and responsibility for making good
+          before work starts. Keep the written approval and installation record with the property
+          documents. Leave fixed network equipment such as an Openreach ONT at the property when
+          tenants change, and follow the relevant provider&apos;s instructions for removable equipment.
+        </p>
+
+        <h2>Plan HMO Wi-Fi room by room</h2>
+        <p>
+          Put the main router in an open, raised and reasonably central location where it can remain
+          powered and secure. Ofcom notes that walls and materials such as metal, water and glass can
+          weaken Wi-Fi. A router beside the incoming line may therefore be a poor solution for a tall,
+          extended or heavily divided HMO.
+        </p>
+        <ul>
+          <li>test every bedroom, living area and study space with doors closed</li>
+          <li>test while several residents stream, call or work online at the same time</li>
+          <li>use properly planned Ethernet and wireless access points for difficult layouts</li>
+          <li>consider a supported mesh system where cabling is impractical</li>
+          <li>keep network administration separate from the password shared with residents</li>
+        </ul>
+        <p>
+          Extenders and powerline adapters can help in some properties, but results depend on the
+          layout and electrical wiring. Test the chosen design rather than assuming more boxes will
+          fix a weak connection.
+        </p>
+
+        <h2>Keep the account secure and manageable</h2>
+        <p>
+          Use a landlord or management email address that will remain available when tenants leave.
+          Store the provider account number, contract end date, equipment list, router administration
+          details and fault process securely. Give residents the Wi-Fi credentials they need without
+          sharing the provider login or router administration password.
+        </p>
+        <p>
+          Change shared Wi-Fi credentials when necessary, especially after a difficult handover, and
+          keep router software updated. If the property uses smart locks, alarms or other managed
+          equipment, separate them from resident or guest access where the network supports it and
+          document what stops working during a broadband or power failure.
+        </p>
+
+        <h2>Manage tenant changes and contract endings</h2>
+        <p>
+          A landlord-held account is usually easier to keep continuous across room-by-room tenancy
+          changes. Review the deal before its minimum term ends and retain end-of-contract notices.
+          Ofcom says broadband contracts are commonly 12, 18 or 24 months and an early exit may
+          attract a charge, so match the term to the intended operating model.
+        </p>
+        <p>
+          If tenants hold the contract, the named customer should follow the provider&apos;s moving or
+          cancellation process and return any required equipment. Do not assume a new occupier can
+          take over another person&apos;s account. Confirm the provider&apos;s process early enough to avoid
+          an unwanted cancellation, overlapping order or gap in service.
+        </p>
+
+        <h2>Landlord and HMO broadband checklist</h2>
+        <ol>
+          <li>Check the HMO definition, licensing position and any local licence conditions.</li>
+          <li>Choose who holds the broadband contract and state who pays in the tenancy agreement.</li>
+          <li>Check address-level availability and compare the total contract cost and support.</li>
+          <li>Obtain all permissions and agree the installation route in writing.</li>
+          <li>Plan router, cabling, access points and secure administration.</li>
+          <li>Test every occupied and shared area under realistic simultaneous use.</li>
+          <li>Record fault reporting, equipment ownership and tenant handover steps.</li>
+          <li>Review the package before the contract ends or the occupancy model changes.</li>
+        </ol>
+      </>
+    ),
+    faqs: [
+      {
+        question: 'Does a landlord have to provide broadband in an HMO?',
+        answer: 'Not automatically merely because the property is an HMO. Broadband responsibility normally depends on the tenancy agreement and any promises made to occupiers. If broadband is included, state who holds the account, how the cost is covered and who handles faults. Check the property\'s licence conditions and local council requirements separately because HMO rules vary.',
+      },
+      {
+        question: 'Who should pay for broadband in a rented property?',
+        answer: 'Either the landlord or tenants can pay, depending on the tenancy arrangement. A landlord-managed service often suits room-by-room HMOs because it can continue between occupiers. Joint tenants may prefer their own account and package. In England, government guidance says any broadband cost included in rent or charged separately should be set out in the tenancy terms.',
+      },
+      {
+        question: 'What broadband speed does an HMO need?',
+        answer: 'There is no reliable speed based only on the number of tenants. Count likely simultaneous video calls, streams, games and uploads, then check the expected download and upload speeds at the exact address. Wi-Fi coverage also matters: test every bedroom and shared space under normal load and plan access points or Ethernet where one router is insufficient.',
+      },
+      {
+        question: 'Do tenants need landlord permission to install broadband?',
+        answer: 'They may do if installation changes the property, requires new external cabling or affects communal areas. Virgin Media says a rented home without an existing connection may need landlord permission. The tenancy can also restrict alterations, while a flat may involve a freeholder or managing agent. Obtain written approval for the cable route and equipment position before the appointment.',
+      },
+      {
+        question: 'Should a landlord hold the broadband account for an HMO?',
+        answer: 'It can be the cleaner option when broadband is included and individual room tenancies change at different times. The landlord then controls renewals, faults and equipment, but also carries responsibility to the provider. Use a durable management email, restrict account access, document the service offered and plan how residents report problems without sharing administration credentials.',
+      },
+    ],
+  },
+
+  'leased-line-cost-uk-explained': {
+    body: (
+      <>
+        <p className="text-lg">
+          <strong>There is no universal UK leased line price.</strong> Providers build quotes for
+          a particular address, bandwidth and term. Published figures are useful for setting an
+          initial budget, but only a site-specific written quote can show what a small business
+          will actually pay.
+        </p>
+
+        <div className="rounded-xl border border-amber-200 bg-amber-50 p-5">
+          <p className="mb-0 text-sm">
+            <strong>Price check:</strong> provider offers and independent estimates on this page
+            were verified on 16 August 2026. They use different locations, speeds and contract
+            assumptions, so we report them separately and do not calculate a combined average.
+            Confirm VAT, installation, annual changes and the full order terms before signing.
+          </p>
+        </div>
+
+        <h2>Current leased line price examples</h2>
+        <p>
+          The examples below are not like-for-like quotes. BT&apos;s entry figure applies to a
+          restricted bandwidth and long term, while Virgin Media Business publishes starting
+          prices for named symmetric speeds. Availability and installation remain subject to the
+          provider&apos;s checks.
+        </p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm border-collapse">
+            <caption className="pb-3 text-left text-sm text-slate-600">
+              Advertised provider examples checked on 16 August 2026. Prices are starting points,
+              not a quotation for every UK premises.
+            </caption>
+            <thead>
+              <tr className="bg-slate-50">
+                {['Provider', 'Published monthly price', 'What the published offer says', 'Important limit'].map((heading) => (
+                  <th scope="col" key={heading} className="text-left px-4 py-3 border border-slate-200 font-semibold text-slate-700">{heading}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                ['BT Business BTnet', 'From £245', '30Mbps or 50Mbps over a 1Gbps service', '60-month term; wires-only price; installation subject to survey'],
+                ['Virgin Media Business DIA', 'From £312', '100Mbps upload and download', 'New service only; address check and legal terms apply'],
+                ['Virgin Media Business DIA', 'From £332', '500Mbps upload and download', 'New service only; address check and legal terms apply'],
+                ['Virgin Media Business DIA', 'From £358', '1Gbps upload and download', 'New service only; address check and legal terms apply'],
+              ].map(([provider, price, offer, limit]) => (
+                <tr key={`${provider}-${offer}`} className="border-b border-slate-100 hover:bg-slate-50">
+                  <td className="px-4 py-3 font-semibold text-slate-900">{provider}</td>
+                  <td className="px-4 py-3 text-slate-700">{price}</td>
+                  <td className="px-4 py-3 text-slate-700">{offer}</td>
+                  <td className="px-4 py-3 text-slate-600">{limit}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Business telecoms prices are often presented without VAT, but the visible leased-line
+          offer must be checked with its order summary and legal terms. Ask the supplier to state
+          the monthly amount both excluding and including VAT, even if the business expects to
+          recover VAT.
+        </p>
+
+        <h2>Why independent price guides disagree</h2>
+        <p>
+          Independent guides can help with early budgeting, but their populations and methods are
+          not interchangeable. AMVIA&apos;s August 2026 guide reports indicative fully managed,
+          symmetric prices by area and includes especially low on-net offers. Selectra&apos;s August
+          2026 guide gives broader typical SME estimates excluding VAT. We have not combined them.
+        </p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm border-collapse">
+            <thead>
+              <tr className="bg-slate-50">
+                {['Source and population', '100Mbps monthly estimate', '1Gbps monthly estimate', 'Stated basis'].map((heading) => (
+                  <th scope="col" key={heading} className="text-left px-4 py-3 border border-slate-200 font-semibold text-slate-700">{heading}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border-b border-slate-100">
+                <td className="px-4 py-3 font-semibold text-slate-900">AMVIA, location bands</td>
+                <td className="px-4 py-3 text-slate-700">£69 to £234 in London; £69 to £318 in major cities; up to £320+ in its rural band</td>
+                <td className="px-4 py-3 text-slate-700">£129 to £450 urban; up to £650 in its rural band</td>
+                <td className="px-4 py-3 text-slate-600">Indicative on-net, fully managed symmetric lines; installation quoted separately</td>
+              </tr>
+              <tr className="border-b border-slate-100">
+                <td className="px-4 py-3 font-semibold text-slate-900">Selectra, typical UK SME range</td>
+                <td className="px-4 py-3 text-slate-700">£200 to £400</td>
+                <td className="px-4 py-3 text-slate-700">£350 to £700</td>
+                <td className="px-4 py-3 text-slate-600">Indicative 2026 monthly prices excluding VAT</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          The gap is evidence that &ldquo;average leased line cost&rdquo; needs a methodology, not that
+          one source should be silently preferred. A business in an on-net city building may see
+          an unusually low offer, while a site needing new construction can cost much more.
+        </p>
+
+        <h2>What changes the quote at your premises?</h2>
+        <ul>
+          <li><strong>Network reach:</strong> the closer suitable provider infrastructure is to the building, the less new work may be needed.</li>
+          <li><strong>Committed bandwidth:</strong> compare the guaranteed usable speed, not only the capacity of the bearer carrying it.</li>
+          <li><strong>Contract term:</strong> a longer commitment can reduce monthly rental or installation cost but increases the cost of changing plans or moving.</li>
+          <li><strong>Construction:</strong> new ducting, fibre routes, wayleaves and work beyond a standard installation can create excess construction charges.</li>
+          <li><strong>Service design:</strong> managed routers, firewalls, IP addresses, monitoring and backup circuits can sit outside the basic access price.</li>
+          <li><strong>Support:</strong> response or repair commitments, service credits and support hours differ between contracts.</li>
+        </ul>
+
+        <h2>Installation cost and excess construction charges</h2>
+        <p>
+          A low or waived standard installation charge does not necessarily cap the build cost.
+          The provider may survey the premises after an order and identify extra civil engineering,
+          cabling or permissions. AMVIA&apos;s guide estimates £500 to £2,000 for standard installation
+          in its dataset and says some providers waive this on 36 to 60-month terms. Treat that as
+          its market estimate, not a limit on an individual site.
+        </p>
+        <p>
+          Ask what happens if the survey finds excess construction charges. The quote should say
+          who pays, when the business can cancel, whether a wayleave is needed, what temporary
+          service is available and whether the contract starts before or after the circuit is live.
+        </p>
+
+        <h2>What you are paying for</h2>
+        <p>
+          Ofcom defines a leased line as a dedicated, symmetrical and uncontended private
+          connection. Dedicated capacity and equal upload and download speeds distinguish it from
+          ordinary broadband, but the commercial benefit depends on the contract. Ofcom also notes
+          that a stronger service level usually costs more and that an SLA is the provider&apos;s
+          contractual quality commitment.
+        </p>
+        <p>
+          Read the SLA rather than relying on the word &ldquo;guaranteed&rdquo;. Check availability targets,
+          fault measurement, response and fix commitments, exclusions, service credits and the
+          process for claiming them. A target or credit does not prevent downtime, so a business
+          that cannot operate offline may still need a genuinely independent backup connection.
+        </p>
+
+        <h2>Is a leased line worth it for a small business?</h2>
+        <p>
+          It can be worth the premium when lost connectivity would stop trading, when large uploads
+          or cloud backups need predictable symmetric capacity, or when the business requires a
+          specific repair commitment. It is harder to justify for a small office whose work can
+          continue briefly on mobile backup and whose address has fast business FTTP at a much lower
+          monthly cost.
+        </p>
+        <p>
+          Put a realistic hourly cost on an outage and list the workloads that need guaranteed
+          bandwidth. Then compare a leased line with business FTTP plus a tested backup. There is no
+          universal winner: the leased line buys dedicated performance and contractual support,
+          while FTTP can buy far more headline speed per pound where shared capacity and its support
+          terms are acceptable.
+        </p>
+
+        <h2>How to compare leased line quotes</h2>
+        <ol>
+          <li>Give every supplier the same service address, required committed speed and target go-live date.</li>
+          <li>Ask for the bearer size and committed bandwidth as separate figures.</li>
+          <li>Record monthly rental excluding and including VAT, setup fees and any annual price change.</li>
+          <li>Request the survey, wayleave and excess construction charge process in writing.</li>
+          <li>Compare contract length, notice, early termination and premises-move terms.</li>
+          <li>Compare the SLA definitions, exclusions, service credits and support hours.</li>
+          <li>Price required equipment, IP addresses, security, monitoring and backup separately.</li>
+          <li>Calculate the full committed cost and keep uncertain construction charges outside the total until confirmed.</li>
+        </ol>
+      </>
+    ),
+    faqs: [
+      {
+        question: 'How much does a leased line cost in the UK?',
+        answer: 'There is no reliable universal price. In August 2026, BT advertised an entry BTnet configuration from £245 a month on a 60-month term, while Virgin Media Business showed 100Mbps from £312. Independent guides publish wider and sometimes much lower ranges using different assumptions. Obtain written quotes for the exact premises and compare VAT, installation and contract terms separately.',
+      },
+      {
+        question: 'How much is a 100Mbps leased line?',
+        answer: 'Virgin Media Business advertised symmetric 100Mbps from £312 a month when checked on 16 August 2026. Independent estimates differed: Selectra suggested £200 to £400 excluding VAT, while AMVIA reported location bands starting at £69 and reaching £320 or more. These populations and methodologies differ, so they should not be averaged or treated as a quote for your address.',
+      },
+      {
+        question: 'Does leased line pricing include installation and VAT?',
+        answer: 'Not necessarily. Business prices are often shown excluding VAT, and a starting monthly price may omit installation, managed equipment and excess construction work. Ask for monthly and one-off amounts both excluding and including VAT. The written quote should also explain what happens after the site survey, who pays excess construction charges and whether standard installation is waived only on a longer contract.',
+      },
+      {
+        question: 'Why is a leased line more expensive than business broadband?',
+        answer: 'A leased line provides dedicated, uncontended capacity with equal upload and download speeds, then adds business support and a contractual service level. Standard broadband normally shares network capacity and can have much slower uploads or different repair terms. The premium is worthwhile only if those differences solve an operational risk or workload that cheaper business FTTP and a tested backup cannot handle adequately.',
+      },
+      {
+        question: 'Is a leased line worth it for a small business?',
+        answer: 'It depends on the cost of downtime and the need for guaranteed symmetric bandwidth. A leased line can suit a firm that relies on cloud systems, large uploads, internet calls or customer transactions and needs a specific repair commitment. If ordinary business FTTP meets the workload and a mobile backup keeps essential work running, that combination may offer better value. There is no universal winner.',
+      },
+    ],
+  },
+  'starlink-vs-fibre-broadband-uk': {
+    body: (
+      <>
+        <p className="text-lg">
+          <strong>Our verdict:</strong> choose broadband over Openreach Full Fibre when it is
+          available with a suitable package at your address. It normally offers the better fixed
+          connection and a choice of retail providers. Choose Starlink when a rural or isolated
+          property cannot get adequate fixed broadband and you have a clear place to install and
+          power the dish. There is no universal winner.
+        </p>
+
+        <div className="rounded-xl border border-amber-200 bg-amber-50 p-5">
+          <p className="mb-0 text-sm">
+            <strong>Information check:</strong> service plans, network availability and regulator
+            evidence on this page were verified on 16 August 2026. Starlink plans and performance
+            vary by location. Openreach availability and the packages sold over its network vary by
+            address and retail provider. Check both services for the complete property address.
+          </p>
+        </div>
+
+        <h2>Starlink and Openreach compared at a glance</h2>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm border-collapse">
+            <thead>
+              <tr className="bg-slate-50">
+                {['Question', 'Starlink', 'Broadband over Openreach'].map((heading) => (
+                  <th scope="col" key={heading} className="text-left px-4 py-3 border border-slate-200 font-semibold text-slate-700">{heading}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                ['How it reaches the home', 'Low Earth orbit satellites and a dish at the property', 'Copper, part-fibre or Full Fibre cable, depending on the address'],
+                ['Best fit', 'Hard-to-reach homes without adequate fixed broadband', 'Most homes where a suitable fixed package is available'],
+                ['Provider relationship', 'Starlink supplies the service and equipment', 'A retail provider sells and supports service over Openreach infrastructure'],
+                ['Main installation constraint', 'Clear view of the sky and a suitable powered mounting position', 'A usable network route and any required engineer installation'],
+                ['Performance caveat', 'Varies with plan, location, congestion and obstructions', 'Varies with access technology, ordered tier, provider and home network'],
+              ].map(([question, starlink, openreach]) => (
+                <tr key={question} className="border-b border-slate-100">
+                  <td className="px-4 py-3 font-semibold text-slate-900">{question}</td>
+                  <td className="px-4 py-3 text-slate-700">{starlink}</td>
+                  <td className="px-4 py-3 text-slate-700">{openreach}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <h2>First, Openreach is not a retail broadband provider</h2>
+        <p>
+          Openreach builds and maintains infrastructure used by hundreds of communications
+          providers. You buy the package from a retail provider, which sets the price, speed tier,
+          contract, router and customer support. A useful comparison therefore starts with
+          Starlink against the specific Openreach-based packages available at your address, not
+          Starlink against one imaginary Openreach tariff.
+        </p>
+        <p>
+          The access technology matters too. Openreach Full Fibre, also called FTTP, runs fibre to
+          the premises. FTTC uses fibre to the street cabinet and copper for the final section,
+          while standard broadband uses more copper. Do not treat all three as equivalent.
+        </p>
+
+        <h2>Speed and latency</h2>
+        <p>
+          Starlink&apos;s current specifications say users typically experience downloads from 45 to
+          280Mbps, with a majority above 100Mbps. Its plan-specific expected ranges differ, and the
+          company warns that actual performance can fall at busy times. Ofcom separately reported
+          that Starlink submitted UK averages of about 210Mbps download and 20Mbps upload for 2025.
+          That operator-submitted average covers active connections, so it should not be treated as
+          a guaranteed speed for a new customer or combined with Starlink&apos;s plan ranges.
+        </p>
+        <p>
+          Openreach says its Full Fibre network supports retail download tiers up to 1,600Mbps,
+          while FTTC reaches up to 76Mbps. Those are technology capabilities, not the speed every
+          provider sells or every customer receives. Full Fibre is generally the stronger option
+          for consistent, high-capacity service and latency-sensitive gaming or calls. Starlink&apos;s
+          Low Earth orbit design performs far better than older satellite systems, but its radio
+          path, shared capacity and changing satellite connection add variability.
+        </p>
+
+        <h2>Availability in rural and hard-to-reach areas</h2>
+        <p>
+          This is where Starlink can change the decision. Ofcom&apos;s spring 2026 snapshot found that
+          39,000 UK premises could not get decent broadband from a fixed line or fixed wireless
+          network. It also said lower-priced Starlink plans had reduced the number unable to access
+          an affordable decent service to about 4,000. That is evidence for satellite&apos;s role in
+          filling fixed-network gaps, not evidence that every premises can order every Starlink
+          plan.
+        </p>
+        <p>
+          Ofcom reported full fibre from all networks at 24.9 million residential premises, or 82%
+          of UK homes, as of January 2026. Openreach separately reports the footprint of its own
+          network and rollout target. These figures use different network populations and must not
+          be combined. Run the Openreach fibre checker, the Ofcom checker and Starlink&apos;s address
+          check before comparing packages.
+        </p>
+
+        <h2>Installation, weather and power</h2>
+        <p>
+          Starlink requires an unobstructed view of the sky. Trees, buildings and unsuitable
+          mounting positions can interrupt service, so inspect the site with Starlink&apos;s app before
+          ordering. The dish and router also need electricity. Starlink describes its equipment as
+          weather resilient, but that does not remove the need for a secure installation or make a
+          power cut harmless.
+        </p>
+        <p>
+          Openreach Full Fibre normally requires fibre to be brought into the property and an
+          optical network terminal installed inside. The router and terminal also need power.
+          Where the fibre route already exists, installation may be straightforward; a new overhead
+          or underground route can require an engineer and permission from a landlord or landowner.
+        </p>
+
+        <h2>Price and contract comparison</h2>
+        <p>
+          On 16 August 2026, Starlink listed UK Residential plans at £40 for a 100Mbps-capped plan,
+          £60 for a 200Mbps-capped plan and £80 for Residential Max, with the lower tiers available
+          only in selected areas. Hardware purchase, rental and activation options can differ at
+          checkout. These are dated Starlink examples, not a permanent national price table.
+        </p>
+        <p>
+          There is no single Openreach price because retail providers compete over the network.
+          Compare the full minimum-term cost, setup charge, scheduled price changes, minimum speed
+          information, router and support terms for each live offer. Then add Starlink&apos;s equipment,
+          mounting and electricity requirements to its service cost before deciding.
+        </p>
+
+        <h2>When Starlink makes sense</h2>
+        <ul>
+          <li>The fixed-line estimate at the property is inadequate for the household&apos;s needs.</li>
+          <li>No suitable full-fibre or fixed-wireless service is available within the required timeframe.</li>
+          <li>The dish can maintain a clear sky view from a safe, permitted mounting point.</li>
+          <li>The household accepts variable performance and has a plan for power cuts.</li>
+          <li>A second, independent connection would materially improve resilience.</li>
+        </ul>
+
+        <h2>When Openreach Full Fibre is the better choice</h2>
+        <ul>
+          <li>A suitable FTTP package is already orderable at the address.</li>
+          <li>Low and consistent latency matters for calls, gaming or remote interactive work.</li>
+          <li>The household needs a faster tier or regularly moves large uploads and downloads.</li>
+          <li>You value a choice of retail providers, contracts and bundled services.</li>
+          <li>A fixed installation is practical and the retail provider&apos;s support terms meet your needs.</li>
+        </ul>
+
+        <h2>Final verdict</h2>
+        <p>
+          There is no universal winner, but there is a sensible order of checks. If Openreach Full
+          Fibre is available, compare its live retail packages first because a wired FTTP service
+          is usually the better everyday connection. If the address is left with slow copper or no
+          adequate fixed option, assess Starlink&apos;s address-level plan, total equipment cost and sky
+          view. Satellite is most compelling as a solution to an access problem, not as an automatic
+          replacement for good full fibre.
+        </p>
+      </>
+    ),
+    faqs: [
+      {
+        question: 'Is Starlink better than Openreach broadband?',
+        answer: 'Not universally. Openreach Full Fibre is usually the stronger default where a suitable retail package is available because it offers a fixed wired connection, higher potential speed tiers and provider choice. Starlink can be better at a rural or isolated property limited to slow copper or no adequate fixed broadband, provided the dish has a clear view of the sky.',
+      },
+      {
+        question: 'Is Openreach a broadband provider?',
+        answer: 'Openreach is the network company that builds and maintains cables, poles, cabinets and fibre used by many UK communications providers. You do not normally buy home broadband from Openreach. A retail provider sells the package, bills you and handles support, so compare Starlink with specific Openreach-based offers available at your address.',
+      },
+      {
+        question: 'How fast is Starlink broadband in the UK?',
+        answer: 'Starlink’s specifications list typical user downloads of 45 to 280Mbps, while plan-specific ranges and caps differ. Ofcom separately reported operator-submitted UK averages of about 210Mbps download and 20Mbps upload for 2025. Neither figure guarantees an individual line: location, plan, congestion, obstructions and time of day can change performance.',
+      },
+      {
+        question: 'Can I get Starlink where Openreach Full Fibre is unavailable?',
+        answer: 'Potentially, and this is one of Starlink’s strongest use cases. Availability still depends on Starlink accepting the service address and offering a suitable plan. You also need a safe installation point with an unobstructed view of the sky. Check fixed broadband, fixed wireless and Starlink separately before deciding that the property has no workable alternative.',
+      },
+      {
+        question: 'Does Starlink work in bad weather or during a power cut?',
+        answer: 'Starlink says its equipment is designed to withstand rain, sleet, wind and snow, but performance is not guaranteed in every condition. The dish and router require electricity, so normal service stops in a power cut unless you provide suitable backup power. Secure mounting, a clear sky view and safe cabling remain essential.',
+      },
+      {
+        question: 'Should I replace Openreach FTTC with Starlink?',
+        answer: 'Compare the address-specific FTTC estimate and measured performance with Starlink’s live plan and total cost. Starlink may provide a useful uplift where a long copper line is slow, but performance varies and equipment is required. Also check whether Openreach Full Fibre or another fixed network is planned, because FTTP will usually be the stronger long-term option when available.',
+      },
+    ],
+  },
+  'january-broadband-deals-uk': {
+    body: (
+      <>
+        <p className="text-lg">
+          <strong>January broadband deals are worth comparing, but January is not automatically
+          the cheapest month to switch.</strong> Start with your contract status and the offers
+          available at your address. The right deal has a suitable speed and a lower whole-term
+          cost after fees and stated price changes, not simply a low first-month figure or a
+          new-year label.
+        </p>
+
+        <div className="rounded-xl border border-amber-200 bg-amber-50 p-5">
+          <p className="mb-0 text-sm">
+            <strong>Seasonal information:</strong> this guide was checked on 21 August 2026 and
+            does not present expired January promotions as live offers. Prices, rewards and
+            availability can change by date and postcode. Recheck every amount and contract term
+            with the provider before ordering.
+          </p>
+        </div>
+
+        <h2>Are broadband deals better in January?</h2>
+        <p>
+          There is no dependable evidence that January produces the lowest broadband price for
+          every household. Providers run promotions throughout the year, while address-level
+          availability, contract timing and retention offers can matter more than the month. Treat
+          a January sale as an invitation to compare, not proof that a deal is exceptional.
+        </p>
+        <p>
+          January may still be convenient if a contract has just ended, a household is reviewing
+          its budget or an end-of-contract notification shows a higher future price. Ofcom requires
+          providers to send that notification between 10 and 40 days before the minimum term ends
+          and include the end date, future price and the provider&apos;s best available deals.
+        </p>
+
+        <h2>Check whether you can switch without an exit fee</h2>
+        <p>
+          Confirm the minimum-term end date in your account, contract or provider notification.
+          Leaving early can trigger an early termination charge, which may exceed the saving from
+          a new offer. Ask the current provider for the exact charge rather than estimating it from
+          the number of months remaining.
+        </p>
+        <p>
+          If the minimum term has ended, compare a renewal with offers from other providers. Ofcom&apos;s
+          2026 pricing report found a gap between promoted in-contract prices and out-of-contract
+          list prices for the household bundles it analysed. That evidence supports acting at
+          contract end, but it is not a January-only saving and should not be converted into a
+          universal discount for an individual bill.
+        </p>
+
+        <h2>Compare the total contract cost</h2>
+        <p>
+          Calculate what you will pay across every month of the minimum term. Since 17 January
+          2025, a new broadband contract cannot use an inflation-linked or percentage-based
+          in-contract price-rise term. If a provider includes a specified rise, Ofcom requires it
+          to show the increase clearly in pounds and pence and say when it applies.
+        </p>
+        <p>
+          Provider policies still differ. For example, BT and Plusnet publish their own annual
+          increase rules and the amount can depend on when a customer joined or renewed. These are
+          separate provider terms, not a market average. Read the contract summary shown for the
+          exact package at checkout.
+        </p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm border-collapse">
+            <thead>
+              <tr className="bg-slate-50">
+                {['Cost item', 'What to record', 'Common mistake'].map((heading) => (
+                  <th scope="col" key={heading} className="text-left px-4 py-3 border border-slate-200 font-semibold text-slate-700">{heading}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                ['Monthly payments', 'Each monthly price before and after any scheduled rise', 'Multiplying the introductory price by the full term'],
+                ['One-off charges', 'Setup, activation, delivery and installation', 'Ignoring a fee because it is paid separately'],
+                ['Rewards', 'Only guaranteed credit, cashback or vouchers you can claim', 'Treating a conditional reward as cash already received'],
+                ['Leaving costs', 'Exact early termination charge from the current provider', 'Assuming the new provider will pay it'],
+                ['After the term', 'The price and notice rules once the minimum term ends', 'Letting the service roll on without a reminder'],
+              ].map(([item, record, mistake]) => (
+                <tr key={item} className="border-b border-slate-100">
+                  <td className="px-4 py-3 font-semibold text-slate-900">{item}</td>
+                  <td className="px-4 py-3 text-slate-700">{record}</td>
+                  <td className="px-4 py-3 text-slate-600">{mistake}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Match the deal to your address and household</h2>
+        <p>
+          Enter the full address or postcode before comparing. The same provider may offer
+          different technologies and speeds from one street to the next. Use the personalised
+          download and upload estimate, minimum speed information and installation requirements,
+          rather than assuming the maximum speed in an advert is available to the property.
+        </p>
+        <ul>
+          <li><strong>Light use:</strong> browsing, email and one or two streams need less capacity than a busy shared home.</li>
+          <li><strong>Home working:</strong> check upload speed, Wi-Fi coverage and support as well as downloads.</li>
+          <li><strong>Gaming:</strong> stable latency and reliability can matter more than the highest headline speed.</li>
+          <li><strong>Large households:</strong> allow for simultaneous streams, calls, downloads and connected devices.</li>
+        </ul>
+
+        <h2>New customer deal or renewal offer?</h2>
+        <p>
+          Compare both. A renewal can avoid an installation and keep the existing equipment, while
+          switching may produce a lower price, faster technology or better terms. Ask the current
+          provider to put its renewal offer in writing, then compare it with the same speed range
+          and contract length elsewhere. Do not value convenience at zero, but do not accept a
+          loyalty price without checking the market.
+        </p>
+        <p>
+          MoneyHelper recommends looking beyond short promotions and considering longer-term cost,
+          speed, usage, contract length and fees. Its consumer guidance and Ofcom&apos;s regulatory
+          evidence use different approaches, so neither is turned into a combined score here.
+        </p>
+
+        <h2>How to switch after choosing a deal</h2>
+        <ol>
+          <li>Save the offer page and contract summary, including all prices and the advertised reward terms.</li>
+          <li>Check the activation date and do not separately cancel the old broadband unless instructed.</li>
+          <li>Under One Touch Switch, contact the new provider and let it coordinate the broadband move.</li>
+          <li>Read the switching notice from the old provider, including any exit charge and services affected.</li>
+          <li>Return rented equipment by the stated deadline and keep proof of postage.</li>
+          <li>Check the first and final bills, then set a reminder before the new minimum term ends.</li>
+        </ol>
+        <p>
+          One Touch Switch covers moves between different fixed networks, but bundled television,
+          mobile or other services may need separate action. Confirm what will be cancelled before
+          approving the switch.
+        </p>
+
+        <h2>January broadband deal checklist</h2>
+        <ul>
+          <li>Is the current minimum term over, and is any exit charge confirmed?</li>
+          <li>Is the advertised package actually available at the full address?</li>
+          <li>Does the estimated speed suit the household, including uploads and simultaneous use?</li>
+          <li>What is the total minimum-term cost after stated price rises and one-off fees?</li>
+          <li>Are cashback, bill credit or vouchers guaranteed, and what must you do to claim them?</li>
+          <li>What will the service cost after the minimum term?</li>
+          <li>Will linked phone, TV, mobile or email services be affected?</li>
+        </ul>
+
+        <h2>Bottom line</h2>
+        <p>
+          A January promotion is worthwhile only when it beats the realistic alternatives for the
+          address after every cost and contract condition is counted. If the existing minimum term
+          has ended, compare now rather than paying an out-of-contract price through inertia. If an
+          exit fee remains, calculate whether waiting is cheaper. There is no universal best month
+          or provider, only the best supported choice for the household at the time it can switch.
+        </p>
+      </>
+    ),
+    faqs: [
+      {
+        question: 'Are broadband deals cheaper in January?',
+        answer: 'Not necessarily. Providers promote broadband at different times, and the cheapest option depends on your address, required speed, contract status and total minimum-term cost. January is a useful reminder to compare, especially if your contract has ended, but a new-year label does not prove that an offer is cheaper than deals available in other months.',
+      },
+      {
+        question: 'Should I wait until January to switch broadband?',
+        answer: 'Do not wait solely for the calendar if you are already paying an expensive out-of-contract price. Compare live offers and your provider’s renewal terms now. If you are still in a minimum term, check the exact early termination charge and compare it with the potential saving. Your contract end date usually matters more than waiting for a January promotion.',
+      },
+      {
+        question: 'How do I compare January broadband deals fairly?',
+        answer: 'Use offers available at your address and compare the same speed needs over the full minimum term. Add every monthly payment, stated pounds-and-pence price rise, setup and delivery fee, then subtract only guaranteed rewards. Check the post-contract price, estimated speeds and exit terms separately. A low introductory price alone does not establish the best-value deal.',
+      },
+      {
+        question: 'Can I switch broadband if I am still in contract?',
+        answer: 'You can, but the current provider may charge an early termination fee. Check your contract end date and ask for the exact leaving cost before ordering. Compare that charge with the saving over the new deal’s term. Do not assume a new provider will reimburse it unless the offer terms explicitly say so and you meet every condition.',
+      },
+      {
+        question: 'Does One Touch Switch apply to January broadband deals?',
+        answer: 'Yes. The switching process does not depend on the month or promotion. For a move between fixed broadband providers, you normally contact the new provider and it coordinates the switch. Read both providers’ notices carefully because linked television, mobile or other services may not all be cancelled automatically, and rented equipment may need to be returned.',
+      },
+    ],
+  },
 }
 
 export default async function GuidePage({

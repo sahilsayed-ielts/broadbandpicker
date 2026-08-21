@@ -1,0 +1,26 @@
+{
+  "generated": "2026-08-21",
+  "slug": "guides/january-broadband-deals-uk",
+  "url": "https://broadbandpicker.co.uk/guides/january-broadband-deals-uk",
+  "title": "January broadband deals UK: new-year switching guide",
+  "cluster": "Deals & pricing",
+  "page_type": "Guide",
+  "data_file": "data/guides.ts",
+  "template": "app/guides/[slug]/page.tsx",
+  "interface": "GuideMetadata",
+  "keywords": [
+    {
+      "keyword": "january broadband deals",
+      "volume": 1300,
+      "difficulty": 28,
+      "cpc": 3.4,
+      "intent": "Seasonal commercial",
+      "role": "primary",
+      "recommended_slot": "title/excerpt",
+      "source": "Curated keyword dataset"
+    }
+  ],
+  "provider_prerequisites": [],
+  "missing_provider_prerequisites": [],
+  "brief": "/Users/sahilrafiqsayed/broadbandpicker/docs/page-build-pipeline-brief.md"
+}

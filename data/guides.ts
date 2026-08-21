@@ -513,6 +513,342 @@ export const guides: GuideMetadata[] = [
       },
     ],
   },
+  {
+    slug: 'static-ip-business-broadband-explained',
+    title: 'Static IP Business Broadband: When You Need One and How Much It Costs',
+    metaTitle: 'Static IP Business Broadband: Need and Cost Explained',
+    metaDescription: 'Learn when a business broadband static IP is necessary, what it costs, the security implications, and what to check before choosing a UK provider.',
+    publishDate: '2026-08-14',
+    updatedDate: '2026-08-14',
+    excerpt: 'Static IP business broadband is worth paying for when an external service must reliably identify or reach your office connection, such as an IP-allowlisted supplier portal, an on-site VPN gateway or remotely accessed equipment. Most firms using only cloud software, email and video calls do not need one. It may be included with a business package or sold as an add-on.',
+    readingTime: 8,
+    category: 'technology-and-speeds',
+    keyTakeaways: [
+      'Buy a static public IP for a defined technical requirement, not as a general speed, reliability or security upgrade.',
+      'Check whether the quoted address is public IPv4, whether the price excludes VAT and whether your router supports the intended setup.',
+      'A fixed address makes a service easier to find, so protect any internet-facing system with a firewall, updates and strong authentication.',
+    ],
+    sources: [
+      {
+        label: 'BT Business broadband plans and static IP pricing, verified 14 August 2026',
+        href: 'https://business.bt.com/products/broadband-and-internet/deals/?dealsPqsVersion=4',
+      },
+      {
+        label: 'BT explanation of static and dynamic IP addresses, verified 14 August 2026',
+        href: 'https://www.bt.com/help/broadband/manage-service/what-is-my-ip-address-',
+      },
+      {
+        label: 'BT Business guidance for single and multiple static IP addresses, verified 14 August 2026',
+        href: 'https://business.bt.com/help/article/how-to-assign-multiple-static-ip-addresses-smart-hub/',
+      },
+      {
+        label: 'Zen Internet business fibre product guide, verified 14 August 2026',
+        href: 'https://www.zen.co.uk/userfiles/documents/shared/site/col/fibre-broadband-package-business.pdf',
+      },
+      {
+        label: 'Broadband.co.uk independent static IP guide, verified 14 August 2026',
+        href: 'https://www.broadband.co.uk/broadband/help/what-static-ip',
+      },
+    ],
+  },
+  {
+    slug: 'student-broadband-by-university-city',
+    title: 'Student Broadband Cities Guide: Short-Term and Rolling Deals',
+    metaTitle: 'Student Broadband Cities Guide | Short-Term Deals',
+    metaDescription: 'Compare student broadband choices by UK university city, including 12-month and rolling deals, halls Wi-Fi, postcode checks and moving-day tips.',
+    publishDate: '2026-08-14',
+    updatedDate: '2026-08-14',
+    excerpt: 'This student broadband cities guide starts with your exact address, tenancy dates and whether internet is already included. For most shared houses, a 12-month student contract is the simplest fit for an academic year. Choose a rolling deal when your stay is shorter or uncertain, then compare postcode-level availability because two homes in the same university city can have different networks.',
+    readingTime: 9,
+    category: 'use-cases-and-lifestyle',
+    keyTakeaways: [
+      'Check whether halls or private accommodation already includes internet before ordering a separate service.',
+      'Match the minimum term to the tenancy and compare the full cost, including setup and any early termination charge.',
+      'Use the full accommodation postcode and address because network availability can differ between nearby buildings.',
+      'Virgin Media currently advertises 12-month student deals, while rolling options are available from some providers and at some addresses.',
+    ],
+    sources: [
+      {
+        label: 'Virgin Media student broadband deals and eligibility, verified 14 August 2026',
+        href: 'https://www.virginmedia.com/broadband/student',
+      },
+      {
+        label: 'Virgin Media rolling-contract broadband guidance, verified 14 August 2026',
+        href: 'https://www.virginmedia.com/broadband/rolling-contract',
+      },
+      {
+        label: 'Community Fibre London broadband availability, verified 14 August 2026',
+        href: 'https://communityfibre.co.uk/in-your-area/london',
+      },
+      {
+        label: 'KCOM student rolling broadband in Hull, verified 14 August 2026',
+        href: 'https://www.kcom.com/home/roll/students/',
+      },
+      {
+        label: 'CityFibre network rollout and retail-provider model, verified 14 August 2026',
+        href: 'https://cityfibre.com/about-us/rollout',
+      },
+      {
+        label: 'Ofcom broadband and mobile coverage checker, verified 14 August 2026',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/ofcom-checker',
+      },
+      {
+        label: 'Ofcom checklist for a new broadband contract, verified 14 August 2026',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/switching-provider/checklist-when-taking-out-new-phone-or-broadband-contract',
+      },
+      {
+        label: 'Ofcom Connected Nations 2025 UK report, verified 14 August 2026',
+        href: 'https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/multi-sector/infrastructure-research/connected-nations-2025/connected-nations-uk-report-2025.pdf?v=407947',
+      },
+      {
+        label: 'UCAS guide to student accommodation and included broadband, verified 14 August 2026',
+        href: 'https://www.ucas.com/article/accommodation',
+      },
+    ],
+  },
+  {
+    slug: 'small-office-broadband-setup-uk',
+    title: 'Small Office Broadband Setup: Router, Backup and Support Checklist',
+    metaTitle: 'Small Office Broadband Setup Checklist | UK Guide',
+    metaDescription: 'Plan a small office broadband setup in the UK, from connection and router placement to guest Wi-Fi, mobile backup, support terms and launch-day tests.',
+    publishDate: '2026-08-15',
+    updatedDate: '2026-08-15',
+    excerpt: 'A reliable small office broadband setup starts with an address-level availability check, a written estimate for download and upload speeds, and a router placed where Wi-Fi can reach the working area. Connect fixed equipment by Ethernet where practical, separate guest access, document support contacts and test an independent mobile backup before the office depends on the connection.',
+    readingTime: 9,
+    category: 'use-cases-and-lifestyle',
+    keyTakeaways: [
+      'Choose the connection from the office workload, expected user count and cost of downtime, then confirm availability at the full address.',
+      'Plan the wired and wireless network before installation, with Ethernet for fixed critical equipment and separate Wi-Fi for guests where supported.',
+      'Treat backup connectivity as a tested service, not just a spare device, and record its signal, data, power and failover limits.',
+      'Keep the provider support number, account details, speed estimate and fault commitments where more than one responsible person can find them.',
+    ],
+    sources: [
+      {
+        label: 'Ofcom guidance on choosing business phone and broadband services, verified 15 August 2026',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/switching-provider/choosing-a-service-and-provider',
+      },
+      {
+        label: 'Ofcom Business Broadband Code of Practice, verified 15 August 2026',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/business-broadband-cop',
+      },
+      {
+        label: 'Ofcom Wi-Fi placement and Ethernet guidance, verified 15 August 2026',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/improving-your-wifi-experience',
+      },
+      {
+        label: 'NCSC small organisations cyber security guidance, verified 15 August 2026',
+        href: 'https://www.ncsc.gov.uk/collection/small-organisations-guide-to-cyber-security',
+      },
+      {
+        label: 'NCSC guidance on backing up business data, verified 15 August 2026',
+        href: 'https://www.ncsc.gov.uk/collection/small-organisations-guide-to-cyber-security/backing-up-your-data',
+      },
+      {
+        label: 'BT Business 4G Assure setup and operating guidance, verified 15 August 2026',
+        href: 'https://business.bt.com/help/article/broadband-and-internet/4g-assure-hybrid-connect-and-complete-wi-fi/getting-started-with-4g-assure/',
+      },
+    ],
+  },
+  {
+    slug: 'broadband-for-landlords-and-hmos-uk',
+    title: 'Broadband for Landlords and HMOs: What to Set Up and Who Pays',
+    metaTitle: 'Broadband for Landlords and HMOs | UK Guide',
+    metaDescription: 'Plan broadband for a UK rental or HMO, decide who holds the contract and pays, arrange installation permission, improve Wi-Fi and manage tenant changes.',
+    publishDate: '2026-08-15',
+    updatedDate: '2026-08-15',
+    excerpt: 'Broadband for landlords and HMO properties works best when one party holds the contract, the tenancy agreement says whether the cost is included in rent, and Wi-Fi is tested in every bedroom and shared space. Landlord-managed service can simplify tenant changes, while tenant-managed broadband gives occupiers control but needs a clear installation and handover process.',
+    readingTime: 9,
+    category: 'use-cases-and-lifestyle',
+    keyTakeaways: [
+      'State in the tenancy agreement whether broadband is included, who holds the provider contract and how faults, upgrades and equipment returns are handled.',
+      'Check service availability at the complete address and get permission before work that alters the property or affects communal areas.',
+      'Design Wi-Fi for the building rather than relying on a headline line speed, then test bedrooms and shared spaces under normal load.',
+      'Keep the account, router and recovery details under controlled management so a departing tenant cannot disrupt service for everyone else.',
+    ],
+    sources: [
+      {
+        label: 'GOV.UK landlord responsibilities guidance, verified 15 August 2026',
+        href: 'https://www.gov.uk/renting-out-a-property/landlord-responsibilities',
+      },
+      {
+        label: 'GOV.UK guidance on tenancy fees, broadband costs and tenancy terms, verified 15 August 2026',
+        href: 'https://www.gov.uk/guidance/fees-you-can-charge-as-part-of-a-tenancy',
+      },
+      {
+        label: 'GOV.UK HMO definition and licensing guidance, verified 15 August 2026',
+        href: 'https://www.gov.uk/renting-out-a-property/houses-in-multiple-occupation-hmo',
+      },
+      {
+        label: 'GOV.UK private renting rights and agreed bill responsibilities, verified 15 August 2026',
+        href: 'https://www.gov.uk/private-renting/your-rights-and-responsibilities',
+      },
+      {
+        label: 'Ofcom broadband contract and early termination guidance, verified 15 August 2026',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/saving-money/in-or-out',
+      },
+      {
+        label: 'Ofcom Wi-Fi placement, mesh and Ethernet guidance, verified 15 August 2026',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/improving-your-wifi-experience',
+      },
+      {
+        label: 'Virgin Media rented-home installation and landlord permission guidance, verified 15 August 2026',
+        href: 'https://www.virginmedia.com/help/install-virgin-media',
+      },
+      {
+        label: 'BT broadband moving-home and equipment guidance, verified 15 August 2026',
+        href: 'https://www.bt.com/help/account-and-billing/moving-home/moving-home-with-bt',
+      },
+      {
+        label: 'Shelter England guidance on bills included in rent, verified 15 August 2026',
+        href: 'https://england.shelter.org.uk/housing_advice/private_renting/utility_bills_and_your_rights',
+      },
+    ],
+  },
+  {
+    slug: 'leased-line-cost-uk-explained',
+    title: 'Leased Line Cost UK: What Small Businesses Actually Pay',
+    metaTitle: 'Leased Line Cost UK: Small Business Price Guide',
+    metaDescription: 'See current UK leased line price examples, why quotes differ by address, and how small businesses can compare monthly charges, installation and SLAs.',
+    publishDate: '2026-08-16',
+    updatedDate: '2026-08-16',
+    excerpt: 'Leased line cost UK figures cannot be reduced to one reliable average. Current advertised entry prices and independent estimates range from under £100 to several hundred pounds a month, but they cover different speeds, locations and contract assumptions. A small business should budget from written quotes for its address, comparing VAT, installation, excess construction charges, service levels and the full contract term separately.',
+    readingTime: 9,
+    category: 'deals-and-pricing',
+    keyTakeaways: [
+      'There is no dependable nationwide leased line price because the address, network reach, bandwidth, contract term and installation work all affect the quote.',
+      'Keep provider offers and independent market estimates separate because their speeds, locations and contract assumptions are not directly comparable.',
+      'Compare the total committed cost, VAT treatment, installation and excess construction charges, router or managed-service fees, and SLA rather than monthly rental alone.',
+      'Standard business FTTP can be the better-value choice when dedicated bandwidth, symmetrical speeds and a stronger repair commitment are not operational requirements.',
+    ],
+    sources: [
+      {
+        label: 'BT Business BTnet leased line features and entry-price terms, verified 16 August 2026',
+        href: 'https://business.bt.com/business-broadband/dedicated-internet-access/bt-net-leased-line/',
+      },
+      {
+        label: 'Virgin Media Business Dedicated Internet Access plans and advertised prices, verified 16 August 2026',
+        href: 'https://www.virginmediabusiness.co.uk/connectivity/internet-access/leased-lines-for-business/?intcmp=nav_entmenu_dia',
+      },
+      {
+        label: 'Ofcom leased line, dedicated, symmetric, uncontended and SLA definitions, verified 16 August 2026',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/jargon-buster',
+      },
+      {
+        label: 'Ofcom guidance on choosing business connectivity and service levels, verified 16 August 2026',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/switching-provider/choosing-a-service-and-provider',
+      },
+      {
+        label: 'AMVIA 2026 leased line cost guide and location-based estimates, verified 16 August 2026',
+        href: 'https://amvia.co.uk/cost-guides/business-leased-line',
+      },
+      {
+        label: 'Selectra 2026 leased line price estimates and contract guidance, verified 16 August 2026',
+        href: 'https://selectra.co.uk/tv-broadband/guides/business/leased-lines',
+      },
+    ],
+  },
+  {
+    slug: 'starlink-vs-fibre-broadband-uk',
+    title: 'Starlink vs Openreach Broadband: When Satellite Makes Sense in the UK',
+    metaTitle: 'Starlink vs Openreach Broadband: UK Comparison',
+    metaDescription: 'Compare Starlink with broadband over the Openreach network, including speed, availability, installation, reliability and the cases where satellite makes sense.',
+    publishDate: '2026-08-16',
+    updatedDate: '2026-08-16',
+    excerpt: 'Starlink vs Openreach broadband has no universal winner. Where Openreach full fibre is available with a suitable retail package, it is usually the stronger default for speed, consistency and provider choice. Starlink makes most sense at a rural or isolated property where fixed broadband is absent or inadequate and the dish can maintain a clear view of the sky.',
+    readingTime: 8,
+    category: 'technology-and-speeds',
+    keyTakeaways: [
+      'Choose between the services available at the exact address, not national coverage claims or maximum advertised speeds.',
+      'Openreach is the network operator, so prices, contract terms, routers and support depend on the retail broadband provider you choose.',
+      'Openreach full fibre is usually the better default when available, while Starlink is most valuable where an adequate fixed connection cannot reach the property.',
+      'Starlink needs power and an unobstructed view of the sky; full fibre normally needs a cable and optical network terminal installed at the premises.',
+    ],
+    sources: [
+      {
+        label: 'Starlink UK service plans, current prices and plan limits, verified 16 August 2026',
+        href: 'https://starlink.com/gb/service-plans',
+      },
+      {
+        label: 'Starlink service specifications and expected performance ranges, verified 16 August 2026',
+        href: 'https://starlink.com/legal/documents/DOC-1470-99699-90',
+      },
+      {
+        label: 'Starlink UK availability and installation requirements, verified 16 August 2026',
+        href: 'https://starlink.com/gb/map',
+      },
+      {
+        label: 'Openreach explanation of Full Fibre technology and installation, verified 16 August 2026',
+        href: 'https://www.openreach.com/help-and-support/what-is-full-fibre',
+      },
+      {
+        label: 'Openreach network technologies, retail-provider role and speed ranges, verified 16 August 2026',
+        href: 'https://www.openreach.com/broadband-network',
+      },
+      {
+        label: 'Openreach Full Fibre availability and rollout information, verified 16 August 2026',
+        href: 'https://www.openreach.com/broadband-network/fibre-availability',
+      },
+      {
+        label: 'Ofcom Connected Nations spring 2026 coverage findings, verified 16 August 2026',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/connected-nations-update-spring-2026',
+      },
+      {
+        label: 'Ofcom Connected Nations 2025 Starlink take-up and performance context, verified 16 August 2026',
+        href: 'https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/multi-sector/infrastructure-research/connected-nations-2025/connected-nations-uk-report-2025.pdf?v=407947',
+      },
+      {
+        label: 'GOV.UK Project Gigabit explanation of satellite and full-fibre roles, verified 16 August 2026',
+        href: 'https://www.gov.uk/guidance/project-gigabit-uk-gigabit-programme',
+      },
+    ],
+  },
+  {
+    slug: 'january-broadband-deals-uk',
+    title: 'January Broadband Deals UK: New-Year Switching Guide',
+    metaTitle: 'January Broadband Deals UK: Switching Guide',
+    metaDescription: 'Compare January broadband deals safely. Check contract dates, total cost, price rises, speed and switching terms before choosing a new-year offer.',
+    publishDate: '2026-08-21',
+    updatedDate: '2026-08-21',
+    excerpt: 'January broadband deals can be worth checking if your minimum term has ended, but January is not automatically the cheapest month. Compare offers available at your address, calculate the full contract cost including stated price rises and fees, and check any early termination charge before switching. A good new-year deal is one that fits your speed needs and costs less over the whole term.',
+    readingTime: 8,
+    category: 'deals-and-pricing',
+    keyTakeaways: [
+      'January is a useful time to review broadband, but there is no reliable evidence that it is always the cheapest month to switch.',
+      'Check your contract end date and any early termination charge before treating a promotional saving as genuine.',
+      'Compare total minimum-term cost, scheduled price rises, setup fees, rewards and the price after the minimum term separately.',
+      'Use address-specific speed and availability information because a national advert does not show what your home can order.',
+    ],
+    sources: [
+      {
+        label: 'Ofcom guidance on in-contract and out-of-contract broadband, verified 21 August 2026',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/saving-money/in-or-out',
+      },
+      {
+        label: 'Ofcom guidance on telecoms price rises and pounds-and-pence rules, verified 21 August 2026',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/saving-money/telecoms-price-rises-what-are-your-rights?language=en',
+      },
+      {
+        label: 'Ofcom explanation of One Touch Switch, verified 21 August 2026',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/switching-provider/simpler-broadband-switching-is-here?language=en',
+      },
+      {
+        label: 'Ofcom 2026 pricing and consumer engagement report, verified 21 August 2026',
+        href: 'https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/multi-sector/pricing/2025/pricing-and-consumer-engagement-report.pdf?v=412887',
+      },
+      {
+        label: 'MoneyHelper guidance on comparing broadband costs and switching, verified 21 August 2026',
+        href: 'https://www.moneyhelper.org.uk/en/everyday-money/budgeting/save-money-on-your-home-phone-and-broadband',
+      },
+      {
+        label: 'BT explanation of broadband annual price changes, verified 21 August 2026',
+        href: 'https://www.bt.com/help/account-and-billing/price-changes-explained',
+      },
+      {
+        label: 'Plusnet explanation of broadband annual price changes, verified 21 August 2026',
+        href: 'https://www.plus.net/help/legal/about-annual-price-changes/',
+      },
+    ],
+  },
 ]
 
 export function getGuideBySlug(slug: string): GuideMetadata | undefined {

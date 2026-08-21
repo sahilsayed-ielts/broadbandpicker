@@ -18,6 +18,10 @@ export interface ProviderComparison {
   keyDifferences: { label: string; detail: string }[]
   faqs: { question: string; answer: string }[]
   sources: { label: string; href: string }[]
+  factSnapshot?: {
+    providerA: { fromPrice: string; maxSpeed: string; coverage: string; trustpilot: string; contract: string; setupFee: string }
+    providerB: { fromPrice: string; maxSpeed: string; coverage: string; trustpilot: string; contract: string; setupFee: string }
+  }
 }
 
 export const providerComparisons: ProviderComparison[] = [
@@ -1286,6 +1290,128 @@ export const providerComparisons: ProviderComparison[] = [
     ],
   },
   {
+    slug: 'bt-vs-plusnet',
+    providerA: 'bt',
+    providerB: 'plusnet',
+    title: 'BT vs Plusnet Broadband: Which Is Better in 2026?',
+    metaTitle: 'BT vs Plusnet Broadband 2026 | Price, Speed and Service',
+    metaDescription:
+      'Compare BT vs Plusnet broadband deals on price, speed, contract length, setup fees and customer reviews using facts verified on 15 August 2026.',
+    excerpt:
+      'BT vs Plusnet broadband is a close comparison because both offer full-fibre speeds up to 900 Mbps on 24-month deals. Plusnet has the lower verified starting price, while BT has no upfront cost and the stronger Trustpilot score in this dated snapshot. The better choice depends on the deals available at your address and which trade-offs matter to you.',
+    publishDate: '2026-08-15',
+    updatedDate: '2026-08-15',
+    bestForA: 'Households that value no upfront cost and stronger current Trustpilot feedback',
+    bestForB: 'Households seeking the lower verified starting monthly price',
+    winner:
+      'There is no universal winner. Plusnet starts cheaper in this verified snapshot, while BT has no upfront cost and a markedly stronger Trustpilot score. Check the total contract cost and the exact speeds offered at your address before choosing.',
+    intro: [
+      'BT and Plusnet advertise the same top download speed and typical 24-month term in this snapshot, so headline speed alone does not settle the comparison. Availability and speed estimates are address-specific, and the package shown after a postcode check may differ from the national headline offer.',
+      'Ofcom advises shoppers to compare the monthly price, speed, contract length, connection fees and what happens after the initial term. That approach is especially useful here because Plusnet has the lower starting monthly price but a £20 upfront charge, while BT starts higher with no upfront cost.',
+    ],
+    verdict: [
+      'Choose BT if the lack of an upfront charge and its stronger current Trustpilot rating are worth more to you than the lower starting monthly price.',
+      'Choose Plusnet if its £24.99 starting price is available at your address and the total contract cost works better for your budget after including the £20 activation fee and scheduled price changes.',
+    ],
+    keyDifferences: [
+      {
+        label: 'Price and upfront cost',
+        detail:
+          'For BT vs Plusnet broadband deals verified on 15 August 2026, BT started at £27.99 a month with no upfront cost. Plusnet started at £24.99 a month with a £20 one-off activation fee. Compare the full 24-month cost and stated annual price changes, not only the first monthly payment.',
+      },
+      {
+        label: 'Speed',
+        detail:
+          'The BT vs Plusnet broadband speed ceiling is the same in their published ranges, with both advertising packages up to 900 Mbps. Your available package and personal speed estimate depend on your address, so neither provider is automatically faster in every home.',
+      },
+      {
+        label: 'Coverage and availability',
+        detail:
+          'BT vs Plusnet broadband coverage cannot be reduced to a reliable universal percentage for an individual home. Both providers require an address check to show available technology, packages and estimated speeds, so use each postcode checker before comparing offers.',
+      },
+      {
+        label: 'Customer feedback',
+        detail:
+          'The dated Trustpilot snapshot shows BT at 4.1/5 from 35,822 reviews and Plusnet at 1.7/5 from 12,523 reviews. These are broad public-review signals rather than measures of network performance at your address, and both scores and review counts can change.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Which is cheaper, BT or Plusnet broadband?',
+        answer:
+          'Plusnet had the lower verified starting price on 15 August 2026 at £24.99 a month, compared with BT at £27.99 a month. Plusnet also showed a £20 activation fee, while BT showed no upfront cost. Compare the total cost across the full 24-month term, including stated price rises, before deciding which deal is cheaper for you.',
+      },
+      {
+        question: 'Is BT or Plusnet broadband faster?',
+        answer:
+          'Neither has a higher published maximum in this comparison. BT and Plusnet both advertised full-fibre packages up to 900 Mbps when checked on 15 August 2026. The fastest package you can order and the speed estimate you receive depend on your address, so run both postcode checks and compare the personalised results.',
+      },
+      {
+        question: 'What do BT vs Plusnet broadband reviews show?',
+        answer:
+          'The Trustpilot figures supplied for the 15 August 2026 snapshot were 4.1/5 from 35,822 reviews for BT and 1.7/5 from 12,523 reviews for Plusnet. That gives BT the stronger public-review signal at that date, but reviews reflect individual experiences and should be considered alongside Ofcom information, contract terms and local availability.',
+      },
+      {
+        question: 'Do BT and Plusnet broadband have setup fees?',
+        answer:
+          'BT advertised no upfront cost on its starting deal when verified on 15 August 2026. Plusnet advertised a £20 one-off activation fee, making the first-month total £44.99 on its £24.99 starting offer. Check the live order summary because providers can change promotions and installation requirements may vary by property.',
+      },
+      {
+        question: 'Which is better, BT or Plusnet broadband?',
+        answer:
+          'BT may suit you better if no upfront cost and the stronger current Trustpilot score are priorities. Plusnet may suit you better if its lower starting monthly price produces the better total cost for your address. There is no universal winner because availability, personal speed estimates, installation needs and package pricing vary by home.',
+      },
+    ],
+    sources: [
+      {
+        label: 'BT broadband deals, verified 15 August 2026',
+        href: 'https://www.bt.com/broadband',
+      },
+      {
+        label: 'Plusnet broadband deals, verified 15 August 2026',
+        href: 'https://www.plus.net/broadband/',
+      },
+      {
+        label: 'Plusnet broadband setup FAQs, verified 15 August 2026',
+        href: 'https://www.plus.net/broadband/general-faqs/',
+      },
+      {
+        label: 'BT Trustpilot profile, verified 15 August 2026',
+        href: 'https://uk.trustpilot.com/review/bt.com',
+      },
+      {
+        label: 'Plusnet Trustpilot profile, verified 15 August 2026',
+        href: 'https://uk.trustpilot.com/review/www.plus.net',
+      },
+      {
+        label: 'Ofcom checklist for a new broadband contract, verified 15 August 2026',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/switching-provider/checklist-when-taking-out-new-phone-or-broadband-contract',
+      },
+      {
+        label: 'Ofcom Comparing Customer Service report 2025, verified 15 August 2026',
+        href: 'https://www.ofcom.org.uk/siteassets/resources/documents/phones-telecoms-and-internet/comparing-service-quality/2025/comparing-customer-service-report-2025.pdf',
+      },
+    ],
+    factSnapshot: {
+      providerA: {
+        fromPrice: 'From £27.99/month',
+        maxSpeed: 'Up to 900 Mbps',
+        coverage: 'Check your address',
+        trustpilot: '4.1/5 from 35,822 reviews',
+        contract: '24 months',
+        setupFee: '£0 upfront',
+      },
+      providerB: {
+        fromPrice: 'From £24.99/month',
+        maxSpeed: 'Up to 900 Mbps',
+        coverage: 'Check your address',
+        trustpilot: '1.7/5 from 12,523 reviews',
+        contract: '24 months',
+        setupFee: '£20 upfront',
+      },
+    },
+  },
+  {
     slug: 'hyperoptic-vs-youfibre',
     providerA: 'hyperoptic',
     providerB: 'youfibre',
@@ -1374,6 +1500,254 @@ export const providerComparisons: ProviderComparison[] = [
       {
         label: 'BroadbandPicker methodology',
         href: 'https://broadbandpicker.co.uk/how-we-review-broadband',
+      },
+    ],
+  },
+  {
+    slug: 'ee-vs-talktalk',
+    providerA: 'ee',
+    providerB: 'talktalk',
+    title: 'EE vs TalkTalk broadband: which is better in 2026?',
+    metaTitle: 'EE vs TalkTalk Broadband 2026 | Deals, Speed and Service',
+    metaDescription:
+      'Compare EE vs TalkTalk broadband deals, speeds, coverage, contracts and customer evidence. See which provider suits your home in 2026.',
+    excerpt:
+      'EE vs TalkTalk broadband has no universal winner. TalkTalk offers the cheaper comparable entry full-fibre deal with no setup fee, while EE reaches a higher maximum speed and performs better in current broadband customer research. Choose by checking both providers at your postcode, then weighing total contract cost against the service evidence.',
+    publishDate: '2026-08-16',
+    updatedDate: '2026-08-16',
+    bestForA: 'Faster top-end packages and stronger customer evidence',
+    bestForB: 'Lower entry pricing and no setup fee',
+    winner:
+      'There is no universal winner. TalkTalk is the value pick if its £25 Full Fibre 150 offer is available at your address. EE is the stronger all-round choice if you value speeds up to 1.6 Gbps and its better results in current broadband customer research enough to pay more upfront.',
+    factSnapshot: {
+      providerA: {
+        fromPrice: '£26.99/mo',
+        maxSpeed: '1.6 Gbps',
+        coverage: 'Postcode-dependent',
+        trustpilot: '4.3/5 (all EE services)',
+        contract: '24 months',
+        setupFee: '£30',
+      },
+      providerB: {
+        fromPrice: '£25/mo',
+        maxSpeed: '900 Mbps',
+        coverage: 'Postcode-dependent',
+        trustpilot: '2.2/5 (all TalkTalk services)',
+        contract: '24 months',
+        setupFee: 'Free',
+      },
+    },
+    intro: [
+      'Both providers sell part-fibre and full-fibre services, so the package available depends on the network at your address. Compare the personalised speed estimate and minimum guaranteed speed shown during checkout, not a national headline alone.',
+      'The evidence also needs careful separation. Ofcom complaints figures measure complaints made to the regulator, Uswitch surveyed home broadband customers, and Trustpilot profiles cover wider brand experiences. We report each source on its own terms and do not combine them into a single score.',
+    ],
+    verdict: [
+      'Choose TalkTalk if Full Fibre 150 at £25 a month is available and minimising the initial and monthly cost matters most. Its advertised price rises to £29 from April 2027 and £33 from April 2028, so compare the full 24-month cost.',
+      'Choose EE if you need its 1.6 Gbps tier, prefer its WiFi 7 hardware, or put more weight on current customer evidence. EE scored 4.18 against TalkTalk\'s 3.87 in Uswitch\'s 2026 broadband survey, while Ofcom named TalkTalk the most complained-about major broadband provider in the first quarter of 2026.',
+    ],
+    keyDifferences: [
+      {
+        label: 'Pricing',
+        detail:
+          'For EE vs TalkTalk broadband deals checked on 16 August 2026, TalkTalk advertised Full Fibre 150 at £25 a month with no setup fee. EE advertised Full Fibre 100 at £26.99 a month plus £30 activation. Both use 24-month terms and publish fixed annual price increases, so compare the total contract cost as well as the opening price.',
+      },
+      {
+        label: 'Speed',
+        detail:
+          'In this EE vs TalkTalk broadband speed comparison, EE has the higher headline ceiling: up to 1.6 Gbps, compared with TalkTalk\'s 900 Mbps. Availability and actual performance remain address-specific, and the two providers advertise different upload speeds and minimum speed guarantees by package.',
+      },
+      {
+        label: 'Coverage',
+        detail:
+          'EE vs TalkTalk broadband coverage cannot be reduced safely to one national percentage. Both offer services over networks whose full-fibre footprints vary by address, and TalkTalk also sells some full-fibre packages over CityFibre. Check both postcode tools because speed tiers and network technology may differ at the same home.',
+      },
+      {
+        label: 'Customer evidence',
+        detail:
+          'Uswitch\'s December 2025 survey of more than 27,000 UK broadband decision-makers scored EE 4.18 and TalkTalk 3.87 overall. Separately, Ofcom said TalkTalk generated the most major-provider broadband complaints in January to March 2026. These findings use different methods and are not combined with Trustpilot ratings.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Which is better, EE or TalkTalk broadband?',
+        answer:
+          'Neither is better for every home. TalkTalk is currently cheaper for a comparable entry full-fibre package and charges no setup fee. EE offers a faster 1.6 Gbps top tier and stronger results in current Ofcom and Uswitch broadband evidence. Check availability first, then compare the total 24-month price and the speed guaranteed for your address.',
+      },
+      {
+        question: 'Which EE vs TalkTalk broadband deals are cheaper?',
+        answer:
+          'On 16 August 2026, TalkTalk advertised Full Fibre 150 from £25 a month with no setup fee. EE advertised Full Fibre 100 from £26.99 a month with a £30 activation fee. Both prices rise during the 24-month term, so use the providers\' checkout totals rather than judging the deal from month one alone.',
+      },
+      {
+        question: 'Is EE or TalkTalk broadband faster?',
+        answer:
+          'EE has the faster advertised maximum, with a 1.6 Gbps package against TalkTalk\'s 900 Mbps ceiling. That does not mean EE will be faster at every property. Available technology, the selected tier, the provider\'s address-specific estimate and in-home Wi-Fi conditions all affect the speed you can actually receive.',
+      },
+      {
+        question: 'What do EE vs TalkTalk broadband reviews show?',
+        answer:
+          'Broadband-specific evidence favours EE. Uswitch\'s 2026 customer survey scored EE 4.18 overall and TalkTalk 3.87, while Ofcom named TalkTalk the most complained-about major broadband provider in early 2026. Trustpilot showed 4.3 for EE and 2.2 for TalkTalk on 16 August, but those profiles cover each brand\'s wider services.',
+      },
+      {
+        question: 'Do EE and TalkTalk have the same broadband coverage?',
+        answer:
+          'Not necessarily. The providers can use overlapping wholesale networks, but their available packages, network partners and speed tiers can differ by address. TalkTalk also offers some full-fibre services over CityFibre. Enter your postcode with both providers and compare the exact connection type, speed estimate and guarantee rather than relying on a broad national coverage claim.',
+      },
+    ],
+    sources: [
+      {
+        label: 'EE broadband deals, verified 16 August 2026',
+        href: 'https://ee.co.uk/broadband',
+      },
+      {
+        label: 'TalkTalk broadband deals, verified 16 August 2026',
+        href: 'https://www.talktalk.co.uk/broadband/compare-deals',
+      },
+      {
+        label: 'TalkTalk CityFibre partnership, verified 16 August 2026',
+        href: 'https://www.talktalk.co.uk/broadband/city-fibre',
+      },
+      {
+        label: 'Ofcom broadband complaints, Q1 2026, verified 16 August 2026',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/service-quality/ofcom-telecoms-and-pay-tv-complaints-fall-to-record-low',
+      },
+      {
+        label: 'Uswitch broadband customer survey 2026, verified 16 August 2026',
+        href: 'https://www.uswitch.com/broadband/reviews/customer-survey/',
+      },
+      {
+        label: 'EE Trustpilot profile, verified 16 August 2026',
+        href: 'https://uk.trustpilot.com/review/ee.co.uk',
+      },
+      {
+        label: 'TalkTalk Trustpilot profile, verified 16 August 2026',
+        href: 'https://uk.trustpilot.com/review/www.talktalk.co.uk',
+      },
+    ],
+  },
+  {
+    slug: 'virgin-media-vs-sky',
+    providerA: 'virgin-media',
+    providerB: 'sky',
+    title: 'Virgin Media vs Sky Broadband: Which Is Better in 2026?',
+    metaTitle: 'Virgin Media vs Sky Broadband 2026 | Deals, Speed and Reviews',
+    metaDescription:
+      'Compare Virgin Media vs Sky broadband deals, speeds, coverage and customer evidence. See which provider is better for your address in 2026.',
+    excerpt:
+      'Virgin Media vs Sky broadband has no universal winner. Sky currently has the clearer entry deal and stronger Ofcom complaints-handling evidence, while Virgin Media offers up to 2 Gbps and can be cheaper through address-specific promotions. Check both providers at your postcode, then compare the available speed, full contract cost and any TV services you actually want.',
+    publishDate: '2026-08-21',
+    updatedDate: '2026-08-21',
+    bestForA: 'Up to 2 Gbps and postcode-specific promotional value',
+    bestForB: 'Clearer nationwide deals and stronger complaints-handling evidence',
+    winner:
+      'There is no universal winner. Sky is the stronger default if its £24 Full Fibre 150 offer reaches your home and service evidence matters most. Virgin Media is the better fit when its network offers a faster or cheaper address-specific package. Compare checkout totals because availability, promotional pricing and annual increases can change the result.',
+    factSnapshot: {
+      providerA: {
+        fromPrice: 'From £18.99/mo via comparison offers',
+        maxSpeed: 'Up to 2 Gbps',
+        coverage: 'Postcode-dependent',
+        trustpilot: '1.5/5, 106,014 reviews (all services)',
+        contract: 'Usually 24 months',
+        setupFee: '£0 with QuickStart',
+      },
+      providerB: {
+        fromPrice: 'From £24/mo',
+        maxSpeed: 'Up to 2.5 Gbps on listed deals',
+        coverage: '150/900 Mbps listed for 79% of UK homes',
+        trustpilot: '2.7/5, 29,785 reviews (merged, all services)',
+        contract: '24 months',
+        setupFee: '£0',
+      },
+    },
+    intro: [
+      'This matchup is not a simple cable-versus-Openreach decision everywhere. Virgin Media sells services over its own expanding cable and full-fibre footprint. Sky now lists full-fibre packages across Openreach and other network areas, with the exact speed range determined by the address. Run both postcode checks before comparing headline figures.',
+      'Price evidence also comes from different sales channels. Sky publishes a £24 Full Fibre 150 offer on its national deals page. Virgin Media asks customers to check address-specific deals, while current comparison listings show lower promotional prices at some postcodes. Those populations are reported separately rather than treated as one national price comparison.',
+    ],
+    verdict: [
+      'Choose Virgin Media if its postcode checker gives you the better total price for the speed you need, or if a Virgin-only 2 Gbps tier matters. Confirm each scheduled increase, the out-of-contract price and whether QuickStart installation is available before ordering.',
+      'Choose Sky if you prefer its clearly published £24 Full Fibre 150 or £28 Full Fibre 900 offer, want £0 setup, or give more weight to Ofcom\'s broadband complaints-handling research. Ofcom found 63% satisfaction among Sky complainants and 53% among Virgin Media complainants in its 2024 research.',
+    ],
+    keyDifferences: [
+      {
+        label: 'Deals and total cost',
+        detail:
+          'Virgin Media vs Sky broadband deals are not advertised on a directly comparable basis. Sky lists Full Fibre 150 at £24 a month and 900 Mbps at £28, both on 24-month minimum terms with prices that may change. Virgin Media comparison offers started at £18.99 when checked, but the provider requires an address check and package prices can rise during the term. Compare the full checkout schedule, not only month one.',
+      },
+      {
+        label: 'Speed',
+        detail:
+          'For Virgin Media vs Sky broadband speed, Virgin Media advertises full-fibre downloads up to 2 Gbps. Sky lists 2.5 Gbps Gigafast+ at £35 where available, alongside 150, 300 and 900 Mbps plans. Neither maximum is a nationwide promise, and the fastest useful choice is the package and guaranteed speed actually offered at your address.',
+      },
+      {
+        label: 'Coverage',
+        detail:
+          'Virgin Media vs Sky broadband coverage varies by network and tier. Sky says its 150 and 900 Mbps offers are available to 79% of UK homes, while its listed 2.5 Gbps service reaches 12%. Virgin Media does not give a single coverage percentage on the checked deals pages and directs users to its postcode checker, so no combined national coverage score is used here.',
+      },
+      {
+        label: 'Customer evidence',
+        detail:
+          'Ofcom\'s broadband-specific 2024 research found 63% of Sky complainants and 53% of Virgin Media complainants satisfied with complaint handling. Separately, the whole-brand Trustpilot profiles showed 2.7/5 for Sky and 1.5/5 for Virgin Media on 21 August 2026. Sky\'s profile is merged and both profiles cover services beyond broadband, so the figures are reported separately and not combined.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Which is better, Virgin Media or Sky broadband?',
+        answer:
+          'Neither is better for every home. Sky has clearer published entry pricing and stronger Ofcom complaints-handling evidence. Virgin Media may offer a lower promotional price or a faster suitable tier at a covered address. Check both postcodes, compare the guaranteed speed and total 24-month cost, then judge TV extras separately rather than paying for channels you will not use.',
+      },
+      {
+        question: 'Which Virgin Media vs Sky broadband deals are cheaper?',
+        answer:
+          'The answer depends on address and sales channel. Sky advertised Full Fibre 150 at £24 a month on 21 August 2026. A neutral comparison listing showed Virgin Media offers from £18.99, but that is not a universal provider-direct price. Both can apply scheduled price changes, so compare every payment shown at checkout and the price after the minimum term.',
+      },
+      {
+        question: 'Is Virgin Media or Sky broadband faster?',
+        answer:
+          'Sky lists the higher headline maximum on its current deals page, with 2.5 Gbps Gigafast+ against Virgin Media\'s advertised 2 Gbps full-fibre maximum. Those fastest tiers have limited, address-specific availability. At many homes the meaningful comparison will instead be between 150, 500 or 900 Mbps packages, including each provider\'s personal speed estimate and guarantee.',
+      },
+      {
+        question: 'What do Virgin Media vs Sky broadband reviews show?',
+        answer:
+          'Ofcom\'s broadband research favours Sky for complaint handling: 63% of Sky complainants were satisfied, compared with 53% for Virgin Media. Trustpilot showed 2.7 for Sky and 1.5 for Virgin Media on 21 August 2026, but those are whole-brand profiles, Sky\'s is merged, and neither is a controlled broadband-only survey. The results should not be combined.',
+      },
+      {
+        question: 'Does Sky or Virgin Media have better broadband coverage?',
+        answer:
+          'Sky publishes broader figures for specific offers, stating that its 150 and 900 Mbps deals are available to 79% of UK homes. Virgin Media\'s checked pages require a postcode search rather than publishing one directly comparable percentage. Availability still varies by tier and network, so enter the same address with both providers before drawing a coverage conclusion.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Virgin Media broadband deals, verified 21 August 2026',
+        href: 'https://www.virginmedia.com/broadband',
+      },
+      {
+        label: 'Virgin Media full-fibre broadband, verified 21 August 2026',
+        href: 'https://www.virginmedia.com/broadband/fibre',
+      },
+      {
+        label: 'Virgin Media broadband-only installation terms, verified 21 August 2026',
+        href: 'https://www.virginmedia.com/broadband/broadband-only',
+      },
+      {
+        label: 'Sky broadband deals, verified 21 August 2026',
+        href: 'https://www.sky.com/deals?section=broadband',
+      },
+      {
+        label: 'Ofcom Comparing Customer Service report 2025, verified 21 August 2026',
+        href: 'https://www.ofcom.org.uk/siteassets/resources/documents/phones-telecoms-and-internet/comparing-service-quality/2025/comparing-customer-service-report-2025.pdf',
+      },
+      {
+        label: 'Broadband.co.uk Virgin Media deals, verified 21 August 2026',
+        href: 'https://www.broadband.co.uk/providers/virgin-media/broadband',
+      },
+      {
+        label: 'Virgin Media Trustpilot profile, verified 21 August 2026',
+        href: 'https://www.trustpilot.com/review/www.virginmedia.com',
+      },
+      {
+        label: 'Sky Trustpilot profile, verified 21 August 2026',
+        href: 'https://www.trustpilot.com/review/www.sky.com',
       },
     ],
   },

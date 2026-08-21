@@ -33,6 +33,8 @@ import argparse
 import json
 import os
 import re
+import shutil
+import subprocess
 import time
 import urllib.parse
 import xml.etree.ElementTree as ET
@@ -60,6 +62,18 @@ USER_AGENT = (
 # https://docs.google.com/spreadsheets/d/1_IeyaXe1fSbXmV8Z4MdVOigMIz-cgK2h/edit?gid=1523609630
 DEFAULT_SOURCE_SHEET_ID = "1_IeyaXe1fSbXmV8Z4MdVOigMIz-cgK2h"
 DEFAULT_MAPPING_SHEET_ID = "1Ke0YWo5T-45JRpuXpfqL_0vwmcBbS0i06Da47quRRH0"
+DEFAULT_PRIORITY_BATCH_SIZE = 5
+PIPELINE_BRIEF = ROOT / "docs" / "page-build-pipeline-brief.md"
+PIPELINE_DIR = ROOT / "docs" / "page-build-pipeline"
+
+PAGE_ROUTES = {
+    "providers/compare/": ("data/provider-comparisons.ts", "app/providers/compare/[slug]/page.tsx", "ProviderComparison"),
+    "providers/": ("data/providers.ts", "app/providers/[slug]/page.tsx", "Provider"),
+    "guides/": ("data/guides.ts", "app/guides/[slug]/page.tsx", "GuideMetadata"),
+    "postcode/": ("bespoke", "app/postcode/london/page.tsx", "bespoke"),
+    "research/": ("bespoke", "app/research/uk-broadband-customer-satisfaction", "bespoke"),
+    "tools/": ("bespoke", "app/speed-test/page.tsx", "bespoke"),
+}
 
 
 # ---------------------------------------------------------------------------
@@ -74,7 +88,7 @@ STATIC_SITEMAP_URLS = [
     "/guides", "/speed-test", "/broadband-glossary", "/about", "/contact",
     "/how-we-make-money", "/how-we-review-broadband", "/editorial-policy",
     "/privacy-policy", "/cookie-policy", "/terms",
-    "/postcode", "/postcode/london",
+    "/postcode", "/postcode/london", "/postcode/bristol",
     "/research/uk-broadband-customer-satisfaction",
     "/guides/best-business-broadband-providers-uk",
     "/guides/best-phone-and-broadband-deals",
@@ -123,6 +137,7 @@ CLUSTER_BY_URL: dict[str, tuple[str, str]] = {
     "/broadband-glossary": ("Informational", "Glossary"),
     "/postcode": ("Postcode & location", "Availability hub"),
     "/postcode/london": ("Postcode & location", "City hub"),
+    "/postcode/bristol": ("Postcode & location", "City hub"),
     "/research/uk-broadband-customer-satisfaction": ("Trust & research", "Research dashboard"),
     "/guides/best-business-broadband-providers-uk": ("Business broadband", "Guide"),
     "/guides/best-phone-and-broadband-deals": ("Phone & bundles", "Guide"),
@@ -594,8 +609,13 @@ def build_workbook(
             row["status"] = "Existing page" if path in live_paths or not urls else "Existing page (mapped)"
             row["target_url"] = SITE + path
         elif row["gap_slug"]:
-            row["status"] = "Content gap — recommend new page"
-            row["target_url"] = f"{SITE}/{row['gap_slug']}"
+            target_path = f"/{row['gap_slug']}"
+            if target_path in live_paths:
+                row["mapped_url"] = target_path
+                row["status"] = "Existing page"
+            else:
+                row["status"] = "Content gap — recommend new page"
+            row["target_url"] = SITE + target_path
         else:
             row["status"] = "Unassigned — needs triage"
             row["target_url"] = ""
@@ -610,7 +630,7 @@ def build_workbook(
         ["Volume/CPC caveat", "Monthly search volume and CPC are directional third-party-style estimates, not Google Search Console or Google Ads data. They are not additive across variants. Re-validate in Google Ads Keyword Planner/GSC before committing budget."],
         ["Scoring", "SEO Build Priority is rankability-first: 60% inverse keyword difficulty, 20% demand, 15% intent and 5% CPC. Revenue Priority remains available as a secondary commercial signal."],
         ["Objective", "Build a defensible, evidence-led UK broadband affiliate content plan: map demand to the right page type, close content gaps in priority order, and avoid duplicate/competing pages for the same keyword."],
-        ["How to use", "Build the first non-complete page on Content Gap Roadmap. Each online run checks the live sitemap and HTTP response, moves completed pages below the active queue, labels their deployment status and strikes them through."],
+        ["How to use", "The standard production command builds up to five active pages from the top of the Content Gap Roadmap, one at a time. After each page it checks the live sitemap and HTTP response, moves completed pages below the active queue, labels their deployment status and strikes them through."],
         ["Re-run", "python3 scripts/build_keyword_mapping.py --create-google-doc --share-with <email>"],
     ]
     add_sheet(wb, "Read Me", ["Field", "Detail"], readme)
@@ -684,9 +704,12 @@ def build_workbook(
             group["max_cpc"], group["commercial_intent"],
         )
         target_url = f"{SITE}/{slug}"
+        target_path = f"/{slug}"
         page_audit = audited_by_url.get(target_url, {})
         http_status = page_audit.get("status")
-        group["complete"] = bool(http_status and 200 <= int(http_status) < 400)
+        group["complete"] = bool(
+            target_path in live_paths and http_status and 200 <= int(http_status) < 400
+        )
         if group["complete"]:
             platform = page_audit.get("platform") or "Live host"
             group["status"] = "Built, live and deployed on Vercel" if platform == "Vercel" else "Built and live"
@@ -939,6 +962,259 @@ def update_google_sheet_from_workbook(wb: Workbook, spreadsheet_id: str) -> dict
 
 
 # ---------------------------------------------------------------------------
+# 6. Gated page-build pipeline
+# ---------------------------------------------------------------------------
+
+def route_page_build(slug: str) -> tuple[str, str, str]:
+    for prefix, target in PAGE_ROUTES.items():
+        if slug.startswith(prefix):
+            return target
+    raise RuntimeError(f"No page-build route is configured for: {slug}")
+
+
+def provider_slugs_from_gap(slug: str) -> list[str]:
+    if not slug.startswith("providers/compare/"):
+        return []
+    comparison_slug = slug.rsplit("/", 1)[-1]
+    parts = comparison_slug.split("-vs-")
+    if len(parts) != 2 or not all(parts):
+        raise RuntimeError(f"Comparison slug does not follow a-vs-b: {slug}")
+    return parts
+
+
+def provider_exists(slug: str) -> bool:
+    content = (ROOT / "data" / "providers.ts").read_text(encoding="utf-8")
+    return bool(re.search(rf"\bslug:\s*['\"]{re.escape(slug)}['\"]", content))
+
+
+def template_secondary_keywords(slug: str) -> list[dict[str, Any]]:
+    providers = provider_slugs_from_gap(slug)
+    if len(providers) != 2:
+        return []
+    a, b = (provider.replace("-", " ") for provider in providers)
+    stems = [
+        (f"{a} vs {b} broadband deals", "Commercial", "keyDifferences.pricing"),
+        (f"{a} vs {b} broadband speed", "Commercial research", "keyDifferences.speed"),
+        (f"{a} vs {b} broadband reviews", "Research", "faqs"),
+        (f"{a} vs {b} broadband coverage", "Research", "keyDifferences.coverage"),
+        (f"which is better {a} or {b} broadband", "Commercial comparison", "excerpt/verdict"),
+    ]
+    return [{
+        "keyword": phrase, "volume": None, "difficulty": None, "cpc": None,
+        "intent": intent, "role": "secondary", "recommended_slot": slot,
+        "source": "Template-derived supporting query; validate in GSC/Keyword Planner",
+    } for phrase, intent, slot in stems]
+
+
+def next_page_packet(wb: Workbook, keywords: list[KeywordRow]) -> dict[str, Any]:
+    ws = wb["Content Gap Roadmap"]
+    headers = {str(cell.value): index + 1 for index, cell in enumerate(ws[1])}
+    required = {"Next Build Priority", "Recommended URL", "Page Title", "Topic Cluster", "Page Type"}
+    if missing := required - headers.keys():
+        raise RuntimeError(f"Roadmap is missing pipeline columns: {sorted(missing)}")
+    selected = None
+    for row_number in range(2, ws.max_row + 1):
+        if ws.cell(row_number, headers["Next Build Priority"]).value == 1:
+            selected = row_number
+            break
+    if selected is None:
+        raise RuntimeError("No active page remains in the Content Gap Roadmap")
+    url = str(ws.cell(selected, headers["Recommended URL"]).value)
+    slug = urllib.parse.urlparse(url).path.strip("/")
+    data_file, template, interface = route_page_build(slug)
+    mapped = [row for row in keywords if row.get("gap_slug") == slug]
+    mapped.sort(key=lambda row: (row["difficulty"], -row["volume"]))
+    providers = provider_slugs_from_gap(slug)
+    missing_providers = [provider for provider in providers if not provider_exists(provider)]
+    detailed_keywords = [{
+        "keyword": row["keyword"], "volume": row["volume"],
+        "difficulty": row["difficulty"], "cpc": row["cpc"],
+        "intent": row["intent"], "role": "primary" if index == 0 else "secondary",
+        "recommended_slot": "title/excerpt" if index == 0 else "body/faq",
+        "source": "Curated keyword dataset",
+    } for index, row in enumerate(mapped)]
+    known = {item["keyword"] for item in detailed_keywords}
+    detailed_keywords.extend(
+        item for item in template_secondary_keywords(slug) if item["keyword"] not in known
+    )
+    return {
+        "generated": RUN_DATE,
+        "slug": slug,
+        "url": url,
+        "title": ws.cell(selected, headers["Page Title"]).value,
+        "cluster": ws.cell(selected, headers["Topic Cluster"]).value,
+        "page_type": ws.cell(selected, headers["Page Type"]).value,
+        "data_file": data_file,
+        "template": template,
+        "interface": interface,
+        "keywords": detailed_keywords,
+        "provider_prerequisites": providers,
+        "missing_provider_prerequisites": missing_providers,
+        "brief": str(PIPELINE_BRIEF),
+    }
+
+
+def write_page_build_packet(packet: dict[str, Any]) -> tuple[Path, Path]:
+    PIPELINE_DIR.mkdir(parents=True, exist_ok=True)
+    packet_path = PIPELINE_DIR / "next-page.json"
+    prompt_path = PIPELINE_DIR / "next-page-prompt.md"
+    packet_path.write_text(json.dumps(packet, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    prompt = f"""# BroadbandPicker page-build task
+
+Read `{PIPELINE_BRIEF.relative_to(ROOT)}` completely and follow it as the controlling specification.
+Read `{packet_path.relative_to(ROOT)}` for the exact page, detailed keyword mapping, template route and prerequisites.
+
+Research current facts from primary provider sources plus trustworthy neutral corroboration. Record every source URL and verification date in the existing source fields. If sources use different populations or methodologies, report them separately and do not combine them into a score. A conditional verdict or an explicit "no universal winner" conclusion is valid when supported by the evidence. Never guess a winner, trust score or statistic. Stop with a clear BLOCKED report only when the page's required factual claims cannot be supported safely.
+
+If prerequisites are missing, build and validate those provider entries first, using the existing interface and sibling structure. Use only a labelled text-wordmark placeholder when no official logo asset is available.
+
+Write the page copy into the existing data file or route specified by the packet. Use natural British English. Do not use em dashes. Do not mention AI, generation, prompts or this pipeline in public copy. Avoid generic filler and keyword stuffing. Put the primary keyword in the title and standalone answer-first excerpt. Cover secondary keywords naturally in the fixed template slots. Keep factual claims attributable and useful for both search engines and generative answer engines.
+
+Do not commit, push or deploy. Run the relevant deterministic validation, including `npm run build`, and report exactly which files changed, sources used, unresolved factual questions and validation results.
+"""
+    prompt_path.write_text(prompt, encoding="utf-8")
+    return packet_path, prompt_path
+
+
+def run_codex_page_writer(prompt_path: Path) -> Path:
+    codex = shutil.which("codex")
+    if not codex:
+        raise RuntimeError("Codex CLI is required for researched page drafting")
+    result_path = PIPELINE_DIR / "last-agent-result.md"
+    # Current Codex CLI versions make --approve-for-me select the
+    # workspace-write sandbox automatically, so passing --sandbox alongside
+    # it is rejected as a conflicting option.
+    command = [
+        codex, "exec", "-C", str(ROOT), "--approve-for-me", "--ephemeral",
+        "--output-last-message", str(result_path), "-",
+    ]
+    result = subprocess.run(
+        command, input=prompt_path.read_text(encoding="utf-8"), text=True,
+        cwd=ROOT, check=False,
+    )
+    if result.returncode != 0:
+        raise RuntimeError(f"Codex page-writing stage failed with exit code {result.returncode}")
+    report = result_path.read_text(encoding="utf-8") if result_path.exists() else ""
+    if re.match(r"\s*BLOCKED\b", report, re.IGNORECASE):
+        raise RuntimeError(f"Page drafting stopped at its factual-review gate. See {result_path}")
+    return result_path
+
+
+def run_codex_google_sheet_sync(workbook_path: Path, spreadsheet_id: str) -> Path:
+    """Use the authenticated Drive connector when no service account is configured."""
+    codex = shutil.which("codex")
+    if not codex:
+        raise RuntimeError("Codex CLI is required for authenticated Google Sheet sync")
+    result_path = PIPELINE_DIR / "last-sheet-sync-result.md"
+    prompt = f"""Update the existing Google Sheet with ID `{spreadsheet_id}` from the local
+workbook `{workbook_path}`. Use the connected Google Drive/Google Sheets tools and follow the
+Google Sheets skill. Synchronise all workbook tabs in place, preserve the native Sheet and its
+table structure, apply completed-row strikethrough from the Content Gap Roadmap, and verify the
+top active roadmap row plus all completed rows after writing. Do not create a new spreadsheet.
+Do not edit local files. Return a concise success report with the Sheet URL. If authentication or
+permissions prevent the update, return BLOCKED and the exact reason.
+"""
+    command = [
+        codex, "exec", "-C", str(ROOT), "--approve-for-me", "--ephemeral",
+        "--output-last-message", str(result_path), "-",
+    ]
+    result = subprocess.run(command, input=prompt, text=True, cwd=ROOT, check=False)
+    if result.returncode != 0:
+        raise RuntimeError(f"Authenticated Google Sheet sync failed with exit code {result.returncode}")
+    report = result_path.read_text(encoding="utf-8") if result_path.exists() else ""
+    if re.match(r"\s*BLOCKED\b", report, re.IGNORECASE):
+        raise RuntimeError(f"Google Sheet sync was blocked. See {result_path}")
+    return result_path
+
+
+def validate_page_build(packet: dict[str, Any], port: int = 4321) -> None:
+    try:
+        subprocess.run(["npm", "run", "build"], cwd=ROOT, check=True)
+    except subprocess.CalledProcessError:
+        # Turbopack's CSS worker binds a loopback port during compilation and
+        # some managed runners deny that operation. Webpack is a supported
+        # Next.js production builder and provides the same TypeScript and
+        # static-generation gate without the worker-port requirement.
+        print("Turbopack build failed; retrying with the supported webpack builder")
+        subprocess.run(["npm", "run", "build", "--", "--webpack"], cwd=ROOT, check=True)
+    server = subprocess.Popen(
+        ["npm", "run", "start", "--", "-p", str(port)], cwd=ROOT,
+        stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT,
+    )
+    try:
+        local_url = f"http://127.0.0.1:{port}/{packet['slug']}"
+        response = None
+        for _ in range(30):
+            try:
+                response = requests.get(local_url, timeout=3)
+                if response.status_code:
+                    break
+            except requests.RequestException:
+                time.sleep(1)
+        if response is None or response.status_code != 200:
+            code = response.status_code if response is not None else "unreachable"
+            raise RuntimeError(f"Local route validation failed for {local_url}: {code}")
+        primary = packet["keywords"][0]["keyword"] if packet["keywords"] else ""
+        tree = html.fromstring(response.content)
+        # Validate the drafted page copy, excluding shared site chrome such as
+        # the legacy footer which may contain punctuation outside this page's
+        # editorial scope.
+        if packet["page_type"] == "Guide":
+            visible_nodes = tree.xpath(
+                "//h1//text()[normalize-space()] | "
+                "//div[contains(concat(' ', normalize-space(@class), ' '), ' prose ')]//text()[normalize-space()] | "
+                "//h2[contains(normalize-space(.), 'Frequently Asked Questions')]/following-sibling::*//text()[normalize-space()]"
+            )
+        else:
+            visible_nodes = tree.xpath("//main//text()[normalize-space()]")
+        visible = " ".join(visible_nodes)
+        if primary:
+            def keyword_tokens(value: str) -> list[str]:
+                tokens = re.findall(r"[a-z0-9]+", value.lower().replace("-", " "))
+                stopwords = {"a", "an", "and", "for", "in", "of", "the", "to", "uk"}
+                return [token[:-1] if len(token) > 3 and token.endswith("s") else token
+                        for token in tokens if token not in stopwords]
+
+            required_tokens = keyword_tokens(primary)
+            visible_tokens = set(keyword_tokens(visible))
+            if not required_tokens or not all(token in visible_tokens for token in required_tokens):
+                raise RuntimeError(f"Primary keyword is absent from rendered page: {primary}")
+        if "—" in visible:
+            raise RuntimeError("Rendered public copy contains an em dash")
+        if not tree.xpath("//h1"):
+            raise RuntimeError("Rendered page has no H1")
+        if packet["page_type"] == "Comparison page":
+            h2_text = [" ".join(node.itertext()).strip() for node in tree.xpath("//h2")]
+            expected = ["Quick Verdict", "At-a-Glance Comparison", "Key Differences",
+                        "How We Think About This Matchup", "Final Verdict", "Frequently Asked Questions",
+                        "Editorial and Source Notes"]
+            positions = [next((i for i, heading in enumerate(h2_text) if label in heading), -1)
+                         for label in expected]
+            if -1 in positions or positions != sorted(positions):
+                raise RuntimeError(f"Comparison H2 structure is incomplete or out of order: {h2_text}")
+            if len(tree.xpath("//script[@type='application/ld+json']")) < 2:
+                raise RuntimeError("Comparison page is missing expected JSON-LD blocks")
+    finally:
+        server.terminate()
+        try:
+            server.wait(timeout=10)
+        except subprocess.TimeoutExpired:
+            server.kill()
+
+
+def deploy_page_to_vercel(packet: dict[str, Any]) -> None:
+    vercel = shutil.which("vercel")
+    if not vercel:
+        raise RuntimeError("Vercel CLI is required for production deployment")
+    subprocess.run([vercel, "--prod", "--yes"], cwd=ROOT, check=True)
+    response = fetch(packet["url"], timeout=30)
+    if response.status_code != 200:
+        raise RuntimeError(f"Production route returned HTTP {response.status_code}: {packet['url']}")
+    if not response.headers.get("x-vercel-id") and "vercel" not in response.headers.get("server", "").lower():
+        raise RuntimeError("Production route is live but Vercel headers were not detected")
+
+
+# ---------------------------------------------------------------------------
 # 6. CLI
 # ---------------------------------------------------------------------------
 
@@ -953,6 +1229,20 @@ def main() -> None:
     parser.add_argument("--create-google-doc", action="store_true", help="Create a brand-new Google Sheet on Drive with the finished mapping")
     parser.add_argument("--update-google-sheet-id", default=os.environ.get("BROADBANDPICKER_MAPPING_SHEET_ID", ""),
                         help=f"Update an existing mapping Sheet in place (for this plan use {DEFAULT_MAPPING_SHEET_ID})")
+    parser.add_argument("--build-next-page", action="store_true",
+                        help="Research, draft and locally validate the next active roadmap page")
+    parser.add_argument("--build-all-priority", action="store_true",
+                        help="Build every active roadmap page in priority order, stopping on the first failure")
+    parser.add_argument("--max-priority-pages", type=int, default=DEFAULT_PRIORITY_BATCH_SIZE,
+                        help=f"Maximum pages to process with --build-all-priority (default: {DEFAULT_PRIORITY_BATCH_SIZE}; 0 means every active page)")
+    parser.add_argument("--prepare-only", action="store_true",
+                        help="Write the next-page build packet and prompt without running the Codex writer")
+    parser.add_argument("--deploy-production", action="store_true",
+                        help="After validation, deploy the drafted page to Vercel production")
+    parser.add_argument("--use-existing-draft", action="store_true",
+                        help="Skip the writing agent and validate/deploy the already human-reviewed local draft")
+    parser.add_argument("--approve-factual-review", action="store_true",
+                        help="Confirm a human reviewed winner, trust, pricing and estimated-stat claims before deployment")
     parser.add_argument("--doc-title", default=f"BroadbandPicker Keyword Mapping — {RUN_DATE}")
     parser.add_argument("--share-with", default=os.environ.get("BROADBANDPICKER_SHARE_EMAIL", ""),
                          help="Email to share the newly created Google Sheet with as Editor")
@@ -983,15 +1273,122 @@ def main() -> None:
     wb.save(args.output.resolve())
     print(f"Saved {args.output.resolve()}")
 
+    if args.build_all_priority:
+        args.build_next_page = True
+    if args.max_priority_pages < 0:
+        parser.error("--max-priority-pages cannot be negative")
+    if args.deploy_production and not args.build_next_page:
+        parser.error("--deploy-production requires --build-next-page or --build-all-priority")
+    if args.deploy_production and not args.approve_factual_review:
+        parser.error("--deploy-production requires --approve-factual-review")
+    if args.build_all_priority and not args.deploy_production:
+        parser.error("--build-all-priority requires --deploy-production so priority can advance from verified live pages")
+    if args.build_all_priority and args.use_existing_draft:
+        parser.error("--use-existing-draft cannot be combined with --build-all-priority")
+    if args.build_all_priority and args.prepare_only:
+        parser.error("--prepare-only cannot be combined with --build-all-priority")
+
+    page_packet = None
     doc_result = None
+    if args.build_next_page:
+        if not PIPELINE_BRIEF.exists():
+            raise RuntimeError(f"Missing pipeline brief: {PIPELINE_BRIEF}")
+        completed_packets: list[dict[str, Any]] = []
+        batch_limit = args.max_priority_pages if args.build_all_priority else 1
+        while not batch_limit or len(completed_packets) < batch_limit:
+            try:
+                current_packet = next_page_packet(wb, keywords)
+            except RuntimeError as exc:
+                if args.build_all_priority and "No active page remains" in str(exc):
+                    print("All active roadmap pages are built and live")
+                    break
+                raise
+            page_packet = current_packet
+            packet_path, prompt_path = write_page_build_packet(current_packet)
+            position = len(completed_packets) + 1
+            prefix = f"Priority batch page {position}" if args.build_all_priority else "Next page"
+            print(f"Prepared page-build packet: {packet_path}")
+            print(f"{prefix}: {current_packet['title']} ({current_packet['url']})")
+            if args.prepare_only:
+                break
+            if not args.use_existing_draft:
+                report_path = run_codex_page_writer(prompt_path)
+                print(f"Page writer completed: {report_path}")
+            validate_page_build(current_packet)
+            print(f"Local page validation passed: {current_packet['url']}")
+            if not args.deploy_production:
+                break
+            deploy_page_to_vercel(current_packet)
+            print(f"Vercel production validation passed: {current_packet['url']}")
+            completed_packets.append(current_packet)
+
+            refreshed_urls = get_sitemap_urls(False)
+            refreshed_audit = [
+                *[item for item in audit if item.get("url") != current_packet["url"]],
+                audit_page(current_packet["url"]),
+            ]
+            # Carry every successful page's live audit into the next batch
+            # iteration. Without this assignment, the following workbook was
+            # rebuilt from the run's original audit plus only the latest page,
+            # which could put an earlier deployment back into the active queue.
+            audit = refreshed_audit
+            wb = build_workbook(args.output.resolve(), refreshed_urls, refreshed_audit,
+                                keywords, args.source_sheet_id if not args.skip_source_sheet else None)
+            validate(wb)
+            wb.save(args.output.resolve())
+
+            # Checkpoint every successful batch deployment remotely. If a later
+            # page fails its research, build or live checks, completed work is
+            # still represented accurately in the shared roadmap.
+            if args.build_all_priority and args.update_google_sheet_id:
+                try:
+                    doc_result = update_google_sheet_from_workbook(wb, args.update_google_sheet_id)
+                    print(f"Checkpointed Google Sheet: {doc_result['spreadsheetUrl']}")
+                except RuntimeError as exc:
+                    if "Set GOOGLE_SERVICE_ACCOUNT_JSON" not in str(exc) and "pip install" not in str(exc):
+                        raise
+                    print(f"Direct Google API sync unavailable ({exc}); using authenticated Drive connector")
+                    sync_report = run_codex_google_sheet_sync(args.output.resolve(), args.update_google_sheet_id)
+                    doc_result = {
+                        "spreadsheetId": args.update_google_sheet_id,
+                        "spreadsheetUrl": f"https://docs.google.com/spreadsheets/d/{args.update_google_sheet_id}/edit",
+                        "syncReport": str(sync_report),
+                    }
+                    print(f"Checkpointed Google Sheet through authenticated connector: {doc_result['spreadsheetUrl']}")
+
+            try:
+                following_packet = next_page_packet(wb, keywords)
+            except RuntimeError as exc:
+                if "No active page remains" not in str(exc):
+                    raise
+                print("No following active roadmap page remains")
+                break
+            following_path, _ = write_page_build_packet(following_packet)
+            print(f"Prepared following page-build packet: {following_path}")
+            print(f"Following page: {following_packet['title']} ({following_packet['url']})")
+            if not args.build_all_priority:
+                break
+
     if args.create_google_doc:
         wb_for_upload = load_workbook(args.output.resolve())
         doc_result = create_google_sheet_from_workbook(wb_for_upload, args.doc_title, args.share_with or None)
         print(f"Created Google Sheet: {doc_result['spreadsheetUrl']}")
-    elif args.update_google_sheet_id:
+    elif args.update_google_sheet_id and not (args.build_all_priority and doc_result):
         wb_for_upload = load_workbook(args.output.resolve())
-        doc_result = update_google_sheet_from_workbook(wb_for_upload, args.update_google_sheet_id)
-        print(f"Updated Google Sheet: {doc_result['spreadsheetUrl']}")
+        try:
+            doc_result = update_google_sheet_from_workbook(wb_for_upload, args.update_google_sheet_id)
+            print(f"Updated Google Sheet: {doc_result['spreadsheetUrl']}")
+        except RuntimeError as exc:
+            if "Set GOOGLE_SERVICE_ACCOUNT_JSON" not in str(exc) and "pip install" not in str(exc):
+                raise
+            print(f"Direct Google API sync unavailable ({exc}); using authenticated Drive connector")
+            sync_report = run_codex_google_sheet_sync(args.output.resolve(), args.update_google_sheet_id)
+            doc_result = {
+                "spreadsheetId": args.update_google_sheet_id,
+                "spreadsheetUrl": f"https://docs.google.com/spreadsheets/d/{args.update_google_sheet_id}/edit",
+                "syncReport": str(sync_report),
+            }
+            print(f"Updated Google Sheet through authenticated connector: {doc_result['spreadsheetUrl']}")
 
     print(json.dumps({
         "output": str(args.output.resolve()),
@@ -1000,6 +1397,7 @@ def main() -> None:
         "audited_pages": len(audit),
         "keyword_rows": len(keywords),
         "google_doc": doc_result,
+        "page_pipeline": page_packet,
     }, indent=2))
 
 
