@@ -3037,6 +3037,72 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
       { question: 'Is Ethernet backhaul better than wireless mesh?', answer: 'Yes. Ethernet backhaul normally gives each node a faster, more stable link and preserves wireless capacity for phones and laptops. Wireless backhaul is easier to install and can work well with good placement, but walls, floors and distance reduce it. For gigabit broadband or difficult buildings, cabling is often the most effective upgrade.' },
     ],
   },
+  'broadband-help-if-you-claim-benefits-uk': {
+    body: (
+      <>
+        <p className="text-lg"><strong>If you or someone in your household receives Universal Credit, you may qualify for a broadband social tariff costing £10 to £24 a month.</strong> These are normal broadband services at a lower price, usually with unlimited data, little or no setup cost, no mid-contract price rise and no fee to leave. Start by asking your current provider, then compare every eligible tariff available at your exact address.</p>
+        <div className="rounded-xl border border-amber-200 bg-amber-50 p-5"><p className="mb-0 text-sm"><strong>Tariff check:</strong> Ofcom&apos;s list was last updated on 17 August 2026 and checked for this guide on 22 August 2026. Prices, benefit rules and availability change. Verify the exact tariff with the provider before switching. A benefit does not guarantee that every network serves your address.</p></div>
+
+        <h2>Broadband social tariffs at a glance</h2>
+        <div className="overflow-x-auto"><table className="w-full text-sm border-collapse"><thead><tr className="bg-slate-50">{['Example tariff', 'Monthly price', 'Average speed', 'Where available'].map((h) => <th scope="col" key={h} className="text-left px-4 py-3 border border-slate-200 font-semibold text-slate-700">{h}</th>)}</tr></thead><tbody>{[
+          ['Community Fibre Essential', '£12.50', '35 Mbps', 'London network areas'],
+          ['4th Utility Social Tariff', '£13.99', '30 Mbps', 'Eligible buildings in England'],
+          ['FibreNest Social Tariff', '£14.50', '36 Mbps', 'Eligible new-build estates'],
+          ['Fibrus Full Fibre Essential', '£14.99', '50 Mbps', 'Northern Ireland and Cumbria network areas'],
+          ['G.Network Essential Fibre', '£15', '50 Mbps', 'London network areas'],
+          ['BT Home Essentials No Income', '£16.50', '36 Mbps', 'Widely available in the UK, strict no-income rule'],
+          ['Connect Fibre Essentials', '£20', '150 Mbps', 'Selected English network areas'],
+        ].map(([tariff, price, speed, area]) => <tr key={tariff} className="border-b border-slate-100"><td className="px-4 py-3 font-semibold text-slate-900">{tariff}</td><td className="px-4 py-3 text-slate-700">{price}</td><td className="px-4 py-3 text-slate-700">{speed}</td><td className="px-4 py-3 text-slate-600">{area}</td></tr>)}</tbody></table></div>
+        <p>The table is a selected snapshot from Ofcom, not a complete ranking. The cheapest national-looking price may not be available on your network, while a local full-fibre tariff may provide much faster service. Use Ofcom&apos;s complete current list and the provider&apos;s full-address checker. Do not compare tariffs with different eligibility rules as though price were their only difference.</p>
+
+        <h2>What is a broadband social tariff?</h2>
+        <p>A social tariff is a discounted broadband or phone package for people receiving specified benefits or meeting another provider rule. It uses the same network as an ordinary package and is not a separate, lower-quality public network. Providers may call it Essential, Basics, Home Essentials or a similar name, which is why it can be difficult to spot on a normal deals page.</p>
+        <p>Ofcom says current tariffs cost £10 to £24 a month. Most offer more than 30 Mbps, unlimited usage and very small or zero setup fees. A social tariff should not rise in price mid-contract, and the customer should be able to leave without an exit fee. Those protections can make it better value than a standard promotional deal whose price rises or jumps after the minimum term.</p>
+
+        <h2>Who qualifies for cheaper broadband?</h2>
+        <p>Universal Credit is the broadest route. Ofcom says that if you or someone in the household receives Universal Credit, you could switch to any tariff on its current list. Major providers also commonly accept Pension Credit, income-related Employment and Support Allowance, income-based Jobseeker&apos;s Allowance and Income Support. Some extend eligibility to Personal Independence Payment, Attendance Allowance or other benefits.</p>
+        <p>The exact rule belongs to the provider. Some tariffs require the benefit recipient to be the main account holder. BT&apos;s lowest no-income version has a stricter zero-earned-income condition, while other BT Home Essentials options accept people in and out of work on qualifying benefits. PIP alone does not qualify with every provider because it is not means-tested. Read the published list rather than assuming one provider&apos;s rule applies across the market.</p>
+
+        <h2>Broadband for Universal Credit</h2>
+        <p>Universal Credit qualifies across Ofcom&apos;s listed social tariffs, but network availability still decides what can be ordered. Ask your current provider first because moving to its own social tariff should be free even during a minimum term. This can preserve the existing line, reduce disruption and avoid an unnecessary installation.</p>
+        <p>If the current provider has no suitable tariff, compare other networks. Enter the complete address, check the expected download and upload speeds, then ask whether leaving the existing contract is penalty-free. Ofcom says the old provider might waive an exit charge, but that is not a universal promise when switching to another company. Obtain the exact leaving cost before placing the order.</p>
+
+        <h2>Can you get a social tariff with Pension Credit, PIP or ESA?</h2>
+        <p>Pension Credit, income-related ESA, income-based JSA and Income Support are accepted by many major providers. Personal Independence Payment and Attendance Allowance are accepted by some providers, including several regional networks, but not all. Check whether a published Pension Credit rule means Guarantee Credit specifically and whether the account must be in the claimant&apos;s name.</p>
+        <p>A household member&apos;s qualifying benefit may be enough under Ofcom&apos;s general explanation, yet the named contract-holder requirement still matters. If necessary, ask whether the provider can change the account holder without interrupting service. Do not email screenshots containing more benefit or identity information than requested. Use the provider&apos;s official application and verification route.</p>
+
+        <h2>How providers check eligibility</h2>
+        <p>Many providers can ask the Department for Work and Pensions to confirm whether a customer receives an eligible benefit, with the customer&apos;s permission. The check returns an eligibility result rather than giving the broadband company full details of the claim. Other providers may request a recent letter or online-account evidence. Use only the official website or telephone number and ask how evidence will be stored.</p>
+        <p>Eligibility can be checked again, often annually or at the end of a stated period. Ask what happens if the qualifying benefit ends: whether there is notice, a move to a standard tariff, a choice to leave, or another affordability option. Keep the contract summary and any confirmation of the protected price so you can challenge an incorrect bill.</p>
+
+        <h2>How to apply for a broadband social tariff</h2>
+        <ol><li>Check whether the current provider appears on Ofcom&apos;s social-tariff list.</li><li>Confirm which household member receives which qualifying benefit.</li><li>Open the provider&apos;s official social-tariff page or call and ask for the named package.</li><li>Give permission for the eligibility check or supply only the evidence requested.</li><li>Confirm the monthly price, setup fee, speed, contract term and annual recheck process.</li><li>Ask in writing whether the current contract and any exit charge will be removed.</li><li>Save the order summary and check the first bill.</li></ol>
+
+        <h2>Will switching affect your benefits or credit score?</h2>
+        <p>Taking a social tariff does not normally reduce the qualifying benefit. It is a discounted commercial service, not an extra benefit payment. The eligibility check is designed to confirm entitlement. A provider may still conduct identity, fraud or credit checks under its normal ordering policy, so ask what check applies before submitting a new-provider application if credit history is a concern.</p>
+        <p>Moving within the same provider can be simpler than making a new application elsewhere. Do not cancel the old broadband first. Let the provider explain the migration or use One Touch Switch for a change of fixed provider, then keep service active until the switch date is confirmed. Return rented equipment by the deadline and retain proof of postage.</p>
+
+        <h2>Social tariff or a normal broadband deal?</h2>
+        <p>A standard introductory deal can sometimes have a lower headline effective cost after cashback or vouchers. MoneySavingExpert notes that regular switchers may find standard new-customer incentives competitive, while social tariffs can be stronger for customers who want a stable long-term price. Compare cash you are certain to receive, not a reward that requires a missed claim process.</p>
+        <p>Add every payment, setup cost and scheduled rise across the minimum term. Then compare the post-contract price, exit rights and the time you realistically expect to keep the service. A £20 social tariff with no rise and no exit fee can be safer than a £19 promotional deal with a later increase, but a local £12.50 tariff may be unavailable at your address. There is no universal cheapest provider.</p>
+
+        <h2>What if you are struggling but do not qualify?</h2>
+        <p>Contact the provider before missing a payment. Explain what you can afford and ask about a cheaper package, payment plan, bill date change, temporary support or penalty-free downgrade. The February 2026 Telecoms Consumer Charter says participating providers will signpost social tariffs and offer customers in financial difficulty cheaper plans without a penalty and manageable payment plans.</p>
+        <p>Also check benefit entitlement through an independent adviser such as Citizens Advice or a benefits calculator, and compare current broadband deals at the address. Do not take expensive short-term credit solely to keep a communications bill current. If disconnection would create a safety or accessibility risk, tell the provider and ask how it records vulnerability and maintains access to essential communications.</p>
+
+        <h2>Bottom line</h2>
+        <p>Start with your current provider, because an internal move is usually the quickest and should be free. Universal Credit gives the widest eligibility, while Pension Credit and legacy income-related benefits are accepted by most major providers. PIP and Attendance Allowance depend more heavily on the provider. Compare the exact address, speed and eligibility rather than price alone, and use Ofcom&apos;s current list as the authoritative starting point.</p>
+      </>
+    ),
+    faqs: [
+      { question: 'Can I get cheaper broadband on Universal Credit?', answer: 'Yes. Ofcom says that if you or someone in your household receives Universal Credit, you could switch to any social tariff on its current list, subject to network availability and the provider’s account-holder process. Prices currently range from £10 to £24 a month. Ask your existing provider first because an internal move should be free.' },
+      { question: 'What is the cheapest broadband social tariff?', answer: 'There is no universal cheapest tariff because prices, eligibility and network coverage differ. Ofcom’s August 2026 list includes packages from £10 a month and selected widely or regionally available examples around £12.50 to £16.50. Check the complete current Ofcom table and the exact address, then compare speed, setup costs and account-holder rules.' },
+      { question: 'Can I get a broadband social tariff on PIP?', answer: 'Possibly. Some providers accept Personal Independence Payment or Attendance Allowance, but many major tariffs focus on means-tested benefits such as Universal Credit and Pension Credit. PIP alone does not qualify everywhere. Check each provider’s published eligibility list and whether the benefit recipient must be the main broadband account holder before applying.' },
+      { question: 'Can I switch to a social tariff while still in contract?', answer: 'If your current provider offers a social tariff, Ofcom says you can switch to it at any time free of charge. When moving to another provider, the old company might waive an early termination fee, but this is not guaranteed. Ask for the exact leaving charge in writing before ordering and do not cancel the working line yourself first.' },
+      { question: 'Do social tariff broadband prices increase?', answer: 'Ofcom says the agreed social-tariff price should not rise mid-contract. Social tariffs also normally have small or zero setup costs and no fee to leave. Eligibility may be checked again, so ask what price and notice apply if the qualifying benefit ends. Keep the contract summary and check every bill against the protected monthly amount.' },
+      { question: 'Will a social tariff affect my benefits?', answer: 'Taking a broadband social tariff does not normally reduce your benefit because it is a discounted service, not an additional benefit payment. Providers may verify eligibility through the DWP with permission or request evidence. Ask how often eligibility is rechecked and what happens if the benefit stops, and share documents only through the provider’s official process.' },
+    ],
+  },
   'january-broadband-deals-uk': {
     body: (
       <>

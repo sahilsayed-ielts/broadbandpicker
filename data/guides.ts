@@ -850,6 +850,22 @@ export const guides: GuideMetadata[] = [
     ],
   },
   {
+    slug: 'broadband-help-if-you-claim-benefits-uk',
+    title: 'Cheaper Broadband If You Claim Benefits: Social Tariffs Explained',
+    metaTitle: 'Broadband for Universal Credit: Social Tariffs UK 2026',
+    metaDescription: 'Find cheaper broadband social tariffs if you claim Universal Credit, Pension Credit, ESA, JSA or some other benefits. Compare eligibility and apply safely.',
+    publishDate: '2026-08-22', updatedDate: '2026-08-22', readingTime: 11, category: 'affordability',
+    excerpt: 'If you or someone in your household receives Universal Credit, you may qualify for broadband costing £10 to £24 a month. Social tariffs normally provide unlimited service, minimal setup costs, no mid-contract price rise and no fee to leave. Ask your current provider first, then compare every eligible tariff available at your exact address.',
+    keyTakeaways: ['Universal Credit qualifies across Ofcom’s current social-tariff list, subject to network availability.', 'Pension Credit and income-related ESA, JSA and Income Support are widely accepted; PIP eligibility varies.', 'An internal switch to your provider’s social tariff should be free even during a minimum term.', 'Use Ofcom’s live list because prices, benefits accepted and regional availability can change.'],
+    sources: [
+      { label: 'Ofcom complete social-tariff list, prices, eligibility and protections, verified 22 August 2026', href: 'https://www.ofcom.org.uk/phones-and-broadband/saving-money/social-tariffs' },
+      { label: 'GOV.UK Telecoms Consumer Charter affordability commitments, verified 22 August 2026', href: 'https://www.gov.uk/government/news/end-to-surprise-phone-and-broadband-bill-hikes-to-help-with-cost-of-living' },
+      { label: 'MoneyHelper social-tariff and household-bill guidance, verified 22 August 2026', href: 'https://www.moneyhelper.org.uk/en/blog/everyday-money/social-tariffs-for-cheaper-bills-on-benefits' },
+      { label: 'MoneySavingExpert social-tariff comparison and whole-cost guidance, verified 22 August 2026', href: 'https://www.moneysavingexpert.com/compare-broadband-deals/broadband-social-tariffs/' },
+      { label: 'Which? social-tariff eligibility and provider comparison, verified 22 August 2026', href: 'https://www.which.co.uk/reviews/broadband/article/all-you-need-to-know-about-broadband-social-tariffs-awnIU5c9XS7G' },
+    ],
+  },
+  {
     slug: 'best-mesh-wifi-for-your-broadband-router',
     title: 'Best Mesh Wi-Fi Systems to Pair with Your Broadband Router',
     metaTitle: 'Best Mesh Wi-Fi Systems UK 2026: Router Buying Guide',

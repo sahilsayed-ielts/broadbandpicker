@@ -209,6 +209,69 @@ per slot from the researched facts is the part that still needs a
 capable writer in the loop — treat this as draft generation, not
 autopublish.
 
+## Stage 4a — Write like a helpful person, not a search-optimised machine
+
+This is the standing copy bar for every build, checked before Stage 6. It's
+built from Google's own published guidance, not a guess at what SEO
+"should" mean.
+
+**Google's actual bar (from Search Central's "Creating helpful, reliable,
+people-first content" and the Search Quality Rater Guidelines' E-E-A-T
+framework)**: Google explicitly asks writers to self-check "if you
+removed search engines from the picture, would you still produce this for
+your actual readers?" Content made primarily to attract search visits,
+rather than to genuinely help a person, is what the guidance targets —
+regardless of whether a human or a tool wrote it. The bar per page:
+
+- Give a complete, substantive answer to the exact question the primary
+  keyword implies — not a scene-setting paragraph before the real answer.
+- Add something a reader couldn't get from a five-second glance at a
+  results page: a specific number, a named trade-off, a concrete "we'd
+  pick X because Y," not a restatement of the question.
+- Show the working, not just the conclusion — cite the specific Ofcom
+  page, provider source or dataset a claim comes from (this is also what
+  Stage 3 already requires; the two reinforce each other).
+- Read like it was written by someone who has actually compared these
+  providers, not summarised what other sites say about them.
+- Keep the title honest — it should promise exactly what the page
+  delivers, no more.
+
+**Write like a person explaining this to someone who just asked them
+directly** — specific and opinionated where the evidence supports it,
+not hedged into meaninglessness. "We'd start with Sky here because it's
+consistently the cheaper entry price with no setup fee" beats "it depends
+on your needs and there are many factors to consider."
+
+**Do not use these — they are the most common tells of AI-generated
+copy, and Google's own reviewers are trained to recognise the pattern of
+writing optimised for search rather than for a reader**:
+
+- Vocabulary to avoid entirely: *delve, tapestry, boast, realm, elevate,
+  unlock, unleash, landscape (as a metaphor for a market), navigate (as a
+  metaphor), game-changer, seamless, robust, leverage (as a verb), dive
+  in, embark, testament to, plethora, myriad, underscore, foster,
+  cutting-edge, ever-evolving, in today's digital age, whether you're a
+  X or a Y* (as a sentence opener).
+- Phrases to avoid: "it's important to note that," "it's worth noting,"
+  "when it comes to," "at the end of the day," "in conclusion," a closing
+  paragraph that just restates the opening paragraph in different words.
+- Structural tells: opening a page or section with a rhetorical question
+  ("Ever wondered...?", "Looking for...?"); a rule-of-three adjective
+  list ("fast, reliable, and affordable"); every section built on the
+  identical sentence-length pattern; stacking two or three hedges in one
+  sentence ("may potentially vary depending on a number of factors").
+  Em dashes are already banned per Stage 4's instruction to the writer.
+- If a sentence could be pasted into any other UK broadband article
+  unchanged, it hasn't earned its place on this specific page — cut it or
+  make it specific to this provider/postcode/use case.
+
+**Automatable with a review gate**: the banned-phrase and vocabulary list
+is a mechanical post-write check a script can run against the rendered
+copy (flag, don't silently strip — a flagged hit still needs a human or
+capable-writer rewrite, not an automated word swap). Whether a given
+sentence is genuinely specific versus generic filler is a judgement call,
+not a regex match.
+
 ## Stage 5 — Write the data-file entry
 
 1. Read `types/index.ts` for the exact interface.
