@@ -253,6 +253,41 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request — real postcode-level availability",
     },
     {
+        "item_id": "feat-broadband-match-quiz",
+        "type": "Feature",
+        "pillar": "Functionality",
+        "title": "Broadband Match: personalised recommendation quiz",
+        "description": (
+            "Researched 2026-08-22 against Uswitch, Compare the Market, "
+            "MoneySuperMarket, Which?, broadbandchoices, choose.co.uk and "
+            "broadband.co.uk: none has a multi-question quiz that outputs a "
+            "ranked provider/package recommendation — confirmed genuine gap, "
+            "not a crowded feature. Closest analog, RightSpeed UK, only "
+            "outputs a speed-tier range and hands off to a third-party site "
+            "rather than affiliate-linking directly. Plan: 6-8 questions "
+            "(reason for looking, household size, use cases — WFH/gaming/"
+            "streaming/uploads, budget, contract-length preference, postcode), "
+            "scored client-side against the existing provider dataset (speed, "
+            "price, contract, Trustpilot, coverage — no new data pipeline "
+            "needed), producing a ranked top 3 with per-pick reasoning and "
+            "direct affiliate CTAs — going further than RightSpeed's speed-"
+            "only output. Since AI Overviews cite static pages, not live quiz "
+            "results (confirmed in research), pair the tool with internal "
+            "links to/from the existing best-broadband-for-gaming/WFH/"
+            "students/streaming guides so the underlying logic stays citable "
+            "even though the live tool isn't. Directly serves the standing "
+            "goal of making BroadbandPicker a site providers want in their "
+            "affiliate programme: a completed-quiz click is a much stronger "
+            "purchase-intent signal than a generic comparison-table click."
+        ),
+        "priority_score": 78,
+        "impact_score": 83,
+        "effort": "Medium-High",
+        "target": "New route (e.g. /tools/broadband-match), new scoring component, reuses data/providers.ts + data/postcodes.ts + data/postcodeDistrictCoverage.ts",
+        "dependencies": "None — reuses existing provider/coverage datasets",
+        "source": "User request 2026-08-22, researched before scoring per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",

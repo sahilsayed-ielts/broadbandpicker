@@ -498,6 +498,155 @@ const baseProviders: Provider[] = [
     awinProgramId: null,
   },
   {
+    slug: 'brsk',
+    name: 'Brsk',
+    logo: '/logos/youfibre.svg',
+    affiliateUrl: 'https://www.youfibre.com/brsk/index.html',
+    speeds: [
+      { download: 200, upload: 200, type: 'FTTP' },
+      { download: 900, upload: 900, type: 'FTTP' },
+      { download: 2000, upload: 2000, type: 'FTTP' },
+    ],
+    monthlyPriceFrom: 24.99,
+    contractLengths: [1, 12],
+    setupFee: 0,
+    trustpilotScore: 4.8,
+    coveragePercent: 10,
+    highlights: [
+      'Brsk is now part of YouFibre, so new availability and orders are handled through YouFibre',
+      'Legacy BetterNet plans used full fibre with matching upload and download speeds',
+      'The January 2026 price book listed 12-month and rolling monthly options with no usage caps',
+    ],
+    pros: [
+      'Symmetrical full-fibre speeds made Brsk strong for uploads and home working',
+      'Legacy fixed-term prices had no scheduled mid-contract increase',
+      'Rolling monthly plans provided a flexible alternative',
+      'The network footprint continues through the combined Netomnia and YouFibre operation',
+    ],
+    cons: [
+      'Brsk is no longer taking new orders as a standalone retail brand',
+      'Availability remains address-specific rather than nationwide',
+      'Historic Brsk prices should not be treated as current YouFibre offers',
+      'Speeds above 1 Gbps normally require compatible wired and multi-gigabit equipment',
+    ],
+    excerpt:
+      'Brsk broadband is no longer sold as a standalone service. The Brsk website now redirects prospective customers to YouFibre, which handles new orders on the combined Netomnia network. Existing Brsk customers should use their migration communications and account support. Our January 2026 snapshot below explains the former BetterNet plans, but new customers must check current YouFibre prices and postcode availability.',
+    contentSections: [
+      {
+        heading: 'Can You Still Get Brsk Broadband?',
+        paragraphs: [
+          'No new standalone Brsk broadband range was available when we checked on 22 August 2026. Brsk\'s official homepage redirected to a Brsk information page on YouFibre, and independent provider reviews report that the Brsk retail brand was retired in March 2026. New-customer availability, packages and checkout are therefore handled through YouFibre rather than a separate Brsk ordering journey.',
+          'This distinction matters when comparing Brsk broadband deals. Search results can still show historic BetterNet prices, old referral offers and reviews written before the change. Those pages can explain what existing customers bought, but they do not prove that a plan can be ordered today. Follow the official redirect, enter the full installation address and read the current contract summary before paying or cancelling another service.',
+          'Existing Brsk customers should not assume their service has ended. The underlying full-fibre infrastructure forms part of the combined Netomnia network, while customer accounts are being moved into the YouFibre operation. Keep any migration email, check the payment descriptor and use the support route stated in your account. Contact support before changing a Direct Debit or returning equipment.',
+        ],
+      },
+      {
+        heading: 'Brsk Broadband Deals and Historic BetterNet Prices',
+        paragraphs: [
+          'Brsk\'s price book dated 12 January 2026 listed BetterNet200 at £24.99 a month, BetterNet1000 at £29.99 and BetterNet2000 at £34.99 on 12-month contracts. The stated average symmetrical speeds were 200 Mbps, 900 Mbps and 2,000 Mbps respectively, with unlimited usage. The equivalent rolling monthly prices were £34.99, £39.99 and £44.99. These figures are a dated record, not a current quote.',
+          'The fixed-term range was attractive because the price book used a relatively short 12-month commitment and Brsk promoted predictable in-contract pricing. The rolling plan cost more each month but reduced commitment. A fair comparison uses total contract cost, including activation, optional mesh Wi-Fi, phone, TV, static IP and any post-contract price, rather than selecting the lowest headline payment.',
+          'Current YouFibre packages may use different product names, speeds, promotional periods or contract lengths. A legacy Brsk deal should never be presented as live unless the official checkout confirms it for the address. Save the order summary and note whether equipment remains the provider\'s property, what happens after the minimum term and how early termination charges are calculated.',
+        ],
+      },
+      {
+        heading: 'Brsk Speeds, Upload Performance and Full Fibre',
+        paragraphs: [
+          'Brsk used fibre to the premises, meaning the fibre ran to the property rather than handing over to copper at a street cabinet. Its defining feature was symmetrical broadband: a 900 Mbps package advertised roughly 900 Mbps upload as well as download. That is useful for cloud backups, sending large media files, hosting video calls and households where several people upload at once.',
+          'A 200 Mbps connection is already enough for normal streaming, gaming, remote work and several simultaneous users. The 900 Mbps tier mainly reduces large download and upload times. A 2 Gbps service is a specialist choice for very busy homes or advanced users. One device will only approach multi-gigabit speeds if its Ethernet port, cable, router and storage can all sustain them.',
+          'Headline line speed is not the same as Wi-Fi speed in every room. Walls, interference, device capability and distance from the hub affect wireless performance. Compare the guaranteed minimum line speed and any whole-home Wi-Fi terms separately. Run tests over Ethernet when diagnosing the incoming service, then test Wi-Fi in the rooms where coverage actually matters.',
+        ],
+      },
+      {
+        heading: 'Brsk Coverage and Postcode Availability',
+        paragraphs: [
+          'Brsk coverage was concentrated in selected parts of West Yorkshire, Lancashire, Greater Manchester, Cheshire and the West Midlands, with additional reach through Netomnia. It was never a nationwide Openreach-style service. Street-level build status can vary within the same postcode, so a town appearing on a coverage map does not confirm that a particular flat or house is ready to order.',
+          'The combined Netomnia footprint is broader than Brsk\'s original build, but the only reliable eligibility test is the current YouFibre address checker. Enter the complete postcode and choose the exact property. If the result says coming soon or build in progress, keep the existing broadband active until the new connection has been installed, activated and tested.',
+          'People comparing Brsk coverage should also check wayleave requirements for rented homes or flats, installation access, where the optical network terminal and router will sit, and whether overhead or underground work is needed. Ask the landlord or managing agent early when permission may be required. Do not cancel a working connection solely because a network map shows planned coverage.',
+        ],
+      },
+      {
+        heading: 'Brsk Router, BetterWiFi and Static IP Options',
+        paragraphs: [
+          'Router hardware changed across Brsk plan generations. Independent deal guides recorded standard hubs for lower tiers and multi-gigabit-capable hardware for BetterNet2000. The practical question is whether the supplied hub has enough Ethernet capacity and wireless capability for the selected speed. A 2 Gbps line paired only with 1 Gbps device ports cannot deliver 2 Gbps to one wired device.',
+          'BetterWiFi was Brsk\'s paid mesh service for extending wireless coverage. The January 2026 terms linked the mesh agreement to the broadband service and described notice or early termination conditions. Before taking any current equivalent, confirm the monthly cost, number of nodes, minimum-speed promise, rooms covered, fault process and equipment-return rules.',
+          'Brsk also offered BetterIP, an optional static IPv4 service. This mattered because users running inbound services, some CCTV systems, remote access or particular gaming setups may need a public address rather than carrier-grade NAT. Most households do not need a static IP. Explain the use case to current support and verify whether IPv6 or a paid static IPv4 option is appropriate.',
+        ],
+      },
+      {
+        heading: 'Brsk Customer Service, Reviews and Switching',
+        paragraphs: [
+          'Brsk had a strong legacy customer-review profile, with Uswitch recording 4.8 out of 5 on Trustpilot when checked in December 2025. That is useful sentiment evidence, but it is not a technical reliability measurement and may not describe the post-migration YouFibre operation. Read recent reviews by date and location, looking for repeated themes rather than relying on the headline score alone.',
+          'For a switch, confirm whether One Touch Switch applies and which provider will coordinate the transfer. Keep the old service until the activation plan is clear, especially where a separate fibre installation is required. Record the promised activation date, any buyout credit, proof deadline and conditions. Historic Brsk buyout terms required evidence of the old provider\'s early termination charge within a stated period.',
+          'If service fails, test power, optical terminal lights, Ethernet and Wi-Fi separately before reporting the fault. Existing customers should use the contact channel shown in their migration or account information. Keep fault references and dates. Check whether the current provider participates in Ofcom\'s automatic compensation scheme rather than assuming a legacy Brsk policy still applies.',
+        ],
+      },
+      {
+        heading: 'Brsk vs YouFibre: What New Customers Should Do',
+        paragraphs: [
+          'Brsk and YouFibre should not be compared as two simultaneously orderable providers in 2026. Brsk is the legacy retail brand, while YouFibre is the current destination for new orders on the combined network. The useful comparison is therefore between the current YouFibre quote and other providers available at the same address, not between a historic Brsk tariff and a live YouFibre tariff.',
+          'Start with the postcode result, then compare average and guaranteed speeds, upload rate, total minimum-term cost, installation timing, annual price policy, router specification, support route and exit terms. A slower national provider may suit a light-use household if it is cheaper or easier to install. YouFibre may be stronger where symmetrical uploads and fixed-term price certainty matter.',
+          'Our verdict is conditional. Former Brsk technology was compelling where available because it combined full fibre, symmetrical speeds and competitive fixed pricing. Today, however, new customers should treat Brsk search results as legacy information and make the purchasing decision from a current YouFibre contract summary. Existing customers should follow their migration terms rather than place a duplicate order.',
+        ],
+      },
+    ],
+    faqItems: [
+      {
+        question: 'Is Brsk still available in 2026?',
+        answer: 'Brsk is no longer sold as a standalone retail broadband brand. Its official website redirects to YouFibre, and new orders are handled through YouFibre on the combined Netomnia network. Existing Brsk services may continue during migration, so current customers should follow their account communications rather than placing a new order.',
+      },
+      {
+        question: 'What happened to Brsk broadband?',
+        answer: 'Brsk combined with Netomnia and its retail customers moved into the YouFibre operation. The network infrastructure continues, but Brsk-branded deals found in older reviews or price books are historic. The change means prospective customers should check current YouFibre packages, coverage and terms at their exact address.',
+      },
+      {
+        question: 'How fast was Brsk broadband?',
+        answer: 'The January 2026 Brsk price book listed symmetrical average speeds of 200 Mbps, 900 Mbps and 2,000 Mbps. Symmetrical means the advertised upload matched the download. Current YouFibre speeds and availability may differ, and multi-gigabit performance requires compatible wired equipment as well as a suitable package.',
+      },
+      {
+        question: 'Where was Brsk broadband available?',
+        answer: 'Brsk focused on selected areas in West Yorkshire, Lancashire, Greater Manchester, Cheshire and the West Midlands, with further reach through Netomnia. Coverage varied street by street. New customers must now use YouFibre\'s full-address checker because a town or postcode-area listing does not confirm service at one property.',
+      },
+      {
+        question: 'Can existing Brsk customers keep their service?',
+        answer: 'Existing Brsk customers should follow their migration and account communications from Brsk or YouFibre. Do not cancel a Direct Debit, return equipment or place a replacement order without checking the instructions for your account. Your service may continue on the same underlying network while billing and support move to YouFibre.',
+      },
+      {
+        question: 'Should I choose Brsk or YouFibre?',
+        answer: 'New customers cannot make a normal like-for-like choice because Brsk is the legacy brand and YouFibre handles current orders. Compare the live YouFibre quote against other providers at your address using total contract cost, speed, upload performance, installation timing, price-rise policy, router and cancellation terms.',
+      },
+    ],
+    reviewedDate: '2026-08-22',
+    pricingVerifiedDate: '2026-08-22',
+    reviewSources: [
+      {
+        label: 'Official Brsk to YouFibre page',
+        href: 'https://www.brsk.co.uk/',
+        note: 'Checked on 22 August 2026 to verify that the Brsk homepage redirects to YouFibre for current customer and ordering information.',
+      },
+      {
+        label: 'Brsk January 2026 price book',
+        href: 'https://www-staging.brsk.co.uk/documents/price-book',
+        note: 'Used only as a dated record of BetterNet speeds, normal prices, contract options and add-on terms. These are not presented as current offers.',
+      },
+      {
+        label: 'Uswitch Brsk provider review',
+        href: 'https://www.uswitch.com/broadband/reviews/brsk/',
+        note: 'Independent corroboration for the March 2026 retail-brand retirement, legacy coverage, speeds and historical customer sentiment.',
+      },
+      {
+        label: 'Choose Brsk broadband guide',
+        href: 'https://www.choose.co.uk/broadband/brsk/',
+        note: 'Independent comparison of the legacy BetterNet product structure, contract terms, add-ons and regional availability.',
+      },
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+        note: 'Explains how we weigh price, speed, coverage, customer experience and use-case fit.',
+      },
+    ],
+    awinProgramId: null,
+  },
+  {
     slug: 'youfibre',
     name: 'YouFibre',
     logo: '/logos/youfibre.svg',

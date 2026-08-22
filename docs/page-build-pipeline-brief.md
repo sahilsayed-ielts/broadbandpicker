@@ -10,6 +10,39 @@ Today, every stage below was done by hand (WebFetch/WebSearch calls, direct
 file edits, and CLI commands run one at a time). Nothing here was scripted.
 This document is the spec for closing that gap.
 
+## Strategic lens — check before every build, page or feature
+
+Every build on this site — a content page from the roadmap or a new
+interactive feature from `docs/master-build-tracker.xlsx` — should be
+evaluated against the same north star: **make BroadbandPicker the site
+every UK broadband provider wants in their affiliate programme**, because
+it sends them qualified buyers, not just traffic. That means quality of
+intent and trust signal matter more than raw page count.
+
+Before building any new interactive tool or feature (this applies less to
+routine content pages, which the Content Gap Roadmap already vets):
+
+1. **Research whether it already exists.** Search and, where the site is
+   reachable, read what the established UK comparison sites (Uswitch,
+   Compare the Market, MoneySuperMarket, Which?, broadbandchoices,
+   choose.co.uk, broadband.co.uk) actually ship for the same job — not just
+   whether they have *a* broadband comparison, but whether they have *this
+   specific* feature. `scripts/scrape_competitor_landscape.py` gives
+   structural signals (tool/trust flags) for their general broadband hub
+   pages; a feature-specific check needs its own targeted search.
+2. **If it already exists well**, differentiate rather than clone — match
+   the useful mechanics, then do the thing they don't (e.g. cite primary
+   UK sources, show real Ofcom-backed numbers, avoid generic filler).
+3. **If it's a genuine gap**, that's a signal worth weighting into
+   priority scoring in `scripts/build_master_tracker.py` — a real gap is
+   worth more than a crowded feature, independent of raw keyword volume.
+4. **Plan for GEO from the start, not after.** A purely interactive,
+   session-based tool (a quiz, a calculator) has nothing for a generative
+   engine to cite — an AI Overview can't quote a live form result. Pair
+   any such tool with static, indexable "outcome" content (the common
+   answers the tool produces, written up as ordinary crawlable pages) so
+   the underlying logic is citable even though the live tool isn't.
+
 ## Trigger: one row from the Content Gap Roadmap tab
 
 Input is a single row (or a group of rows sharing a `gap_slug`) from
