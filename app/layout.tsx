@@ -60,6 +60,7 @@ function Header() {
             <Link href="/compare" className="text-slate-600 hover:text-sky-600 transition-colors">Compare</Link>
             <Link href="/deals" className="text-slate-600 hover:text-sky-600 transition-colors">Deals</Link>
             <Link href="/providers" className="text-slate-600 hover:text-sky-600 transition-colors">Providers</Link>
+            <Link href="/postcode" className="text-slate-600 hover:text-sky-600 transition-colors">Postcode</Link>
             <Link href="/guides" className="text-slate-600 hover:text-sky-600 transition-colors">Guides</Link>
             <Link href="/tools/broadband-match" className="text-slate-600 hover:text-sky-600 transition-colors">Broadband Match</Link>
             <Link href="/speed-test" className="text-slate-600 hover:text-sky-600 transition-colors">Speed Test</Link>
@@ -92,6 +93,7 @@ function MobileMenuButton() {
           { href: '/compare', label: 'Compare' },
           { href: '/deals', label: 'Deals' },
           { href: '/providers', label: 'Providers' },
+          { href: '/postcode', label: 'Postcode' },
           { href: '/guides', label: 'Guides' },
           { href: '/tools/broadband-match', label: 'Broadband Match' },
           { href: '/speed-test', label: 'Speed Test' },
@@ -120,14 +122,29 @@ function Footer() {
           <NewsletterSignup source="footer" />
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-10">
           <div>
             <h3 className="text-white font-semibold text-sm mb-3">Compare</h3>
             <ul className="space-y-2 text-sm">
               <li><Link href="/compare" className="hover:text-white transition-colors">All providers</Link></li>
               <li><Link href="/deals" className="hover:text-white transition-colors">Best deals</Link></li>
               <li><Link href="/providers" className="hover:text-white transition-colors">Provider reviews</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-white font-semibold text-sm mb-3">Tools</h3>
+            <ul className="space-y-2 text-sm">
               <li><Link href="/tools/broadband-match" className="hover:text-white transition-colors">Broadband Match quiz</Link></li>
+              <li><Link href="/speed-test" className="hover:text-white transition-colors">Speed test</Link></li>
+              <li><Link href="/tools/broadband-cost-calculator" className="hover:text-white transition-colors">Cost calculator</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-white font-semibold text-sm mb-3">Find Broadband</h3>
+            <ul className="space-y-2 text-sm">
+              <li><Link href="/postcode" className="hover:text-white transition-colors">By postcode</Link></li>
+              <li><Link href="/postcode/london" className="hover:text-white transition-colors">London</Link></li>
+              <li><Link href="/postcode/manchester" className="hover:text-white transition-colors">Manchester</Link></li>
             </ul>
           </div>
           <div>
@@ -144,6 +161,7 @@ function Footer() {
             <ul className="space-y-2 text-sm">
               <li><Link href="/about" className="hover:text-white transition-colors">About us</Link></li>
               <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
+              <li><Link href="/research/uk-broadband-customer-satisfaction" className="hover:text-white transition-colors">Research</Link></li>
               <li><Link href="/editorial-policy" className="hover:text-white transition-colors">Editorial policy</Link></li>
               <li><Link href="/how-we-make-money" className="hover:text-white transition-colors">How we make money</Link></li>
               <li><Link href="/how-we-review-broadband" className="hover:text-white transition-colors">How we review</Link></li>

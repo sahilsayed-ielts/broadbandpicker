@@ -288,6 +288,29 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-22, researched before scoring per the Strategic Lens process",
     },
     {
+        "item_id": "feat-nav-header-footer-ia",
+        "type": "Feature",
+        "pillar": "UX",
+        "title": "Navigation/header/footer IA improvements",
+        "description": (
+            "Researched via scripts/scrape_navigation_patterns.py against 5 best-in-class "
+            "sites. broadband.co.uk (closest single-vertical comparable) stood out on sticky "
+            "header, breadcrumbs and a trust badge near the top; BroadbandPicker already "
+            "matches on the first two. Header nav link count split cleanly into supersite "
+            "(127-556 links) vs specialist (21 links) patterns, confirming the growth "
+            "playbook's 'specialist, not supersite' positioning. Added Postcode to primary "
+            "nav; restructured the footer from 4 to 6 columns (added Tools, Find Broadband "
+            "by Area, Research) to fix a crawl/link-equity gap for the postcode-district and "
+            "tools pages built this session."
+        ),
+        "priority_score": 55,
+        "impact_score": 60,
+        "effort": "Low",
+        "target": "app/layout.tsx",
+        "dependencies": "None",
+        "source": "User request 2026-08-22 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",
