@@ -225,6 +225,36 @@ autopublish.
 
 **Automatable**: mechanical once Stage 4's sentences exist.
 
+## Stage 5a — Update internal linking and the homepage
+
+A new page or tool is only as useful as the paths that lead to it. Before
+validation:
+
+1. **Always add contextual internal links** from 2-4 existing pages whose
+   topic genuinely relates to the new one (e.g. a new tool gets linked from
+   the guides its use cases match; a new guide gets linked from its parent
+   category and any close sibling guides). Link both directions where it
+   makes sense — the new page should link back out too.
+2. **Add to primary navigation and/or footer** when the build is a
+   flagship tool or major new site section (the kind of thing a returning
+   visitor would expect to find in the nav) — not for routine content
+   pages. Nav/footer space is finite; cramming every guide into it dilutes
+   the signal for the ones that matter and hurts the UX it's meant to
+   serve.
+3. **Update the homepage only for flagship builds**, the same bar as (2) —
+   a new interactive tool or a major feature earns a homepage section; a
+   single new guide or provider page does not. The homepage's own topical
+   focus and load time are worth protecting.
+4. **Add the new URL to `app/sitemap.ts`** so it's discoverable — this
+   applies to every build, routine or flagship, unlike (2) and (3).
+
+**Automatable with a judgement call**: step 4 and finding topically-related
+pages for step 1 are mechanical (grep existing content for the new page's
+keywords/cluster). Steps 2-3 — is this build flagship enough to earn nav or
+homepage space — is exactly the kind of call the Strategic Lens section
+above exists for; a script should surface it for confirmation rather than
+decide unattended.
+
 ## Stage 6 — Local validation before anything ships
 
 1. `npm run build` — must complete clean (TypeScript + every static/SSG

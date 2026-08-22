@@ -308,6 +308,26 @@ export default function HomePage() {
         </p>
       </section>
 
+      {/* Broadband Match promo */}
+      <section className="bg-gradient-to-br from-sky-950 to-slate-900 py-14">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-sky-400 text-sm font-semibold uppercase tracking-widest">New &middot; Free 60-second tool</p>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-white mt-3">
+            Not sure what broadband speed you actually need?
+          </h2>
+          <p className="text-slate-300 mt-3 max-w-xl mx-auto">
+            Answer 6 quick questions about your household and we&apos;ll rank the providers that
+            genuinely fit — not just the cheapest headline price.
+          </p>
+          <Link
+            href="/tools/broadband-match"
+            className="inline-block mt-6 px-8 py-3.5 bg-sky-500 hover:bg-sky-600 text-white font-bold rounded-full transition-colors"
+          >
+            Find my broadband match &rarr;
+          </Link>
+        </div>
+      </section>
+
       {/* Email alerts */}
       <NewsletterSignup variant="inline" source="homepage" />
 

@@ -23,14 +23,21 @@ export async function generateMetadata({
   if (!provider) return {}
 
   const maxSpeed = provider.speeds.reduce((a, b) => (b.download > a.download ? b : a))
+  const isRetired = Boolean(provider.retiredDate && provider.successorName && provider.successorUrl)
 
   return {
-    title: `${provider.name} Broadband Review 2026 | Deals from £${provider.monthlyPriceFrom.toFixed(2)}/mo`,
-    description: `Read our ${provider.name} broadband review. Speeds up to ${maxSpeed.download} Mbps, from £${provider.monthlyPriceFrom.toFixed(2)}/month. See deals, pros, cons and customer ratings.`,
+    title: isRetired
+      ? `${provider.name} Broadband Review 2026 | Now ${provider.successorName}`
+      : `${provider.name} Broadband Review 2026 | Deals from £${provider.monthlyPriceFrom.toFixed(2)}/mo`,
+    description: isRetired
+      ? `${provider.name} broadband is now ${provider.successorName}. Read about the March 2026 change, legacy speeds and prices, coverage, support and current next steps.`
+      : `Read our ${provider.name} broadband review. Speeds up to ${maxSpeed.download} Mbps, from £${provider.monthlyPriceFrom.toFixed(2)}/month. See deals, pros, cons and customer ratings.`,
     alternates: { canonical: `https://broadbandpicker.co.uk/providers/${slug}` },
     openGraph: {
       title: `${provider.name} Broadband Review 2026 | BroadbandPicker`,
-      description: `${provider.name} broadband deals from £${provider.monthlyPriceFrom.toFixed(2)}/month.`,
+      description: isRetired
+        ? `${provider.name} broadband became ${provider.successorName} in March 2026.`
+        : `${provider.name} broadband deals from £${provider.monthlyPriceFrom.toFixed(2)}/month.`,
       url: `https://broadbandpicker.co.uk/providers/${slug}`,
     },
   }
@@ -132,10 +139,12 @@ export default async function ProviderPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(offerJsonLd) }}
-      />
+      {!isRetired && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(offerJsonLd) }}
+        />
+      )}
 
       <BreadcrumbNav
         items={[
@@ -160,8 +169,10 @@ export default async function ProviderPage({
             </span>{' '}
             &middot; Up to{' '}
             <span className="font-semibold text-slate-900">{maxSpeed.download} Mbps</span> &middot;{' '}
-            <span className="font-semibold text-slate-900">{provider.coveragePercent}%</span> UK
-            coverage
+            <span className="font-semibold text-slate-900">
+              {isRetired ? 'Regional' : `${provider.coveragePercent}%`}
+            </span>{' '}
+            UK coverage
           </p>
         </div>
         <AffiliateCTA
@@ -179,7 +190,8 @@ export default async function ProviderPage({
         <span>Reviewed by BroadbandPicker editorial team</span>
       </div>
       <p className="text-xs text-slate-400 mb-6 max-w-2xl">
-        We may earn a commission if you click through to {provider.name} and take out a service.
+        We may earn a commission if you click through to{' '}
+        {provider.successorName ?? provider.name} and take out a service.
         This does not affect our editorial independence.
       </p>
 
@@ -297,9 +309,12 @@ export default async function ProviderPage({
       {/* Key stats */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
         {[
-          { label: 'From', value: `£${provider.monthlyPriceFrom.toFixed(2)}/mo` },
+          {
+            label: isRetired ? 'Final range from' : 'From',
+            value: `£${provider.monthlyPriceFrom.toFixed(2)}/mo`,
+          },
           { label: 'Max speed', value: `${maxSpeed.download} Mbps` },
-          { label: 'Coverage', value: `${provider.coveragePercent}%` },
+          { label: 'Coverage', value: isRetired ? 'Regional' : `${provider.coveragePercent}%` },
           { label: 'Trustpilot', value: `${provider.trustpilotScore.toFixed(1)}/5` },
         ].map(({ label, value }) => (
           <div key={label} className="bg-white border border-slate-200 rounded-xl p-4 text-center">
@@ -400,7 +415,7 @@ export default async function ProviderPage({
 
       <p className="text-xs text-slate-400 mt-4">
         We may earn a commission when you click an affiliate link. Prices and deals are subject to
-        change. Always verify with {provider.name} before signing up.
+        change. Always verify with {provider.successorName ?? provider.name} before signing up.
       </p>
     </div>
   )

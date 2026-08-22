@@ -763,6 +763,11 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         <p>For gigabit full-fibre, <strong>Hyperoptic</strong> and <strong>Community Fibre</strong> (London) and <strong>Toob</strong> (Southampton area) offer the best value per Mbps, with excellent reliability and customer service.</p>
         <h2>Should you use Wi-Fi or a wired connection?</h2>
         <p>For serious home working, use a wired Ethernet connection directly from your router to your laptop or desktop. Wi-Fi introduces variability in speed and latency that can affect video calls and cloud applications. If cabling is impractical, a powerline adapter or MoCA adapter can extend wired connectivity through your existing home wiring.</p>
+        <div className="not-prose rounded-xl border-2 border-sky-200 bg-sky-50 p-5 my-6">
+          <p className="font-bold text-slate-900 mb-1">Want a personalised recommendation instead?</p>
+          <p className="text-sm text-slate-700 mb-3">Answer 6 quick questions about your home-working setup and our free Broadband Match tool ranks the providers that actually fit — not just the cheapest headline price.</p>
+          <a href="/tools/broadband-match" className="inline-block px-5 py-2.5 bg-sky-600 hover:bg-sky-700 text-white font-semibold rounded-lg text-sm transition-colors">Find my broadband match &rarr;</a>
+        </div>
       </>
     ),
     faqs: [
@@ -822,6 +827,11 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         </ul>
         <h2>The best rule of thumb</h2>
         <p>If you are in a shared student home, buy broadband based on the <em>whole house</em>, not one person. A slightly faster, cleaner deal split across multiple flatmates is often better value than the cheapest plan on paper.</p>
+        <div className="not-prose rounded-xl border-2 border-sky-200 bg-sky-50 p-5 my-6">
+          <p className="font-bold text-slate-900 mb-1">Want a personalised recommendation instead?</p>
+          <p className="text-sm text-slate-700 mb-3">Answer 6 quick questions about your household and budget, and our free Broadband Match tool ranks the providers that actually fit — not just the cheapest headline price.</p>
+          <a href="/tools/broadband-match" className="inline-block px-5 py-2.5 bg-sky-600 hover:bg-sky-700 text-white font-semibold rounded-lg text-sm transition-colors">Find my broadband match &rarr;</a>
+        </div>
       </>
     ),
     faqs: [
@@ -877,6 +887,11 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         </ul>
         <h2>The simplest answer for most homes</h2>
         <p>If your household mainly streams TV and films, a solid 50 to 100 Mbps package is enough for many homes. The move to 100 to 300 Mbps becomes worthwhile when multiple people stream in 4K, game, or work from home at the same time.</p>
+        <div className="not-prose rounded-xl border-2 border-sky-200 bg-sky-50 p-5 my-6">
+          <p className="font-bold text-slate-900 mb-1">Want a personalised recommendation instead?</p>
+          <p className="text-sm text-slate-700 mb-3">Answer 6 quick questions about your streaming habits and household, and our free Broadband Match tool ranks the providers that actually fit — not just the cheapest headline price.</p>
+          <a href="/tools/broadband-match" className="inline-block px-5 py-2.5 bg-sky-600 hover:bg-sky-700 text-white font-semibold rounded-lg text-sm transition-colors">Find my broadband match &rarr;</a>
+        </div>
       </>
     ),
     faqs: [
@@ -1329,6 +1344,11 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
 
         <h2>Wired vs Wi-Fi for gaming</h2>
         <p>Always use a wired Ethernet connection for serious gaming. Wi-Fi adds 5–20ms of latency on top of your broadband&apos;s base latency, and introduces jitter (variable delay) that causes lag spikes. A wired connection directly from your router eliminates both problems. If you cannot run a cable, a powerline adapter (which carries Ethernet through your existing mains wiring) is a significantly better option than Wi-Fi for gaming.</p>
+        <div className="not-prose rounded-xl border-2 border-sky-200 bg-sky-50 p-5 my-6">
+          <p className="font-bold text-slate-900 mb-1">Want a personalised recommendation instead?</p>
+          <p className="text-sm text-slate-700 mb-3">Answer 6 quick questions about your household and gaming setup, and our free Broadband Match tool ranks the providers that actually fit — not just the cheapest headline price.</p>
+          <a href="/tools/broadband-match" className="inline-block px-5 py-2.5 bg-sky-600 hover:bg-sky-700 text-white font-semibold rounded-lg text-sm transition-colors">Find my broadband match &rarr;</a>
+        </div>
       </>
     ),
     faqs: [

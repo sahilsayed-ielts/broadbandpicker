@@ -61,6 +61,7 @@ function Header() {
             <Link href="/deals" className="text-slate-600 hover:text-sky-600 transition-colors">Deals</Link>
             <Link href="/providers" className="text-slate-600 hover:text-sky-600 transition-colors">Providers</Link>
             <Link href="/guides" className="text-slate-600 hover:text-sky-600 transition-colors">Guides</Link>
+            <Link href="/tools/broadband-match" className="text-slate-600 hover:text-sky-600 transition-colors">Broadband Match</Link>
             <Link href="/speed-test" className="text-slate-600 hover:text-sky-600 transition-colors">Speed Test</Link>
           </nav>
 
@@ -92,6 +93,7 @@ function MobileMenuButton() {
           { href: '/deals', label: 'Deals' },
           { href: '/providers', label: 'Providers' },
           { href: '/guides', label: 'Guides' },
+          { href: '/tools/broadband-match', label: 'Broadband Match' },
           { href: '/speed-test', label: 'Speed Test' },
           { href: '/about', label: 'About' },
           { href: '/contact', label: 'Contact' },
@@ -125,6 +127,7 @@ function Footer() {
               <li><Link href="/compare" className="hover:text-white transition-colors">All providers</Link></li>
               <li><Link href="/deals" className="hover:text-white transition-colors">Best deals</Link></li>
               <li><Link href="/providers" className="hover:text-white transition-colors">Provider reviews</Link></li>
+              <li><Link href="/tools/broadband-match" className="hover:text-white transition-colors">Broadband Match quiz</Link></li>
             </ul>
           </div>
           <div>
