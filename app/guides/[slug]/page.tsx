@@ -2904,6 +2904,227 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
       },
     ],
   },
+  'no-credit-check-broadband-uk': {
+    body: (
+      <>
+        <p className="text-lg">
+          <strong>No credit check broadband is available in the UK, but the safest choice depends
+          on the product and your circumstances.</strong> Some fixed-line providers are reported to
+          accept broadband orders without a credit search, eligible households can consider social
+          tariffs, and prepaid mobile data avoids borrowing altogether. Provider policies can
+          change, so confirm the check type and all costs before submitting an application.
+        </p>
+
+        <div className="rounded-xl border border-amber-200 bg-amber-50 p-5">
+          <p className="mb-0 text-sm">
+            <strong>Policy check:</strong> provider credit-check rules, prices and eligibility were
+            reviewed on 22 August 2026. Current independent sources disagree about some brands,
+            including NOW Broadband. Ask the provider whether it will run a hard search, soft
+            search, identity check or affordability check before you apply.
+          </p>
+        </div>
+
+        <h2>What does no credit check broadband mean?</h2>
+        <p>
+          No credit check broadband means the provider does not search your credit file to decide
+          whether to accept the order. It does not mean guaranteed service. A provider can still
+          verify your identity and address, check that its network serves the property, require a
+          valid payment method or refuse an order for fraud-prevention or previous-account reasons.
+        </p>
+        <p>
+          The phrase also covers different products. A normal fixed broadband contract supplies a
+          router and connection to the home. Prepaid mobile broadband uses a data SIM in a phone,
+          dongle or 4G/5G router. A social tariff is a lower-cost fixed or mobile package for people
+          receiving specified benefits. Compare like with like before choosing.
+        </p>
+
+        <h2>Does broadband require a credit check?</h2>
+        <p>
+          Not every broadband order requires the same check. Providers set their own acceptance
+          policies and may change them. Experian distinguishes a soft search, which other companies
+          cannot see and which does not affect your credit score, from a hard search, which is
+          recorded on your report and may affect later applications. An identity check is not
+          automatically a credit search.
+        </p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm border-collapse">
+            <caption className="pb-3 text-left text-sm text-slate-600">
+              Routes to getting online when a credit search or poor credit history is a concern.
+            </caption>
+            <thead>
+              <tr className="bg-slate-50">
+                {['Route', 'Credit position', 'Best for', 'Main limitation'].map((heading) => (
+                  <th scope="col" key={heading} className="text-left px-4 py-3 border border-slate-200 font-semibold text-slate-700">{heading}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                ['Reported no-check fixed broadband', 'Confirm directly before applying', 'A normal home connection without a credit-file search', 'Policies and address availability can change'],
+                ['Social tariff', 'Check the provider policy and benefit eligibility', 'Eligible low-income households seeking predictable costs', 'Only specified benefits qualify and the account holder may need to receive them'],
+                ['Provider using a soft search', 'Visible to you, not other companies', 'Someone who wants mainstream fixed-line choice without a hard-search footprint', 'Acceptance is still not guaranteed'],
+                ['Prepaid mobile broadband', 'No borrowing where service is paid in advance', 'Immediate or temporary access and a fallback after refusal', 'Coverage, data allowance and indoor speed vary'],
+              ].map(([route, position, fit, limit]) => (
+                <tr key={route} className="border-b border-slate-100 align-top">
+                  <td className="px-4 py-3 font-semibold text-slate-900">{route}</td>
+                  <td className="px-4 py-3 text-slate-700">{position}</td>
+                  <td className="px-4 py-3 text-slate-700">{fit}</td>
+                  <td className="px-4 py-3 text-slate-600">{limit}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Which fixed broadband providers advertise no credit check?</h2>
+        <p>
+          Current independent guides identify Plusnet and Direct Save Telecom as fixed-line options
+          that do not require customers to pass a credit check. That is useful market evidence, not
+          a permanent guarantee from BroadbandPicker. Check the provider&apos;s current order terms or
+          ask its sales team to confirm the policy in writing before entering personal details.
+        </p>
+        <p>
+          Treat older provider lists carefully. One current independent source says NOW Broadband
+          now checks new contracts because the service is powered by Sky, while another current
+          comparison page describes NOW as having no credit-rating check. We do not resolve that
+          disagreement by guessing. If NOW interests you, ask it directly which search will be run
+          for the exact broadband-only order.
+        </p>
+        <p>
+          Direct Save Telecom illustrates another important point: passing no credit check does not
+          remove payment obligations. Choose reports strict charges and escalation after failed
+          payments. Read the missed-payment, suspension, equipment, setup and early termination
+          terms as carefully as the acceptance policy.
+        </p>
+
+        <h2>Check social tariffs before paying more</h2>
+        <p>
+          A social tariff can be the strongest broadband-for-bad-credit route when you qualify,
+          because it is designed for affordability rather than sold as expensive specialist credit.
+          Ofcom says these packages are available to people claiming Universal Credit, Pension
+          Credit and some other benefits. If anyone in the household receives Universal Credit,
+          the household can consider every tariff on Ofcom&apos;s list, although the benefit recipient
+          normally needs to be the main account holder.
+        </p>
+        <p>
+          Ofcom&apos;s list checked on 22 August 2026 shows social tariffs from £10 to £24 a month, with
+          most offering speeds above 30 Mbit/s. It also says setup costs should be very small or
+          zero, the price does not rise mid-contract, and customers can leave without an exit fee.
+          Eligibility and credit processes remain provider-specific, so confirm both separately.
+        </p>
+        <ol>
+          <li>Check whether you or someone in the household receives a qualifying benefit.</li>
+          <li>Ask the current provider whether it offers a social tariff and what evidence it needs.</li>
+          <li>Compare Ofcom&apos;s full tariff list if the current provider has no suitable option.</li>
+          <li>Confirm speed and availability at the address, plus any identity or credit checks.</li>
+          <li>Keep proof of eligibility and review dates because providers may recheck entitlement.</li>
+        </ol>
+        <p>
+          See our <Link href="/guides/cheapest-broadband-uk">guide to cheap broadband</Link> and
+          {' '}<Link href="/guides/how-to-switch-broadband-uk">UK switching checklist</Link> before
+          moving service.
+        </p>
+
+        <h2>Pay-as-you-go mobile broadband as a fallback</h2>
+        <p>
+          Pay-as-you-go broadband with no credit check normally means mobile data paid before use,
+          not a fixed line to the home. Vodafone states that its Pay as you go Plus plans have no
+          contract or credit check and also points declined applicants to pay-as-you-go data-only
+          SIMs for mobile broadband devices. Other prepaid networks may offer similar products, but
+          verify the current terms rather than assuming every monthly SIM is prepaid.
+        </p>
+        <p>
+          Test network coverage where the router will sit, check whether the allowance is genuinely
+          unlimited, and read fair-use or traffic-management terms. Mobile performance changes with
+          signal, congestion, building materials and location. It can be an effective immediate or
+          short-term fallback, but a stable fixed connection may offer more predictable performance
+          for home working, gaming and several simultaneous users.
+        </p>
+        <p>
+          A rolling fixed-line contract is a different product and may still involve a check. Read
+          our <Link href="/guides/best-rolling-monthly-broadband-deals">rolling monthly broadband guide</Link>
+          {' '}and <Link href="/guides/broadband-speeds-explained">broadband speed guide</Link> to
+          compare flexibility and capacity.
+        </p>
+
+        <h2>What to do after a broadband application is declined</h2>
+        <ol>
+          <li><strong>Stop before applying repeatedly.</strong> Ask whether the provider made a hard search and which credit reference agency it used.</li>
+          <li><strong>Check your statutory credit reports.</strong> Look for an incorrect address, unrecognised account or outdated financial association and dispute genuine errors.</li>
+          <li><strong>Ask about alternatives.</strong> A deposit, broadband-only order, social tariff or different payment arrangement may be available, but the provider decides.</li>
+          <li><strong>Compare a verified no-check option.</strong> Confirm the policy, service availability and full contract cost before applying.</li>
+          <li><strong>Use prepaid mobile data if necessary.</strong> This can provide access while you resolve an error or arrange a fixed service.</li>
+        </ol>
+        <p>
+          A County Court Judgment, default or thin UK credit history does not prove that every
+          broadband provider will refuse you, and a no-check product does not guarantee address
+          coverage. Providers use different criteria. Focus on one verified route at a time and do
+          not pay an unregulated intermediary for a promise of guaranteed broadband acceptance.
+        </p>
+
+        <h2>Costs and contract terms to compare</h2>
+        <ul>
+          <li><strong>Total minimum-term cost:</strong> add monthly charges, scheduled rises, setup, delivery and equipment costs.</li>
+          <li><strong>Payment timing:</strong> establish whether service is prepaid or billed after use and what happens if collection fails.</li>
+          <li><strong>Contract length:</strong> no credit check does not necessarily mean no contract or no early termination fee.</li>
+          <li><strong>Router ownership:</strong> check whether equipment must be returned and what a missing-device charge would be.</li>
+          <li><strong>Speed and coverage:</strong> use the full address for fixed broadband and test the relevant network for mobile data.</li>
+          <li><strong>Policy evidence:</strong> save the provider&apos;s written answer about the check type and the dated contract summary.</li>
+        </ul>
+
+        <h2>Application checklist</h2>
+        <p>
+          Before pressing submit, confirm the provider serves the full address, the advertised
+          speed is an address-specific estimate, the price covers the full minimum term, and the
+          named account holder meets any eligibility rule. Ask exactly which credit or identity
+          check will occur. Comparing <Link href="/deals">live broadband deals</Link> can show the
+          market at your address, but a deal listing alone does not confirm acceptance policy.
+        </p>
+        <p>
+          Keep the contract summary, order confirmation and written answer about the search type.
+          Check the first bill against the agreed setup fee, monthly charge and optional extras.
+          If anything differs, contact the provider promptly and keep a record of the date, adviser
+          and outcome. This evidence is more useful than relying on an undated comparison-page claim.
+        </p>
+
+        <h2>Bottom line</h2>
+        <p>
+          There is no universal best no credit check broadband provider. Start with an eligible
+          social tariff if affordability is the priority, a directly verified no-check fixed-line
+          provider if you need normal home broadband, or prepaid mobile data if you need a quick
+          fallback without borrowing. Confirm the policy and address availability on the day you
+          apply, then choose on total cost, speed and payment terms rather than the no-check label
+          alone.
+        </p>
+      </>
+    ),
+    faqs: [
+      {
+        question: 'Can I get broadband with a bad credit score or CCJ?',
+        answer: 'Yes, possible routes include a fixed provider that confirms it does not run a credit search, an eligible social tariff, a provider willing to use a deposit or alternative arrangement, or prepaid mobile broadband. Acceptance is never universal. Confirm the check type and address availability before applying, especially if a CCJ, default or limited UK credit history is involved.',
+      },
+      {
+        question: 'Which broadband providers do not require a credit check?',
+        answer: 'Current independent UK guides identify Plusnet and Direct Save Telecom as fixed-line options without a credit check, but provider policies can change and sources disagree about some other brands. Ask the provider to confirm whether the exact broadband-only order uses a hard search, soft search, identity check or no credit-file search before submitting your application.',
+      },
+      {
+        question: 'Does a broadband credit check affect my credit score?',
+        answer: 'It depends on the search. Experian says a soft search is visible to you but not other companies and does not affect your credit score. A hard search is recorded on your credit report and can be seen by other companies. Ask the broadband provider which type it intends to run before you make a formal application.',
+      },
+      {
+        question: 'Can I get pay-as-you-go broadband with no credit check?',
+        answer: 'Yes. Prepaid mobile data can provide internet through a phone, dongle or 4G/5G router without borrowing. Vodafone explicitly says its Pay as you go Plus plans have no contract or credit check and offers prepaid data-only SIMs. Check network coverage, the data allowance, equipment cost and indoor performance because this is mobile rather than fixed-line broadband.',
+      },
+      {
+        question: 'Do social tariffs require a credit check?',
+        answer: 'There is no single credit-check rule covering every social tariff, so ask the provider directly. Ofcom says social tariffs are for people receiving qualifying benefits, usually require the benefit recipient to be the main account holder, cost £10 to £24 on its current list, do not rise mid-contract and have no exit fee. Benefit eligibility and credit policy are separate checks.',
+      },
+      {
+        question: 'What should I do if a broadband application is declined?',
+        answer: 'Ask whether the provider ran a hard search and which credit reference agency it used, then check your statutory reports for genuine errors. Avoid making several applications in quick succession. Ask about a deposit, social tariff or broadband-only alternative, verify a no-check provider directly, or use prepaid mobile data temporarily while you resolve the problem.',
+      },
+    ],
+  },
 }
 
 export default async function GuidePage({

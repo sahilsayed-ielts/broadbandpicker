@@ -31,6 +31,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import os
 import re
 import shutil
@@ -65,6 +66,7 @@ DEFAULT_MAPPING_SHEET_ID = "1Ke0YWo5T-45JRpuXpfqL_0vwmcBbS0i06Da47quRRH0"
 DEFAULT_PRIORITY_BATCH_SIZE = 5
 PIPELINE_BRIEF = ROOT / "docs" / "page-build-pipeline-brief.md"
 PIPELINE_DIR = ROOT / "docs" / "page-build-pipeline"
+PAGE_RESEARCH_FILE = PIPELINE_DIR / "current-page-research.json"
 
 PAGE_ROUTES = {
     "providers/compare/": ("data/provider-comparisons.ts", "app/providers/compare/[slug]/page.tsx", "ProviderComparison"),
@@ -1064,18 +1066,19 @@ def write_page_build_packet(packet: dict[str, Any]) -> tuple[Path, Path]:
 Read `{PIPELINE_BRIEF.relative_to(ROOT)}` completely and follow it as the controlling specification.
 Read `{packet_path.relative_to(ROOT)}` for the exact page, detailed keyword mapping, template route and prerequisites.
 
-## 1. Keyword research (required every build, not optional)
+## 1. Keyword research and live SERP scraping (required every build, not optional)
 
 The packet's keyword list is a starting point, not the finished research. Before writing:
-- Search the primary keyword yourself and read what currently ranks for it in the UK. Note the
+- Search the primary keyword and scrape/read at least three currently ranking UK pages. Note the
   common structural pattern among the top results: roughly how long they are, how they're
   organised (heading structure, tables, FAQs), and what specific facts or numbers they lead with.
 - Check whether an AI Overview / AI answer currently appears for the primary keyword. If it does,
   read what it cites and from where — that tells you what a citable answer for this specific
   keyword looks like, more reliably than any general rule.
-- Identify 2-4 secondary/supporting keywords beyond the packet's list if the topic naturally
-  covers them (people-also-ask style questions, close variants) — but only add ones a UK reader
-  would plausibly search, not padding.
+- Identify at least four distinct secondary/supporting queries beyond the primary term. Use close
+  variants, commercial modifiers, People Also Ask questions, entity attributes and comparison
+  questions that a UK reader would plausibly search. Map every query to a specific title, intro,
+  H2/H3, table, body, FAQ or verdict slot before drafting. Do not create padding variants.
 - Optionally run `python3 scripts/scrape_competitor_landscape.py` for a structural read on the
   established UK broadband comparison sites (word count, schema types, tool/trust signals) as
   background context — it targets general broadband hubs, not this specific keyword, so treat it
@@ -1089,9 +1092,16 @@ competitive for this specific query — a niche long-tail term may need 600 well
 broad commercial term may need substantially more. Justify the depth you chose in your report with
 what you saw ranking.
 
-## 3. Research current facts
+## 3. Scrape and research current facts
 
-Research current facts from primary provider sources plus trustworthy neutral corroboration. Record every source URL and verification date in the existing source fields. If sources use different populations or methodologies, report them separately and do not combine them into a score. A conditional verdict or an explicit "no universal winner" conclusion is valid when supported by the evidence. Never guess a winner, trust score or statistic. Stop with a clear BLOCKED report only when the page's required factual claims cannot be supported safely.
+Scrape/read the relevant official provider, regulator or government pages plus trustworthy neutral
+corroboration. Use at least one primary/official source and one independent or regulatory source;
+commercial/provider pages normally need several of each. Record every source URL, source type,
+claim supported and verification date. If sources use different populations or methodologies,
+report them separately and do not combine them into a score. A conditional verdict or an explicit
+"no universal winner" conclusion is valid when supported by the evidence. Never guess a winner,
+trust score or statistic. Stop with a clear BLOCKED report only when the page's required factual
+claims cannot be supported safely.
 
 If prerequisites are missing, build and validate those provider entries first, using the existing interface and sibling structure. Use only a labelled text-wordmark placeholder when no official logo asset is available.
 
@@ -1104,6 +1114,47 @@ Write the page copy into the existing data file or route specified by the packet
 - Lead sections with the concrete fact or number, not a rhetorical question.
 - Keep a genuine freshness signal (a real reviewed/updated date) and visible primary sources —
   both are things the keyword-research step should confirm the ranking pages also do.
+- Make important entities and relationships explicit: who provides the service, network used,
+  geographic scope, price period, speed type, contract term, eligibility and verification date.
+- Include concise definitions, direct answers, comparison criteria, limitations and actionable
+  next steps so passages remain accurate when quoted without the surrounding page.
+- Use descriptive headings, short answer-first paragraphs, useful tables/lists where the template
+  supports them, internal links to relevant BroadbandPicker pages and visible citations close to
+  material claims. Do not repeat a keyword merely to increase frequency.
+
+## 5. Save the research and keyword map (mandatory validation input)
+
+Before running the build, write `{PAGE_RESEARCH_FILE.relative_to(ROOT)}` as valid JSON with:
+- `slug`, `primary_keyword`, and `search_locale` (`UK`);
+- `secondary_keywords`: at least four objects containing `keyword`, `intent`, `page_slot` and
+  `coverage_note`;
+- `serp_competitors`: at least three objects containing `url`, `title`, `observed_structure`,
+  `approx_word_count`, `content_gap_to_improve`, `useful_ux_patterns`, `useful_ui_patterns`,
+  `interactive_or_functional_elements`, `trust_signals` and `citation_patterns`;
+- `ai_overview`: an object containing `checked`, `present`, `observation` and `cited_sources`;
+- `people_also_ask`: useful question strings discovered during research;
+- `sources`: at least three objects containing `url`, `source_type` (`primary`, `regulator`,
+  `government`, `independent` or `reviews`), `verified_date` and `claims_supported`;
+- `recommended_min_words`: an integer justified by the ranking-page review, never below 900 for a
+  Guide or Provider page, 800 for a Comparison page, or 600 for an Interactive tool;
+- `required_sections`, `internal_links`, `schema_types`, `ux_ui_requirements`,
+  `functional_requirements`, `research_summary` and `depth_rationale`.
+
+The validator will reject a missing, thin or mismatched research file and will check that the
+rendered page covers the mapped secondary queries and the justified minimum depth.
+
+## 6. Apply competitor UX, UI and functional learnings
+
+Use the strongest useful patterns found across the ranking pages, without copying their wording,
+branding or layout. Implement only patterns that improve this page's search intent and reader task,
+such as answer summaries, comparison/checklist tables, eligibility flows, cost examples, decision
+steps, jump navigation, warnings, source notes or an interactive control. Record every adopted
+pattern in `ux_ui_requirements` or `functional_requirements`, explain which observed user need it
+serves, and implement it using the site's existing design system and accessible components.
+
+Do not claim that a competitor pattern caused a ranking or AI citation. Treat ranking, AI Overview
+and LLM visibility as evidence-informed targets, never guarantees. Do not clone a competitor page,
+add decorative UI without a task benefit, or invent data to populate a feature.
 
 Do not commit, push or deploy. Run the relevant deterministic validation, including `npm run build`, and report exactly which files changed, the keyword research findings (what's currently ranking, what depth/structure you matched and why, whether an AI Overview was present), sources used, unresolved factual questions and validation results.
 """
@@ -1162,7 +1213,52 @@ permissions prevent the update, return BLOCKED and the exact reason.
     return result_path
 
 
+def validate_page_research(packet: dict[str, Any]) -> dict[str, Any]:
+    if not PAGE_RESEARCH_FILE.exists():
+        raise RuntimeError(f"Required page research file is missing: {PAGE_RESEARCH_FILE}")
+    try:
+        research = json.loads(PAGE_RESEARCH_FILE.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise RuntimeError(f"Page research file is not valid JSON: {exc}") from exc
+    if research.get("slug") != packet["slug"]:
+        raise RuntimeError("Page research file does not match the page being built")
+    primary = str(research.get("primary_keyword") or "").strip().lower()
+    packet_primary = str(packet["keywords"][0]["keyword"] if packet["keywords"] else "").strip().lower()
+    if primary != packet_primary:
+        raise RuntimeError(f"Research primary keyword does not match packet: {primary!r} != {packet_primary!r}")
+    secondary = research.get("secondary_keywords") or []
+    if len(secondary) < 4 or any(not all(item.get(key) for key in ("keyword", "intent", "page_slot", "coverage_note")) for item in secondary):
+        raise RuntimeError("Page research must map at least four complete secondary keywords")
+    competitors = research.get("serp_competitors") or []
+    competitor_fields = (
+        "url", "title", "observed_structure", "approx_word_count", "content_gap_to_improve",
+        "useful_ux_patterns", "useful_ui_patterns", "interactive_or_functional_elements",
+        "trust_signals", "citation_patterns",
+    )
+    if len(competitors) < 3 or any(not all(item.get(key) is not None for key in competitor_fields) for item in competitors):
+        raise RuntimeError("Page research must record complete content, UX, UI, function, trust and citation learnings for at least three ranking competitors")
+    ai_overview = research.get("ai_overview") or {}
+    if ai_overview.get("checked") is not True or "present" not in ai_overview or not ai_overview.get("observation"):
+        raise RuntimeError("Page research must record the AI Overview check and observation")
+    sources = research.get("sources") or []
+    source_types = {str(item.get("source_type") or "").lower() for item in sources}
+    if len(sources) < 3 or not source_types.intersection({"primary", "regulator", "government"}) or not source_types.intersection({"independent", "regulator", "government"}):
+        raise RuntimeError("Page research needs at least three sources with primary and neutral/regulatory evidence")
+    floors = {"Guide": 900, "Provider page": 900, "Comparison page": 800, "Interactive tool": 600}
+    minimum = research.get("recommended_min_words")
+    floor = floors.get(str(packet.get("page_type")), 800)
+    if not isinstance(minimum, int) or minimum < floor:
+        raise RuntimeError(f"Research depth target must be an integer of at least {floor} words")
+    for key in ("required_sections", "internal_links", "schema_types", "ux_ui_requirements", "functional_requirements"):
+        if not research.get(key):
+            raise RuntimeError(f"Page research is missing {key}")
+    if not research.get("research_summary") or not research.get("depth_rationale"):
+        raise RuntimeError("Page research must explain its findings and depth rationale")
+    return research
+
+
 def validate_page_build(packet: dict[str, Any], port: int = 4321) -> None:
+    research = validate_page_research(packet)
     try:
         subprocess.run(["npm", "run", "build"], cwd=ROOT, check=True)
     except subprocess.CalledProcessError:
@@ -1203,6 +1299,12 @@ def validate_page_build(packet: dict[str, Any], port: int = 4321) -> None:
         else:
             visible_nodes = tree.xpath("//main//text()[normalize-space()]")
         visible = " ".join(visible_nodes)
+        visible_word_count = len(re.findall(r"\b[\w'-]+\b", visible))
+        if visible_word_count < research["recommended_min_words"]:
+            raise RuntimeError(
+                f"Rendered page is too thin for its researched SERP target: "
+                f"{visible_word_count} < {research['recommended_min_words']} words"
+            )
         if primary:
             def keyword_tokens(value: str) -> list[str]:
                 tokens = re.findall(r"[a-z0-9]+", value.lower().replace("-", " "))
@@ -1216,6 +1318,17 @@ def validate_page_build(packet: dict[str, Any], port: int = 4321) -> None:
                 raise RuntimeError(f"Primary keyword is absent from rendered page: {primary}")
         if "—" in visible:
             raise RuntimeError("Rendered public copy contains an em dash")
+        secondary_covered = 0
+        for item in research["secondary_keywords"]:
+            tokens = keyword_tokens(str(item["keyword"]))
+            if tokens and all(token in visible_tokens for token in tokens):
+                secondary_covered += 1
+        required_secondary = max(3, math.ceil(len(research["secondary_keywords"]) * 0.6))
+        if secondary_covered < required_secondary:
+            raise RuntimeError(
+                f"Rendered page covers only {secondary_covered}/{len(research['secondary_keywords'])} "
+                f"mapped secondary keywords; at least {required_secondary} are required"
+            )
         if not tree.xpath("//h1"):
             raise RuntimeError("Rendered page has no H1")
         if packet["page_type"] == "Comparison page":

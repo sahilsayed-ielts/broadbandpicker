@@ -233,6 +233,26 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "Growth playbook — Functionality pillar",
     },
     {
+        "item_id": "feat-uk-wide-postcode-coverage",
+        "type": "Feature",
+        "pillar": "Content/Trust",
+        "title": "UK-wide real postcode coverage data (Ofcom)",
+        "description": (
+            "Only ~50 curated postcode prefixes had real local data; every other UK "
+            "postcode showed a generic 'we're expanding coverage' fallback with no "
+            "area-specific information. Built from Ofcom's open Connected Nations "
+            "postcode-level dataset (Open Government Licence), aggregated to "
+            "district level, covering all 2,818 UK postcode districts with real "
+            "gigabit/superfast/ultrafast availability percentages."
+        ),
+        "priority_score": 80,
+        "impact_score": 85,
+        "effort": "Medium",
+        "target": "data/postcode-district-coverage.json, data/postcodeDistrictCoverage.ts, app/postcode/[area]/page.tsx",
+        "dependencies": "scripts/build_postcode_coverage.py (re-run when Ofcom publishes a newer postcode-level edition)",
+        "source": "User request — real postcode-level availability",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",

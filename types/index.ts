@@ -18,6 +18,12 @@ export interface Provider {
   highlights: string[]
   pros: string[]
   cons: string[]
+  excerpt?: string
+  contentSections?: {
+    heading: string
+    paragraphs: string[]
+  }[]
+  faqItems?: FAQItem[]
   reviewedDate: string
   pricingVerifiedDate: string
   reviewSources: {

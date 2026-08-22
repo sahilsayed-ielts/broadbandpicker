@@ -25,7 +25,7 @@ export async function generateMetadata({
   const maxSpeed = provider.speeds.reduce((a, b) => (b.download > a.download ? b : a))
 
   return {
-    title: `${provider.name} Broadband Review 2026 — Deals from £${provider.monthlyPriceFrom.toFixed(2)}/mo`,
+    title: `${provider.name} Broadband Review 2026 | Deals from £${provider.monthlyPriceFrom.toFixed(2)}/mo`,
     description: `Read our ${provider.name} broadband review. Speeds up to ${maxSpeed.download} Mbps, from £${provider.monthlyPriceFrom.toFixed(2)}/month. See deals, pros, cons and customer ratings.`,
     alternates: { canonical: `https://broadbandpicker.co.uk/providers/${slug}` },
     openGraph: {
@@ -57,7 +57,7 @@ export default async function ProviderPage({
     year: 'numeric',
   })
 
-  const faqItems = [
+  const defaultFaqItems = [
     {
       question: `Is ${provider.name} broadband any good?`,
       answer: `${provider.name} has a Trustpilot score of ${provider.trustpilotScore.toFixed(1)}/5. ${provider.pros[0]}. ${provider.pros[1] ?? ''} It covers ${provider.coveragePercent}% of UK homes.`,
@@ -75,6 +75,7 @@ export default async function ProviderPage({
       answer: `${provider.name} covers approximately ${provider.coveragePercent}% of UK homes. Enter your postcode on our postcode checker to confirm availability at your specific address.`,
     },
   ]
+  const faqItems = provider.faqItems ?? defaultFaqItems
 
   const articleJsonLd = {
     '@context': 'https://schema.org',
@@ -180,6 +181,12 @@ export default async function ProviderPage({
         We may earn a commission if you click through to {provider.name} and take out a service.
         This does not affect our editorial independence.
       </p>
+
+      {provider.excerpt && (
+        <p className="mb-8 border-l-4 border-sky-500 pl-4 text-base leading-relaxed text-slate-700">
+          {provider.excerpt}
+        </p>
+      )}
 
       {/* Highlights */}
       <div className="bg-sky-50 border border-sky-200 rounded-xl p-6 mb-8">
@@ -310,9 +317,20 @@ export default async function ProviderPage({
         </div>
       </section>
 
+      {provider.contentSections?.map((section) => (
+        <section key={section.heading} className="mb-10">
+          <h2 className="text-xl font-bold text-slate-900 mb-3">{section.heading}</h2>
+          <div className="space-y-3 text-sm text-slate-700 leading-relaxed">
+            {section.paragraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+        </section>
+      ))}
+
       {/* FAQ */}
       <h2 className="text-xl font-bold text-slate-900 mb-4">
-        {provider.name} Broadband — Frequently Asked Questions
+        {provider.name} Broadband: Frequently Asked Questions
       </h2>
       <FAQAccordion items={faqItems} />
 
@@ -374,7 +392,7 @@ export default async function ProviderPage({
 
       <p className="text-xs text-slate-400 mt-4">
         We may earn a commission when you click an affiliate link. Prices and deals are subject to
-        change — always verify with {provider.name} before signing up.
+        change. Always verify with {provider.name} before signing up.
       </p>
     </div>
   )

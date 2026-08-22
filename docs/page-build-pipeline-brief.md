@@ -61,7 +61,7 @@ against the *live* `data/providers.ts`, not the keyword-mapping snapshot —
 **3.0 — Keyword and SERP research, required every build.** The keyword-mapping
 dataset gives a starting keyword, volume and difficulty — it is not a
 substitute for checking what is actually ranking right now. Before writing:
-search the primary keyword and read the top UK results to see their rough
+search the primary keyword and scrape/read at least three top UK results to see their rough
 depth and structure (word count ballpark, heading pattern, tables, FAQs,
 what specific fact they lead with); check whether an AI Overview currently
 appears for the term and, if so, what it cites and from where. Match or
@@ -71,6 +71,29 @@ There is no fixed target word count; the ranking pages are the target.
 Optionally run `python3 scripts/scrape_competitor_landscape.py` for general
 structural context on the established UK comparison sites, but treat it as
 background, not a substitute for researching the specific keyword.
+
+Every build must save `docs/page-build-pipeline/current-page-research.json`
+before compilation. It records the primary keyword, at least four mapped
+secondary queries, three or more current SERP competitors, People Also Ask
+questions, AI Overview observations, primary and neutral sources, proposed
+sections/internal links/schema and a ranking-evidence-based minimum depth.
+The script validates this file against the current slug and rendered page;
+missing research, thin mapping or insufficient secondary-query coverage stops
+deployment.
+
+The same competitor review must record useful content, UX, UI, functional,
+trust and citation patterns for each ranking page. Adopt the strongest
+task-relevant patterns through BroadbandPicker's own accessible design system,
+without copying competitor wording or branding. Useful implementations can
+include answer summaries, eligibility/checklist flows, comparison tables,
+worked cost examples, jump navigation, warnings, source notes and genuinely
+helpful interactive controls. Each adopted pattern must have a documented user
+need and appear in `ux_ui_requirements` or `functional_requirements`; decorative
+or speculative features do not count.
+
+Rankings and AI citations are outcomes, not facts the research can attribute to
+one design pattern. The pipeline targets first-page usefulness and citability
+but never promises Google, AI Overview or LLM placement.
 
 For every entity involved (each provider; each claim in a guide topic):
 
@@ -101,6 +124,10 @@ For every entity involved (each provider; each claim in a guide topic):
    `sources` field / `reviewSources`, matching the existing
    `createReviewMetadata()` pattern in `data/providers.ts` — don't invent a
    parallel citation format.
+7. Map each material claim to a source in the research file. Prefer official
+   providers, Ofcom and UK government sources for facts, with independent
+   comparison/review evidence used as corroboration rather than silently
+   replacing primary evidence.
 
 **Automatable with a human checkpoint**: the fetch/search sequence is
 scriptable end to end. The "sources disagree, don't silently average" and
@@ -136,6 +163,12 @@ sources[]        → H2 "Editorial and Source Notes"
 Place the primary/focus keyword in `title` and `excerpt`; place
 secondary/supporting keywords naturally inside `keyDifferences[].detail`
 and `faqs[].answer` — never in the H3 `label`s themselves.
+
+For every template, map at least four real supporting searches across the
+actual page slots. Include close variants, commercial modifiers, entity
+attributes and question queries only when they match UK search intent. The
+validator requires at least 60% of mapped secondary terms, and never fewer
+than three, to be substantively covered in rendered copy.
 
 **Automatable**: the slot table above is fixed per template and only needs
 extracting once per template (not per page). Generating the actual sentences

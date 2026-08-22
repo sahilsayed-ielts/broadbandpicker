@@ -1,0 +1,175 @@
+{
+  "slug": "guides/no-credit-check-broadband-uk",
+  "primary_keyword": "no credit check broadband",
+  "search_locale": "UK",
+  "secondary_keywords": [
+    {
+      "keyword": "broadband for bad credit",
+      "intent": "Commercial investigation",
+      "page_slot": "H2 Which broadband options can work if you have bad credit? and verdict",
+      "coverage_note": "Explains the realistic fixed-line, social-tariff and prepaid alternatives without promising universal acceptance."
+    },
+    {
+      "keyword": "which broadband providers do not credit check",
+      "intent": "Provider comparison",
+      "page_slot": "H2 Which fixed broadband providers advertise no credit check? and comparison table",
+      "coverage_note": "Names currently reported options, distinguishes provider policy from a guarantee and tells readers to verify before applying."
+    },
+    {
+      "keyword": "pay as you go broadband no credit check",
+      "intent": "Alternative product search",
+      "page_slot": "H2 Pay-as-you-go mobile broadband as a fallback and FAQ",
+      "coverage_note": "Covers prepaid data SIMs and routers, network coverage, data limits and variable performance."
+    },
+    {
+      "keyword": "social tariff broadband bad credit",
+      "intent": "Affordability and eligibility",
+      "page_slot": "H2 Check social tariffs before paying more and FAQ",
+      "coverage_note": "Uses Ofcom eligibility, price, speed and exit-term facts and separates benefit eligibility from credit-check policy."
+    },
+    {
+      "keyword": "does broadband require a credit check",
+      "intent": "Informational question",
+      "page_slot": "H2 Does broadband require a credit check? and FAQ",
+      "coverage_note": "Explains that policies vary and defines hard, soft, identity and affordability checks."
+    },
+    {
+      "keyword": "can I get broadband with a CCJ",
+      "intent": "Eligibility question",
+      "page_slot": "H2 What to do after a broadband application is declined and FAQ",
+      "coverage_note": "Gives a safe sequence for readers with CCJs or defaults and avoids guaranteeing acceptance."
+    }
+  ],
+  "serp_competitors": [
+    {
+      "url": "https://www.moneysavingexpert.com/compare-broadband-deals/bad-credit-broadband/",
+      "title": "Broadband deals without a credit check",
+      "observed_structure": "Postcode-led deal comparison, social-tariff filter, ranked package cards, cost breakdowns and short explanatory sections on poor credit and providers.",
+      "approx_word_count": 1400,
+      "content_gap_to_improve": "Separate confirmed provider policy from aggregator claims and give a clearer pre-application verification checklist.",
+      "useful_ux_patterns": "Address-first comparison and equivalent monthly cost breakdown.",
+      "useful_ui_patterns": "Postcode input, filters and expandable cost panels.",
+      "interactive_or_functional_elements": "Postcode availability search, address selection, sort control and social-tariff filter.",
+      "trust_signals": "Comparison-scope disclosure, customer-service measure and Ofcom automatic-compensation references.",
+      "citation_patterns": "Provider deal links and methodology/disclosure links close to commercial results."
+    },
+    {
+      "url": "https://www.choose.co.uk/broadband/guide/broadband-no-credit-check/",
+      "title": "Broadband without a credit check",
+      "observed_structure": "Answer-first summary, jump navigation, at-a-glance section, no-check and soft-check provider sections, alternatives, reasons checks occur and summary.",
+      "approx_word_count": 2500,
+      "content_gap_to_improve": "Make the distinction between a policy report and guaranteed acceptance more prominent, and give readers a concise action sequence after refusal.",
+      "useful_ux_patterns": "At-a-glance answer and descriptive section navigation.",
+      "useful_ui_patterns": "Compact comparison tables within provider sections and visible author/update information.",
+      "interactive_or_functional_elements": "In-page guide navigation and linked deal tables.",
+      "trust_signals": "Named author, updated date, provider terms and cautions about missed-payment policies.",
+      "citation_patterns": "Inline links to provider reviews, provider pages and supporting guides."
+    },
+    {
+      "url": "https://www.broadband.co.uk/broadband/no-credit-check",
+      "title": "Bad Credit? Compare No Credit Check Broadband Deals",
+      "observed_structure": "Key takeaways, definition, provider comparison with live deal cards, providers that check, alternatives, credit tips, expert FAQs and postcode call to action.",
+      "approx_word_count": 2100,
+      "content_gap_to_improve": "Avoid categorical provider claims where another current source reports a changed policy, and clearly distinguish home broadband from prepaid mobile data.",
+      "useful_ux_patterns": "Key-takeaway box, option comparison, FAQs and next-step checklist.",
+      "useful_ui_patterns": "Deal cards with price, speed, setup and contract fields plus an address checker.",
+      "interactive_or_functional_elements": "Postcode checker, filters, pricing breakdowns and expandable FAQs.",
+      "trust_signals": "Named experienced editor, recent update date, Ofcom accreditation claim, expert contribution and commercial disclosure.",
+      "citation_patterns": "Provider and supporting-guide links beside claims, plus author and methodology context."
+    }
+  ],
+  "ai_overview": {
+    "checked": true,
+    "present": false,
+    "observation": "Checked the live search surface for the UK primary query on 22 August 2026. No AI Overview or AI answer panel was exposed in the accessible results, so no overview citations were available to inspect.",
+    "cited_sources": []
+  },
+  "people_also_ask": [
+    "Can I get broadband with a bad credit score?",
+    "Which broadband providers do not require a credit check?",
+    "Does a broadband credit check affect my credit score?",
+    "Can I get broadband with a CCJ?",
+    "Can I get pay-as-you-go broadband without a credit check?",
+    "Do social tariffs require a credit check?"
+  ],
+  "sources": [
+    {
+      "url": "https://www.ofcom.org.uk/phones-and-broadband/saving-money/social-tariffs",
+      "source_type": "regulator",
+      "verified_date": "2026-08-22",
+      "claims_supported": "Social-tariff eligibility, current £10 to £24 price range, typical speeds above 30 Mbit/s, low setup costs, no mid-contract rises, free switching to a current provider's tariff and no exit fee."
+    },
+    {
+      "url": "https://www.vodafone.co.uk/privacy/credit-checks",
+      "source_type": "primary",
+      "verified_date": "2026-08-22",
+      "claims_supported": "Vodafone says its Pay as you go Plus plans and pay-as-you-go data-only SIM route do not require a credit check."
+    },
+    {
+      "url": "https://www.experian.co.uk/consumer/guides/searches-and-credit-checks.html",
+      "source_type": "independent",
+      "verified_date": "2026-08-22",
+      "claims_supported": "Definitions and credit-file effects of soft and hard searches, including that soft searches are not visible to other companies and hard searches are recorded."
+    },
+    {
+      "url": "https://www.choose.co.uk/broadband/guide/broadband-no-credit-check/",
+      "source_type": "independent",
+      "verified_date": "2026-08-22",
+      "claims_supported": "Independent reporting on Plusnet and Direct Save Telecom no-check options, changed NOW policy, soft-check providers, deposits and stricter missed-payment terms."
+    },
+    {
+      "url": "https://www.moneysavingexpert.com/compare-broadband-deals/bad-credit-broadband/",
+      "source_type": "independent",
+      "verified_date": "2026-08-22",
+      "claims_supported": "Current market comparison evidence, package availability by postcode, contract cost fields and social-tariff comparison route."
+    },
+    {
+      "url": "https://www.gov.uk/cost-of-living/bills-housing-health",
+      "source_type": "government",
+      "verified_date": "2026-08-22",
+      "claims_supported": "Government signposting to cheaper phone and broadband social tariffs for people receiving qualifying benefits."
+    }
+  ],
+  "recommended_min_words": 1600,
+  "required_sections": [
+    "Standalone answer and freshness warning",
+    "Meaning of no credit check broadband",
+    "Hard, soft, identity and affordability checks",
+    "Fixed broadband options and evidence limitations",
+    "Decision table by route and eligibility",
+    "Social tariff eligibility and current Ofcom facts",
+    "Prepaid mobile broadband fallback",
+    "Steps after a declined application",
+    "Costs, contracts and missed-payment risks",
+    "Address and policy verification checklist",
+    "Bottom-line conditional verdict",
+    "Five or more standalone FAQs",
+    "Visible editorial and source notes"
+  ],
+  "internal_links": [
+    "/deals",
+    "/guides/cheapest-broadband-uk",
+    "/guides/best-rolling-monthly-broadband-deals",
+    "/guides/how-to-switch-broadband-uk",
+    "/guides/broadband-speeds-explained",
+    "/how-we-review-broadband"
+  ],
+  "schema_types": [
+    "Article",
+    "FAQPage"
+  ],
+  "ux_ui_requirements": [
+    "Use the existing Key Takeaways panel to give an answer-first shortlist for readers anxious about acceptance.",
+    "Add an accessible comparison table separating fixed-line no-check reports, social tariffs, soft-check applications and prepaid mobile data.",
+    "Show a dated amber verification notice because provider credit policies can change and conflicting current sources exist.",
+    "Use short ordered decision steps and a final application checklist so readers can act without submitting several applications blindly.",
+    "Keep visible source links close through the existing Editorial and Source Notes section."
+  ],
+  "functional_requirements": [
+    "Retain the existing live deal comparison component as the address-specific next step, while warning that a displayed deal is not proof of credit-policy eligibility.",
+    "Provide working internal links to cheap deals, rolling contracts, switching and speed guidance.",
+    "Render FAQPage JSON-LD from five complete 35 to 90 word answers and Article JSON-LD with the genuine review date."
+  ],
+  "research_summary": "Current UK results prioritise immediate provider options, a definition of no-credit-check broadband, deal or postcode comparison, explanations of soft checks, social tariffs and prepaid alternatives. The sources conflict on some provider policies, notably NOW, so the page will identify reported options but require direct verification and will not promise approval. Ofcom supplies the strongest current affordability facts, Vodafone supplies a primary prepaid no-check example, and Experian supplies neutral definitions of search types.",
+  "depth_rationale": "The three reviewed ranking pages range from about 1,400 to 2,500 editorial words, often with additional dynamic deal cards. A 1,600-word minimum is appropriate for this Guide because the search intent requires provider options, check types, social tariffs, prepaid alternatives, refusal steps, cost risks and FAQs. The target matches the useful explanatory depth of the rankings without reproducing long deal feeds or padding the page with generic credit-repair advice."
+}

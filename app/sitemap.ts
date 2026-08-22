@@ -3,6 +3,7 @@ import { providers } from '@/data/providers'
 import { guides } from '@/data/guides'
 import { providerComparisons } from '@/data/provider-comparisons'
 import { getAllPostcodePrefixes } from '@/data/postcodes'
+import { getAllDistrictCoveragePrefixes } from '@/data/postcodeDistrictCoverage'
 import { priorityPages } from '@/data/priority-pages'
 
 const BASE_URL = 'https://broadbandpicker.co.uk'
@@ -58,6 +59,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: page.path === '/postcode' ? 0.9 : 0.8,
   }))
 
+  const curatedPrefixes = new Set(getAllPostcodePrefixes())
+
   const postcodePages: MetadataRoute.Sitemap = getAllPostcodePrefixes().map((prefix) => ({
     url: `${BASE_URL}/postcode/${prefix}`,
     lastModified: now,
@@ -65,5 +68,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }))
 
-  return [...staticPages, ...providerPages, ...providerComparisonPages, ...guidePages, ...priorityLandingPages, ...postcodePages]
+  const districtCoveragePages: MetadataRoute.Sitemap = getAllDistrictCoveragePrefixes()
+    .filter((prefix) => !curatedPrefixes.has(prefix))
+    .map((prefix) => ({
+      url: `${BASE_URL}/postcode/${prefix}`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    }))
+
+  return [...staticPages, ...providerPages, ...providerComparisonPages, ...guidePages, ...priorityLandingPages, ...postcodePages, ...districtCoveragePages]
 }

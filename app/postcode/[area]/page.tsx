@@ -7,6 +7,12 @@ import {
   postcodeSourceNotes,
 } from '@/data/postcodes'
 import { providers, getTopDeals, providerDatasetUpdatedDate } from '@/data/providers'
+import {
+  getDistrictCoverage,
+  districtCoverageSourceDataDate,
+  districtCoverageSourceLabel,
+  districtCoverageSourcePage,
+} from '@/data/postcodeDistrictCoverage'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
 import DealTable from '@/components/DealTable'
 import FAQAccordion from '@/components/FAQAccordion'
@@ -25,18 +31,40 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { area } = await params
   const postcodeArea = getPostcodeArea(area)
-  if (!postcodeArea) return {}
+  const canonical = `https://broadbandpicker.co.uk/postcode/${area.toLowerCase()}`
+
+  if (!postcodeArea) {
+    const prefix = area.toUpperCase()
+    const coverage = getDistrictCoverage(prefix)
+    if (!coverage) return {}
+
+    const description =
+      coverage.gigabitPercent !== null
+        ? `${prefix} broadband coverage: ${coverage.gigabitPercent}% gigabit-capable, ${coverage.superfastPercent}% superfast availability (Ofcom data). Compare UK broadband deals and check exact availability at your address.`
+        : `Compare UK broadband deals available in the ${prefix} postcode district.`
+
+    return {
+      title: { absolute: `${prefix} Broadband Coverage and Deals | BroadbandPicker` },
+      description,
+      alternates: { canonical },
+      openGraph: {
+        title: `${prefix} Broadband Coverage and Deals | BroadbandPicker`,
+        description,
+        url: canonical,
+      },
+    }
+  }
 
   const prefix = postcodeArea.prefix.toUpperCase()
 
   return {
     title: { absolute: `${prefix} Broadband Deals | BroadbandPicker` },
     description: `Compare broadband deals in ${postcodeArea.town} (${prefix}). ${postcodeArea.availableProviders.length} providers from £${postcodeArea.cheapestMonthly}/mo. Avg speed ${postcodeArea.avgDownloadSpeed} Mbps.`,
-    alternates: { canonical: `https://broadbandpicker.co.uk/postcode/${area.toLowerCase()}` },
+    alternates: { canonical },
     openGraph: {
       title: `${prefix} Broadband Deals | BroadbandPicker`,
       description: `${postcodeArea.availableProviders.length} providers available in ${postcodeArea.town} from £${postcodeArea.cheapestMonthly}/month.`,
-      url: `https://broadbandpicker.co.uk/postcode/${area.toLowerCase()}`,
+      url: canonical,
     },
   }
 }
@@ -61,6 +89,7 @@ export default async function PostcodeAreaPage({
 
   if (!postcodeArea) {
     const prefix = area.toUpperCase()
+    const coverage = getDistrictCoverage(prefix)
     const nationalDeals = getTopDeals(12).map((d) => ({
       provider: d.provider,
       packageName: `${d.provider.name} Broadband`,
@@ -84,20 +113,47 @@ export default async function PostcodeAreaPage({
             { name: `${prefix} broadband`, href: `/postcode/${area.toLowerCase()}` },
           ]}
         />
-        <div className="bg-sky-50 border border-sky-200 rounded-xl p-5 mb-8 flex gap-4 items-start">
-          <svg className="w-5 h-5 text-sky-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z" clipRule="evenodd" />
-          </svg>
-          <div>
-            <p className="font-semibold text-sky-900 text-sm">We&apos;re expanding our {prefix} coverage</p>
-            <p className="text-sky-800 text-sm mt-0.5">We don&apos;t have postcode-specific data for {prefix} yet. Below are the best broadband deals available across the UK — all of which serve this area through the Openreach network.</p>
+        {coverage ? (
+          <div className="bg-sky-50 border border-sky-200 rounded-xl p-5 mb-8">
+            <p className="font-semibold text-sky-900 text-sm mb-3">
+              Ofcom coverage data for {prefix} ({coverage.sampleSize} postcodes sampled, {districtCoverageSourceDataDate})
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {[
+                { label: 'Gigabit-capable', value: coverage.gigabitPercent },
+                { label: 'Superfast (30Mbps+)', value: coverage.superfastPercent },
+                { label: 'Ultrafast (100Mbps+)', value: coverage.ultrafastPercent },
+                { label: 'Below USO (under 10Mbps)', value: coverage.belowUsoPercent },
+              ].map(({ label, value }) => (
+                <div key={label} className="bg-white rounded-lg border border-sky-100 p-3 text-center">
+                  <div className="text-lg font-bold text-slate-900">{value !== null ? `${value}%` : '—'}</div>
+                  <div className="text-xs text-slate-500 mt-0.5">{label}</div>
+                </div>
+              ))}
+            </div>
+            <p className="text-sky-800 text-xs mt-3">
+              This is area-level technology availability, not a live per-address check — the deals below are
+              matched by network reach, not confirmed at your exact address. Click through to confirm before ordering.
+            </p>
           </div>
-        </div>
+        ) : (
+          <div className="bg-sky-50 border border-sky-200 rounded-xl p-5 mb-8 flex gap-4 items-start">
+            <svg className="w-5 h-5 text-sky-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+              <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z" clipRule="evenodd" />
+            </svg>
+            <div>
+              <p className="font-semibold text-sky-900 text-sm">We&apos;re expanding our {prefix} coverage</p>
+              <p className="text-sky-800 text-sm mt-0.5">We don&apos;t have postcode-specific data for {prefix} yet. Below are the best broadband deals available across the UK — all of which serve this area through the Openreach network.</p>
+            </div>
+          </div>
+        )}
         <h1 className="text-3xl font-extrabold text-slate-900 mb-2">
-          Broadband Deals Available in {prefix}
+          {coverage ? `Broadband Coverage and Deals in ${prefix}` : `Broadband Deals Available in ${prefix}`}
         </h1>
         <p className="text-slate-600 mb-8 max-w-3xl">
-          These providers all operate in the {prefix} area via the UK&apos;s Openreach network. Click any deal to check availability at your specific address on the provider&apos;s website.
+          {coverage
+            ? `${coverage.gigabitPercent}% of premises in ${prefix} can get gigabit-capable broadband, based on Ofcom's postcode-level coverage data. Compare deals below, then click through to confirm exact availability at your address.`
+            : <>These providers all operate in the {prefix} area via the UK&apos;s Openreach network. Click any deal to check availability at your specific address on the provider&apos;s website.</>}
         </p>
         <div className="flex flex-wrap items-center gap-4 text-sm text-slate-500 mb-6 pb-6 border-b border-slate-200">
           <span>Area model reviewed {postcodeReviewedDateLabel}</span>
@@ -110,11 +166,28 @@ export default async function PostcodeAreaPage({
         <section className="mt-8 rounded-xl border border-slate-200 bg-white p-6">
           <h2 className="text-xl font-bold text-slate-900 mb-3">Editorial and Source Notes</h2>
           <p className="mb-4 text-sm text-slate-600">
-            We do not yet hold postcode-area coverage data for {prefix}, so this page falls back to
-            the national provider dataset and asks users to verify address-level availability on the
-            provider site before ordering.
+            {coverage
+              ? `Coverage figures above are area-level technology availability from Ofcom, not a live per-address check. Deal listings use the national provider dataset — verify address-level availability on the provider site before ordering.`
+              : `We do not yet hold postcode-area coverage data for ${prefix}, so this page falls back to the national provider dataset and asks users to verify address-level availability on the provider site before ordering.`}
           </p>
           <ul className="space-y-2 text-sm">
+            {coverage && (
+              <li>
+                <a
+                  href={districtCoverageSourcePage}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sky-600 hover:underline"
+                >
+                  {districtCoverageSourceLabel}
+                </a>
+                <p className="mt-1 text-xs leading-relaxed text-slate-500">
+                  Aggregated from {coverage.sampleSize} individual postcodes in the {prefix} district under the
+                  Open Government Licence. Data reflects the {districtCoverageSourceDataDate} edition — coverage
+                  changes over time, so treat this as directional rather than a live figure.
+                </p>
+              </li>
+            )}
             {postcodeSourceNotes.map((source) => (
               <li key={source.href}>
                 <Link href={source.href} className="text-sky-600 hover:underline">

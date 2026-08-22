@@ -849,6 +849,49 @@ export const guides: GuideMetadata[] = [
       },
     ],
   },
+  {
+    slug: 'no-credit-check-broadband-uk',
+    title: 'No Credit Check Broadband in the UK: Options and What to Expect',
+    metaTitle: 'No Credit Check Broadband UK: Options for Bad Credit',
+    metaDescription: 'Compare no credit check broadband routes in the UK, including fixed providers, social tariffs and prepaid mobile data, plus what to verify before applying.',
+    publishDate: '2026-08-22',
+    updatedDate: '2026-08-22',
+    excerpt: 'No credit check broadband is available in the UK through some fixed-line providers, eligible social tariffs and prepaid mobile data. There is no universal best option or guaranteed acceptance. Confirm whether the exact order uses a hard search, soft search, identity check or no credit-file search, then compare address availability, total contract cost, speed and missed-payment terms.',
+    readingTime: 10,
+    category: 'affordability',
+    keyTakeaways: [
+      'Ask the provider which check applies to the exact broadband order because a soft search, hard search, identity check and no credit-file search are different.',
+      'Current independent guides identify Plusnet and Direct Save Telecom as no-check fixed-line options, but policies can change and should be confirmed before applying.',
+      'Eligible social tariffs can cost £10 to £24 a month on Ofcom’s current list and offer fixed prices, low setup costs and no exit fee.',
+      'Prepaid mobile data avoids borrowing and can be a quick fallback, but signal, data limits and performance need checking at the property.',
+    ],
+    sources: [
+      {
+        label: 'Ofcom social-tariff eligibility, prices, speeds and contract protections, verified 22 August 2026',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/saving-money/social-tariffs',
+      },
+      {
+        label: 'Vodafone credit-check and prepaid mobile broadband alternatives, verified 22 August 2026',
+        href: 'https://www.vodafone.co.uk/privacy/credit-checks',
+      },
+      {
+        label: 'Experian definitions of hard and soft credit searches, verified 22 August 2026',
+        href: 'https://www.experian.co.uk/consumer/guides/searches-and-credit-checks.html',
+      },
+      {
+        label: 'Choose independent no-credit-check broadband guide and provider-policy comparison, verified 22 August 2026',
+        href: 'https://www.choose.co.uk/broadband/guide/broadband-no-credit-check/',
+      },
+      {
+        label: 'MoneySavingExpert no-credit-check broadband comparison and address-level cost fields, verified 22 August 2026',
+        href: 'https://www.moneysavingexpert.com/compare-broadband-deals/bad-credit-broadband/',
+      },
+      {
+        label: 'GOV.UK cost-of-living support and social-tariff signposting, verified 22 August 2026',
+        href: 'https://www.gov.uk/cost-of-living/bills-housing-health',
+      },
+    ],
+  },
 ]
 
 export function getGuideBySlug(slug: string): GuideMetadata | undefined {

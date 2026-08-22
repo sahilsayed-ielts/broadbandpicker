@@ -529,6 +529,162 @@ const baseProviders: Provider[] = [
     ...createReviewMetadata('YouFibre', 'https://www.youfibre.com/', 'youfibre.com'),
     awinProgramId: null,
   },
+  {
+    slug: 'onestream',
+    name: 'Onestream',
+    logo: '/logos/onestream.svg',
+    affiliateUrl: 'https://onestream.co.uk/',
+    speeds: [
+      { download: 35, upload: 9, type: 'FTTC' },
+      { download: 67, upload: 18, type: 'FTTC' },
+      { download: 74, upload: 18, type: 'FTTP' },
+      { download: 101, upload: 18, type: 'FTTP' },
+      { download: 200, upload: 30, type: 'FTTP' },
+      { download: 500, upload: 70, type: 'FTTP' },
+      { download: 871, upload: 101, type: 'FTTP' },
+    ],
+    monthlyPriceFrom: 18.50,
+    contractLengths: [12, 24],
+    setupFee: 4.95,
+    trustpilotScore: 4.3,
+    coveragePercent: 94,
+    highlights: [
+      'Entry-level Onestream broadband advertised from £18.50 a month when checked',
+      'Part-fibre and full-fibre packages, with advertised downloads up to 871 Mbps',
+      'Unlimited downloads with no usage cap on the provider\'s current range',
+    ],
+    pros: [
+      'Low introductory prices compared with many large Openreach providers',
+      'Choice of 12-month and cheaper 24-month minimum terms',
+      'Broad speed range from everyday part-fibre to gigabit-class full fibre',
+      'Can use your own compatible router on supported packages',
+    ],
+    cons: [
+      'The headline monthly price can rise by a stated fixed amount each April',
+      'Setup charges differ between 12-month and 24-month deals',
+      'Optional support and security extras can add to the total bill',
+      'Router-return and early-termination charges require careful checking',
+    ],
+    excerpt:
+      'Onestream broadband is a budget Openreach-based service with part-fibre and full-fibre plans. On 22 August 2026, its website advertised service from £18.50 a month and downloads up to 871 Mbps. Its strongest case is low introductory pricing, but compare the full contract cost, annual fixed price rises, setup fee, optional extras and equipment-return terms before ordering.',
+    contentSections: [
+      {
+        heading: 'Onestream Broadband Deals and Contract Costs',
+        paragraphs: [
+          'Onestream advertised its entry package at £18.50 a month on 22 August 2026. The direct homepage described this as a 35 Mbps download and 9 Mbps upload service. Current comparison listings show that the cheapest 24-month packages generally carry a £4.95 upfront charge, while equivalent 12-month choices can have a higher monthly price and a £14.95 setup charge. The exact offer depends on the address entered and can change.',
+          'Do not compare Onestream broadband deals on the first monthly payment alone. Current deal listings show a fixed £2.75 monthly increase each April on many contracts, so a 24-month plan can pass through two scheduled price steps. Calculate the total of every monthly payment plus setup and optional equipment or service charges, then divide by the minimum term if you want a like-for-like effective monthly cost.',
+          'Onestream sells 12-month and 24-month minimum terms. The 24-month option is usually cheaper at the start, while the 12-month version reduces the time committed but typically costs more each month and at activation. Cancelling inside the minimum term can trigger an early termination fee. The provider\'s residential price guide says that calculation depends on the services in the package and the months remaining.',
+        ],
+      },
+      {
+        heading: 'Onestream Broadband Speeds and Packages',
+        paragraphs: [
+          'The current range spans part-fibre and full-fibre connections. Onestream\'s homepage displayed representative average downloads of 35 Mbps, 101 Mbps and 871 Mbps when reviewed. Broader deal listings also showed 67 Mbps part-fibre and full-fibre tiers around 74, 100, 200 and 500 Mbps. The speed available to one home is determined by its line and Openreach rollout, not by the national package list.',
+          'A 35 Mbps service can suit one or two people browsing, streaming and making video calls. Around 100 Mbps gives more headroom for several simultaneous users. The 500 Mbps and 871 Mbps tiers are most useful in busy homes with many devices or frequent large downloads. Upload performance is lower than download performance on the listed Openreach products, including about 101 Mbps upload on the 871 Mbps package.',
+          'Advertised broadband speed is not a guarantee that every device will receive that number. Wi-Fi distance, walls, router capability, local line conditions and simultaneous use can all reduce measured performance. Check the personalised minimum guaranteed speed supplied during checkout, and test with Ethernet if you later need to distinguish a broadband-line problem from weak in-home Wi-Fi.',
+        ],
+      },
+      {
+        heading: 'Onestream Broadband Coverage',
+        paragraphs: [
+          'Onestream uses the Openreach network, so part-fibre service is available across most of the UK, but no single percentage describes every Onestream package. We use approximately 94% as the part-fibre availability reference shown by a current neutral comparison source. That figure must not be read as 94% availability for Onestream\'s fastest full-fibre tiers, and an address-level check remains essential.',
+          'Ofcom reported that full fibre from all networks reached 24.9 million UK residential premises, or 82%, in January 2026. That is a different population and methodology from the Onestream part-fibre reference, so the figures are reported separately. Onestream full-fibre availability follows eligible Openreach lines and can vary between neighbouring streets, while slower part-fibre may remain available where FTTP is not.',
+        ],
+      },
+      {
+        heading: 'Routers, Extras and Customer Service',
+        paragraphs: [
+          'Router choice can affect the real Onestream price. Current listings describe different router levels and the option to use compatible customer-owned equipment on some deals. Check what hardware is included, whether there is a recurring rental or upgrade charge, and whether it must be returned. Onestream\'s price guide lists a £29.95 charge for failing to return a router within 14 days of account closure.',
+          'Optional services also deserve attention at checkout. Neutral deal research identifies Onestream Priority Plus support and McAfee security as extras that may become chargeable. Keep only services you actively want, record when any trial ends and check the first bill against the pre-contract summary. This matters because the lowest advertised broadband price may not represent the amount collected after add-ons.',
+          'Onestream\'s public Trustpilot profile showed 4.3 out of 5 from about 41,000 reviews when checked on 22 August 2026. That indicates substantial positive feedback overall, but the distribution also included 17% one-star reviews and recent criticism about delays, billing or cancellation. Trustpilot is an open-review platform rather than a controlled service-quality survey, so it is one sentiment input, not proof that every customer will receive the same experience.',
+        ],
+      },
+      {
+        heading: 'Is Onestream Broadband Any Good?',
+        paragraphs: [
+          'Onestream can be good value for a household that can get the advertised speed, wants a low introductory price and is comfortable checking contract detail. It is less compelling for someone who prioritises a price that stays unchanged, wants premium router hardware included without qualification, or may need to leave early. There is no universal verdict because availability and the total contract cost vary by address and term.',
+          'Before ordering, save the personalised pre-contract information and contract summary. Confirm the expected speed, every year\'s monthly price, setup charge, router terms, optional extras, minimum term and early-exit calculation. Then compare the same total-cost fields with at least one other Openreach provider. That gives a more reliable decision than comparing a temporary headline price or customer-review score in isolation.',
+        ],
+      },
+    ],
+    faqItems: [
+      {
+        question: 'Is Onestream broadband any good?',
+        answer:
+          'Onestream broadband can suit price-conscious UK households that want Openreach part-fibre or full fibre and are willing to check the small print. It advertised service from £18.50 a month and up to 871 Mbps when reviewed. Compare the total contract cost, annual fixed price rises, setup charge, add-ons, router-return rules and address-specific speed before deciding.',
+      },
+      {
+        question: 'How much does Onestream broadband cost?',
+        answer:
+          'Onestream advertised broadband from £18.50 a month on 22 August 2026. Current listings showed a £4.95 setup charge on many 24-month deals and £14.95 on comparable 12-month deals, with monthly prices varying by speed and address. Many contracts also include a stated £2.75 monthly increase each April, so compare the full term cost rather than only the opening price.',
+      },
+      {
+        question: 'What speeds does Onestream broadband offer?',
+        answer:
+          'Onestream offers part-fibre and full-fibre broadband. Its live homepage showed representative average downloads of 35 Mbps, 101 Mbps and 871 Mbps when checked, while current listings included intermediate tiers. The exact range is postcode-dependent because Onestream uses Openreach infrastructure. Personalised estimates and the minimum guaranteed speed supplied before checkout matter more than the national maximum.',
+      },
+      {
+        question: 'Does Onestream broadband cover my area?',
+        answer:
+          'Onestream uses Openreach and offers part-fibre across most of the UK, with a current neutral source estimating about 94% availability for that service type. Full fibre has a smaller, address-specific footprint: Ofcom measured all-network UK full-fibre availability at 82% of residential premises in January 2026. Enter your full address because neighbouring homes can receive different options.',
+      },
+      {
+        question: 'Does Onestream increase its broadband prices?',
+        answer:
+          'Yes. Current Onestream deal listings show a fixed £2.75 monthly increase each April on many plans. The exact pound-and-pence change and the dates applying to your order should appear before you agree to the contract. Add every scheduled payment when comparing deals, especially on a 24-month term that may cross two April price changes.',
+      },
+      {
+        question: 'Can I use my own router with Onestream broadband?',
+        answer:
+          'Onestream says customers can use their own compatible router, but suitability and setup details depend on the connection and package. Check that the router supports the required Openreach service and obtain the correct connection credentials before switching hardware. Also confirm whether supplied equipment is rented or must be returned, because the current price guide lists charges for unreturned equipment.',
+      },
+    ],
+    reviewedDate: '2026-08-22',
+    pricingVerifiedDate: '2026-08-22',
+    reviewSources: [
+      {
+        label: 'Onestream broadband packages and pricing',
+        href: 'https://onestream.co.uk/',
+        note: 'Primary source used for advertised entry price, representative speeds, unlimited usage and package positioning, verified on 2026-08-22.',
+      },
+      {
+        label: 'Onestream full-fibre guide',
+        href: 'https://onestream.co.uk/broadband/full-fibre',
+        note: 'Primary source used to verify the FTTP description and gigabit-class full-fibre range on 2026-08-22.',
+      },
+      {
+        label: 'Onestream residential broadband price guide',
+        href: 'https://onestream.co.uk/documents/residential-price-guide.pdf',
+        note: 'Primary source used for contract, early-termination, activation and equipment-return charge checks on 2026-08-22.',
+      },
+      {
+        label: 'Ofcom Connected Nations update: Spring 2026',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/connected-nations-update-spring-2026',
+        note: 'Neutral regulatory source used for the separately reported UK-wide full-fibre availability figure, checked on 2026-08-22.',
+      },
+      {
+        label: 'Choose Onestream broadband comparison',
+        href: 'https://www.choose.co.uk/broadband/onestream/',
+        note: 'Neutral corroboration for package tiers, 12- and 24-month setup charges, add-ons and approximate part-fibre availability, checked on 2026-08-22.',
+      },
+      {
+        label: 'Onestream public Trustpilot profile',
+        href: 'https://uk.trustpilot.com/review/www.onestream.co.uk',
+        note: 'Customer-sentiment reference showing 4.3/5 from about 41,000 reviews on 2026-08-22; treated as an open-review signal, not a controlled service survey.',
+      },
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+        note: 'Explains how price, speed, coverage, customer experience and use-case fit are weighed across provider reviews.',
+      },
+      {
+        label: 'BroadbandPicker editorial policy',
+        href: '/editorial-policy',
+        note: 'Sets out editorial independence, correction standards and handling of commercial relationships.',
+      },
+    ],
+    awinProgramId: null,
+  },
 ]
 
 export const providers: Provider[] = baseProviders.map(applyLiveDealOverlay)
