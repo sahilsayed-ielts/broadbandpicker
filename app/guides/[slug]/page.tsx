@@ -2961,6 +2961,82 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
       { question: 'Can I keep my telephone number when moving from FTTC to FTTP?', answer: 'Usually, if the new provider supports number porting and you request it during the order. Calls will normally move to a digital voice service delivered through the router or an adapter rather than the old analogue line. Check compatibility for alarms or telecare and ask about power-cut resilience before switching.' },
     ],
   },
+  'best-mesh-wifi-for-your-broadband-router': {
+    body: (
+      <>
+        <p className="text-lg">
+          <strong>The TP-Link Deco BE65 is our best overall mesh Wi-Fi system for a fast UK broadband connection in 2026.</strong>{' '}
+          It combines tri-band Wi-Fi 7, four 2.5Gbps ports per unit and wired or wireless backhaul.
+          Choose eero 6+ for a simpler, cheaper Wi-Fi 6 setup, Google Nest Wifi Pro for a Google
+          Home household, or Netgear Orbi 770 when premium coverage and multi-gigabit ports matter
+          more than price. The right choice depends on your broadband speed, property and cabling.
+        </p>
+
+        <div className="rounded-xl border border-amber-200 bg-amber-50 p-5">
+          <p className="mb-0 text-sm"><strong>Product check:</strong> specifications, UK availability and recommendation evidence were checked on 22 August 2026. Prices change frequently and manufacturer coverage figures use ideal test conditions. Check the exact model, pack size, subscription features, returns policy and compatibility with your broadband provider before buying.</p>
+        </div>
+
+        <h2>Best mesh Wi-Fi systems for UK broadband</h2>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm border-collapse">
+            <thead><tr className="bg-slate-50">{['System', 'Best for', 'Wi-Fi and ports', 'Main limitation'].map((heading) => <th scope="col" key={heading} className="text-left px-4 py-3 border border-slate-200 font-semibold text-slate-700">{heading}</th>)}</tr></thead>
+            <tbody>{[
+              ['TP-Link Deco BE65', 'Best overall for fast full fibre', 'Tri-band Wi-Fi 7; four 2.5Gbps ports', 'Premium price and Wi-Fi 7 benefits need compatible devices'],
+              ['Amazon eero 6+', 'Simple setup and good-value Wi-Fi 6', 'Dual-band Wi-Fi 6; two gigabit ports', 'Limited ports and some advanced features require eero Plus'],
+              ['Google Nest Wifi Pro', 'Google Home and Matter households', 'Tri-band Wi-Fi 6E; two gigabit ports', 'Cannot mesh with older Nest Wifi or Google Wifi units'],
+              ['Netgear Orbi 770', 'Large homes and premium multi-gigabit coverage', 'Tri-band Wi-Fi 7; 2.5Gbps WAN, LAN and backhaul', 'Expensive and physically large'],
+            ].map(([system, best, specification, limitation]) => <tr key={system} className="border-b border-slate-100"><td className="px-4 py-3 font-semibold text-slate-900">{system}</td><td className="px-4 py-3 text-slate-700">{best}</td><td className="px-4 py-3 text-slate-700">{specification}</td><td className="px-4 py-3 text-slate-600">{limitation}</td></tr>)}</tbody>
+          </table>
+        </div>
+
+        <h2>1. TP-Link Deco BE65: best overall mesh Wi-Fi</h2>
+        <p>The Deco BE65 is the strongest all-round choice for a household that wants to keep a mesh system through its next broadband upgrade. TP-Link specifies tri-band Wi-Fi 7 across 2.4GHz, 5GHz and 6GHz, with Multi-Link Operation and four 2.5Gbps Ethernet ports on each unit. Those ports allow a multi-gigabit internet connection, wired devices and 2.5Gbps Ethernet backhaul without immediately adding a separate switch.</p>
+        <p>It is most useful with gigabit or faster full fibre, several modern devices, or Ethernet cabling between floors. Older phones and laptops still connect because Wi-Fi standards are backwards compatible, but they will not gain Wi-Fi 7 features. Do not confuse the system&apos;s combined theoretical wireless figure with the speed of one device or your broadband line. Real throughput falls with distance, walls, interference and client capability.</p>
+
+        <h2>2. Amazon eero 6+: best simple Wi-Fi 6 mesh</h2>
+        <p>eero 6+ is a sensible choice when the problem is patchy coverage rather than multi-gigabit speed. It uses dual-band Wi-Fi 6 with 160MHz channels and has two auto-sensing gigabit Ethernet ports. Setup and day-to-day management are designed around the eero mobile app, which makes it approachable for a household that does not want to tune channels or manage separate access points.</p>
+        <p>The trade-offs are important. Two ports fill quickly, wireless backhaul shares radio capacity with connected devices, and a gigabit port limits wired internet throughput to gigabit-class speeds. Some security, filtering and management features sit behind an eero Plus subscription, so compare the useful free feature set with the recurring cost. It remains a good fit for broadband up to around 500Mbps or 1Gbps where simplicity matters.</p>
+
+        <h2>3. Google Nest Wifi Pro: best for Google Home</h2>
+        <p>Nest Wifi Pro suits a home already using the Google Home app, Matter and Thread devices. Google lists Wi-Fi 6E, three radio bands, proactive band steering, client roaming, video-call quality controls and two gigabit Ethernet ports per unit. Each router can act as a mesh point, so a two or three-unit pack can extend coverage without choosing different router and satellite hardware.</p>
+        <p>Compatibility is the main warning. Google states that Nest Wifi Pro cannot join a mesh with previous-generation Nest Wifi or Google Wifi products. Its Ethernet ports are also limited to 1Gbps, so it is not the right purchase for delivering a multi-gigabit broadband tier to wired devices. The 6GHz band offers useful capacity but has shorter practical reach through walls than 2.4GHz, making node placement particularly important.</p>
+
+        <h2>4. Netgear Orbi 770: best premium system for a large home</h2>
+        <p>Orbi 770 is a premium tri-band Wi-Fi 7 system for large or demanding properties. Netgear&apos;s UK specification gives the router a 2.5Gbps internet port and three 2.5Gbps LAN ports, while each satellite has two 2.5Gbps ports. That supports wired backhaul and fast local devices without a gigabit bottleneck. The two-pack is advertised for up to 4,500 square feet, but treat that as a laboratory-style maximum rather than a promise for a brick-built UK home.</p>
+        <p>Its cost is difficult to justify for modest broadband or a small flat. Buy it when there is a real need for stronger hardware, a large floor area, multi-gigabit ports or many simultaneous devices. A well-placed cheaper Wi-Fi 6 system with Ethernet backhaul can outperform an expensive wireless mesh whose satellites sit behind several dense walls.</p>
+
+        <h2>What is mesh Wi-Fi and how does it work?</h2>
+        <p>A mesh network uses a main router and one or more connected nodes to provide a shared Wi-Fi name around the property. Compatible devices can move between nodes while the system steers them towards an appropriate access point and band. This differs from a basic extender, which may create a separate network name or repeat an already weak signal with less coordinated roaming.</p>
+        <p>Nodes communicate through backhaul. Wireless backhaul uses Wi-Fi, which is convenient but consumes radio capacity and weakens when nodes are too far apart. Ethernet backhaul connects nodes by cable and normally provides the fastest, most stable result. Tri-band systems can use a 6GHz or additional band for backhaul, but thick walls and floors still reduce performance. Mesh improves distribution inside the home; it cannot make the broadband line itself faster.</p>
+
+        <h2>Wi-Fi 6, Wi-Fi 6E or Wi-Fi 7?</h2>
+        <p>Wi-Fi 6 is enough for many UK homes and can offer excellent coverage with compatible devices. Wi-Fi 6E adds the 6GHz band, creating more clean capacity at short range. Wi-Fi 7 adds features including Multi-Link Operation and wider channels, with much higher potential throughput. Those advances matter most with new client devices, fast full fibre, congested homes and multi-gigabit wired ports.</p>
+        <p>Future-proofing has limits. A Wi-Fi 7 mesh cannot give an older Wi-Fi 5 laptop Wi-Fi 7 performance, and a 100Mbps broadband line remains a 100Mbps line. For a normal two-person home on 100 to 300Mbps broadband, a good Wi-Fi 6 system may be better value. For a gigabit connection expected to remain in service for years, Wi-Fi 7 and 2.5Gbps ports are easier to justify.</p>
+
+        <h2>How many mesh nodes do you need?</h2>
+        <p>Start with two units for a typical two-storey home and add a third only when the layout or measured coverage requires it. More nodes are not automatically better. Units placed too close can increase interference, while units placed in existing dead zones have too little signal to relay. Put a wireless satellite part-way between the main router and the problem room, not inside the room where the old Wi-Fi already fails.</p>
+        <ul><li><strong>Flat or small home:</strong> test one modern router before buying mesh.</li><li><strong>Typical semi-detached home:</strong> two well-placed nodes are often a sensible starting point.</li><li><strong>Three floors or an extension:</strong> consider three nodes or Ethernet backhaul.</li><li><strong>Thick stone walls or outbuildings:</strong> wired access points, powerline-assisted mesh or professional cabling may work better.</li></ul>
+
+        <h2>How to connect mesh Wi-Fi to your broadband router</h2>
+        <ol><li>Confirm whether your provider requires its own router for authentication, digital voice or television.</li><li>Connect the primary mesh unit by Ethernet to the optical terminal, modem or provider router.</li><li>If supported, use modem or bridge mode so the mesh performs routing without double NAT.</li><li>If bridge mode is unavailable, use access-point mode on the mesh or disable the provider router&apos;s Wi-Fi and check gaming, VPN and port-forwarding behaviour.</li><li>Place the next node where it still receives a strong link, then test every important room.</li><li>Update firmware, use WPA2 or WPA3, set a strong administrator password and create a guest network.</li></ol>
+        <p>TP-Link&apos;s UK support documentation describes both router and access-point approaches with an existing modem router. Provider implementations differ, particularly Sky authentication and digital voice. Do not remove the ISP hub until you have confirmed that the replacement can establish the connection and retain any telephone or TV service you use.</p>
+
+        <h2>Mesh Wi-Fi buying checklist</h2>
+        <ul><li>Match the WAN and LAN port speed to your broadband tier and wired devices.</li><li>Check whether the pack supports Ethernet backhaul and whether every node has usable ports.</li><li>Confirm the Wi-Fi generation used by your actual phones, laptops, televisions and consoles.</li><li>Separate included parental controls and security updates from paid subscriptions.</li><li>Check compatibility with the ISP connection, digital voice and television service.</li><li>Choose the smallest pack that solves the measured coverage problem and buy from a retailer with a practical returns policy.</li></ul>
+
+        <h2>Bottom line</h2>
+        <p>Buy the Deco BE65 when you want the best balance of Wi-Fi 7, multi-gigabit ports and flexible backhaul. Choose eero 6+ for straightforward Wi-Fi 6 coverage, Nest Wifi Pro for a Google-centred smart home, or Orbi 770 for a premium large-home network. Before spending, test the broadband beside the existing router. If that test is slow, fix the line or package first. Mesh is the answer to a home coverage problem, not every broadband problem.</p>
+      </>
+    ),
+    faqs: [
+      { question: 'What is the best mesh Wi-Fi system in the UK?', answer: 'The TP-Link Deco BE65 is our best overall choice for 2026 because it combines tri-band Wi-Fi 7, four 2.5Gbps ports per unit and wired or wireless backhaul. It is best suited to fast full fibre and modern devices. eero 6+ offers better value when simple Wi-Fi 6 coverage is the main requirement.' },
+      { question: 'Will mesh Wi-Fi make my broadband faster?', answer: 'Mesh cannot increase the speed entering your home. It can improve the speed devices receive in rooms where the existing router signal is weak. Test over Ethernet or beside the router first. If that result is already slow, investigate the broadband package or line before buying mesh equipment.' },
+      { question: 'Can I use mesh Wi-Fi with a BT, Sky, Virgin Media or other ISP router?', answer: 'Usually, but the correct setup varies. You may use modem or bridge mode, connect the mesh in access-point mode, or retain the provider router for authentication, digital voice or television. Check provider and mesh instructions first because using two routers without the right configuration can cause double NAT and complicate gaming or port forwarding.' },
+      { question: 'Is Wi-Fi 7 mesh worth it?', answer: 'Wi-Fi 7 is worth considering for gigabit or multi-gigabit full fibre, new Wi-Fi 7 devices, busy households and buyers keeping the system for several years. A good Wi-Fi 6 mesh is usually better value for broadband below roughly 500Mbps and older devices. Multi-gigabit Ethernet ports can matter as much as the wireless label.' },
+      { question: 'How many mesh Wi-Fi nodes do I need?', answer: 'Two units are a sensible starting point for many two-storey UK homes. Larger, three-storey or unusually shaped properties may need three, while a flat may need only one good router. Add nodes based on measurements. Too many nearby units can increase interference, and a satellite placed inside a dead zone cannot relay a strong signal.' },
+      { question: 'Is Ethernet backhaul better than wireless mesh?', answer: 'Yes. Ethernet backhaul normally gives each node a faster, more stable link and preserves wireless capacity for phones and laptops. Wireless backhaul is easier to install and can work well with good placement, but walls, floors and distance reduce it. For gigabit broadband or difficult buildings, cabling is often the most effective upgrade.' },
+    ],
+  },
   'january-broadband-deals-uk': {
     body: (
       <>
