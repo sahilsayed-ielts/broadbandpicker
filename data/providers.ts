@@ -692,6 +692,186 @@ const baseProviders: Provider[] = [
     awinProgramId: null,
   },
   {
+    slug: 'gigaclear',
+    name: 'Gigaclear',
+    logo: '/logos/gigaclear.svg',
+    affiliateUrl: 'https://www.gigaclear.com/',
+    speeds: [
+      { download: 300, upload: 300, type: 'FTTP' },
+      { download: 600, upload: 600, type: 'FTTP' },
+      { download: 900, upload: 900, type: 'FTTP' },
+    ],
+    monthlyPriceFrom: 19.00,
+    contractLengths: [18],
+    setupFee: 0,
+    trustpilotScore: 4.8,
+    coveragePercent: 2,
+    highlights: [
+      'Full fibre built for selected rural communities across more than 26 English counties',
+      'Symmetrical average download and upload speeds from 300 Mbps to 900 Mbps',
+      'Current new-customer range includes an eero WiFi 7 router and free expert setup',
+    ],
+    pros: [
+      'Very competitive introductory prices for symmetrical full fibre',
+      'Upload speeds match downloads, useful for cloud work and large file transfers',
+      'Own-network rural focus can reach places underserved by national fibre networks',
+      'WiFi 7 router, free standard installation and £0 activation on the checked range',
+    ],
+    cons: [
+      'Highly postcode-specific footprint rather than nationwide availability',
+      'Current terms allow prices to change during the minimum term',
+      'Standard list prices after the 18-month promotion are substantially higher',
+      'A separate fibre installation and wayleave may be required at some properties',
+    ],
+    excerpt:
+      'Gigaclear is a rural full-fibre provider with its own network in selected parts of England. Its checked August 2026 range offers symmetrical 300, 600 and 900 Mbps packages from £19 a month for new customers, with an eero WiFi 7 router, £0 activation and an 18-month minimum term. The value can be excellent where available, but postcode eligibility, possible in-contract changes and the post-promotion list price all need checking before you order.',
+    contentSections: [
+      {
+        heading: 'Gigaclear Broadband Deals in August 2026',
+        paragraphs: [
+          'Gigaclear advertised three core residential packages when checked on 22 August 2026. Ultrafast 300 cost £19 a month and included a £30 gift card, Ultrafast 600 cost £24 with a £40 gift card, and Hyperfast 900 cost £29 with a £100 gift card. Each used an 18-month minimum term, £0 activation and free standard installation. The promotion was marked to end on 26 August, so these figures are a dated snapshot rather than a promise for every visitor.',
+          'All three packages advertise the same average upload and download speed. Gigaclear states minimum downloads of 240 Mbps on the 300 plan, 480 Mbps on the 600 plan and 700 Mbps on the 900 plan. The 300 and 600 tiers include an eero 7 router, while the 900 tier includes an eero Pro 7 and Smart WiFi mesh. Eero Secure was included at no extra cost at the time of review, although the provider reserves the right to introduce a future subscription charge.',
+          'Do not compare the monthly payment alone. Verify the gift-card claim process, the exact price-change wording and the amount due after month 18. Gigaclear showed current standard list prices of £51, £63 and £88 a month for the respective tiers after the minimum term. Put a diary reminder before the promotion ends and ask for the renewal or cancellation options while there is still time to act.',
+        ],
+      },
+      {
+        heading: 'Gigaclear Coverage: Where Is It Available?',
+        paragraphs: [
+          'Gigaclear builds and operates an independent fibre-to-the-premises network rather than reselling Openreach. Its focus is hard-to-reach rural England, with current build activity across more than 26 counties. Established areas include parts of Oxfordshire, Gloucestershire, Herefordshire, Berkshire, Wiltshire, Northamptonshire and Essex, alongside expansion in the South West, Midlands and parts of Yorkshire.',
+          'Independent August 2026 research estimates that the network passes around 600,000 premises. That is only a small share of UK homes and should not be converted into a confident national coverage percentage for an individual address. Availability can differ between neighbouring properties because a village may be planned, under construction, ready for pre-order or fully live. Use the complete postcode and select the exact property on Gigaclear’s checker.',
+          'If the checker says the network is coming soon, keep the existing broadband until the new line is installed, activated and tested. Rural builds can require new ducting, access across private land or permission from a landlord, freeholder or managing agent. Ask where the optical network terminal and router will be fitted, whether external digging is required and whether any Gigabit Broadband Voucher consent applies.',
+        ],
+      },
+      {
+        heading: 'Gigaclear Speeds and Symmetrical Full Fibre',
+        paragraphs: [
+          'Gigaclear runs fibre all the way into the property, avoiding the copper final section used by part-fibre FTTC. Its main distinction is symmetrical speed: the 300 Mbps package advertises 300 Mbps upload as well as download, and the same principle applies at 600 and 900 Mbps. Fast uploads help with cloud backups, remote creative work, security-camera footage and households running several video calls at once.',
+          'A 300 Mbps package is enough for most families, including simultaneous 4K streaming, gaming and home working. The 600 Mbps plan shortens very large transfers and gives more headroom to busy homes. The 900 Mbps tier is most useful where several heavy users or wired devices can exploit it. Paying for 900 Mbps will not make a phone with weak Wi-Fi, a slow server or a one-gigabit Ethernet bottleneck perform beyond its own limit.',
+          'Advertised line speed is measured to the router under the relevant broadband-code methodology, not guaranteed over Wi-Fi in every room. Test a capable computer by Ethernet when checking the incoming service, then measure wireless performance where people work or stream. Record the personalised minimum guaranteed speed supplied before checkout because it is more useful for a complaint than a national headline.',
+        ],
+      },
+      {
+        heading: 'Eero WiFi 7 Router, Smart WiFi and the Guarantee',
+        paragraphs: [
+          'New customers receive an eero 7 router on packages up to and including 600 Mbps. The 900 Mbps package currently includes an eero Pro 7 with a Smart WiFi mesh node. Eero hardware is mesh-ready, so additional nodes can share one network name and extend coverage through a larger property. Gigaclear also includes expert setup, which can help place the router and supplied nodes away from thick walls and interference.',
+          'Gigaclear’s May 2026 Smart WiFi terms describe a 30 Mbps guarantee in every main room when the selected tier suits the property. The main-router tier is intended for homes up to 1,000 square feet, Smart WiFi with one extra node up to 1,500 square feet, Plus with two nodes up to 2,500 square feet and Max with three up to 3,500 square feet. Basements, outbuildings, external garages and some unusual construction are excluded.',
+          'The extra nodes remain Gigaclear’s property and must be returned when the relevant service ends. The eero app and an account are needed for full setup and management features. Confirm how many nodes are included, whether Smart WiFi restarts the minimum term, the return deadline and what remedy applies if the guarantee is not met. Wired Ethernet backhaul can improve stability where thick rural-property walls weaken wireless links.',
+        ],
+      },
+      {
+        heading: 'Contract, Price Rises and the Real 18-Month Cost',
+        paragraphs: [
+          'The checked Gigaclear offers use an 18-month minimum term. At £19, £24 and £29 with no change, the headline payments would total £342, £432 and £522 before gift cards or optional services. Those calculations are illustrations only because Gigaclear says prices may change during the contract. Read the contract summary for any pound-and-pence increase and the notice or cancellation rights that apply to the order.',
+          'The largest cost risk is the jump to the standard list price after the promotional term. At the checked rates, the 300 Mbps plan moves from £19 to a currently stated £51, 600 Mbps from £24 to £63 and 900 Mbps from £29 to £88 if no new agreement is made. Those future list prices can change, so the contract summary and renewal notice remain authoritative.',
+          'Optional Home Phone starts at £6 a month for evening and weekend calls on the current page. Extra Smart WiFi is described as £6 a month where it is not bundled. Add these, any installation exception, scheduled broadband change and the post-term months you expect to keep the service. A gift card should reduce effective cost only after you understand its eligibility, delivery and claim conditions.',
+        ],
+      },
+      {
+        heading: 'Installation and Switching to Gigaclear',
+        paragraphs: [
+          'Gigaclear may need to install a completely separate fibre line because its network is independent of Openreach, Virgin Media and other altnets. An engineer normally brings the fibre from the property boundary to an optical network terminal inside, then connects and positions the eero router. Agree the route and entry point before drilling, particularly in a listed, rented or recently decorated property.',
+          'One Touch Switch can coordinate the change from another fixed provider, but do not assume that it removes the physical installation risk. Keep the old service active until Gigaclear confirms the activation plan. If the current contract has time remaining, the checked offer advertises free Gigaclear service for up to 12 months while customers wait, subject to separate terms and a stated maximum value. Confirm eligibility and evidence requirements before relying on it.',
+          'After activation, test Ethernet speed, Wi-Fi coverage and home-phone calling if ordered. Keep photographs of external work and the optical terminal, save the order confirmation and return any old provider equipment using tracked postage. If a delay occurs, record every promised date and ask whether automatic compensation or another published installation remedy applies.',
+        ],
+      },
+      {
+        heading: 'Customer Service, Reviews and Complaints',
+        paragraphs: [
+          'Gigaclear’s public Trustpilot profile contained about 40,600 reviews when checked, with 79% rated five stars and 8% one star. The overall profile was strongly positive, but individual reports included both efficient support and complaints about installation, exit fees or billing. Open-review scores can be influenced by invitation practices and do not measure network uptime, so use them as one sentiment signal rather than a service guarantee.',
+          'Ofcom’s provider complaint tables do not always include smaller networks in the same comparable published group as the largest national suppliers. That absence is not proof of zero complaints. Gigaclear publishes a complaints code, and unresolved eligible cases can progress to its named alternative dispute resolution scheme after the required deadlock or waiting period. Keep dates, reference numbers and copies of bills.',
+          'A separate Ofcom investigation closed in July 2025 after findings about inaccurate or missing caller-location information for Gigaclear VoIP emergency calls between 2022 and March 2024. This historic issue should not be presented as evidence that current broadband data service is unreliable, but people taking Home Phone should keep their registered address current and understand how calls work during a power or broadband failure.',
+        ],
+      },
+      {
+        heading: 'Is Gigaclear Broadband Any Good?',
+        paragraphs: [
+          'Gigaclear is a strong option when it is live at the address and the household values symmetrical uploads, rural full fibre and low introductory pricing. The 300 Mbps tier is the sensible default for most homes. The 600 Mbps tier suits heavier concurrent use, while 900 Mbps is best reserved for households with a clear transfer workload and equipment able to use it.',
+          'The trade-offs are limited coverage, possible installation complexity, price-change wording and a steep post-promotion list price. Compare the total 18-month cost and renewal risk with every other network at the same address. Check whether an Openreach, CityFibre or another independent fibre line would provide more provider choice if you later want to switch.',
+          'Our verdict is conditional rather than universal. Choose Gigaclear if the exact address is ready, the installation route is acceptable and the written contract confirms a competitive total cost. Avoid ordering solely because the headline price or gift card looks attractive. Save the personalised summary, note the end date and plan a renewal check at least a month before the introductory term finishes.',
+        ],
+      },
+    ],
+    faqItems: [
+      {
+        question: 'Is Gigaclear broadband any good?',
+        answer: 'Gigaclear can be excellent value in the rural areas it serves because its full-fibre plans offer matching upload and download speeds, current prices from £19 a month and WiFi 7 hardware. Its limitations are postcode-specific coverage, possible installation work, terms allowing price changes and much higher standard list prices after the 18-month promotion.',
+      },
+      {
+        question: 'How much is Gigaclear broadband?',
+        answer: 'On 22 August 2026, Gigaclear advertised 300 Mbps for £19 a month, 600 Mbps for £24 and 900 Mbps for £29 for new customers on 18-month terms. Activation and standard installation were free, with gift cards on all three tiers. The promotion was time-limited and the provider said prices could change, so verify your postcode quote and contract summary.',
+      },
+      {
+        question: 'Where is Gigaclear broadband available?',
+        answer: 'Gigaclear serves selected rural communities across more than 26 counties in England, including parts of Oxfordshire, Gloucestershire, Herefordshire, Berkshire, Wiltshire, Northamptonshire and Essex. Its network is not nationwide and availability can vary street by street. Enter the complete postcode and choose the exact property on the official checker.',
+      },
+      {
+        question: 'Does Gigaclear use Openreach?',
+        answer: 'No. Gigaclear builds and operates its own fibre-to-the-premises network. A switch may therefore need a separate fibre cable, optical network terminal and installation rather than reusing an Openreach line. Check permissions, the proposed cable route and the activation date before cancelling working broadband.',
+      },
+      {
+        question: 'Are Gigaclear upload speeds the same as download speeds?',
+        answer: 'Yes, the checked residential range advertised symmetrical average speeds: 300 Mbps down and up, 600 Mbps down and up, or 900 Mbps down and up. Actual Wi-Fi results depend on the device, property and node placement. Use Ethernet to test the incoming line and retain the personalised minimum-speed estimate.',
+      },
+      {
+        question: 'What router does Gigaclear provide?',
+        answer: 'Gigaclear currently includes an eero 7 WiFi 7 router on packages up to 600 Mbps. Its 900 Mbps package includes an eero Pro 7 and Smart WiFi mesh. Extra nodes remain Gigaclear property and the eero app is needed for full management. Confirm the included node count and return terms in the order summary.',
+      },
+      {
+        question: 'Does Gigaclear increase prices?',
+        answer: 'Gigaclear says current prices may change during the minimum term, so check the contract summary for the exact policy and cancellation rights. The price also reverts after the 18-month promotion to the standard list price then in force. At the August 2026 check, the stated list prices were £51, £63 and £88 for the 300, 600 and 900 Mbps tiers.',
+      },
+      {
+        question: 'Can I get a Gigaclear deal through Awin?',
+        answer: 'Gigaclear operates an Awin advertiser programme under ID 11269. A tracked affiliate link only works when a publisher is approved and uses its own valid Awin publisher ID. BroadbandPicker records eligible outbound clicks, but until an approved Awin tracking URL is configured the page sends visitors directly to Gigaclear rather than inventing an attribution link.',
+      },
+    ],
+    reviewedDate: '2026-08-22',
+    pricingVerifiedDate: '2026-08-22',
+    reviewSources: [
+      {
+        label: 'Gigaclear residential broadband offers',
+        href: 'https://www.gigaclear.com/',
+        note: 'Primary source used for current package prices, speeds, gift cards, router inclusion, setup, minimum term and post-term list-price snapshot, checked on 2026-08-22.',
+      },
+      {
+        label: 'Gigaclear full-fibre locations',
+        href: 'https://www.gigaclear.com/locations',
+        note: 'Primary source for the rural network focus, more than 26 English counties and build-stage explanation, checked on 2026-08-22.',
+      },
+      {
+        label: 'Gigaclear Smart WiFi terms',
+        href: 'https://www.gigaclear.com/legal/terms-and-conditions-for-residential-customers/smart-wifi-service-terms-and-conditions',
+        note: 'Primary source for the 30 Mbps room guarantee, property-size tiers, exclusions and equipment ownership, checked on 2026-08-22.',
+      },
+      {
+        label: 'Choose Gigaclear broadband comparison',
+        href: 'https://www.choose.co.uk/broadband/gigaclear/',
+        note: 'Independent corroboration for network footprint, provider structure, symmetrical speeds and contract considerations, checked on 2026-08-22.',
+      },
+      {
+        label: 'Gigaclear public Trustpilot profile',
+        href: 'https://uk.trustpilot.com/review/www.gigaclear.com',
+        note: 'Customer-sentiment reference showing about 40,600 reviews and the displayed star distribution in August 2026; not treated as a controlled reliability survey.',
+      },
+      {
+        label: 'Ofcom Gigaclear emergency-call investigation',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/telecoms-infrastructure/investigation-into-gigaclear-limiteds-compliance-with-general-conditions-a3.5-and-a3.6a',
+        note: 'Regulatory source used to describe the closed historic VoIP caller-location finding accurately and in context.',
+      },
+      {
+        label: 'Awin Gigaclear advertiser programme',
+        href: 'https://ui.awin.com/merchant-profile-terms/11269?setLocale=en_US',
+        note: 'Used to verify Gigaclear advertiser programme ID 11269. A valid publisher-specific tracking link is not generated until approval and a publisher ID are available.',
+      },
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+        note: 'Explains how price, speed, coverage, customer experience and use-case fit are weighed.',
+      },
+    ],
+    awinProgramId: '11269',
+  },
+  {
     slug: 'onestream',
     name: 'Onestream',
     logo: '/logos/onestream.svg',
