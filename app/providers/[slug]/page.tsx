@@ -56,6 +56,7 @@ export default async function ProviderPage({
     month: 'long',
     year: 'numeric',
   })
+  const isRetired = Boolean(provider.retiredDate && provider.successorName && provider.successorUrl)
 
   const defaultFaqItems = [
     {
@@ -153,7 +154,7 @@ export default async function ProviderPage({
             {provider.name} Broadband Review
           </h1>
           <p className="text-slate-600">
-            From{' '}
+            {isRetired ? 'Final Brsk range from ' : 'From '}
             <span className="font-semibold text-slate-900">
               £{provider.monthlyPriceFrom.toFixed(2)}/month
             </span>{' '}
@@ -164,9 +165,9 @@ export default async function ProviderPage({
           </p>
         </div>
         <AffiliateCTA
-          href={provider.affiliateUrl}
-          providerName={provider.name}
-          label={`See ${provider.name} deals →`}
+          href={provider.successorUrl ?? provider.affiliateUrl}
+          providerName={provider.successorName ?? provider.name}
+          label={isRetired ? `See ${provider.successorName} deals →` : `See ${provider.name} deals →`}
           size="lg"
         />
       </div>
@@ -213,7 +214,9 @@ export default async function ProviderPage({
       </div>
 
       {/* Available packages */}
-      <h2 className="text-xl font-bold text-slate-900 mb-4">{provider.name} Broadband Packages</h2>
+      <h2 className="text-xl font-bold text-slate-900 mb-4">
+        {isRetired ? `Final ${provider.name} Broadband Packages` : `${provider.name} Broadband Packages`}
+      </h2>
       <div className="overflow-x-auto rounded-xl border border-slate-200 mb-8">
         <table className="w-full min-w-[540px] text-sm">
           <thead className="bg-slate-50 border-b border-slate-200">
@@ -242,7 +245,12 @@ export default async function ProviderPage({
                   </span>
                 </td>
                 <td className="px-4 py-4">
-                  <AffiliateCTA href={provider.affiliateUrl} providerName={provider.name} size="sm" />
+                  <AffiliateCTA
+                    href={provider.successorUrl ?? provider.affiliateUrl}
+                    providerName={provider.successorName ?? provider.name}
+                    label={isRetired ? `Check ${provider.successorName}` : undefined}
+                    size="sm"
+                  />
                 </td>
               </tr>
             ))}
@@ -368,7 +376,7 @@ export default async function ProviderPage({
       <div className="mt-10 p-6 bg-sky-50 border border-sky-200 rounded-xl flex flex-wrap items-center justify-between gap-4">
         <div>
           <h2 className="font-bold text-slate-900 mb-1">
-            Ready to switch to {provider.name}?
+            {isRetired ? `${provider.name} is now ${provider.successorName}` : `Ready to switch to ${provider.name}?`}
           </h2>
           <p className="text-sm text-slate-600">
             Check availability at your address before you sign up.
@@ -376,9 +384,9 @@ export default async function ProviderPage({
         </div>
         <div className="flex flex-wrap gap-3">
           <AffiliateCTA
-            href={provider.affiliateUrl}
-            providerName={provider.name}
-            label={`Get ${provider.name} deal →`}
+            href={provider.successorUrl ?? provider.affiliateUrl}
+            providerName={provider.successorName ?? provider.name}
+            label={isRetired ? `Check ${provider.successorName} deals →` : undefined}
             size="lg"
           />
           <Link

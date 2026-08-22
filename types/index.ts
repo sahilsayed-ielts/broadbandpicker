@@ -18,6 +18,9 @@ export interface Provider {
   highlights: string[]
   pros: string[]
   cons: string[]
+  retiredDate?: string
+  successorName?: string
+  successorUrl?: string
   excerpt?: string
   contentSections?: {
     heading: string

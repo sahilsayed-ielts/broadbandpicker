@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" role="img" aria-labelledby="title desc">
+  <title id="title">Brsk text wordmark placeholder</title>
+  <desc id="desc">A plain text placeholder used because an official Brsk logo asset was not verified.</desc>
+  <rect width="240" height="80" rx="12" fill="#f8fafc"/>
+  <text x="120" y="52" text-anchor="middle" font-family="Arial, sans-serif" font-size="40" font-weight="700" fill="#0f172a">brsk</text>
+</svg>

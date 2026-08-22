@@ -500,7 +500,7 @@ const baseProviders: Provider[] = [
   {
     slug: 'brsk',
     name: 'Brsk',
-    logo: '/logos/youfibre.svg',
+    logo: '/logos/brsk.svg',
     affiliateUrl: 'https://www.youfibre.com/brsk/index.html',
     speeds: [
       { download: 200, upload: 200, type: 'FTTP' },
@@ -510,7 +510,7 @@ const baseProviders: Provider[] = [
     monthlyPriceFrom: 24.99,
     contractLengths: [1, 12],
     setupFee: 0,
-    trustpilotScore: 4.8,
+    trustpilotScore: 4.6,
     coveragePercent: 10,
     highlights: [
       'Brsk is now part of YouFibre, so new availability and orders are handled through YouFibre',
@@ -529,6 +529,9 @@ const baseProviders: Provider[] = [
       'Historic Brsk prices should not be treated as current YouFibre offers',
       'Speeds above 1 Gbps normally require compatible wired and multi-gigabit equipment',
     ],
+    retiredDate: '2026-03-16',
+    successorName: 'YouFibre',
+    successorUrl: 'https://www.youfibre.com/',
     excerpt:
       'Brsk broadband is no longer sold as a standalone service. The Brsk website now redirects prospective customers to YouFibre, which handles new orders on the combined Netomnia network. Existing Brsk customers should use their migration communications and account support. Our January 2026 snapshot below explains the former BetterNet plans, but new customers must check current YouFibre prices and postcode availability.',
     contentSections: [
@@ -575,7 +578,7 @@ const baseProviders: Provider[] = [
       {
         heading: 'Brsk Customer Service, Reviews and Switching',
         paragraphs: [
-          'Brsk had a strong legacy customer-review profile, with Uswitch recording 4.8 out of 5 on Trustpilot when checked in December 2025. That is useful sentiment evidence, but it is not a technical reliability measurement and may not describe the post-migration YouFibre operation. Read recent reviews by date and location, looking for repeated themes rather than relying on the headline score alone.',
+          'Brsk had a strong legacy customer-review profile. A dated independent snapshot recorded 4.6 out of 5 from 86,320 Trustpilot reviews on 4 May 2026, while Uswitch had recorded 4.8 in December 2025. The figures use different dates and are reported separately rather than averaged. Neither is a technical reliability measurement or a guarantee of the post-migration YouFibre experience.',
           'For a switch, confirm whether One Touch Switch applies and which provider will coordinate the transfer. Keep the old service until the activation plan is clear, especially where a separate fibre installation is required. Record the promised activation date, any buyout credit, proof deadline and conditions. Historic Brsk buyout terms required evidence of the old provider\'s early termination charge within a stated period.',
           'If service fails, test power, optical terminal lights, Ethernet and Wi-Fi separately before reporting the fault. Existing customers should use the contact channel shown in their migration or account information. Keep fault references and dates. Check whether the current provider participates in Ofcom\'s automatic compensation scheme rather than assuming a legacy Brsk policy still applies.',
         ],
@@ -637,6 +640,16 @@ const baseProviders: Provider[] = [
         label: 'Choose Brsk broadband guide',
         href: 'https://www.choose.co.uk/broadband/brsk/',
         note: 'Independent comparison of the legacy BetterNet product structure, contract terms, add-ons and regional availability.',
+      },
+      {
+        label: 'Ofcom automatic compensation guidance',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/service-quality/automatic-compensation-need-know',
+        note: 'Regulatory source checked on 22 August 2026 for the scheme protections and current provider signatory list.',
+      },
+      {
+        label: 'BroadbandSwitch Brsk provider snapshot',
+        href: 'https://broadbandswitch.uk/provider/brsk/',
+        note: 'Independent source for the dated 4.6/5 Trustpilot snapshot from 86,320 reviews captured on 4 May 2026.',
       },
       {
         label: 'BroadbandPicker review methodology',
