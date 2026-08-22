@@ -872,6 +872,201 @@ const baseProviders: Provider[] = [
     awinProgramId: '11269',
   },
   {
+    slug: 'cuckoo',
+    name: 'Cuckoo',
+    logo: '/logos/cuckoo.svg',
+    affiliateUrl: 'https://cuckoo.co/',
+    speeds: [
+      { download: 11, upload: 1, type: 'ADSL' },
+      { download: 17, upload: 1, type: 'FTTC' },
+      { download: 38, upload: 9, type: 'FTTC' },
+      { download: 45, upload: 9, type: 'FTTC' },
+      { download: 67, upload: 18, type: 'FTTC' },
+      { download: 62, upload: 18, type: 'FTTP' },
+      { download: 100, upload: 18, type: 'FTTP' },
+      { download: 200, upload: 30, type: 'FTTP' },
+      { download: 500, upload: 70, type: 'FTTP' },
+      { download: 945, upload: 101, type: 'FTTP' },
+    ],
+    monthlyPriceFrom: 29.95,
+    contractLengths: [12, 18, 24],
+    setupFee: 99,
+    trustpilotScore: 4.6,
+    coveragePercent: 94,
+    highlights: [
+      'Current Cuckoo services are operated by Onestream under the Cuckoo brand',
+      'Published range includes part-fibre and full-fibre packages up to 945 Mbps',
+      'Uses wholesale networks including Openreach, CityFibre and AllPoints Fibre depending on the address',
+    ],
+    pros: [
+      'Broad mix of speeds for light-use homes through to gigabit households',
+      'High public customer-review score at the August 2026 check',
+      'One Touch Switch support for eligible provider changes',
+      'Full fibre and part fibre can make the brand available beyond one network footprint',
+    ],
+    cons: [
+      'Older Cuckoo reviews describe products and ownership that are no longer current',
+      'Published standard activation and early-exit charges can be substantial',
+      'No new digital voice or home phone service is offered',
+      'Router, security and support add-ons can increase the headline cost',
+    ],
+    excerpt:
+      'Cuckoo Broadband changed materially in May 2026. Onestream Limited now runs the brand and publishes a new range spanning SoGEA part fibre and FTTP full fibre, with standard prices from £29.95 and downloads up to 945 Mbps. The broader choice can suit many addresses, but shoppers should ignore obsolete C-150, C-500 and C-900 listings, check the exact contract summary and account for activation, router, add-on and early-exit charges.',
+    contentSections: [
+      {
+        heading: 'What Happened to Cuckoo Broadband in 2026?',
+        paragraphs: [
+          'Cuckoo Fibre Limited transferred its broadband customer base and the Cuckoo brand to Onestream Limited on 28 May 2026. The current Cuckoo website states that the service is part of the Onestream family, while its legal price guide describes Onestream Limited trading as Cuckoo Broadband. Existing customers were told that their agreed package, speed, price and contract terms would continue unless specifically advised otherwise.',
+          'This change matters when researching Cuckoo broadband deals. Older reviews often discuss the former C-150, C-500 and C-900 full-fibre plans, CityFibre-led availability, fixed-price promises or an eero Pro 6E router. Those details may still describe a legacy customer’s contract, but they do not establish what a new customer can order in August 2026. The current legal price guide and address-specific order summary take priority.',
+          'The transfer also changed some account administration. Cuckoo’s update says account numbers may change, Direct Debits are collected on the last working day of the month and invoices are generated 14 days earlier. Existing customers should keep transfer notices and compare the first post-move bill with the previous contract. New customers should confirm that the order names Cuckoo and identifies Onestream as the service operator.',
+        ],
+      },
+      {
+        heading: 'Current Cuckoo Broadband Packages and Standard Prices',
+        paragraphs: [
+          'Cuckoo’s price guide dated 28 May 2026 lists five full-fibre packages. Supreme Full Fibre 80 has an average 62 Mbps download at £40.95 a month, Full Fibre 115 averages 100 Mbps at £45.95, Full Fibre 220 averages 200 Mbps at £49.95, Full Fibre 550 averages 500 Mbps at £54.95 and Hyperstream Full Fibre 1000 averages 945 Mbps at £59.95. These are published standard charges, not necessarily the promotional quote returned for every postcode.',
+          'The same guide lists SoGEA services without a traditional phone line. Cuckoo 17 and Fibre 20 are both £29.95 with average downloads of 11 and 17 Mbps. Fibre 40 and Fibre 55 are £34.95 with 38 and up to 45 Mbps respectively, while Fibre 80 is £37.95 with up to 67 Mbps. SoGEA uses copper for the final connection and can slow with distance from the street cabinet.',
+          'A postcode journey or comparison partner may show a lower promotional payment, waived activation or a different minimum period. Treat that as an address-specific offer and save its contract information. The legal guide describes 12, 18 and 24-month minimum terms as possible, while the main terms say the minimum is 12 months if the order does not state another period. Never assume an old rolling monthly Cuckoo deal is still offered.',
+        ],
+      },
+      {
+        heading: 'Cuckoo Coverage and the Networks It Uses',
+        paragraphs: [
+          'Cuckoo does not rely on a single national network. Its June 2026 terms name wholesale fibre providers including Openreach, CityFibre and AllPoints Fibre. The exact route can affect speed tiers, upload performance, installation and future switching choice. A national Cuckoo availability percentage therefore hides the most important fact: the complete address and network serving it.',
+          'Part-fibre SoGEA can reach many homes on the Openreach copper footprint, while FTTP depends on whether a suitable wholesale full-fibre network is live at the property and available to the current Cuckoo ordering system. MoneySuperMarket’s August guide describes current full-fibre options from around 62 to 945 Mbps and part-fibre offers at some addresses. It also stresses that its comparison may not show every provider or direct deal.',
+          'Enter the full postcode, select the exact flat or house and record the network or installation description before ordering. Adjacent properties can receive different results, particularly in new-build blocks or streets where fibre work is incomplete. If an engineer or wayleave is required, keep the old service until the new line is installed and tested. A marketing claim about nationwide service is not an address-level guarantee.',
+        ],
+      },
+      {
+        heading: 'Cuckoo Speeds, Uploads and Which Plan to Choose',
+        paragraphs: [
+          'The current range covers very different household needs. Eleven or 17 Mbps is restrictive for a busy home and can struggle with simultaneous streaming, downloads and video calls. Thirty-eight to 67 Mbps may suit one or two people with ordinary browsing, HD streaming and occasional home working. Full Fibre 80 or 115 gives a steadier fibre-to-the-premises connection without forcing a household to buy a very high speed.',
+          'Two hundred Mbps is a practical middle tier for families using several streams, consoles and work devices. Five hundred Mbps reduces large game and system-download times, while 945 Mbps is intended for heavy concurrent use or people moving very large files. A gigabit package will not improve a slow website, weak Wi-Fi device or server bottleneck, and most individual devices will not sustain the full headline speed wirelessly.',
+          'Do not assume the legacy symmetrical Cuckoo speeds apply to every new package. Upload speed varies by wholesale network and product. Openreach-based 100, 200, 500 and gigabit services normally upload much more slowly than they download, while some alternative fibre routes can be closer to symmetrical. Read the personalised download, upload and minimum guaranteed speeds before paying, then use Ethernet when testing the incoming service.',
+        ],
+      },
+      {
+        heading: 'Router, Wi-Fi, Static IP and Optional Add-ons',
+        paragraphs: [
+          'Cuckoo’s current price guide lists Standard, Superstream and Superstream+ routers, each with a published hardware value of £125. That list does not prove which router is included with one address-specific offer. Check the model, Wi-Fi standard, Ethernet ports, rental or ownership status and return rules in the order summary. Legacy references to an eero router may apply to older contracts rather than today’s Onestream-operated range.',
+          'The price guide also lists a mesh unit at £49.95 and Wi-Fi extenders at £100. Wireless performance depends on walls, interference, router position and device capability, so choose mesh for a measured coverage problem rather than automatically adding it at checkout. Ask whether an extra device is bought outright, rented or must be returned, and whether any support or guarantee requires provider-supplied hardware.',
+          'Optional services include a fixed IP address at £5 a month, Cuckoo Assured at £4.95, Assured Premium at £9.95, paid care levels, security software and NordVPN. Some security licences rise after the first year. Remove anything you do not need, record trial or renewal dates and check the first bill. A low promotional broadband payment can become poor value when several recurring extras are added.',
+        ],
+      },
+      {
+        heading: 'Contracts, Activation Fees and Early Termination',
+        paragraphs: [
+          'Cuckoo publishes standard activation fees of £99 for SoGEA and £149 for FTTP, although a promotion may reduce or waive them. The guide also lists £9.95 delivery, a £99 home-mover fee and charges up to £199 for a missed, rejected or late-cancelled engineer visit. Confirm the actual upfront payment in the contract summary rather than assuming the standard figure or an old free-installation offer applies.',
+          'Early termination can be expensive. The monthly termination amount ranges from £11 to £25 depending on the package and is multiplied by the remaining months. If activation was free or discounted, the standard activation fee may be added, along with £125 for the router and £49.95 for a mesh unit in the circumstances described by the guide. The provider’s own example totals £292 for leaving Fibre 80 with four months remaining after activation and router amounts are added.',
+          'The terms provide a 14-day cooling-off period from the day after order confirmation, subject to charges for service already installed or used and returning equipment. They also allow certain cost-driven or legal changes with notice and describe penalty-free cancellation for a notified detrimental increase in specific circumstances. Do not generalise this into a universal no-price-rise promise. Read the pound-and-pence schedule and exit rights supplied for your order.',
+        ],
+      },
+      {
+        heading: 'Switching, Installation and Home Phone',
+        paragraphs: [
+          'Cuckoo promotes One Touch Switch, under which the new provider normally contacts the old provider and coordinates the change. Its public journey illustrates contact today, confirmation around day ten and a target connection around day fourteen. That is an aim rather than a guaranteed activation date. A new FTTP installation, blocked duct or missed appointment can extend the process.',
+          'If full fibre is not already installed, an engineer may need to route cable to an optical network terminal inside the property. Agree the entry point before drilling and secure landlord or freeholder consent where needed. Keep existing broadband active until the installation is complete, especially when changing between independent networks. Test the wired line and Wi-Fi coverage before returning old equipment.',
+          'Cuckoo’s current price guide says it no longer offers digital voice or home phone services. Anyone who uses a landline number, telecare alarm, monitored security system or analogue device should arrange an alternative before switching. Do not assume the socket will keep working after a SoGEA or FTTP migration. Ask the equipment provider whether it supports broadband-based calling, mobile connectivity or battery backup.',
+        ],
+      },
+      {
+        heading: 'Customer Service, Reviews and Complaints After the Transfer',
+        paragraphs: [
+          'Cuckoo’s Trustpilot profile showed 4.6 out of 5 from just over 10,000 reviews on 22 August 2026. Eighty-one per cent were five-star and 10% one-star. Recent reviewers often praised individual advisers, while recurring criticism included waits, billing transparency, renewal prices and outage communication. Trustpilot is an open-review platform and one sentiment input, not a controlled network-reliability measure.',
+          'Complaints from before and after the May transfer may follow different routes. Communications Ombudsman says Cuckoo Fibre Limited ceased trading after the customer and brand transfer. It may still consider certain legacy disputes for services not transferred, while transferred Onestream cases may fall under CISAS. Check the legal name on the bill, complain to the current provider first and retain a deadlock letter or evidence of the waiting period.',
+          'The current Cuckoo complaints code says customers should contact support first, then make a formal complaint by email or post, with a target response within seven days. Keep dates, bills, speed evidence and reference numbers. If the problem concerns an Openreach, CityFibre or other wholesale fault, Cuckoo remains the retail contact and should manage the escalation rather than sending the customer directly to the network builder.',
+        ],
+      },
+      {
+        heading: 'Is Cuckoo Broadband Any Good in 2026?',
+        paragraphs: [
+          'Cuckoo can suit households that value a broad speed choice, a strong public review profile and access through more than one wholesale network. The 100 or 200 Mbps full-fibre tiers are sensible starting points for most homes if their promotional total cost is competitive. Faster tiers make sense for heavy use, while SoGEA remains a fallback where full fibre is unavailable.',
+          'The main caution is that the brand proposition changed after the Onestream transfer. Old Cuckoo awards, routers, fixed-price claims and plan names are not reliable evidence for a new order. Published standard activation, ancillary and early-exit fees also require careful reading. Compare the total minimum-term cost, scheduled changes, setup, equipment and optional products against at least two alternatives at the same address.',
+          'Our verdict is conditional. Cuckoo is worth considering when the personalised contract is simple, the network and upload speed suit the household and unnecessary extras have been removed. It is less attractive if the quote relies on costly add-ons, a high activation fee or unclear exit terms. Save every pre-contract document and review the first bill rather than choosing solely on brand reputation.',
+        ],
+      },
+    ],
+    faqItems: [
+      {
+        question: 'Is Cuckoo broadband any good?',
+        answer: 'Cuckoo can be a good choice where its current Onestream-operated offer is competitively priced and the address can receive the right full-fibre speed. It has a 4.6 Trustpilot score from over 10,000 reviews, but published activation, add-on and early-exit fees need careful checking. Ignore obsolete legacy plan claims and rely on the personalised contract summary.',
+      },
+      {
+        question: 'Who owns Cuckoo Broadband now?',
+        answer: 'Onestream Limited acquired the Cuckoo customer base and brand on 28 May 2026 and now operates services under the Cuckoo name. Existing customers were told that agreed package, speed, price and contract terms would continue unless advised otherwise. Account numbers, billing dates and the legal provider handling support may have changed.',
+      },
+      {
+        question: 'How much does Cuckoo broadband cost?',
+        answer: 'Cuckoo’s May 2026 standard price guide lists SoGEA broadband from £29.95 a month and full fibre from £40.95, rising to £59.95 for the 945 Mbps package. Promotional postcode quotes can be lower and may reduce activation. Check the monthly schedule, minimum term, setup, router, extras and total contract cost before ordering.',
+      },
+      {
+        question: 'What speeds does Cuckoo offer?',
+        answer: 'The current published range covers 11, 17, 38, 45 and 67 Mbps SoGEA services plus full-fibre averages of 62, 100, 200, 500 and 945 Mbps. Availability and upload speed vary by address and wholesale network. Do not assume older symmetrical Cuckoo packages remain available to new customers.',
+      },
+      {
+        question: 'What network does Cuckoo use?',
+        answer: 'Cuckoo’s terms name wholesale networks including Openreach, CityFibre and AllPoints Fibre. The network serving the exact address affects availability, installation and upload performance. Enter the full postcode and read the order information rather than assuming every Cuckoo customer uses CityFibre or receives the same product.',
+      },
+      {
+        question: 'Does Cuckoo offer a landline?',
+        answer: 'No new digital voice or home phone service is listed in Cuckoo’s current price guide. People who rely on a telephone number, telecare alarm or analogue device should arrange a compatible alternative before moving to SoGEA or FTTP. Confirm battery-backup and emergency-call arrangements for any replacement service.',
+      },
+      {
+        question: 'Does Cuckoo increase broadband prices?',
+        answer: 'Do not rely on old fixed-price marketing. Current terms say the exact minimum-period charges and any changes are set out in the order documents, and allow some cost-driven changes with notice. They describe cancellation rights for certain detrimental changes. Check the contract summary for the precise pound-and-pence schedule applying to your order.',
+      },
+      {
+        question: 'Can I get Cuckoo deals through Awin?',
+        answer: 'Cuckoo has an Awin advertiser programme under ID 118743. A tracked sale requires an approved publisher account and that publisher’s valid Awin ID. BroadbandPicker records eligible outbound clicks, but uses the direct Cuckoo destination until a valid publisher-specific tracking link is configured rather than inventing attribution.',
+      },
+    ],
+    reviewedDate: '2026-08-22',
+    pricingVerifiedDate: '2026-08-22',
+    reviewSources: [
+      {
+        label: 'Cuckoo residential broadband price guide',
+        href: 'https://cuckoo.co/legal/price-list',
+        note: 'Primary source for current plan names, standard prices, speeds, add-ons, activation, equipment and early-termination charges, checked on 2026-08-22.',
+      },
+      {
+        label: 'Cuckoo residential terms',
+        href: 'https://cuckoo.co/legal/terms-and-conditions',
+        note: 'Primary source for wholesale networks, minimum period, cooling-off, price-change, installation and cancellation rules, checked on 2026-08-22.',
+      },
+      {
+        label: 'Cuckoo Onestream update',
+        href: 'https://cuckoo.co/onestream-update',
+        note: 'Primary source for the service transfer, continuing contract position, account-number and billing-date changes.',
+      },
+      {
+        label: 'MoneySuperMarket Cuckoo broadband guide',
+        href: 'https://www.moneysupermarket.com/broadband/providers/cuckoo/',
+        note: 'Independent corroboration for the August 2026 product range, address-level availability and comparison caveats.',
+      },
+      {
+        label: 'Cuckoo public Trustpilot profile',
+        href: 'https://uk.trustpilot.com/review/cuckoo.co',
+        note: 'Customer-sentiment reference showing 4.6/5 from 10,022 reviews and the displayed distribution on 2026-08-22; not treated as a controlled reliability survey.',
+      },
+      {
+        label: 'Communications Ombudsman Cuckoo transfer notice',
+        href: 'https://www.commsombudsman.org/raise-dispute/cuckoo-broadband',
+        note: 'Independent dispute-resolution source for the 28 May 2026 transfer and guidance on legacy versus transferred complaints.',
+      },
+      {
+        label: 'Awin Cuckoo advertiser programme',
+        href: 'https://ui.awin.com/merchant-profile-terms/118743/affiliate',
+        note: 'Used to verify advertiser programme ID 118743. No publisher-specific tracking URL is generated without an approved publisher ID.',
+      },
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+        note: 'Explains how price, speed, coverage, customer experience and use-case fit are weighed.',
+      },
+    ],
+    awinProgramId: '118743',
+  },
+  {
     slug: 'onestream',
     name: 'Onestream',
     logo: '/logos/onestream.svg',

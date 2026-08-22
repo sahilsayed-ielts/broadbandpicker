@@ -141,29 +141,6 @@ export default function HomePage() {
     month: 'long',
     year: 'numeric',
   })
-  const sourceNotes = [
-    {
-      label: 'BroadbandPicker provider reviews',
-      href: '/providers',
-      note: 'Our homepage deal modules inherit pricing, speed, contract, and coverage context from the provider review dataset maintained across the site.',
-    },
-    {
-      label: 'BroadbandPicker comparison table',
-      href: '/compare',
-      note: 'Lets readers verify how the same commercial data is normalised side by side before clicking through to individual provider or postcode pages.',
-    },
-    {
-      label: 'BroadbandPicker review methodology',
-      href: '/how-we-review-broadband',
-      note: 'Explains how we assess pricing, network performance, contract terms, and customer sentiment across guides and commercial templates.',
-    },
-    {
-      label: 'BroadbandPicker editorial policy',
-      href: '/editorial-policy',
-      note: 'Sets out our editorial independence, corrections standards, and how affiliate relationships are handled.',
-    },
-  ]
-
   return (
     <>
       <script
@@ -362,19 +339,18 @@ export default function HomePage() {
           Compare Broadband Deals in the UK
         </h2>
         <p className="text-slate-600 leading-relaxed mb-4">
-          BroadbandPicker is an independent UK broadband comparison service. We compare broadband
-          deals from every major provider — including BT, Sky, Virgin Media, EE, TalkTalk,
-          Vodafone, Plusnet, and more — to help you find the best broadband deal for your home.
-          Whether you&apos;re looking for the cheapest standard broadband, superfast fibre, or a
-          full-fibre (FTTP) gigabit connection, our free comparison tool makes it easy to see
-          what&apos;s available at your address.
+          BroadbandPicker is an independent UK broadband comparison service. We compare deals from
+          every major provider, including BT, Sky, Virgin Media, EE, TalkTalk, Vodafone and
+          Plusnet, so you can see what&apos;s actually available at your address before you switch
+          — standard broadband, superfast fibre, or a full-fibre (FTTP) gigabit connection.
         </p>
         <p className="text-slate-600 leading-relaxed mb-4">
-          Switching broadband is one of the easiest ways to save money on your household bills.
-          The average UK household overpays for broadband by £180 a year simply by staying on an
-          out-of-contract deal. BroadbandPicker shows you what new customers are being offered
-          right now, so you can switch and start saving immediately. Our postcode checker tells you
-          exactly which providers serve your area and what speeds are available.
+          Switching broadband is one of the easiest ways to cut your household bills. Providers
+          routinely price new customers lower than people who have stayed on the same deal for a
+          year or two, so it is worth checking what is currently on offer even if you are not
+          planning to leave. BroadbandPicker shows you what new customers are being offered right
+          now, and our postcode checker tells you exactly which providers serve your area and what
+          speeds are available.
         </p>
         <p className="text-slate-600 leading-relaxed mb-8">
           Our featured deals and provider review data are refreshed regularly, with the latest
@@ -405,27 +381,6 @@ export default function HomePage() {
           >
             Cheapest broadband UK &rarr;
           </Link>
-        </div>
-      </section>
-
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-14">
-        <div className="rounded-xl border border-slate-200 bg-white p-6">
-          <h2 className="text-xl font-bold text-slate-900 mb-3">Editorial and Source Notes</h2>
-          <p className="mb-4 text-sm text-slate-600">
-            BroadbandPicker&apos;s homepage combines postcode lookup, featured deals, and provider
-            review evidence to help visitors understand what is available before switching. The
-            source links below show where the main commercial modules get their editorial context.
-          </p>
-          <ul className="space-y-2 text-sm">
-            {sourceNotes.map((source) => (
-              <li key={source.href}>
-                <Link href={source.href} className="text-sky-600 hover:underline">
-                  {source.label}
-                </Link>
-                <p className="mt-1 text-xs leading-relaxed text-slate-500">{source.note}</p>
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
     </>
