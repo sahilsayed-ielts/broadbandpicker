@@ -2728,6 +2728,219 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
       },
     ],
   },
+  'fttp-vs-fttc-explained': {
+    body: (
+      <>
+        <p className="text-lg">
+          <strong>FTTP is the better broadband technology when both options are available.</strong>{' '}
+          Fibre to the Premises runs fibre all the way to your property, while Fibre to the
+          Cabinet uses copper for the final section from a street cabinet. That gives FTTP higher
+          speed potential, stronger uploads and generally better reliability. FTTC can still be
+          enough for ordinary browsing and streaming, especially where full fibre is unavailable.
+        </p>
+
+        <div className="rounded-xl border border-amber-200 bg-amber-50 p-5">
+          <p className="mb-0 text-sm">
+            <strong>Technology check:</strong> UK definitions, speeds and availability guidance
+            were verified on 22 August 2026. A technology&apos;s maximum capability is not a speed
+            guarantee. Check the personalised estimate, minimum speed information, installation
+            requirements and contract summary for your complete address before ordering.
+          </p>
+        </div>
+
+        <h2>FTTP vs FTTC at a glance</h2>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm border-collapse">
+            <thead>
+              <tr className="bg-slate-50">
+                {['Feature', 'FTTP or full fibre', 'FTTC or part fibre'].map((heading) => (
+                  <th scope="col" key={heading} className="text-left px-4 py-3 border border-slate-200 font-semibold text-slate-700">{heading}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                ['Final connection to the home', 'Fibre-optic cable', 'Copper telephone line from the cabinet'],
+                ['Openreach download capability', 'Retail tiers can reach gigabit and multi-gigabit speeds', 'Up to about 76 to 80 Mbps'],
+                ['Upload performance', 'Usually much faster, depending on provider and tier', 'Typically limited to around 20 Mbps or less'],
+                ['Effect of distance', 'Far less affected by the distance to a street cabinet', 'Copper speed normally falls as line length increases'],
+                ['Reliability', 'Generally less prone to faults than copper-based FTTC', 'Copper section creates an additional fault and interference risk'],
+                ['Installation', 'May require an engineer, new fibre entry and an optical network terminal', 'Usually uses the existing telephone-line route and socket'],
+                ['Best fit', 'Busy homes, large downloads, uploads, work and long-term capacity', 'Light or moderate use where full fibre is unavailable or unnecessary'],
+              ].map(([feature, fttp, fttc]) => (
+                <tr key={feature} className="border-b border-slate-100">
+                  <td className="px-4 py-3 font-semibold text-slate-900">{feature}</td>
+                  <td className="px-4 py-3 text-slate-700">{fttp}</td>
+                  <td className="px-4 py-3 text-slate-700">{fttc}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <h2>What is FTTP broadband?</h2>
+        <p>
+          FTTP means Fibre to the Premises. It is also called full fibre or Fibre to the Home.
+          Fibre-optic cable carries the connection from the network into the property, where it
+          terminates at an optical network terminal. Your router connects to that terminal. There
+          is no copper telephone line in the broadband path between the local fibre network and
+          your home.
+        </p>
+        <p>
+          Full fibre can support much faster downloads and uploads than FTTC. The exact tiers vary
+          by network and retail provider. Some UK providers sell 100 to 500 Mbps services, many
+          sell gigabit-class packages, and a smaller number offer multi-gigabit tiers. Buying FTTP
+          does not automatically mean buying the fastest tier. A household can choose a modest
+          full-fibre package and still benefit from the fibre connection&apos;s reliability and future
+          upgrade path.
+        </p>
+
+        <h2>What is FTTC broadband?</h2>
+        <p>
+          FTTC means Fibre to the Cabinet. Fibre connects the exchange or network to the green
+          cabinet serving your area, but the final section to the property uses the existing
+          copper telephone line. In the UK, this service normally uses VDSL technology and may be
+          sold as fibre, superfast fibre, part fibre or standard fibre.
+        </p>
+        <p>
+          Openreach describes FTTC downloads as reaching up to 76 Mbps, while Ofcom and current
+          parliamentary guidance commonly describe the technology as capable of roughly 30 to 80
+          Mbps. These are ranges and maxima, not promises. The length and quality of the copper
+          line affect the result, so two homes buying the same package can receive different speed
+          estimates.
+        </p>
+
+        <h2>Why FTTP is faster than FTTC</h2>
+        <p>
+          Light travels through fibre with very high capacity and low signal loss. FTTC introduces
+          a copper section between the cabinet and property. VDSL performance declines as that
+          copper run becomes longer and can also be affected by line quality and electrical
+          interference. FTTP removes that final copper bottleneck, allowing providers to offer
+          substantially higher and more consistent access speeds.
+        </p>
+        <p>
+          The difference is especially visible in uploads. FTTC packages often provide no more
+          than about 20 Mbps upstream, with slower tiers below that. FTTP upload speeds vary widely:
+          Openreach-based residential products can remain asymmetric, while several alternative
+          networks offer matching upload and download speeds. Check the advertised upload rate
+          separately rather than assuming every full-fibre package is symmetrical.
+        </p>
+
+        <h2>Is FTTP more reliable than FTTC?</h2>
+        <p>
+          Generally, yes. Ofcom&apos;s consumer guidance states that FTTP on the Openreach network can
+          be more reliable than FTTC because it is less prone to faults. Fibre is not vulnerable
+          to the same electrical interference and corrosion issues as the final copper line.
+          Removing cabinets and copper joints from the access path also removes potential fault
+          points.
+        </p>
+        <p>
+          Full fibre is not immune to outages. A damaged cable, network fault, failed router,
+          failed optical terminal or power cut can still interrupt service. Both the FTTP optical
+          terminal and router need electricity, and most new digital phone services will not work
+          during a power cut without backup power. Reliability also depends on the provider&apos;s
+          network management and repair process.
+        </p>
+
+        <h2>FTTP vs FTTC for gaming, streaming and home working</h2>
+        <p>
+          FTTP is the stronger choice for a busy connected household, but the right package speed
+          depends on simultaneous use. One 4K stream does not need gigabit broadband. FTTC at a
+          solid 50 to 70 Mbps may handle normal browsing, several HD streams and online gaming.
+          Problems are more likely when multiple people stream, download games, back up photos and
+          join video calls at the same time.
+        </p>
+        <p>
+          Gaming itself uses relatively little bandwidth. Stable latency, low packet loss and a
+          good wired or Wi-Fi connection matter more than a huge headline download number. FTTP
+          can provide a steadier access line and dramatically shorten game downloads, but moving
+          from poor Wi-Fi to faster fibre will not fix an badly positioned router. Test Ethernet
+          and Wi-Fi separately.
+        </p>
+        <p>
+          Home workers and creators benefit most from FTTP&apos;s upload capacity. Cloud backups,
+          sending video, synchronising large files and hosting several video calls can saturate a
+          slow FTTC upload. Compare guaranteed or minimum download information, typical uploads,
+          support hours and any service-level commitment rather than treating download speed as
+          the only measure of quality.
+        </p>
+
+        <h2>How FTTP installation differs from FTTC</h2>
+        <p>
+          FTTC normally reuses the copper line entering the property, so a provider may activate
+          it remotely or arrange work on the existing route. FTTP needs a fibre path into the home.
+          An engineer may run fibre from a pole or underground chamber, drill a small entry hole,
+          fit an external connection point and install an optical network terminal near a power
+          socket inside.
+        </p>
+        <p>
+          Discuss the terminal and router position before drilling begins. Central placement can
+          improve Wi-Fi, but the fibre route, power and access constraints affect what is possible.
+          Renters should obtain any necessary permission. Flats may need a building wayleave or
+          shared infrastructure, so an availability checker showing full fibre in the street does
+          not always mean immediate installation in every unit.
+        </p>
+
+        <h2>Can you keep a landline with FTTP?</h2>
+        <p>
+          Full fibre does not use the traditional analogue telephone line to carry broadband.
+          Providers that include home phone service normally deliver calls digitally through the
+          router or another adapter. Ask whether your number can be ported and whether alarms,
+          telecare devices, fax machines or payment terminals are compatible. Digital voice
+          normally requires mains power, so vulnerable users should discuss resilience options
+          with the provider before switching.
+        </p>
+
+        <h2>How to check whether you have FTTP or FTTC</h2>
+        <ol>
+          <li>Run the network or provider&apos;s full-address availability checker, not a town-level search.</li>
+          <li>Look for the terms Full Fibre, FTTP or Fibre to the Premises in the contract summary.</li>
+          <li>Check the equipment: FTTP normally has a separate optical network terminal with fibre entering it.</li>
+          <li>Do not rely on the word fibre by itself, because older advertising often used it for FTTC.</li>
+          <li>Compare the personalised speed range and installation description before ordering.</li>
+        </ol>
+        <p>
+          Ofcom introduced guidance to reduce confusion around broadband technology. Providers
+          should use clear terms such as full fibre for FTTP and part fibre for FTTC and explain
+          the underlying network. If a deal page remains unclear, ask the provider in writing which
+          technology reaches the property.
+        </p>
+
+        <h2>Is upgrading from FTTC to FTTP worth it?</h2>
+        <p>
+          Upgrading is usually worthwhile when the whole-term price is competitive, you need
+          faster uploads, the existing copper line is slow or unreliable, or several people share
+          the connection. It can also be a sensible long-term choice even on a lower speed tier,
+          because later upgrades normally do not require replacing the access line again.
+        </p>
+        <p>
+          FTTC may still be the rational choice if full fibre is unavailable, installation is not
+          currently practical, or a stable FTTC estimate already exceeds the household&apos;s needs at
+          a meaningfully lower total price. Compare the full minimum-term cost, scheduled price
+          changes, setup charges, router, upload rate and guaranteed speed. Do not pay for a
+          gigabit package merely because the technology can support it.
+        </p>
+
+        <h2>Bottom line</h2>
+        <p>
+          FTTP wins the technology comparison because fibre reaches the premises and removes the
+          speed-limiting copper section. It offers more headroom, better uploads and generally
+          stronger reliability. FTTC remains a usable part-fibre service for many homes, but its
+          performance depends on the final copper line and tops out at a much lower level. Check
+          the exact address, then buy the lowest full-fibre tier that comfortably meets your real
+          household use and budget.
+        </p>
+      </>
+    ),
+    faqs: [
+      { question: 'Is FTTP better than FTTC?', answer: 'Yes, FTTP is the better access technology because fibre runs all the way to the property. It supports much faster downloads and uploads, is less affected by distance and is generally less prone to faults than FTTC. FTTC can still be adequate for moderate household use where full fibre is unavailable or costs materially more.' },
+      { question: 'What is the main difference between FTTP and FTTC?', answer: 'FTTP uses fibre-optic cable for the whole network path into the property. FTTC uses fibre only as far as a street cabinet and carries the final section over copper telephone cable. That copper section limits speed, particularly upload speed, and makes performance more dependent on distance and line condition.' },
+      { question: 'How fast are FTTP and FTTC in the UK?', answer: 'Openreach describes FTTC as reaching up to about 76 Mbps, with real estimates affected by the copper line. FTTP supports gigabit and, on some networks, multi-gigabit packages. The exact FTTP speed depends on the provider and tier purchased. Always use the personalised address estimate rather than a technology maximum.' },
+      { question: 'Does FTTP improve gaming and Wi-Fi?', answer: 'FTTP can shorten downloads and provide a more stable, higher-capacity access line, which helps busy gaming households. It does not automatically fix Wi-Fi dead spots or congestion inside the home. Router position, wireless standard, interference and Ethernet connections still matter, while stable latency and packet loss matter more to live gameplay than headline speed alone.' },
+      { question: 'Do I need a new router or engineer for FTTP?', answer: 'An FTTP order often needs an engineer to bring fibre into the property and install an optical network terminal. The provider normally supplies a compatible router, although the exact process depends on existing infrastructure. Agree the equipment position, check power availability and obtain landlord or building permission where required before installation.' },
+      { question: 'Can I keep my telephone number when moving from FTTC to FTTP?', answer: 'Usually, if the new provider supports number porting and you request it during the order. Calls will normally move to a digital voice service delivered through the router or an adapter rather than the old analogue line. Check compatibility for alarms or telecare and ask about power-cut resilience before switching.' },
+    ],
+  },
   'january-broadband-deals-uk': {
     body: (
       <>
