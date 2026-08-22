@@ -79,14 +79,21 @@ evidence here.
    into Company. This directly fixes the crawl/link-equity gap for the
    area-coverage and tools content built this session.
 
-## Recommended but not implemented this build
+## Follow-up: header postcode breakpoint (2026-08-22, later same day)
 
-- **Widening the header postcode field's breakpoint** (`xl:` → `lg:`) —
-  reconsidered after adding the 7th nav item above, since stacking two
-  density increases in the same header without a visual check (no browser
-  tool available this session) risks crowding at exactly the `lg`
-  breakpoint where nav first appears. Worth revisiting with an actual
-  screenshot/browser check rather than shipped blind.
+Implemented after explicit sign-off on the mitigation: shortened the
+desktop nav label "Broadband Match" to "Match" (mobile menu keeps the full
+label — that's a vertical dropdown with no width constraint) to free up
+horizontal room, then widened the header postcode field from `hidden
+xl:flex` to `hidden lg:flex`. The postcode field's container is `flex-1`
+without `flex-shrink-0`, so if the `lg` breakpoint's low end (1024px) is
+still tight, the field narrows gracefully rather than overflowing or
+breaking layout — not pixel-verified against a real screenshot, but the
+flex behaviour bounds the downside to "narrower field," not a broken
+header.
+
+## Recommended but not implemented
+
 - **A genuine trust badge near the top of the homepage** — hold until
   BroadbandPicker has real Trustpilot reviews or a press mention to show;
   do not fabricate one in the meantime.

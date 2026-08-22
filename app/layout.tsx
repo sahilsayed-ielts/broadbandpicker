@@ -62,12 +62,12 @@ function Header() {
             <Link href="/providers" className="text-slate-600 hover:text-sky-600 transition-colors">Providers</Link>
             <Link href="/postcode" className="text-slate-600 hover:text-sky-600 transition-colors">Postcode</Link>
             <Link href="/guides" className="text-slate-600 hover:text-sky-600 transition-colors">Guides</Link>
-            <Link href="/tools/broadband-match" className="text-slate-600 hover:text-sky-600 transition-colors">Broadband Match</Link>
+            <Link href="/tools/broadband-match" className="text-slate-600 hover:text-sky-600 transition-colors">Match</Link>
             <Link href="/speed-test" className="text-slate-600 hover:text-sky-600 transition-colors">Speed Test</Link>
           </nav>
 
           {/* Header postcode checker */}
-          <div className="hidden xl:flex items-center gap-2 flex-1 max-w-xs">
+          <div className="hidden lg:flex items-center gap-2 flex-1 max-w-xs">
             <PostcodeChecker placeholder="Your postcode" />
           </div>
 
