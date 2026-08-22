@@ -895,7 +895,7 @@ def update_google_sheet_from_workbook(wb: Workbook, spreadsheet_id: str) -> dict
     base = f"https://sheets.googleapis.com/v4/spreadsheets/{spreadsheet_id}"
     metadata = sheets_request(
         token, "GET", base,
-        params={"fields": "properties(title),sheets(properties(sheetId,title),tables(tableId,range))"},
+        params={"fields": "properties(title),sheets(properties(sheetId,title,gridProperties(rowCount,columnCount)),tables(tableId,range))"},
     )
     remote = {sheet["properties"]["title"]: sheet for sheet in metadata.get("sheets", [])}
     missing = [name for name in wb.sheetnames if name not in remote]
@@ -909,10 +909,33 @@ def update_google_sheet_from_workbook(wb: Workbook, spreadsheet_id: str) -> dict
         rows = [[cell.value if cell.value is not None else "" for cell in row] for row in ws.iter_rows()]
         last_col = get_column_letter(ws.max_column)
         quoted_name = name.replace("'", "''")
-        clear_range = urllib.parse.quote(f"'{quoted_name}'!A1:Z2000", safe="")
-        sheets_request(token, "POST", f"{base}/values/{clear_range}:clear", json={})
-        values_payload.append({"range": f"'{quoted_name}'!A1:{last_col}{ws.max_row}", "values": rows})
         sheet_id = remote[name]["properties"]["sheetId"]
+        grid = remote[name]["properties"].get("gridProperties", {})
+        row_count = int(grid.get("rowCount", 0))
+        column_count = int(grid.get("columnCount", 0))
+        expansion_requests: list[dict[str, Any]] = []
+        if ws.max_row > row_count:
+            expansion_requests.append({
+                "appendDimension": {
+                    "sheetId": sheet_id,
+                    "dimension": "ROWS",
+                    "length": ws.max_row - row_count,
+                }
+            })
+        if ws.max_column > column_count:
+            expansion_requests.append({
+                "appendDimension": {
+                    "sheetId": sheet_id,
+                    "dimension": "COLUMNS",
+                    "length": ws.max_column - column_count,
+                }
+            })
+        if expansion_requests:
+            sheets_request(token, "POST", f"{base}:batchUpdate", json={"requests": expansion_requests})
+        # Write only the workbook's exact used rectangle. Do not clear the
+        # sheet grid first: native formulas, notes or controls outside the
+        # managed table may belong to a human editor and must be preserved.
+        values_payload.append({"range": f"'{quoted_name}'!A1:{last_col}{ws.max_row}", "values": rows})
         format_requests.append({
             "repeatCell": {
                 "range": {"sheetId": sheet_id, "startRowIndex": 0, "endRowIndex": ws.max_row,
