@@ -573,6 +573,33 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-23 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "feat-animated-interactive-mobile-menu",
+        "type": "Feature",
+        "pillar": "UX",
+        "title": "Animated, interactive mobile menu with click-outside-to-close",
+        "description": (
+            "Direct UX/interaction-design request, not a scraping pass. Rewrote "
+            "components/MobileNav.tsx from a native <details> element (no animation, no "
+            "click-outside-to-close) to a controlled client component: hamburger icon morphs "
+            "into an X on open; a blurred backdrop closes the menu on click or Escape; the "
+            "panel and its sections slide/fade in with a staggered delay reusing the same "
+            "transition idiom as components/ScrollReveal.tsx; Providers/Postcode/Guides/Tools "
+            "became single-open accordions using a CSS-only grid-template-rows 0fr->1fr "
+            "transition (no JS height measurement); the menu auto-closes on route change via "
+            "usePathname(); background scroll is locked while open; focus moves into the panel "
+            "on open and returns to the trigger on Escape. Global prefers-reduced-motion "
+            "handling already in app/globals.css applies automatically. Not visually verified "
+            "on a real device — no browser automation tool available this session, validated "
+            "via build output, generated CSS and server-rendered markup only."
+        ),
+        "priority_score": 50,
+        "impact_score": 54,
+        "effort": "Medium",
+        "target": "components/MobileNav.tsx",
+        "dependencies": "None",
+        "source": "User request 2026-08-23 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",

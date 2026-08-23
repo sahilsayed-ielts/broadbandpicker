@@ -239,6 +239,60 @@ not a competitor gap, is what this pass fixes.
   signal or direct inspection pointed at either as broken, and they're a
   legitimate density tradeoff a nav-focused pass shouldn't rewrite.
 
+## Follow-up: animated, interactive mobile menu (2026-08-23, later same day)
+
+No new scraping pass this time — this was a direct UX/interaction-design
+request ("plan the UX and design of the menu like a UX designer genius"),
+not a competitor-evidence request, so it's built from mobile-interaction
+best practice rather than a scan. `components/MobileNav.tsx` was rewritten
+from a native `<details>` element (CSS-only, no animation, no
+click-outside-to-close — `<details>` only closes on re-clicking its own
+`<summary>`) to a controlled client component.
+
+**Interaction design decisions**:
+- **Hamburger → X icon morph**: the three bars rotate/fade into a close
+  icon on open, so the trigger itself communicates state instead of
+  relying on a static icon plus a separate label.
+- **Backdrop + click-outside-to-close**: a blurred, semi-transparent
+  backdrop sits behind the panel; tapping anywhere on it — or pressing
+  Escape — closes the menu, matching the explicit ask ("if selected
+  anywhere else outside the menu the menu should disappear").
+- **Slide/fade entrance**, staggered by section (postcode checker, then
+  primary buttons, then the accordion group, then the footer links each
+  animate in ~30-40ms after the last) — reuses the same
+  `transition-all` + `translateY` + `transitionDelay` idiom already used
+  by `components/ScrollReveal.tsx` elsewhere on the site, rather than
+  introducing a new animation approach.
+- **Accordion sections, single-open**: Providers/Postcode/Guides/Tools
+  changed from always-expanded flat lists to tap-to-expand sections
+  (only one open at a time). This is the "switch between going to menus
+  and going to pages" part of the brief — browsing a category is now an
+  explicit, animated in-place action distinct from tapping a link that
+  actually navigates, rather than one long list where both actions look
+  identical. Built with a CSS-only `grid-template-rows: 0fr → 1fr`
+  transition, so no JS height measurement is needed and it degrades
+  safely.
+- **Auto-close on navigation**: `usePathname()` closes the menu the
+  moment a route change actually lands, rather than relying on the
+  clicked link to also carry a manual close handler.
+- **Body scroll lock while open** so the page behind the panel can't
+  scroll and fight the gesture, and **focus moves into the panel on
+  open** with focus returned to the trigger button on Escape — basic
+  keyboard/screen-reader hygiene for a controlled overlay.
+- Tap feedback (`active:scale-[0.97]`) on the two primary CTA buttons for
+  tactile response on touch, and the global
+  `prefers-reduced-motion` rule already in `app/globals.css` applies to
+  all of the above automatically — no separate reduced-motion handling
+  needed here.
+
+**Honest verification note**: validated via build (compiles, Tailwind
+generates the arbitrary `grid-template-rows` transition utilities
+correctly), server-rendered markup (unique ARIA wiring per section via
+`useId`, no broken output) and code review of the interaction logic. This
+session has no browser automation tool available, so the actual animation
+timing/feel on a real device was not visually confirmed — worth a quick
+look on an iPhone/Android before treating the animation feel as final.
+
 ## Deliberately not done
 
 - No stock photography was added or sourced — the evidence above says
