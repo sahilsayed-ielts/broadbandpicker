@@ -335,6 +335,27 @@ decide unattended.
 **Automatable in full** — this whole stage is deterministic pass/fail and
 should gate everything after it.
 
+### Mandatory experience and measurement gate for every future page
+
+No future page is content-only. Before Stage 6 can pass, it must include:
+
+1. **Interactive comparison functionality** tailored to the page intent, comparing at least two
+   meaningful options, scenarios, providers, prices, speeds, eligibility outcomes or actions,
+   alongside a useful crawlable explanation for search and answer engines.
+2. **Responsive UX** verified at mobile, tablet and desktop widths. Controls remain touch-friendly,
+   stacked content keeps its hierarchy and wide tables scroll inside a labelled region rather than
+   causing page-level overflow.
+3. **Accessibility controls** using semantic HTML, keyboard operation, programmatic labels,
+   visible focus, non-colour state cues, status announcements where appropriate and reduced-motion
+   handling. The comparison journey must be completable without a mouse.
+4. **GA4 event tracking** through `trackEvent` in `src/lib/analytics.ts`, with at least three stable
+   snake_case events covering interaction start, comparison/decision completion and the main
+   conversion CTA. Parameters must not contain postcodes or other personal information.
+
+The research packet documents these under `interactive_comparison`, `responsive_requirements`,
+`accessibility_requirements` and `ga4_events`. The script rejects a page whose research packet
+omits any of these requirements.
+
 ## Stage 7 — Reconcile the keyword-mapping workbook
 
 Re-run `python3 scripts/build_keyword_mapping.py` so the shipped
@@ -357,6 +378,9 @@ automatically after a successful Stage 6.**
 4. `vercel --prod --yes`.
 5. `curl` the live production URL(s) and re-check H1/status code, the same
    way as Stage 6 but against the real domain.
+6. Regenerate both tracker workbooks, synchronise the existing Google Sheet, mark the exact route
+   built/live only after production verification, apply completed-page formatting and prepare the
+   next active priority. A production run without the Google Sheet ID is rejected.
 
 For the standard unattended priority-ordered run, use `npm run page:build`.
 The runner processes up to five pages, one at a time, and requires every

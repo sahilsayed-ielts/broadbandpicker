@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
+import ContactForm from '@/components/ContactForm'
 
 export const metadata: Metadata = {
   title: 'Contact BroadbandPicker',
@@ -24,6 +25,11 @@ export default function ContactPage() {
         We&apos;re a small team. We aim to respond to all enquiries within 2 business days.
       </p>
 
+      <div className="mb-10">
+        <ContactForm />
+      </div>
+
+      <p className="text-sm font-semibold text-slate-500 mb-3">Or email a specific team directly</p>
       <div className="space-y-6 mb-10">
         <div className="bg-white border border-slate-200 rounded-xl p-6">
           <h2 className="font-bold text-slate-900 mb-1">Editorial enquiries</h2>

@@ -600,6 +600,37 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-23 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "feat-contact-form-email-delivery",
+        "type": "Feature",
+        "pillar": "Infrastructure",
+        "title": "Working contact form delivering to a real inbox, no third-party service",
+        "description": (
+            "Previously /contact only offered mailto: links to unverified custom-domain "
+            "addresses (editorial@/partnerships@/hello@broadbandpicker.co.uk). Built a real "
+            "contact form (components/ContactForm.tsx) posting to a new "
+            "app/api/contact route, which sends via Gmail SMTP using nodemailer — no "
+            "Supabase, no database, no third-party form/CRM service, per explicit "
+            "instruction. All submissions land in sayedsahil.elt@gmail.com (CONTACT_TO_EMAIL "
+            "env var), sent from a Gmail account authenticated with an App Password "
+            "(CONTACT_SMTP_USER / CONTACT_SMTP_PASS). Reply-To is set to the sender's own "
+            "address so replying goes straight back to them. Spam mitigation without any "
+            "external service: a hidden honeypot field (bots that fill every input get "
+            "silently dropped) and a submit-time check rejecting anything sent under 1.5s "
+            "after the form rendered. Server-side validates name/email/reason/message "
+            "independently of the client. The original mailto: cards are kept underneath as "
+            "a secondary direct-email option. Requires CONTACT_SMTP_USER/PASS to be set in "
+            "Vercel — the API route fails gracefully with a friendly error and a server log "
+            "line if they're absent, rather than silently dropping messages."
+        ),
+        "priority_score": 55,
+        "impact_score": 50,
+        "effort": "Low",
+        "target": "app/api/contact/route.ts, components/ContactForm.tsx, app/contact/page.tsx",
+        "dependencies": "CONTACT_SMTP_USER / CONTACT_SMTP_PASS Gmail App Password set in Vercel env vars",
+        "source": "User request 2026-08-23 — researched before implementing per the Strategic Lens process",
+        "initial_status": "In progress",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",
