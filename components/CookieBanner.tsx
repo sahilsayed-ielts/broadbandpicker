@@ -19,6 +19,8 @@ export default function CookieBanner() {
   useEffect(() => {
     const stored = localStorage.getItem(CONSENT_KEY)
     if (!stored) setVisible(true)
+    if (stored === 'accepted') updateGoogleConsent('granted')
+    if (stored === 'declined') updateGoogleConsent('denied')
 
     const openPreferences = () => setVisible(true)
     window.addEventListener(OPEN_CONSENT_EVENT, openPreferences)

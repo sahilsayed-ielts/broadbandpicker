@@ -12,7 +12,9 @@ Combines two sources:
    two sources can be ranked together honestly rather than presented as two
    disconnected lists.
 
-Both feed into one Master Tracker tab, ranked highest priority first.
+Both feed into one Master Tracker tab, ranked highest priority first. A separate
+Pending Build Priority tab is generated from the same records so the next work
+queue is explicit and contains no completed items.
 
 Re-running is safe: Status, Owner, Target Date and Notes are preserved from
 the previous docs/master-build-tracker.xlsx if one exists (matched by a
@@ -54,6 +56,123 @@ DEFAULT_STATUS = "Not started"
 # ---------------------------------------------------------------------------
 
 FEATURE_BUILDS: list[dict[str, Any]] = [
+    {
+        "item_id": "ops-conversion-reporting-loop",
+        "type": "Measurement",
+        "pillar": "Analytics",
+        "title": "Validate conversion events and establish the GSC/analytics reporting loop",
+        "description": (
+            "Confirm postcode submits, speed-test completions, filter use, outbound provider "
+            "clicks and assisted conversions are recorded reliably, then use query and "
+            "engagement evidence to reprioritise future work."
+        ),
+        "priority_score": 63,
+        "impact_score": 72,
+        "effort": "Medium",
+        "target": "GSC, analytics and conversion reporting",
+        "dependencies": "Sufficient live traffic and event data",
+        "source": "BroadbandPicker SEO & Content Plan — Live: Build Status / Technical SEO",
+        "verified_status": "Done",
+        "completion_notes": (
+            "Shipped to Vercel production 2026-08-23: consent-aware GA4 events for postcode "
+            "submits, speed-test starts/completions/failures, deal filter/sort use and outbound "
+            "provider clicks, with session first-touch attribution and no full postcode sent. "
+            "Measurement contract and weekly GSC/GA4 loop documented in docs/analytics-measurement-plan.md."
+        ),
+    },
+    {
+        "item_id": "growth-awin-advertiser-outreach",
+        "type": "Partnerships",
+        "pillar": "Monetisation",
+        "title": "Continue selective Awin advertiser outreach",
+        "description": (
+            "Apply to best-fit provider programmes with tailored pitches, relevant live URLs, "
+            "audience evidence, promotional method and compliance controls; log decisions and feedback."
+        ),
+        "priority_score": 60,
+        "impact_score": 70,
+        "effort": "Medium",
+        "target": "Awin publisher 2942019 and partner application log",
+        "dependencies": "Current audience evidence and compliant commercial pages",
+        "source": "BroadbandPicker SEO & Content Plan — Live: 90 Day Roadmap",
+        "initial_status": "In progress",
+    },
+    {
+        "item_id": "ops-adsense-site-review",
+        "type": "Monetisation",
+        "pillar": "Infrastructure",
+        "title": "Complete AdSense site review and authorisation monitoring",
+        "description": (
+            "Monitor the existing AdSense review, consent implementation and ads.txt authorisation; "
+            "resolve any concrete policy or crawler issue reported by AdSense."
+        ),
+        "priority_score": 58,
+        "impact_score": 55,
+        "effort": "Low",
+        "target": "AdSense status and /ads.txt",
+        "dependencies": "Google site-review processing",
+        "source": "BroadbandPicker SEO & Content Plan — Live: Build Status",
+        "initial_status": "In progress",
+    },
+    {
+        "item_id": "growth-original-research-outreach",
+        "type": "Growth",
+        "pillar": "Content",
+        "title": "Run original-research outreach and digital PR",
+        "description": (
+            "Build a relevant outreach list and earn citations and links to the live Ofcom-backed "
+            "customer-satisfaction research."
+        ),
+        "priority_score": 54,
+        "impact_score": 68,
+        "effort": "Medium",
+        "target": "/research/uk-broadband-customer-satisfaction",
+        "dependencies": "Research page and source methodology are live",
+        "source": "BroadbandPicker SEO & Content Plan — Live: Build Status / 90 Day Roadmap",
+        "initial_status": "In progress",
+    },
+    {
+        "item_id": "growth-quarterly-data-reprioritisation",
+        "type": "Strategy",
+        "pillar": "Growth",
+        "title": "Reprioritise quarter two using GSC, engagement and affiliate evidence",
+        "description": (
+            "Review query/page performance, assisted conversions, Awin decisions and engagement "
+            "data, then record the next-quarter build decisions."
+        ),
+        "priority_score": 53,
+        "impact_score": 63,
+        "effort": "Medium",
+        "target": "Next-quarter decision log",
+        "dependencies": "ops-conversion-reporting-loop and sufficient observation period",
+        "source": "BroadbandPicker SEO & Content Plan — Live: 90 Day Roadmap",
+    },
+    {
+        "item_id": "audit-core-web-vitals-reporting",
+        "type": "Technical SEO",
+        "pillar": "Performance",
+        "title": "Establish monthly Core Web Vitals reporting by template",
+        "description": "Track LCP, INP and CLS by page template and prioritise JS or image-weight fixes from evidence.",
+        "priority_score": 47,
+        "impact_score": 50,
+        "effort": "Medium",
+        "target": "Sitewide template performance report",
+        "dependencies": "Field data or representative lab baselines",
+        "source": "BroadbandPicker SEO & Content Plan — Live: Technical SEO",
+    },
+    {
+        "item_id": "audit-broken-links-redirects",
+        "type": "Technical SEO",
+        "pillar": "Crawlability",
+        "title": "Add routine broken-link and redirect reporting",
+        "description": "Monitor broken inbound and internal URLs and maintain relevant one-hop redirects.",
+        "priority_score": 44,
+        "impact_score": 48,
+        "effort": "Low",
+        "target": "Sitewide crawl and redirect report",
+        "dependencies": "None",
+        "source": "BroadbandPicker SEO & Content Plan — Live: Technical SEO",
+    },
     {
         "item_id": "ops-git-vercel-reconcile",
         "type": "Ops / risk",
@@ -382,6 +501,40 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-23 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "feat-page-type-ux-redesign",
+        "type": "Feature",
+        "pillar": "UX",
+        "title": "Page-type UX redesign: deals, providers, guides, postcode hub",
+        "description": (
+            "New scripts/analyze_page_type_ux.py scans competitor pages by theme (deals "
+            "listing, provider review, guide article, postcode/checker hub) rather than "
+            "homepage-only, against Uswitch, broadband.co.uk, choose.co.uk and "
+            "MoneySavingExpert (403, reported not bypassed). Confirmed signals: comparison "
+            "checkboxes near-universal; badge/chip labels on deals listings + review index; "
+            "TOC on the guide article + one deals listing; pros/cons on provider review + "
+            "deals; related-content on provider review + deals; rating widget on one deals "
+            "listing. No dedicated postcode-hub competitor page exists in this vertical. "
+            "Shipped strictly against confirmed signals: computed Best Value/Fastest/Editor's "
+            "Pick badges in components/DealTable.tsx; new components/RatingStars.tsx replacing "
+            "plain-text Trustpilot scores plus a 'How {provider} compares' related-comparisons "
+            "module on provider pages; a jump-to-section table of contents on guide pages via "
+            "new lib/extractHeadings.tsx (JSX-tree heading-ID injection, avoids hand-editing "
+            "40 existing guide definitions), gated behind 3+ headings; and the same "
+            "cheapest/fastest badges plus rating stars carried onto postcode-hub provider "
+            "cards since deals and hub serve the same comparison job."
+        ),
+        "priority_score": 49,
+        "impact_score": 52,
+        "effort": "Medium",
+        "target": (
+            "components/DealTable.tsx, components/RatingStars.tsx, lib/extractHeadings.tsx, "
+            "app/providers/[slug]/page.tsx, app/guides/[slug]/page.tsx, "
+            "app/postcode/[area]/page.tsx"
+        ),
+        "dependencies": "None",
+        "source": "User request 2026-08-23 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",
@@ -473,7 +626,7 @@ def default_status_for(item: dict[str, Any]) -> str:
     build_status = item.get("build_status", "")
     if build_status.startswith("Built"):
         return "Done"
-    return DEFAULT_STATUS
+    return item.get("initial_status", DEFAULT_STATUS)
 
 
 def load_manual_overrides(output: Path) -> dict[str, dict[str, Any]]:
@@ -557,6 +710,8 @@ def build_workbook(page_items: list[dict[str, Any]], overrides: dict[str, dict[s
             # appearance in this tracker must never freeze it there once
             # the source data later confirms it shipped.
             item["status"] = computed_status
+        elif item.get("verified_status"):
+            item["status"] = item["verified_status"]
         else:
             # Feature/audit/bet items have no external verification signal;
             # a hand-set Status ("In progress", "Done", ...) is a genuine
@@ -564,7 +719,7 @@ def build_workbook(page_items: list[dict[str, Any]], overrides: dict[str, dict[s
             item["status"] = manual_status or computed_status
         item["owner"] = manual.get("Owner") or ""
         item["target_date"] = manual.get("Target Date") or ""
-        item["notes"] = manual.get("Notes") or ""
+        item["notes"] = manual.get("Notes") or item.get("completion_notes", "")
     all_items.sort(key=lambda it: it["priority_score"], reverse=True)
 
     wb = Workbook()
@@ -592,6 +747,22 @@ def build_workbook(page_items: list[dict[str, Any]], overrides: dict[str, dict[s
             item["status"], item["owner"], item["target_date"], item["notes"],
         ])
     add_sheet(wb, "Master Tracker", tracker_headers, tracker_rows)
+
+    pending_headers = [
+        "Pending Rank", "Item ID", "Type", "Pillar", "Title", "Priority Score",
+        "Impact Score", "Effort", "Status", "Target", "Dependencies", "Owner",
+        "Target Date", "Notes",
+    ]
+    pending_rows = []
+    pending_items = [item for item in all_items if item["status"] != "Done"]
+    for rank, item in enumerate(pending_items, 1):
+        pending_rows.append([
+            rank, item["item_id"], item["type"], item["pillar"], item["title"],
+            item["priority_score"], item["impact_score"], item["effort"],
+            item["status"], item.get("target", ""), item.get("dependencies", ""),
+            item["owner"], item["target_date"], item["notes"],
+        ])
+    add_sheet(wb, "Pending Build Priority", pending_headers, pending_rows)
 
     page_headers = [
         "Rank", "Title", "Cluster", "Priority Score", "Revenue Score", "Difficulty Band",
@@ -627,6 +798,7 @@ def build_workbook(page_items: list[dict[str, Any]], overrides: dict[str, dict[s
         ["Page priority score", "Existing SEO Build Priority Score from the keyword-mapping pipeline — weighted toward CPC/commercial intent, tuned for affiliate revenue."],
         ["Feature priority score", "Hand-scored 0-100 reflecting the growth playbook's sequencing: infra risk and quick wins first, bigger bets last."],
         ["Repo Sync column", "A single snapshot check of `git status` across the folders that hold page-build content — not a per-row git-blame lookup. 'Live but not committed to git' means production and git have diverged for that batch of pages."],
+        ["Pending queue", "Pending Build Priority contains only non-Done items from the combined page, feature, audit and strategy list, ordered by Priority Score."],
         ["Editing this file", "Status/Owner/Target Date/Notes are yours to edit freely — they survive the next `python3 scripts/build_master_tracker.py` run."],
     ]
     add_sheet(wb, "Methodology", ["Aspect", "Detail"], methodology)

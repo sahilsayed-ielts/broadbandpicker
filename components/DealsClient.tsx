@@ -4,6 +4,7 @@ import { useState } from 'react'
 import type { Provider } from '@/types'
 import StickyFilterBar, { type FilterState } from './StickyFilterBar'
 import DealTable from './DealTable'
+import { trackEvent } from '@/lib/analytics'
 
 interface DealRow {
   provider: Provider
@@ -43,9 +44,22 @@ export default function DealsClient({ allDeals }: DealsClientProps) {
     return true
   })
 
+  function updateFilters(next: FilterState) {
+    setFilters(next)
+    const changed = (Object.keys(next) as Array<keyof FilterState>).find(
+      (key) => next[key] !== filters[key],
+    )
+    if (changed) {
+      trackEvent('deal_filter_changed', {
+        filter_name: changed,
+        filter_value: next[changed],
+      })
+    }
+  }
+
   return (
     <>
-      <StickyFilterBar filters={filters} onChange={setFilters} />
+      <StickyFilterBar filters={filters} onChange={updateFilters} />
       <p className="text-sm text-slate-500 mb-3">
         Showing <strong>{filtered.length}</strong> deals
       </p>

@@ -1,6 +1,8 @@
 'use client'
 
 import { trackAffiliateClick } from '@/lib/affiliate'
+import { getStoredPostcode } from '@/lib/postcodeStorage'
+import { outboundHost, trackEvent } from '@/lib/analytics'
 
 interface AffiliateCTAProps {
   href: string
@@ -35,9 +37,19 @@ export default function AffiliateCTA({
       : 'border-2 border-sky-700 text-sky-700 hover:bg-sky-50 font-semibold'
 
   function handleClick() {
+    const storedPostcode = getStoredPostcode()
+    const sourcePage = typeof window !== 'undefined' ? window.location.pathname : '/'
+    trackEvent('outbound_provider_click', {
+      provider_slug: slug,
+      source_page: sourcePage,
+      postcode_area: storedPostcode?.area.toUpperCase(),
+      outbound_host: outboundHost(href),
+      link_label: label ?? 'Get Deal',
+    })
     trackAffiliateClick({
       providerSlug: slug,
-      sourcePage: typeof window !== 'undefined' ? window.location.pathname : '/',
+      sourcePage,
+      postcodeArea: storedPostcode?.area.toUpperCase(),
     }).catch(() => {
       // Non-critical — swallow errors silently
     })

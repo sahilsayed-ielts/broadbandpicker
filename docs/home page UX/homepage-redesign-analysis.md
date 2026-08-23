@@ -111,6 +111,68 @@ on regardless of the competitor sample's limits.
   existing global `scroll-behavior: smooth` (already set site-wide) — no
   new JS needed, targets a new `id="top"` on the header.
 
+## Follow-up: page-type UX — hub, deals, provider, guide pages (2026-08-23)
+
+New script: `scripts/analyze_page_type_ux.py`. Unlike the earlier scans
+(homepage-only, nav-only), this one scans by **page theme** — deals
+listings, provider reviews, guide articles, and postcode/checker hubs —
+because a deals table and a long-form guide have different UX jobs and
+shouldn't be redesigned off a homepage-only sample. Output:
+`docs/home page UX/page-type-ux-scan.json`.
+
+Targets: Uswitch (broadband hub, BT review, reviews index, speed guide),
+broadband.co.uk deals, choose.co.uk broadband, MoneySavingExpert cheap
+broadband guide (blocked, 403 — reported honestly, not retried/bypassed,
+consistent with every prior scan this session).
+
+**Signals found, by category**:
+- **Comparison checkboxes**: present on nearly every page scanned,
+  regardless of category — the closest thing to a universal pattern in
+  this sample.
+- **Badge/chip labels** ("Best deal", "Editor's pick" style): present on
+  the deals listings and the provider-review index, absent from the
+  single guide article sampled.
+- **Table of contents**: present on the guide article and one deals
+  listing (choose.co.uk), absent from the provider review.
+- **Pros/cons blocks**: present on the provider review and the deals
+  listings, not on the guide article.
+- **Related-content modules**: present on the provider review and one
+  deals listing.
+- **Rating widgets**: present on one deals listing (broadband.co.uk),
+  not detected elsewhere (static-HTML caveat applies — a JS-rendered
+  star widget wouldn't be caught by this method either).
+- **Postcode/checker hub**: no genuinely separate competitor hub page
+  exists in this sample — Uswitch's postcode entry point lives on the
+  same page as its deals hub. This category has no real competitor
+  equivalent to benchmark against, so the postcode work below is
+  informed by the cross-category signals (badges, ratings) rather than
+  a dedicated hub-page comparison.
+
+**Shipped, mapped to confirmed signals only**:
+- **Deals** (`components/DealTable.tsx`): added computed "Best Value" /
+  "Fastest" / "Editor's Pick" badge chips — cheapest, fastest and
+  highest-rated deal in the current row set each earn one, matching the
+  badge/chip signal confirmed on both deals listings scanned. The
+  `badge` field already existed on `DealRow` but was never populated.
+- **Providers** (`app/providers/[slug]/page.tsx`): replaced the plain-text
+  Trustpilot score with a new `components/RatingStars.tsx` widget, and
+  added a "How {provider} compares" module surfacing up to 3 relevant
+  entries from `data/provider-comparisons.ts` — matching the rating-widget
+  and related-content signals confirmed on the provider review.
+- **Guides** (`app/guides/[slug]/page.tsx`): added a jump-to-section table
+  of contents, matching the TOC signal confirmed on the guide article
+  sampled. Built via a new `lib/extractHeadings.tsx` utility that walks
+  the JSX-authored guide body and injects heading IDs, rather than
+  hand-editing 40 existing guide content definitions — gated behind
+  `toc.length >= 3` so short guides don't get a clutter TOC for 1–2
+  sections. Confirmed the related-guides module the signal also predicted
+  already existed on this page (no change needed there).
+- **Postcode hub** (`app/postcode/[area]/page.tsx`): added the same
+  "Cheapest here" / "Fastest here" badge chips and `RatingStars` to the
+  per-provider cards, carrying the badge/rating signals across from the
+  deals category since no dedicated hub-page competitor sample exists to
+  benchmark against directly.
+
 ## Deliberately not done
 
 - No stock photography was added or sourced — the evidence above says

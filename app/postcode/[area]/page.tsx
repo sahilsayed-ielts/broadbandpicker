@@ -18,6 +18,7 @@ import DealTable from '@/components/DealTable'
 import FAQAccordion from '@/components/FAQAccordion'
 import AffiliateCTA from '@/components/AffiliateCTA'
 import NewsletterSignup from '@/components/NewsletterSignup'
+import RatingStars from '@/components/RatingStars'
 import { buildDealListJsonLd } from '@/lib/dealSchema'
 
 export async function generateStaticParams() {
@@ -397,11 +398,24 @@ export default async function PostcodeAreaPage({
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
         {availableProviders.map((p) => (
           <div key={p.slug} className="bg-white border border-slate-200 rounded-xl p-4">
-            <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center justify-between mb-2">
               <span className="font-bold text-slate-900">{p.name}</span>
               <span className="text-sm font-semibold text-slate-900">
                 from £{p.monthlyPriceFrom.toFixed(2)}/mo
               </span>
+            </div>
+            <div className="flex items-center gap-2 mb-2 flex-wrap">
+              {p.slug === cheapestProvider?.slug && (
+                <span className="inline-block rounded-full px-2 py-0.5 text-[11px] font-semibold bg-green-100 text-green-800">
+                  Cheapest here
+                </span>
+              )}
+              {p.slug === fastestProvider.slug && (
+                <span className="inline-block rounded-full px-2 py-0.5 text-[11px] font-semibold bg-sky-100 text-sky-800">
+                  Fastest here
+                </span>
+              )}
+              <RatingStars score={p.trustpilotScore} size={12} />
             </div>
             <div className="text-xs text-slate-500 mb-3">
               Up to {p.speeds[p.speeds.length - 1].download} Mbps &middot;{' '}

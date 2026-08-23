@@ -2,6 +2,7 @@
 
 import { useState, useCallback } from 'react'
 import Link from 'next/link'
+import { trackEvent } from '@/lib/analytics'
 
 type Phase = 'idle' | 'ping' | 'download' | 'upload' | 'done'
 
@@ -119,6 +120,7 @@ export default function SpeedTest() {
   const [error, setError]         = useState<string | null>(null)
 
   const runTest = useCallback(async () => {
+    trackEvent('speed_test_started')
     setPhase('ping')
     setPing(null); setDownload(null); setUpload(null)
     setLiveSpeed(0); setError(null)
@@ -148,7 +150,14 @@ export default function SpeedTest() {
 
       await new Promise(r => setTimeout(r, 600))
       setPhase('done')
+      trackEvent('speed_test_completed', {
+        ping_ms: Math.round(pingMs),
+        download_mbps: dlFinal,
+        upload_mbps: ulFinal,
+        speed_band: speedLabel(dlFinal).toLowerCase(),
+      })
     } catch {
+      trackEvent('speed_test_failed')
       setError('Test failed — please check your connection and try again.')
       setPhase('idle')
     }

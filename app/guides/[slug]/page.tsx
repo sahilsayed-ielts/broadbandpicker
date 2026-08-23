@@ -6,6 +6,7 @@ import { providers, getTopDeals } from '@/data/providers'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
 import DealTable from '@/components/DealTable'
 import FAQAccordion from '@/components/FAQAccordion'
+import { withHeadingIds } from '@/lib/extractHeadings'
 
 export async function generateStaticParams() {
   return guides.map((g) => ({ slug: g.slug }))
@@ -3891,6 +3892,8 @@ export default async function GuidePage({
   const content = guideContent[slug]
   if (!content) notFound()
 
+  const { content: taggedBody, toc } = withHeadingIds(content.body)
+
   const topDeals = getTopDeals(3)
   const category = guideCategories.find((item) => item.slug === guide.category)
 
@@ -4006,8 +4009,23 @@ export default async function GuidePage({
         </section>
       )}
 
-      <div className="prose prose-slate max-w-none mb-10 [&_h2]:text-xl [&_h2]:font-bold [&_h2]:text-slate-900 [&_h2]:mt-8 [&_h2]:mb-3 [&_h3]:text-lg [&_h3]:font-bold [&_h3]:text-slate-900 [&_h3]:mt-6 [&_h3]:mb-2 [&_p]:text-slate-700 [&_p]:leading-relaxed [&_p]:mb-4 [&_ul]:my-4 [&_ul]:pl-6 [&_ol]:my-4 [&_ol]:pl-6 [&_li]:text-slate-700 [&_li]:mb-2 [&_strong]:text-slate-900 [&_table]:my-6 [&_th]:font-semibold [&_th]:text-slate-700 [&_td]:text-slate-700">
-        {content.body}
+      {toc.length >= 3 && (
+        <nav aria-label="Table of contents" className="mb-8 rounded-xl border border-slate-200 bg-slate-50 p-5">
+          <p className="text-xs font-bold uppercase tracking-wide text-slate-500 mb-3">On this page</p>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 text-sm">
+            {toc.map((entry) => (
+              <li key={entry.id}>
+                <a href={`#${entry.id}`} className="text-sky-700 hover:underline">
+                  {entry.text}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
+
+      <div className="prose prose-slate max-w-none mb-10 [&_h2]:text-xl [&_h2]:font-bold [&_h2]:text-slate-900 [&_h2]:mt-8 [&_h2]:mb-3 [&_h2]:scroll-mt-24 [&_h3]:text-lg [&_h3]:font-bold [&_h3]:text-slate-900 [&_h3]:mt-6 [&_h3]:mb-2 [&_p]:text-slate-700 [&_p]:leading-relaxed [&_p]:mb-4 [&_ul]:my-4 [&_ul]:pl-6 [&_ol]:my-4 [&_ol]:pl-6 [&_li]:text-slate-700 [&_li]:mb-2 [&_strong]:text-slate-900 [&_table]:my-6 [&_th]:font-semibold [&_th]:text-slate-700 [&_td]:text-slate-700">
+        {taggedBody}
       </div>
 
       {slug === 'how-to-switch-broadband-uk' && (

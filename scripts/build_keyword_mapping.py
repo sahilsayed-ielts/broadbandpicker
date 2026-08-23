@@ -36,6 +36,7 @@ import os
 import re
 import shutil
 import subprocess
+import sys
 import time
 import urllib.parse
 import xml.etree.ElementTree as ET
@@ -900,7 +901,14 @@ def update_google_sheet_from_workbook(wb: Workbook, spreadsheet_id: str) -> dict
     remote = {sheet["properties"]["title"]: sheet for sheet in metadata.get("sheets", [])}
     missing = [name for name in wb.sheetnames if name not in remote]
     if missing:
-        raise RuntimeError(f"Target Google Sheet is missing tabs: {missing}")
+        sheets_request(token, "POST", f"{base}:batchUpdate", json={
+            "requests": [{"addSheet": {"properties": {"title": name}}} for name in missing]
+        })
+        metadata = sheets_request(
+            token, "GET", base,
+            params={"fields": "properties(title),sheets(properties(sheetId,title,gridProperties(rowCount,columnCount)),tables(tableId,range))"},
+        )
+        remote = {sheet["properties"]["title"]: sheet for sheet in metadata.get("sheets", [])}
 
     values_payload = []
     format_requests: list[dict[str, Any]] = []
@@ -1477,6 +1485,11 @@ def main() -> None:
     parser.add_argument("--approve-factual-review", action="store_true",
                         help="Confirm a human reviewed winner, trust, pricing and estimated-stat claims before deployment")
     parser.add_argument("--doc-title", default=f"BroadbandPicker Keyword Mapping — {RUN_DATE}")
+    parser.add_argument("--master-tracker", type=Path,
+                        default=ROOT / "docs" / "master-build-tracker.xlsx",
+                        help="Master tracker to regenerate and merge into this workbook")
+    parser.add_argument("--skip-master-tracker-merge", action="store_true",
+                        help="Do not regenerate or merge the master and pending build tabs")
     parser.add_argument("--share-with", default=os.environ.get("BROADBANDPICKER_SHARE_EMAIL", ""),
                          help="Email to share the newly created Google Sheet with as Editor")
     args = parser.parse_args()
@@ -1505,6 +1518,24 @@ def main() -> None:
     args.output.parent.mkdir(parents=True, exist_ok=True)
     wb.save(args.output.resolve())
     print(f"Saved {args.output.resolve()}")
+
+    if not args.skip_master_tracker_merge:
+        subprocess.run([
+            sys.executable, str(ROOT / "scripts" / "build_master_tracker.py"),
+            "--source", str(args.output.resolve()), "--output", str(args.master_tracker.resolve()),
+        ], cwd=ROOT, check=True)
+        master_wb = load_workbook(args.master_tracker.resolve(), data_only=False)
+        for source_name, tab_name in (
+            ("Master Tracker", "Master Build Tracker"),
+            ("Pending Build Priority", "Pending Build Priority"),
+        ):
+            if tab_name in wb.sheetnames:
+                del wb[tab_name]
+            source_ws = master_wb[source_name]
+            rows = [[cell.value for cell in row] for row in source_ws.iter_rows()]
+            add_sheet(wb, tab_name, rows[0], rows[1:])
+        wb.save(args.output.resolve())
+        print(f"Merged master tracker and pending priority tabs from {args.master_tracker.resolve()}")
 
     if args.build_all_priority:
         args.build_next_page = True

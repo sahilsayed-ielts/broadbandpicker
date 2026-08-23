@@ -5,6 +5,7 @@ import type { Provider } from '@/types'
 import AffiliateCTA from './AffiliateCTA'
 import SpeedBadge from './SpeedBadge'
 import ProviderLogo from './ProviderLogo'
+import { trackEvent } from '@/lib/analytics'
 
 interface DealRow {
   provider: Provider
@@ -38,6 +39,32 @@ export default function DealTable({ deals, showDisclosure = true, compact = fals
     })
   }, [deals, sort])
 
+  // Computed from the current row set, not hand-picked — the cheapest,
+  // fastest and highest-rated deal in view each earn one badge. A deal can
+  // hold more than one if it genuinely wins on more than one measure.
+  const badges = useMemo(() => {
+    if (deals.length === 0) return new Map<DealRow, DealRow['badge']>()
+    const cheapest = deals.reduce((a, b) => (b.monthlyPrice < a.monthlyPrice ? b : a))
+    const fastest = deals.reduce((a, b) => (b.download > a.download ? b : a))
+    const bestRated = deals.reduce((a, b) => ((b.provider.trustpilotScore ?? 0) > (a.provider.trustpilotScore ?? 0) ? b : a))
+    const map = new Map<DealRow, DealRow['badge']>()
+    map.set(cheapest, 'Best Value')
+    if (!map.has(fastest)) map.set(fastest, 'Fastest')
+    if (!map.has(bestRated)) map.set(bestRated, "Editor's Pick")
+    return map
+  }, [deals])
+
+  const badgeStyle: Record<string, string> = {
+    'Best Value': 'bg-green-100 text-green-800',
+    Fastest: 'bg-sky-100 text-sky-800',
+    "Editor's Pick": 'bg-amber-100 text-amber-800',
+  }
+
+  function updateSort(next: SortKey) {
+    setSort(next)
+    trackEvent('deal_sort_changed', { sort_order: next, visible_deals: deals.length })
+  }
+
   return (
     <div>
       <div className="flex items-center gap-3 mb-3 flex-wrap">
@@ -45,7 +72,7 @@ export default function DealTable({ deals, showDisclosure = true, compact = fals
         {(['price', 'speed', 'rating'] as SortKey[]).map((k) => (
           <button
             key={k}
-            onClick={() => setSort(k)}
+            onClick={() => updateSort(k)}
             className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
               sort === k
                 ? 'bg-sky-700 text-white'
@@ -86,6 +113,11 @@ export default function DealTable({ deals, showDisclosure = true, compact = fals
                     height={36}
                     preload={i === 0}
                   />
+                  {badges.has(deal) && (
+                    <span className={`mt-1.5 inline-block rounded-full px-2 py-0.5 text-[11px] font-semibold ${badgeStyle[badges.get(deal)!]}`}>
+                      {badges.get(deal)}
+                    </span>
+                  )}
                 </td>
                 <td className="px-4 py-4">
                   <div className="font-semibold text-slate-900">{deal.download} Mbps</div>

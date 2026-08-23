@@ -4,6 +4,7 @@ import { useState, type FormEvent } from 'react'
 import { useRouter } from 'next/navigation'
 import { isValidUKPostcode, normalisePostcodeForUrl, sanitizePostcode } from '@/lib/postcode'
 import { setStoredPostcode } from '@/lib/postcodeStorage'
+import { trackEvent } from '@/lib/analytics'
 
 interface PostcodeCheckerProps {
   size?: 'large' | 'default'
@@ -28,6 +29,11 @@ export default function PostcodeChecker({
     setError('')
     const area = normalisePostcodeForUrl(sanitized)
     setStoredPostcode(sanitized, area)
+    trackEvent('postcode_submit', {
+      postcode_area: area.toUpperCase(),
+      component_size: size,
+      destination_path: `/postcode/${area}`,
+    })
     router.push(`/postcode/${area}`)
   }
 

@@ -2,12 +2,14 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { providers, getProviderBySlug } from '@/data/providers'
+import { providerComparisons } from '@/data/provider-comparisons'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
 import AffiliateCTA from '@/components/AffiliateCTA'
 import SpeedBadge from '@/components/SpeedBadge'
 import FAQAccordion from '@/components/FAQAccordion'
 import { buildProviderOfferJsonLd } from '@/lib/dealSchema'
 import PostcodeContextBar from '@/components/PostcodeContextBar'
+import RatingStars from '@/components/RatingStars'
 
 export async function generateStaticParams() {
   return providers.map((p) => ({ slug: p.slug }))
@@ -128,6 +130,16 @@ export default async function ProviderPage({
   }
 
   const offerJsonLd = buildProviderOfferJsonLd(provider)
+
+  const relatedComparisons = providerComparisons
+    .filter((c) => c.providerA === provider.slug || c.providerB === provider.slug)
+    .slice(0, 3)
+    .map((c) => {
+      const otherSlug = c.providerA === provider.slug ? c.providerB : c.providerA
+      const other = getProviderBySlug(otherSlug)
+      return other ? { comparison: c, other } : null
+    })
+    .filter((x): x is { comparison: (typeof providerComparisons)[number]; other: NonNullable<ReturnType<typeof getProviderBySlug>> } => x !== null)
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
@@ -326,11 +338,11 @@ export default async function ProviderPage({
           { label: 'Max speed', value: `${maxSpeed.download} Mbps` },
           { label: 'Coverage', value: isRetired ? 'Regional' : `${provider.coveragePercent}%` },
           isRetired
-            ? { label: 'Current status', value: `Now ${provider.successorName}` }
-            : { label: 'Trustpilot', value: `${provider.trustpilotScore.toFixed(1)}/5` },
+            ? { label: 'Current status', value: <>{`Now ${provider.successorName}`}</> }
+            : { label: 'Trustpilot', value: <RatingStars score={provider.trustpilotScore} size={13} /> },
         ].map(({ label, value }) => (
           <div key={label} className="bg-white border border-slate-200 rounded-xl p-4 text-center">
-            <div className="text-lg font-bold text-slate-900">{value}</div>
+            <div className="text-lg font-bold text-slate-900 flex items-center justify-center">{value}</div>
             <div className="text-xs text-slate-500 mt-0.5">{label}</div>
           </div>
         ))}
@@ -398,6 +410,29 @@ export default async function ProviderPage({
           ))}
         </ul>
       </section>
+
+      {/* Related comparisons */}
+      {relatedComparisons.length > 0 && (
+        <section className="mt-10">
+          <h2 className="text-xl font-bold text-slate-900 mb-4">
+            How {provider.name} compares
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {relatedComparisons.map(({ comparison, other }) => (
+              <Link
+                key={comparison.slug}
+                href={`/providers/compare/${comparison.slug}`}
+                className="block rounded-xl border border-slate-200 bg-white p-4 hover:border-sky-300 hover:bg-sky-50 transition-colors"
+              >
+                <span className="font-semibold text-slate-900 text-sm">
+                  {provider.name} vs {other.name}
+                </span>
+                <span className="block text-xs text-slate-500 mt-1">Read the full comparison &rarr;</span>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* CTA */}
       <div className="mt-10 p-6 bg-sky-50 border border-sky-200 rounded-xl flex flex-wrap items-center justify-between gap-4">
