@@ -9,6 +9,7 @@ import SpeedBadge from '@/components/SpeedBadge'
 import FAQAccordion from '@/components/FAQAccordion'
 import { buildProviderOfferJsonLd } from '@/lib/dealSchema'
 import PostcodeContextBar from '@/components/PostcodeContextBar'
+import ProviderAvailabilityBadge from '@/components/ProviderAvailabilityBadge'
 import RatingStars from '@/components/RatingStars'
 
 export async function generateStaticParams() {
@@ -206,6 +207,12 @@ export default async function ProviderPage({
         {provider.successorName ?? provider.name} and take out a service.
         This does not affect our editorial independence.
       </p>
+
+      {!isRetired && (
+        <div className="mb-6">
+          <ProviderAvailabilityBadge providerSlug={provider.slug} providerName={provider.name} />
+        </div>
+      )}
 
       {provider.excerpt && (
         <p className="mb-8 border-l-4 border-sky-500 pl-4 text-base leading-relaxed text-slate-700">

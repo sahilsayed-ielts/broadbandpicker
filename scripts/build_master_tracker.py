@@ -631,6 +631,46 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "initial_status": "In progress",
     },
     {
+        "item_id": "feat-postcode-journey-personalisation",
+        "type": "Feature",
+        "pillar": "UX",
+        "title": "Postcode-aware personalisation across the customer journey, free tier only",
+        "description": (
+            "User asked for a postcode -> select-your-house-number address picker with "
+            "customised content, and explicitly asked whether it could be built free. "
+            "Researched live (WebSearch, 2026-08-23): full UK address-level lookup (the data "
+            "behind 'pick your house from a list') is Royal Mail's licensed PAF data, not open "
+            "-- getAddress.io, a popular free-tier provider, was shut down in Oct 2025 after a "
+            "Royal Mail/IDDQD IP claim; Ideal Postcodes gives a 1-month/50-credit trial then "
+            "pay-as-you-go; no provider offers a genuine unlimited free tier at real traffic. "
+            "Separately, even a working address picker wouldn't improve accuracy without a paid "
+            "per-address line-checker API (Openreach or provider-specific), which is a "
+            "commercial relationship, not a script. Presented both findings and 3 options to the "
+            "user via AskUserQuestion; they chose the free path: deepen personalisation using "
+            "data already held, no new API, no new cost. Shipped: extended the existing "
+            "components/PostcodeContextBar.tsx (previously only on deals/compare/provider "
+            "pages) to guide pages and all 3 tool pages (speed test, broadband match, cost "
+            "calculator) so a stored postcode follows the visitor through the full journey; new "
+            "components/ProviderAvailabilityBadge.tsx shows a real yes/no ('BT is/isn't listed "
+            "as available in {town}') on provider review pages, but only for the 51 postcode "
+            "areas with real availableProviders data in data/postcodes.ts -- silently renders "
+            "nothing outside that set rather than guessing; new "
+            "components/ReturningVisitorBanner.tsx greets a returning visitor on the homepage "
+            "with a direct link back to their own postcode's deals."
+        ),
+        "priority_score": 53,
+        "impact_score": 55,
+        "effort": "Medium",
+        "target": (
+            "components/ProviderAvailabilityBadge.tsx, components/ReturningVisitorBanner.tsx, "
+            "components/PostcodeContextBar.tsx, app/page.tsx, app/providers/[slug]/page.tsx, "
+            "app/guides/[slug]/page.tsx, app/speed-test/page.tsx, app/tools/broadband-match/page.tsx, "
+            "app/tools/broadband-cost-calculator/page.tsx"
+        ),
+        "dependencies": "None -- deliberately built on data already held, no new API/cost",
+        "source": "User request 2026-08-23 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",

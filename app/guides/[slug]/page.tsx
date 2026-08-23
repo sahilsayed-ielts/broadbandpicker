@@ -6,6 +6,7 @@ import { providers, getTopDeals } from '@/data/providers'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
 import DealTable from '@/components/DealTable'
 import FAQAccordion from '@/components/FAQAccordion'
+import PostcodeContextBar from '@/components/PostcodeContextBar'
 import { withHeadingIds } from '@/lib/extractHeadings'
 
 export async function generateStaticParams() {
@@ -3983,6 +3984,8 @@ export default async function GuidePage({
         <span>&middot;</span>
         <span>Reviewed by BroadbandPicker editorial team</span>
       </div>
+
+      <PostcodeContextBar />
 
       {guide.keyTakeaways && guide.keyTakeaways.length > 0 && (
         <section className="mb-10 rounded-xl border border-sky-200 bg-sky-50 p-6">

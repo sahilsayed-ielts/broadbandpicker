@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
 import BroadbandMatchQuiz from '@/components/BroadbandMatchQuiz'
+import PostcodeContextBar from '@/components/PostcodeContextBar'
 import { providers } from '@/data/providers'
 
 const PAGE_URL = 'https://broadbandpicker.co.uk/tools/broadband-match'
@@ -133,6 +134,7 @@ export default function BroadbandMatchPage() {
       </section>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14 text-slate-700">
+        <PostcodeContextBar />
         <section aria-labelledby="quick-answer" className="rounded-2xl border border-sky-200 bg-sky-50 p-6 sm:p-8">
           <h2 id="quick-answer" className="text-2xl font-bold text-slate-900">Broadband speed by activity, at a glance</h2>
           <p className="mt-3 leading-relaxed">

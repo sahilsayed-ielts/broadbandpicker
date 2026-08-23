@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import PostcodeChecker from '@/components/PostcodeChecker'
+import ReturningVisitorBanner from '@/components/ReturningVisitorBanner'
 import DealTable from '@/components/DealTable'
 import ProviderLogo from '@/components/ProviderLogo'
 import NewsletterSignup from '@/components/NewsletterSignup'
@@ -127,6 +128,8 @@ export default function HomePage() {
           <div className="max-w-xl mx-auto">
             <PostcodeChecker size="large" />
           </div>
+
+          <ReturningVisitorBanner />
 
           <SocialProofCounter />
 
