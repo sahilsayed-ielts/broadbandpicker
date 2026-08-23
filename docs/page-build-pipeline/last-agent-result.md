@@ -1,32 +1,35 @@
-Implemented the full rebuild of `/guides/how-to-switch-broadband-uk`.
+Built `/research/broadband-customer-service-rankings-uk` without committing, pushing or deploying.
 
-Research findings:
+Key findings:
 
-- Current leaders were Which?, MoneySavingExpert and Citizens Advice.
-- Common structure: answer-first summary, 3–5 switching steps, contract/exit-fee checks, comparison tools or tables, service-continuity advice and FAQs.
-- Chosen depth: 1,500-word minimum. Final scoped editorial copy is 1,679 words.
-- No AI Overview was exposed for the live UK primary-keyword search.
-- Six supporting queries were mapped and covered, including switching duration, One Touch Switch, mid-contract switching, number retention and compensation.
+- Plusnet is the evidence-backed starting choice among major providers.
+- Ofcom Q4 2025: Plusnet and Virgin Media jointly lowest at 5 complaints per 100,000; Sky recorded 6.
+- Ofcom 2024 research: Plusnet achieved 91% overall satisfaction and 65% complaint-handling satisfaction.
+- Smaller providers remain separate because Ofcom does not publish comparable figures for all ISPs. Which?’s January 2026 survey placed Zen first.
+- No AI Overview was exposed for the exact UK query during the live check.
+- Ranking pages generally run about 1,400–3,200 words and use verdict summaries, comparison tables, methodology, FAQs and postcode actions. The finished page renders approximately 2,258 main-content words against the justified 1,500-word minimum.
 
-Primary sources included [Ofcom switching guidance](https://www.ofcom.org.uk/phones-and-broadband/switching-provider/switching-broadband-provider), [Ofcom contract-status guidance](https://www.ofcom.org.uk/phones-and-broadband/saving-money/in-or-out), [Ofcom automatic compensation](https://www.ofcom.org.uk/phones-and-broadband/service-quality/automatic-compensation-need-know), [Openreach](https://www.openreach.com/help-and-support/one-touch-switch), Citizens Advice and MoneySavingExpert.
+Sources included Ofcom’s complaints report, Comparing Customer Service report and research hub, Which?’s 2026 survey, and Plusnet’s official complaints code.
 
-Changed files:
+Files changed for this task:
 
-- [page.tsx](/Users/sahilrafiqsayed/broadbandpicker/app/guides/[slug]/page.tsx)
-- [guides.ts](/Users/sahilrafiqsayed/broadbandpicker/data/guides.ts)
+- [page.tsx](/Users/sahilrafiqsayed/broadbandpicker/app/research/broadband-customer-service-rankings-uk/page.tsx)
+- [priority-pages.ts](/Users/sahilrafiqsayed/broadbandpicker/data/priority-pages.ts)
+- [PrioritySeoPage.tsx](/Users/sahilrafiqsayed/broadbandpicker/components/PrioritySeoPage.tsx)
+- [how-we-review-broadband/page.tsx](/Users/sahilrafiqsayed/broadbandpicker/app/how-we-review-broadband/page.tsx)
 - [current-page-research.json](/Users/sahilrafiqsayed/broadbandpicker/docs/page-build-pipeline/current-page-research.json)
 
 Validation:
 
-- Research-packet validator: passed
-- Webpack production build: passed, including TypeScript and 169 static pages
-- Route: HTTP 200
-- H1/title/primary keyword: passed
-- FAQ answers: 57–63 words each
-- JSON-LD: Article and FAQPage present
-- Visible em dashes or `undefined`/`NaN`: none
+- Research JSON and packet matching: passed
+- All 7 mapped secondary queries covered
+- Em-dash check: passed
+- Production build: passed using Next.js’s supported webpack builder after Turbopack’s sandbox worker-port failure
+- TypeScript and 170-page static generation: passed
+- New route: HTTP 200
+- Correct title and ordered H1/H2 structure: passed
+- Structured data present: passed
+- Sitemap inclusion: passed
 - `git diff --check`: passed
 
-The default `npm run build` hit a Turbopack environment failure because its CSS worker could not bind an internal port. The installed Next.js 16.3 documentation’s supported `--webpack` build completed successfully. Provider-specific exit-fee calculations, number portability and installation lead times remain intentionally conditional because they vary by account, address and package.
-
-Pre-existing workbook, pipeline-script, next-page packet and `.github` worktree changes were preserved. Nothing was committed, pushed or deployed.
+Unresolved factual point: a ranking competitor reports newer Q1 2026 complaints figures, but the official Ofcom page available during verification exposed Q4 2025 as its latest supported release. The page therefore uses Q4 2025 rather than repeating the independently reported newer numbers. Existing unrelated worktree changes were left untouched.

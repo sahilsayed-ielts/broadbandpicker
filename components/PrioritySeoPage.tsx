@@ -60,6 +60,17 @@ export default function PrioritySeoPage({ pageKey }: { pageKey: PriorityPageKey 
           <p className="mt-3 leading-relaxed text-slate-700">{page.quickAnswer}</p>
         </section>
 
+        {pageKey === 'satisfaction' && (
+          <p className="mt-5 text-sm text-slate-600">For the current provider-by-provider conclusion, read our <Link href="/research/broadband-customer-service-rankings-uk" className="text-sky-700 underline">best customer service broadband provider ranking</Link>.</p>
+        )}
+
+        {pageKey === 'serviceRankings' && (
+          <nav className="mt-6 rounded-xl border border-slate-200 bg-slate-50 p-5" aria-label="Related provider and research pages">
+            <p className="font-bold text-slate-900">Check the evidence, then compare the shortlist</p>
+            <p className="mt-2 text-sm text-slate-600"><Link href="/research/uk-broadband-customer-satisfaction" className="text-sky-700 underline">Customer satisfaction evidence dashboard</Link> · <Link href="/providers/plusnet" className="text-sky-700 underline">Plusnet review</Link> · <Link href="/providers/sky" className="text-sky-700 underline">Sky review</Link> · <Link href="/providers/virgin-media" className="text-sky-700 underline">Virgin Media review</Link></p>
+          </nav>
+        )}
+
         {page.table && (
           <section className="mt-12" aria-labelledby="comparison">
             <h2 id="comparison" className="text-2xl font-bold text-slate-900">{page.table.title}</h2>

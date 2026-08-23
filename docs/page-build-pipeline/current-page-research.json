@@ -1,178 +1,121 @@
 {
-  "slug": "guides/how-to-switch-broadband-uk",
-  "primary_keyword": "how to switch broadband provider uk",
+  "slug": "research/broadband-customer-service-rankings-uk",
+  "primary_keyword": "best customer service broadband provider",
   "search_locale": "UK",
   "secondary_keywords": [
-    {
-      "keyword": "switch broadband provider",
-      "intent": "Commercial guide",
-      "page_slot": "excerpt and step-by-step body",
-      "coverage_note": "Give the current One Touch Switch process and a practical checklist from contract check to final bill."
-    },
-    {
-      "keyword": "how long does it take to switch broadband",
-      "intent": "Informational question",
-      "page_slot": "H2 timing section and FAQ",
-      "coverage_note": "Separate a commonly quoted planning window from Ofcom's firm one-working-day loss-of-service protection."
-    },
-    {
-      "keyword": "can I switch broadband if I am still in contract",
-      "intent": "Consumer rights question",
-      "page_slot": "H2 contract section and FAQ",
-      "coverage_note": "Explain early termination charges, the gaining-provider notification and the need to compare total savings with the confirmed fee."
-    },
-    {
-      "keyword": "One Touch Switch broadband",
-      "intent": "Informational",
-      "page_slot": "intro, process table and H2 process section",
-      "coverage_note": "Define the Ofcom process, geographic scope, provider roles and when a customer may manage cancellation separately."
-    },
-    {
-      "keyword": "can I keep my landline number when switching broadband",
-      "intent": "Service continuity question",
-      "page_slot": "H2 bundle checks and FAQ",
-      "coverage_note": "Tell readers to request number transfer during the order and confirm compatibility, especially for broadband-only or digital voice packages."
-    },
-    {
-      "keyword": "broadband switching compensation",
-      "intent": "Consumer rights question",
-      "page_slot": "H2 problems section and FAQ",
-      "coverage_note": "State current Ofcom automatic compensation amounts, eligibility and the distinction between OTS downtime protection and the voluntary compensation scheme."
-    }
+    { "keyword": "broadband customer service rankings UK", "intent": "Research comparison", "page_slot": "title, complaints table and verdict", "coverage_note": "Rank the named major providers using the latest official Ofcom complaints period and explain the limits." },
+    { "keyword": "which broadband provider has the fewest complaints", "intent": "Comparison question", "page_slot": "complaints table and FAQ", "coverage_note": "State the joint-lowest Q4 2025 providers, rate per 100,000 and industry average." },
+    { "keyword": "Ofcom broadband complaints by provider", "intent": "Regulatory research", "page_slot": "H2 complaints section and table", "coverage_note": "Define the measure, reporting period, population threshold and why lower is better." },
+    { "keyword": "broadband provider customer satisfaction", "intent": "Research", "page_slot": "H2 satisfaction section and methodology", "coverage_note": "Keep overall satisfaction and complaint-handling satisfaction separate with their 2024 period." },
+    { "keyword": "Plusnet customer service", "intent": "Provider evaluation", "page_slot": "quick answer, verdict and FAQ", "coverage_note": "Support the recommendation with Ofcom satisfaction and complaints evidence rather than a review score." },
+    { "keyword": "broadband provider with UK customer support", "intent": "Commercial attribute", "page_slot": "H2 how to compare and buying checklist", "coverage_note": "Explain support-channel, hours, accessibility and repair-control checks without making unsupported location claims." },
+    { "keyword": "Zen broadband customer service", "intent": "Provider comparison", "page_slot": "H2 smaller providers", "coverage_note": "Report Zen's independent Which? survey result separately from Ofcom measures." }
   ],
   "serp_competitors": [
     {
-      "url": "https://www.which.co.uk/reviews/broadband/article/how-to-switch-broadband-provider-a1VrH1b61tEU",
-      "title": "How To Switch Broadband Provider - Which?",
-      "observed_structure": "Answer-led essentials box, three numbered steps, deal-selection checklist, postcode comparison control and a short FAQ section.",
-      "approx_word_count": 950,
-      "content_gap_to_improve": "Make the exceptions to One Touch Switch clearer and put regulator citations next to downtime, cooling-off and contract-notification claims.",
-      "useful_ux_patterns": "In-page contents, at-a-glance steps and postcode comparison placed at the decision point.",
-      "useful_ui_patterns": "Numbered process, concise bullets and a visible comparison input.",
-      "interactive_or_functional_elements": "Postcode deal comparison form and save-article control.",
-      "trust_signals": "Named specialist author, current update date, survey methodology and links to provider assessment criteria.",
-      "citation_patterns": "Links to related Which? research and Ofcom-backed switching rules, with the survey sample owned by Which?."
-    },
-    {
-      "url": "https://www.moneysavingexpert.com/broadband-and-tv/how-to-switch-broadband-provider/",
-      "title": "How to switch broadband provider and save money | MSE",
-      "observed_structure": "Large guide with jump links, a three-step switch, exit-fee incentive table, speed guidance, compensation, social tariffs, digital landlines and haggling.",
+      "url": "https://www.choose.co.uk/broadband/guide/best-customer-service/",
+      "title": "Best broadband customer service in 2026",
+      "observed_structure": "Long answer-led commercial guide with a top-three verdict, deal cards, latest and historical Ofcom complaint tables, satisfaction, complaint handling, contact routes, smaller providers and summary navigation.",
       "approx_word_count": 3200,
-      "content_gap_to_improve": "Keep the central switching path shorter, distinguish regulatory facts from provider-specific examples and avoid letting adjacent savings topics obscure the task.",
-      "useful_ux_patterns": "Prominent summary, worked decision checks, provider incentive table and contextual routes into comparison.",
-      "useful_ui_patterns": "Jump navigation, labelled steps, comparison tables and expandable supporting detail.",
-      "interactive_or_functional_elements": "Broadband postcode comparison journey and expandable information panels.",
-      "trust_signals": "Named utilities analyst and editor, very recent update date, regulator figures and transparent commercial comparison links.",
-      "citation_patterns": "Direct links to provider incentive terms, Ofcom data and separate specialist explainers for claims needing more detail."
+      "content_gap_to_improve": "Keep official periods and unlike measures visibly separate, avoid attributing service improvement to one tool or staffing change without primary evidence, and give a shorter buying action.",
+      "useful_ux_patterns": "Immediate named verdict, jump navigation, current complaints table and provider-specific subsections.",
+      "useful_ui_patterns": "Compact data tables, provider cards, strong answer summary and source links near numerical claims.",
+      "interactive_or_functional_elements": "Broadband deal cards and comparison calls to action.",
+      "trust_signals": "Named author, August 2026 update, Ofcom links, historical comparisons and methodology explanation.",
+      "citation_patterns": "Inline links from dated Ofcom claims and source notes beneath tables."
     },
     {
-      "url": "https://www.citizensadvice.org.uk/consumer/phone-internet-downloads-or-tv/switch-broadband-phone-or-tv-provider/",
-      "title": "Check how to switch your internet, phone or TV provider - Citizens Advice",
-      "observed_structure": "Long consumer checklist covering pre-contract questions, broadband speeds, digital landlines, switching each service, cooling-off rights and complaints.",
+      "url": "https://www.uswitch.com/broadband/guides/which-broadband-provider-is-best-for-customer-service/",
+      "title": "Which broadband provider has the best customer service?",
+      "observed_structure": "Focused guide with author and editor details, on-page navigation, a proprietary survey ranking, Ofcom complaints discussion, definitions of good support and provider review links.",
+      "approx_word_count": 1400,
+      "content_gap_to_improve": "Lead with a fully evidenced verdict, expose exact official rates in a comparison table, and separate proprietary survey methodology from regulator evidence.",
+      "useful_ux_patterns": "On-page contents, concise ordered ranking and practical signs of good customer service.",
+      "useful_ui_patterns": "Short sections, numbered list and contextual links to provider reviews.",
+      "interactive_or_functional_elements": "Links into broadband comparison and provider-review journeys.",
+      "trust_signals": "Named senior editor, named broadband expert, February 2026 update and stated 25,000-person survey.",
+      "citation_patterns": "Methodology is stated with related internal research links; Ofcom evidence is linked in its own section."
+    },
+    {
+      "url": "https://www.broadband.co.uk/broadband/help/best-broadband-customer-service",
+      "title": "Best Broadband Customer Service UK 2026 | Top Rated ISPs",
+      "observed_structure": "Broad commercial guide with a provider verdict, multi-metric comparison table, address checker, deal cards, guidance for assessing support, complaint help and FAQs.",
+      "approx_word_count": 2200,
+      "content_gap_to_improve": "Do not place self-selected Trustpilot scores beside regulator complaints as if they are equivalent, and make the date and source population clearer for every metric.",
+      "useful_ux_patterns": "At-a-glance table, address input near commercial intent, practical support checklist and FAQ answers.",
+      "useful_ui_patterns": "Responsive comparison table, visible deal cards and clear FAQ block.",
+      "interactive_or_functional_elements": "Address-based deal checker and offer cards.",
+      "trust_signals": "Current publication date, named evidence sources and transparent award/survey labels.",
+      "citation_patterns": "Source footnotes beneath the table and regulator links in advice and FAQs."
+    },
+    {
+      "url": "https://www.which.co.uk/reviews/broadband/article/broadband-provider-reviews/best-broadband-providers-aIIx34f51krz",
+      "title": "Best and worst broadband providers in the UK for 2026",
+      "observed_structure": "Survey-led ranking table followed by winners, value picks, provider explanations, methodology notes and comparison action.",
       "approx_word_count": 1800,
-      "content_gap_to_improve": "Use the latest dated One Touch Switch terminology and give a faster broadband-only route before broader phone, TV and accessibility cases.",
-      "useful_ux_patterns": "Task-based headings, warnings for digital landlines and direct escalation instructions.",
-      "useful_ui_patterns": "Short paragraphs, nested checklists and clearly separated service types.",
-      "interactive_or_functional_elements": "Links to Ofcom speed and coverage checkers plus consumer helpline and complaint routes.",
-      "trust_signals": "Independent advice charity, official regulator links, helpline details and a visible review date.",
-      "citation_patterns": "Inline links to Ofcom for speed, digital-landline and minimum-service rights."
+      "content_gap_to_improve": "Provide a free regulator-evidence view for major providers and explain why customer scores cannot be combined with Ofcom complaint rates.",
+      "useful_ux_patterns": "Large comparison table, named winners, visible sample and fieldwork date, and provider-level drill-down links.",
+      "useful_ui_patterns": "Sortable-looking matrix, recommendation labels and concise methodology note immediately below the data.",
+      "interactive_or_functional_elements": "Membership-gated score details and a separate postcode comparison path.",
+      "trust_signals": "Representative survey of 5,235 UK adults in January 2026, minimum response threshold and named recommendation criteria.",
+      "citation_patterns": "First-party survey methodology is attached directly to the results table."
     }
   ],
   "ai_overview": {
     "checked": true,
     "present": false,
-    "observation": "The live UK search result checked on 23 August 2026 did not expose an AI Overview or AI answer for the primary query, so there were no overview citations to inspect.",
+    "observation": "The live UK search response checked on 23 August 2026 did not expose an AI Overview or AI answer for the exact primary query, so there were no overview citations to inspect. Ordinary results prominently surfaced Ofcom-derived answers.",
     "cited_sources": []
   },
   "people_also_ask": [
-    "How long does it take to switch broadband provider?",
-    "Do I need to cancel my broadband before switching?",
-    "Can I switch broadband if I am still in contract?",
-    "Will I lose internet when switching providers?",
-    "Can I keep my landline number when I switch broadband?"
+    "Which broadband provider has the best customer service in the UK?",
+    "Which broadband provider has the fewest complaints?",
+    "Does Ofcom rank every broadband provider?",
+    "Is Trustpilot reliable for broadband providers?",
+    "Which broadband provider is best for reliability and customer service?"
   ],
   "sources": [
-    {
-      "url": "https://www.ofcom.org.uk/phones-and-broadband/switching-provider/switching-broadband-provider",
-      "source_type": "regulator",
-      "verified_date": "2026-08-23",
-      "claims_supported": "One Touch Switch process, old service ending automatically, no post-switch notice charge, maximum one-working-day loss of service, bundle exceptions and 14-day cooling-off period."
-    },
-    {
-      "url": "https://www.ofcom.org.uk/phones-and-broadband/saving-money/in-or-out",
-      "source_type": "regulator",
-      "verified_date": "2026-08-23",
-      "claims_supported": "Typical 12, 18 or 24-month terms and mandatory end-of-contract notifications 10 to 40 days before the minimum term ends."
-    },
-    {
-      "url": "https://www.ofcom.org.uk/phones-and-broadband/service-quality/automatic-compensation-need-know",
-      "source_type": "regulator",
-      "verified_date": "2026-08-23",
-      "claims_supported": "2026 automatic compensation scheme membership and amounts for delayed service start, missed appointments and delayed fault repair."
-    },
-    {
-      "url": "https://www.openreach.com/help-and-support/one-touch-switch",
-      "source_type": "primary",
-      "verified_date": "2026-08-23",
-      "claims_supported": "Gaining provider manages the switch, cross-network scope, start-date updates and possible installation work when changing network or adding full fibre."
-    },
-    {
-      "url": "https://www.bt.com/broadband/switch",
-      "source_type": "primary",
-      "verified_date": "2026-08-23",
-      "claims_supported": "A provider implementation of One Touch Switch and an example of provider-owned equipment needing return after departure."
-    },
-    {
-      "url": "https://www.moneysavingexpert.com/broadband-and-tv/how-to-switch-broadband-provider/",
-      "source_type": "independent",
-      "verified_date": "2026-08-23",
-      "claims_supported": "Independent corroboration of the usual three-step process, a roughly 10-working-day planning period and checks for exit fees, speed, price rises and contract length."
-    },
-    {
-      "url": "https://www.citizensadvice.org.uk/consumer/phone-internet-downloads-or-tv/switch-broadband-phone-or-tv-provider/",
-      "source_type": "independent",
-      "verified_date": "2026-08-23",
-      "claims_supported": "Independent guidance on provider notifications, bundle services, landline number transfer, final bills and complaint escalation."
-    }
+    { "url": "https://www.ofcom.org.uk/phones-and-broadband/service-quality/telecoms-and-pay-tv-complaints", "source_type": "regulator", "verified_date": "2026-08-23", "claims_supported": "Q4 2025 fixed-broadband complaints per 100,000 subscribers, industry average, named highest and lowest providers, reporting scope and complaint limitations." },
+    { "url": "https://www.ofcom.org.uk/siteassets/resources/documents/phones-telecoms-and-internet/comparing-service-quality/2025/comparing-customer-service-report-2025.pdf?v=397528", "source_type": "regulator", "verified_date": "2026-08-23", "claims_supported": "2024 overall broadband satisfaction, satisfaction with complaint handling, reasons to complain, methods, confidence caveats and affected EE faults data." },
+    { "url": "https://www.ofcom.org.uk/phones-and-broadband/service-quality/report", "source_type": "regulator", "verified_date": "2026-08-23", "claims_supported": "Report scope, biennial reporting cycle, 2024 experience period and April 2026 EE data-restatement notice." },
+    { "url": "https://www.which.co.uk/reviews/broadband/article/broadband-provider-reviews/best-broadband-providers-aIIx34f51krz", "source_type": "independent", "verified_date": "2026-08-23", "claims_supported": "January 2026 survey of 5,235 UK adults, customer-score definition and results for Zen, Hyperoptic, Community Fibre and Plusnet." },
+    { "url": "https://www.plus.net/help/legal/complaints-code-of-practice/", "source_type": "primary", "verified_date": "2026-08-23", "claims_supported": "Plusnet's current complaint contact, escalation and alternative dispute resolution process." }
   ],
   "recommended_min_words": 1500,
   "required_sections": [
-    "Standalone answer and key takeaways",
-    "At-a-glance One Touch Switch process",
-    "Contract and early termination charge check",
-    "Address-specific deal comparison checklist",
-    "Ordering and switch-day steps",
-    "Bundle, landline, email and accessibility checks",
-    "Timing and downtime",
-    "Problems, compensation and complaints",
+    "Standalone answer-first verdict",
+    "Current Ofcom complaints comparison table",
+    "Separate satisfaction and complaint-handling evidence",
+    "Methodology and limitations",
+    "Smaller-provider evidence kept separate",
+    "Practical customer-service buying checklist",
+    "Address-specific comparison next step",
     "Standalone FAQs",
-    "Visible editorial source notes"
+    "Visible dated sources"
   ],
   "internal_links": [
     "/compare",
-    "/deals",
-    "/guides/broadband-speeds-explained",
-    "/guides/broadband-contract-end-rights",
-    "/guides/broadband-moving-house",
-    "/guides/broadband-social-tariffs-uk",
-    "/how-we-review-broadband"
+    "/research/uk-broadband-customer-satisfaction",
+    "/how-we-review-broadband",
+    "/editorial-policy",
+    "/providers/plusnet",
+    "/providers/sky",
+    "/providers/virgin-media"
   ],
-  "schema_types": [
-    "Article",
-    "FAQPage"
-  ],
+  "schema_types": ["Article", "FAQPage"],
   "ux_ui_requirements": [
-    "Use the existing Key Takeaways panel to answer the task before the long guide, serving readers who need the rule and next action quickly.",
-    "Add a compact process table that separates the customer's action, new provider's action and old provider's action, serving readers confused about who cancels.",
-    "Use numbered step headings and checklists for contract, deal and switch-day tasks, reflecting the dominant task pattern across all three ranking pages.",
-    "Place visible regulator and primary-source citations directly beside material rights, timing and compensation claims.",
-    "Keep the existing accessible comparison deal table and FAQ accordion, with the comparison call to action after the checklist."
+    "Use the established answer panel to name the supported starting choice immediately for readers making a provider shortlist.",
+    "Use a responsive comparison table for the latest official complaints period, serving readers who need exact provider rates rather than prose rankings.",
+    "Separate measurement periods and methods into clearly headed sections so readers do not mistake complaints, satisfaction and independent surveys for one score.",
+    "Show a genuine reviewed date, named editorial team, commercial disclosure and visible sources close to numerical claims.",
+    "Use the existing accessible FAQ disclosure pattern and a strong postcode comparison action after the evidence."
   ],
   "functional_requirements": [
-    "Retain the existing live DealTable and /compare route so users can move from guidance to address-specific offers.",
-    "Retain FAQPage structured data and ensure every displayed answer is 35 to 90 words and matches the JSON-LD.",
-    "Provide direct links to Ofcom switching, contract-status and compensation pages for verification and problem resolution."
+    "Retain the existing /compare journey so readers can convert the evidence-based shortlist into address-specific options.",
+    "Emit Article and FAQPage structured data with displayed FAQ answers matching the JSON-LD and remaining 35 to 90 words.",
+    "Provide working direct source links to Ofcom, Which? and the official provider complaints process.",
+    "Include the page automatically in the generated sitemap through the existing priorityPages collection."
   ],
-  "research_summary": "Current UK results lead with One Touch Switch, checking contract status and a short numbered process. Which? is the focused version, MSE expands into savings and provider incentives, and Citizens Advice expands into rights and bundled services. The rebuilt guide adopts the useful summary, checklist, process table, problem route and comparison action while giving Ofcom claims stronger close citation.",
-  "depth_rationale": "A 1,500-word rendered minimum is above the focused Which? result and substantial enough to cover Citizens Advice-style safeguards, while remaining well below MSE's broad hub because social tariffs, speed selection and provider-by-provider cancellation rules already have dedicated BroadbandPicker pages. This depth directly answers the switching task without padding adjacent topics."
+  "research_summary": "Current UK results consistently use an immediate winner, provider table, dated complaints evidence, satisfaction measures, support-selection advice and FAQs. Choose leads with Plusnet and extensive Ofcom history, Uswitch foregrounds its proprietary survey, broadband.co.uk combines several metrics, and Which? provides the strongest smaller-provider survey. BroadbandPicker adopts the useful answer, table, methodology, checklist and address action while keeping unlike datasets separate.",
+  "depth_rationale": "The focused Uswitch result is roughly 1,400 words, while broader ranking pages run about 1,800 to 3,200 words because they add deals, full provider profiles and long complaint guides. A 1,500-word rendered minimum matches the focused competitive depth and covers the decision fully without duplicating separate provider, deals or complaints-process pages. The page prioritises exact evidence and limitations over padding."
 }

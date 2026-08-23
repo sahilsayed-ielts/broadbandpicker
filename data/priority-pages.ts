@@ -1,4 +1,4 @@
-export type PriorityPageKey = 'business' | 'postcode' | 'phone' | 'btDeals' | 'skyDeals' | 'eeDeals' | 'virginDeals' | 'satisfaction' | 'satellite' | 'london' | 'sheffield' | 'edinburgh' | 'glasgow' | 'liverpool' | 'leeds' | 'bristol' | 'birmingham' | 'manchester'
+export type PriorityPageKey = 'business' | 'postcode' | 'phone' | 'btDeals' | 'skyDeals' | 'eeDeals' | 'virginDeals' | 'satisfaction' | 'serviceRankings' | 'satellite' | 'london' | 'sheffield' | 'edinburgh' | 'glasgow' | 'liverpool' | 'leeds' | 'bristol' | 'birmingham' | 'manchester'
 
 type Page = {
   path: string
@@ -108,6 +108,77 @@ export const priorityPages: Record<PriorityPageKey, Page> = {
     ],
     faqs: [{ question: 'Which broadband provider has the happiest customers?', answer: 'The answer changes by dataset and period. Compare Ofcom satisfaction and complaints evidence rather than relying on one review score.' }, { question: 'Are Trustpilot ratings reliable for broadband?', answer: 'They are useful for themes and recent sentiment but are affected by who chooses to review and provider campaigns.' }, { question: 'How often is the research updated?', answer: 'When Ofcom releases relevant complaints or customer-service datasets, with the reporting period shown.' }],
     sources: [{ label: 'Ofcom telecoms complaints data', href: 'https://www.ofcom.org.uk/phones-and-broadband/service-quality/telecoms-and-pay-tv-complaints' }, { label: 'Ofcom comparing customer service', href: 'https://www.ofcom.org.uk/phones-and-broadband/service-quality/comparing-customer-service' }],
+  },
+  serviceRankings: {
+    path: '/research/broadband-customer-service-rankings-uk',
+    title: 'Best customer service broadband provider: UK rankings',
+    metaTitle: 'Best Customer Service Broadband Provider UK 2026',
+    metaDescription: 'Compare UK broadband customer service using current Ofcom complaints and satisfaction evidence. See why Plusnet is our major-provider starting point.',
+    eyebrow: 'Ofcom-evidenced UK research',
+    dek: 'Plusnet is our best customer service broadband provider starting point among the major UK providers Ofcom compares. It paired 91% overall satisfaction in Ofcom’s 2024 research with five complaints per 100,000 subscribers in Q4 2025, joint lowest with Virgin Media. Smaller providers require separate survey evidence because Ofcom does not publish directly comparable figures for every ISP.',
+    quickAnswer: 'We would start with Plusnet if customer support is the deciding factor and its service is available at your address. Ofcom found 91% of Plusnet broadband customers satisfied overall in 2024, above the 85% sector average. Its five complaints per 100,000 subscribers in Q4 2025 were joint lowest with Virgin Media. Sky is the strongest major-provider alternative across the same evidence.',
+    updated: '2026-08-23',
+    schemaType: 'Article',
+    breadcrumbs: [{ name: 'Home', href: '/' }, { name: 'Research', href: '/research/uk-broadband-customer-satisfaction' }, { name: 'Customer service rankings', href: '/research/broadband-customer-service-rankings-uk' }],
+    table: {
+      title: 'Ofcom fixed-broadband complaints, Q4 2025',
+      headers: ['Provider', 'Complaints per 100,000 subscribers', 'Position against industry average of 7'],
+      rows: [
+        ['Plusnet', '5', 'Joint lowest'], ['Virgin Media', '5', 'Joint lowest'], ['Sky', '6', 'Below average'], ['EE', '7', 'At average'], ['BT', '8', 'Above average'], ['TalkTalk', '10', 'Joint highest'], ['Vodafone', '10', 'Joint highest'],
+      ],
+    },
+    sections: [
+      { heading: 'Our verdict: start with Plusnet, then check your address', paragraphs: [
+        'Plusnet has the strongest combined case among the major providers in Ofcom’s named comparisons. Its 91% overall broadband satisfaction in the regulator’s 2024 tracker was statistically above the 85% sector average. Satisfaction with complaint handling was 65%, also above the broadband average of 58%, and its Q4 2025 regulator complaints rate was joint lowest among the reported providers.',
+        'Sky is the clearest alternative. It recorded six complaints per 100,000 subscribers in Q4 2025 and 63% complaint-handling satisfaction in 2024. Virgin Media matched Plusnet’s latest complaints rate after a substantial improvement, but its 2024 complaint-handling satisfaction was 53%. Those measurements cover different periods and populations, so we report them separately rather than blending them into an invented score.',
+        'Availability still decides the useful shortlist. Plusnet and Sky sell over the Openreach network in much of the UK, while Virgin Media uses its own network footprint. Run a full-address check before comparing the minimum speed guarantee, upload speed, total contract cost and support evidence.'
+      ] },
+      { heading: 'What the latest Ofcom broadband complaints ranking measures', paragraphs: [
+        'Ofcom’s latest official release available during our 23 August 2026 review covers October to December 2025. It records complaints made to the regulator per 100,000 subscribers, allowing named providers of different sizes to be compared. Lower is better. The average for the providers included was seven complaints per 100,000 subscribers.',
+        'Plusnet and Virgin Media were joint lowest at five. Sky recorded six, EE seven, BT eight, and TalkTalk and Vodafone each recorded ten. Ofcom says regulator complaints are only a small proportion of complaints made to providers. The figures are therefore a signal of serious escalation, not a count of every fault, billing query or support contact.',
+        'Ofcom only names providers whose relevant customer base is large enough for publication. Absence from the table does not mean a smaller provider has no complaints or gives worse support. It means the regulator has not published a directly comparable provider rate in that table.'
+      ] },
+      { heading: 'Customer satisfaction tells a different part of the story', paragraphs: [
+        'Ofcom’s Comparing Customer Service report published in May 2025 covers customer experiences during 2024. Plusnet’s 91% overall broadband satisfaction was above the 85% sector average, while TalkTalk’s 77% was below average. Overall satisfaction reflects the whole broadband experience and is not a pure measure of contact-centre performance.',
+        'Among customers who had complained to their provider, EE scored 66% satisfaction with complaint handling, Plusnet 65% and Sky 63%. All three were above the 58% broadband average. TalkTalk at 54% and Virgin Media at 53% were below average. Ofcom survey estimates have confidence intervals, so small numerical differences are not automatically meaningful unless the regulator marks them as statistically different.',
+        'Ofcom also states that EE resubmitted some broadband and landline faults information in April 2026 after identifying a discrepancy. We do not use the affected faults figures in this verdict. This keeps the ranking tied to evidence that was not flagged for restatement at the review date.'
+      ] },
+      { heading: 'How we compare broadband customer service', paragraphs: [
+        'No single measure captures support quality. A low complaints rate can indicate fewer severe issues reaching the regulator. Complaint-handling satisfaction asks how people felt after raising a problem. Overall satisfaction also reflects speed, reliability, billing and value. Each answers a different question, so adding them together would create precision the sources do not support.',
+        'Our major-provider verdict requires a provider to perform well across more than one current Ofcom measure. We retain each source’s period, population and definition, and do not award points for affiliate relationships. Public reviews are used only to inspect recent themes because reviewers are self-selecting and provider invitation practices differ.',
+        'Service should also be judged against the fault a household cannot afford. A home worker may need out-of-hours fault reporting or mobile backup. A vulnerable customer may need accessible contact routes, a nominated user and clear digital-voice power-cut support. These practical requirements can outweigh a small difference in a survey result.'
+      ], bullets: [
+        'Check phone, chat and accessibility contact hours before ordering.',
+        'Ask whether the retailer or a wholesale network controls line repairs and escalation.',
+        'Save the order summary, minimum speed guarantee and provider contact routes.',
+        'Confirm membership of Ofcom’s automatic compensation scheme and read its limits.',
+        'Compare a dated complaints period and survey method, not an undated award badge.'
+      ] },
+      { heading: 'Where Zen Internet and smaller full-fibre providers fit', paragraphs: [
+        'Smaller providers should not be labelled worse because they are absent from Ofcom’s named-provider complaints table. Which?’s January 2026 survey of 5,235 UK adults placed Zen Internet first with an 84% customer score, followed by Hyperoptic at 77%, Community Fibre at 72% and Plusnet at 71%. Which? says its customer score combines satisfaction and likelihood to recommend.',
+        'Those Which? customer scores are not interchangeable with Ofcom’s overall satisfaction percentages because the samples and scoring methods differ. They do show why Zen is a serious service-led option where available, and why Hyperoptic or Community Fibre deserves consideration inside its regional footprint. We report the survey as independent corroboration, not as another column in Ofcom’s table.',
+        'Our main verdict remains Plusnet because it combines strong results across the regulator’s major-provider measures with broad availability. At an individual address, a well-rated smaller provider with direct control of its fibre network may be the better fit, particularly if it offers clearer technical escalation or fixed in-contract pricing.'
+      ] },
+      { heading: 'How to use this ranking before signing a contract', paragraphs: [
+        'Begin with every network that can actually serve the full address. Remove packages that miss the household’s download, upload or minimum guaranteed speed needs. Then compare support hours, fault escalation, accessibility, router replacement, installation responsibilities and automatic compensation alongside the total minimum-term cost.',
+        'Read recent public reviews by theme rather than headline score. Look separately at installation, fault repair, billing and cancellation because a provider can perform differently at each stage. Give more weight to repeated recent accounts with specific dates and outcomes, while remembering that customers with extreme experiences are more likely to post.',
+        'If Plusnet is available and the package fits, it is our first major-provider check. Put Sky beside it as the strongest alternative across the current Ofcom evidence. Add Zen, Hyperoptic, Community Fibre or another local network when the address checker shows service, but judge those choices using their own current survey evidence and terms rather than assuming an Ofcom rank that does not exist.'
+      ] },
+    ],
+    faqs: [
+      { question: 'Which broadband provider has the best customer service in the UK?', answer: 'Plusnet is our starting choice among the major providers measured by Ofcom. It recorded 91% overall broadband satisfaction in Ofcom’s 2024 tracker and five complaints per 100,000 subscribers in Q4 2025, joint lowest with Virgin Media. This is not a universal league table: smaller providers below Ofcom’s reporting threshold need separate survey evidence.' },
+      { question: 'Which broadband provider has the fewest complaints?', answer: 'Plusnet and Virgin Media jointly recorded the fewest complaints among the major fixed-broadband providers in Ofcom’s Q4 2025 release, at five complaints per 100,000 subscribers. Sky followed with six, against an industry average of seven. Ofcom complaints are serious escalations and only a small share of all provider complaints, so they are not a complete customer-service score.' },
+      { question: 'Does Ofcom rank every UK broadband provider?', answer: 'No. Ofcom’s quarterly complaints table covers providers above its relevant publication threshold, while its customer-service survey names providers only where the evidence is sufficiently reliable. Smaller providers such as Zen Internet, Hyperoptic and Community Fibre may perform strongly in independent surveys but cannot be inserted into Ofcom’s table without comparable Ofcom data.' },
+      { question: 'Is Trustpilot reliable for comparing broadband customer service?', answer: 'Trustpilot can reveal recent themes, provider responses and recurring support problems, but its reviewers are self-selecting and provider review-invitation practices differ. Use it as a recent-sentiment check, not as a substitute for Ofcom’s population-weighted survey or complaints per 100,000 subscribers. Read recent one-, three- and five-star reviews rather than relying on the headline score alone.' },
+      { question: 'What should I check before choosing a broadband provider for support?', answer: 'Check whether support is available by phone and chat at the hours you need, how faults are escalated, and whether the provider or a wholesale network controls the repair. Then compare the provider’s latest Ofcom complaints rate, satisfaction evidence, minimum speed guarantee and automatic compensation membership. Confirm availability, price and service terms for your full address before ordering.' },
+    ],
+    sources: [
+      { label: 'Ofcom telecoms and pay-TV complaints report, Q4 2025', href: 'https://www.ofcom.org.uk/phones-and-broadband/service-quality/telecoms-and-pay-tv-complaints', verified: '2026-08-23' },
+      { label: 'Ofcom Comparing Customer Service report 2025', href: 'https://www.ofcom.org.uk/siteassets/resources/documents/phones-telecoms-and-internet/comparing-service-quality/2025/comparing-customer-service-report-2025.pdf?v=397528', verified: '2026-08-23' },
+      { label: 'Ofcom Comparing Customer Service research hub', href: 'https://www.ofcom.org.uk/phones-and-broadband/service-quality/report', verified: '2026-08-23' },
+      { label: 'Which? broadband provider survey 2026', href: 'https://www.which.co.uk/reviews/broadband/article/broadband-provider-reviews/best-broadband-providers-aIIx34f51krz', verified: '2026-08-23' },
+      { label: 'Plusnet complaints code of practice', href: 'https://www.plus.net/help/legal/complaints-code-of-practice/', verified: '2026-08-23' },
+    ],
   },
   satellite: {
     path: '/guides/satellite-broadband-uk', title: 'Satellite broadband in the UK: providers, costs and alternatives', metaTitle: 'Satellite Broadband UK Guide 2026',

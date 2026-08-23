@@ -144,6 +144,7 @@ export default function HowWeReviewBroadbandPage() {
           pay-TV every quarter. We use this as our primary measure of provider customer service
           quality because it is objective, consistent, and covers only complaints serious enough
           to be escalated through the provider&apos;s own complaints process.
+          See our <Link href="/research/broadband-customer-service-rankings-uk" className="text-sky-600 hover:underline">current broadband customer service ranking</Link> for the dated provider comparison and its limitations.
         </p>
 
         <h3>Live provider pricing</h3>
