@@ -1,172 +1,178 @@
 {
-  "slug": "providers/shell-energy",
-  "primary_keyword": "shell energy broadband broadband",
+  "slug": "guides/how-to-switch-broadband-uk",
+  "primary_keyword": "how to switch broadband provider uk",
   "search_locale": "UK",
   "secondary_keywords": [
     {
-      "keyword": "Shell Energy broadband review",
-      "intent": "Commercial investigation",
-      "page_slot": "excerpt, Is Shell Energy Broadband Still Available?, verdict and FAQ",
-      "coverage_note": "Answers the review query with a current status-led assessment rather than presenting retired deals as orderable."
+      "keyword": "switch broadband provider",
+      "intent": "Commercial guide",
+      "page_slot": "excerpt and step-by-step body",
+      "coverage_note": "Give the current One Touch Switch process and a practical checklist from contract check to final bill."
     },
     {
-      "keyword": "Shell Energy broadband deals",
-      "intent": "Transactional",
-      "page_slot": "historic packages table and Shell Energy Broadband Deals section",
-      "coverage_note": "Explains that there are no new Shell-branded deals and labels all package figures as historical."
+      "keyword": "how long does it take to switch broadband",
+      "intent": "Informational question",
+      "page_slot": "H2 timing section and FAQ",
+      "coverage_note": "Separate a commonly quoted planning window from Ofcom's firm one-working-day loss-of-service protection."
     },
     {
-      "keyword": "Shell Energy broadband TalkTalk",
-      "intent": "Brand transition support",
-      "page_slot": "excerpt, What Happened to Shell Energy Broadband? section and FAQ",
-      "coverage_note": "Makes the sale, migration and current account relationship explicit."
+      "keyword": "can I switch broadband if I am still in contract",
+      "intent": "Consumer rights question",
+      "page_slot": "H2 contract section and FAQ",
+      "coverage_note": "Explain early termination charges, the gaining-provider notification and the need to compare total savings with the confirmed fee."
     },
     {
-      "keyword": "Shell Energy broadband contact number",
-      "intent": "Customer support navigation",
-      "page_slot": "Support, Billing and Complaints section and FAQ",
-      "coverage_note": "Directs migrated customers to current TalkTalk account channels and warns against relying on old Shell contact details."
+      "keyword": "One Touch Switch broadband",
+      "intent": "Informational",
+      "page_slot": "intro, process table and H2 process section",
+      "coverage_note": "Define the Ofcom process, geographic scope, provider roles and when a customer may manage cancellation separately."
     },
     {
-      "keyword": "Shell Energy broadband router",
-      "intent": "Product support",
-      "page_slot": "Shell Energy Router and Network section and FAQ",
-      "coverage_note": "Explains the legacy Wi-Fi 6 and Technicolor hardware and what migrated customers should do with it."
+      "keyword": "can I keep my landline number when switching broadband",
+      "intent": "Service continuity question",
+      "page_slot": "H2 bundle checks and FAQ",
+      "coverage_note": "Tell readers to request number transfer during the order and confirm compatibility, especially for broadband-only or digital voice packages."
     },
     {
-      "keyword": "can I switch from Shell Energy broadband",
-      "intent": "Switching advice",
-      "page_slot": "Can Former Shell Energy Customers Switch? section and FAQ",
-      "coverage_note": "Provides current Ofcom One Touch Switch steps and minimum-term cautions."
+      "keyword": "broadband switching compensation",
+      "intent": "Consumer rights question",
+      "page_slot": "H2 problems section and FAQ",
+      "coverage_note": "State current Ofcom automatic compensation amounts, eligibility and the distinction between OTS downtime protection and the voluntary compensation scheme."
     }
   ],
   "serp_competitors": [
     {
-      "url": "https://www.moneysupermarket.com/broadband/providers/reviews/shell-energy/",
-      "title": "Shell Energy broadband review 2026",
-      "observed_structure": "About 2,000 words with a five-minute-read label, contents navigation, answer-led review, cost, speed, usage, router, phone, TV, extras, service, pros and cons, and named-provider comparisons.",
-      "approx_word_count": 2000,
-      "content_gap_to_improve": "The page still describes Shell as orderable and quotes an active range despite the 2024 transfer to TalkTalk. BroadbandPicker should lead with the closed-brand status and distinguish historical facts from current choices.",
-      "useful_ux_patterns": "Contents links, short topic sections, pros and cons, and direct comparisons help readers scan a long provider review.",
-      "useful_ui_patterns": "Clear section hierarchy, author identity, updated date and related-provider links.",
-      "interactive_or_functional_elements": "Contents jump links and links to comparison journeys.",
-      "trust_signals": "Named author, updated date and established comparison brand, although the current-status mismatch weakens freshness.",
-      "citation_patterns": "Few close primary citations in the visible copy; many claims are stated editorially and linked mainly to internal guides."
+      "url": "https://www.which.co.uk/reviews/broadband/article/how-to-switch-broadband-provider-a1VrH1b61tEU",
+      "title": "How To Switch Broadband Provider - Which?",
+      "observed_structure": "Answer-led essentials box, three numbered steps, deal-selection checklist, postcode comparison control and a short FAQ section.",
+      "approx_word_count": 950,
+      "content_gap_to_improve": "Make the exceptions to One Touch Switch clearer and put regulator citations next to downtime, cooling-off and contract-notification claims.",
+      "useful_ux_patterns": "In-page contents, at-a-glance steps and postcode comparison placed at the decision point.",
+      "useful_ui_patterns": "Numbered process, concise bullets and a visible comparison input.",
+      "interactive_or_functional_elements": "Postcode deal comparison form and save-article control.",
+      "trust_signals": "Named specialist author, current update date, survey methodology and links to provider assessment criteria.",
+      "citation_patterns": "Links to related Which? research and Ofcom-backed switching rules, with the survey sample owned by Which?."
     },
     {
-      "url": "https://www.broadbandswitch.co.uk/reviews/shell-energy-broadband-review/",
-      "title": "Shell Energy Broadband Review 2026 - Is It Any Good?",
-      "observed_structure": "About 1,300 words with legacy deal cards first, an in-page contents list, narrative review, package facts, speeds, router, positives, negatives, rating and related tools.",
-      "approx_word_count": 1300,
-      "content_gap_to_improve": "The active deal cards and checkout links are obsolete. A safer page should make the closure unmistakable before showing any historic package data.",
-      "useful_ux_patterns": "A compact facts block, scannable pros and cons, and speed labels answer common commercial questions quickly.",
-      "useful_ui_patterns": "Deal-card table presentation, contents list and strongly separated positive and negative sections.",
-      "interactive_or_functional_elements": "Postcode and speed-checker links, though the Shell deal actions appear stale.",
-      "trust_signals": "Named reviewer and explicit rating, but no clear current reviewed date or close citations for the retired offers.",
-      "citation_patterns": "Limited external sourcing; provider claims are presented without visible dated source notes."
+      "url": "https://www.moneysavingexpert.com/broadband-and-tv/how-to-switch-broadband-provider/",
+      "title": "How to switch broadband provider and save money | MSE",
+      "observed_structure": "Large guide with jump links, a three-step switch, exit-fee incentive table, speed guidance, compensation, social tariffs, digital landlines and haggling.",
+      "approx_word_count": 3200,
+      "content_gap_to_improve": "Keep the central switching path shorter, distinguish regulatory facts from provider-specific examples and avoid letting adjacent savings topics obscure the task.",
+      "useful_ux_patterns": "Prominent summary, worked decision checks, provider incentive table and contextual routes into comparison.",
+      "useful_ui_patterns": "Jump navigation, labelled steps, comparison tables and expandable supporting detail.",
+      "interactive_or_functional_elements": "Broadband postcode comparison journey and expandable information panels.",
+      "trust_signals": "Named utilities analyst and editor, very recent update date, regulator figures and transparent commercial comparison links.",
+      "citation_patterns": "Direct links to provider incentive terms, Ofcom data and separate specialist explainers for claims needing more detail."
     },
     {
-      "url": "https://selectra.co.uk/tv-broadband/providers/shell-broadband",
-      "title": "Shell Broadband (archive): closed in 2024, customers moved to TalkTalk",
-      "observed_structure": "About 1,500 words with a closure alert, at-a-glance status facts, dated archive label, brand history timeline, current destination, live alternatives, contact guidance and closure FAQs.",
-      "approx_word_count": 1500,
-      "content_gap_to_improve": "The archive format is accurate but BroadbandPicker can add primary sale evidence, Ofcom-backed switching steps, a clearly dated service-quality limitation and a safer historic-package explanation.",
-      "useful_ux_patterns": "Status alert, at-a-glance facts, timeline, current next steps and FAQs closely match the real task behind the query.",
-      "useful_ui_patterns": "Closed-brand badge, compact status panel, timeline and clearly separated alternatives.",
-      "interactive_or_functional_elements": "Links to current alternatives and a dedicated where-to-go-next anchor.",
-      "trust_signals": "Archived date, explicit closed status and historical framing.",
-      "citation_patterns": "Some linked supporting sources and related pages, but fewer close official citations than BroadbandPicker will expose in source notes."
+      "url": "https://www.citizensadvice.org.uk/consumer/phone-internet-downloads-or-tv/switch-broadband-phone-or-tv-provider/",
+      "title": "Check how to switch your internet, phone or TV provider - Citizens Advice",
+      "observed_structure": "Long consumer checklist covering pre-contract questions, broadband speeds, digital landlines, switching each service, cooling-off rights and complaints.",
+      "approx_word_count": 1800,
+      "content_gap_to_improve": "Use the latest dated One Touch Switch terminology and give a faster broadband-only route before broader phone, TV and accessibility cases.",
+      "useful_ux_patterns": "Task-based headings, warnings for digital landlines and direct escalation instructions.",
+      "useful_ui_patterns": "Short paragraphs, nested checklists and clearly separated service types.",
+      "interactive_or_functional_elements": "Links to Ofcom speed and coverage checkers plus consumer helpline and complaint routes.",
+      "trust_signals": "Independent advice charity, official regulator links, helpline details and a visible review date.",
+      "citation_patterns": "Inline links to Ofcom for speed, digital-landline and minimum-service rights."
     }
   ],
   "ai_overview": {
     "checked": true,
     "present": false,
-    "observation": "Checked the accessible UK web results for the exact packet term and the natural variant 'Shell Energy broadband' on 23 August 2026. No AI Overview block or cited-source panel was exposed by the available search interface. This records what was observable in that interface, not a claim about every personalised Google result.",
+    "observation": "The live UK search result checked on 23 August 2026 did not expose an AI Overview or AI answer for the primary query, so there were no overview citations to inspect.",
     "cited_sources": []
   },
   "people_also_ask": [
-    "Is Shell Energy Broadband still operating?",
-    "What happened to Shell Energy Broadband?",
-    "Has Shell Energy Broadband changed to TalkTalk?",
-    "Can I switch from Shell Energy Broadband?",
-    "Who do former Shell Energy Broadband customers contact?",
-    "Can I keep using my Shell Energy broadband router?"
+    "How long does it take to switch broadband provider?",
+    "Do I need to cancel my broadband before switching?",
+    "Can I switch broadband if I am still in contract?",
+    "Will I lose internet when switching providers?",
+    "Can I keep my landline number when I switch broadband?"
   ],
   "sources": [
-    {
-      "url": "https://octopus.energy/press/Octopus-Energy-Shell-Energy-Broadband/",
-      "source_type": "primary",
-      "verified_date": "2026-08-23",
-      "claims_supported": "Octopus agreed the sale of Shell Energy Broadband to TalkTalk shareholders on 6 February 2024; TalkTalk already supported the service platform; customers were to be contacted during migration."
-    },
-    {
-      "url": "https://uk.shellenergy.com/help/contact-us/account-queries",
-      "source_type": "primary",
-      "verified_date": "2026-08-23",
-      "claims_supported": "Shell Energy's current support result states that broadband and phone customers have moved to TalkTalk."
-    },
-    {
-      "url": "https://www.moneysavingexpert.com/news/2024/02/shell-energy-broadband-sold-talktalk/",
-      "source_type": "independent",
-      "verified_date": "2026-08-23",
-      "claims_supported": "Approximately 500,000 customers were transferred, migration was automatic, contracts and routers continued during the move, and customers should not cancel payment instructions without checking their account."
-    },
-    {
-      "url": "https://www.ofcom.org.uk/phones-and-broadband/switching-provider/shell-energy-fined-customer-contracts-deals",
-      "source_type": "regulator",
-      "verified_date": "2026-08-23",
-      "claims_supported": "Ofcom fined Shell Energy £1.4 million in November 2023 for failures involving end-of-contract and annual best-tariff notifications affecting more than 70,000 customers."
-    },
     {
       "url": "https://www.ofcom.org.uk/phones-and-broadband/switching-provider/switching-broadband-provider",
       "source_type": "regulator",
       "verified_date": "2026-08-23",
-      "claims_supported": "Under One Touch Switch, a new provider generally arranges the switch and the old service ends when the new one is working; customers should check provider-hosted email consequences."
+      "claims_supported": "One Touch Switch process, old service ending automatically, no post-switch notice charge, maximum one-working-day loss of service, bundle exceptions and 14-day cooling-off period."
     },
     {
-      "url": "https://www.ofcom.org.uk/phones-and-broadband/service-quality/most-complained-about-telecoms-and-pay-tv-providers",
+      "url": "https://www.ofcom.org.uk/phones-and-broadband/saving-money/in-or-out",
       "source_type": "regulator",
       "verified_date": "2026-08-23",
-      "claims_supported": "Historical service-quality context: Shell Energy recorded 31 broadband complaints per 100,000 customers in Q2 2022 against an industry average of 11; this is not a current TalkTalk measure."
+      "claims_supported": "Typical 12, 18 or 24-month terms and mandatory end-of-contract notifications 10 to 40 days before the minimum term ends."
+    },
+    {
+      "url": "https://www.ofcom.org.uk/phones-and-broadband/service-quality/automatic-compensation-need-know",
+      "source_type": "regulator",
+      "verified_date": "2026-08-23",
+      "claims_supported": "2026 automatic compensation scheme membership and amounts for delayed service start, missed appointments and delayed fault repair."
+    },
+    {
+      "url": "https://www.openreach.com/help-and-support/one-touch-switch",
+      "source_type": "primary",
+      "verified_date": "2026-08-23",
+      "claims_supported": "Gaining provider manages the switch, cross-network scope, start-date updates and possible installation work when changing network or adding full fibre."
+    },
+    {
+      "url": "https://www.bt.com/broadband/switch",
+      "source_type": "primary",
+      "verified_date": "2026-08-23",
+      "claims_supported": "A provider implementation of One Touch Switch and an example of provider-owned equipment needing return after departure."
+    },
+    {
+      "url": "https://www.moneysavingexpert.com/broadband-and-tv/how-to-switch-broadband-provider/",
+      "source_type": "independent",
+      "verified_date": "2026-08-23",
+      "claims_supported": "Independent corroboration of the usual three-step process, a roughly 10-working-day planning period and checks for exit fees, speed, price rises and contract length."
+    },
+    {
+      "url": "https://www.citizensadvice.org.uk/consumer/phone-internet-downloads-or-tv/switch-broadband-phone-or-tv-provider/",
+      "source_type": "independent",
+      "verified_date": "2026-08-23",
+      "claims_supported": "Independent guidance on provider notifications, bundle services, landline number transfer, final bills and complaint escalation."
     }
   ],
   "recommended_min_words": 1500,
   "required_sections": [
-    "Standalone status answer",
-    "Why choose status summary",
-    "Historical package table",
-    "Pros and cons",
-    "Current availability and TalkTalk migration",
-    "Historic deals and speeds",
-    "Router and Openreach network",
-    "Support, billing and complaints",
-    "Switching checklist",
-    "Evidence-based verdict",
+    "Standalone answer and key takeaways",
+    "At-a-glance One Touch Switch process",
+    "Contract and early termination charge check",
+    "Address-specific deal comparison checklist",
+    "Ordering and switch-day steps",
+    "Bundle, landline, email and accessibility checks",
+    "Timing and downtime",
+    "Problems, compensation and complaints",
     "Standalone FAQs",
-    "Editorial and source notes"
+    "Visible editorial source notes"
   ],
   "internal_links": [
-    "/providers/talktalk",
-    "/guides/how-to-switch-broadband-uk",
     "/compare",
-    "/providers",
-    "/how-we-review-broadband",
-    "/editorial-policy"
+    "/deals",
+    "/guides/broadband-speeds-explained",
+    "/guides/broadband-contract-end-rights",
+    "/guides/broadband-moving-house",
+    "/guides/broadband-social-tariffs-uk",
+    "/how-we-review-broadband"
   ],
-  "schema_types": ["Article", "FAQPage"],
+  "schema_types": [
+    "Article",
+    "FAQPage"
+  ],
   "ux_ui_requirements": [
-    "Use the existing retired-provider treatment so the closed status appears in the header, excerpt, CTA and package heading; this prevents a reader mistaking archive prices for live deals.",
-    "Use the existing responsive package table for a dated historic speed range; this serves readers comparing an old bill or contract while keeping the archive label visible.",
-    "Use concise pros and cons plus answer-first sections; ranking pages show that readers want a quick assessment before detailed hardware and service history.",
-    "Show reviewed and pricing-verification dates and visible source notes; this addresses the stale information found in two ranking reviews.",
-    "Add contextual links from the TalkTalk page and switching guide so former customers can move between the brand history, current provider review and switching process."
+    "Use the existing Key Takeaways panel to answer the task before the long guide, serving readers who need the rule and next action quickly.",
+    "Add a compact process table that separates the customer's action, new provider's action and old provider's action, serving readers confused about who cancels.",
+    "Use numbered step headings and checklists for contract, deal and switch-day tasks, reflecting the dominant task pattern across all three ranking pages.",
+    "Place visible regulator and primary-source citations directly beside material rights, timing and compensation claims.",
+    "Keep the existing accessible comparison deal table and FAQ accordion, with the comparison call to action after the checklist."
   ],
   "functional_requirements": [
-    "Retired-brand CTAs must route to TalkTalk rather than an obsolete Shell checkout.",
-    "Do not emit Offer JSON-LD for the retired Shell brand; retain Article and FAQPage JSON-LD only.",
-    "Keep postcode comparison and current-provider actions available through the existing accessible CTAs.",
-    "Ensure the provider is generated by generateStaticParams and included automatically in the provider hub and sitemap dataset."
+    "Retain the existing live DealTable and /compare route so users can move from guidance to address-specific offers.",
+    "Retain FAQPage structured data and ensure every displayed answer is 35 to 90 words and matches the JSON-LD.",
+    "Provide direct links to Ofcom switching, contract-status and compensation pages for verification and problem resolution."
   ],
-  "research_summary": "The natural UK query is 'Shell Energy broadband'; the duplicated final word in the packet appears to be a keyword-data artefact and is retained only as the validator's primary_keyword value. Current results mix obsolete commercial reviews with accurate archive pages. The official Octopus announcement and current Shell support result establish that the broadband customer base moved to TalkTalk in 2024. The page should therefore be an archive and support guide, not a live deal page. Ranking pages commonly use 1,300 to 2,000 words, contents-style scanning, package facts, speed and router sections, pros and cons, comparisons and FAQs. The most useful differentiator is a prominent current-status answer backed by official and regulatory evidence.",
-  "depth_rationale": "A 1,500-word minimum matches the accurate Selectra archive and exceeds the roughly 1,300-word Broadbandswitch review without padding to the longest result. That depth is needed to answer both major intents visible in the results: prospective users checking whether Shell deals still exist and former customers seeking TalkTalk, billing, router, complaint or switching help. Historical package details are included only where they help identify a legacy service, while current actions and limitations receive more space."
+  "research_summary": "Current UK results lead with One Touch Switch, checking contract status and a short numbered process. Which? is the focused version, MSE expands into savings and provider incentives, and Citizens Advice expands into rights and bundled services. The rebuilt guide adopts the useful summary, checklist, process table, problem route and comparison action while giving Ofcom claims stronger close citation.",
+  "depth_rationale": "A 1,500-word rendered minimum is above the focused Which? result and substantial enough to cover Citizens Advice-style safeguards, while remaining well below MSE's broad hub because social tariffs, speed selection and provider-by-provider cancellation rules already have dedicated BroadbandPicker pages. This depth directly answers the switching task without padding adjacent topics."
 }

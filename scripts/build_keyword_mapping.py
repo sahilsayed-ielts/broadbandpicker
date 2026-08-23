@@ -1079,6 +1079,48 @@ def next_page_packet(wb: Workbook, keywords: list[KeywordRow]) -> dict[str, Any]
     }
 
 
+def page_packet_for_url(url: str, keywords: list[KeywordRow]) -> dict[str, Any]:
+    """Build a research packet for an existing or explicitly selected site URL."""
+    parsed = urllib.parse.urlparse(url)
+    if parsed.scheme not in {"http", "https"} or parsed.netloc not in {
+        "broadbandpicker.co.uk", "www.broadbandpicker.co.uk"
+    }:
+        raise RuntimeError("--build-page-url must be a BroadbandPicker HTTPS URL")
+    slug = parsed.path.strip("/")
+    if not slug:
+        raise RuntimeError("--build-page-url must identify a page below the site root")
+    data_file, template, interface = route_page_build(slug)
+    mapped_path = f"/{slug}"
+    mapped = [row for row in keywords if row.get("mapped_url") == mapped_path]
+    mapped.sort(key=lambda row: (row["difficulty"], -row["volume"]))
+    if not mapped:
+        raise RuntimeError(f"No curated keyword mapping exists for {mapped_path}")
+    detailed_keywords = [{
+        "keyword": row["keyword"], "volume": row["volume"],
+        "difficulty": row["difficulty"], "cpc": row["cpc"],
+        "intent": row["intent"], "role": "primary" if index == 0 else "secondary",
+        "recommended_slot": "title/excerpt" if index == 0 else "body/faq",
+        "source": "Curated keyword dataset",
+    } for index, row in enumerate(mapped)]
+    providers = provider_slugs_from_gap(slug)
+    return {
+        "generated": RUN_DATE,
+        "slug": slug,
+        "url": f"https://broadbandpicker.co.uk/{slug}",
+        "title": slug.rsplit("/", 1)[-1].replace("-", " ").title(),
+        "cluster": mapped[0]["cluster"],
+        "page_type": mapped[0]["page_type"],
+        "data_file": data_file,
+        "template": template,
+        "interface": interface,
+        "keywords": detailed_keywords,
+        "provider_prerequisites": providers,
+        "missing_provider_prerequisites": [provider for provider in providers if not provider_exists(provider)],
+        "brief": str(PIPELINE_BRIEF),
+        "build_mode": "complete_existing_page",
+    }
+
+
 def write_page_build_packet(packet: dict[str, Any]) -> tuple[Path, Path]:
     PIPELINE_DIR.mkdir(parents=True, exist_ok=True)
     packet_path = PIPELINE_DIR / "next-page.json"
@@ -1420,6 +1462,8 @@ def main() -> None:
                         help=f"Update an existing mapping Sheet in place (for this plan use {DEFAULT_MAPPING_SHEET_ID})")
     parser.add_argument("--build-next-page", action="store_true",
                         help="Research, draft and locally validate the next active roadmap page")
+    parser.add_argument("--build-page-url",
+                        help="Research, completely rebuild and validate a specific existing BroadbandPicker URL")
     parser.add_argument("--build-all-priority", action="store_true",
                         help="Build every active roadmap page in priority order, stopping on the first failure")
     parser.add_argument("--max-priority-pages", type=int, default=DEFAULT_PRIORITY_BATCH_SIZE,
@@ -1466,8 +1510,10 @@ def main() -> None:
         args.build_next_page = True
     if args.max_priority_pages < 0:
         parser.error("--max-priority-pages cannot be negative")
+    if args.build_page_url:
+        args.build_next_page = True
     if args.deploy_production and not args.build_next_page:
-        parser.error("--deploy-production requires --build-next-page or --build-all-priority")
+        parser.error("--deploy-production requires --build-next-page, --build-page-url or --build-all-priority")
     if args.deploy_production and not args.approve_factual_review:
         parser.error("--deploy-production requires --approve-factual-review")
     if args.build_all_priority and not args.deploy_production:
@@ -1476,6 +1522,8 @@ def main() -> None:
         parser.error("--use-existing-draft cannot be combined with --build-all-priority")
     if args.build_all_priority and args.prepare_only:
         parser.error("--prepare-only cannot be combined with --build-all-priority")
+    if args.build_all_priority and args.build_page_url:
+        parser.error("--build-page-url cannot be combined with --build-all-priority")
 
     page_packet = None
     doc_result = None
@@ -1486,7 +1534,10 @@ def main() -> None:
         batch_limit = args.max_priority_pages if args.build_all_priority else 1
         while not batch_limit or len(completed_packets) < batch_limit:
             try:
-                current_packet = next_page_packet(wb, keywords)
+                current_packet = (
+                    page_packet_for_url(args.build_page_url, keywords)
+                    if args.build_page_url else next_page_packet(wb, keywords)
+                )
             except RuntimeError as exc:
                 if args.build_all_priority and "No active page remains" in str(exc):
                     print("All active roadmap pages are built and live")
@@ -1545,6 +1596,8 @@ def main() -> None:
                     }
                     print(f"Checkpointed Google Sheet through authenticated connector: {doc_result['spreadsheetUrl']}")
 
+            if args.build_page_url:
+                break
             try:
                 following_packet = next_page_packet(wb, keywords)
             except RuntimeError as exc:

@@ -1,26 +1,37 @@
 {
   "generated": "2026-08-23",
-  "slug": "research/broadband-customer-service-rankings-uk",
-  "url": "https://broadbandpicker.co.uk/research/broadband-customer-service-rankings-uk",
-  "title": "Broadband customer service rankings: Ofcom-evidenced comparison",
-  "cluster": "Trust & research",
-  "page_type": "Research page",
-  "data_file": "bespoke",
-  "template": "app/research/uk-broadband-customer-satisfaction",
-  "interface": "bespoke",
+  "slug": "guides/how-to-switch-broadband-uk",
+  "url": "https://broadbandpicker.co.uk/guides/how-to-switch-broadband-uk",
+  "title": "How To Switch Broadband Uk",
+  "cluster": "Switching & rights",
+  "page_type": "Guide",
+  "data_file": "data/guides.ts",
+  "template": "app/guides/[slug]/page.tsx",
+  "interface": "GuideMetadata",
   "keywords": [
     {
-      "keyword": "best customer service broadband provider",
-      "volume": 880,
-      "difficulty": 27,
-      "cpc": 3.1,
-      "intent": "Research",
+      "keyword": "how to switch broadband provider uk",
+      "volume": 2400,
+      "difficulty": 30,
+      "cpc": 5.2,
+      "intent": "Commercial guide",
       "role": "primary",
       "recommended_slot": "title/excerpt",
+      "source": "Curated keyword dataset"
+    },
+    {
+      "keyword": "switch broadband provider",
+      "volume": 3600,
+      "difficulty": 38,
+      "cpc": 13.07,
+      "intent": "Commercial guide",
+      "role": "secondary",
+      "recommended_slot": "body/faq",
       "source": "Curated keyword dataset"
     }
   ],
   "provider_prerequisites": [],
   "missing_provider_prerequisites": [],
-  "brief": "/Users/sahilrafiqsayed/broadbandpicker/docs/page-build-pipeline-brief.md"
+  "brief": "/Users/sahilrafiqsayed/broadbandpicker/docs/page-build-pipeline-brief.md",
+  "build_mode": "complete_existing_page"
 }

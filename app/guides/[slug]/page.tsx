@@ -47,34 +47,78 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
   'how-to-switch-broadband-uk': {
     body: (
       <>
-        <p>Switching broadband provider is easier than ever in 2026, thanks to Ofcom&apos;s <strong>One Touch Switching (OTS)</strong> rules introduced in 2023. You now only need to contact your new provider — they handle the rest, including cancelling your old contract.</p>
-        <h2>Step 1: Check when your contract ends</h2>
-        <p>Log in to your current provider&apos;s account or check your bills to find your contract end date. Switching inside a contract usually means paying an <strong>early termination charge (ETC)</strong> — typically one month&apos;s bill per remaining month.</p>
-        <p>If you&apos;re out of contract, you can switch immediately without penalty. Most providers will also waive ETCs if they&apos;ve raised prices mid-contract.</p>
-        <h2>Step 2: Compare deals and choose a new provider</h2>
-        <p>Use BroadbandPicker to compare deals from every major UK provider. Enter your postcode to see what&apos;s available at your address. Consider:</p>
+        <p><strong>One Touch Switch means most UK home broadband customers only contact the provider they are joining.</strong> The new provider asks for your address and current-provider details, matches the existing service, tells the old provider and arranges the transfer. Your old broadband should end automatically after the new service starts, unless you deliberately choose to manage the two contracts yourself.</p>
+        <p><a href="https://www.ofcom.org.uk/phones-and-broadband/switching-provider/simpler-broadband-switching-is-here" target="_blank" rel="noopener noreferrer">Ofcom introduced the cross-network process on 12 September 2024</a>. It applies when moving between participating fixed broadband networks, not just between providers using the same Openreach line. A first full-fibre installation or a move to a different network can still require an engineer, new wiring or drilling. Your new provider must explain those steps before the start date.</p>
+
+        <h2>Broadband switching process at a glance</h2>
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse text-sm">
+            <thead>
+              <tr className="bg-slate-50">
+                {['Stage', 'What you do', 'What the providers do'].map((heading) => (
+                  <th key={heading} className="border border-slate-200 px-4 py-3 text-left font-semibold text-slate-700">{heading}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td className="border border-slate-200 px-4 py-3 font-semibold">1. Check</td><td className="border border-slate-200 px-4 py-3">Find your contract end date, exit charge and bundled services.</td><td className="border border-slate-200 px-4 py-3">Your current provider must show contract information and send an end-of-contract notice.</td></tr>
+              <tr><td className="border border-slate-200 px-4 py-3 font-semibold">2. Compare</td><td className="border border-slate-200 px-4 py-3">Check offers for your exact address, total contract cost and realistic speed.</td><td className="border border-slate-200 px-4 py-3">The chosen provider supplies contract information and an address-specific speed estimate.</td></tr>
+              <tr><td className="border border-slate-200 px-4 py-3 font-semibold">3. Order</td><td className="border border-slate-200 px-4 py-3">Give the new provider accurate account and address details.</td><td className="border border-slate-200 px-4 py-3">The new provider contacts the old one. Both send switch details and identify charges or services at risk.</td></tr>
+              <tr><td className="border border-slate-200 px-4 py-3 font-semibold">4. Change over</td><td className="border border-slate-200 px-4 py-3">Connect the new router or attend the engineer appointment.</td><td className="border border-slate-200 px-4 py-3">The new service starts, then the old broadband ends automatically under the managed process.</td></tr>
+              <tr><td className="border border-slate-200 px-4 py-3 font-semibold">5. Close</td><td className="border border-slate-200 px-4 py-3">Check the final bill, refund and equipment-return instructions.</td><td className="border border-slate-200 px-4 py-3">The old provider closes the account and must not charge a notice period after the switch date.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Step 1: Check your contract end date and exit charge</h2>
+        <p>Start with your bill, online account or end-of-contract message. <a href="https://www.ofcom.org.uk/phones-and-broadband/saving-money/in-or-out" target="_blank" rel="noopener noreferrer">Ofcom says broadband contracts are commonly 12, 18 or 24 months</a>. Providers must send an end-of-contract notification by text, email or letter between 10 and 40 days before the minimum term ends. It must state the end date, notice period, current and post-contract price and the provider&apos;s best available deals.</p>
+        <p>If the minimum term has ended, you can normally leave without an early termination charge. If it has not, ask the old provider for the exact charge on your intended switch date. Do not estimate it as simply the monthly bill multiplied by the months left. Providers use contract-specific calculations that can account for VAT, avoided costs, discounts and bundled products.</p>
+        <p>A mid-contract switch can still make sense if the new provider offers a switching credit or the saving across the new minimum term exceeds the confirmed exit charge. Compare like with like: exit charge plus setup cost plus every scheduled monthly price against the full cost of staying. Our <Link href="/guides/broadband-contract-end-rights">broadband contract end rights guide</Link> explains the notice and tariff information you should receive.</p>
+
+        <h2>Step 2: Compare broadband available at your address</h2>
+        <p>Broadband availability and speed can change between neighbouring streets and flats, so a national headline offer is not enough. Use an address-level <Link href="/compare">broadband comparison</Link>, then verify the package summary supplied by the provider before ordering. We would start with total contract cost and the guaranteed or estimated speed for the address, not a gift card or an advertised maximum.</p>
+        <p>Check these points for every shortlisted deal:</p>
         <ul>
-          <li><strong>Price</strong> — the introductory rate and what it rises to after the deal period</li>
-          <li><strong>Speed</strong> — match speed to your household&apos;s actual usage</li>
-          <li><strong>Contract length</strong> — 12 months gives more flexibility, 18–24 months usually means a lower monthly price</li>
-          <li><strong>Setup fees</strong> — many providers now offer free installation</li>
+          <li><strong>Total price:</strong> monthly charges across the minimum term, stated in-contract rises, setup or activation charges and delivery fees.</li>
+          <li><strong>Address-specific speed:</strong> the download and upload estimate, plus any minimum guaranteed access-line speed the provider gives you.</li>
+          <li><strong>Technology and work:</strong> FTTP, cable, fixed wireless or another connection, and whether an engineer needs access to the property.</li>
+          <li><strong>Contract length:</strong> a longer term can reduce flexibility even where the first-month price is lower.</li>
+          <li><strong>Router and support:</strong> delivery date, whole-home Wi-Fi options, fault contact routes and any equipment charge on departure.</li>
+          <li><strong>Price after the term:</strong> set a reminder before the minimum term ends rather than drifting onto a higher rolling price.</li>
         </ul>
-        <p>If your contract ends in November, use our <Link href="/guides/black-friday-broadband-deals-uk">Black Friday broadband deals guide</Link> to compare seasonal rewards with the full minimum-term cost.</p>
-        <h2>Step 3: Sign up with your new provider</h2>
-        <p>Once you&apos;ve chosen a deal, sign up directly with the new provider. Under One Touch Switching, they will contact your current provider to initiate the switch on your behalf. You won&apos;t normally need to call your old provider at all.</p>
-        <h2>Step 4: Keep your old connection live until switch day</h2>
-        <p>Don&apos;t cancel your existing broadband until the switch is confirmed and your new connection is working. Your new provider will give you a switch date — typically within 15 working days of signing up.</p>
-        <h2>Step 5: Return old equipment</h2>
-        <p>Your old provider will send a returns bag for any rented equipment (router, ONT box). Return it within the stated timeframe to avoid charges — usually 30 days.</p>
-        <h2>How long does switching take?</h2>
-        <p>Most switches complete within 10–15 working days. Full-fibre (FTTP) installations requiring an engineer visit may take up to 4 weeks. You should experience no more than a few minutes&apos; downtime during the cutover.</p>
+        <p>Use our <Link href="/guides/broadband-speeds-explained">broadband speed guide</Link> if the estimates are hard to compare. Customers receiving Universal Credit or another qualifying benefit should also check <Link href="/guides/broadband-social-tariffs-uk">broadband social tariffs</Link> before taking an ordinary commercial offer.</p>
+
+        <h2>Step 3: Order from the new provider</h2>
+        <p>Sign up with the gaining provider and say which provider currently supplies the address. Use the account holder&apos;s name and address exactly as they appear on the old bill because mismatched details can stop the automated match. The old provider then sends information about the proposed switch, including any early termination charge and services that may be affected.</p>
+        <p>Do not separately cancel the old broadband during a normal One Touch Switch. Ofcom says the old service ends automatically once the new service is working. A separate cancellation can turn a coordinated transfer into a cease-and-reprovide order, creating avoidable downtime or risking a landline number.</p>
+        <p>You can choose to manage the switch yourself if you need both connections to overlap, perhaps because uninterrupted access is essential for home working. Tell the new provider when ordering and cancel the old contract separately only after agreeing the plan. One Touch Switch protections do not apply to that self-managed route.</p>
+
+        <h2>Step 4: Confirm phone, TV, email and accessibility needs</h2>
+        <p>Broadband may sit inside a bundle whose parts do not all transfer. Ask the new and old providers to identify what happens to paid TV, call packages, mobile discounts, security products and extra Wi-Fi equipment. Ofcom says the old provider should explain any services that need separate cancellation. Paying the final broadband bill does not necessarily cancel an attached TV contract.</p>
+        <p>If you want to keep a landline number, request the transfer during the new order and get confirmation before switch day. Citizens Advice says customers should generally be able to keep a number when changing landline provider unless moving house, but compatibility matters. A broadband-only package or a provider without a suitable digital voice service may not accept the number.</p>
+        <p>Move away from an old provider-hosted email address before switching if continued access is uncertain. Update banking, government and recovery accounts first, export important messages and give contacts a provider-independent email address. People who rely on a personal alarm, medical device or landline during power cuts should tell the new provider before ordering and confirm how the equipment works with a digital phone service.</p>
+
+        <h2>Step 5: Prepare for switch day and close the old account</h2>
+        <p>The new provider gives you a start date and tells you whether an engineer is needed. Keep the old router connected until instructed, but unpack the new equipment early and check that the cables and power supply are present. If an engineer needs access, confirm the appointment window and any landlord permission required for drilling or a new fibre entry point.</p>
+        <p>Once the replacement service works, test it over Ethernet or close to the router, then check phone service if included. Read the old provider&apos;s final bill for the switch date, early termination charge, account credit and any unreturned-equipment fee. Return rented routers, TV boxes or Wi-Fi discs using the provider&apos;s stated method and keep the postage receipt. Deadlines differ, so use the instructions sent for your account rather than assuming a universal 30-day period.</p>
+
+        <h2>How long does it take to switch broadband?</h2>
+        <p>Around 10 working days is a useful planning estimate for a straightforward transfer and is the timeframe currently cited by MoneySavingExpert. It is not a universal Ofcom deadline for completing every order. A new FTTP connection, network change, wayleave, engineer visit or address-matching problem can extend the lead time, so the provider&apos;s confirmed activation date is the date to plan around.</p>
+        <p>The firmer consumer protection concerns disruption on the transfer day. <a href="https://www.ofcom.org.uk/phones-and-broadband/switching-provider/switching-broadband-provider" target="_blank" rel="noopener noreferrer">Ofcom says loss of service during a provider-led switch must not last longer than one working day</a>. The new provider must keep you informed and compensate you if the switch goes wrong. Do not cancel essential mobile backup until the fixed connection and any digital phone are tested.</p>
+
+        <h2>What to do if the broadband switch goes wrong</h2>
+        <p>Contact the new provider first about a delayed activation, failed match or missed installation because it owns the switching order. Keep order confirmations, promised dates, appointment messages and screenshots of service status. Contact the old provider too if it continues billing after the completed switch or closes a service that was meant to remain active.</p>
+        <p><a href="https://www.ofcom.org.uk/phones-and-broadband/service-quality/automatic-compensation-need-know" target="_blank" rel="noopener noreferrer">Ofcom&apos;s voluntary Automatic Compensation Scheme</a> covers named residential providers. At the rates verified on 23 August 2026, a delayed start earns £6.46 for each calendar day after the promised date, and a missed engineer appointment or cancellation with less than 24 hours&apos; notice earns £32.31. A reported total loss of service not repaired after two full working days earns £10.34 for each qualifying calendar day. Check that your provider participates and that no exclusion applies.</p>
+        <p>If payment or a fix does not arrive, use the provider&apos;s formal complaints process. Ofcom does not resolve individual complaints, but its guidance points unresolved cases to the provider&apos;s approved alternative dispute resolution scheme. For a practical consumer route, Citizens Advice can help in Great Britain and Consumerline serves Northern Ireland.</p>
       </>
     ),
     faqs: [
-      { question: 'Will I lose my broadband connection when I switch?', answer: 'You should experience minimal downtime — typically just a few minutes during the actual cutover. For FTTP (full-fibre) installs requiring an engineer, you may be briefly without service during the installation appointment.' },
-      { question: 'Can I keep my phone number when I switch broadband?', answer: 'Yes — if you have a landline number you want to keep, inform your new provider when you sign up. They can port your number across as part of the switch.' },
-      { question: 'What if I\'m still in contract?', answer: 'You can still switch, but you\'ll likely have to pay an early termination charge (ETC) equal to the remaining months on your contract multiplied by your monthly fee. Check your contract or contact your provider to get the exact figure.' },
-      { question: 'Do I need to call my old provider to cancel?', answer: 'Under One Touch Switching rules, no — your new provider handles the cancellation on your behalf. However, it\'s still worth calling your existing provider once the switch is confirmed to ensure there are no outstanding charges.' },
+      { question: 'Will I lose my broadband connection when I switch?', answer: 'A provider-led One Touch Switch should keep disruption short because the old service ends after the new one starts. Ofcom says any loss of service must not exceed one working day. A new full-fibre installation or network change may need engineering work, so confirm the activation plan and keep mobile backup available until the new connection has been tested.' },
+      { question: 'Can I keep my landline number when switching broadband?', answer: 'Ask the new provider to transfer your landline number when you place the order and obtain confirmation before switch day. Number retention is normally possible when changing landline provider, but it is not guaranteed for every move or package. Broadband-only deals and providers without a compatible digital voice service may be unable to accept the existing number.' },
+      { question: 'Can I switch broadband if I am still in contract?', answer: 'Yes, but your old provider may charge an early termination fee. Ask for the exact amount for your proposed switch date because the calculation varies by contract and bundle. Add that fee and any setup costs to the new deal&apos;s full minimum-term price, then compare the result with the cost of staying before you order.' },
+      { question: 'Do I need to cancel my old broadband before switching?', answer: 'No, not during a normal One Touch Switch. Order from the provider you are joining and it should notify the old provider and coordinate cancellation after the new service starts. Cancel separately only if you have deliberately chosen a self-managed overlap or are ending broadband without moving to another regulated fixed provider, and confirm the consequences first.' },
+      { question: 'How long does it take to switch broadband provider?', answer: 'About 10 working days is a reasonable planning estimate for a straightforward broadband transfer, but installation requirements and provider availability can change the date. Use the confirmed activation date supplied with your order. Ofcom&apos;s specific protection is that loss of service during a managed switch must not exceed one working day, rather than a universal ten-day completion guarantee.' },
+      { question: 'Can I get compensation if my broadband switch is delayed?', answer: 'Possibly. Ofcom&apos;s Automatic Compensation Scheme requires participating providers to pay £6.46 per calendar day when a new service starts late and £32.31 for a missed engineer appointment, at rates verified on 23 August 2026. Separate One Touch Switch rules also require compensation when switching problems leave you without service for more than one working day. Eligibility and exclusions apply.' },
     ],
   },
 
