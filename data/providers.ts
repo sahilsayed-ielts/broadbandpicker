@@ -238,35 +238,154 @@ const baseProviders: Provider[] = [
     slug: 'talktalk',
     name: 'TalkTalk',
     logo: '/logos/talktalk.svg',
-    affiliateUrl: 'https://www.talktalk.co.uk/broadband',
+    affiliateUrl: 'https://www.awin1.com/cread.php?awinmid=3674&awinaffid=2942019&ued=https%3A%2F%2Fwww.talktalk.co.uk%2Fbroadband',
     speeds: [
-      { download: 38, upload: 9, type: 'FTTC' },
-      { download: 67, upload: 17, type: 'FTTC' },
+      { download: 35, upload: 9, type: 'FTTC' },
+      { download: 65, upload: 17, type: 'FTTC' },
       { download: 150, upload: 30, type: 'FTTP' },
       { download: 500, upload: 75, type: 'FTTP' },
+      { download: 900, upload: 110, type: 'FTTP' },
     ],
-    monthlyPriceFrom: 19.99,
-    contractLengths: [18, 24],
+    monthlyPriceFrom: 25.00,
+    contractLengths: [24],
     setupFee: 0,
-    trustpilotScore: 2.8,
+    trustpilotScore: 1.5,
     coveragePercent: 96,
     highlights: [
-      'One of the cheapest broadband deals in the UK',
-      'Price-lock guarantee on selected plans',
-      'HomeSafe parental controls included',
+      'One of the cheapest big-name full-fibre ranges in the UK, from £25 a month',
+      'Full Fibre 900 is TalkTalk\'s fastest package, with unlimited data and no traffic management on every tier',
+      'Named the most complained-about broadband provider by Ofcom for the third quarter running, in the regulator\'s Q1 2026 report',
     ],
     pros: [
-      'Very competitive pricing',
-      'Good coverage across the UK',
-      'Price-lock on some deals',
+      'Genuinely low entry prices across both part-fibre and full-fibre ranges',
+      'Runs on the Openreach network, the same physical lines used by BT, Sky and Plusnet',
+      'Unlimited data with no fair-use clause hidden in the terms',
+      'Every scheduled price rise is disclosed upfront to April 2028, not sprung on customers later',
     ],
     cons: [
-      'Below average customer satisfaction',
-      'Speed reliability complaints',
-      'Past data security incidents',
+      'Named the UK\'s most complained-about broadband provider by Ofcom for three consecutive quarters',
+      'Trustpilot rating sits at 1.5 out of 5 from over 50,000 reviews, in Trustpilot\'s "Bad" band',
+      'Standard router is WiFi 5, a generation behind what most full-fibre rivals now include',
+      'Two scheduled price rises are already built into every 24-month contract, in April 2027 and April 2028',
     ],
-    ...createReviewMetadata('TalkTalk', 'https://www.talktalk.co.uk/broadband', 'talktalk.co.uk'),
-    awinProgramId: null,
+    excerpt:
+      'TalkTalk is one of the UK\'s cheapest big-name broadband providers, with full-fibre plans from £25 a month running on the same Openreach network as BT and Sky. It is also, by Ofcom\'s own Q1 2026 complaints data, the most complained-about broadband provider in the UK for the third quarter running, and its Trustpilot score sits at 1.5 out of 5 from more than 50,000 reviews. The low price is real; so is the service-quality trade-off that comes with it.',
+    contentSections: [
+      {
+        heading: 'TalkTalk Broadband Deals in August 2026',
+        paragraphs: [
+          'TalkTalk\'s current range splits into part-fibre and full-fibre. Fibre 35 and Fibre 65 both start at £26 a month on a 24-month contract, delivering average download speeds of 35 Mbps and 65 Mbps. Full Fibre 150 undercuts both at £25 a month, and is TalkTalk\'s only "data-only" option, meaning it can be ordered without a phone line. Full Fibre 500 is £30 a month and Full Fibre 900, the fastest package, is £36 a month.',
+          'Every one of these prices rises twice on a fixed schedule: once in April 2027 and again in April 2028. Full Fibre 150 goes from £25 to £29 to £33 over the life of the contract, for example. This is disclosed clearly on TalkTalk\'s own pricing pages rather than buried in the terms, but it means the true two-year cost of any TalkTalk plan is meaningfully higher than the headline monthly figure suggests, and it should be compared on that basis against a provider offering a flat price for the full term.',
+          'There is also TalkTalk U, an adaptive plan priced at £25, £28 or £31 a month depending on tier, marketed around adjusting to usage needs rather than a fixed speed number. It is a less straightforward comparison than the named Full Fibre tiers, so anyone considering it should check exactly what speed range it guarantees at their address before assuming it is simply a cheaper version of Full Fibre 150.',
+        ],
+      },
+      {
+        heading: 'TalkTalk Speeds: Part-Fibre and Full Fibre',
+        paragraphs: [
+          'Fibre 35 and Fibre 65 are part-fibre products, delivered over a fibre connection to the street cabinet and copper for the final stretch to the property, which is why their upload speeds (9 Mbps and 17 Mbps) are much lower relative to download than the full-fibre tiers. They suit light use: browsing, standard-definition and HD streaming, and general email and video calls for one or two people.',
+          'The three Full Fibre tiers run fibre all the way to the property. Full Fibre 150 offers around 30 Mbps upload, Full Fibre 500 around 75 Mbps, and Full Fibre 900 around 110 Mbps, based on independent tracking rather than TalkTalk\'s own marketing pages, which emphasise download speed and do not headline upload figures for any tier. Anyone who regularly uploads large files, backs up to the cloud, or works from home on video calls should treat upload speed, not just the download number, as the deciding factor between tiers.',
+          'TalkTalk quotes an average download figure for every tier alongside a stated minimum, and is a signatory to the Ofcom-backed Broadband Speed Code of Practice, which allows an exit without penalty if speed falls below the guaranteed minimum for more than 3 days after 30 days of unresolved reports. Keep a written record of any speed complaint and the dates involved if this becomes relevant.',
+        ],
+      },
+      {
+        heading: 'Router, Wi-Fi and Add-ons',
+        paragraphs: [
+          'The router included as standard across TalkTalk\'s range is WiFi 5, a generation behind the WiFi 6 hardware most full-fibre rivals, including several smaller altnets, now include as standard. For a typical home with a handful of devices this is rarely noticeable, but a household with many simultaneous streaming devices, consoles and smart-home gadgets may find a WiFi 5 router becomes the bottleneck before the line speed does.',
+          'Total Home Wi-Fi is TalkTalk\'s paid mesh add-on for extending coverage into rooms the main router does not reach well, with a 45-day window to assess whether it is actually needed before committing further. SuperSafe, an F-Secure-powered security add-on, and Calling Boosts for UK or international calls, are both available separately rather than bundled into the core price.',
+          'TalkTalk TV is a rolling monthly subscription available to Full Fibre and part-fibre customers, which is worth knowing if a genuine like-for-like comparison against a rival with a bundled TV package is being made; TalkTalk\'s broadband-only headline price does not include it.',
+        ],
+      },
+      {
+        heading: 'TalkTalk Contract Length and the Two Scheduled Price Rises',
+        paragraphs: [
+          'Every current TalkTalk plan is sold on a 24-month contract; there is no shorter or rolling monthly option published for the main range. Two price rises are built into that term as standard: one in April 2027 and a second in April 2028, both disclosed on the plan\'s own pricing page rather than only in the small print.',
+          'This is a genuinely different structure from a provider offering a flat price for the whole contract, and it means the honest way to compare TalkTalk against a rival is the full two-year cost, not the first month\'s bill. A £25 Full Fibre 150 plan that becomes £33 a month by year two is not automatically the cheapest option over 24 months once a flat-priced rival is added to the comparison.',
+          'A missed engineer appointment can also incur a charge, so confirm the installation date works before booking it, and keep any confirmation correspondence in case a dispute arises later.',
+        ],
+      },
+      {
+        heading: 'Installation and Switching to TalkTalk',
+        paragraphs: [
+          'TalkTalk quotes no setup fee across its current range, with engineer installation typically taking one to two hours where a new connection is required. New connections across the range go through a 10-day stabilisation period, standard practice across the industry for a newly activated line, during which speed can vary slightly while the connection settles.',
+          'Because TalkTalk operates on the Openreach network, most switches from another Openreach-based provider, including BT, Sky and Plusnet, qualify for Ofcom\'s One Touch Switch process, which is designed to be a same-day handover with no loss of service and no need to contact the outgoing provider directly.',
+          'A switch from a provider on a different network, such as Virgin Media\'s own cable infrastructure or a full-fibre altnet, will not use One Touch Switch and may involve a short overlap period, so keep the existing service active until the new TalkTalk connection is confirmed working.',
+        ],
+      },
+      {
+        heading: 'TalkTalk Customer Service and Ofcom Complaints Data',
+        paragraphs: [
+          'This is the section that matters most for TalkTalk specifically. Ofcom\'s own complaints report for the period covering Q1 2026 named TalkTalk the most complained-about broadband provider in the UK, stating that complaints "stayed at similar levels to the previous quarter" and mostly related to faults, service and provisioning, complaints handling, and billing and pricing problems. Independent reporting on the same underlying Ofcom data put the figure at around 10 complaints per 100,000 customers, against an industry average of 6, and noted this was the third consecutive quarter TalkTalk had topped the table.',
+          'TalkTalk\'s Trustpilot profile corroborates the pattern: a rating of 1.5 out of 5 from more than 50,000 reviews at the point of this check, placing it in Trustpilot\'s "Bad" band. Recurring themes in the reviews include long phone wait times, charges continuing after a contract has ended, and billing errors that take more than one call to resolve. Notably, TalkTalk Business, a separate division serving business customers, holds a much stronger 4.2 out of 5 on Trustpilot from over 20,000 reviews, so the complaints pattern described here is specific to the residential broadband service, not the TalkTalk brand as a whole.',
+          'None of this means every TalkTalk customer has a bad experience; the line itself runs on the same Openreach network as BT and Sky, so day-to-day speed and reliability are not inherently worse. The risk this data actually points to is what happens when something goes wrong, a fault, a billing dispute or a cancellation, where TalkTalk\'s own regulatory and review record suggests the resolution process is where it currently falls short of rivals.',
+        ],
+      },
+      {
+        heading: 'Is TalkTalk Broadband Any Good?',
+        paragraphs: [
+          'TalkTalk earns its place on a budget shortlist on price alone: full fibre from £25 a month, unlimited data with no fair-use clause, and a real speed-related exit right under the industry Code of Practice are all genuine, not marketing-only, benefits.',
+          'It is a harder recommendation for anyone who expects to need customer support at some point during a 24-month contract. Ofcom\'s own complaints data and a 1.5-out-of-5 Trustpilot score from over 50,000 reviews are not minor blemishes; they describe a consistent pattern specifically around fault handling, billing and cancellation, not an isolated bad quarter.',
+          'Our take: TalkTalk suits a budget-conscious household that wants the cheapest realistic full-fibre entry price, is comfortable managing an account online rather than needing to call support often, and is prepared to factor two scheduled price rises into the real 24-month cost. Anyone who wants similar budget pricing with a materially better service record should compare Plusnet before deciding, since it currently sits at the opposite end of Ofcom\'s complaints table.',
+        ],
+      },
+    ],
+    faqItems: [
+      {
+        question: 'Is TalkTalk broadband any good?',
+        answer: 'TalkTalk offers some of the cheapest full-fibre and part-fibre broadband in the UK, from £25 a month, running on the same Openreach network as BT and Sky. Ofcom named it the most complained-about broadband provider for the third quarter running in its Q1 2026 complaints report, and its Trustpilot score sits at 1.5 out of 5 from over 50,000 reviews, so the low price comes with a real, well-documented service-quality trade-off.',
+      },
+      {
+        question: 'Does TalkTalk raise its prices during the contract?',
+        answer: 'Yes. Every current TalkTalk plan includes two scheduled price rises across its 24-month contract, one in April 2027 and one in April 2028, disclosed on the plan\'s own pricing page. A £25 Full Fibre 150 plan rises to £29 and then £33 over the full term, so the honest comparison against a flat-priced rival uses the full two-year cost, not the first month\'s bill.',
+      },
+      {
+        question: 'Why does TalkTalk get so many complaints?',
+        answer: 'Ofcom\'s Q1 2026 complaints report found TalkTalk\'s complaints mostly related to faults, service and provisioning, complaints handling, and billing and pricing problems, and it was the most complained-about broadband provider for the third consecutive quarter at the time of that report. This is specific to the residential broadband service; TalkTalk Business holds a considerably stronger customer-service record on Trustpilot.',
+      },
+      {
+        question: 'What speed do I need from TalkTalk?',
+        answer: 'Fibre 35 and Fibre 65 suit browsing, HD streaming and video calls for one or two people. Full Fibre 150 is a comfortable choice for most households, including several simultaneous streams and devices. Full Fibre 500 and Full Fibre 900 mainly benefit households that upload large files regularly, since TalkTalk\'s upload speeds scale with each full-fibre tier even though the company does not headline the figure on its own pricing pages.',
+      },
+    ],
+    reviewedDate: '2026-08-23',
+    pricingVerifiedDate: '2026-08-23',
+    reviewSources: [
+      {
+        label: 'TalkTalk broadband packages and pricing',
+        href: 'https://www.talktalk.co.uk/broadband',
+        note: 'Used for current package lineup, pricing, contract length and the scheduled April 2027/April 2028 price rises, checked 2026-08-23.',
+      },
+      {
+        label: 'TalkTalk Full Fibre 900 product page',
+        href: 'https://www.talktalk.co.uk/broadband/full-fibre/900',
+        note: 'Used for Full Fibre 900 download speed, minimum guaranteed speed and pricing, checked 2026-08-23.',
+      },
+      {
+        label: 'Ofcom: telecoms and pay-TV complaints fall to a record low',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/service-quality/ofcom-telecoms-and-pay-tv-complaints-fall-to-record-low',
+        note: 'Primary regulatory source naming TalkTalk the most complained-about broadband provider in Q1 2026 and describing the main complaint categories.',
+      },
+      {
+        label: 'Uswitch: Ofcom broadband and TV complaints rankings, August 2026',
+        href: 'https://www.uswitch.com/broadband/news/ofcom-broadband-tv-complaints-rankings-august-2026/',
+        note: 'Independent corroboration for the specific 10-per-100,000 figure and the third-consecutive-quarter finding drawn from the same Ofcom release.',
+      },
+      {
+        label: 'TalkTalk public Trustpilot profile',
+        href: 'https://uk.trustpilot.com/review/www.talktalk.co.uk',
+        note: 'Direct fetch returned a 403; score and review count sourced via search of independent reporting on the same live Trustpilot page, checked 2026-08-23.',
+      },
+      {
+        label: 'Awin TalkTalk advertiser programme',
+        href: 'https://ui.awin.com/merchant-profile-terms/3674?setLocale=en_US',
+        note: 'BroadbandPicker holds an approved (joined) relationship with this programme; the affiliate link above is a live publisher-specific Awin tracking link, verified 2026-08-23.',
+      },
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+        note: 'Explains how price, speed, coverage, customer experience and use-case fit are weighed.',
+      },
+    ],
+    awinProgramId: '3674',
   },
   {
     slug: 'plusnet',
@@ -281,7 +400,7 @@ const baseProviders: Provider[] = [
     monthlyPriceFrom: 22.99,
     contractLengths: [18, 24],
     setupFee: 0,
-    trustpilotScore: 3.9,
+    trustpilotScore: 2.0,
     coveragePercent: 96,
     highlights: [
       'Straightforward pricing — no hidden fees',
@@ -870,6 +989,316 @@ const baseProviders: Provider[] = [
       },
     ],
     awinProgramId: '11269',
+  },
+  {
+    slug: 'zzoomm',
+    name: 'Zzoomm',
+    logo: '/logos/zzoomm.svg',
+    affiliateUrl: 'https://www.awin1.com/cread.php?awinmid=40398&awinaffid=2942019&ued=https%3A%2F%2Fwww.zzoomm.com%2F',
+    speeds: [
+      { download: 200, upload: 200, type: 'FTTP' },
+      { download: 500, upload: 500, type: 'FTTP' },
+      { download: 1000, upload: 1000, type: 'FTTP' },
+      { download: 2300, upload: 2300, type: 'FTTP' },
+    ],
+    monthlyPriceFrom: 20.00,
+    contractLengths: [1, 12, 24],
+    setupFee: 0,
+    trustpilotScore: 4.7,
+    coveragePercent: 2,
+    highlights: [
+      'Merged with FullFibre in February 2026, taking its own full-fibre network to around 600,000 premises across roughly 110 English market towns',
+      'Every plan is symmetrical, from 200 Mbps up to 2,300 Mbps upload and download',
+      'Published prices carry no scheduled mid-contract increase, unlike several national providers',
+    ],
+    pros: [
+      'Symmetrical speeds across the whole range, useful for uploads and video calls',
+      'No in-contract price rises on the current published range',
+      'Free standard installation and a WiFi 6 router, upgraded to WiFi 7 from the 1,000 Mbps tier',
+      'Targets smaller market towns that larger altnets often skip',
+    ],
+    cons: [
+      'Coverage is limited to specific market towns rather than a national footprint',
+      'Rolling monthly pricing costs considerably more than committing to 24 months',
+      'A newly merged network can mean uneven local support while the two operations finish combining',
+      'Home phone and mesh WiFi are separate paid add-ons, not included as standard',
+    ],
+    excerpt:
+      'Zzoomm is a full-fibre altnet that merged with FullFibre in February 2026, taking its combined network to around 600,000 premises across roughly 110 English market towns. Every plan is symmetrical, running from 200 Mbps to 2,300 Mbps, priced from £20 a month on a 24-month term with no scheduled in-contract rise. Coverage is genuinely postcode-specific, so run its own checker before ruling a national provider out at your address.',
+    contentSections: [
+      {
+        heading: 'Zzoomm Broadband Deals in August 2026',
+        paragraphs: [
+          'Zzoomm sells the same four symmetrical speeds under three different commitment lengths. The 24-month term is the cheapest way in: £20 a month for 200 Mbps, £23 for 500 Mbps, £25 for 1,000 Mbps and £35 for 2,300 Mbps, each rising to a higher standard rate after the first 12 months. The 12-month term skips that step-up but starts higher, at £24, £27, £29 and £39 respectively. FlexiMonth, its rolling monthly option, costs the most of the three, from £32 up to £70, in exchange for no fixed term at all.',
+          'The gap between the 24-month and FlexiMonth prices on the entry tier is £12 a month, or roughly £288 over two years, which is a meaningful amount to pay for the freedom to leave whenever you like. Anyone reasonably confident they will stay at the same address for at least a year should default to the 24-month price and treat FlexiMonth as a genuine short-term option, not the default choice.',
+          'None of these figures include the optional extras. A home phone line adds £10 a month, and each mesh WiFi extender adds a further £5 a month. Add both to a 1,000 Mbps 24-month plan and the real monthly cost is £40, not the £25 headline figure, so build any add-ons into the comparison before deciding Zzoomm is the cheaper option against a rival with phone or mesh bundled in.',
+        ],
+      },
+      {
+        heading: 'Zzoomm Coverage: Where Is It Available?',
+        paragraphs: [
+          'Zzoomm and FullFibre completed a brand and network integration in February 2026, combining two altnet build programmes into one operation covering roughly 600,000 premises ready for service across around 110 English market towns. That is a small slice of the roughly 28 million homes in the UK, so this is not a provider to check on a whim; it either reaches your street or it does not.',
+          'The build has deliberately targeted smaller towns rather than city centres: places such as Crowthorne, Sandhurst, Crewe, Congleton, Nantwich, Northwich, Bakewell, Buxton, Matlock, Glossop, Northallerton, Hereford, Thirsk, Sherburn-in-Elmet and Ripon all have live or building coverage. A further eight towns, including Bewdley, Middlewich and Tadcaster, were confirmed for connection as part of a £44 million investment. That pattern matters if you live somewhere a national fibre rollout has been slow to reach.',
+          'A town appearing on Zzoomm\'s coverage map does not guarantee every property in it can order today. Enter the full postcode and house number on Zzoomm\'s own checker rather than assuming coverage from the town name alone, and if the result says the build is still in progress, keep an existing connection running until the new one is installed and tested.',
+        ],
+      },
+      {
+        heading: 'Zzoomm Speeds and Symmetrical Full Fibre',
+        paragraphs: [
+          'Every Zzoomm plan is symmetrical: the upload speed matches the download speed at every tier, from 200 Mbps to 2,300 Mbps. Most national providers only offer this on their most expensive packages, if at all, so Zzoomm\'s entry-level 200 Mbps plan already gives more upload capacity than many rivals\' mid-range tiers.',
+          'The practical difference shows up in specific tasks: backing up photos and video to the cloud, sending large design or work files, running a home security camera system, or hosting video calls where several people in the house are on camera at once. A household that mainly streams and browses will not notice much difference between 200 Mbps and 2,300 Mbps; a household that regularly uploads large files will feel the difference immediately.',
+          'As with any fibre line, the figure quoted is the speed reaching the router, not necessarily the speed reaching a phone or laptop over WiFi. Distance from the router, walls and interference from other households still apply. Test performance over an Ethernet cable first when checking whether the line itself is delivering what was ordered, then test WiFi separately in the rooms that matter.',
+        ],
+      },
+      {
+        heading: 'Router, WiFi and Optional Extras',
+        paragraphs: [
+          'Zzoomm includes a WiFi 6 router on the 200, 500 and 1,000 Mbps plans, upgrading to WiFi 7 hardware on the top 2,300 Mbps tier and standard on the 1,000 Mbps plan. WiFi 6 already comfortably supports a household with several simultaneous streaming devices, games consoles and smart-home gadgets; WiFi 7 mainly benefits homes with new, compatible devices that can actually make use of the extra headroom.',
+          'Homes with awkward layouts, thick walls or more than two floors may still find a single router does not reach every room, whatever the standard it supports. Zzoomm sells mesh WiFi extenders as an optional add-on at £5 a month per unit, which is a reasonable price if a specific room is genuinely dead, but not worth adding automatically before confirming there is an actual coverage problem.',
+          'A home phone line is also optional, at £10 a month, rather than bundled in. Anyone who still relies on a landline number, rather than a mobile, should factor this into the total monthly cost from the outset instead of discovering it as a separate charge after signing up.',
+        ],
+      },
+      {
+        heading: 'Contract Length and the No-Price-Rise Policy',
+        paragraphs: [
+          'Zzoomm\'s published range currently carries no scheduled mid-contract price increase. That is a genuine point of difference: several national providers, including some full-fibre altnets, apply an annual increase tied to CPI inflation plus a fixed percentage, often landing at somewhere between 6% and 8% a year. A fixed price for the length of the contract is easier to budget around and worth weighing against a slightly cheaper headline price elsewhere that comes with a scheduled rise.',
+          'The trade-off for the 24-month term\'s lower headline price is a step up after 12 months, from the intro rate to Zzoomm\'s standard rate for that speed. That step is disclosed upfront in the price table, not hidden in the terms, so it should never come as a surprise if the contract summary is read before signing.',
+          'FlexiMonth removes both the step-up and the fixed term, at the cost of a meaningfully higher starting price. It suits genuinely short stays, such as a fixed-length tenancy, more than it suits anyone planning to stay put, where the 24-month term is almost always the better value once the full two years are compared side by side.',
+        ],
+      },
+      {
+        heading: 'Installation and Switching to Zzoomm',
+        paragraphs: [
+          'Standard installation is included at no cost across the range, which removes one of the more variable charges seen with other full-fibre altnets. Because Zzoomm operates its own network rather than reselling Openreach, installation involves connecting the property to Zzoomm\'s own fibre, which can mean a visible external box and, in some builds, a short wait for a scheduled engineer visit rather than a same-day activation.',
+          'If switching from an existing broadband provider, check whether the move qualifies for Ofcom\'s One Touch Switch process. Because Zzoomm runs its own physical network rather than the shared Openreach one that most One Touch Switch moves rely on, a switch to Zzoomm often means running two connections briefly rather than a same-day, no-gap handover, so keep the old service active until the new line is confirmed working.',
+          'Anyone renting should also check landlord permission and wayleave requirements early. A new full-fibre connection into a flat or a rented house can need consent for external cabling or a new duct, and that conversation is faster to have before the installation date is booked than after.',
+        ],
+      },
+      {
+        heading: 'Zzoomm Customer Service and Reviews',
+        paragraphs: [
+          'Zzoomm\'s Trustpilot profile showed roughly 8,600 reviews at the point of this check, with around 89% rated five stars and about 6% rated one star, a distribution that works out to approximately 4.7 out of 5. Different tracking sites have shown slightly different exact figures depending on when they were captured, which is normal for a fast-growing review count, so treat 4.7 as a close approximation rather than an exact live number and check the current Trustpilot page directly before relying on it.',
+          'Recent reviews describe engineers and support staff by name more often than is typical for a national provider, which is consistent with a smaller, still-growing customer base rather than proof of a permanently different service level once the FullFibre integration and the expanded coverage area are fully bedded in.',
+          'A small number of reviews mention connection delays and installation scheduling, which is a common pattern for any provider still building out new-build fibre infrastructure into towns rather than reselling an already-complete network. Ask for a specific installation date in writing rather than a general window if timing matters to you.',
+        ],
+      },
+      {
+        heading: 'Is Zzoomm Broadband Any Good?',
+        paragraphs: [
+          'Zzoomm earns its place on a shortlist wherever it actually reaches: symmetrical speeds at every tier, no scheduled mid-contract price rise on the 24-month term, and free standard installation are a genuinely strong combination, especially for a market town that a national full-fibre rollout has been slow to reach.',
+          'It is not the right pick for someone who values a bundled home phone and mesh WiFi over a lower headline price, or for anyone whose address falls just outside one of its roughly 110 covered towns; there is no partial or estimated service where the network has not been built.',
+          'Our starting recommendation is the 24-month term over FlexiMonth for anyone settled at the address, because the price gap is large enough to matter over two years and the no-scheduled-rise policy removes the usual mid-contract guessing game. Run the postcode checker first: this is a provider that either serves a specific street well or does not serve it at all.',
+        ],
+      },
+    ],
+    faqItems: [
+      {
+        question: 'Is Zzoomm broadband any good?',
+        answer: 'Where it is available, Zzoomm offers symmetrical full-fibre speeds from 200 Mbps to 2,300 Mbps, free standard installation and a published range with no scheduled mid-contract price rise on the 24-month term. Its Trustpilot rating sits at approximately 4.7 out of 5 from around 8,600 reviews. Coverage is limited to roughly 110 English market towns, so availability depends entirely on the exact address.',
+      },
+      {
+        question: 'Where is Zzoomm broadband available?',
+        answer: 'Zzoomm covers around 600,000 premises across roughly 110 English market towns following its February 2026 merger with FullFibre, including areas of Berkshire, Cheshire, Derbyshire and Yorkshire. Coverage is postcode-specific rather than nationwide, so check the exact address on Zzoomm\'s own checker rather than assuming coverage from the town name alone.',
+      },
+      {
+        question: 'Does Zzoomm increase its prices mid-contract?',
+        answer: 'Zzoomm\'s current published range carries no scheduled mid-contract price increase, unlike some providers that apply an annual CPI-linked rise. The 24-month term does step up from its introductory rate to a higher standard rate after the first 12 months, but that step is disclosed in the price table rather than added later.',
+      },
+      {
+        question: 'What speed do I need from Zzoomm?',
+        answer: 'The entry-level 200 Mbps symmetrical plan comfortably supports a household that streams, browses and makes video calls, with upload speed to match. Households that regularly upload large files, back up to the cloud, or run several simultaneous video calls get more practical benefit from the 500 Mbps or 1,000 Mbps tiers than from the top 2,300 Mbps plan, which mainly suits specialist or heavy multi-user setups.',
+      },
+    ],
+    reviewedDate: '2026-08-23',
+    pricingVerifiedDate: '2026-08-23',
+    reviewSources: [
+      {
+        label: 'Zzoomm broadband packages and pricing',
+        href: 'https://www.zzoomm.com/',
+        note: 'Used for package lineup, pricing across FlexiMonth, 12-month and 24-month terms, router specification and add-on pricing, checked 2026-08-23.',
+      },
+      {
+        label: 'Choose Zzoomm broadband comparison',
+        href: 'https://www.choose.co.uk/broadband/zzoomm/',
+        note: 'Independent corroboration for coverage scale, the no in-contract price rise policy, and add-on pricing, checked 2026-08-23.',
+      },
+      {
+        label: 'Zzoomm and FullFibre integration announcement',
+        href: 'https://www.ispreview.co.uk/index.php/2026/02/fullfibre-and-zzoomm-complete-broadband-altnet-uk-isp-brand-integration.html',
+        note: 'Primary source for the February 2026 merger and the combined network scale.',
+      },
+      {
+        label: 'Zzoomm public Trustpilot profile',
+        href: 'https://uk.trustpilot.com/review/zzoomm.com',
+        note: 'Customer-sentiment reference showing approximately 8,600 reviews and a star distribution implying around 4.7 out of 5 in August 2026; not treated as a controlled reliability survey.',
+      },
+      {
+        label: 'Awin Zzoomm advertiser programme',
+        href: 'https://ui.awin.com/merchant-profile-terms/40398?setLocale=en_US',
+        note: 'BroadbandPicker holds an approved (joined) relationship with this programme; the affiliate link above is a live publisher-specific Awin tracking link, verified 2026-08-23.',
+      },
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+        note: 'Explains how price, speed, coverage, customer experience and use-case fit are weighed.',
+      },
+    ],
+    awinProgramId: '40398',
+  },
+  {
+    slug: 'highland-broadband',
+    name: 'Highland Broadband',
+    logo: '/logos/highland-broadband.svg',
+    affiliateUrl: 'https://www.awin1.com/cread.php?awinmid=99387&awinaffid=2942019&ued=https%3A%2F%2Fhighlandbroadband.com%2F',
+    speeds: [
+      { download: 150, upload: 150, type: 'FTTP' },
+      { download: 500, upload: 500, type: 'FTTP' },
+      { download: 1000, upload: 1000, type: 'FTTP' },
+      { download: 5000, upload: 5000, type: 'FTTP' },
+    ],
+    monthlyPriceFrom: 29.99,
+    contractLengths: [24],
+    setupFee: 0,
+    trustpilotScore: 4.7,
+    coveragePercent: 1,
+    highlights: [
+      'Building its own full-fibre network across rural Scotland, backed by a £50 million investment confirmed in August 2025',
+      'Every plan is symmetrical, from 150 Mbps up to 5,000 Mbps upload and download',
+      'A means-tested social tariff is available at £23.99 a month, separate from the standard range',
+    ],
+    pros: [
+      'Free premium installation, worth £50, included on every plan',
+      'Symmetrical speeds across the whole range, including the entry tier',
+      'Advanced cyber security and parental controls included free on the two fastest plans',
+      'A genuine social tariff for households on means-tested benefits',
+    ],
+    cons: [
+      'Only a 24-month contract is offered, with no rolling monthly or 12-month option',
+      'Prices are scheduled to rise by £4 every April from 2027 onward',
+      'Coverage remains limited and is concentrated in specific parts of Scotland',
+      'Easily confused by name with Highland Community Broadband, an unrelated wireless ISP that is closing in April 2026',
+    ],
+    excerpt:
+      'Highland Broadband is a full-fibre altnet building its own network across rural Scotland, backed by £50 million in funding confirmed in August 2025. Symmetrical plans run from 150 Mbps to 5,000 Mbps, priced from £29.99 a month on a 24-month contract, with a genuine social tariff for households on means-tested benefits. It is not the same company as Highland Community Broadband, a separate wireless ISP that is closing in April 2026, so check the address carefully before assuming either one applies.',
+    contentSections: [
+      {
+        heading: 'Highland Broadband Deals in August 2026',
+        paragraphs: [
+          'Highland Broadband sells four symmetrical speeds, all on a 24-month contract. Essential 150 starts at £29.99 a month, rising to £39.99 after the introductory period. Everyday 500 starts at £34.99, rising to £54.99. Family 1000 and Ultimate 5000 are both running an August 2026 offer at £34.99 and £49.99 respectively, against standard prices of £79.99 and £99.99, which is a considerably steeper jump once the offer period ends than on the two entry tiers.',
+          'Family 1000 and Ultimate 5000 both include Advanced Cyber Security and Dynamic Parental Controls at no extra cost, and Ultimate 5000 adds a Whole Home WiFi Guarantee, promising a minimum of 30 Mbps in every room, a feature Highland Broadband separately prices at £10 a month when bought as an add-on to the two cheaper plans.',
+          'A means-tested social tariff, Essential 100 at £23.99 a month, sits outside the main range for households receiving qualifying benefits. It is worth checking eligibility directly with Highland Broadband, since social tariffs are commonly under-claimed simply because customers do not know to ask.',
+        ],
+      },
+      {
+        heading: 'Highland Broadband Coverage: Where Is It Available?',
+        paragraphs: [
+          'Highland Broadband is building its own fibre-to-the-premises network across rural Scotland, with build areas including Argyll, Fife, the Highlands, the Lothians, Moray and Stirlingshire, backed by £50 million in funding confirmed in August 2025, made up of £40 million from Alpha Real Capital and £10 million from the Scottish National Investment Bank. The company has stated an ambition to extend full-fibre availability to more than 150 towns and villages, with a target of covering the whole Highlands region by the end of 2026.',
+          'Reporting from August 2025 put the network at roughly half of rural premises across the Highlands connected, with more than 100,000 further premises targeted through the new funding. Those are company-stated targets, not guaranteed dates, so a town appearing on a rollout announcement is not proof that a specific street is ready to order today.',
+          'One name-based mix-up is worth flagging directly: Highland Broadband is a different company from Highland Community Broadband, a wireless ISP unrelated in ownership that is closing in April 2026. Searching for either name can surface results about the other, so check the domain (highlandbroadband.com) and confirm the technology (full fibre, not fixed wireless) before assuming a review or a coverage claim applies to this Highland Broadband.',
+        ],
+      },
+      {
+        heading: 'Highland Broadband Speeds and Symmetrical Full Fibre',
+        paragraphs: [
+          'Every tier is symmetrical, meaning upload matches download at 150, 500, 1,000 and 5,000 Mbps. That is a genuine advantage over a part-fibre or cable connection, where upload speed is typically a fraction of the download figure regardless of which package is bought.',
+          'The 150 Mbps entry tier already covers everyday streaming, browsing, video calls and several devices in use at once, with more upload headroom than most rivals offer at a comparable price. The 5,000 Mbps top tier is a specialist choice: outside a small-business or heavy-multi-user setup, few home devices can actually make use of speeds above roughly 1,000 Mbps on a single connection.',
+          'As with any fibre service, the quoted figure describes what reaches the router. WiFi performance in a specific room depends on distance, walls and interference, which is exactly what the Whole Home WiFi Guarantee on Ultimate 5000 is designed to address, rather than a general claim about the line speed itself.',
+        ],
+      },
+      {
+        heading: 'Router, Security Features and the Whole Home WiFi Guarantee',
+        paragraphs: [
+          'A WiFi 6 router is included as standard, upgrading to WiFi 7 on the Ultimate 5000 tier. Family 1000 and Ultimate 5000 customers also get Advanced Cyber Security and Dynamic Parental Controls included at no extra cost, a feature many providers charge separately for or omit entirely.',
+          'Ultimate 5000\'s Whole Home WiFi Guarantee promises a minimum of 30 Mbps in every room of the property, backed by a stated £10 a month value if bought as a standalone add-on on the Essential or Everyday tiers. For a larger or multi-floor home where a single router struggles to reach every room, that guarantee is worth more in practice than the headline 5,000 Mbps download figure most households will never fully use.',
+          'Anyone on the Essential or Everyday tiers with a genuine coverage problem in a specific room should weigh the £10 a month add-on cost against simply moving to Ultimate 5000, where the same guarantee, plus the faster line and free security features, comes as part of the plan rather than stacked on top of it.',
+        ],
+      },
+      {
+        heading: 'Contract Terms and the Scheduled April Price Rise',
+        paragraphs: [
+          'Highland Broadband only offers a 24-month contract; there is no rolling monthly or shorter fixed-term option published. That suits a household settled at the address but rules Highland Broadband out for a short-term tenancy or anyone who wants the flexibility to leave without an early-termination charge.',
+          'Prices are scheduled to rise by £4 a month every April from 2027 onward, disclosed upfront rather than hidden in the terms. That is a real, ongoing cost to factor into any two-year comparison against a provider with a flat price for the full contract term, such as Zzoomm\'s current no-rise policy, and it is worth doing that full-term sum rather than comparing only the headline monthly price.',
+          'New customers on a 24-month contract can also get up to 12 months of switching credit, intended to offset an early-termination charge from a previous provider. Read the exact terms and evidence requirements for that credit before relying on it to cover an existing exit fee.',
+        ],
+      },
+      {
+        heading: 'Installation and Switching to Highland Broadband',
+        paragraphs: [
+          'Premium installation is included free on every plan, a benefit Highland Broadband states is worth £50, alongside a 28-day cooling-off period for new customers who change their mind shortly after signing up.',
+          'Because Highland Broadband runs its own physical network rather than reselling Openreach\'s, a switch typically means a new fibre connection being installed rather than a same-day handover on the existing line, so plan to keep an existing broadband service running until the new connection is confirmed working.',
+          'Rural and rented properties should confirm wayleave and landlord permission for any external cabling or new ductwork before booking an installation date, particularly in areas where the network is newly built and installation teams may have a specific scheduling window rather than an on-demand slot.',
+        ],
+      },
+      {
+        heading: 'Highland Broadband Customer Service and Reviews',
+        paragraphs: [
+          'Highland Broadband\'s Trustpilot profile showed a rating implying roughly 4.7 out of 5 at the point of this check, based on a distribution of around 90% five-star and 5% one-star reviews across a review count that different tracking snapshots put between around 1,100 and 1,200. A separate snapshot recorded a 4.8 badge from a much smaller 100-review sample, which is consistent with normal short-term variation in a fast-growing review count rather than a contradiction, but it means the exact current figure is worth checking directly on Trustpilot rather than treated as fixed.',
+          'Recent reviews focus heavily on installation, with customers describing engineers by name and praising the professionalism of the install process specifically, which is a reasonable proxy for service quality this early in a company\'s growth but says less about long-term fault handling or renewal pricing, since most reviewers have not yet reached that stage of the relationship.',
+          'Given the company only offers 24-month contracts, the renewal and price-rise experience two years in matters more than usual here. That evidence will only become available as the earliest customer cohorts reach their renewal date, so treat today\'s largely installation-focused reviews as a partial picture.',
+        ],
+      },
+      {
+        heading: 'Is Highland Broadband Any Good?',
+        paragraphs: [
+          'Highland Broadband is a strong option specifically for households in its rural Scottish build areas who have struggled to get a genuine full-fibre alternative to Openreach. Free installation, symmetrical speeds at every tier, included security features on the higher plans and a real social tariff are all substantive, not marketing-only, benefits.',
+          'It suits a household planning to stay at the address for the full 24 months more than one that wants flexibility, since there is no shorter or rolling contract option, and the scheduled April price rise needs to be included in any full-term cost comparison rather than judged on the headline monthly figure alone.',
+          'Confirm the domain and the technology before comparing reviews or coverage claims: Highland Broadband (highlandbroadband.com, full fibre) and Highland Community Broadband (a closing wireless ISP) are separate companies that happen to share part of a name, and mixing them up is an easy, genuinely common mistake when researching this provider.',
+        ],
+      },
+    ],
+    faqItems: [
+      {
+        question: 'Is Highland Broadband the same as Highland Community Broadband?',
+        answer: 'No. Highland Broadband (highlandbroadband.com) is a full-fibre altnet building its own FTTP network across rural Scotland. Highland Community Broadband is a separate, unrelated wireless ISP that is closing in April 2026. The similar names are easy to confuse, so check the domain and the underlying technology before relying on a review or coverage claim.',
+      },
+      {
+        question: 'Where is Highland Broadband available?',
+        answer: 'Highland Broadband is building full-fibre coverage across Argyll, Fife, the Highlands, the Lothians, Moray and Stirlingshire, backed by £50 million in funding confirmed in August 2025. It has stated an ambition to reach more than 150 towns and villages, with a target of covering the whole Highlands region by the end of 2026, though this is a company-stated target rather than a guaranteed date for any specific street.',
+      },
+      {
+        question: 'Does Highland Broadband increase its prices?',
+        answer: 'Yes. Highland Broadband\'s published range includes a scheduled £4 a month price increase every April from 2027 onward, disclosed upfront in the price table. This should be included in any full 24-month cost comparison against a provider with a flat contract price.',
+      },
+      {
+        question: 'Does Highland Broadband offer a social tariff?',
+        answer: 'Yes, Essential 100 is available at £23.99 a month for households receiving qualifying means-tested benefits, separate from the standard four-tier range. Social tariffs are commonly under-claimed, so it is worth checking eligibility directly with Highland Broadband rather than assuming the standard price is the only option.',
+      },
+    ],
+    reviewedDate: '2026-08-23',
+    pricingVerifiedDate: '2026-08-23',
+    reviewSources: [
+      {
+        label: 'Highland Broadband packages and pricing',
+        href: 'https://highlandbroadband.com/broadband/packages-pricing/',
+        note: 'Used for package lineup, intro and standard pricing, contract length, add-on pricing and the social tariff, checked 2026-08-23.',
+      },
+      {
+        label: 'ISPreview: Highland Broadband secures £50m funding',
+        href: 'https://www.ispreview.co.uk/index.php/2025/08/highland-broadband-secures-50m-funding-to-boost-expand-fttp-rollout.html',
+        note: 'Primary source for the August 2025 funding round, investors and coverage ambition.',
+      },
+      {
+        label: 'ISPreview: Highland Community Broadband closure notice',
+        href: 'https://www.ispreview.co.uk/index.php/2026/01/wireless-isp-highland-community-broadband-set-to-close-in-april-2026.html',
+        note: 'Used to confirm Highland Community Broadband is a separate, unrelated company, avoiding a name mix-up with Highland Broadband.',
+      },
+      {
+        label: 'Highland Broadband public Trustpilot profile',
+        href: 'https://uk.trustpilot.com/review/highlandbroadband.com',
+        note: 'Customer-sentiment reference showing a star distribution implying approximately 4.7 out of 5 in August 2026; not treated as a controlled reliability survey.',
+      },
+      {
+        label: 'Awin Highland Broadband advertiser programme',
+        href: 'https://ui.awin.com/merchant-profile-terms/99387?setLocale=en_US',
+        note: 'BroadbandPicker holds an approved (joined) relationship with this programme; the affiliate link above is a live publisher-specific Awin tracking link, verified 2026-08-23.',
+      },
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+        note: 'Explains how price, speed, coverage, customer experience and use-case fit are weighed.',
+      },
+    ],
+    awinProgramId: '99387',
   },
   {
     slug: 'cuckoo',

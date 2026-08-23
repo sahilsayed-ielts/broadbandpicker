@@ -713,6 +713,50 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "initial_status": "In progress",
     },
     {
+        "item_id": "content-awin-approved-provider-deep-content",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Deep, researched content for Awin-approved providers (TalkTalk, Zzoomm, Highland Broadband)",
+        "description": (
+            "Following the Awin programme-status pull (ops-awin-publisher-api-integration), "
+            "built full researched content for the 3 real providers among the 4 joined "
+            "programmes (Broadband Genie is a comparison site, not an ISP, and was excluded). "
+            "Per docs/page-build-pipeline-brief.md Stage 3/4/4a: for each provider, fetched "
+            "the provider's own site for current pricing/speeds/contract terms, WebSearched "
+            "Trustpilot and, where relevant, Ofcom's own complaints data, and wrote an 8-section "
+            "contentSections block plus FAQs matching the site's deepest existing template "
+            "(Gigaclear). All copy hand-checked for zero em dashes and zero banned AI-tell "
+            "vocabulary/phrases per the Stage 4a list. TalkTalk's existing entry was materially "
+            "stale (Trustpilot claimed 2.8, real current figure 1.5 from 50k+ reviews in "
+            "Trustpilot's 'Bad' band; Ofcom's Q1 2026 report names TalkTalk the UK's most "
+            "complained-about broadband provider for the third consecutive quarter; the old "
+            "'price-lock guarantee' highlight was false, two scheduled April 2027/2028 rises "
+            "are now built into every contract) -- fully rewritten, not just extended. Zzoomm "
+            "and Highland Broadband were brand-new Provider entries (real Awin tracking links, "
+            "placeholder text-wordmark logos per the brief's guardrail against fabricating brand "
+            "marks). In passing, corrected Plusnet's stale trustpilotScore field (3.9 -> 2.0, "
+            "the real current figure) since new comparison copy was about to cite it -- Plusnet's "
+            "own deep content rewrite is out of scope (not an Awin-approved programme). Two new "
+            "comparison pages: talktalk-vs-plusnet (a genuinely stark, well-evidenced contrast -- "
+            "same price bracket, opposite ends of Ofcom's complaints table) and "
+            "zzoomm-vs-hyperoptic (two symmetrical full-fibre altnets with almost non-overlapping "
+            "coverage footprints). Internal linking relies on the existing 'How {provider} "
+            "compares' module built earlier this session; both new comparisons are discoverable "
+            "via /providers/compare and the sitemap even where they don't make a crowded "
+            "provider's top-3 related slice."
+        ),
+        "priority_score": 58,
+        "impact_score": 62,
+        "effort": "High",
+        "target": (
+            "data/providers.ts (talktalk, zzoomm, highland-broadband, plusnet trustpilotScore), "
+            "data/provider-comparisons.ts (talktalk-vs-plusnet, zzoomm-vs-hyperoptic), "
+            "public/logos/zzoomm.svg, public/logos/highland-broadband.svg"
+        ),
+        "dependencies": "ops-awin-publisher-api-integration",
+        "source": "User request 2026-08-23 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",

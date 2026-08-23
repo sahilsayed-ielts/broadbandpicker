@@ -1751,6 +1751,184 @@ export const providerComparisons: ProviderComparison[] = [
       },
     ],
   },
+  {
+    slug: 'talktalk-vs-plusnet',
+    providerA: 'talktalk',
+    providerB: 'plusnet',
+    title: 'TalkTalk vs Plusnet Broadband: Which Budget Provider Actually Performs Better?',
+    metaTitle: 'TalkTalk vs Plusnet Broadband 2026 | Price, Ofcom Complaints Compared',
+    metaDescription:
+      'TalkTalk and Plusnet are both budget UK broadband brands, but Ofcom data puts them at opposite ends of its complaints table. Compare price, speed and the evidence before choosing.',
+    excerpt:
+      'TalkTalk and Plusnet sit in the same price bracket and both run on the Openreach network, but Ofcom\'s Q1 2026 complaints data puts them at opposite ends of the table: TalkTalk the most complained-about broadband provider in the UK, Plusnet the least. That single fact matters more here than either headline price.',
+    publishDate: '2026-08-23',
+    updatedDate: '2026-08-23',
+    bestForA: 'The absolute lowest full-fibre entry price, for anyone comfortable managing their account online',
+    bestForB: 'Households who want budget pricing without a well-documented complaints record',
+    winner:
+      'Plusnet is the stronger choice for most people at this price point: broadly similar pricing to TalkTalk, but Ofcom\'s own data records it as the UK\'s least complained-about major broadband provider against TalkTalk\'s most complained-about. TalkTalk can still make sense for a shopper focused purely on the lowest possible headline price who is confident they will not need much support.',
+    intro: [
+      'TalkTalk and Plusnet get compared constantly because they occupy the same shelf: budget-focused broadband, both delivered over the Openreach network shared with BT and Sky, both regularly among the cheapest headline prices in any UK broadband comparison. On price and underlying technology, they look similar enough that many shoppers assume the choice barely matters.',
+      'Ofcom\'s own complaints data says otherwise. In its report covering Q1 2026, Ofcom named TalkTalk the most complained-about broadband provider in the UK, at a rate independently reported around 10 complaints per 100,000 customers, the third quarter running it had topped that table. Plusnet, in the same broad period, held the opposite position: the best complaints record of any major UK ISP, at around 4 per 100,000. That is not a marginal gap between two similar budget brands; it is the difference between the best and worst-performing large providers Ofcom tracks.',
+    ],
+    verdict: [
+      'Choose Plusnet if you want budget pricing without gambling on customer service; Ofcom\'s data is about as clear a signal as this kind of comparison ever gets.',
+      'Choose TalkTalk only if its specific headline price is meaningfully cheaper than Plusnet\'s at your address, you are comfortable managing everything online, and you are prepared to factor TalkTalk\'s two scheduled price rises (April 2027 and April 2028) into the real two-year cost.',
+    ],
+    keyDifferences: [
+      {
+        label: 'Ofcom complaints record',
+        detail:
+          'TalkTalk was named the UK\'s most complained-about broadband provider in Ofcom\'s Q1 2026 report, roughly 10 complaints per 100,000 customers against an industry average of 6, its third consecutive quarter topping the table. Plusnet had around 4 per 100,000 in the equivalent Q4 2025 table, the best of any major UK ISP. This is the single most decisive difference between the two.',
+      },
+      {
+        label: 'Trustpilot score',
+        detail:
+          'TalkTalk sits at 1.5 out of 5 from over 50,000 reviews; Plusnet at 2.0 out of 5. Both are low, and Trustpilot profiles for any ISP skew toward people who had a problem, so the gap between 1.5 and 2.0 matters less on its own than the Ofcom complaints data above, which is not self-selected in the same way.',
+      },
+      {
+        label: 'Entry price and contract length',
+        detail:
+          'TalkTalk\'s cheapest current plan is Full Fibre 150 at £25 a month; Plusnet\'s cheapest is its part-fibre entry tier at £22.99 a month. Both run on 24-month contracts, though Plusnet also lists an 18-month option in places TalkTalk does not. TalkTalk\'s price rises twice on a fixed schedule during the contract; check Plusnet\'s current terms for the same before assuming its price stays flat.',
+      },
+      {
+        label: 'Router and network',
+        detail:
+          'Both run on the Openreach network, so line quality and top speeds available at a given address are effectively identical between them. TalkTalk\'s standard router is WiFi 5 across its range; check the specific hardware included with the Plusnet plan being compared, since router generation is not something either brand leads on decisively.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Is TalkTalk or Plusnet cheaper?',
+        answer:
+          'TalkTalk\'s cheapest current plan, Full Fibre 150, is £25 a month; Plusnet\'s cheapest part-fibre plan is £22.99 a month, making Plusnet the marginally cheaper entry price at the time of this comparison. Both prices can change and both should be checked against the specific package and contract length available at your address before deciding on price alone.',
+      },
+      {
+        question: 'Which has better customer service, TalkTalk or Plusnet?',
+        answer:
+          'Ofcom\'s own complaints data is the clearest evidence here: TalkTalk was the most complained-about broadband provider in the UK in Ofcom\'s Q1 2026 report, while Plusnet recorded the best complaints record of any major UK ISP in the equivalent period. This is regulatory data, not a review site score, and it is the most decisive difference between the two providers.',
+      },
+      {
+        question: 'Do TalkTalk and Plusnet use the same network?',
+        answer:
+          'Yes. Both are resellers on the Openreach network, the same infrastructure used by BT and Sky. Line quality and the top speed available at a given address are effectively the same regardless of which of the two you choose; the differences between them are price, contract terms and, based on Ofcom\'s data, how well each handles faults and complaints.',
+      },
+      {
+        question: 'Why is Plusnet\'s Trustpilot score also low if its Ofcom complaints record is the best?',
+        answer:
+          'Trustpilot profiles for any broadband provider are heavily self-selected: people are far more likely to leave a review after a bad installation, an unresolved fault or a difficult cancellation call than after an unremarkable, working connection. Ofcom\'s complaints data measures actual complaint volume across the whole customer base, which is why it is treated as the more reliable signal of the two in this comparison.',
+      },
+    ],
+    sources: [
+      {
+        label: 'TalkTalk broadband packages and pricing, verified 23 August 2026',
+        href: 'https://www.talktalk.co.uk/broadband',
+      },
+      {
+        label: 'Plusnet broadband packages and pricing',
+        href: 'https://www.plus.net/broadband/',
+      },
+      {
+        label: 'Ofcom: telecoms and pay-TV complaints fall to a record low',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/service-quality/ofcom-telecoms-and-pay-tv-complaints-fall-to-record-low',
+      },
+      {
+        label: 'Uswitch: Ofcom broadband and TV complaints rankings, August 2026',
+        href: 'https://www.uswitch.com/broadband/news/ofcom-broadband-tv-complaints-rankings-august-2026/',
+      },
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+      },
+    ],
+  },
+  {
+    slug: 'zzoomm-vs-hyperoptic',
+    providerA: 'zzoomm',
+    providerB: 'hyperoptic',
+    title: 'Zzoomm vs Hyperoptic Broadband: Two Symmetrical Full-Fibre Altnets Compared',
+    metaTitle: 'Zzoomm vs Hyperoptic Broadband 2026 | Price, Coverage and Contract Compared',
+    metaDescription:
+      'Zzoomm and Hyperoptic both sell symmetrical full-fibre broadband, but they build in very different places. Compare price, coverage focus and contract terms before choosing.',
+    excerpt:
+      'Zzoomm and Hyperoptic are both full-fibre altnets selling symmetrical speeds, but they rarely compete for the same street: Hyperoptic concentrates on London and major cities, while Zzoomm targets smaller English market towns. Which one you can even order usually decides this comparison before price does.',
+    publishDate: '2026-08-23',
+    updatedDate: '2026-08-23',
+    bestForA: 'Smaller market towns that larger city-focused altnets have not reached',
+    bestForB: 'London and major-city flats and apartment blocks',
+    winner:
+      'Neither provider is the default winner nationally; each covers a different kind of address. Where both are genuinely available, Hyperoptic\'s longer track record and marginally higher Trustpilot rating give it a slight edge, while Zzoomm\'s current no-scheduled-rise pricing is the stronger pick for anyone who wants full cost certainty over the contract term.',
+    intro: [
+      'Zzoomm and Hyperoptic both sell fibre-to-the-premises broadband with symmetrical upload and download speeds at every tier, which already puts them ahead of most national providers on that specific measure. The comparison that actually matters for most people is not which is better in the abstract, but which one has actually built a network to their address, since the two target almost opposite kinds of location.',
+      'Hyperoptic has focused on London and other major UK cities, wiring apartment blocks and dense residential buildings since 2011, giving it a long track record and a large Trustpilot review base. Zzoomm, following its February 2026 merger with FullFibre, has taken the opposite approach: building in smaller English market towns that larger altnets have often skipped, reaching around 600,000 premises across roughly 110 towns rather than concentrating on a handful of major cities.',
+    ],
+    verdict: [
+      'Choose Hyperoptic if you live in a flat or apartment block in London or another major UK city within its footprint, where its longer operating history and review base give slightly more confidence.',
+      'Choose Zzoomm if you live in one of its roughly 110 covered market towns, particularly if a flat monthly price for the length of the contract matters more to you than a slightly larger, longer-established brand.',
+    ],
+    keyDifferences: [
+      {
+        label: 'Coverage focus',
+        detail:
+          'Hyperoptic concentrates on London and major UK cities, mainly wiring apartment blocks and dense residential buildings. Zzoomm targets smaller English market towns, reaching around 600,000 premises across roughly 110 towns following its 2026 merger with FullFibre. The two networks rarely overlap on the same street.',
+      },
+      {
+        label: 'Price rises during the contract',
+        detail:
+          'Zzoomm\'s current published range carries no scheduled mid-contract price increase. Hyperoptic\'s fixed-term contracts commonly include an annual increase of around £4 a month every April. Anyone comparing the two should calculate the full contract-length cost, not just the entry price, before deciding.',
+      },
+      {
+        label: 'Speed tiers',
+        detail:
+          'Zzoomm\'s range runs from 200 Mbps to 2,300 Mbps, symmetrical throughout. Hyperoptic\'s core symmetrical range runs from around 150 Mbps to 1,000 Mbps, with a separate lower-cost, non-symmetrical 50 Mbps entry tier for lighter use. Hyperoptic also offers a social tariff at its 50 Mbps and 150 Mbps tiers, which Zzoomm does not currently publish an equivalent of.',
+      },
+      {
+        label: 'Track record and reviews',
+        detail:
+          'Hyperoptic has operated since 2011 and has built up a large Trustpilot review base of tens of thousands of reviews rated consistently highly. Zzoomm, in its current merged form, is a newer combined operation with a smaller but still strongly positive review base of several thousand reviews. Longer history is not the same as better current service, but it does mean more independent evidence exists for Hyperoptic.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Is Zzoomm or Hyperoptic cheaper?',
+        answer:
+          'Headline entry prices are broadly similar, but the more important cost difference is what happens after the first year: Zzoomm\'s current range has no scheduled mid-contract price rise, while Hyperoptic\'s fixed-term contracts commonly include an annual increase of around £4 a month every April. Compare the full contract-length cost, not just the entry price, at your specific address.',
+      },
+      {
+        question: 'Can I get both Zzoomm and Hyperoptic at my address?',
+        answer:
+          'Rarely. Hyperoptic concentrates on London and major UK cities, mainly in flats and apartment blocks, while Zzoomm targets smaller English market towns. The two networks were built for largely different kinds of location, so most addresses that can order one will not be able to order the other.',
+      },
+      {
+        question: 'Which is faster, Zzoomm or Hyperoptic?',
+        answer:
+          'Zzoomm\'s top published tier is 2,300 Mbps symmetrical, against Hyperoptic\'s core symmetrical range topping out around 1,000 Mbps. Both are far more than most households need; the entry-level symmetrical tier from either provider comfortably supports everyday streaming, video calls and working from home.',
+      },
+      {
+        question: 'Does Hyperoptic or Zzoomm offer a social tariff?',
+        answer:
+          'Hyperoptic publishes a social tariff for households on qualifying means-tested benefits at its 50 Mbps and 150 Mbps tiers. Zzoomm does not currently publish an equivalent discounted tariff, so anyone eligible for a social tariff and choosing between the two should check Hyperoptic\'s current terms directly.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Zzoomm broadband packages and pricing',
+        href: 'https://www.zzoomm.com/',
+      },
+      {
+        label: 'Hyperoptic broadband packages and pricing',
+        href: 'https://www.hyperoptic.com/',
+      },
+      {
+        label: 'Zzoomm and FullFibre integration announcement',
+        href: 'https://www.ispreview.co.uk/index.php/2026/02/fullfibre-and-zzoomm-complete-broadband-altnet-uk-isp-brand-integration.html',
+      },
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+      },
+    ],
+  },
 ]
 
 export function getProviderComparisonBySlug(slug: string) {
