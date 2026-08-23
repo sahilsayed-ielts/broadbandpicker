@@ -59,6 +59,24 @@ Write the page copy into the existing data file or route specified by the packet
   supports them, internal links to relevant BroadbandPicker pages and visible citations close to
   material claims. Do not repeat a keyword merely to increase frequency.
 
+## 4a. Write like a helpful person, not a search-optimised machine
+
+Full detail is in Stage 4a of the brief — read it. The short version, checked before this build
+ships: self-test every page against Google's own bar from "Creating helpful, reliable, people-first
+content" — if search engines didn't exist, would you still write this for an actual reader? Give a
+complete, specific answer to the exact question the primary keyword implies, cite where a claim
+comes from, and take a real position where the evidence supports one ("we'd start with Sky here
+because..." beats "it depends on your needs").
+
+Do not use, anywhere in public copy: delve, tapestry, boast, realm, elevate, unlock, unleash,
+landscape (as a market metaphor), navigate (as a metaphor), game-changer, seamless, robust, leverage
+(as a verb), dive in, embark, testament to, plethora, myriad, underscore, foster, cutting-edge,
+ever-evolving, "in today's digital age," "whether you're a X or a Y" as an opener, "it's important
+to note," "it's worth noting," "when it comes to," "at the end of the day," a closing paragraph that
+just restates the opening, a rhetorical-question opener, a rule-of-three adjective list, or a
+sentence that could be pasted unchanged into any other UK broadband article. Em dashes are already
+banned above.
+
 ## 5. Save the research and keyword map (mandatory validation input)
 
 Before running the build, write `docs/page-build-pipeline/current-page-research.json` as valid JSON with:

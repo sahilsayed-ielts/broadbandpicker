@@ -1,38 +1,174 @@
 {
-  "slug":"providers/cuckoo",
-  "primary_keyword":"cuckoo broadband",
-  "search_locale":"UK",
-  "secondary_keywords":[
-    {"keyword":"cuckoo broadband deals","intent":"commercial","page_slot":"package and pricing sections","coverage_note":"Current standard prices, promotional caveats and total-cost checks."},
-    {"keyword":"cuckoo broadband review","intent":"commercial investigation","page_slot":"title, service section and verdict","coverage_note":"Balanced post-transfer assessment."},
-    {"keyword":"cuckoo broadband prices","intent":"commercial","page_slot":"current package H2","coverage_note":"SoGEA and FTTP standard pricing."},
-    {"keyword":"cuckoo broadband coverage","intent":"availability","page_slot":"coverage H2","coverage_note":"Wholesale network and exact-address explanation."},
-    {"keyword":"cuckoo broadband speeds","intent":"technical and commercial","page_slot":"speed H2","coverage_note":"Current 11 to 945 Mbps range and upload caveat."},
-    {"keyword":"cuckoo broadband onestream","intent":"navigational and informational","page_slot":"answer-first ownership H2","coverage_note":"Explains May 2026 brand transfer and customer impact."},
-    {"keyword":"is cuckoo broadband any good","intent":"decision","page_slot":"verdict and FAQ","coverage_note":"Conditional recommendation using current ownership and terms."}
+  "slug": "guides/black-friday-broadband-deals-uk",
+  "primary_keyword": "black friday broadband deals",
+  "search_locale": "UK",
+  "secondary_keywords": [
+    {
+      "keyword": "Black Friday broadband deals UK 2026",
+      "intent": "Seasonal commercial",
+      "page_slot": "title, excerpt and opening answer",
+      "coverage_note": "State the 2026 sale date, current pre-sale status and what UK shoppers can do before offers launch."
+    },
+    {
+      "keyword": "when do Black Friday broadband deals start",
+      "intent": "Seasonal timing",
+      "page_slot": "H2 timing section and FAQ",
+      "coverage_note": "Explain that provider campaigns commonly begin in early or mid-November and may run through Cyber Monday, while exact dates vary."
+    },
+    {
+      "keyword": "are Black Friday broadband deals worth it",
+      "intent": "Commercial investigation",
+      "page_slot": "H2 value test, worked cost table and FAQ",
+      "coverage_note": "Give a conditional verdict based on whole-contract cost, annual rises, setup fees and rewards rather than assuming a sale label means best value."
+    },
+    {
+      "keyword": "best Black Friday broadband deals",
+      "intent": "Commercial comparison",
+      "page_slot": "H2 provider shortlist and verdict",
+      "coverage_note": "Explain which provider types to check and refuse to name a universal winner before address-specific live offers exist."
+    },
+    {
+      "keyword": "Black Friday broadband deals for existing customers",
+      "intent": "Retention and renewal",
+      "page_slot": "H2 existing-customer section and FAQ",
+      "coverage_note": "Separate new-customer promotions from renewal, upgrade and retention routes."
+    },
+    {
+      "keyword": "Black Friday broadband and TV deals",
+      "intent": "Bundle comparison",
+      "page_slot": "H3 bundle comparison and FAQ",
+      "coverage_note": "Cover TV bundle discounts while warning readers to value required channels and full contract cost."
+    }
   ],
-  "serp_competitors":[
-    {"url":"https://www.moneysupermarket.com/broadband/providers/cuckoo/","title":"Cuckoo broadband deals August 2026","observed_structure":"Current range overview, speeds, provider comparison, cost methodology and buyer checklist.","approx_word_count":2800,"content_gap_to_improve":"Explain the ownership transfer, legal standard fees, wholesale network differences and complaint route in more detail.","useful_ux_patterns":["at-a-glance answer","speed bands","application checklist"],"useful_ui_patterns":["provider comparison table","methodology accordion"],"interactive_or_functional_elements":["address comparison","deal sorting"],"trust_signals":["named editor","review date","supplier-feed explanation"],"citation_patterns":["methodology and provider data notes"]},
-    {"url":"https://selectra.co.uk/tv-broadband/providers/cuckoo-broadband","title":"Cuckoo Broadband 2026","observed_structure":"Verdict, network explanation, contracts, reviews, contact and alternatives.","approx_word_count":3200,"content_gap_to_improve":"Correct legacy rolling-contract and router assumptions against the post-May Cuckoo documents.","useful_ux_patterns":["expert verdict","best-for framing","clear weaknesses"],"useful_ui_patterns":["summary cards","pros and cons"],"interactive_or_functional_elements":["deal CTA"],"trust_signals":["dated verdict","independent positioning"],"citation_patterns":["provider and comparison references"]},
-    {"url":"https://findcheapbroadband.com/broadband-reviews/cuckoo-broadband-review/","title":"Cuckoo Broadband Review 2026","observed_structure":"Ownership update, legacy testing, current package correction, router, performance and verdict.","approx_word_count":2600,"content_gap_to_improve":"Add the complete standard-fee table context, complaint routing and buyer-specific contract checklist.","useful_ux_patterns":["prominent update warning","legacy versus current distinction"],"useful_ui_patterns":["fact summary","package section"],"interactive_or_functional_elements":["comparison CTA"],"trust_signals":["hands-on legacy testing","dated corrections","source explanation"],"citation_patterns":["primary legal-price citations"]}
+  "serp_competitors": [
+    {
+      "url": "https://www.moneysavingexpert.com/compare-broadband-deals/black-friday-broadband-deals/",
+      "title": "Black Friday broadband deals | MoneySavingExpert",
+      "observed_structure": "Postcode-led comparison tool followed by definitions, sale timing, value judgement, provider-specific questions, need-to-knows and FAQs.",
+      "approx_word_count": 1500,
+      "content_gap_to_improve": "Make the pre-sale 2026 status unmistakable and show a reproducible whole-contract calculation without presenting expired deals as current.",
+      "useful_ux_patterns": ["Postcode-first next step", "Need-to-know checklist", "Clear distinction between advertised and address-specific availability"],
+      "useful_ui_patterns": ["Compact answer sections", "Numbered consumer warnings", "FAQ block"],
+      "interactive_or_functional_elements": ["Address checker", "Deal filters", "Social tariff option"],
+      "trust_signals": ["Named comparison scope", "Methodology disclosure", "Consumer-focused warnings"],
+      "citation_patterns": "Primarily internal methodology and comparison links, with claims explained in surrounding copy."
+    },
+    {
+      "url": "https://www.broadband.co.uk/broadband/black-friday",
+      "title": "Black Friday broadband deals | Compare & save UK offers",
+      "observed_structure": "Live deal cards and postcode checker, then 2026 overview, offer-type list, timing, switching steps and a short FAQ.",
+      "approx_word_count": 1000,
+      "content_gap_to_improve": "Give readers a neutral calculation they can apply to any deal and distinguish verified historic examples from future expectations.",
+      "useful_ux_patterns": ["Effective monthly cost", "Deal type definitions", "Step-by-step switching path"],
+      "useful_ui_patterns": ["At-a-glance deal fields", "Highlighted tips", "Author and updated date"],
+      "interactive_or_functional_elements": ["Address checker", "Expandable deal details", "Deal comparison"],
+      "trust_signals": ["Ofcom accreditation statement", "Named author", "Visible last-updated date", "Comparison scope"],
+      "citation_patterns": "Provider and internal explainer links close to offer types and switching advice."
+    },
+    {
+      "url": "https://www.uswitch.com/broadband/compare/black_friday/",
+      "title": "Black Friday 2026 Broadband Deals - Uswitch",
+      "observed_structure": "Commercial introduction and deal comparison followed by provider expectations, timing, savings explanation, seasonal alternatives and FAQs.",
+      "approx_word_count": 900,
+      "content_gap_to_improve": "Avoid unsupported forward-looking savings and give a transparent example that includes annual price rises and one-off costs.",
+      "useful_ux_patterns": ["Seasonal timing answers", "Provider-by-provider scan", "Direct comparison CTA"],
+      "useful_ui_patterns": ["Short FAQ answers", "Provider cards", "Savings methodology link"],
+      "interactive_or_functional_elements": ["Postcode comparison", "Provider offer cards"],
+      "trust_signals": ["Savings calculation methodology", "Updated copy", "Established comparison service"],
+      "citation_patterns": "Methodology link sits next to the headline savings claim; provider reviews support entity detail."
+    }
   ],
-  "ai_overview":{"checked":true,"present":false,"observation":"No AI Overview appeared in the checked UK surface. Results reward an explicit Onestream ownership answer, current package correction, concise price and speed facts, network coverage caveats and a balanced verdict.","cited_sources":[]},
-  "people_also_ask":["Is Cuckoo broadband any good?","Who owns Cuckoo Broadband?","How much does Cuckoo broadband cost?","What speeds does Cuckoo offer?","What network does Cuckoo use?","Does Cuckoo offer a landline?","Does Cuckoo increase prices?"],
-  "sources":[
-    {"url":"https://cuckoo.co/legal/price-list","source_type":"primary","verified_date":"2026-08-22","claims_supported":["current range","standard prices","fees","add-ons","early termination"]},
-    {"url":"https://cuckoo.co/legal/terms-and-conditions","source_type":"primary","verified_date":"2026-08-22","claims_supported":["networks","minimum period","cooling off","price and exit rules"]},
-    {"url":"https://cuckoo.co/onestream-update","source_type":"primary","verified_date":"2026-08-22","claims_supported":["Onestream transfer","continuing customer terms","billing changes"]},
-    {"url":"https://www.moneysupermarket.com/broadband/providers/cuckoo/","source_type":"independent","verified_date":"2026-08-22","claims_supported":["current product and availability corroboration"]},
-    {"url":"https://uk.trustpilot.com/review/cuckoo.co","source_type":"independent","verified_date":"2026-08-22","claims_supported":["dated review score, count and distribution"]},
-    {"url":"https://www.commsombudsman.org/raise-dispute/cuckoo-broadband","source_type":"independent","verified_date":"2026-08-22","claims_supported":["transfer date and complaint routing"]},
-    {"url":"https://ui.awin.com/merchant-profile-terms/118743/affiliate","source_type":"primary","verified_date":"2026-08-22","claims_supported":["Awin advertiser programme ID 118743"]}
+  "ai_overview": {
+    "checked": true,
+    "present": false,
+    "observation": "No AI Overview or AI answer was surfaced in the live UK search-result checks on 23 August 2026. Standard organic results and provider pages appeared, so there were no AI Overview citations to record.",
+    "cited_sources": []
+  },
+  "people_also_ask": [
+    "When should I start looking for Black Friday broadband deals?",
+    "How long do Black Friday broadband deals last?",
+    "Are Black Friday broadband deals worth it?",
+    "Are Black Friday broadband deals only for new customers?",
+    "Can I get faster broadband deals on Black Friday?",
+    "Do broadband and TV packages go on sale for Black Friday?"
   ],
-  "recommended_min_words":2200,
-  "required_sections":["ownership update","current package prices","coverage and networks","speeds and uploads","router and add-ons","contracts and fees","switching and phone","customer service and complaints","verdict","FAQs","sources"],
-  "internal_links":["/compare","/deals","/providers/onestream","/guides/fttp-vs-fttc-explained","/tools/broadband-cost-calculator"],
-  "schema_types":["Article","FAQPage","OfferCatalog"],
-  "ux_ui_requirements":["Lead with the May 2026 ownership change","Use the responsive package table for the full current range","Keep pros and cons visible before long-form analysis","Date prices and distinguish standard from promotional payments","Keep postcode checking prominent"],
-  "functional_requirements":["Static provider route and sitemap inclusion","Affiliate outbound click logging","Awin advertiser ID stored without false publisher attribution","Eight standalone FAQ answers","Offer schema from current price-guide tiers"],
-  "research_summary":"The most important search gap is not another legacy Cuckoo review but a current post-transfer decision page. The implementation uses Cuckoo’s new Onestream-operated price and terms documents, corrects obsolete plan and router assumptions, compares SoGEA with FTTP, explains wholesale-network variation, surfaces unusually large ancillary and exit fees, and preserves an honest Awin state.",
-  "depth_rationale":"Cuckoo’s ownership, product names, networks, billing and complaint routes changed in May 2026. A minimum 2,200 words is justified to separate legacy from current facts, cover ten speed tiers, costs, installation, add-ons and customer remedies without forcing readers to reconcile conflicting search results themselves."
+  "sources": [
+    {
+      "url": "https://www.ofcom.org.uk/phones-and-broadband/saving-money/telecoms-price-rises-what-are-your-rights",
+      "source_type": "regulator",
+      "verified_date": "2026-08-23",
+      "claims_supported": "Since 17 January 2025, specified in-contract price rises on new consumer contracts must be stated upfront in pounds and pence; out-of-contract customers should shop around."
+    },
+    {
+      "url": "https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/multi-sector/pricing/2025/pricing-and-consumer-engagement-report.pdf?v=412887",
+      "source_type": "regulator",
+      "verified_date": "2026-08-23",
+      "claims_supported": "Promoted broadband prices remain below list prices; September 2025 average monthly price differentials were £4.17 for standard, £6.84 for superfast and £7.94 for ultrafast dual-play bundles."
+    },
+    {
+      "url": "https://www.bt.com/black-friday",
+      "source_type": "primary",
+      "verified_date": "2026-08-23",
+      "claims_supported": "BT has run Black Friday broadband promotions and states that campaigns can extend for up to two weeks around Black Friday and Cyber Monday; its indexed page still refers to 2025, so it does not support a current 2026 offer."
+    },
+    {
+      "url": "https://ee.co.uk/broadband/black-friday",
+      "source_type": "primary",
+      "verified_date": "2026-08-23",
+      "claims_supported": "EE says full 2026 Black Friday broadband details will be published closer to the event and provides clearly labelled 2025 examples, supporting the page's pre-sale status warning."
+    },
+    {
+      "url": "https://www.moneysavingexpert.com/compare-broadband-deals/black-friday-broadband-deals/",
+      "source_type": "independent",
+      "verified_date": "2026-08-23",
+      "claims_supported": "Providers run broadband offers throughout the year; Black Friday can be cheaper, but deals require analysis and comparison rather than assuming every promotion is good."
+    },
+    {
+      "url": "https://www.broadband.co.uk/broadband/black-friday",
+      "source_type": "independent",
+      "verified_date": "2026-08-23",
+      "claims_supported": "Common promotion types include reward cards, bill credits, monthly price cuts and extras; effective monthly cost is a useful comparison field."
+    }
+  ],
+  "recommended_min_words": 1400,
+  "required_sections": [
+    "Answer-first 2026 status and verdict",
+    "Black Friday and Cyber Monday dates",
+    "Expected offer types",
+    "Provider and bundle shortlist",
+    "Whole-contract cost calculation",
+    "Address, speed and contract checklist",
+    "Existing-customer options",
+    "Switching timing and rights",
+    "Actionable verdict",
+    "Standalone FAQs",
+    "Visible editorial sources"
+  ],
+  "internal_links": [
+    "/compare",
+    "/deals",
+    "/guides/best-broadband-deals-uk",
+    "/guides/how-to-switch-broadband-uk",
+    "/guides/broadband-deals-with-no-mid-contract-price-rise",
+    "/tools/broadband-cost-calculator",
+    "/providers/bt",
+    "/providers/virgin-media",
+    "/providers/sky",
+    "/providers/vodafone"
+  ],
+  "schema_types": ["Article", "FAQPage"],
+  "ux_ui_requirements": [
+    "Use the existing Key Takeaways panel for an immediate pre-sale status and buying verdict, serving readers who need the answer before browsing detail.",
+    "Add an accessible whole-contract comparison table with explicit labels and a worked hypothetical example, serving readers who need to compare unlike reward formats.",
+    "Add a compact timing table for early November, Black Friday and Cyber Monday, serving readers planning when to check or switch.",
+    "Use visible reviewed dates and source notes near material claims, serving readers who need to separate 2026 facts from expired 2025 promotions.",
+    "Provide contextual links to provider reviews, switching guidance and the postcode comparison route, serving readers ready to verify availability or act."
+  ],
+  "functional_requirements": [
+    "Reuse the existing live DealTable and postcode comparison path rather than fabricate seasonal offers before providers publish them.",
+    "Show a worked effective-monthly-cost formula that readers can apply manually to any live offer.",
+    "Keep all deal examples labelled as hypothetical or historic and send readers to address-level comparison for live availability."
+  ],
+  "research_summary": "The live UK SERP is led by comparison services and provider campaign pages. Comparison pages combine postcode tools with roughly 800 to 1,500 words covering offer types, timing, effective monthly cost, switching warnings and FAQs. Provider pages are shorter and promotional. As of 23 August 2026, some pages are prepared for the 2026 event but confirmed offers are generally not yet published. The useful editorial opportunity is an evergreen, evidence-led buying method that clearly distinguishes confirmed dates and consumer rules from provisional or historic promotions.",
+  "depth_rationale": "A 1,400-word minimum matches the upper end of the substantive editorial content visible across the three ranking comparison pages without duplicating their live deal inventories. The topic needs enough room for timing, provider coverage, a worked total-cost method, annual price-rise treatment, existing-customer advice, switching checks and six standalone FAQs. More words would risk padding before 2026 offers are live; fewer would omit decision-critical checks that ranking pages consistently include."
 }

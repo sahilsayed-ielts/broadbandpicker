@@ -477,7 +477,20 @@ def build_workbook(page_items: list[dict[str, Any]], overrides: dict[str, dict[s
     all_items = FEATURE_BUILDS + page_items
     for item in all_items:
         manual = overrides.get(item["item_id"], {})
-        item["status"] = manual.get("Status") or default_status_for(item)
+        computed_status = default_status_for(item)
+        manual_status = manual.get("Status")
+        if item["type"] == "Page":
+            # Page status is independently verified by the keyword-mapping
+            # pipeline's live crawl (build_status) every run — always trust
+            # it fresh. A stale "Not started" written on a page's first
+            # appearance in this tracker must never freeze it there once
+            # the source data later confirms it shipped.
+            item["status"] = computed_status
+        else:
+            # Feature/audit/bet items have no external verification signal;
+            # a hand-set Status ("In progress", "Done", ...) is a genuine
+            # manual edit and must survive regeneration.
+            item["status"] = manual_status or computed_status
         item["owner"] = manual.get("Owner") or ""
         item["target_date"] = manual.get("Target Date") or ""
         item["notes"] = manual.get("Notes") or ""
