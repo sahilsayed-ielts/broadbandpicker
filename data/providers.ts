@@ -1239,7 +1239,7 @@ const baseProviders: Provider[] = [
     monthlyPriceFrom: 19.99,
     contractLengths: [18],
     setupFee: 0,
-    trustpilotScore: 1.5,
+    trustpilotScore: 0,
     coveragePercent: 0,
     highlights: [
       'Shell Energy Broadband closed to new customers and its broadband accounts moved to TalkTalk in 2024',
@@ -1427,6 +1427,7 @@ export function getProviderBySlug(slug: string): Provider | undefined {
 
 export function getTopDeals(count = 5) {
   return providers
+    .filter((p) => !p.retiredDate)
     .map((p) => ({
       provider: p,
       monthlyPrice: p.monthlyPriceFrom,

@@ -63,7 +63,12 @@ function Stars({ score }: { score: number }) {
 }
 
 export default function ProvidersPage() {
-  const sorted = [...providers].sort((a, b) => b.trustpilotScore - a.trustpilotScore)
+  const sorted = [...providers].sort((a, b) => {
+    const aRetired = Boolean(a.retiredDate)
+    const bRetired = Boolean(b.retiredDate)
+    if (aRetired !== bRetired) return aRetired ? 1 : -1
+    return b.trustpilotScore - a.trustpilotScore
+  })
   const verifiedDateLabel = new Date(providerDatasetUpdatedDate).toLocaleDateString('en-GB', {
     day: 'numeric',
     month: 'long',
@@ -134,7 +139,13 @@ export default function ProvidersPage() {
             >
               <div className="flex items-start justify-between mb-4">
                 <ProviderLogo slug={p.slug} name={p.name} width={80} height={40} />
-                <Stars score={p.trustpilotScore} />
+                {p.retiredDate ? (
+                  <span className="rounded-full bg-amber-100 px-2.5 py-1 text-xs font-semibold text-amber-800">
+                    Retired brand
+                  </span>
+                ) : (
+                  <Stars score={p.trustpilotScore} />
+                )}
               </div>
 
               <h2 className="text-lg font-bold text-slate-900 group-hover:text-sky-600 transition-colors mb-1">
@@ -143,7 +154,7 @@ export default function ProvidersPage() {
 
               <div className="text-sm text-slate-600 space-y-1 mb-4">
                 <div>
-                  From{' '}
+                  {p.retiredDate ? 'Historic range from ' : 'From '}
                   <span className="font-semibold text-slate-900">
                     £{p.monthlyPriceFrom.toFixed(2)}/mo
                   </span>

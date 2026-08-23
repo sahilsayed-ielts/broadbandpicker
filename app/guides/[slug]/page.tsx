@@ -3865,6 +3865,16 @@ export default async function GuidePage({
         {content.body}
       </div>
 
+      {slug === 'how-to-switch-broadband-uk' && (
+        <p className="mb-10 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm leading-relaxed text-slate-700">
+          Former Shell Energy Broadband customers now manage their service through TalkTalk. Our{' '}
+          <Link href="/providers/shell-energy" className="font-semibold text-sky-700 hover:underline">
+            Shell Energy broadband migration guide
+          </Link>{' '}
+          explains the account change, historic packages and checks to make before switching.
+        </p>
+      )}
+
       {/* Featured deals */}
       <div className="my-10 p-6 bg-slate-50 rounded-xl border border-slate-200">
         <h2 className="text-xl font-bold text-slate-900 mb-1">Compare deals now</h2>

@@ -201,6 +201,16 @@ export default async function ProviderPage({
         </p>
       )}
 
+      {provider.slug === 'talktalk' && (
+        <p className="mb-8 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm leading-relaxed text-slate-700">
+          Were you moved from Shell Energy Broadband? Read our{' '}
+          <Link href="/providers/shell-energy" className="font-semibold text-sky-700 hover:underline">
+            Shell Energy broadband archive and migration guide
+          </Link>{' '}
+          before checking the current TalkTalk account or switching.
+        </p>
+      )}
+
       {/* Highlights */}
       <div className="bg-sky-50 border border-sky-200 rounded-xl p-6 mb-8">
         <h2 className="font-bold text-slate-900 mb-3">Why choose {provider.name}?</h2>
