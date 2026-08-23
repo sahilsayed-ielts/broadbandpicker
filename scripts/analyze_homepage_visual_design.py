@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """Analyse the visual design of popular UK broadband affiliate/comparison
 homepages: imagery vs illustration use, hero treatment, interactive-library
-signals, colour/gradient use — to inform a BroadbandPicker homepage visual
-redesign (design/UX only, not a content rewrite).
+signals, colour/gradient use, and footer patterns (logo placement, social
+icons, accordion/back-to-top interactivity) — to inform a BroadbandPicker
+homepage and footer visual redesign (design/UX only, not a content
+rewrite).
 
 This is a structural HTTP scrape, not a rendered screenshot: it can see
 what markup, images and script libraries a page ships, but it cannot see
@@ -74,6 +76,12 @@ class HomepageScan:
     interactive_libraries_detected: list[str] = field(default_factory=list)
     hero_heading_text: str = ""
     sample_image_alts: list[str] = field(default_factory=list)
+    footer_has_logo: bool = False
+    footer_logo_signal: str = ""
+    footer_social_icon_count: int = 0
+    footer_has_back_to_top: bool = False
+    footer_has_accordion: bool = False
+    footer_link_hover_transition_count: int = 0
 
 
 def fetch(url: str, timeout: int = 20) -> requests.Response:
@@ -116,6 +124,42 @@ def scan_site(name: str, url: str) -> HomepageScan:
 
         h1_text = " ".join(tree.xpath("//h1//text()")).strip()
         scan.hero_heading_text = re.sub(r"\s+", " ", h1_text)[:150]
+
+        footer_nodes = tree.xpath("//footer | //*[@role='contentinfo']")
+        if footer_nodes:
+            footer = footer_nodes[0]
+            footer_html = html.tostring(footer, encoding="unicode").lower()
+
+            logo_imgs = footer.xpath(
+                ".//img[contains(translate(@alt,'LOGO','logo'),'logo')] | "
+                ".//img[contains(translate(@class,'LOGO','logo'),'logo')] | "
+                ".//img[contains(translate(@src,'LOGO','logo'),'logo')] | "
+                ".//svg[contains(translate(@class,'LOGO','logo'),'logo')] | "
+                ".//*[contains(translate(@class,'LOGO','logo'),'logo')]//img"
+            )
+            scan.footer_has_logo = len(logo_imgs) > 0
+            if logo_imgs:
+                el = logo_imgs[0]
+                scan.footer_logo_signal = (el.get("alt") or el.get("class") or el.tag or "")[:60]
+
+            social_domains = ("facebook.com", "twitter.com", "x.com", "instagram.com",
+                               "linkedin.com", "youtube.com", "tiktok.com")
+            social_links = [
+                a for a in footer.xpath(".//a[@href]")
+                if any(d in (a.get("href") or "") for d in social_domains)
+            ]
+            scan.footer_social_icon_count = len(social_links)
+
+            scan.footer_has_accordion = bool(footer.xpath(".//details")) or bool(
+                re.search(r'aria-expanded="(true|false)"', footer_html)
+            )
+            scan.footer_has_back_to_top = bool(
+                re.search(r"back to top|scroll to top|#top\"|#top'", footer_html)
+            ) or bool(tree.xpath("//a[contains(translate(@aria-label,'BACKTOTOP','backtotop'),'back to top')]"))
+
+            scan.footer_link_hover_transition_count = len(
+                re.findall(r'class="[^"]*(?:hover:|transition)[^"]*"', footer_html)
+            )
 
     except Exception as exc:
         scan.notes = str(exc)[:250]

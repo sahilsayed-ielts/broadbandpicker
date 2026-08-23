@@ -31,7 +31,13 @@
         "Discovery+",
         "Vodafone",
         "Sky"
-      ]
+      ],
+      "footer_has_logo": true,
+      "footer_logo_signal": "logo logo--rvu",
+      "footer_social_icon_count": 0,
+      "footer_has_back_to_top": false,
+      "footer_has_accordion": false,
+      "footer_link_hover_transition_count": 0
     },
     {
       "name": "Which? Switch Broadband",
@@ -58,7 +64,13 @@
         "QR code for the Which? mobile app - download via Google Play Store or Apple App Store",
         "Google Play",
         "App store"
-      ]
+      ],
+      "footer_has_logo": false,
+      "footer_logo_signal": "",
+      "footer_social_icon_count": 0,
+      "footer_has_back_to_top": false,
+      "footer_has_accordion": false,
+      "footer_link_hover_transition_count": 0
     },
     {
       "name": "broadband.co.uk",
@@ -89,7 +101,13 @@
         "Fibrely logo",
         "Genie",
         "Emma Davenport"
-      ]
+      ],
+      "footer_has_logo": false,
+      "footer_logo_signal": "",
+      "footer_social_icon_count": 0,
+      "footer_has_back_to_top": false,
+      "footer_has_accordion": false,
+      "footer_link_hover_transition_count": 0
     },
     {
       "name": "choose.co.uk",
@@ -120,7 +138,13 @@
         "consumer news",
         "more",
         "open"
-      ]
+      ],
+      "footer_has_logo": false,
+      "footer_logo_signal": "",
+      "footer_social_icon_count": 2,
+      "footer_has_back_to_top": false,
+      "footer_has_accordion": false,
+      "footer_link_hover_transition_count": 7
     },
     {
       "name": "MoneySavingExpert",
@@ -135,7 +159,13 @@
       "rounded_corner_signal_count": 0,
       "interactive_libraries_detected": [],
       "hero_heading_text": "",
-      "sample_image_alts": []
+      "sample_image_alts": [],
+      "footer_has_logo": false,
+      "footer_logo_signal": "",
+      "footer_social_icon_count": 0,
+      "footer_has_back_to_top": false,
+      "footer_has_accordion": false,
+      "footer_link_hover_transition_count": 0
     }
   ]
 }

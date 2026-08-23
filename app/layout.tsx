@@ -7,6 +7,7 @@ import PostcodeChecker from '@/components/PostcodeChecker'
 import NewsletterSignup from '@/components/NewsletterSignup'
 import CookieBanner from '@/components/CookieBanner'
 import CookiePreferencesButton from '@/components/CookiePreferencesButton'
+import Logo from '@/components/Logo'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -41,18 +42,12 @@ export const metadata: Metadata = {
 
 function Header() {
   return (
-    <header className="bg-white border-b border-slate-200 sticky top-0 z-30">
+    <header id="top" className="bg-white border-b border-slate-200 sticky top-0 z-30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 gap-4">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 flex-shrink-0" aria-label="BroadbandPicker home">
-            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-              <rect width="28" height="28" rx="7" fill="#0EA5E9" />
-              <path d="M6 18c2-4 4-6 8-6s6 2 8 6" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
-              <path d="M9 18c1-2 2-3 5-3s4 1 5 3" stroke="white" strokeWidth="2" strokeLinecap="round" />
-              <circle cx="14" cy="18" r="1.5" fill="white" />
-            </svg>
-            <span className="font-bold text-slate-900 text-lg">BroadbandPicker</span>
+          <Link href="/" className="flex-shrink-0 transition-opacity hover:opacity-80" aria-label="BroadbandPicker home">
+            <Logo />
           </Link>
 
           {/* Desktop nav */}
@@ -113,97 +108,155 @@ function MobileMenuButton() {
   )
 }
 
+const FOOTER_COLUMNS: { heading: string; links: { href: string; label: string; component?: 'cookie' }[] }[] = [
+  {
+    heading: 'Compare',
+    links: [
+      { href: '/compare', label: 'All providers' },
+      { href: '/deals', label: 'Best deals' },
+      { href: '/providers', label: 'Provider reviews' },
+    ],
+  },
+  {
+    heading: 'Tools',
+    links: [
+      { href: '/tools/broadband-match', label: 'Broadband Match quiz' },
+      { href: '/speed-test', label: 'Speed test' },
+      { href: '/tools/broadband-cost-calculator', label: 'Cost calculator' },
+    ],
+  },
+  {
+    heading: 'Find Broadband',
+    links: [
+      { href: '/postcode', label: 'By postcode' },
+      { href: '/postcode/london', label: 'London' },
+      { href: '/postcode/manchester', label: 'Manchester' },
+    ],
+  },
+  {
+    heading: 'Guides',
+    links: [
+      { href: '/guides/how-to-switch-broadband-uk', label: 'How to switch' },
+      { href: '/guides/best-broadband-deals-uk', label: 'Best deals' },
+      { href: '/guides/broadband-speeds-explained', label: 'Speed guide' },
+      { href: '/guides', label: 'All guides' },
+    ],
+  },
+  {
+    heading: 'Company',
+    links: [
+      { href: '/about', label: 'About us' },
+      { href: '/contact', label: 'Contact' },
+      { href: '/research/uk-broadband-customer-satisfaction', label: 'Research' },
+      { href: '/editorial-policy', label: 'Editorial policy' },
+      { href: '/how-we-make-money', label: 'How we make money' },
+      { href: '/how-we-review-broadband', label: 'How we review' },
+    ],
+  },
+  {
+    heading: 'Legal',
+    links: [
+      { href: '/privacy-policy', label: 'Privacy policy' },
+      { href: '#', label: 'Cookie preferences', component: 'cookie' },
+      { href: '/cookie-policy', label: 'Cookie policy' },
+      { href: '/terms', label: 'Terms of use' },
+      { href: '/broadband-glossary', label: 'Broadband glossary' },
+    ],
+  },
+]
+
 function Footer() {
   const year = new Date().getFullYear()
   return (
     <footer className="bg-slate-900 text-slate-400 mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* Brand */}
+        <div className="mb-10 pb-10 border-b border-slate-800 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+          <div>
+            <Logo size={36} wordmarkClassName="text-white" />
+            <p className="text-sm text-slate-400 mt-3 max-w-sm">
+              Independent UK broadband comparison. We compare price, speed and contract terms
+              across every major provider so you can switch with confidence.
+            </p>
+          </div>
+          <a
+            href="https://x.com/broadbandPicker"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="BroadbandPicker on X (Twitter)"
+            className="group flex items-center gap-2 self-start rounded-full border border-slate-700 bg-slate-800/60 px-4 py-2 text-sm text-slate-300 transition-all hover:scale-105 hover:border-sky-500 hover:text-white"
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+              className="transition-transform group-hover:rotate-6"
+            >
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631Zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg>
+            @broadbandPicker
+          </a>
+        </div>
+
         <div className="mb-10">
           <NewsletterSignup source="footer" />
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-10">
-          <div>
-            <h3 className="text-white font-semibold text-sm mb-3">Compare</h3>
-            <ul className="space-y-2 text-sm">
-              <li><Link href="/compare" className="hover:text-white transition-colors">All providers</Link></li>
-              <li><Link href="/deals" className="hover:text-white transition-colors">Best deals</Link></li>
-              <li><Link href="/providers" className="hover:text-white transition-colors">Provider reviews</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-white font-semibold text-sm mb-3">Tools</h3>
-            <ul className="space-y-2 text-sm">
-              <li><Link href="/tools/broadband-match" className="hover:text-white transition-colors">Broadband Match quiz</Link></li>
-              <li><Link href="/speed-test" className="hover:text-white transition-colors">Speed test</Link></li>
-              <li><Link href="/tools/broadband-cost-calculator" className="hover:text-white transition-colors">Cost calculator</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-white font-semibold text-sm mb-3">Find Broadband</h3>
-            <ul className="space-y-2 text-sm">
-              <li><Link href="/postcode" className="hover:text-white transition-colors">By postcode</Link></li>
-              <li><Link href="/postcode/london" className="hover:text-white transition-colors">London</Link></li>
-              <li><Link href="/postcode/manchester" className="hover:text-white transition-colors">Manchester</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-white font-semibold text-sm mb-3">Guides</h3>
-            <ul className="space-y-2 text-sm">
-              <li><Link href="/guides/how-to-switch-broadband-uk" className="hover:text-white transition-colors">How to switch</Link></li>
-              <li><Link href="/guides/best-broadband-deals-uk" className="hover:text-white transition-colors">Best deals</Link></li>
-              <li><Link href="/guides/broadband-speeds-explained" className="hover:text-white transition-colors">Speed guide</Link></li>
-              <li><Link href="/guides" className="hover:text-white transition-colors">All guides</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-white font-semibold text-sm mb-3">Company</h3>
-            <ul className="space-y-2 text-sm">
-              <li><Link href="/about" className="hover:text-white transition-colors">About us</Link></li>
-              <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
-              <li><Link href="/research/uk-broadband-customer-satisfaction" className="hover:text-white transition-colors">Research</Link></li>
-              <li><Link href="/editorial-policy" className="hover:text-white transition-colors">Editorial policy</Link></li>
-              <li><Link href="/how-we-make-money" className="hover:text-white transition-colors">How we make money</Link></li>
-              <li><Link href="/how-we-review-broadband" className="hover:text-white transition-colors">How we review</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-white font-semibold text-sm mb-3">Legal</h3>
-            <ul className="space-y-2 text-sm">
-              <li><Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy policy</Link></li>
-              <li>
-                <CookiePreferencesButton />
-              </li>
-              <li><Link href="/cookie-policy" className="hover:text-white transition-colors">Cookie policy</Link></li>
-              <li><Link href="/terms" className="hover:text-white transition-colors">Terms of use</Link></li>
-              <li><Link href="/broadband-glossary" className="hover:text-white transition-colors">Broadband glossary</Link></li>
-            </ul>
-          </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-2 mb-10">
+          {FOOTER_COLUMNS.map((column) => (
+            <details key={column.heading} open className="group">
+              <summary className="flex cursor-pointer list-none items-center justify-between text-white font-semibold text-sm mb-3 py-1 marker:content-none [&::-webkit-details-marker]:hidden lg:pointer-events-none lg:cursor-default">
+                {column.heading}
+                <svg
+                  className="h-3.5 w-3.5 text-slate-500 transition-transform group-open:rotate-180 lg:hidden"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <ul className="space-y-2 text-sm pb-3">
+                {column.links.map((link) =>
+                  link.component === 'cookie' ? (
+                    <li key={link.label}>
+                      <CookiePreferencesButton />
+                    </li>
+                  ) : (
+                    <li key={link.href}>
+                      <Link href={link.href} className="hover:text-white transition-colors">
+                        {link.label}
+                      </Link>
+                    </li>
+                  )
+                )}
+              </ul>
+            </details>
+          ))}
         </div>
 
         <div className="border-t border-slate-800 pt-8 space-y-4">
-          {/* Social */}
-          <div className="flex items-center gap-3">
-            <a
-              href="https://x.com/broadbandPicker"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="BroadbandPicker on X (Twitter)"
-              className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors text-sm"
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.259 5.631 5.905-5.631Zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-              </svg>
-              @broadbandPicker
-            </a>
-          </div>
-
           <p className="text-xs text-slate-300 max-w-3xl">
             BroadbandPicker.co.uk is a free comparison service. We may receive a commission when you click through to a provider and take out a service. This does not affect our editorial independence or the prices you are quoted. All prices shown are monthly. Contract terms, prices and availability are subject to change — always verify with the provider before signing up.
           </p>
-          <p className="text-xs text-slate-400">
-            &copy; {year} BroadbandPicker.co.uk — We are not affiliated with any broadband provider. All trademarks belong to their respective owners.
-          </p>
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <p className="text-xs text-slate-400">
+              &copy; {year} BroadbandPicker.co.uk — We are not affiliated with any broadband provider. All trademarks belong to their respective owners.
+            </p>
+            <a
+              href="#top"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-400 transition-colors hover:text-white"
+            >
+              Back to top
+              <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
     </footer>

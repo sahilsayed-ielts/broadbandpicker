@@ -334,6 +334,30 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-23 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "feat-footer-logo-interactivity",
+        "type": "Feature",
+        "pillar": "UX",
+        "title": "Footer logo placement and interactive elements",
+        "description": (
+            "Extended scripts/analyze_homepage_visual_design.py with footer-specific "
+            "detection (logo, social icons, accordion/back-to-top, hover density). Confirmed "
+            "directly in app/layout.tsx (not just inferred from the scan) that the footer had "
+            "no logo at all. Added components/Logo.tsx (extracted from the header, reused "
+            "larger in the footer with a tagline), made the 6 footer link columns "
+            "<details open> elements with a mobile-only collapse toggle (desktop behaves "
+            "exactly as static headings did, via lg:pointer-events-none, so nothing is at "
+            "risk of accidental collapse), upgraded the social link to a hover-interactive "
+            "pill button, and added a 'Back to top' link using the existing global "
+            "smooth-scroll behaviour."
+        ),
+        "priority_score": 48,
+        "impact_score": 40,
+        "effort": "Low",
+        "target": "app/layout.tsx, components/Logo.tsx",
+        "dependencies": "None",
+        "source": "User request 2026-08-23 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",
