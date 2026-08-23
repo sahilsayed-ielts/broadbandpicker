@@ -1,0 +1,402 @@
+{
+  "site": "https://broadbandpicker.co.uk",
+  "name": "BroadbandPicker",
+  "tagline": "Independent UK broadband comparison",
+  "positioning": "Independent UK broadband comparison. Compare deals by postcode, understand speeds and contracts, and switch without spending an evening on hold.",
+  "revenue_model": "Free for consumers. Revenue from affiliate commissions when someone clicks through and signs up. Rankings are not sold. Providers can be listed with or without an affiliate relationship.",
+  "colours": {
+    "primary": "#0EA5E9",
+    "navy": "#0F172A",
+    "accent": "#22C55E",
+    "background": "#F8FAFC",
+    "white": "#FFFFFF"
+  },
+  "fonts": [
+    "Inter",
+    "system-ui"
+  ],
+  "logo_files": [
+    "public/logo.svg",
+    "public/logo.png",
+    "app/icon.svg",
+    "docs/branding-and-marketing/broadbandpicker-logo-icon.png",
+    "docs/branding-and-marketing/broadbandpicker-logo-icon.svg"
+  ],
+  "social_handles": {
+    "x": "@broadbandPicker",
+    "instagram": "@broadbandpicker",
+    "tiktok": "@broadbandpicker",
+    "linkedin": "BroadbandPicker"
+  },
+  "emails": {
+    "partnerships": "partnerships@broadbandpicker.co.uk",
+    "editorial": "editorial@broadbandpicker.co.uk",
+    "hello": "hello@broadbandpicker.co.uk"
+  },
+  "providers": [
+    "BT",
+    "Sky",
+    "Virgin Media",
+    "EE",
+    "TalkTalk",
+    "Plusnet",
+    "Vodafone",
+    "NOW Broadband",
+    "Hyperoptic",
+    "Community Fibre",
+    "Zen Internet",
+    "Toob",
+    "Brsk",
+    "YouFibre",
+    "Gigaclear",
+    "Cuckoo",
+    "Onestream",
+    "Shell Energy"
+  ],
+  "guides": [
+    {
+      "slug": "how-to-switch-broadband-uk",
+      "title": "How to Switch Broadband Provider in the UK (2026)",
+      "url": "https://broadbandpicker.co.uk/guides/how-to-switch-broadband-uk"
+    },
+    {
+      "slug": "best-broadband-deals-uk",
+      "title": "Best Broadband Deals in the UK Right Now",
+      "url": "https://broadbandpicker.co.uk/guides/best-broadband-deals-uk"
+    },
+    {
+      "slug": "broadband-deals-with-no-mid-contract-price-rise",
+      "title": "Broadband Deals With No Mid-Contract Price Rise UK 2026",
+      "url": "https://broadbandpicker.co.uk/guides/broadband-deals-with-no-mid-contract-price-rise"
+    },
+    {
+      "slug": "best-broadband-and-tv-deals",
+      "title": "Best Broadband and TV Deals in the UK for 2026",
+      "url": "https://broadbandpicker.co.uk/guides/best-broadband-and-tv-deals"
+    },
+    {
+      "slug": "broadband-deals-under-20",
+      "title": "Broadband Deals Under £20 UK 2026",
+      "url": "https://broadbandpicker.co.uk/guides/broadband-deals-under-20"
+    },
+    {
+      "slug": "broadband-deals-with-cashback",
+      "title": "Broadband Deals With Cashback UK 2026",
+      "url": "https://broadbandpicker.co.uk/guides/broadband-deals-with-cashback"
+    },
+    {
+      "slug": "broadband-deals-with-no-setup-fee",
+      "title": "Broadband Deals With No Setup Fee UK 2026",
+      "url": "https://broadbandpicker.co.uk/guides/broadband-deals-with-no-setup-fee"
+    },
+    {
+      "slug": "best-rolling-monthly-broadband-deals",
+      "title": "Best Rolling Monthly Broadband Deals UK 2026",
+      "url": "https://broadbandpicker.co.uk/guides/best-rolling-monthly-broadband-deals"
+    },
+    {
+      "slug": "full-fibre-broadband-explained",
+      "title": "Full Fibre Broadband Explained: Is FTTP Worth It?",
+      "url": "https://broadbandpicker.co.uk/guides/full-fibre-broadband-explained"
+    },
+    {
+      "slug": "broadband-speeds-explained",
+      "title": "Broadband Speeds Explained: What Speed Do You Actually Need?",
+      "url": "https://broadbandpicker.co.uk/guides/broadband-speeds-explained"
+    },
+    {
+      "slug": "cheapest-broadband-uk",
+      "title": "Cheapest Broadband Deals in the UK 2026",
+      "url": "https://broadbandpicker.co.uk/guides/cheapest-broadband-uk"
+    },
+    {
+      "slug": "best-broadband-for-working-from-home",
+      "title": "Best Broadband for Working From Home UK 2026",
+      "url": "https://broadbandpicker.co.uk/guides/best-broadband-for-working-from-home"
+    },
+    {
+      "slug": "best-broadband-for-students",
+      "title": "Best Broadband for Students UK 2026",
+      "url": "https://broadbandpicker.co.uk/guides/best-broadband-for-students"
+    },
+    {
+      "slug": "best-broadband-for-streaming",
+      "title": "Best Broadband for Streaming UK 2026",
+      "url": "https://broadbandpicker.co.uk/guides/best-broadband-for-streaming"
+    },
+    {
+      "slug": "best-broadband-providers-uk",
+      "title": "Best Broadband Providers UK 2026: Ranked and Reviewed",
+      "url": "https://broadbandpicker.co.uk/guides/best-broadband-providers-uk"
+    },
+    {
+      "slug": "broadband-price-rises-2026",
+      "title": "Broadband Price Rises 2026: Every Provider Explained",
+      "url": "https://broadbandpicker.co.uk/guides/broadband-price-rises-2026"
+    },
+    {
+      "slug": "can-i-leave-broadband-early-after-price-rise",
+      "title": "Can I Leave Broadband Early After a Price Rise? UK Rules Explained",
+      "url": "https://broadbandpicker.co.uk/guides/can-i-leave-broadband-early-after-price-rise"
+    },
+    {
+      "slug": "broadband-without-phone-line",
+      "title": "Broadband Without a Phone Line UK 2026: Your Full Options",
+      "url": "https://broadbandpicker.co.uk/guides/broadband-without-phone-line"
+    },
+    {
+      "slug": "best-5g-home-broadband-uk",
+      "title": "Best 5G Home Broadband UK 2026",
+      "url": "https://broadbandpicker.co.uk/guides/best-5g-home-broadband-uk"
+    },
+    {
+      "slug": "best-full-fibre-broadband-uk",
+      "title": "Best Full Fibre Broadband UK 2026",
+      "url": "https://broadbandpicker.co.uk/guides/best-full-fibre-broadband-uk"
+    },
+    {
+      "slug": "best-broadband-for-gaming-uk",
+      "title": "Best Broadband for Gaming UK 2026: Speed, Ping and Providers",
+      "url": "https://broadbandpicker.co.uk/guides/best-broadband-for-gaming-uk"
+    },
+    {
+      "slug": "broadband-social-tariffs-uk",
+      "title": "Broadband Social Tariffs UK 2026: Who Qualifies and How to Apply",
+      "url": "https://broadbandpicker.co.uk/guides/broadband-social-tariffs-uk"
+    },
+    {
+      "slug": "broadband-moving-house",
+      "title": "Broadband When Moving House UK 2026: Complete Checklist",
+      "url": "https://broadbandpicker.co.uk/guides/broadband-moving-house"
+    },
+    {
+      "slug": "best-broadband-for-rural-areas-uk",
+      "title": "Best Broadband for Rural Areas UK 2026",
+      "url": "https://broadbandpicker.co.uk/guides/best-broadband-for-rural-areas-uk"
+    },
+    {
+      "slug": "broadband-for-existing-customers",
+      "title": "Best Broadband Deals for Existing Customers UK 2026",
+      "url": "https://broadbandpicker.co.uk/guides/broadband-for-existing-customers"
+    },
+    {
+      "slug": "one-touch-switching-explained",
+      "title": "One Touch Switching Explained: How Broadband Switching Works in 2026",
+      "url": "https://broadbandpicker.co.uk/guides/one-touch-switching-explained"
+    },
+    {
+      "slug": "broadband-contract-end-rights",
+      "title": "Broadband Contract End Rights UK 2026: What Happens When Your Deal Ends",
+      "url": "https://broadbandpicker.co.uk/guides/broadband-contract-end-rights"
+    },
+    {
+      "slug": "static-ip-business-broadband-explained",
+      "title": "Static IP Business Broadband: When You Need One and How Much It Costs",
+      "url": "https://broadbandpicker.co.uk/guides/static-ip-business-broadband-explained"
+    },
+    {
+      "slug": "student-broadband-by-university-city",
+      "title": "Student Broadband Cities Guide: Short-Term and Rolling Deals",
+      "url": "https://broadbandpicker.co.uk/guides/student-broadband-by-university-city"
+    },
+    {
+      "slug": "small-office-broadband-setup-uk",
+      "title": "Small Office Broadband Setup: Router, Backup and Support Checklist",
+      "url": "https://broadbandpicker.co.uk/guides/small-office-broadband-setup-uk"
+    },
+    {
+      "slug": "broadband-for-landlords-and-hmos-uk",
+      "title": "Broadband for Landlords and HMOs: What to Set Up and Who Pays",
+      "url": "https://broadbandpicker.co.uk/guides/broadband-for-landlords-and-hmos-uk"
+    },
+    {
+      "slug": "leased-line-cost-uk-explained",
+      "title": "Leased Line Cost UK: What Small Businesses Actually Pay",
+      "url": "https://broadbandpicker.co.uk/guides/leased-line-cost-uk-explained"
+    },
+    {
+      "slug": "starlink-vs-fibre-broadband-uk",
+      "title": "Starlink vs Openreach Broadband: When Satellite Makes Sense in the UK",
+      "url": "https://broadbandpicker.co.uk/guides/starlink-vs-fibre-broadband-uk"
+    },
+    {
+      "slug": "january-broadband-deals-uk",
+      "title": "January Broadband Deals UK: New-Year Switching Guide",
+      "url": "https://broadbandpicker.co.uk/guides/january-broadband-deals-uk"
+    },
+    {
+      "slug": "broadband-help-if-you-claim-benefits-uk",
+      "title": "Cheaper Broadband If You Claim Benefits: Social Tariffs Explained",
+      "url": "https://broadbandpicker.co.uk/guides/broadband-help-if-you-claim-benefits-uk"
+    },
+    {
+      "slug": "best-mesh-wifi-for-your-broadband-router",
+      "title": "Best Mesh Wi-Fi Systems to Pair with Your Broadband Router",
+      "url": "https://broadbandpicker.co.uk/guides/best-mesh-wifi-for-your-broadband-router"
+    },
+    {
+      "slug": "fttp-vs-fttc-explained",
+      "title": "FTTP vs FTTC: What the Difference Means for Your Speed",
+      "url": "https://broadbandpicker.co.uk/guides/fttp-vs-fttc-explained"
+    },
+    {
+      "slug": "no-credit-check-broadband-uk",
+      "title": "No Credit Check Broadband in the UK: Options and What to Expect",
+      "url": "https://broadbandpicker.co.uk/guides/no-credit-check-broadband-uk"
+    },
+    {
+      "slug": "black-friday-broadband-deals-uk",
+      "title": "Black Friday Broadband Deals UK 2026: What to Expect and How to Compare",
+      "url": "https://broadbandpicker.co.uk/guides/black-friday-broadband-deals-uk"
+    }
+  ],
+  "tools": [
+    {
+      "name": "Postcode checker",
+      "url": "https://broadbandpicker.co.uk",
+      "job": "Show deals available at an address"
+    },
+    {
+      "name": "Compare",
+      "url": "https://broadbandpicker.co.uk/compare",
+      "job": "Side-by-side provider comparison"
+    },
+    {
+      "name": "Deals",
+      "url": "https://broadbandpicker.co.uk/deals",
+      "job": "Live UK broadband deal table"
+    },
+    {
+      "name": "Speed test",
+      "url": "https://broadbandpicker.co.uk/speed-test",
+      "job": "Check whether the line is actually doing what it promised"
+    },
+    {
+      "name": "Broadband Match quiz",
+      "url": "https://broadbandpicker.co.uk/tools/broadband-match",
+      "job": "Match a household to a package type"
+    },
+    {
+      "name": "Cost calculator",
+      "url": "https://broadbandpicker.co.uk/tools/broadband-cost-calculator",
+      "job": "See the real cost of a contract, not just month one"
+    },
+    {
+      "name": "Glossary",
+      "url": "https://broadbandpicker.co.uk/broadband-glossary",
+      "job": "Plain-English broadband terms"
+    }
+  ],
+  "cities": [
+    "Birmingham",
+    "Bristol",
+    "Edinburgh",
+    "Glasgow",
+    "Leeds",
+    "Liverpool",
+    "London",
+    "Manchester",
+    "Sheffield",
+    "Cardiff",
+    "Belfast",
+    "Oxford",
+    "Cambridge",
+    "Newcastle",
+    "Nottingham",
+    "Leicester",
+    "Coventry",
+    "Southampton",
+    "Portsmouth",
+    "Brighton",
+    "Canterbury",
+    "Kingston",
+    "Dartford",
+    "Medway",
+    "Slough",
+    "Reading",
+    "Guildford",
+    "Milton Keynes",
+    "Luton",
+    "Stevenage"
+  ],
+  "content_pillars": [
+    "Deals and pricing (loyalty tax, out-of-contract, 'up to' speeds)",
+    "Switching and rights (One Touch Switch, exit fees, April price rises)",
+    "British household chaos (WFH, football, flatshares, rural waits)",
+    "Technology without the lecture (full fibre vs 'fibre', routers in cupboards)",
+    "Affordability without punching down (social tariffs as a scandal of awareness)",
+    "Brand trust (independent comparison, affiliate honesty, postcode truth)"
+  ],
+  "existing_x_posts": [
+    "Compare broadband deals for your postcode in a few clicks.",
+    "What speed do you actually need?",
+    "Out of contract on broadband?",
+    "Compare current deals before your next bill lands:",
+    "Compare options in your area: `https://broadbandpicker.co.uk`",
+    "Compare deals: `https://broadbandpicker.co.uk/compare`"
+  ],
+  "audience_notes": [
+    "UK households paying a loyalty tax after the cheap intro period.",
+    "Renters, students, and shared houses who treat the router like a housegod.",
+    "WFH people whose upload speed is a personality flaw.",
+    "Football-and-Netflix households who discover contention at 7pm.",
+    "Rural and not-spot users who have been promised full fibre since the Coalition.",
+    "Affiliate managers, ISP partnerships teams, and Awin advertisers who need a serious publisher."
+  ],
+  "commercial_goals": [
+    "Make broadbandpicker.co.uk the default place Brits go to compare broadband.",
+    "Grow branded search and direct traffic so comparison sessions convert.",
+    "Earn affiliate sign-ups without sounding like a deal farm.",
+    "Look established enough that providers approach BroadbandPicker to join the affiliate roster.",
+    "Use social proof (audience, engagement, content quality) as an Awin and advertiser signal."
+  ],
+  "trust_pages": [
+    "https://broadbandpicker.co.uk/about",
+    "https://broadbandpicker.co.uk/how-we-make-money",
+    "https://broadbandpicker.co.uk/how-we-review-broadband",
+    "https://broadbandpicker.co.uk/editorial-policy",
+    "https://broadbandpicker.co.uk/contact"
+  ],
+  "key_urls": {
+    "home": "https://broadbandpicker.co.uk",
+    "deals": "https://broadbandpicker.co.uk/deals",
+    "compare": "https://broadbandpicker.co.uk/compare",
+    "providers": "https://broadbandpicker.co.uk/providers",
+    "guides": "https://broadbandpicker.co.uk/guides",
+    "speed_test": "https://broadbandpicker.co.uk/speed-test",
+    "match": "https://broadbandpicker.co.uk/tools/broadband-match",
+    "calculator": "https://broadbandpicker.co.uk/tools/broadband-cost-calculator",
+    "social_tariffs": "https://broadbandpicker.co.uk/guides/broadband-social-tariffs-uk",
+    "price_rises": "https://broadbandpicker.co.uk/guides/broadband-price-rises-2026",
+    "switch": "https://broadbandpicker.co.uk/guides/how-to-switch-broadband-uk",
+    "partnerships_mail": "mailto:partnerships@broadbandpicker.co.uk"
+  },
+  "files_read": [
+    "app/globals.css",
+    "app/layout.tsx",
+    "app/page.tsx",
+    "app/about/page.tsx",
+    "app/how-we-make-money/page.tsx",
+    "app/contact/page.tsx",
+    "data/providers.ts",
+    "data/guides.ts",
+    "docs/content-plan.md",
+    "docs/seo-geo-content-strategy-2026-06.md",
+    "docs/affiliate-outreach-email.txt",
+    "docs/branding-and-marketing/x-content-calendar.md",
+    "docs/branding-and-marketing/README.md",
+    "components/Logo.tsx"
+  ],
+  "warnings": [
+    "Existing X calendar in docs/branding-and-marketing is clear and useful, but too polite to travel. This plan keeps the facts and swaps the tone for sarcasm, memes and hooks."
+  ],
+  "generated_at": "2026-08-23T13:49:27",
+  "idea_pillars": [
+    "british sarcasm",
+    "memes",
+    "wise quotes made stupid and British",
+    "puns",
+    "useful-funny",
+    "B2B affiliate gravity"
+  ]
+}

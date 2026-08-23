@@ -67,6 +67,11 @@ class NavScan:
     footer_link_count: int = 0
     footer_column_headings: list[str] = field(default_factory=list)
     has_mega_menu_signal: bool = False
+    top_level_nav_item_count: int = 0
+    nav_submenu_heading_samples: list[str] = field(default_factory=list)
+    nav_has_icons_in_dropdown: bool = False
+    nav_has_descriptive_subtext: bool = False
+    nav_max_nesting_depth: int = 0
 
 
 def fetch(url: str, timeout: int = 20) -> requests.Response:
@@ -120,6 +125,35 @@ def scan_site(name: str, url: str) -> NavScan:
         scan.has_mega_menu_signal = bool(
             re.search(r'class="[^"]*(mega-menu|megamenu|mega_menu|dropdown-menu)[^"]*"', raw_lower)
         ) or any(len(node.xpath(".//ul//ul")) > 0 for node in nav_nodes[:1])
+
+        if nav_nodes:
+            primary_nav = nav_nodes[0]
+            scan.top_level_nav_item_count = len(primary_nav.xpath("./ul/li | ./div/ul/li | ./ul/li | *[self::ul]/li"))
+            if scan.top_level_nav_item_count == 0:
+                scan.top_level_nav_item_count = len(primary_nav.xpath("./*"))
+
+            heading_texts = [
+                re.sub(r"\s+", " ", t).strip()
+                for t in primary_nav.xpath(".//h2//text() | .//h3//text() | .//h4//text() | "
+                                            ".//*[contains(translate(@class,'HEADING','heading'),'heading') "
+                                            "or contains(translate(@class,'TITLE','title'),'title')]//text()")
+                if re.sub(r"\s+", " ", t).strip()
+            ]
+            scan.nav_submenu_heading_samples = sorted(set(heading_texts))[:10]
+
+            scan.nav_has_icons_in_dropdown = bool(primary_nav.xpath(".//ul//ul//svg | .//ul//ul//img"))
+            scan.nav_has_descriptive_subtext = bool(
+                primary_nav.xpath(".//ul//ul//p | .//ul//ul//span[contains(translate(@class,'DESC','desc'),'desc')]")
+            )
+
+            def nesting_depth(node, depth=0):
+                child_lists = node.xpath("./ul | ./div//ul")
+                if not child_lists:
+                    return depth
+                return max(nesting_depth(ul, depth + 1) for ul in child_lists)
+
+            top_uls = primary_nav.xpath("./ul")
+            scan.nav_max_nesting_depth = max((nesting_depth(ul) for ul in top_uls), default=0)
 
         footer_nodes = tree.xpath("//footer | //*[@role='contentinfo']")
         footer_links: list[str] = []

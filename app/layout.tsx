@@ -8,6 +8,7 @@ import NewsletterSignup from '@/components/NewsletterSignup'
 import CookieBanner from '@/components/CookieBanner'
 import CookiePreferencesButton from '@/components/CookiePreferencesButton'
 import Logo from '@/components/Logo'
+import MainNav from '@/components/MainNav'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -51,15 +52,7 @@ function Header() {
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-6 text-sm font-medium" aria-label="Main navigation">
-            <Link href="/compare" className="text-slate-600 hover:text-sky-600 transition-colors">Compare</Link>
-            <Link href="/deals" className="text-slate-600 hover:text-sky-600 transition-colors">Deals</Link>
-            <Link href="/providers" className="text-slate-600 hover:text-sky-600 transition-colors">Providers</Link>
-            <Link href="/postcode" className="text-slate-600 hover:text-sky-600 transition-colors">Postcode</Link>
-            <Link href="/guides" className="text-slate-600 hover:text-sky-600 transition-colors">Guides</Link>
-            <Link href="/tools/broadband-match" className="text-slate-600 hover:text-sky-600 transition-colors">Match</Link>
-            <Link href="/speed-test" className="text-slate-600 hover:text-sky-600 transition-colors">Speed Test</Link>
-          </nav>
+          <MainNav />
 
           {/* Header postcode checker */}
           <div className="hidden lg:flex items-center gap-2 flex-1 max-w-xs">
@@ -92,6 +85,7 @@ function MobileMenuButton() {
           { href: '/guides', label: 'Guides' },
           { href: '/tools/broadband-match', label: 'Broadband Match' },
           { href: '/speed-test', label: 'Speed Test' },
+          { href: '/tools/broadband-cost-calculator', label: 'Cost Calculator' },
           { href: '/about', label: 'About' },
           { href: '/contact', label: 'Contact' },
         ].map(({ href, label }) => (

@@ -358,6 +358,30 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-23 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "feat-mega-menu-navigation",
+        "type": "Feature",
+        "pillar": "UX",
+        "title": "Detailed mega-menu navigation",
+        "description": (
+            "Extended scripts/scrape_navigation_patterns.py with mega-menu structural "
+            "detection (top-level item count, icons-in-dropdown, descriptive subtext, "
+            "nesting depth). Found Uswitch uses icons in dropdown items and broadband.co.uk "
+            "uses one-line descriptions under category groups — both implemented. Built "
+            "components/MainNav.tsx: Providers, Postcode, Guides and Tools are now dropdowns "
+            "with icons and descriptions; Compare and Deals stay direct links as primary "
+            "single-destination actions. The Guides dropdown is a real mega-menu pulling the "
+            "site's actual 6 guide categories and their real guides live from data/guides.ts "
+            "— stays correct as the pipeline adds guides, no hardcoding. CSS-only "
+            "(group-hover/group-focus-within), keyboard-reachable via Tab, no JS dependency."
+        ),
+        "priority_score": 50,
+        "impact_score": 58,
+        "effort": "Medium",
+        "target": "components/MainNav.tsx, app/layout.tsx",
+        "dependencies": "None",
+        "source": "User request 2026-08-23 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",

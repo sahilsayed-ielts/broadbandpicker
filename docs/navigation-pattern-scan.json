@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-22",
+  "generated": "2026-08-23",
   "sites": [
     {
       "name": "Uswitch",
@@ -38,7 +38,12 @@
         "Get the Uswitch app",
         "You are in safe hands"
       ],
-      "has_mega_menu_signal": true
+      "has_mega_menu_signal": true,
+      "top_level_nav_item_count": 7,
+      "nav_submenu_heading_samples": [],
+      "nav_has_icons_in_dropdown": true,
+      "nav_has_descriptive_subtext": false,
+      "nav_max_nesting_depth": 0
     },
     {
       "name": "Which? Switch Broadband",
@@ -61,7 +66,14 @@
       "footer_column_headings": [
         "Footer links"
       ],
-      "has_mega_menu_signal": false
+      "has_mega_menu_signal": false,
+      "top_level_nav_item_count": 3,
+      "nav_submenu_heading_samples": [
+        "Suggested searches"
+      ],
+      "nav_has_icons_in_dropdown": false,
+      "nav_has_descriptive_subtext": false,
+      "nav_max_nesting_depth": 0
     },
     {
       "name": "broadband.co.uk",
@@ -97,7 +109,23 @@
       "has_trust_badge_near_top": true,
       "footer_link_count": 13,
       "footer_column_headings": [],
-      "has_mega_menu_signal": true
+      "has_mega_menu_signal": true,
+      "top_level_nav_item_count": 4,
+      "nav_submenu_heading_samples": [
+        "& more",
+        "3",
+        "6",
+        "At Broadband Genie, you can save on broadband with the latest offers from the best providers.",
+        "Become a broadband expert with our help guides.",
+        "Broadband",
+        "Broadband Genius Community",
+        "Broadband Provider Reviews",
+        "Broadband Providers",
+        "Broadband help guides"
+      ],
+      "nav_has_icons_in_dropdown": false,
+      "nav_has_descriptive_subtext": true,
+      "nav_max_nesting_depth": 0
     },
     {
       "name": "choose.co.uk",
@@ -129,7 +157,18 @@
       "has_trust_badge_near_top": false,
       "footer_link_count": 11,
       "footer_column_headings": [],
-      "has_mega_menu_signal": false
+      "has_mega_menu_signal": false,
+      "top_level_nav_item_count": 3,
+      "nav_submenu_heading_samples": [
+        "Broadband",
+        "Mobile",
+        "More",
+        "News & Insight",
+        "TV"
+      ],
+      "nav_has_icons_in_dropdown": false,
+      "nav_has_descriptive_subtext": false,
+      "nav_max_nesting_depth": 0
     },
     {
       "name": "MoneySavingExpert",
@@ -144,7 +183,12 @@
       "has_trust_badge_near_top": false,
       "footer_link_count": 0,
       "footer_column_headings": [],
-      "has_mega_menu_signal": false
+      "has_mega_menu_signal": false,
+      "top_level_nav_item_count": 0,
+      "nav_submenu_heading_samples": [],
+      "nav_has_icons_in_dropdown": false,
+      "nav_has_descriptive_subtext": false,
+      "nav_max_nesting_depth": 0
     },
     {
       "name": "NerdWallet (UX benchmark, non-broadband)",
@@ -180,7 +224,12 @@
       "has_trust_badge_near_top": false,
       "footer_link_count": 43,
       "footer_column_headings": [],
-      "has_mega_menu_signal": false
+      "has_mega_menu_signal": false,
+      "top_level_nav_item_count": 10,
+      "nav_submenu_heading_samples": [],
+      "nav_has_icons_in_dropdown": false,
+      "nav_has_descriptive_subtext": false,
+      "nav_max_nesting_depth": 0
     }
   ]
 }

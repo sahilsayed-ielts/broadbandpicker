@@ -92,6 +92,46 @@ breaking layout — not pixel-verified against a real screenshot, but the
 flex behaviour bounds the downside to "narrower field," not a broken
 header.
 
+## Follow-up: mega-menu redesign (2026-08-23)
+
+Extended `scripts/scrape_navigation_patterns.py` (same script) with
+mega-menu structural detection: top-level item count, submenu heading
+samples, icons-in-dropdown, descriptive subtext under dropdown links,
+nesting depth. Re-scanned the same sites.
+
+| Site | Top-level items | Mega-menu | Icons in dropdown | Descriptive subtext under links |
+|---|---|---|---|---|
+| Uswitch | 7 | Yes | **Yes** | No |
+| Which? Switch Broadband | 3 (JS-rendered shell, low confidence) | No | No | No |
+| broadband.co.uk | 4 | Yes | No | **Yes** — one-line description under category groups |
+| choose.co.uk | 3 | No | No | No |
+| NerdWallet | 10 | No signal (JS-rendered) | No | No |
+
+Two concrete, actionable patterns came out of this: **icons next to
+dropdown items** (Uswitch) and **a one-line description under each
+category/group**, not just a bare link (broadband.co.uk). Both are
+achievable without JS and both directly serve "help users find what
+they're looking for" rather than being decoration.
+
+Also notable: 7 top-level nav items (Uswitch's count) is a reasonable
+target — BroadbandPicker already sits at 7 (Compare, Deals, Providers,
+Postcode, Guides, Tools, plus the postcode field itself), so the redesign
+below organises *within* that count rather than adding more top-level
+items.
+
+**Shipped**: `components/MainNav.tsx` — Providers, Postcode, Guides and
+Tools are now dropdowns (Compare and Deals stay direct links, since
+they're primary single-destination actions, not categories). Each
+dropdown item has an icon and, where useful, a one-line description
+(e.g. "Real Ofcom-backed coverage for any UK postcode" under "Find your
+area"). The **Guides** dropdown is a genuine mega-menu built from the
+site's real 6 guide categories (`guideCategories` in `data/guides.ts`),
+each showing its actual description and its first 3 guides, pulled live
+from the data file — not hardcoded, so it stays correct as new guides are
+added by the pipeline without another nav edit. Built with `group-hover`/
+`group-focus-within` CSS (no JS), so it's keyboard-reachable via Tab as
+well as mouse hover.
+
 ## Recommended but not implemented
 
 - **A genuine trust badge near the top of the homepage** — hold until
