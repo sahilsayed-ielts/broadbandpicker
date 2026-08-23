@@ -99,35 +99,152 @@ const baseProviders: Provider[] = [
     logo: '/logos/bt.svg',
     affiliateUrl: 'https://www.bt.com/broadband',
     speeds: [
-      { download: 36, upload: 9, type: 'FTTC' },
       { download: 67, upload: 17, type: 'FTTC' },
       { download: 150, upload: 30, type: 'FTTP' },
+      { download: 300, upload: 50, type: 'FTTP' },
       { download: 500, upload: 75, type: 'FTTP' },
       { download: 900, upload: 110, type: 'FTTP' },
     ],
-    monthlyPriceFrom: 30.99,
+    monthlyPriceFrom: 23.99,
     contractLengths: [24],
-    setupFee: 0,
-    trustpilotScore: 3.6,
+    setupFee: 30,
+    trustpilotScore: 4.0,
     coveragePercent: 98,
     highlights: [
-      'UK\'s largest broadband network — covers 98% of homes',
-      'Free BT Wi-Fi hotspot access across the UK',
-      'Complete Wi-Fi guarantee — engineer visit if signal drops',
+      'The UK\'s widest broadband network, reaching around 98% of homes via Openreach',
+      'A flat £4 a month price rise every March, disclosed upfront, on every current package',
+      'Ofcom ranked BT third for complaints in Q1 2026, an improvement on the previous quarter',
     ],
     pros: [
-      'Widest coverage of any UK provider',
-      'Reliable, established network',
-      'Good customer service reputation',
-      'Includes BT Sport add-on option',
+      'Widest realistic coverage of any UK provider, useful where other options are limited',
+      'Reward cards worth up to £140 offset the £30 upfront setup cost if claimed',
+      'Full Fibre 900\'s Stay Fast Guarantee pays out automatically if speed drops below a set minimum',
+      'Ofcom complaints data has improved year on year, from eighth to seventh per 100,000 customers',
     ],
     cons: [
-      'More expensive than budget rivals',
-      'Long 24-month contracts',
-      'Speed upgrades cost extra',
+      'More expensive than most budget and mid-market rivals at a comparable speed',
+      'A scheduled £4 a month price rise every March is built into every current contract',
+      'Only 24-month contracts are offered, with no shorter or rolling option',
+      'Reward card value must be actively claimed, or the net cost is higher than it first appears',
     ],
-    ...createReviewMetadata('BT', 'https://www.bt.com/broadband', 'bt.com'),
-    awinProgramId: null,
+    excerpt:
+      'BT is the UK\'s largest broadband provider, reaching around 98% of homes over the Openreach network it also wholesales to most rival ISPs. Full Fibre packages run from £23.99 to £31.99 a month, all on 24-month contracts with a scheduled £4 a month rise every March. Ofcom\'s Q1 2026 complaints data ranked BT third-worst in the UK, though improving; two separate BT Trustpilot pages show a 4.0 and a 1.5 out of 5, a genuine split worth understanding before trusting either number alone.',
+    contentSections: [
+      {
+        heading: 'BT Broadband Deals in August 2026',
+        paragraphs: [
+          'BT\'s current Full Fibre range runs from Full Fibre 150 at £23.99 a month, through Full Fibre 300 at £25.99 and Full Fibre 500 at £27.99, up to Full Fibre 900 at £31.99. A part-fibre Fibre 2 package, averaging 67 Mbps, is also available at £24.99 for addresses full fibre has not yet reached. Every package carries a £30 upfront setup fee.',
+          'BT offsets that setup fee with a reward card, ranging from around £80 on the entry tiers up to £140 on Full Fibre 900. This only works out in the customer\'s favour if the card is actually claimed and used; treat the setup fee as a real £30 cost at the point of paying, not a number cancelled out automatically by a reward that requires separate action to redeem.',
+          'Every package is sold on a 24-month contract, with no shorter or rolling option currently published. A £4 a month price rise applies every March, disclosed upfront on the price page rather than hidden in the terms, so the real two-year cost of any BT plan is higher than the first month\'s headline figure.',
+        ],
+      },
+      {
+        heading: 'BT Speeds and the Openreach Network',
+        paragraphs: [
+          'BT sells broadband over the Openreach network, the same underlying infrastructure used by most other national providers, including Sky, TalkTalk and Plusnet, as well as many smaller resellers. This means line quality and top available speed at a given address is largely the same regardless of which Openreach-based provider is chosen; the differences between them are price, contract terms, extras and support.',
+          'Full Fibre 900 is BT\'s flagship tier, backed by a Stay Fast Guarantee: if the actual delivered speed falls below a set minimum, BT states it will resolve the issue or pay out automatically, without the customer needing to raise a formal dispute first. This is a genuinely stronger consumer protection than a standard speed guarantee that requires an active complaint.',
+          'For most households, Full Fibre 150 or 300 comfortably covers streaming, browsing, working from home and several devices in use at once. Full Fibre 500 and 900 mainly benefit larger households running multiple demanding activities simultaneously, or anyone who specifically needs fast, consistent upload for cloud backups or video calls.',
+        ],
+      },
+      {
+        heading: 'Router, Wi-Fi and BT\'s Complete Wi-Fi Service',
+        paragraphs: [
+          'BT includes the Smart Hub 2 router on ultrafast full-fibre packages and with its Complete Wi-Fi service, and the original Smart Hub on other packages. Complete Wi-Fi is BT\'s paid mesh add-on for homes where a single router does not reach every room, and it carries its own money-back guarantee if signal issues are not resolved within a stated period after signing up.',
+          'The free BT Wi-Fi hotspot network, accessible to BT broadband customers at thousands of locations across the UK, is a genuine, if often overlooked, extra that some rivals do not offer at all, useful for anyone who travels regularly within the UK and wants to avoid using mobile data.',
+          'Anyone considering Complete Wi-Fi should first confirm there is a genuine coverage problem, rather than adding it automatically; a single Smart Hub 2 in a well-positioned spot covers most standard homes without an extra monthly charge.',
+        ],
+      },
+      {
+        heading: 'The Scheduled March Price Rise',
+        paragraphs: [
+          'Every current BT broadband package carries a flat £4 a month price rise each March, disclosed in pounds and pence rather than tied to inflation. This follows Ofcom\'s ban on inflation-linked, percentage-based price rise terms in all new contracts from 17 January 2025; BT, like most national providers, switched to a fixed cash figure as a direct result.',
+          'On a 24-month contract, that means the second year costs £48 more than the first at every tier, a real, disclosed figure that should be added to the headline monthly price when comparing BT against a provider with no scheduled rise, such as several of the full-fibre altnets covered elsewhere on this site.',
+          'This is not unique to BT; EE, Vodafone and Plusnet, all under the same corporate ownership structure or comparable market position, apply a similar flat rise. The genuine point of comparison is not whether a rise happens, but its size and whether a no-rise alternative is available at the same address.',
+        ],
+      },
+      {
+        heading: 'Installation and Switching to BT',
+        paragraphs: [
+          'Reviews consistently cite quick Full Fibre installation and professional Openreach engineers as a strength, consistent with BT\'s scale and its position as Openreach\'s parent-group-adjacent anchor customer.',
+          'Because BT runs on Openreach, most switches from another Openreach-based provider, Sky, TalkTalk, Plusnet and others, qualify for Ofcom\'s One Touch Switch process, a same-day handover with no need to contact the outgoing provider directly.',
+          'A switch from a provider on a separate network, such as Virgin Media\'s own cable infrastructure or a full-fibre altnet building its own fibre, will not use One Touch Switch, so keep the existing connection running until the new BT line is confirmed working.',
+        ],
+      },
+      {
+        heading: 'BT Customer Service: Two Trustpilot Pages, Two Different Stories',
+        paragraphs: [
+          'BT has two separate, active Trustpilot pages, and they tell noticeably different stories. The bt.com page shows a rating around 4.0 out of 5 from more than 150,000 reviews; a second, older btbroadband.com page shows around 1.5 out of 5 from roughly 14,000 reviews. Both are genuine customer reviews; the difference comes from how each page is used, not from fabricated or removed reviews on either side.',
+          'BT actively promotes the bt.com page as its official feedback channel, including prompting customers after a positive interaction such as a successful installation or fault fix, which skews that page toward satisfied customers who were asked to leave a review. The older btbroadband.com page is less actively promoted and consequently attracts a higher proportion of customers who sought it out specifically to complain.',
+          'The practical takeaway is not to treat either number in isolation. Ofcom\'s own Q1 2026 complaints data is a more neutral cross-check: BT ranked third-worst for complaints, at 7 per 100,000 customers, an improvement from 8 the previous quarter, and below TalkTalk\'s 10 and Vodafone\'s 8, but still above the industry average of 6.',
+        ],
+      },
+      {
+        heading: 'Is BT Broadband Worth It?',
+        paragraphs: [
+          'BT\'s real advantage is reach: at 98% of UK homes, it is available almost everywhere, which matters most for anyone who has already ruled out full-fibre altnets and cable due to lack of coverage. Its Stay Fast Guarantee and reward card system are genuine, not marketing-only, benefits if actually used.',
+          'It is not the cheapest option at any given speed, and its Ofcom complaints ranking, while improving, still sits above the industry average. The split Trustpilot picture is a fair reflection of a genuinely mixed but not uniformly bad service record, rather than a reason to dismiss BT outright.',
+          'Our take: BT suits a household that values broad availability and a well-known, established brand over the lowest possible price, and is prepared to actively claim the reward card and factor the scheduled March rise into the real two-year cost, rather than judging the deal on the first month\'s bill alone.',
+        ],
+      },
+    ],
+    faqItems: [
+      {
+        question: 'Is BT broadband any good?',
+        answer: 'BT offers the UK\'s widest broadband coverage, at around 98% of homes, with a Stay Fast Guarantee on its flagship Full Fibre 900 tier. Ofcom ranked it third-worst for complaints in Q1 2026, at 7 per 100,000 customers, though improving from the previous quarter. Its two Trustpilot pages show very different scores, 4.0 and 1.5 out of 5, reflecting how each page collects reviews rather than two contradictory realities.',
+      },
+      {
+        question: 'Why does BT have two different Trustpilot scores?',
+        answer: 'BT actively promotes its bt.com Trustpilot page as an official feedback channel, prompting customers after positive interactions, which skews it toward satisfied reviewers and a score around 4.0 from over 150,000 reviews. An older, less-promoted btbroadband.com page attracts a higher proportion of complaint-driven reviews and shows around 1.5 out of 5 from roughly 14,000 reviews. Both are genuine; neither alone is the full picture.',
+      },
+      {
+        question: 'Does BT raise its prices during the contract?',
+        answer: 'Yes. Every current BT broadband package carries a flat £4 a month price rise each March, disclosed upfront in pounds and pence following Ofcom\'s ban on inflation-linked price rise terms from January 2025. Over a 24-month contract, this adds £48 to the second year\'s cost at every tier.',
+      },
+      {
+        question: 'What speed do I need from BT?',
+        answer: 'Full Fibre 150 or 300 comfortably covers most households, including streaming, browsing and several devices in use at once. Full Fibre 500 and 900 mainly benefit larger households running multiple demanding activities simultaneously or anyone who specifically needs fast, consistent upload speed.',
+      },
+    ],
+    reviewedDate: '2026-08-23',
+    pricingVerifiedDate: '2026-08-23',
+    reviewSources: [
+      {
+        label: 'Uswitch: BT broadband packages and pricing',
+        href: 'https://www.uswitch.com/broadband/providers/bt/',
+        note: 'A direct fetch of bt.com returned no substantive pricing content (JS-rendered page); package pricing, contract length, setup fee and reward cards corroborated via this independent tracker, checked 2026-08-23.',
+      },
+      {
+        label: 'Ofcom: telecoms and pay-TV complaints fall to a record low',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/service-quality/ofcom-telecoms-and-pay-tv-complaints-fall-to-record-low',
+        note: 'Primary regulatory source for BT\'s Q1 2026 complaints ranking and the wider industry complaints table.',
+      },
+      {
+        label: 'Ofcom: ban on mid-contract price rises linked to inflation',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/bills-and-charges/ofcom-bans-mid-contract-price-rises-linked-to-inflation',
+        note: 'Primary regulatory source for the January 2025 ban on inflation-linked, percentage-based price rise terms, and BT\'s resulting move to a flat £4 a month rise.',
+      },
+      {
+        label: 'Selectra: BT Trustpilot and Ofcom review summary',
+        href: 'https://selectra.co.uk/tv-broadband/providers/bt/review',
+        note: 'Used to identify and explain BT\'s two separate Trustpilot pages (bt.com and btbroadband.com) and their differing scores.',
+      },
+      {
+        label: 'BT public Trustpilot profile (bt.com)',
+        href: 'https://www.trustpilot.com/review/bt.com',
+        note: 'Customer-sentiment reference showing a rating around 4.0 out of 5 from over 150,000 reviews in August 2026; not treated as a controlled reliability survey, and read alongside the separate btbroadband.com page.',
+      },
+      {
+        label: 'Awin BT advertiser programmes',
+        href: 'https://ui.awin.com/merchant-profile-terms/3041?setLocale=en_US',
+        note: 'BroadbandPicker\'s Awin application for both BT Broadband (advertiser 3041) and BT Business Broadband (advertiser 3042) was declined. The affiliate link above is BT\'s own site, verified 2026-08-23.',
+      },
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+        note: 'Explains how price, speed, coverage, customer experience and use-case fit are weighed.',
+      },
+    ],
+    awinProgramId: '3041',
   },
   {
     slug: 'sky',
@@ -175,29 +292,146 @@ const baseProviders: Provider[] = [
       { download: 516, upload: 52, type: 'Cable' },
       { download: 1130, upload: 104, type: 'Cable' },
     ],
-    monthlyPriceFrom: 28.00,
-    contractLengths: [18, 24],
+    monthlyPriceFrom: 33.00,
+    contractLengths: [18],
     setupFee: 35,
-    trustpilotScore: 3.2,
+    trustpilotScore: 1.4,
     coveragePercent: 52,
     highlights: [
-      'Gigabit speeds available on cable network',
-      'Fastest widely-available speeds in the UK',
-      'TV, broadband and phone bundles',
+      'The UK\'s fastest widely-available speeds, on its own cable network rather than Openreach',
+      'A flat price rise on new contracts, replacing the older inflation-linked rise entirely by April 2026',
+      'A relatively strong Ofcom complaints record despite an exceptionally low Trustpilot score',
     ],
     pros: [
-      'Very fast speeds on cable network',
-      'Gigabit available to over half of UK homes',
-      'Good value speed-per-pound ratio',
+      'Genuinely faster top-end speeds than any Openreach-based provider at a comparable price',
+      'Not dependent on Openreach, so a real alternative where the copper or FTTP network is congested or unavailable',
+      'Ofcom complaints data has consistently placed Virgin Media at or below the industry average',
+      'Hub 5X router included as standard, capable of handling gigabit speeds',
     ],
     cons: [
-      'Only available in cabled areas — limited coverage',
-      'Setup fees apply',
-      'Price hikes mid-contract',
-      'Customer service scores are below average',
+      'Exceptionally low Trustpilot score, among the worst of any major UK provider',
+      'Cable network coverage is limited to around 52% of UK premises, entirely separate from the Openreach footprint',
+      'A £35 setup fee applies, and switching to Virgin Media never qualifies for Ofcom\'s One Touch Switch',
+      'Customers on older, pre-2025 contracts have faced considerably larger inflation-linked rises than new customers now see',
     ],
-    ...createReviewMetadata('Virgin Media', 'https://www.virginmedia.com/broadband', 'virginmedia.com'),
-    awinProgramId: null,
+    excerpt:
+      'Virgin Media runs its own cable network, entirely separate from Openreach, reaching around 52% of UK premises with the fastest widely available speeds in the country, up to 1,130 Mbps. Prices start from £33 a month on an 18-month contract, with a £35 setup fee. Its Trustpilot score is exceptionally low, around 1.4 out of 5, yet Ofcom\'s own complaints data has consistently placed it at or below the industry average, a genuine gap between the two sources worth understanding before ruling Virgin Media out.',
+    contentSections: [
+      {
+        heading: 'Virgin Media Broadband Deals in August 2026',
+        paragraphs: [
+          'Virgin Media\'s current range runs from M125 at around £33 a month for 132 Mbps, through M250 at around £37 for 264 Mbps and M500 at around £43 for 516 Mbps, up to Gig1 at around £62 for 1,130 Mbps. Every package includes the Hub 5X router and unlimited data, on an 18-month contract, the shortest standard fixed term of any major national provider covered on this site.',
+          'A £35 setup fee applies across the range. Virgin Media periodically runs promotional pricing, including reduced entry rates on M250 at points during 2026, so the live price at checkout can differ meaningfully from the standard list price; always confirm the current offer for the specific address.',
+          'Because Virgin Media\'s cable network is entirely separate from Openreach, its speeds and pricing sit somewhat apart from the rest of the market, worth comparing on their own terms rather than assuming direct equivalence with an Openreach-based provider\'s tier of the same name.',
+        ],
+      },
+      {
+        heading: 'Virgin Media Speeds and the Cable Network',
+        paragraphs: [
+          'Virgin Media delivers broadband over its own cable network, not the Openreach infrastructure that BT, Sky, TalkTalk, Plusnet and most other providers on this site resell. This is Virgin Media\'s central advantage: at the top end, Gig1\'s 1,130 Mbps beats what most Openreach-based providers can offer at a comparable price, and it does not compete for capacity with Openreach\'s network at all.',
+          'The trade-off is coverage. Virgin Media\'s cable network reaches only around 52% of UK premises, a completely different, non-overlapping footprint from Openreach\'s much wider reach. An address either has Virgin Media cable access or it does not; there is no partial or upgrade path the way there sometimes is with fibre rollouts.',
+          'For most households, M125 or M250 already covers everyday streaming, browsing and working from home comfortably. Gig1 mainly benefits larger households running multiple demanding activities at once, or anyone who specifically wants the fastest widely available speed in the UK regardless of whether it is fully used day to day.',
+        ],
+      },
+      {
+        heading: 'Price Rises: Old RPI Contracts vs New Flat Rates',
+        paragraphs: [
+          'Virgin Media\'s price rise structure is more complicated than most providers because of how it transitioned away from inflation-linked increases. Customers who signed up before 9 January 2025 faced a final RPI-linked rise of around 7.7% in April 2026, calculated as a percentage rather than a flat cash figure. Anyone signing up new today is on a different, later structure entirely.',
+          'Contracts starting from January 2025 moved to a flat £3.50 a month rise each April; contracts starting from October 2025 onward moved to a flat £4 a month rise, in line with Ofcom\'s ban on inflation-linked, percentage-based price rise terms in all new contracts from 17 January 2025. A new Virgin Media customer signing up today should expect the flat £4 structure, not the older percentage-based one.',
+          'This matters when reading older reviews or price complaints about Virgin Media online: a review describing a large, unpredictable percentage rise likely describes the legacy RPI-linked contract structure, not the flat, disclosed rate that applies to new sign-ups now.',
+        ],
+      },
+      {
+        heading: 'Installation and Switching to Virgin Media',
+        paragraphs: [
+          'Because Virgin Media\'s cable network is physically separate from Openreach\'s, switching to Virgin Media never qualifies for Ofcom\'s One Touch Switch process, regardless of which provider a customer is leaving. Installation typically involves a Virgin Media engineer connecting the property to the cable network, which can take longer to schedule than an Openreach-based switch.',
+          'Anyone switching should keep their existing broadband service active until the new Virgin Media connection is installed and confirmed working, rather than cancelling the old service in advance, since there is no guaranteed same-day handover.',
+          'Renters and leaseholders should confirm whether the property is already connected to Virgin Media\'s network; a building with existing cable infrastructure is a much faster, simpler installation than one requiring a new connection to be run to the property.',
+        ],
+      },
+      {
+        heading: 'Router and Home Wi-Fi',
+        paragraphs: [
+          'The Hub 5X is included as standard across the current range and is capable of handling gigabit speeds without a separate upgrade, a genuine advantage over providers that reserve their best router for only the top tier.',
+          'As with any router, coverage in a larger property depends on placement and building layout. Virgin Media offers mesh Wi-Fi add-ons for properties where a single Hub does not reach every room, worth confirming there is a genuine coverage gap before adding one automatically.',
+          'Virgin Media broadband can be taken without a phone line or TV bundle, though bundled options are available for anyone who wants a single combined bill rather than separate broadband, TV and mobile contracts.',
+        ],
+      },
+      {
+        heading: 'Virgin Media Customer Service: Trustpilot vs Ofcom',
+        paragraphs: [
+          'Virgin Media\'s Trustpilot score is genuinely one of the lowest of any major UK broadband provider, around 1.4 out of 5 from roughly 100,000 reviews at the point of this check, with scores across different tracking snapshots ranging from about 1.3 to 1.6.',
+          'Ofcom\'s own complaints data tells a noticeably different story. In its Q4 2025 report, Virgin Media recorded 7 complaints per 100,000 customers, at or slightly below the industry average of 8 at the time, and it has not appeared among the top complained-about providers in Ofcom\'s more recent Q1 2026 report either, where TalkTalk, Vodafone and BT took the top three spots.',
+          'This gap between an extremely low Trustpilot score and a comparatively unremarkable Ofcom complaints record is worth taking seriously rather than dismissing either source. Trustpilot reviews skew toward people motivated to complain about a specific bad experience, often billing or a difficult cancellation; Ofcom\'s data measures formal complaint volume across the whole customer base, which is the more representative measure of day-to-day service reliability for most customers.',
+        ],
+      },
+      {
+        heading: 'Is Virgin Media Worth It?',
+        paragraphs: [
+          'Where it is available, Virgin Media\'s cable network genuinely delivers the fastest widely available broadband in the UK, at prices that are competitive against Openreach-based full fibre once actual speed is taken into account, and its Ofcom complaints record does not support the impression its Trustpilot score alone would suggest.',
+          'It is not available everywhere, its setup fee and shorter maximum contract length are worth factoring in, and anyone signing up should understand the new flat price-rise structure rather than being alarmed by older reviews describing a different, now-discontinued percentage-based rise.',
+          'Our take: worth strong consideration for speed-focused households in Virgin Media\'s cable footprint, especially where Openreach full fibre is unavailable or congested, provided the decision is based on Ofcom\'s complaints evidence and the current contract terms rather than the Trustpilot score in isolation.',
+        ],
+      },
+    ],
+    faqItems: [
+      {
+        question: 'Is Virgin Media broadband any good?',
+        answer: 'Virgin Media delivers the fastest widely available broadband speeds in the UK on its own cable network, and Ofcom\'s complaints data has consistently placed it at or below the industry average. Its Trustpilot score, around 1.4 out of 5, is exceptionally low, but reflects a self-selected pool of mostly complaint-driven reviewers rather than the broader customer base Ofcom measures.',
+      },
+      {
+        question: 'Why is Virgin Media\'s Trustpilot score so low if Ofcom complaints are average?',
+        answer: 'Trustpilot reviews are self-selected and skew toward customers with a specific negative experience, often billing or cancellation-related, who are more motivated to leave a review than a satisfied customer. Ofcom\'s complaints data measures formal complaint volume across the entire customer base, which is generally a more representative measure of typical service reliability.',
+      },
+      {
+        question: 'Does Virgin Media raise its prices during the contract?',
+        answer: 'Yes, but the structure changed in 2025. Contracts starting from October 2025 onward carry a flat £4 a month rise each April, disclosed upfront, following Ofcom\'s ban on inflation-linked price rises. Older contracts signed before January 2025 were on a different, percentage-based structure, with one final RPI-linked rise of around 7.7% due in April 2026.',
+      },
+      {
+        question: 'Is Virgin Media available at my address?',
+        answer: 'Virgin Media\'s cable network reaches around 52% of UK premises, a footprint entirely separate from the Openreach network most other providers use. Check Virgin Media\'s own postcode checker to confirm availability, since there is no partial coverage; an address either has cable access or it does not.',
+      },
+    ],
+    reviewedDate: '2026-08-23',
+    pricingVerifiedDate: '2026-08-23',
+    reviewSources: [
+      {
+        label: 'Uswitch: Virgin Media broadband packages and pricing',
+        href: 'https://www.uswitch.com/broadband/providers/virgin_media/',
+        note: 'Used for current package pricing, speeds and contract terms, checked 2026-08-23.',
+      },
+      {
+        label: 'Uswitch: RPI confirms April price rise for Virgin Media customers on older contracts',
+        href: 'https://www.uswitch.com/media-centre/2026/02/rpi-confirms-april-price-rise-for-virgin-media-and-onestream-customers-on-older-contracts/',
+        note: 'Primary source for the distinction between legacy RPI-linked contracts and the new flat £3.50/£4 a month rise structure.',
+      },
+      {
+        label: 'Ofcom: ban on mid-contract price rises linked to inflation',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/bills-and-charges/ofcom-bans-mid-contract-price-rises-linked-to-inflation',
+        note: 'Primary regulatory source for the January 2025 ban on inflation-linked, percentage-based price rise terms.',
+      },
+      {
+        label: 'Selectra: Virgin Media Trustpilot and Ofcom review summary',
+        href: 'https://selectra.co.uk/tv-broadband/providers/virgin-media/review',
+        note: 'Used to corroborate Trustpilot score range and Ofcom Q4 2025 complaints data.',
+      },
+      {
+        label: 'Virgin Media public Trustpilot profile',
+        href: 'https://uk.trustpilot.com/review/virginmedia.com',
+        note: 'Customer-sentiment reference showing scores ranging from approximately 1.3 to 1.6 out of 5 across different snapshots in 2026; not treated as a controlled reliability survey, and read alongside Ofcom\'s own complaints data.',
+      },
+      {
+        label: 'Awin Virgin Media advertiser programme',
+        href: 'https://ui.awin.com/merchant-profile-terms/6399?setLocale=en_US',
+        note: 'BroadbandPicker\'s Awin application for this programme was declined. The affiliate link above is Virgin Media\'s own site, verified 2026-08-23.',
+      },
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+        note: 'Explains how price, speed, coverage, customer experience and use-case fit are weighed.',
+      },
+    ],
+    awinProgramId: '6399',
   },
   {
     slug: 'ee',
@@ -205,34 +439,151 @@ const baseProviders: Provider[] = [
     logo: '/logos/ee.svg',
     affiliateUrl: 'https://ee.co.uk/broadband',
     speeds: [
-      { download: 36, upload: 9, type: 'FTTC' },
-      { download: 67, upload: 17, type: 'FTTC' },
-      { download: 150, upload: 30, type: 'FTTP' },
+      { download: 100, upload: 20, type: 'FTTP' },
+      { download: 300, upload: 50, type: 'FTTP' },
       { download: 500, upload: 75, type: 'FTTP' },
       { download: 900, upload: 110, type: 'FTTP' },
     ],
-    monthlyPriceFrom: 26.99,
-    contractLengths: [18, 24],
+    monthlyPriceFrom: 22.99,
+    contractLengths: [24],
     setupFee: 0,
-    trustpilotScore: 4.1,
+    trustpilotScore: 1.3,
     coveragePercent: 97,
     highlights: [
-      'Fastest average speeds of any major UK provider',
-      'Expert help service included free',
-      'Pairs with EE Mobile for bundle discounts',
+      'Automatic 4G or 5G mobile backup keeps the connection running if the fixed line drops',
+      'Named National Broadband Provider of the Year at the 2026 Uswitch Telecoms Awards for speed and reliability',
+      'Broadband-specific Trustpilot score sits at 1.3 out of 5, well below EE\'s better-known 4.2 mobile-dominated headline score',
     ],
     pros: [
-      'Top-rated speeds and reliability',
-      'High Trustpilot score',
-      'Good bundle deals with EE mobile',
-      'Strong coverage across the UK',
+      'Genuinely fast, consistently reliable speeds, independently recognised by Uswitch',
+      'Automatic mobile network failover is a real feature, not offered by most rivals',
+      'Runs on the Openreach network, so availability and line quality match most other national providers',
+      'No setup fee on most current packages',
     ],
     cons: [
-      'Slightly pricier than budget options',
-      'Limited FTTP rollout in some areas',
+      'Broadband-specific Trustpilot score is exceptionally low, in the worst bracket alongside BT and Sky',
+      'Only 24-month contracts are offered, with no shorter or rolling option',
+      'A scheduled flat price rise applies every March',
+      'Ofcom\'s Q4 2025 complaints data placed EE in the worst-three bracket alongside TalkTalk and Vodafone',
     ],
-    ...createReviewMetadata('EE', 'https://ee.co.uk/broadband', 'ee.co.uk'),
-    awinProgramId: null,
+    excerpt:
+      'EE, BT Group\'s mobile-led broadband brand, offers Full Fibre packages from £22.99 to around £30 a month, all on 24-month Openreach contracts, with a distinctive feature: automatic 4G or 5G mobile backup if the fixed line drops. Uswitch named it National Broadband Provider of the Year for 2026 on speed and reliability, yet its broadband-specific Trustpilot score is just 1.3 out of 5, far below the 4.2 headline figure most people see, which is dominated by mobile customers rather than broadband ones.',
+    contentSections: [
+      {
+        heading: 'EE Broadband Deals in August 2026',
+        paragraphs: [
+          'EE\'s Full Fibre range runs from Full Fibre 100 at around £22.99 a month, through Full Fibre 300 and Full Fibre 500 in the mid-£20s to high-£20s, up to Full Fibre 900 at around £25.99 to £30.99 depending on current promotions and any reward card offered. Every current package runs on a 24-month contract.',
+          'Setup fees vary by promotion: some current offers carry no activation charge at all, while others apply a fee offset by a reward card worth up to £130 on the fastest tier. As with BT, a reward card only benefits the customer if it is actually claimed; treat any listed setup fee as a real upfront cost at the point of signing up.',
+          'EE\'s Full Fibre 100 to 500 tiers include automatic 4G backup, upgraded to 5G backup on Full Fibre 900, a genuinely distinctive feature among the providers covered on this site: if the fixed line drops, the router automatically fails over to EE\'s mobile network to keep the connection running, rather than leaving the household offline until an engineer visit.',
+        ],
+      },
+      {
+        heading: 'EE Speeds, Reliability and the Openreach Network',
+        paragraphs: [
+          'EE runs on the Openreach network, the same underlying infrastructure as BT, Sky, TalkTalk and Plusnet, so the top available speed and line quality at a given address is broadly the same regardless of which of these providers is chosen; the meaningful differences are price, contract terms, extras and support.',
+          'EE was named National Broadband Provider of the Year at the 2026 Uswitch Telecoms Awards, specifically recognised for internet speed and reliability, a genuinely independent, survey-based recognition rather than EE\'s own marketing claim.',
+          'The mobile backup feature is the most practically useful differentiator: a household with a poor mobile signal at the property gets less benefit from it than one with strong 4G or 5G coverage, so its real value depends on local mobile network strength as much as the fixed line itself.',
+        ],
+      },
+      {
+        heading: 'EE\'s Two Very Different Trustpilot Scores',
+        paragraphs: [
+          'EE\'s well-known Trustpilot score, around 4.2 out of 5 from over 150,000 reviews, is dominated by mobile phone customers rather than broadband customers, since EE\'s Trustpilot page covers the whole brand, not broadband specifically. Quoting this figure for a broadband decision is genuinely misleading, even though it is the number most search results and comparison sites surface first.',
+          'EE\'s broadband-specific Trustpilot page tells a very different story: a rating of around 1.3 out of 5, broadly in line with Sky\'s 1.3 and BT\'s broadband-specific 1.5, and considerably worse than the mobile-dominated headline figure would suggest. This is the number that actually reflects broadband customer sentiment.',
+          'Negative broadband reviews commonly cite long waits for engineer appointments and slow support response, alongside separate, more positive commentary specifically on speed and connection reliability once installed, a genuinely different pattern from a provider with poor speed and poor support both.',
+        ],
+      },
+      {
+        heading: 'Price Rises and Contract Terms',
+        paragraphs: [
+          'EE applies a flat, disclosed price rise each March across its current range, following Ofcom\'s ban on inflation-linked, percentage-based rise terms in all new contracts from January 2025, the same structure BT, its parent-group sibling brand, has adopted.',
+          'Every current package runs on a 24-month contract, with no shorter or rolling monthly option published. Factor the scheduled March rise into the real two-year cost when comparing EE against a rival with a smaller rise or no scheduled increase at all.',
+          'As with any Openreach-based provider, confirm the exact contract summary and any promotional pricing at the point of order, since headline prices and reward card values change with EE\'s current campaigns.',
+        ],
+      },
+      {
+        heading: 'Installation and Switching to EE',
+        paragraphs: [
+          'Because EE runs on Openreach, most switches from another Openreach-based provider qualify for Ofcom\'s One Touch Switch process, a same-day handover with no need to contact the outgoing provider directly.',
+          'A switch from a provider on a separate network, such as Virgin Media\'s cable infrastructure or a full-fibre altnet building its own network, will not use One Touch Switch, so keep the existing connection active until the new EE line is confirmed working.',
+          'Anyone already an EE mobile customer should check for a bundle discount when adding broadband, since EE positions cross-brand bundling as a core part of its offer.',
+        ],
+      },
+      {
+        heading: 'Ofcom Complaints Data for EE',
+        paragraphs: [
+          'Ofcom\'s Q4 2025 complaints report placed EE in the worst-three bracket for broadband complaints, at 10 per 100,000 customers, alongside TalkTalk and Vodafone. This is a genuinely poor result and worth weighing seriously against EE\'s speed and reliability recognition from Uswitch.',
+          'Ofcom\'s more recent Q1 2026 report named TalkTalk, Vodafone and BT as the three worst providers for complaints, without EE among that specific top three, which would represent an improvement from the Q4 2025 position if it holds, though an exact Q1 2026 figure for EE specifically was not available at the point of this check.',
+          'Read alongside the broadband-specific Trustpilot score of 1.3, the overall picture for EE\'s customer service and fault handling is genuinely weaker than its speed and reliability recognition alone would suggest, and worth taking seriously rather than dismissed as review-platform noise.',
+        ],
+      },
+      {
+        heading: 'Is EE Broadband Worth It?',
+        paragraphs: [
+          'EE\'s case rests on two real, independently recognised strengths: consistently fast, reliable speeds, and a genuinely distinctive automatic mobile backup feature that most rivals do not offer. Both are substantive, not marketing-only, benefits for anyone who values uptime highly.',
+          'The customer service and complaints evidence is a real weakness, not a review-platform quirk: a 1.3 broadband-specific Trustpilot score and a worst-three Ofcom complaints position in the most recent full report available both point the same way. Anyone choosing EE should go in with realistic expectations about support response times.',
+          'Our take: EE suits a household that prioritises connection speed, reliability and mobile-network backup over customer service responsiveness, and is prepared to manage most issues without expecting a fast support resolution if something does go wrong.',
+        ],
+      },
+    ],
+    faqItems: [
+      {
+        question: 'Is EE broadband any good?',
+        answer: 'EE was named National Broadband Provider of the Year at the 2026 Uswitch Telecoms Awards for speed and reliability, and offers a distinctive automatic 4G/5G mobile backup feature. Its broadband-specific Trustpilot score, around 1.3 out of 5, and a worst-three Ofcom complaints position in Q4 2025 both point to weaker customer service, so it suits speed-focused households more than those who expect fast support.',
+      },
+      {
+        question: 'Why does EE have two different Trustpilot scores?',
+        answer: 'EE\'s well-known 4.2-out-of-5 Trustpilot score covers the whole EE brand and is dominated by mobile phone customers, not broadband customers specifically. EE\'s broadband-specific Trustpilot page shows a considerably lower score, around 1.3 out of 5, which is the more relevant figure for a broadband decision.',
+      },
+      {
+        question: 'What is EE\'s mobile backup feature?',
+        answer: 'EE\'s Full Fibre 100 to 500 packages include automatic 4G backup, upgraded to 5G backup on Full Fibre 900. If the fixed broadband line drops, the router automatically switches to EE\'s mobile network to keep the household connected, rather than leaving it offline until an engineer visit. Its practical benefit depends on the strength of local mobile coverage.',
+      },
+      {
+        question: 'Does EE raise its prices during the contract?',
+        answer: 'Yes. EE applies a flat, disclosed price rise each March across its current range, following Ofcom\'s ban on inflation-linked price rise terms from January 2025. Every current package runs on a 24-month contract, so this rise applies in the second year of every new EE broadband agreement.',
+      },
+    ],
+    reviewedDate: '2026-08-23',
+    pricingVerifiedDate: '2026-08-23',
+    reviewSources: [
+      {
+        label: 'EE broadband deals and pricing',
+        href: 'https://ee.co.uk/broadband',
+        note: 'Used for current package lineup and headline pricing, checked 2026-08-23.',
+      },
+      {
+        label: 'EE monthly home price guide, 1 March 2026',
+        href: 'https://ee.co.uk/content/dam/help/terms-and-conditions/price-plans/home/ee-monthly-home-price-guide-1-march-2026.pdf',
+        note: 'EE\'s own official price guide, used to corroborate package speeds, minimum guaranteed speeds and the scheduled March price rise.',
+      },
+      {
+        label: 'Selectra: EE broadband review, Trustpilot and Ofcom summary',
+        href: 'https://selectra.co.uk/tv-broadband/providers/ee/broadband-review',
+        note: 'Primary source for the distinction between EE\'s mobile-dominated headline Trustpilot score and its broadband-specific score, and for the Uswitch Telecoms Awards recognition and Ofcom Q4 2025 complaints position.',
+      },
+      {
+        label: 'EE broadband-specific public Trustpilot profile',
+        href: 'https://uk.trustpilot.com/review/broadband.ee.co.uk',
+        note: 'Customer-sentiment reference showing a broadband-specific rating around 1.3 out of 5 in August 2026; not treated as a controlled reliability survey.',
+      },
+      {
+        label: 'Ofcom: telecoms and pay-TV complaints fall to a record low',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/service-quality/ofcom-telecoms-and-pay-tv-complaints-fall-to-record-low',
+        note: 'Primary regulatory source for the Q1 2026 complaints table; EE was not named among the top three worst providers in this specific report, unlike Q4 2025.',
+      },
+      {
+        label: 'Awin EE advertiser programme',
+        href: 'https://ui.awin.com/merchant-profile-terms/3516?setLocale=en_US',
+        note: 'BroadbandPicker\'s Awin application for this programme was declined. The affiliate link above is EE\'s own site, verified 2026-08-23.',
+      },
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+        note: 'Explains how price, speed, coverage, customer experience and use-case fit are weighed.',
+      },
+    ],
+    awinProgramId: '3516',
   },
   {
     slug: 'talktalk',
@@ -393,32 +744,152 @@ const baseProviders: Provider[] = [
     logo: '/logos/plusnet.svg',
     affiliateUrl: 'https://www.plus.net/broadband/',
     speeds: [
-      { download: 36, upload: 8, type: 'FTTC' },
-      { download: 66, upload: 17, type: 'FTTC' },
-      { download: 145, upload: 30, type: 'FTTP' },
+      { download: 74, upload: 18, type: 'FTTC' },
+      { download: 145, upload: 27, type: 'FTTP' },
+      { download: 300, upload: 50, type: 'FTTP' },
+      { download: 500, upload: 75, type: 'FTTP' },
+      { download: 900, upload: 110, type: 'FTTP' },
     ],
-    monthlyPriceFrom: 22.99,
-    contractLengths: [18, 24],
+    monthlyPriceFrom: 21.99,
+    contractLengths: [24],
     setupFee: 0,
     trustpilotScore: 2.0,
     coveragePercent: 96,
     highlights: [
-      'Straightforward pricing — no hidden fees',
-      'UK-based customer service team',
-      'Strong reputation for honest billing',
+      'Ofcom\'s Q1 2026 report ranked Plusnet the best of any major UK broadband provider for complaints',
+      'A low Trustpilot score sits alongside genuinely strong regulatory complaints evidence, a gap worth understanding',
+      'Reward cards worth up to £140 available on faster tiers, alongside no activation fee across the range',
     ],
     pros: [
-      'Transparent pricing',
-      'UK customer support',
-      'Good value mid-tier option',
+      'Best Ofcom complaints record of any major UK ISP, at 4 per 100,000 customers in Q1 2026',
+      'No activation fee on any current package',
+      'UK-based customer service team, a specific point of positive review feedback',
+      'Runs on the Openreach network, so line quality and availability match most other national providers',
     ],
     cons: [
-      'Speeds lag behind EE and BT',
-      'Less competitive than budget rivals on price',
-      'Smaller FTTP footprint',
+      'Trustpilot score is low despite the strong Ofcom complaints record, largely reflecting self-selected complaint-driven reviews',
+      'Only 24-month contracts are offered, with no shorter or rolling option',
+      'A scheduled flat price rise applies every March',
+      'Top speed tier tops out at 900 Mbps, without the higher multi-gigabit options some rivals now offer',
     ],
-    ...createReviewMetadata('Plusnet', 'https://www.plus.net/broadband/', 'plus.net'),
-    awinProgramId: null,
+    excerpt:
+      'Plusnet, part of BT Group, offers Full Fibre broadband from £21.99 to around £30 a month across five tiers, all on 24-month Openreach contracts. Ofcom\'s Q1 2026 complaints report ranked it the best of any major UK provider, at just 4 complaints per 100,000 customers, against TalkTalk\'s 10 and an industry average of 6. Its Trustpilot score is low despite this, a gap explained by how differently the two measures are collected, not a contradiction in Plusnet\'s actual service quality.',
+    contentSections: [
+      {
+        heading: 'Plusnet Broadband Deals in August 2026',
+        paragraphs: [
+          'Plusnet\'s range runs from Full Fibre 74 at £21.99 a month, through Full Fibre 145 at £22.99, Full Fibre 300 at £24.99 and Full Fibre 500 at £27.99, up to Full Fibre 900 at £29.99. Reward cards worth up to £100 on the entry and mid tiers, and up to £140 on Full Fibre 900, are available on top of the headline price.',
+          'Every current package includes the Plusnet Hub Two router, unlimited data and no activation fee, a genuinely competitive combination against rivals that charge separately for setup or hardware. As with any reward card offer, the saving only materialises if the card is actually claimed and used.',
+          'Every package runs on a 24-month contract, with no shorter or rolling monthly option currently published, consistent with BT Group\'s other brands, BT and EE, which follow the same contract-length pattern.',
+        ],
+      },
+      {
+        heading: 'Plusnet Speeds and the Openreach Network',
+        paragraphs: [
+          'Plusnet runs on the Openreach network, the same infrastructure as BT, Sky, TalkTalk, EE and Vodafone, so top available speed and line quality at a given address is broadly consistent across these providers; the meaningful differences are price, contract terms and support.',
+          'Full Fibre 74 and 145 comfortably cover typical household use, streaming, browsing and video calls for several people. Full Fibre 300 and above mainly benefit larger households running multiple demanding activities at once, or anyone who wants meaningful upload headroom for cloud backups or video calls.',
+          'Plusnet\'s top published tier, Full Fibre 900, sits below the 2 Gbps-plus tiers some rivals, including Vodafone and several full-fibre altnets, now offer. For most households this is not a practical limitation, since very few single devices can use speeds much above 1 Gbps in any case.',
+        ],
+      },
+      {
+        heading: 'Plusnet\'s Ofcom Complaints Record: Best in Class',
+        paragraphs: [
+          'Ofcom\'s Q1 2026 complaints report recorded Plusnet at 4 complaints per 100,000 customers, the lowest figure of any major UK broadband provider in that report, well below TalkTalk\'s 10, Vodafone\'s 8 and BT\'s 7, and below the industry average of 6. This is genuinely strong, independently measured evidence of service quality, not a marketing claim.',
+          'This matters specifically because Plusnet\'s Trustpilot score does not reflect the same picture, sitting considerably lower than its Ofcom complaints ranking would suggest. The two measures capture different things: Ofcom counts formal complaints across the whole customer base, while Trustpilot reviews are self-selected and skew toward people motivated to complain after a specific bad experience, such as a difficult installation or a billing dispute.',
+          'Reading Plusnet\'s low Trustpilot score without the Ofcom context risks a misleading conclusion. The regulatory data is the stronger signal here: Plusnet\'s actual complaint rate across its full customer base is the best of any major UK provider currently tracked by Ofcom.',
+        ],
+      },
+      {
+        heading: 'Router and Setup',
+        paragraphs: [
+          'The Plusnet Hub Two is included as standard across the range, capable of handling the full-fibre speeds on offer without a separate upgrade requirement. No activation fee applies to any current package, removing one of the more variable upfront costs seen with some rivals.',
+          'Anyone in a larger property should check whether router placement is likely to leave any rooms with weak coverage before ordering, since Plusnet\'s standard package does not include a bundled mesh add-on the way some altnets do.',
+          'Installation follows the standard Openreach engineer process where a new line is needed, with UK-based customer service handling the booking and any issues that arise.',
+        ],
+      },
+      {
+        heading: 'Price Rises and Contract Terms',
+        paragraphs: [
+          'A flat price rise applies to Plusnet contracts each March: £3 a month for customers who signed up between April 2024 and August 2025, and £4 a month for anyone signing up from August 2025 onward, with further £4 rises scheduled for March 2027 and March 2028. This follows Ofcom\'s ban on inflation-linked, percentage-based price rise terms in all new contracts from January 2025.',
+          'A new Plusnet customer signing up today should expect the £4 a month structure. Factor this into the real two-year cost when comparing Plusnet against a provider with a smaller rise or none at all, rather than judging on the first month\'s headline price.',
+          'These rises are disclosed upfront on Plusnet\'s pricing pages rather than added later, consistent with the wider BT Group approach across BT, EE and Plusnet.',
+        ],
+      },
+      {
+        heading: 'Installation and Switching to Plusnet',
+        paragraphs: [
+          'Because Plusnet runs on Openreach, most switches from another Openreach-based provider qualify for Ofcom\'s One Touch Switch process, a same-day handover with no need to contact the outgoing provider directly.',
+          'A switch from a provider on a separate network, such as Virgin Media\'s cable infrastructure or a full-fibre altnet, will not use One Touch Switch, so keep the existing connection running until the new Plusnet line is confirmed working.',
+          'Plusnet\'s UK-based customer service team is a specifically cited positive in reviews, which is consistent with its strong Ofcom complaints ranking; anyone who has had a difficult experience with a rival\'s support line may find this a genuine point of difference.',
+        ],
+      },
+      {
+        heading: 'Is Plusnet Broadband Worth It?',
+        paragraphs: [
+          'Plusnet\'s case is unusually strong once the Ofcom complaints data is factored in alongside the price: a genuinely low headline cost, no activation fee, and the best complaints record of any major UK provider currently tracked, at a time when its main rivals are all in the same general price bracket.',
+          'The one real caveat is speed ceiling: Full Fibre 900 is Plusnet\'s fastest published tier, below what Vodafone and several full-fibre altnets now offer, though this is a genuine limitation for very few households in practice.',
+          'Our take: Plusnet is one of the stronger all-round choices among the national Openreach-based providers, combining budget-competitive pricing with the best regulatory complaints evidence in the market, and its low Trustpilot score should not be read as contradicting that.',
+        ],
+      },
+    ],
+    faqItems: [
+      {
+        question: 'Is Plusnet broadband any good?',
+        answer: 'Ofcom\'s Q1 2026 report ranked Plusnet the best of any major UK broadband provider for complaints, at 4 per 100,000 customers, against an industry average of 6. Its Trustpilot score is low, but this reflects the self-selected nature of review platforms rather than actual service quality, which the regulatory data measures more reliably across the whole customer base.',
+      },
+      {
+        question: 'Why is Plusnet\'s Trustpilot score low if Ofcom ranks it best for complaints?',
+        answer: 'Trustpilot reviews are self-selected and skew toward customers motivated to leave a review after a specific bad experience, such as a difficult installation or billing dispute. Ofcom\'s complaints data measures formal complaint volume across Plusnet\'s entire customer base, which is the more representative measure and shows Plusnet performing best in class.',
+      },
+      {
+        question: 'Does Plusnet raise its prices during the contract?',
+        answer: 'Yes. A flat price rise applies each March, £3 a month for customers who signed up between April 2024 and August 2025, and £4 a month for anyone signing up from August 2025 onward, following Ofcom\'s ban on inflation-linked price rise terms from January 2025. Every current package runs on a 24-month contract.',
+      },
+      {
+        question: 'What speed do I need from Plusnet?',
+        answer: 'Full Fibre 74 or 145 comfortably covers most households, including streaming, browsing and several devices in use at once. Full Fibre 300 and above mainly benefit larger households running multiple demanding activities simultaneously or anyone who specifically needs more upload headroom.',
+      },
+    ],
+    reviewedDate: '2026-08-23',
+    pricingVerifiedDate: '2026-08-23',
+    reviewSources: [
+      {
+        label: 'Uswitch: Plusnet broadband packages and pricing',
+        href: 'https://www.uswitch.com/broadband/providers/plusnet/',
+        note: 'Used for current package lineup, pricing, reward cards and router details, checked 2026-08-23.',
+      },
+      {
+        label: 'Ofcom: telecoms and pay-TV complaints fall to a record low',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/service-quality/ofcom-telecoms-and-pay-tv-complaints-fall-to-record-low',
+        note: 'Primary regulatory source for Plusnet\'s best-in-class Q1 2026 complaints ranking at 4 per 100,000 customers.',
+      },
+      {
+        label: 'Ofcom: ban on mid-contract price rises linked to inflation',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/bills-and-charges/ofcom-bans-mid-contract-price-rises-linked-to-inflation',
+        note: 'Primary regulatory source for the January 2025 ban on inflation-linked price rise terms and Plusnet\'s resulting flat March rise.',
+      },
+      {
+        label: 'GB News: Plusnet price rise structure by sign-up date',
+        href: 'https://www.gbnews.com/tech/bt-ee-plusnet-broadband-change-price-rise',
+        note: 'Independent corroboration for the £3/£4 a month price rise split by contract start date.',
+      },
+      {
+        label: 'Plusnet public Trustpilot profile',
+        href: 'https://uk.trustpilot.com/review/plus.net',
+        note: 'Customer-sentiment reference showing a low score in August 2026; read alongside Ofcom\'s Q1 2026 complaints data, which shows a materially different picture; not treated as a controlled reliability survey on its own.',
+      },
+      {
+        label: 'Awin Plusnet advertiser programme',
+        href: 'https://ui.awin.com/merchant-profile-terms/2973?setLocale=en_US',
+        note: 'BroadbandPicker\'s Awin application for this programme was declined. The affiliate link above is Plusnet\'s own site, verified 2026-08-23.',
+      },
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+        note: 'Explains how price, speed, coverage, customer experience and use-case fit are weighed.',
+      },
+    ],
+    awinProgramId: '2973',
   },
   {
     slug: 'vodafone',
@@ -426,33 +897,151 @@ const baseProviders: Provider[] = [
     logo: '/logos/vodafone.svg',
     affiliateUrl: 'https://www.vodafone.co.uk/broadband',
     speeds: [
-      { download: 38, upload: 9, type: 'FTTC' },
-      { download: 76, upload: 19, type: 'FTTC' },
-      { download: 100, upload: 20, type: 'FTTP' },
+      { download: 73, upload: 19, type: 'FTTC' },
+      { download: 150, upload: 30, type: 'FTTP' },
       { download: 500, upload: 75, type: 'FTTP' },
-      { download: 900, upload: 100, type: 'FTTP' },
+      { download: 910, upload: 100, type: 'FTTP' },
     ],
-    monthlyPriceFrom: 24.00,
-    contractLengths: [18, 24],
+    monthlyPriceFrom: 25.00,
+    contractLengths: [24],
     setupFee: 0,
-    trustpilotScore: 3.4,
+    trustpilotScore: 1.3,
     coveragePercent: 94,
     highlights: [
-      'Discount when bundled with Vodafone Mobile',
-      'Wi-Fi Guarantee — money back if speeds disappoint',
-      'Pro Xtra plan includes tech support',
+      'Vodafone Xtra bundles an Apple TV 4K device and three months of Apple TV with eligible plans',
+      'Ofcom\'s Q1 2026 report named Vodafone the second most complained-about broadband provider in the UK',
+      'A flat £3.50 a month price rise applies each April, disclosed upfront in pounds and pence',
     ],
     pros: [
-      'Good bundle discounts with mobile',
-      'Wi-Fi Guarantee scheme',
-      'Competitive FTTP pricing',
+      'A genuinely useful bundled Apple TV 4K offer on Xtra plans, not offered by most rivals',
+      'Discount available when bundled with an existing Vodafone mobile contract',
+      'A Wi-Fi Guarantee promising money back if speeds fall short of expectations',
+      'Runs on the Openreach network, so line quality and availability match most other national providers',
     ],
     cons: [
-      'Customer service scores are mixed',
-      'Coverage lower than BT/EE/Sky',
+      'Named the second most complained-about broadband provider in the UK by Ofcom\'s Q1 2026 report',
+      'Broadband-specific Trustpilot score is among the lowest of any major UK provider',
+      'Only 24-month contracts are offered, with no shorter or rolling option',
+      'A scheduled flat price rise applies every April',
     ],
-    ...createReviewMetadata('Vodafone', 'https://www.vodafone.co.uk/broadband', 'vodafone.co.uk'),
-    awinProgramId: null,
+    excerpt:
+      'Vodafone offers Full Fibre broadband from £25 to around £45 a month across four speed tiers, all on 24-month Openreach contracts, with a distinctive Apple TV 4K bundle on its Xtra plans. Ofcom\'s Q1 2026 complaints report named Vodafone the second most complained-about broadband provider in the UK, at 8 complaints per 100,000 customers, and its broadband-specific Trustpilot score is exceptionally low, a pattern worth understanding before deciding based on price and bundled extras alone.',
+    contentSections: [
+      {
+        heading: 'Vodafone Broadband Deals in August 2026',
+        paragraphs: [
+          'Vodafone\'s range runs from Superfast 2, part-fibre at 73 Mbps for around £25 a month, through Pro at 150 Mbps for around £28, up to Pro Xtra at 910 Mbps for around £38 to £45 depending on current promotions. Eligible customers can access a Vodafone Pro tier reaching up to 2.2 Gbps in areas with the necessary infrastructure.',
+          'Vodafone Xtra plans bundle an Apple TV 4K device with three months of Apple TV included, plus anytime UK calls to landlines and mobiles, a genuinely distinctive extra among the major providers covered on this site. Confirm what happens to the Apple TV device and subscription after the initial three months before treating it as a permanently free perk.',
+          'Every current package runs on a 24-month contract. Vodafone offers a discount for customers who bundle broadband with an existing Vodafone mobile plan, worth checking directly if already a Vodafone mobile customer.',
+        ],
+      },
+      {
+        heading: 'Vodafone Speeds and the Openreach Network',
+        paragraphs: [
+          'Vodafone runs its broadband over the Openreach network, the same infrastructure used by BT, Sky, TalkTalk, Plusnet and EE, so top available speed and line quality at a given address is broadly consistent regardless of which of these providers is chosen.',
+          'Superfast 2, at 73 Mbps, suits light to moderate households comfortably. Pro at 150 Mbps covers most typical households with room to spare. Pro Xtra\'s 910 Mbps and the higher-tier 2.2 Gbps option mainly benefit larger households running several demanding activities simultaneously, or anyone who specifically wants the fastest available speed regardless of daily need.',
+          'Vodafone\'s Wi-Fi Guarantee promises money back if delivered speeds fall short of what was promised at sign-up, worth checking the exact terms and claim process before relying on it as a safety net.',
+        ],
+      },
+      {
+        heading: 'Vodafone\'s Broadband-Specific Trustpilot Score',
+        paragraphs: [
+          'Vodafone\'s well-known headline Trustpilot score, around 4.1 out of 5, is dominated by mobile phone customers rather than broadband customers, the same pattern seen with EE\'s Trustpilot page, since both companies run their mobile and broadband customer feedback through the same overall brand profile.',
+          'A broadband-specific view tells a different story: independent analysis puts Vodafone\'s broadband-focused rating around 1.3 out of 5, among the lowest of any major UK provider, below Sky, BT and Virgin Media on the same comparison. This is the more relevant figure for anyone specifically evaluating Vodafone\'s broadband service rather than its mobile network.',
+          'Negative reviews consistently cite long waits for engineer visits and slow complaint response times; positive reviews, where present, focus on speed and reliability once a connection is up and running, a similar pattern to EE\'s broadband reviews.',
+        ],
+      },
+      {
+        heading: 'Ofcom Complaints: Vodafone Ranked Second Worst',
+        paragraphs: [
+          'Ofcom\'s Q1 2026 complaints report named Vodafone the second most complained-about broadband provider in the UK, at 8 complaints per 100,000 customers, behind only TalkTalk\'s 10 and above BT\'s 7, against an industry average of 6. Complaints mainly related to faults, service and provisioning, and billing issues, a similar pattern to the other providers at the top of the same table.',
+          'This is regulatory data measuring formal complaint volume across Vodafone\'s whole broadband customer base, a more representative measure than a single review platform score, and it corroborates rather than contradicts the low broadband-specific Trustpilot rating.',
+          'Taken together, Ofcom\'s complaints ranking and the broadband-specific Trustpilot score point the same way: Vodafone\'s customer service and fault-handling record is a genuine weak point, not a review-platform artefact.',
+        ],
+      },
+      {
+        heading: 'Price Rises and Contract Terms',
+        paragraphs: [
+          'A flat £3.50 a month price rise applies to Vodafone broadband contracts each April, disclosed upfront in pounds and pence following Ofcom\'s ban on inflation-linked, percentage-based price rise terms in all new contracts from January 2025.',
+          'Every current package runs on a 24-month contract, with no shorter or rolling monthly option published. Factor the scheduled April rise into the real two-year cost when comparing Vodafone against a provider with a smaller rise or none at all.',
+          'The Apple TV 4K bundle on Xtra plans is worth valuing separately from the headline broadband price when comparing against a rival\'s cheaper equivalent plan without the device included.',
+        ],
+      },
+      {
+        heading: 'Installation and Switching to Vodafone',
+        paragraphs: [
+          'Because Vodafone runs on Openreach, most switches from another Openreach-based provider qualify for Ofcom\'s One Touch Switch process, a same-day handover with no need to contact the outgoing provider directly.',
+          'A switch from a provider on a separate network, such as Virgin Media\'s cable infrastructure or a full-fibre altnet, will not use One Touch Switch, so keep the existing connection running until the new Vodafone line is confirmed working.',
+          'Given the engineer-visit wait times raised in reviews, anyone with a time-sensitive need for a working connection should ask Vodafone directly for a realistic installation date rather than assuming a fast turnaround.',
+        ],
+      },
+      {
+        heading: 'Is Vodafone Broadband Worth It?',
+        paragraphs: [
+          'Vodafone\'s genuine strengths are the Apple TV 4K bundle on Xtra plans and mobile bundle discounts for existing Vodafone customers, both real, substantive benefits rather than marketing-only claims.',
+          'The customer service picture is a real concern, not a review-platform quirk: Ofcom ranked Vodafone the second most complained-about broadband provider in the UK in its most recent report, and the broadband-specific Trustpilot score corroborates that finding independently.',
+          'Our take: Vodafone suits an existing Vodafone mobile customer who values the bundle discount and the Apple TV 4K offer specifically, and is prepared to accept a real, evidenced risk of slower support if something goes wrong, rather than a household prioritising customer service above all else.',
+        ],
+      },
+    ],
+    faqItems: [
+      {
+        question: 'Is Vodafone broadband any good?',
+        answer: 'Vodafone offers genuinely useful extras, including an Apple TV 4K bundle on Xtra plans and mobile bundle discounts, but Ofcom named it the second most complained-about broadband provider in the UK in its Q1 2026 report, and its broadband-specific Trustpilot score is among the lowest of any major provider. It suits existing Vodafone mobile customers more than anyone prioritising customer service.',
+      },
+      {
+        question: 'Why does Vodafone have two different Trustpilot scores?',
+        answer: 'Vodafone\'s well-known headline Trustpilot score, around 4.1 out of 5, is dominated by mobile phone customers rather than broadband customers. A broadband-specific view puts Vodafone\'s rating around 1.3 out of 5, among the lowest of any major UK provider, which is the more relevant figure for a broadband-specific decision.',
+      },
+      {
+        question: 'Does Vodafone raise its prices during the contract?',
+        answer: 'Yes. A flat £3.50 a month price rise applies each April, disclosed upfront in pounds and pence following Ofcom\'s ban on inflation-linked price rise terms from January 2025. Every current package runs on a 24-month contract, so this rise applies once during the standard contract term.',
+      },
+      {
+        question: 'What does Vodafone Xtra include?',
+        answer: 'Vodafone Xtra bundles an Apple TV 4K device with three months of Apple TV included, plus anytime UK calls to landlines and mobiles, alongside the standard broadband package. Confirm what happens to the device and subscription after the initial three months before treating it as a permanently free extra.',
+      },
+    ],
+    reviewedDate: '2026-08-23',
+    pricingVerifiedDate: '2026-08-23',
+    reviewSources: [
+      {
+        label: 'Vodafone broadband deals and pricing',
+        href: 'https://www.vodafone.co.uk/broadband',
+        note: 'Used for current package lineup, Xtra bundle details and headline pricing, checked 2026-08-23.',
+      },
+      {
+        label: 'Selectra: Vodafone broadband review, Trustpilot and Ofcom summary',
+        href: 'https://selectra.co.uk/tv-broadband/providers/vodafone/broadband-review',
+        note: 'Used to corroborate the distinction between Vodafone\'s mobile-dominated headline Trustpilot score and its broadband-specific score.',
+      },
+      {
+        label: 'Ofcom: telecoms and pay-TV complaints fall to a record low',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/service-quality/ofcom-telecoms-and-pay-tv-complaints-fall-to-record-low',
+        note: 'Primary regulatory source for Vodafone\'s Q1 2026 complaints ranking, second-worst in the UK at 8 per 100,000 customers.',
+      },
+      {
+        label: 'Ofcom: ban on mid-contract price rises linked to inflation',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/bills-and-charges/ofcom-bans-mid-contract-price-rises-linked-to-inflation',
+        note: 'Primary regulatory source for the January 2025 ban on inflation-linked, percentage-based price rise terms.',
+      },
+      {
+        label: 'Vodafone public Trustpilot profile',
+        href: 'https://uk.trustpilot.com/review/vodafone.co.uk',
+        note: 'Customer-sentiment reference; broadband-specific rating estimated around 1.3 out of 5 in August 2026 based on independent analysis distinguishing it from the mobile-dominated headline score; not treated as a controlled reliability survey.',
+      },
+      {
+        label: 'Awin Vodafone advertiser programme',
+        href: 'https://ui.awin.com/merchant-profile-terms/1257?setLocale=en_US',
+        note: 'BroadbandPicker\'s Awin application for this programme was declined. The affiliate link above is Vodafone\'s own site, verified 2026-08-23.',
+      },
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+        note: 'Explains how price, speed, coverage, customer experience and use-case fit are weighed.',
+      },
+    ],
+    awinProgramId: '1257',
   },
   {
     slug: 'now-broadband',
@@ -493,31 +1082,151 @@ const baseProviders: Provider[] = [
     logo: '/logos/hyperoptic.svg',
     affiliateUrl: 'https://www.hyperoptic.com/',
     speeds: [
-      { download: 150, upload: 150, type: 'FTTP' },
-      { download: 500, upload: 500, type: 'FTTP' },
+      { download: 57, upload: 5, type: 'FTTP' },
+      { download: 159, upload: 159, type: 'FTTP' },
+      { download: 526, upload: 526, type: 'FTTP' },
       { download: 1000, upload: 1000, type: 'FTTP' },
     ],
-    monthlyPriceFrom: 22.00,
+    monthlyPriceFrom: 21.50,
     contractLengths: [12, 24],
     setupFee: 0,
-    trustpilotScore: 4.4,
+    trustpilotScore: 4.5,
     coveragePercent: 8,
     highlights: [
-      'Full-fibre to the premises — no copper at all',
-      'Symmetrical upload and download speeds',
-      'Highest Trustpilot rating among major ISPs',
+      'One of the highest Trustpilot scores of any UK ISP, from more than 52,000 reviews',
+      'Fully symmetrical speeds on every tier except the cheapest entry-level plan',
+      'A genuine social tariff at two price points, £15 and £20 a month, with no fixed contract',
     ],
     pros: [
-      'Outstanding Trustpilot score',
-      'True full-fibre — symmetrical speeds',
-      'Competitive pricing for gigabit',
+      'Consistently among the best-reviewed ISPs in the UK on Trustpilot',
+      'Symmetrical full-fibre speeds from 159 Mbps upward, a genuine advantage for uploads',
+      'A real social tariff, no fixed contract, at two price points for eligible households',
+      'No setup fee across the range',
     ],
     cons: [
-      'Very limited coverage — mainly London and major cities',
-      'Building must be wired — no on-demand install',
+      'Coverage remains concentrated in London and a limited number of other major UK cities',
+      'A scheduled annual price rise of around £4 a month applies to fixed-term contracts',
+      'The cheapest entry tier is not symmetrical, unlike the rest of the range',
+      'Installation requires the building to be wired, which needs landlord or freeholder permission in rented properties',
     ],
-    ...createReviewMetadata('Hyperoptic', 'https://www.hyperoptic.com/', 'hyperoptic.com'),
-    awinProgramId: null,
+    excerpt:
+      'Hyperoptic is a full-fibre altnet concentrated in London and a number of other major UK cities, with symmetrical speeds from 159 Mbps to 1,000 Mbps, from £21.50 a month, plus a genuine no-contract social tariff at £15 or £20 a month. Its Trustpilot score, around 4.5 out of 5 from over 52,000 reviews, is among the best of any UK ISP. The main limitation is coverage: this is a building-by-building network, not available on demand everywhere.',
+    contentSections: [
+      {
+        heading: 'Hyperoptic Broadband Deals in August 2026',
+        paragraphs: [
+          'Hyperoptic\'s entry tier, a non-symmetrical 50 Mbps plan (57 Mbps down, 5 Mbps up), starts from around £21.50 to £28.50 a month depending on contract length. The core symmetrical range starts at 150 Mbps (around £22.99 to £29), moves to 500 Mbps (around £27 to £33), and tops out at 1 Gbps from around £26, with pricing varying by contract length and current promotion.',
+          'A genuine social tariff is available outside the standard range: Essential 50 at £15 a month and Essential 150 at £20 a month, both for households on qualifying means-tested benefits, and both with no fixed contract, a real, no-catch offer rather than a marketing-only mention.',
+          'No setup fee applies across the range. As with any provider, confirm the live price and promotion for the specific address and building at checkout, since Hyperoptic\'s pricing can vary by location.',
+        ],
+      },
+      {
+        heading: 'Hyperoptic Coverage: London and Major UK Cities',
+        paragraphs: [
+          'Hyperoptic has built out its own full-fibre network since 2011, concentrated in London and a number of other major UK cities, historically reported as operating across around 28 cities with an ongoing ambition to add more. This is a fundamentally building-by-building network, not a general area rollout, so a city being served does not mean a specific building is connected.',
+          'Hyperoptic\'s coverage strategy focuses heavily on apartment blocks and dense residential buildings, where wiring one building serves many households efficiently. This makes it a strong option in the right kind of property, and largely irrelevant to a standalone house outside its footprint.',
+          'Anyone outside London or one of Hyperoptic\'s other served cities should not expect it to be available at all. Its own postcode and building checker is the only reliable way to confirm whether a specific address is connected or connectable.',
+        ],
+      },
+      {
+        heading: 'Hyperoptic Speeds: Symmetrical Above the Entry Tier',
+        paragraphs: [
+          'Every Hyperoptic tier from 150 Mbps upward is fully symmetrical, meaning upload matches download exactly, a genuine advantage for cloud backups, large file transfers and video calls where several people in a household are on camera simultaneously. Only the cheapest 50 Mbps entry tier breaks this pattern, with a much lower 5 Mbps upload speed.',
+          'For most households, the 150 Mbps symmetrical tier already comfortably covers streaming, browsing, working from home and several devices in use at once. The 500 Mbps and 1 Gbps tiers mainly benefit larger households running multiple demanding activities simultaneously, or anyone who specifically wants the fastest widely available speed.',
+          'Anyone considering the 50 Mbps entry tier specifically for its low price should understand that its 5 Mbps upload speed is considerably below what the rest of Hyperoptic\'s range, and most full-fibre altnets covered on this site, now offer.',
+        ],
+      },
+      {
+        heading: 'Installation: Building Wiring and Landlord Permission',
+        paragraphs: [
+          'A standard Hyperoptic installation involves drilling a small, roughly 10mm hole, most commonly above the front door, and running up to 10 metres of surface-mounted cable to the router, with the whole appointment typically taking around an hour once a technician arrives.',
+          'Because this is physical building work, a landlord or freeholder\'s permission, known as a wayleave agreement, is normally required before installation in a rented property or a leasehold flat. As of 2026, there is no statutory UK tenant right to full fibre, so this permission cannot be assumed or demanded; renters should raise it with the landlord or managing agent early, and check whether the building already has an existing Hyperoptic wayleave in place, which can make installation considerably faster.',
+          'A building without an existing wayleave or Hyperoptic infrastructure already in place may face a longer lead time than a building where a neighbour has already had the network installed, so ask directly what is already in place before assuming a fast turnaround.',
+        ],
+      },
+      {
+        heading: 'Contract Terms and the Annual Price Rise',
+        paragraphs: [
+          'Hyperoptic offers 12 and 24-month contracts on its core range, alongside the no-contract social tariff for eligible households. A scheduled annual price rise of around £4 a month applies to fixed-term contracts each April, disclosed upfront in pounds and pence, following Ofcom\'s ban on inflation-linked, percentage-based price rise terms from January 2025.',
+          'Over a 24-month term, this rise is a real cost to factor in alongside the headline monthly price, and is broadly comparable in size to the rises now applied by BT, EE, Vodafone and Plusnet, though Hyperoptic\'s underlying symmetrical speed offering remains a genuine differentiator from those Openreach-based national providers.',
+          'The social tariff\'s no-contract structure is a meaningful exception to this pattern, and worth checking directly for anyone who may be eligible, since it avoids both the fixed term and the scheduled rise entirely.',
+        ],
+      },
+      {
+        heading: 'Hyperoptic Customer Service and Reviews',
+        paragraphs: [
+          'Hyperoptic\'s Trustpilot profile showed a rating around 4.5 out of 5 from over 52,000 reviews at the point of this check, one of the strongest scores of any UK broadband provider and considerably ahead of most national Openreach-based providers covered elsewhere on this site.',
+          'This strong review pattern, combined with over a decade of operating history since 2011, gives Hyperoptic a genuinely longer, more independently evidenced track record than most newer full-fibre altnets, which is worth weighing alongside its more limited coverage footprint.',
+          'As with any review platform, treat this as customer sentiment rather than an independently controlled reliability measurement, though the consistency of a high score across such a large review volume is itself a meaningful signal.',
+        ],
+      },
+      {
+        heading: 'Is Hyperoptic Broadband Any Good?',
+        paragraphs: [
+          'Where it is available, Hyperoptic is one of the strongest options on the market: genuinely symmetrical speeds above the entry tier, a strong, well-evidenced review record, a real social tariff, and over a decade of operating history in its core cities.',
+          'The limitation is entirely coverage. This is a building-by-building network concentrated in London and a limited number of other major UK cities, and installation requires landlord permission in a rented property, which is not guaranteed and cannot be assumed.',
+          'Our take: check Hyperoptic first if living in an apartment block within one of its covered cities, particularly London; it is simply not a relevant option for the large majority of UK addresses outside that footprint.',
+        ],
+      },
+    ],
+    faqItems: [
+      {
+        question: 'Is Hyperoptic broadband any good?',
+        answer: 'Hyperoptic holds one of the strongest Trustpilot scores of any UK ISP, around 4.5 out of 5 from over 52,000 reviews, and offers genuinely symmetrical full-fibre speeds above its entry tier. Its main limitation is coverage, concentrated in London and a limited number of other major UK cities, with installation requiring landlord permission in rented properties.',
+      },
+      {
+        question: 'Does Hyperoptic require landlord permission to install?',
+        answer: 'Usually, yes. A standard installation involves drilling a small hole and running visible cable, which normally requires a wayleave agreement from the landlord or freeholder in a rented or leasehold property. There is no statutory UK tenant right to full fibre as of 2026, so this permission should be sought directly rather than assumed, and checking whether the building already has an existing wayleave can speed up the process considerably.',
+      },
+      {
+        question: 'Does Hyperoptic offer a social tariff?',
+        answer: 'Yes. Hyperoptic offers Essential 50 at £15 a month and Essential 150 at £20 a month for households on qualifying means-tested benefits, both with no fixed contract, a genuine offer rather than a marketing-only mention.',
+      },
+      {
+        question: 'Is Hyperoptic broadband symmetrical?',
+        answer: 'Every tier from 150 Mbps upward is fully symmetrical, meaning upload matches download exactly. Only the cheapest 50 Mbps entry tier is an exception, with a considerably lower 5 Mbps upload speed than the rest of the range.',
+      },
+    ],
+    reviewedDate: '2026-08-23',
+    pricingVerifiedDate: '2026-08-23',
+    reviewSources: [
+      {
+        label: 'Hyperoptic broadband packages and pricing',
+        href: 'https://www.hyperoptic.com/',
+        note: 'Used for current package lineup, social tariff pricing and terms, checked 2026-08-23.',
+      },
+      {
+        label: 'Hyperoptic: existing buildings and installation',
+        href: 'https://www.hyperoptic.com/broadband/property/existing-buildings/',
+        note: 'Used for installation process details, including drilling, cabling and wayleave requirements.',
+      },
+      {
+        label: 'BroadbandSwitch: tenant rights and landlord permission for full fibre',
+        href: 'https://broadbandswitch.uk/moving-renting/tenant-rights-full-fibre-landlord-permission.html',
+        note: 'Independent corroboration for the lack of a statutory UK tenant right to full fibre as of 2026.',
+      },
+      {
+        label: 'Ofcom: ban on mid-contract price rises linked to inflation',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/bills-and-charges/ofcom-bans-mid-contract-price-rises-linked-to-inflation',
+        note: 'Primary regulatory source for the January 2025 ban on inflation-linked price rise terms.',
+      },
+      {
+        label: 'Hyperoptic public Trustpilot profile',
+        href: 'https://uk.trustpilot.com/review/hyperoptic.com',
+        note: 'Customer-sentiment reference showing approximately 52,000 reviews and a rating around 4.5 out of 5 in August 2026; not treated as a controlled reliability survey.',
+      },
+      {
+        label: 'Awin Hyperoptic advertiser programme',
+        href: 'https://ui.awin.com/merchant-profile-terms/5737?setLocale=en_US',
+        note: 'BroadbandPicker\'s Awin application for this programme (Hyperoptic B2C, advertiser 5737) was declined. The affiliate link above is Hyperoptic\'s own site, verified 2026-08-23.',
+      },
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+        note: 'Explains how price, speed, coverage, customer experience and use-case fit are weighed.',
+      },
+    ],
+    awinProgramId: '5737',
   },
   {
     slug: 'community-fibre',
@@ -543,7 +1252,7 @@ const baseProviders: Provider[] = [
     pros: [
       'Consistently among the best-reviewed ISPs in the UK on both Trustpilot and Ofcom satisfaction data',
       'Symmetrical full-fibre speeds at every tier, from 150 Mbps up to 3,000 Mbps',
-      'A capped, disclosed annual price rise rather than an open-ended CPI-linked increase',
+      'A £2 a month annual rise, lower than the £3 to £4 most national providers now charge',
       'No setup fee across the range',
     ],
     cons: [
@@ -581,8 +1290,8 @@ const baseProviders: Provider[] = [
       {
         heading: 'Price Rises and Contract Terms',
         paragraphs: [
-          'Community Fibre\'s headline differentiator is its price rise policy: a fixed £2 a month increase each April on 24-month contracts, disclosed upfront as a cash figure rather than a CPI-plus-percentage formula that can vary year to year and is harder to predict at the point of signing up.',
-          'This matters more than it might first appear. A CPI-linked rise of 6 to 8% on a £30 plan could add £1.80 to £2.40 in a single year and compound the year after; Community Fibre\'s flat £2 cap is easier to budget for and, in most recent years, has worked out cheaper than a percentage-based rise on a comparable plan.',
+          'Community Fibre\'s headline differentiator is its price rise policy: a fixed £2 a month increase each April on 24-month contracts, disclosed upfront in pounds and pence. Since Ofcom banned inflation-linked, percentage-based price rise terms in all new broadband contracts from 17 January 2025, every provider now has to disclose a cash-figure rise like this one rather than a vaguer CPI-plus-percentage formula; the real difference between providers today is how large that flat figure is.',
+          'Most national providers, including BT, EE, Vodafone, Plusnet and TalkTalk, have settled on a rise of around £3 to £4 a month under the new rules. Community Fibre\'s £2 is smaller than that, which is a genuine, if modest, saving over a 24-month contract rather than a difference in the mechanism itself.',
           'The 12-month Essential 35 tier is reported to be exempt from the scheduled rise entirely, and social tariff customers are reported to be exempt from both the annual rise and the capped out-of-contract increase. Confirm the exact terms for the specific plan and tariff being ordered, since policies can differ by tier.',
         ],
       },
@@ -715,7 +1424,7 @@ const baseProviders: Provider[] = [
         heading: 'The Contract Price Promise: No Mid-Contract Rise',
         paragraphs: [
           'Zen\'s Contract Price Promise means the price agreed at sign-up is the price paid for the entire contract term, with no scheduled increase partway through, the same structure Zzoomm and Community Fibre use, and a genuine point of difference from providers such as TalkTalk and Highland Broadband, which build one or more scheduled rises into their contracts.',
-          'On a 24-month term, this can be worth more than it first appears. A rival charging a CPI-linked annual rise of 6 to 8% on a £40 plan could add several pounds a month by the second year; Zen\'s flat price removes that uncertainty entirely, which matters most to anyone on a fixed budget who wants to know the exact cost of the next two years upfront.',
+          'On a 24-month term, this can be worth more than it first appears. Most national providers now apply a flat annual rise of around £3 to £4 a month under Ofcom\'s rules on disclosed pounds-and-pence increases; a £40 plan facing a £4 rise in year two is a real, predictable extra cost. Zen\'s flat price for the whole term removes that step entirely, which matters most to anyone on a fixed budget who wants to know the exact cost of the next two years upfront.',
           'The trade-off is that Zen rarely has the lowest headline price in a same-speed comparison. The fair comparison is the full contract-term cost against a cheaper rival\'s price including its own scheduled rise, not the first month\'s bill against Zen\'s flat rate.',
         ],
       },
@@ -1251,30 +1960,290 @@ const baseProviders: Provider[] = [
     logo: '/logos/toob.svg',
     affiliateUrl: 'https://www.toob.co.uk/',
     speeds: [
+      { download: 150, upload: 150, type: 'FTTP' },
       { download: 500, upload: 500, type: 'FTTP' },
       { download: 900, upload: 900, type: 'FTTP' },
     ],
-    monthlyPriceFrom: 22.00,
-    contractLengths: [12, 24],
+    monthlyPriceFrom: 19.50,
+    contractLengths: [18, 24],
     setupFee: 0,
-    trustpilotScore: 4.7,
-    coveragePercent: 2,
+    trustpilotScore: 4.5,
+    coveragePercent: 1,
     highlights: [
-      'Pure full-fibre — fastest residential speeds available',
-      'Symmetrical gigabit for the price of standard broadband',
-      'Highest Trustpilot score of any UK ISP',
+      'Symmetrical full-fibre from £19.50 a month, with no mid-contract price rises',
+      'Coverage has expanded well beyond Southampton, to around 290,000 premises across 29 towns and cities',
+      'A Linksys Pinnacle WiFi 7 router included as standard on every plan',
     ],
     pros: [
-      'Exceptional speeds at low prices',
-      'Outstanding customer reviews',
-      'Symmetrical upload and download',
+      'Genuinely low entry price for symmetrical full fibre',
+      'No scheduled mid-contract price increase',
+      'WiFi 7 router included free, ahead of most rivals\' standard hardware',
+      'Strong, consistent Trustpilot pattern from a meaningful review volume',
     ],
     cons: [
-      'Currently only available in Southampton and surrounding areas',
-      'Very limited geographic coverage',
+      'Coverage remains limited to specific towns across Hampshire, Dorset, Surrey, Sussex and Berkshire, not a national footprint',
+      'A newer, smaller network than the largest full-fibre altnets, with a shorter track record',
+      'Only two contract lengths are offered, with no shorter or rolling monthly option',
     ],
-    ...createReviewMetadata('Toob', 'https://www.toob.co.uk/', 'toob.co.uk'),
-    awinProgramId: null,
+    excerpt:
+      'toob is a full-fibre altnet that began in Southampton and has since expanded across Hampshire, Dorset, Surrey, Sussex and Berkshire, reaching around 290,000 premises across 29 towns and cities. Symmetrical plans run from 150 Mbps to 900 Mbps, from £19.50 a month, with no mid-contract price rise and a WiFi 7 router included as standard. Coverage remains genuinely regional, so checking the exact address matters more than the brand\'s strong reviews.',
+    contentSections: [
+      {
+        heading: 'toob Broadband Deals in August 2026',
+        paragraphs: [
+          'toob\'s range runs three symmetrical tiers: Home 150 at around £19.50 a month on an 18-month contract, and higher tiers up to Home 900 at around £25 a month. Every plan includes a Linksys Pinnacle WiFi 7 router at no extra cost, hardware ahead of what most national providers include as standard.',
+          'toob states its published range carries no mid-contract price rise, a genuine point of difference from BT, EE, Vodafone and Plusnet, all of which now apply a flat annual increase following Ofcom\'s ban on inflation-linked rise terms. Confirm the current live price and contract length for the specific address at checkout, since promotions vary.',
+          'No setup fee applies across the range, removing one of the more variable upfront costs seen with some full-fibre altnets.',
+        ],
+      },
+      {
+        heading: 'toob Coverage: Beyond Southampton',
+        paragraphs: [
+          'toob began building in Southampton and has since expanded considerably. Its network now reaches around 290,000 premises across 29 towns and cities spanning Hampshire, Dorset, Surrey, Sussex and Berkshire, including Southampton, Eastleigh, Fareham, Gosport, Aldershot, Fleet, Farnborough, Camberley and Woking.',
+          'This is a meaningfully broader footprint than toob\'s original Southampton-only positioning, though it remains a small, regional network compared with the roughly 28 million homes in the UK. A town appearing on toob\'s coverage list does not guarantee a specific street is ready to order.',
+          'Anyone outside this South East England footprint should not expect toob to be available at all. Its own postcode checker is the only reliable way to confirm a specific address, rather than assuming coverage from a town or county name.',
+        ],
+      },
+      {
+        heading: 'toob Speeds: Fully Symmetrical Full Fibre',
+        paragraphs: [
+          'Every toob tier is symmetrical, meaning upload matches download exactly, from 150 Mbps up to 900 Mbps. This is a genuine advantage over a typical part-fibre connection at a comparable price, useful for cloud backups, large file transfers and video calls where several household members are on camera at once.',
+          'The entry 150 Mbps tier comfortably covers everyday streaming, browsing and video calls for most households. The top 900 Mbps tier mainly benefits larger households running multiple demanding activities simultaneously, or anyone who specifically wants the fastest available speed regardless of typical daily use.',
+          'The included WiFi 7 router is genuinely ahead of the WiFi 5 or WiFi 6 hardware still standard with several larger national providers, which can matter for a household with many simultaneous connected devices.',
+        ],
+      },
+      {
+        heading: 'Contract Terms and No Mid-Contract Rise',
+        paragraphs: [
+          'toob offers 18 and 24-month contracts, with no shorter or rolling monthly option currently published. The no-mid-contract-rise policy applies across the range, disclosed upfront rather than added later, matching the approach used by several other full-fibre altnets covered on this site, including Zzoomm and Community Fibre.',
+          'Over the length of an 18 or 24-month contract, this can be worth more than it first appears against a rival with a flat annual increase of £3 to £4 a month, since toob\'s price should hold for the entire term rather than stepping up partway through.',
+          'As with any fixed-term contract, confirm the early-termination charge before switching, particularly given toob\'s regional footprint means a house move could easily land outside its coverage area.',
+        ],
+      },
+      {
+        heading: 'Installation and Switching to toob',
+        paragraphs: [
+          'Because toob builds and operates its own network rather than reselling Openreach, installation involves connecting the property to toob\'s own fibre, typically requiring a scheduled engineer visit rather than a same-day activation.',
+          'A switch from an Openreach-based provider, such as BT, Sky, TalkTalk or Plusnet, to toob will not use Ofcom\'s One Touch Switch process, since toob runs its own separate infrastructure. Keep the existing connection running until the new toob line is confirmed working.',
+          'Renters in toob\'s coverage area should check landlord permission for any external cabling before booking an installation, the same consideration that applies to any altnet building its own physical network into a property.',
+        ],
+      },
+      {
+        heading: 'toob Customer Service and Reviews',
+        paragraphs: [
+          'toob\'s Trustpilot profile showed a rating around 4.5 out of 5 from over 7,000 reviews at the point of this check, a strong and consistent score for a still-growing regional altnet. Reviewers commonly cite the symmetrical speeds, the no-mid-contract-rise policy and UK-based customer support as specific positives.',
+          'Given the review base is smaller than the largest national providers or longer-established altnets like Hyperoptic, each individual review carries somewhat more statistical weight; the overall pattern is genuinely positive, but represents a shorter track record than a decade-plus provider.',
+          'As toob\'s coverage continues to expand into new towns, keeping an eye on whether review sentiment holds steady across newer build areas, not just its original Southampton base, is a reasonable thing to check before ordering in a more recently added location.',
+        ],
+      },
+      {
+        heading: 'Is toob Broadband Any Good?',
+        paragraphs: [
+          'Where it is available, toob is a genuinely strong option: symmetrical full fibre from £19.50 a month, no scheduled price rise, a WiFi 7 router included free, and a consistently positive review record from a meaningful sample size.',
+          'It remains a regional network, not a national one, and its expansion beyond Southampton into Hampshire, Dorset, Surrey, Sussex and Berkshire, while real, still covers a small fraction of UK addresses overall.',
+          'Our take: worth strong consideration for anyone in toob\'s South East England footprint, particularly given the combination of low price, no rise policy and modern router hardware; check the specific address first, since coverage remains the deciding factor.',
+        ],
+      },
+    ],
+    faqItems: [
+      {
+        question: 'Is toob broadband any good?',
+        answer: 'toob holds a strong Trustpilot rating, around 4.5 out of 5 from over 7,000 reviews, with symmetrical full-fibre speeds, no mid-contract price rise and a WiFi 7 router included as standard. Its main limitation is coverage, which remains regional, spanning Hampshire, Dorset, Surrey, Sussex and Berkshire rather than the whole UK.',
+      },
+      {
+        question: 'Is toob only available in Southampton?',
+        answer: 'No longer. toob began in Southampton but has since expanded to around 290,000 premises across 29 towns and cities, including Eastleigh, Fareham, Gosport, Aldershot, Fleet, Farnborough, Camberley and Woking, spanning Hampshire, Dorset, Surrey, Sussex and Berkshire. Check the exact postcode on toob\'s own site to confirm current availability.',
+      },
+      {
+        question: 'Does toob increase its prices mid-contract?',
+        answer: 'toob states that its current published range carries no mid-contract price rise, a genuine point of difference from national providers such as BT, EE, Vodafone and Plusnet, which now apply a flat annual increase of £3 to £4 a month following Ofcom\'s rules on disclosed price rises.',
+      },
+      {
+        question: 'What router does toob include?',
+        answer: 'A Linksys Pinnacle WiFi 7 router is included free on every toob plan, ahead of the WiFi 5 or WiFi 6 hardware still standard with several larger national providers.',
+      },
+    ],
+    reviewedDate: '2026-08-23',
+    pricingVerifiedDate: '2026-08-23',
+    reviewSources: [
+      {
+        label: 'BroadbandSwitch: South Hampshire broadband deals, including toob',
+        href: 'https://broadbandswitch.uk/south-hampshire-broadband-deals.html',
+        note: 'Used for current package pricing, router details and coverage footprint, checked 2026-08-23.',
+      },
+      {
+        label: 'CompareFibre: toob broadband review',
+        href: 'https://comparefibre.co.uk/providers/toob',
+        note: 'Independent corroboration for pricing, the no-mid-contract-rise policy and Trustpilot score.',
+      },
+      {
+        label: 'toob: Southampton broadband deals',
+        href: 'https://www.toob.co.uk/locations/southampton/',
+        note: 'Used to confirm toob\'s original and current core coverage area.',
+      },
+      {
+        label: 'toob public Trustpilot profile',
+        href: 'https://uk.trustpilot.com/review/toob.co.uk',
+        note: 'Customer-sentiment reference showing approximately 7,000 reviews and a rating around 4.5 out of 5 in August 2026; not treated as a controlled reliability survey.',
+      },
+      {
+        label: 'Awin toob advertiser programme',
+        href: 'https://ui.awin.com/merchant-profile-terms/117433?setLocale=en_US',
+        note: 'BroadbandPicker\'s Awin application for this programme was declined. The affiliate link above is toob\'s own site, verified 2026-08-23.',
+      },
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+        note: 'Explains how price, speed, coverage, customer experience and use-case fit are weighed.',
+      },
+    ],
+    awinProgramId: '117433',
+  },
+  {
+    slug: 'giffgaff',
+    name: 'giffgaff',
+    logo: '/logos/giffgaff.svg',
+    affiliateUrl: 'https://www.giffgaff.com/broadband',
+    speeds: [
+      { download: 200, upload: 200, type: 'FTTP' },
+      { download: 500, upload: 500, type: 'FTTP' },
+      { download: 900, upload: 900, type: 'FTTP' },
+    ],
+    monthlyPriceFrom: 25.00,
+    contractLengths: [1, 24],
+    setupFee: 0,
+    trustpilotScore: 3.9,
+    coveragePercent: 60,
+    highlights: [
+      'Launched broadband in September 2025, its first product beyond mobile',
+      'Runs on Nexfibre, the Virgin Media O2 full-fibre network, not Openreach or its own infrastructure',
+      'Every plan is symmetrical, with no mid-contract price rise on the current range',
+    ],
+    pros: [
+      'Fully symmetrical speeds at every tier, from 200 Mbps to 900 Mbps',
+      'No scheduled mid-contract price increase, disclosed upfront',
+      'Choice of a 24-month contract or a genuinely flexible 1-month rolling option',
+      'No setup fee, consistent with giffgaff\'s mobile-brand positioning around simple, transparent pricing',
+    ],
+    cons: [
+      'A genuinely new product with under a year of trading history at the time of this review',
+      'Trustpilot reviews cover the whole giffgaff brand, mostly mobile customers, with no broadband-specific score yet available',
+      'Coverage depends entirely on the Nexfibre network\'s build progress, not a giffgaff-specific rollout',
+      'The 1-month rolling option costs more than the 24-month term, as is typical for no-commitment plans',
+    ],
+    excerpt:
+      'giffgaff, long known as a mobile-only network, launched broadband in September 2025, running on Nexfibre, Virgin Media O2\'s full-fibre wholesale network, rather than Openreach or its own infrastructure. Every plan is symmetrical, from 200 Mbps to 900 Mbps, from £25 a month, with no mid-contract price rise and a choice of 24-month or 1-month rolling contracts. As a genuinely new product, broadband-specific customer service evidence is still limited.',
+    contentSections: [
+      {
+        heading: 'giffgaff Broadband Deals in August 2026',
+        paragraphs: [
+          'giffgaff\'s range offers three symmetrical tiers: 200 Mbps at £25 a month, 500 Mbps at £28, and 900 Mbps at £32, each available on a 24-month contract or a more expensive 1-month rolling option for anyone who wants no fixed commitment at all.',
+          'giffgaff has run a promotional offer pricing broadband at £5 a month for the first six months of a 24-month contract, due to end on 28 August 2026. Given how close that date is, confirm the live offer at checkout rather than assuming the £5 introductory rate still applies.',
+          'No setup fee applies to any current package, and giffgaff states its plans carry no mid-contract price rise, consistent with the "no sneaky price rises" positioning it uses in its own marketing.',
+        ],
+      },
+      {
+        heading: 'giffgaff Broadband Runs on Nexfibre, Not Openreach',
+        paragraphs: [
+          'giffgaff\'s broadband, launched in September 2025, runs over Nexfibre, the full-fibre wholesale network built through a partnership involving Virgin Media O2, rather than the Openreach network used by BT, Sky, TalkTalk, EE, Vodafone and Plusnet, or Virgin Media\'s own separate cable network.',
+          'This matters for coverage: Nexfibre availability at a specific address is a different question from Openreach or Virgin Media cable availability, so an address without BT or Sky full fibre, or without Virgin Media cable, may still be able to get giffgaff broadband if Nexfibre has built there, and vice versa.',
+          'Because giffgaff is a wholesale customer of Nexfibre rather than the network operator itself, its own coverage checker is the only reliable way to confirm availability at a specific address; broader Nexfibre rollout figures do not translate directly into giffgaff-specific availability.',
+        ],
+      },
+      {
+        heading: 'giffgaff Speeds: Fully Symmetrical',
+        paragraphs: [
+          'Every giffgaff broadband tier is symmetrical, meaning upload matches download exactly, at 200, 500 and 900 Mbps. This puts its entry-level plan\'s upload speed well ahead of what a similarly priced part-fibre plan from a national provider would typically offer.',
+          'For most households, the 200 Mbps entry tier comfortably covers streaming, browsing, working from home and several devices in use at once. The 500 and 900 Mbps tiers mainly benefit larger households running multiple demanding activities simultaneously, or anyone who specifically wants meaningful upload headroom.',
+          'As a Nexfibre-based service, actual line quality and reliability should be broadly comparable to other providers using the same wholesale network, though direct independent comparisons are still limited given how recently giffgaff broadband launched.',
+        ],
+      },
+      {
+        heading: 'Contract Flexibility: 24-Month or 1-Month Rolling',
+        paragraphs: [
+          'giffgaff offers a genuine 1-month rolling contract alongside the standard 24-month term, a level of flexibility most national providers and full-fibre altnets covered on this site do not offer at all. This suits a short-term tenancy or anyone who specifically wants to avoid a long commitment, at a higher monthly price than the 24-month term.',
+          'The 24-month term is likely to work out considerably cheaper over its full length for anyone confident they will stay at the address, consistent with the general pattern that flexibility costs more than commitment across the broadband market.',
+          'No mid-contract price rise applies to either option, disclosed upfront, which is a genuine point of comparison against national providers now charging a flat annual increase of £3 to £4 a month under Ofcom\'s current rules.',
+        ],
+      },
+      {
+        heading: 'Installation and Switching to giffgaff',
+        paragraphs: [
+          'Because giffgaff broadband runs on the Nexfibre network rather than Openreach, a switch from an Openreach-based provider will not use Ofcom\'s One Touch Switch process. Keep an existing broadband service active until the new giffgaff connection is confirmed working, rather than cancelling in advance.',
+          'As a genuinely new broadband product, installation processes and typical waiting times are less independently documented than for a longer-established provider; anyone ordering should ask giffgaff directly for a realistic installation timeframe for the specific address.',
+          'Existing giffgaff mobile customers may find the sign-up and account management experience familiar, since giffgaff broadband is positioned as an extension of the same brand and community-support approach used for its mobile service.',
+        ],
+      },
+      {
+        heading: 'giffgaff Customer Service: A New Product, Limited Broadband-Specific Evidence',
+        paragraphs: [
+          'giffgaff\'s Trustpilot profile showed a rating around 3.9 out of 5 from roughly 30,000 reviews at the point of this check, but this score covers the whole giffgaff brand, overwhelmingly mobile customers, since Trustpilot does not currently maintain a separate page specifically for giffgaff broadband.',
+          'This is a meaningfully different situation from BT, EE and Vodafone, where a broadband-specific Trustpilot score exists and diverges sharply from the mobile-dominated headline figure. For giffgaff, no broadband-specific figure is available yet, simply because the product is too new and the review volume too small to separate reliably.',
+          'giffgaff\'s mobile service has a long-established reputation for community-based support and straightforward pricing, which may reasonably carry over to broadband, but this should be treated as an informed expectation rather than confirmed broadband-specific evidence at this stage.',
+        ],
+      },
+      {
+        heading: 'Is giffgaff Broadband Worth It?',
+        paragraphs: [
+          'giffgaff\'s broadband offer is genuinely competitive on paper: symmetrical speeds at every tier, no mid-contract price rise, and an unusually flexible 1-month rolling option alongside the standard 24-month term.',
+          'The main caveat is simply newness: launched in September 2025, there is not yet the volume of independent broadband-specific reviews or long-term service evidence available for BT, TalkTalk or the more established full-fibre altnets covered on this site.',
+          'Our take: worth serious consideration where Nexfibre coverage reaches, especially for anyone who values contract flexibility or already trusts giffgaff\'s mobile brand, while going in with the understanding that broadband-specific service evidence is still building.',
+        ],
+      },
+    ],
+    faqItems: [
+      {
+        question: 'Is giffgaff broadband any good?',
+        answer: 'giffgaff broadband offers symmetrical full-fibre speeds from 200 to 900 Mbps, no mid-contract price rise, and a flexible 1-month rolling contract option alongside the standard 24-month term. As a product launched in September 2025, broadband-specific customer service evidence is still limited; giffgaff\'s combined Trustpilot score of around 3.9 out of 5 is dominated by its longer-established mobile service.',
+      },
+      {
+        question: 'What network does giffgaff broadband use?',
+        answer: 'giffgaff broadband runs on Nexfibre, the full-fibre wholesale network built through a partnership involving Virgin Media O2, rather than the Openreach network most national providers resell, or Virgin Media\'s own separate cable network. Coverage depends entirely on where Nexfibre has built.',
+      },
+      {
+        question: 'Can I get giffgaff broadband with no fixed contract?',
+        answer: 'Yes. giffgaff offers a genuine 1-month rolling contract alongside its standard 24-month term, at a higher monthly price than the 24-month option. This is unusually flexible compared with most providers covered on this site, which typically offer only a 24-month term.',
+      },
+      {
+        question: 'Does giffgaff broadband raise its prices during the contract?',
+        answer: 'giffgaff states that its current broadband range carries no mid-contract price rise, disclosed upfront, a genuine point of comparison against national providers such as BT, EE, Vodafone and Plusnet, which now apply a flat annual increase of £3 to £4 a month.',
+      },
+    ],
+    reviewedDate: '2026-08-23',
+    pricingVerifiedDate: '2026-08-23',
+    reviewSources: [
+      {
+        label: 'giffgaff: full fibre broadband',
+        href: 'https://www.giffgaff.com/broadband',
+        note: 'Used for current package pricing, contract options and the no-price-rise policy, checked 2026-08-23.',
+      },
+      {
+        label: 'ISPreview: giffgaff launches UK full fibre broadband packages',
+        href: 'https://www.ispreview.co.uk/index.php/2025/09/mobile-operator-giffgaff-launch-uk-full-fibre-broadband-packages.html',
+        note: 'Primary source for the September 2025 launch date and the Nexfibre network partnership.',
+      },
+      {
+        label: 'GB News: giffgaff broadband £5 introductory offer',
+        href: 'https://www.gbnews.com/tech/giffgaff-broadband-deal-ps5',
+        note: 'Used to corroborate the time-limited £5-a-month introductory promotion, ending 28 August 2026.',
+      },
+      {
+        label: 'giffgaff public Trustpilot profile',
+        href: 'https://uk.trustpilot.com/review/giffgaff.com',
+        note: 'Customer-sentiment reference showing approximately 30,000 reviews and a rating around 3.9 out of 5 in 2026; covers the whole giffgaff brand, overwhelmingly mobile customers, with no separate broadband-specific page currently available.',
+      },
+      {
+        label: 'Awin giffgaff advertiser programme',
+        href: 'https://ui.awin.com/merchant-profile-terms/3599?setLocale=en_US',
+        note: 'BroadbandPicker\'s Awin application for this programme was declined. The affiliate link above is giffgaff\'s own site, verified 2026-08-23.',
+      },
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+        note: 'Explains how price, speed, coverage, customer experience and use-case fit are weighed.',
+      },
+    ],
+    awinProgramId: '3599',
   },
   {
     slug: 'brsk',
@@ -1721,7 +2690,7 @@ const baseProviders: Provider[] = [
       {
         heading: 'Contract Length and the No-Price-Rise Policy',
         paragraphs: [
-          'Zzoomm\'s published range currently carries no scheduled mid-contract price increase. That is a genuine point of difference: several national providers, including some full-fibre altnets, apply an annual increase tied to CPI inflation plus a fixed percentage, often landing at somewhere between 6% and 8% a year. A fixed price for the length of the contract is easier to budget around and worth weighing against a slightly cheaper headline price elsewhere that comes with a scheduled rise.',
+          'Zzoomm\'s published range currently carries no scheduled mid-contract price increase. That is a genuine point of difference: since Ofcom banned inflation-linked, percentage-based rise terms from all new contracts in January 2025, most national providers, including BT, EE, Vodafone, Plusnet and TalkTalk, now apply a disclosed flat rise of around £3 to £4 a month instead. Zzoomm charges no scheduled rise at all, rather than a smaller flat one, which is easier to budget around and worth weighing against a slightly cheaper headline price elsewhere that comes with a scheduled rise.',
           'The trade-off for the 24-month term\'s lower headline price is a step up after 12 months, from the intro rate to Zzoomm\'s standard rate for that speed. That step is disclosed upfront in the price table, not hidden in the terms, so it should never come as a surprise if the contract summary is read before signing.',
           'FlexiMonth removes both the step-up and the fixed term, at the cost of a meaningfully higher starting price. It suits genuinely short stays, such as a fixed-length tenancy, more than it suits anyone planning to stay put, where the 24-month term is almost always the better value once the full two years are compared side by side.',
         ],
@@ -1762,7 +2731,7 @@ const baseProviders: Provider[] = [
       },
       {
         question: 'Does Zzoomm increase its prices mid-contract?',
-        answer: 'Zzoomm\'s current published range carries no scheduled mid-contract price increase, unlike some providers that apply an annual CPI-linked rise. The 24-month term does step up from its introductory rate to a higher standard rate after the first 12 months, but that step is disclosed in the price table rather than added later.',
+        answer: 'Zzoomm\'s current published range carries no scheduled mid-contract price increase, unlike most national providers, which now apply a flat rise of around £3 to £4 a month under Ofcom\'s rules on disclosed pounds-and-pence increases. The 24-month term does step up from its introductory rate to a higher standard rate after the first 12 months, but that step is disclosed in the price table rather than added later.',
       },
       {
         question: 'What speed do I need from Zzoomm?',

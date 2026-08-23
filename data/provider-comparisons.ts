@@ -1944,7 +1944,7 @@ export const providerComparisons: ProviderComparison[] = [
     bestForA: 'The lowest entry price and a capped, disclosed annual price rise',
     bestForB: 'A longer-established brand with a wider footprint across major UK cities beyond London',
     winner:
-      'Community Fibre is the stronger pick where both are available: a lower entry price, a capped £2 a month annual rise against Hyperoptic\'s roughly £4 CPI-style increase, and a higher current Trustpilot score. Hyperoptic remains the better choice for major UK cities outside London where Community Fibre does not build.',
+      'Community Fibre is the stronger pick where both are available: a lower entry price, a capped £2 a month annual rise against Hyperoptic\'s roughly £4 flat increase, and a higher current Trustpilot score. Hyperoptic remains the better choice for major UK cities outside London where Community Fibre does not build.',
     intro: [
       'Community Fibre and Hyperoptic are both full-fibre altnets that specialise in wiring flats and apartment blocks with symmetrical broadband, rather than reselling Openreach\'s copper-to-cabinet network, and both have significant overlap in London specifically, where they frequently compete for the same building.',
       'Outside London, the comparison changes: Hyperoptic has built into other major UK cities that Community Fibre has not reached, while Community Fibre\'s expansion beyond London has so far been limited to parts of Surrey and Sussex. Which one is even available at a specific address often decides this comparison before price or reviews do.',
@@ -2175,6 +2175,263 @@ export const providerComparisons: ProviderComparison[] = [
       {
         label: 'ISPreview: Highland Broadband secures £50m funding',
         href: 'https://www.ispreview.co.uk/index.php/2025/08/highland-broadband-secures-50m-funding-to-boost-expand-fttp-rollout.html',
+      },
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+      },
+    ],
+  },
+  {
+    slug: 'bt-vs-hyperoptic',
+    providerA: 'bt',
+    providerB: 'hyperoptic',
+    title: 'BT vs Hyperoptic: The Safe National Choice or the Better-Value Niche Upgrade?',
+    metaTitle: 'BT vs Hyperoptic Broadband 2026 | Coverage, Price and Speed Compared',
+    metaDescription:
+      'BT covers 98% of the UK; Hyperoptic covers a fraction of it but often beats BT on price, speed and reviews where it reaches. Compare both before deciding.',
+    excerpt:
+      'BT and Hyperoptic represent two different strategies entirely: BT\'s Openreach-based network reaches almost every UK home, while Hyperoptic builds its own symmetrical full-fibre network into a much smaller number of buildings, mostly in London and other major cities. Where both are genuinely available, Hyperoptic usually wins on price, speed and reviews.',
+    publishDate: '2026-08-24',
+    updatedDate: '2026-08-24',
+    bestForA: 'Almost any UK address, especially where Hyperoptic has not built',
+    bestForB: 'Apartment blocks in London and Hyperoptic\'s other served cities',
+    winner:
+      'Hyperoptic is the stronger choice on nearly every measure where it is actually available: lower entry price, symmetrical speeds at every tier above the entry plan, and a considerably higher Trustpilot score. BT\'s advantage is availability, not quality, so this comparison is really a coverage-first decision rather than a close call on merit.',
+    intro: [
+      'BT and Hyperoptic are not really direct competitors in the way two national providers are; BT reaches almost every UK address over the Openreach network, while Hyperoptic has built its own separate full-fibre network into a comparatively small number of buildings, concentrated in London and other major UK cities.',
+      'For the minority of UK addresses where both are genuinely available, typically an apartment block in a major city, the comparison becomes much more one-sided than the coverage numbers alone suggest.',
+    ],
+    verdict: [
+      'Choose Hyperoptic if it is available at your specific address; its combination of price, symmetrical speed and review evidence outperforms BT in almost every respect where both reach.',
+      'Choose BT if Hyperoptic is not available at your address, which is true for the large majority of the UK, since BT\'s 98% Openreach-based coverage remains one of the widest of any provider.',
+    ],
+    keyDifferences: [
+      {
+        label: 'Coverage',
+        detail:
+          'BT reaches around 98% of UK homes over the Openreach network. Hyperoptic\'s own full-fibre network covers a small fraction of that, concentrated in London and a limited number of other major UK cities, built building by building rather than area by area.',
+      },
+      {
+        label: 'Price and speed',
+        detail:
+          'Hyperoptic\'s entry symmetrical tier, from around £22.99 a month at 159 Mbps, generally undercuts BT\'s comparable Full Fibre 150 tier while offering considerably more upload speed. BT\'s advantage narrows further at higher speed tiers.',
+      },
+      {
+        label: 'Trustpilot score',
+        detail:
+          'Hyperoptic holds one of the strongest Trustpilot scores of any UK ISP, around 4.5 out of 5. BT\'s broadband-specific reputation is more mixed: its official bt.com page shows around 4.0, but a separate, less-promoted page shows around 1.5, and Ofcom ranked BT third-worst for complaints in Q1 2026.',
+      },
+      {
+        label: 'Contract and installation',
+        detail:
+          'BT offers only 24-month contracts; Hyperoptic offers 12 and 24-month terms, plus a genuine no-contract social tariff for eligible households. Hyperoptic\'s installation requires drilling and landlord permission in rented properties; BT\'s Openreach-based installation is generally more standardised.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Is Hyperoptic better than BT?',
+        answer:
+          'Where both are available, yes, on price, symmetrical speed and Trustpilot score. BT\'s real advantage is coverage: it reaches around 98% of UK homes against Hyperoptic\'s much smaller, building-by-building footprint concentrated in London and other major cities, so most UK addresses cannot choose Hyperoptic at all.',
+      },
+      {
+        question: 'Can I get both BT and Hyperoptic at my address?',
+        answer:
+          'Possibly, if you live in an apartment block in London or one of Hyperoptic\'s other served cities. Outside those areas, BT via Openreach is likely the only realistic option between the two, given Hyperoptic\'s far smaller coverage footprint.',
+      },
+      {
+        question: 'Is BT or Hyperoptic cheaper?',
+        answer:
+          'Hyperoptic\'s entry symmetrical tier is typically cheaper than BT\'s comparable Full Fibre 150 plan, while also offering considerably more upload speed. BT\'s reward card system can offset some of this gap if actually claimed, but Hyperoptic generally remains the better-value option where both are available.',
+      },
+      {
+        question: 'Which has better customer service, BT or Hyperoptic?',
+        answer:
+          'Hyperoptic\'s Trustpilot score, around 4.5 out of 5, is considerably stronger than BT\'s. BT has two different Trustpilot pages showing very different scores (around 4.0 and 1.5), and Ofcom ranked it third-worst for complaints among major UK providers in its Q1 2026 report, while Hyperoptic does not appear among the worst-ranked providers in the same data.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Uswitch: BT broadband packages and pricing',
+        href: 'https://www.uswitch.com/broadband/providers/bt/',
+      },
+      {
+        label: 'Hyperoptic broadband packages and pricing',
+        href: 'https://www.hyperoptic.com/',
+      },
+      {
+        label: 'Ofcom: telecoms and pay-TV complaints fall to a record low',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/service-quality/ofcom-telecoms-and-pay-tv-complaints-fall-to-record-low',
+      },
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+      },
+    ],
+  },
+  {
+    slug: 'plusnet-vs-ee',
+    providerA: 'plusnet',
+    providerB: 'ee',
+    title: 'Plusnet vs EE: Same Parent Company, Opposite Ends of Ofcom\'s Complaints Table',
+    metaTitle: 'Plusnet vs EE Broadband 2026 | Ofcom Complaints and Price Compared',
+    metaDescription:
+      'Plusnet and EE are both owned by BT Group and run on the same Openreach network, yet Ofcom data puts them at opposite ends of the UK complaints table. Compare both.',
+    excerpt:
+      'Plusnet and EE are both owned by BT Group and run over the same Openreach network, so their underlying technology is essentially identical. What separates them is customer service: Ofcom ranked Plusnet the best major UK provider for complaints, and EE among the worst three, in the same recent reporting period.',
+    publishDate: '2026-08-24',
+    updatedDate: '2026-08-24',
+    bestForA: 'A household that prioritises support quality and a low, transparent price',
+    bestForB: 'A household focused purely on top-end speed and reliability, with EE mobile bundle potential',
+    winner:
+      'Plusnet is the stronger all-round choice for most households: a genuinely lower price at comparable speeds, no activation fee, and the best Ofcom complaints record of any major UK provider. EE\'s case rests on its independently recognised speed and reliability, plus its distinctive mobile backup feature, which matter more to a household that rarely needs to contact support.',
+    intro: [
+      'Plusnet and EE are both part of BT Group and both sell broadband over the same Openreach network as BT itself, so the technology underneath each service is effectively identical: the same lines, the same top available speeds at a given address.',
+      'What separates them sharply is customer service evidence. Ofcom\'s most recent complaints reporting placed Plusnet at the very best end of the table for major UK providers, and EE at the worst end, a genuinely stark contrast for two brands under the same parent company.',
+    ],
+    verdict: [
+      'Choose Plusnet if a low, transparent price and a strong, independently evidenced complaints record matter most.',
+      'Choose EE if independently recognised speed and reliability, or the automatic mobile backup feature, matter more to you than customer service responsiveness.',
+    ],
+    keyDifferences: [
+      {
+        label: 'Ofcom complaints record',
+        detail:
+          'Ofcom\'s Q1 2026 report recorded Plusnet at 4 complaints per 100,000 customers, the best of any major UK provider. EE\'s Q4 2025 figure placed it in the worst-three bracket at 10 per 100,000, though it did not appear among the specific top three worst providers in the more recent Q1 2026 report.',
+      },
+      {
+        label: 'Price',
+        detail:
+          'Plusnet\'s entry Full Fibre tier starts from £21.99 a month; EE\'s comparable entry tier starts from around £22.99. The gap is modest at entry level but Plusnet\'s pricing remains consistently competitive across its range.',
+      },
+      {
+        label: 'Distinctive features',
+        detail:
+          'EE offers automatic 4G or 5G mobile backup if the fixed line drops, a genuinely useful feature Plusnet does not offer. EE was also named National Broadband Provider of the Year at the 2026 Uswitch Telecoms Awards for speed and reliability.',
+      },
+      {
+        label: 'Trustpilot vs Ofcom',
+        detail:
+          'Both providers have low broadband-specific Trustpilot scores, which for both reflects the self-selected, complaint-driven nature of review platforms rather than the full customer base. Ofcom\'s complaints data is the more reliable differentiator between them, and it favours Plusnet clearly.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Is Plusnet or EE better?',
+        answer:
+          'Plusnet has the stronger overall case for most households: a lower price and the best Ofcom complaints record of any major UK provider. EE offers independently recognised speed and reliability plus a distinctive mobile backup feature, which suits a household that rarely needs customer support and values uptime highly.',
+      },
+      {
+        question: 'Why do Plusnet and EE have such different Ofcom complaints records if they are both owned by BT Group?',
+        answer:
+          'Common ownership does not mean identical operations; each brand runs its own customer service, billing and support processes, and Ofcom\'s complaints data measures those processes specifically, not the underlying Openreach network, which is genuinely shared and effectively identical between the two.',
+      },
+      {
+        question: 'Is Plusnet or EE cheaper?',
+        answer:
+          'Plusnet\'s entry Full Fibre tier, from £21.99 a month, is typically slightly cheaper than EE\'s comparable entry tier, from around £22.99. Both apply a similar flat annual price rise under Ofcom\'s current rules, so the gap at entry level broadly holds across the contract term.',
+      },
+      {
+        question: 'Does EE offer something Plusnet does not?',
+        answer:
+          'Yes, EE\'s automatic 4G or 5G mobile backup, which keeps the connection running if the fixed line drops, is a genuine feature Plusnet does not offer. EE was also independently named National Broadband Provider of the Year at the 2026 Uswitch Telecoms Awards for speed and reliability.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Uswitch: Plusnet broadband packages and pricing',
+        href: 'https://www.uswitch.com/broadband/providers/plusnet/',
+      },
+      {
+        label: 'EE broadband deals and pricing',
+        href: 'https://ee.co.uk/broadband',
+      },
+      {
+        label: 'Ofcom: telecoms and pay-TV complaints fall to a record low',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/service-quality/ofcom-telecoms-and-pay-tv-complaints-fall-to-record-low',
+      },
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+      },
+    ],
+  },
+  {
+    slug: 'toob-vs-giffgaff',
+    providerA: 'toob',
+    providerB: 'giffgaff',
+    title: 'toob vs giffgaff: Two Challenger Broadband Brands With No Price Rise',
+    metaTitle: 'toob vs giffgaff Broadband 2026 | Coverage, Price and Network Compared',
+    metaDescription:
+      'toob and giffgaff are both newer challenger broadband brands with a no-price-rise promise, but they run on completely different networks. Compare coverage, price and speed.',
+    excerpt:
+      'toob and giffgaff are both newer, challenger-positioned broadband brands with a no-mid-contract-price-rise promise, but they could hardly be more different underneath: toob builds its own regional full-fibre network in South East England, while giffgaff resells the Nexfibre network built through Virgin Media O2. Which one, if either, is available depends entirely on the address.',
+    publishDate: '2026-08-24',
+    updatedDate: '2026-08-24',
+    bestForA: 'Specific towns across Hampshire, Dorset, Surrey, Sussex and Berkshire',
+    bestForB: 'Any address Nexfibre has built to, with a genuine month-to-month option',
+    winner:
+      'Neither is a universal default; they solve different problems. toob suits a South East England address within its specific, if expanding, footprint. giffgaff suits anyone wanting maximum contract flexibility, given its unusual 1-month rolling option, wherever Nexfibre has actually built.',
+    intro: [
+      'toob and giffgaff both position themselves against the traditional big-name broadband providers: both promise no mid-contract price rise, both are newer to the broadband market than BT, Sky or TalkTalk, and both have built a strong early Trustpilot or brand reputation.',
+      'The underlying networks are entirely different, however. toob builds and operates its own physical full-fibre infrastructure across a specific set of South East England towns. giffgaff, a long-established mobile brand new to broadband since September 2025, resells Nexfibre, the wholesale full-fibre network built through a Virgin Media O2 partnership, giving it a different, generally wider potential footprint, subject to Nexfibre\'s own build progress.',
+    ],
+    verdict: [
+      'Choose toob if you are in one of its specific Hampshire, Dorset, Surrey, Sussex or Berkshire towns and want a well-reviewed, symmetrical full-fibre connection at a genuinely low price.',
+      'Choose giffgaff if Nexfibre has built to your address and you specifically want the flexibility of a 1-month rolling contract, or you are already a giffgaff mobile customer.',
+    ],
+    keyDifferences: [
+      {
+        label: 'Network',
+        detail:
+          'toob builds and operates its own physical full-fibre network. giffgaff resells Nexfibre, a separate wholesale network built through a Virgin Media O2 partnership. Availability at a specific address depends on completely different build programmes for each.',
+      },
+      {
+        label: 'Contract flexibility',
+        detail:
+          'giffgaff offers a genuine 1-month rolling contract alongside its standard 24-month term, at a higher monthly price. toob offers only 18 and 24-month contracts, with no short-term or rolling option.',
+      },
+      {
+        label: 'Track record',
+        detail:
+          'toob has been trading longer and has a more established, symmetrical-speed-focused Trustpilot record, around 4.5 out of 5 from over 7,000 reviews. giffgaff broadband launched in September 2025, and Trustpilot does not yet track it separately from giffgaff\'s much larger, longer-established mobile customer base.',
+      },
+      {
+        label: 'Entry price',
+        detail:
+          'toob\'s entry tier starts from £19.50 a month for 150 Mbps symmetrical. giffgaff\'s entry tier starts from £25 a month for 200 Mbps symmetrical, though giffgaff has run promotional pricing as low as £5 a month for an initial period.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can I get both toob and giffgaff at my address?',
+        answer:
+          'Possibly, though it depends entirely on two separate network build programmes: toob\'s own fibre network across specific South East England towns, and Nexfibre\'s wholesale build, which giffgaff resells. Check both providers\' own coverage checkers individually rather than assuming one implies the other.',
+      },
+      {
+        question: 'Is toob or giffgaff cheaper?',
+        answer:
+          'toob\'s standard entry price, £19.50 a month for 150 Mbps symmetrical, is lower than giffgaff\'s standard £25 a month for 200 Mbps symmetrical, though giffgaff has run a promotional rate as low as £5 a month for an initial period. Compare the live current offer for the specific address before deciding on price alone.',
+      },
+      {
+        question: 'Which has a longer track record, toob or giffgaff?',
+        answer:
+          'toob has been trading longer as a broadband provider, with an established, broadband-specific Trustpilot record. giffgaff\'s mobile business is long-established, but its broadband product launched in September 2025, so broadband-specific service evidence is still limited.',
+      },
+      {
+        question: 'Do toob and giffgaff raise their prices mid-contract?',
+        answer:
+          'Neither currently applies a scheduled mid-contract price rise on its core range, a genuine point of difference from national providers such as BT, EE, Vodafone and Plusnet, which now apply a flat annual increase under Ofcom\'s current rules.',
+      },
+    ],
+    sources: [
+      {
+        label: 'BroadbandSwitch: South Hampshire broadband deals, including toob',
+        href: 'https://broadbandswitch.uk/south-hampshire-broadband-deals.html',
+      },
+      {
+        label: 'giffgaff: full fibre broadband',
+        href: 'https://www.giffgaff.com/broadband',
       },
       {
         label: 'BroadbandPicker review methodology',

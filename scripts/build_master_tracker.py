@@ -805,6 +805,64 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-23 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-awin-rejected-provider-deep-content",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Deep, researched content for Awin-rejected providers (BT, Virgin Media, EE, Vodafone, Plusnet, Hyperoptic, toob, giffgaff)",
+        "description": (
+            "Third and final batch in the Awin content series (after approved and pending), "
+            "covering all 8 real providers rejected on Awin: BT (both consumer 3041 and "
+            "business 3042 programmes), Virgin Media, EE, Vodafone, Plusnet, Hyperoptic, toob "
+            "and giffgaff. All 7 existing entries were thin (no contentSections) and fully "
+            "rewritten; giffgaff did not exist on the site at all and was added new. "
+            "IMPORTANT CORRECTION made mid-batch: while researching BT's price rise, "
+            "discovered Ofcom banned inflation-linked/percentage-based mid-contract price rise "
+            "terms in all new contracts from 17 January 2025 (providers must now disclose a "
+            "flat pounds-and-pence figure instead). This retroactively invalidated 5 sentences "
+            "written in the two earlier Awin batches (Community Fibre, Zen Internet and Zzoomm "
+            "entries in data/providers.ts, plus the Community Fibre vs Hyperoptic comparison) "
+            "that described CPI-linked percentage rises as a current practice -- all 5 were "
+            "corrected in this same batch before continuing, and this correction is itself the "
+            "kind of thing worth surfacing: a fact later research revealed to be wrong wasn't "
+            "left standing. Real findings surfaced across this batch: BT and EE both maintain "
+            "two separate Trustpilot pages (a mobile/brand-dominated headline score and a much "
+            "lower broadband-specific one, roughly 4.0 vs 1.5 for BT, 4.2 vs 1.3 for EE) -- the "
+            "broadband-specific figure was used as the primary trustpilotScore field in both "
+            "cases, with the discrepancy explained in the copy since it's a genuinely useful, "
+            "non-obvious insight. Plusnet's low Trustpilot score sits alongside the *best* "
+            "Ofcom complaints record of any major UK provider (4 per 100,000 in Q1 2026, "
+            "against TalkTalk's 10, Vodafone's 8 and BT's 7) -- a real, evidenced gap between "
+            "self-selected review-platform sentiment and regulatory complaint-volume data, "
+            "explained rather than picking one source and ignoring the other. Virgin Media "
+            "shows the same pattern in reverse: an extremely low Trustpilot score (~1.4) next "
+            "to an Ofcom complaints record at or below the industry average. giffgaff is a "
+            "genuinely new product (broadband launched September 2025 on Nexfibre, the Virgin "
+            "Media O2 wholesale network, not Openreach) with no separate broadband Trustpilot "
+            "page yet -- flagged honestly as thin evidence rather than borrowing giffgaff's "
+            "much larger mobile-customer score uncritically. All affiliateUrl values stay as "
+            "each provider's own plain site URL, since Awin rejected these applications outright "
+            "(not merely pending) -- every reviewSources array states this explicitly. Three new "
+            "comparison pages targeting genuine content gaps rather than one-per-provider "
+            "completeness (this batch's providers already had extensive existing head-to-head "
+            "coverage from earlier site work): bt-vs-hyperoptic (safe wide-coverage default vs "
+            "better-value niche upgrade), plusnet-vs-ee (same BT Group parent, opposite ends of "
+            "Ofcom's complaints table), toob-vs-giffgaff (two newer no-price-rise challenger "
+            "brands on completely different networks). All copy hand-checked for zero em dashes "
+            "and zero banned AI-tell vocabulary/phrases."
+        ),
+        "priority_score": 60,
+        "impact_score": 65,
+        "effort": "High",
+        "target": (
+            "data/providers.ts (bt, virgin-media, ee, vodafone, plusnet, hyperoptic, toob, "
+            "giffgaff, plus corrections to community-fibre, zen-internet, zzoomm), "
+            "data/provider-comparisons.ts (bt-vs-hyperoptic, plusnet-vs-ee, toob-vs-giffgaff, "
+            "plus a correction to community-fibre-vs-hyperoptic), public/logos/giffgaff.svg"
+        ),
+        "dependencies": "ops-awin-publisher-api-integration, content-awin-approved-provider-deep-content, content-awin-pending-provider-deep-content",
+        "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",
