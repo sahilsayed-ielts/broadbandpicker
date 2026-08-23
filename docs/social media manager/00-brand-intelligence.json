@@ -60,6 +60,11 @@
       "url": "https://broadbandpicker.co.uk/guides/how-to-switch-broadband-uk"
     },
     {
+      "slug": "broadband-complaints-and-ombudsman-uk",
+      "title": "Broadband Complaints and Ombudsman: Your UK Rights",
+      "url": "https://broadbandpicker.co.uk/guides/broadband-complaints-and-ombudsman-uk"
+    },
+    {
       "slug": "best-broadband-deals-uk",
       "title": "Best Broadband Deals in the UK Right Now",
       "url": "https://broadbandpicker.co.uk/guides/best-broadband-deals-uk"
@@ -390,7 +395,7 @@
   "warnings": [
     "Existing X calendar in docs/branding-and-marketing is clear and useful, but too polite to travel. This plan keeps the facts and swaps the tone for sarcasm, memes and hooks."
   ],
-  "generated_at": "2026-08-23T13:49:27",
+  "generated_at": "2026-08-23T18:34:35",
   "idea_pillars": [
     "british sarcasm",
     "memes",

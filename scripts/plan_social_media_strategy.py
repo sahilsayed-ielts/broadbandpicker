@@ -2034,6 +2034,111 @@ def render_design(design: DesignBrief) -> str:
 {dont}"""
 
 
+# ---------------------------------------------------------------------------
+# Design prompts — one ready-to-paste text-to-image prompt per static
+# placement a idea actually needs, with the exact canonical size. This is
+# the thing you paste straight into ChatGPT/DALL-E — everything else in a
+# DesignBrief (shot list, audio, duration) is for filming, not for an
+# image generator, so it's deliberately left out of the prompt text.
+# ---------------------------------------------------------------------------
+
+# Canonical sizes, matching what's already published per-channel in
+# design-system.md / design-briefs.md — single source of truth, not
+# re-derived from each idea's free-text `dimensions` string.
+PLATFORM_STATIC_PLACEMENTS: dict[str, tuple[str, str]] = {
+    "instagram_feed": ("Instagram feed post (4:5)", "1080x1350px"),
+    "instagram_square": ("Instagram quote card (1:1)", "1080x1080px"),
+    "instagram_cover": ("Instagram Reel/Story cover frame (9:16)", "1080x1920px"),
+    "tiktok_cover": ("TikTok cover / first frame (9:16)", "1080x1920px"),
+    "x_image": ("X post image (16:9)", "1600x900px"),
+}
+
+
+def image_prompts_for_idea(idea: Idea) -> list[dict[str, str]]:
+    """Which static placements this idea needs, each with a single
+    ready-to-paste prompt. An idea can need more than one (e.g. an
+    Instagram feed post AND a TikTok cover for the same joke)."""
+    placements: list[str] = []
+    if "carousel" in idea.formats or "feed" in idea.formats:
+        placements.append("instagram_feed")
+    if idea.pillar in ("meme", "quote", "sarcasm") and "instagram" in idea.platforms:
+        placements.append("instagram_square")
+    if "story" in idea.formats and "instagram" in idea.platforms:
+        placements.append("instagram_cover")
+    if ("reel" in idea.formats or "tiktok" in idea.formats) and "tiktok" in idea.platforms:
+        placements.append("tiktok_cover")
+    if "tweet" in idea.formats and "x" in idea.platforms:
+        placements.append("x_image")
+
+    seen: set[str] = set()
+    prompts: list[dict[str, str]] = []
+    for key in placements:
+        if key in seen:
+            continue
+        seen.add(key)
+        label, size = PLATFORM_STATIC_PLACEMENTS[key]
+        prompts.append({
+            "placement_key": key,
+            "platform_label": label,
+            "size": size,
+            "prompt": build_image_prompt(idea, label, size),
+        })
+    return prompts
+
+
+def build_image_prompt(idea: Idea, platform_label: str, size: str) -> str:
+    d = idea.design
+    text_block = (
+        " ".join(f'"{line}"' for line in d.on_screen_text)
+        if d.on_screen_text else "no on-screen text — visual only"
+    )
+    do_nots = "; ".join(d.do_not) if d.do_not else "none"
+    return (
+        f"Create a {size} graphic for {platform_label}, for BroadbandPicker, an independent UK "
+        f"broadband comparison brand — witty British deadpan tone, not corporate, not cringe.\n\n"
+        f"Concept: {d.visual_concept}\n\n"
+        f"On-screen text, large and bold, exactly as written, no other wording added: {text_block}\n\n"
+        f"Colour palette: {d.palette}\n\n"
+        f"Typography style: {d.type}\n\n"
+        f"Logo placement: {d.logo}\n\n"
+        f"Avoid: {do_nots}. No stock-photo faces. No fake provider logos or trademarks."
+    )
+
+
+def design_prompts_md(bank: list[Idea]) -> str:
+    by_placement: dict[str, list[tuple[Idea, dict[str, str]]]] = {key: [] for key in PLATFORM_STATIC_PLACEMENTS}
+    for idea in bank:
+        for prompt_row in image_prompts_for_idea(idea):
+            by_placement[prompt_row["placement_key"]].append((idea, prompt_row))
+
+    sections = []
+    for key, (label, size) in PLATFORM_STATIC_PLACEMENTS.items():
+        rows = by_placement[key]
+        if not rows:
+            continue
+        blocks = []
+        for idea, prompt_row in rows:
+            blocks.append(
+                f"### {idea.id} — {idea.title}\n\n"
+                f"**Size:** {size}\n\n"
+                f"**Paste into ChatGPT / DALL-E:**\n\n```\n{prompt_row['prompt']}\n```\n"
+            )
+        sections.append(f"## {label} — {size}\n\n" + "\n".join(blocks))
+
+    return (
+        "# Design prompts — ready to paste into ChatGPT\n\n"
+        "One block per static graphic a content idea actually needs, grouped by where it's "
+        "posted. Each prompt already has the exact size, the joke's on-screen text, brand "
+        "colours, typography style and logo rule baked in from the idea's design brief — copy "
+        "the whole fenced block and paste it into an image generator as-is.\n\n"
+        "Video-only formats (the Reel/TikTok cut itself) aren't here — this is for the static "
+        "posters and cover frames, which is what an image generator actually produces. Full shot "
+        "lists, audio direction and duration for filming stay in each channel's own content file "
+        "(reels.md, video-ideas.md, posts.md).\n\n"
+        + "\n\n".join(sections)
+    )
+
+
 def render_idea(idea: Idea, brand: BrandProfile, *, platform: str | None = None) -> str:
     url = brand.key_urls.get(idea.url_key, SITE)
     tags = " ".join(idea.hashtags)
@@ -2829,6 +2934,18 @@ def write_xlsx(path: Path, brand: BrandProfile, bank: list[Idea], calendar: list
     style_header(ws)
     autosize(ws)
 
+    ws = wb.create_sheet("Design Prompts")
+    ws.append(["id", "title", "platform", "size", "prompt (paste into ChatGPT / DALL-E)"])
+    for idea in bank:
+        for prompt_row in image_prompts_for_idea(idea):
+            ws.append([idea.id, idea.title, prompt_row["platform_label"], prompt_row["size"], prompt_row["prompt"]])
+    style_header(ws)
+    for row in ws.iter_rows(min_row=2):
+        row[4].alignment = Alignment(wrap_text=True, vertical="top")
+    ws.column_dimensions["E"].width = 90
+    autosize(ws)
+    ws.column_dimensions["E"].width = 90
+
     path.parent.mkdir(parents=True, exist_ok=True)
     wb.save(path)
 
@@ -2862,6 +2979,7 @@ def main() -> int:
     write(out / "01-channel-recommendations.md", channel_md(brand))
     write(out / "02-voice-and-humour-playbook.md", voice_playbook_md())
     write(out / "03-master-strategy.md", master_strategy_md(brand, bank, weeks))
+    write(out / "04-design-prompts.md", design_prompts_md(bank))
     write_csv(out / "content-calendar-all.csv", calendar)
     write_xlsx(out / "social-content-planner.xlsx", brand, bank, calendar)
 

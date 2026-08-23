@@ -1,121 +1,126 @@
 {
-  "slug": "research/broadband-customer-service-rankings-uk",
-  "primary_keyword": "best customer service broadband provider",
+  "slug": "guides/broadband-complaints-and-ombudsman-uk",
+  "primary_keyword": "broadband complaints ombudsman",
   "search_locale": "UK",
   "secondary_keywords": [
-    { "keyword": "broadband customer service rankings UK", "intent": "Research comparison", "page_slot": "title, complaints table and verdict", "coverage_note": "Rank the named major providers using the latest official Ofcom complaints period and explain the limits." },
-    { "keyword": "which broadband provider has the fewest complaints", "intent": "Comparison question", "page_slot": "complaints table and FAQ", "coverage_note": "State the joint-lowest Q4 2025 providers, rate per 100,000 and industry average." },
-    { "keyword": "Ofcom broadband complaints by provider", "intent": "Regulatory research", "page_slot": "H2 complaints section and table", "coverage_note": "Define the measure, reporting period, population threshold and why lower is better." },
-    { "keyword": "broadband provider customer satisfaction", "intent": "Research", "page_slot": "H2 satisfaction section and methodology", "coverage_note": "Keep overall satisfaction and complaint-handling satisfaction separate with their 2024 period." },
-    { "keyword": "Plusnet customer service", "intent": "Provider evaluation", "page_slot": "quick answer, verdict and FAQ", "coverage_note": "Support the recommendation with Ofcom satisfaction and complaints evidence rather than a review score." },
-    { "keyword": "broadband provider with UK customer support", "intent": "Commercial attribute", "page_slot": "H2 how to compare and buying checklist", "coverage_note": "Explain support-channel, hours, accessibility and repair-control checks without making unsupported location claims." },
-    { "keyword": "Zen broadband customer service", "intent": "Provider comparison", "page_slot": "H2 smaller providers", "coverage_note": "Report Zen's independent Which? survey result separately from Ofcom measures." }
+    { "keyword": "how to complain about broadband provider", "intent": "Informational action", "page_slot": "intro, step-by-step H2 and checklist table", "coverage_note": "Give the exact provider-first complaint route, what to request and how to preserve evidence." },
+    { "keyword": "broadband ombudsman UK", "intent": "Escalation", "page_slot": "title, excerpt and ADR H2", "coverage_note": "Explain that Ofcom approves Communications Ombudsman and CISAS, and that the provider's membership decides which one to use." },
+    { "keyword": "broadband complaint deadlock letter", "intent": "Definition", "page_slot": "deadlock H2 and FAQ", "coverage_note": "Define a deadlock or final-response letter and explain that it permits earlier ADR escalation." },
+    { "keyword": "CISAS or Communications Ombudsman", "intent": "Comparison", "page_slot": "provider scheme table and FAQ", "coverage_note": "Map the major providers listed by Ofcom to the correct approved scheme and direct unlisted customers to verify membership." },
+    { "keyword": "how long before broadband ombudsman", "intent": "Timing question", "page_slot": "timeline table and FAQ", "coverage_note": "State the current six-week rule and the eight-week transition for complaints first raised before 8 April 2026." },
+    { "keyword": "broadband complaint compensation", "intent": "Remedy", "page_slot": "remedies H2 and FAQ", "coverage_note": "Separate automatic compensation from ADR awards and describe practical remedies without promising an outcome." },
+    { "keyword": "does Ofcom deal with broadband complaints", "intent": "Regulator role question", "page_slot": "Ofcom H2 and FAQ", "coverage_note": "Explain that Ofcom records reports and regulates providers but does not decide an individual's billing or service dispute." }
   ],
   "serp_competitors": [
     {
-      "url": "https://www.choose.co.uk/broadband/guide/best-customer-service/",
-      "title": "Best broadband customer service in 2026",
-      "observed_structure": "Long answer-led commercial guide with a top-three verdict, deal cards, latest and historical Ofcom complaint tables, satisfaction, complaint handling, contact routes, smaller providers and summary navigation.",
-      "approx_word_count": 3200,
-      "content_gap_to_improve": "Keep official periods and unlike measures visibly separate, avoid attributing service improvement to one tool or staffing change without primary evidence, and give a shorter buying action.",
-      "useful_ux_patterns": "Immediate named verdict, jump navigation, current complaints table and provider-specific subsections.",
-      "useful_ui_patterns": "Compact data tables, provider cards, strong answer summary and source links near numerical claims.",
-      "interactive_or_functional_elements": "Broadband deal cards and comparison calls to action.",
-      "trust_signals": "Named author, August 2026 update, Ofcom links, historical comparisons and methodology explanation.",
-      "citation_patterns": "Inline links from dated Ofcom claims and source notes beneath tables."
+      "url": "https://www.ofcom.org.uk/phones-and-broadband/service-quality/adr-schemes?language=en",
+      "title": "Making a complaint and using alternative dispute resolution (ADR) schemes",
+      "observed_structure": "Focused regulator guide of about 850 words with a two-step provider complaint route, eligibility bullets, complaints-code duties, named ADR schemes, provider membership lists and related compensation links.",
+      "approx_word_count": 850,
+      "content_gap_to_improve": "Turn the regulatory rules into a complete evidence checklist and worked escalation path while retaining the exact six-week and provider-membership distinctions.",
+      "useful_ux_patterns": "Numbered first steps, short eligibility bullets and provider-to-scheme lists.",
+      "useful_ui_patterns": "Strong descriptive headings, compact lists and related-action links.",
+      "interactive_or_functional_elements": "Direct links to both approved ADR schemes and related Ofcom complaint routes.",
+      "trust_signals": "Regulator ownership, publication and August 2026 update dates, explicit eligibility and named schemes.",
+      "citation_patterns": "Primary ADR links sit beside scheme names and regulatory claims appear on the regulator's own page."
     },
     {
-      "url": "https://www.uswitch.com/broadband/guides/which-broadband-provider-is-best-for-customer-service/",
-      "title": "Which broadband provider has the best customer service?",
-      "observed_structure": "Focused guide with author and editor details, on-page navigation, a proprietary survey ranking, Ofcom complaints discussion, definitions of good support and provider review links.",
-      "approx_word_count": 1400,
-      "content_gap_to_improve": "Lead with a fully evidenced verdict, expose exact official rates in a comparison table, and separate proprietary survey methodology from regulator evidence.",
-      "useful_ux_patterns": "On-page contents, concise ordered ranking and practical signs of good customer service.",
-      "useful_ui_patterns": "Short sections, numbered list and contextual links to provider reviews.",
-      "interactive_or_functional_elements": "Links into broadband comparison and provider-review journeys.",
-      "trust_signals": "Named senior editor, named broadband expert, February 2026 update and stated 25,000-person survey.",
-      "citation_patterns": "Methodology is stated with related internal research links; Ofcom evidence is linked in its own section."
+      "url": "https://www.which.co.uk/consumer-rights/advice/when-to-take-a-complaint-to-the-ombudsman-aQjKG8x2kXiT",
+      "title": "When to take a complaint to the ombudsman",
+      "observed_structure": "General consumer guide of about 1,250 words with an on-page contents list, definition, eligibility, evidence checklist, scheme finder, ruling explanation and court alternative.",
+      "approx_word_count": 1250,
+      "content_gap_to_improve": "Specialise every step for UK broadband, use the current six-week telecoms rule and identify the correct provider schemes rather than discussing ombudsmen generally.",
+      "useful_ux_patterns": "Jump-style contents, clear evidence list and expectation setting before submission.",
+      "useful_ui_patterns": "Scannable section menu, short bullets and visible author/update information.",
+      "interactive_or_functional_elements": "Links to sector ombudsmen and complaint-letter help.",
+      "trust_signals": "Named editorial team, 30 July 2026 review date and consumer-rights framing.",
+      "citation_patterns": "Definitions and next steps link to scheme-specific supporting pages."
     },
     {
-      "url": "https://www.broadband.co.uk/broadband/help/best-broadband-customer-service",
-      "title": "Best Broadband Customer Service UK 2026 | Top Rated ISPs",
-      "observed_structure": "Broad commercial guide with a provider verdict, multi-metric comparison table, address checker, deal cards, guidance for assessing support, complaint help and FAQs.",
-      "approx_word_count": 2200,
-      "content_gap_to_improve": "Do not place self-selected Trustpilot scores beside regulator complaints as if they are equivalent, and make the date and source population clearer for every metric.",
-      "useful_ux_patterns": "At-a-glance table, address input near commercial intent, practical support checklist and FAQ answers.",
-      "useful_ui_patterns": "Responsive comparison table, visible deal cards and clear FAQ block.",
-      "interactive_or_functional_elements": "Address-based deal checker and offer cards.",
-      "trust_signals": "Current publication date, named evidence sources and transparent award/survey labels.",
-      "citation_patterns": "Source footnotes beneath the table and regulator links in advice and FAQs."
+      "url": "https://www.citizensadvice.org.uk/consumer/phone-internet-downloads-or-tv/dispute-a-phone-internet-or-tv-bill/",
+      "title": "Dispute a mobile, phone, internet or TV bill",
+      "observed_structure": "Issue-led advice page of about 1,150 words organised by incorrect bills, billing limits, provider contact, evidence, ADR, post-cancellation bills, liability and help contacts.",
+      "approx_word_count": 1150,
+      "content_gap_to_improve": "Cover faults, missed installations, switching and cancellation as well as billing, then show the current ADR timing and scheme mapping in one broadband-specific route.",
+      "useful_ux_patterns": "Concrete document checklist, warning about disputed payments and national advice contact.",
+      "useful_ui_patterns": "Short issue-specific H2/H3 sections, bulleted evidence and related-help links.",
+      "interactive_or_functional_elements": "Template-letter link, Ofcom scheme lookup and consumer helpline route.",
+      "trust_signals": "National charity identity, jurisdiction selector and direct Ofcom referral.",
+      "citation_patterns": "External Ofcom link appears beside the ADR instruction; practical advice is presented as Citizens Advice guidance."
     },
     {
-      "url": "https://www.which.co.uk/reviews/broadband/article/broadband-provider-reviews/best-broadband-providers-aIIx34f51krz",
-      "title": "Best and worst broadband providers in the UK for 2026",
-      "observed_structure": "Survey-led ranking table followed by winners, value picks, provider explanations, methodology notes and comparison action.",
-      "approx_word_count": 1800,
-      "content_gap_to_improve": "Provide a free regulator-evidence view for major providers and explain why customer scores cannot be combined with Ofcom complaint rates.",
-      "useful_ux_patterns": "Large comparison table, named winners, visible sample and fieldwork date, and provider-level drill-down links.",
-      "useful_ui_patterns": "Sortable-looking matrix, recommendation labels and concise methodology note immediately below the data.",
-      "interactive_or_functional_elements": "Membership-gated score details and a separate postcode comparison path.",
-      "trust_signals": "Representative survey of 5,235 UK adults in January 2026, minimum response threshold and named recommendation criteria.",
-      "citation_patterns": "First-party survey methodology is attached directly to the results table."
+      "url": "https://www.commsombudsman.org/",
+      "title": "Communications Ombudsman | Resolve Communications Complaints",
+      "observed_structure": "Task-led scheme page of about 700 words with provider search, a six-step process, six-week eligibility rule, evidence timing, remedies, limits and dispute registration action.",
+      "approx_word_count": 700,
+      "content_gap_to_improve": "Add the alternative CISAS route, transition dates and neutral explanation of when this particular scheme is not the customer's provider-approved ADR body.",
+      "useful_ux_patterns": "Visible process steps, provider checker, evidence deadline and specific remedy expectations.",
+      "useful_ui_patterns": "Sequential cards, prominent action control and expandable outcome details.",
+      "interactive_or_functional_elements": "Provider search and online dispute registration.",
+      "trust_signals": "Free and impartial service statement, detailed process, remedy limits and current 2026 rule notice.",
+      "citation_patterns": "Scheme rules and process pages are linked directly from eligibility and outcome statements."
     }
   ],
   "ai_overview": {
     "checked": true,
     "present": false,
-    "observation": "The live UK search response checked on 23 August 2026 did not expose an AI Overview or AI answer for the exact primary query, so there were no overview citations to inspect. Ordinary results prominently surfaced Ofcom-derived answers.",
+    "observation": "The live UK search response checked on 23 August 2026 did not expose an AI Overview or AI answer for the exact primary query. No overview citations were therefore available to inspect; ordinary results prominently surfaced Ofcom and ombudsman sources.",
     "cited_sources": []
   },
   "people_also_ask": [
-    "Which broadband provider has the best customer service in the UK?",
-    "Which broadband provider has the fewest complaints?",
-    "Does Ofcom rank every broadband provider?",
-    "Is Trustpilot reliable for broadband providers?",
-    "Which broadband provider is best for reliability and customer service?"
+    "How do I complain about my broadband provider?",
+    "How long do I have to wait before contacting the broadband ombudsman?",
+    "What is a deadlock letter from a broadband provider?",
+    "Does Ofcom deal with individual broadband complaints?",
+    "Which ombudsman does my broadband provider use?",
+    "Can the broadband ombudsman award compensation?"
   ],
   "sources": [
-    { "url": "https://www.ofcom.org.uk/phones-and-broadband/service-quality/telecoms-and-pay-tv-complaints", "source_type": "regulator", "verified_date": "2026-08-23", "claims_supported": "Q4 2025 fixed-broadband complaints per 100,000 subscribers, industry average, named highest and lowest providers, reporting scope and complaint limitations." },
-    { "url": "https://www.ofcom.org.uk/siteassets/resources/documents/phones-telecoms-and-internet/comparing-service-quality/2025/comparing-customer-service-report-2025.pdf?v=397528", "source_type": "regulator", "verified_date": "2026-08-23", "claims_supported": "2024 overall broadband satisfaction, satisfaction with complaint handling, reasons to complain, methods, confidence caveats and affected EE faults data." },
-    { "url": "https://www.ofcom.org.uk/phones-and-broadband/service-quality/report", "source_type": "regulator", "verified_date": "2026-08-23", "claims_supported": "Report scope, biennial reporting cycle, 2024 experience period and April 2026 EE data-restatement notice." },
-    { "url": "https://www.which.co.uk/reviews/broadband/article/broadband-provider-reviews/best-broadband-providers-aIIx34f51krz", "source_type": "independent", "verified_date": "2026-08-23", "claims_supported": "January 2026 survey of 5,235 UK adults, customer-score definition and results for Zen, Hyperoptic, Community Fibre and Plusnet." },
-    { "url": "https://www.plus.net/help/legal/complaints-code-of-practice/", "source_type": "primary", "verified_date": "2026-08-23", "claims_supported": "Plusnet's current complaint contact, escalation and alternative dispute resolution process." }
+    { "url": "https://www.ofcom.org.uk/phones-and-broadband/service-quality/adr-schemes?language=en", "source_type": "regulator", "verified_date": "2026-08-23", "claims_supported": "Provider-first complaint procedure, free ADR eligibility, current six-week rule, 12-month deadlock-letter limit, complaints-code duties and major-provider scheme membership." },
+    { "url": "https://www.ofcom.org.uk/phones-and-broadband/service-quality/quicker-complaints-resolution-for-telecoms-customers-under-new-ofcom-rules", "source_type": "regulator", "verified_date": "2026-08-23", "claims_supported": "Change from eight to six weeks took effect on 8 April 2026 and both ADR schemes were re-approved." },
+    { "url": "https://www.commsombudsman.org/our-process", "source_type": "primary", "verified_date": "2026-08-23", "claims_supported": "Communications Ombudsman eligibility, evidence expectations, process and provider implementation after an accepted decision." },
+    { "url": "https://www.cedr-assist.com/hubfs/CISAS/CISAS%20Scheme%20Rules%20-%20April%202026.pdf", "source_type": "primary", "verified_date": "2026-08-23", "claims_supported": "CISAS April 2026 eligibility, six-week rule, pre-8 April transition, deadlock and inability-to-contact route." },
+    { "url": "https://www.cedr.com/consumer/cisas/help-guides/", "source_type": "primary", "verified_date": "2026-08-23", "claims_supported": "CISAS evidence-led process, free access, typical decision timing, remedy implementation and £10,000 maximum including credits, refunds and waivers." },
+    { "url": "https://www.citizensadvice.org.uk/consumer/phone-internet-downloads-or-tv/dispute-a-phone-internet-or-tv-bill/", "source_type": "independent", "verified_date": "2026-08-23", "claims_supported": "Practical bill-dispute evidence, saving webchats and correspondence, internal complaint escalation and warning that unsuccessful disputes can still attract late-payment consequences." },
+    { "url": "https://www.ofcom.org.uk/phones-and-broadband/service-quality/automatic-compensation-need-know", "source_type": "regulator", "verified_date": "2026-08-23", "claims_supported": "2026 automatic compensation amounts, qualifying service failures and participating-provider limitation." }
   ],
   "recommended_min_words": 1500,
   "required_sections": [
-    "Standalone answer-first verdict",
-    "Current Ofcom complaints comparison table",
-    "Separate satisfaction and complaint-handling evidence",
-    "Methodology and limitations",
-    "Smaller-provider evidence kept separate",
-    "Practical customer-service buying checklist",
-    "Address-specific comparison next step",
+    "Standalone answer-first complaint and ombudsman route",
+    "Complaint escalation timeline",
+    "Provider complaint evidence checklist",
+    "Deadlock letter definition and six-week transition rule",
+    "CISAS and Communications Ombudsman provider table",
+    "ADR remedies and limitations",
+    "Automatic compensation kept separate from ADR",
+    "Ofcom's role and consumer advice routes",
     "Standalone FAQs",
-    "Visible dated sources"
+    "Visible dated primary sources"
   ],
   "internal_links": [
     "/compare",
-    "/research/uk-broadband-customer-satisfaction",
+    "/guides/how-to-switch-broadband-uk",
+    "/guides/broadband-contract-end-rights",
+    "/guides/can-i-leave-broadband-early-after-price-rise",
     "/how-we-review-broadband",
-    "/editorial-policy",
-    "/providers/plusnet",
-    "/providers/sky",
-    "/providers/virgin-media"
+    "/editorial-policy"
   ],
   "schema_types": ["Article", "FAQPage"],
   "ux_ui_requirements": [
-    "Use the established answer panel to name the supported starting choice immediately for readers making a provider shortlist.",
-    "Use a responsive comparison table for the latest official complaints period, serving readers who need exact provider rates rather than prose rankings.",
-    "Separate measurement periods and methods into clearly headed sections so readers do not mistake complaints, satisfaction and independent surveys for one score.",
-    "Show a genuine reviewed date, named editorial team, commercial disclosure and visible sources close to numerical claims.",
-    "Use the existing accessible FAQ disclosure pattern and a strong postcode comparison action after the evidence."
+    "Use the established key-takeaway answer panel to give the provider-first and six-week route immediately for a stressed reader.",
+    "Use a responsive escalation table with trigger, action and evidence so readers can identify their next step without interpreting dense rules.",
+    "Use a responsive provider-to-ADR table based on Ofcom's current membership list, with a verification warning for unlisted or recently changed providers.",
+    "Use a compact case-file checklist modelled on the strongest Citizens Advice and ombudsman evidence guidance.",
+    "Show the genuine reviewed date, named editorial team and visible primary sources near material timing and remedy claims.",
+    "Use the site's accessible FAQ disclosures for complete 35 to 90 word answers."
   ],
   "functional_requirements": [
-    "Retain the existing /compare journey so readers can convert the evidence-based shortlist into address-specific options.",
-    "Emit Article and FAQPage structured data with displayed FAQ answers matching the JSON-LD and remaining 35 to 90 words.",
-    "Provide working direct source links to Ofcom, Which? and the official provider complaints process.",
-    "Include the page automatically in the generated sitemap through the existing priorityPages collection."
+    "Link directly to the current Ofcom ADR page and both approved scheme application or process pages.",
+    "Retain the existing /compare route as an optional post-resolution switching action, without placing a commercial action before complaint help.",
+    "Emit Article and FAQPage structured data whose FAQ text matches the visible answers.",
+    "Add contextual inbound links from at least two existing switching-and-rights guides and provide reciprocal links from the new guide.",
+    "Include the page automatically in the generated sitemap through the guides data collection."
   ],
-  "research_summary": "Current UK results consistently use an immediate winner, provider table, dated complaints evidence, satisfaction measures, support-selection advice and FAQs. Choose leads with Plusnet and extensive Ofcom history, Uswitch foregrounds its proprietary survey, broadband.co.uk combines several metrics, and Which? provides the strongest smaller-provider survey. BroadbandPicker adopts the useful answer, table, methodology, checklist and address action while keeping unlike datasets separate.",
-  "depth_rationale": "The focused Uswitch result is roughly 1,400 words, while broader ranking pages run about 1,800 to 3,200 words because they add deals, full provider profiles and long complaint guides. A 1,500-word rendered minimum matches the focused competitive depth and covers the decision fully without duplicating separate provider, deals or complaints-process pages. The page prioritises exact evidence and limitations over padding."
+  "research_summary": "Current results lead with provider-first escalation, evidence, deadlock and free ADR. Ofcom gives the strongest current telecoms-specific answer and major-provider scheme list; Which? supplies a broad evidence checklist; Citizens Advice gives practical record-keeping and payment cautions; Communications Ombudsman uses a clear sequential process. The most important freshness gap is older eight-week wording after the rule changed to six weeks on 8 April 2026.",
+  "depth_rationale": "The directly relevant pages reviewed run from roughly 700 to 1,250 words, but each covers only part of the task: regulator eligibility, general ombudsman use, billing evidence or one ADR scheme. A 1,500-word minimum is justified for a single complete UK broadband route covering current transition timing, both schemes, evidence, remedies, automatic compensation, Ofcom's role and actionable next steps without duplicating generic provider support pages."
 }

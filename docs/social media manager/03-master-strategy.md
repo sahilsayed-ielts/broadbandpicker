@@ -21,7 +21,7 @@ B2B proof → inbound affiliate applications → more complete deal tables → m
 ## Brand facts this plan is based on
 
 - **Providers in the dataset:** BT, Sky, Virgin Media, EE, TalkTalk, Plusnet, Vodafone, NOW Broadband, Hyperoptic, Community Fibre, Zen Internet, Toob, Brsk, YouFibre, Gigaclear, Cuckoo, Onestream, Shell Energy
-- **Guides on the site:** 39
+- **Guides on the site:** 40
 - **Tools:** Postcode checker, Compare, Deals, Speed test, Broadband Match quiz, Cost calculator, Glossary
 - **City / postcode hubs:** Birmingham, Bristol, Edinburgh, Glasgow, Leeds, Liverpool, London, Manchester, Sheffield, Cardiff, Belfast, Oxford
 - **Existing social:** X @broadbandPicker (linked from the site footer and About)

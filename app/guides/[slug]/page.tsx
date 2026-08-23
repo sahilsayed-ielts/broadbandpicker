@@ -109,7 +109,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         <h2>What to do if the broadband switch goes wrong</h2>
         <p>Contact the new provider first about a delayed activation, failed match or missed installation because it owns the switching order. Keep order confirmations, promised dates, appointment messages and screenshots of service status. Contact the old provider too if it continues billing after the completed switch or closes a service that was meant to remain active.</p>
         <p><a href="https://www.ofcom.org.uk/phones-and-broadband/service-quality/automatic-compensation-need-know" target="_blank" rel="noopener noreferrer">Ofcom&apos;s voluntary Automatic Compensation Scheme</a> covers named residential providers. At the rates verified on 23 August 2026, a delayed start earns £6.46 for each calendar day after the promised date, and a missed engineer appointment or cancellation with less than 24 hours&apos; notice earns £32.31. A reported total loss of service not repaired after two full working days earns £10.34 for each qualifying calendar day. Check that your provider participates and that no exclusion applies.</p>
-        <p>If payment or a fix does not arrive, use the provider&apos;s formal complaints process. Ofcom does not resolve individual complaints, but its guidance points unresolved cases to the provider&apos;s approved alternative dispute resolution scheme. For a practical consumer route, Citizens Advice can help in Great Britain and Consumerline serves Northern Ireland.</p>
+        <p>If payment or a fix does not arrive, use the provider&apos;s formal complaints process. Ofcom does not resolve individual complaints, but its guidance points unresolved cases to the provider&apos;s approved alternative dispute resolution scheme. Our <Link href="/guides/broadband-complaints-and-ombudsman-uk">broadband complaints and ombudsman guide</Link> explains the six-week escalation rule, deadlock letters and the evidence to submit.</p>
       </>
     ),
     faqs: [
@@ -119,6 +119,105 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
       { question: 'Do I need to cancel my old broadband before switching?', answer: 'No, not during a normal One Touch Switch. Order from the provider you are joining and it should notify the old provider and coordinate cancellation after the new service starts. Cancel separately only if you have deliberately chosen a self-managed overlap or are ending broadband without moving to another regulated fixed provider, and confirm the consequences first.' },
       { question: 'How long does it take to switch broadband provider?', answer: 'About 10 working days is a reasonable planning estimate for a straightforward broadband transfer, but installation requirements and provider availability can change the date. Use the confirmed activation date supplied with your order. Ofcom&apos;s specific protection is that loss of service during a managed switch must not exceed one working day, rather than a universal ten-day completion guarantee.' },
       { question: 'Can I get compensation if my broadband switch is delayed?', answer: 'Possibly. Ofcom&apos;s Automatic Compensation Scheme requires participating providers to pay £6.46 per calendar day when a new service starts late and £32.31 for a missed engineer appointment, at rates verified on 23 August 2026. Separate One Touch Switch rules also require compensation when switching problems leave you without service for more than one working day. Eligibility and exclusions apply.' },
+    ],
+  },
+
+  'broadband-complaints-and-ombudsman-uk': {
+    body: (
+      <>
+        <p><strong>Start a broadband complaint with the provider and state clearly that you want it logged as a formal complaint.</strong> Give the account number, what went wrong, when it happened, the evidence you hold and the remedy you want. If the dispute remains unresolved for six weeks, or the provider sends a deadlock or final-response letter sooner, take it free to the provider&apos;s Ofcom-approved alternative dispute resolution scheme.</p>
+        <p><a href="https://www.ofcom.org.uk/phones-and-broadband/service-quality/adr-schemes?language=en" target="_blank" rel="noopener noreferrer">Ofcom&apos;s ADR guidance, updated 6 August 2026</a>, names two approved schemes: Communications Ombudsman and the Communications and Internet Services Adjudication Scheme, usually called CISAS. Your provider&apos;s membership decides which one handles the case. Ofcom regulates the sector and records reports, but it does not decide an individual claim for a refund, repair or compensation.</p>
+
+        <h2>Broadband complaint escalation timeline</h2>
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse text-sm">
+            <thead>
+              <tr className="bg-slate-50">
+                {['Trigger', 'What to do', 'Evidence to keep'].map((heading) => (
+                  <th key={heading} className="border border-slate-200 px-4 py-3 text-left font-semibold text-slate-700">{heading}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td className="border border-slate-200 px-4 py-3 font-semibold">The service, bill or order goes wrong</td><td className="border border-slate-200 px-4 py-3">Report the fault or error and ask what the provider will do and by when.</td><td className="border border-slate-200 px-4 py-3">Screenshots, speed tests, bills, order details, outage dates and appointment messages.</td></tr>
+              <tr><td className="border border-slate-200 px-4 py-3 font-semibold">The first contact does not fix it</td><td className="border border-slate-200 px-4 py-3">Use the provider&apos;s complaints code and say this is a formal complaint. Ask for a reference number.</td><td className="border border-slate-200 px-4 py-3">Complaint date, reference, emails, letters, saved chats and call notes.</td></tr>
+              <tr><td className="border border-slate-200 px-4 py-3 font-semibold">The provider gives its final position</td><td className="border border-slate-200 px-4 py-3">Request a deadlock or final-response letter and check which ADR scheme it names.</td><td className="border border-slate-200 px-4 py-3">The letter, proposed remedy and your reasons for rejecting it.</td></tr>
+              <tr><td className="border border-slate-200 px-4 py-3 font-semibold">Six weeks pass without resolution</td><td className="border border-slate-200 px-4 py-3">Submit the case to the provider&apos;s approved ADR scheme even if no deadlock letter arrived.</td><td className="border border-slate-200 px-4 py-3">A dated case summary, proof of loss, correspondence and the exact outcome requested.</td></tr>
+              <tr><td className="border border-slate-200 px-4 py-3 font-semibold">ADR issues a decision</td><td className="border border-slate-200 px-4 py-3">Read the acceptance deadline and effect carefully. An accepted decision binds the provider.</td><td className="border border-slate-200 px-4 py-3">Decision, acceptance confirmation and proof that the remedy was completed.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>How to complain about a broadband provider</h2>
+        <p>Find the complaints code on the provider&apos;s website or bill. Ofcom requires phone and broadband companies to publish an accessible code with a phone number, postal address and an email address or webform, as well as investigation steps and expected timeframes. A fault report to technical support may not start the complaint clock, so use the words <strong>formal complaint</strong> and record the date.</p>
+        <p>Describe one clear sequence rather than forwarding an unexplained bundle of messages. State the service involved, the address, the date the problem began, every failed promise or appointment, the financial effect and what would settle the matter. A useful remedy might be a corrected bill, refund, account credit, repair, penalty-free cancellation, apology or compensation for evidenced loss and inconvenience.</p>
+
+        <h3>Build a complaint case file</h3>
+        <ul>
+          <li><strong>Identity:</strong> account holder&apos;s name, service address, account number and safe contact details.</li>
+          <li><strong>Timeline:</strong> dates and times of outages, orders, engineer visits, calls, chats and promised resolutions.</li>
+          <li><strong>Contract evidence:</strong> order confirmation, pre-contract information, minimum guaranteed speed, bills and cancellation terms.</li>
+          <li><strong>Technical evidence:</strong> router status, provider fault references and repeatable wired speed tests where speed is disputed.</li>
+          <li><strong>Financial evidence:</strong> incorrect charges, receipts and a calculation linking each requested refund or cost to the failure.</li>
+          <li><strong>Requested outcome:</strong> a specific action and amount, explaining how each part would put the problem right.</li>
+        </ul>
+        <p><a href="https://www.citizensadvice.org.uk/consumer/phone-internet-downloads-or-tv/dispute-a-phone-internet-or-tv-bill/" target="_blank" rel="noopener noreferrer">Citizens Advice recommends saving webchats and keeping letters, bills and proof of postage</a>. Do not assume that opening a dispute makes all payments optional. Pay undisputed charges and ask the provider how it will mark the disputed amount, because late-payment or debt action can continue if the case is not upheld.</p>
+
+        <h2>When can you contact the broadband ombudsman?</h2>
+        <p><strong>For a complaint first raised on or after 8 April 2026, the normal ADR wait is six weeks from the date the provider first received it.</strong> A deadlock letter lets you apply sooner. The previous threshold was eight weeks, so a complaint first raised before 8 April 2026 remains subject to that older transition rule unless the provider issued deadlock.</p>
+        <p>A deadlock letter, sometimes called a final response, confirms that the provider cannot agree a resolution or has no further proposal. Ask for it in writing when the provider says its offer is final. Ofcom says an ADR application must be made less than 12 months after receiving a deadlock letter, but applying promptly is safer because scheme rules, evidence retention and any separate court limitation period still matter.</p>
+
+        <h2>CISAS or Communications Ombudsman: which scheme handles your provider?</h2>
+        <p>Use only the ADR scheme to which the provider belongs. The membership below is the major-provider list published by Ofcom and verified on 23 August 2026. Smaller brands and business divisions may use a different scheme, and membership can change, so check the provider&apos;s complaints code or Ofcom&apos;s current list before applying.</p>
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse text-sm">
+            <thead>
+              <tr className="bg-slate-50">
+                {['Approved ADR scheme', 'Major providers listed by Ofcom', 'Start here'].map((heading) => (
+                  <th key={heading} className="border border-slate-200 px-4 py-3 text-left font-semibold text-slate-700">{heading}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td className="border border-slate-200 px-4 py-3 font-semibold">CISAS</td><td className="border border-slate-200 px-4 py-3">NOW, O2, Sky, SMARTY, TalkTalk, Three, Virgin Media, Vodafone and VOXI</td><td className="border border-slate-200 px-4 py-3"><a href="https://www.cedr.com/consumer/cisas/" target="_blank" rel="noopener noreferrer">CISAS consumer service</a></td></tr>
+              <tr><td className="border border-slate-200 px-4 py-3 font-semibold">Communications Ombudsman</td><td className="border border-slate-200 px-4 py-3">BT, EE, giffgaff, iD Mobile, Lebara, Plusnet, Tesco Mobile, Utility Warehouse and Lyca Mobile</td><td className="border border-slate-200 px-4 py-3"><a href="https://www.commsombudsman.org/raise-dispute" target="_blank" rel="noopener noreferrer">Communications Ombudsman dispute service</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Both services are independent of the provider and free for eligible residential customers. Ofcom also includes small businesses with up to 10 employees and not-for-profit organisations where up to 10 people work, excluding volunteers. Scheme scope still applies, so check eligibility if the dispute concerns data protection, personal injury, alleged crime, property damage or a provider&apos;s commercial decision not to serve an address.</p>
+
+        <h2>What can broadband ADR do?</h2>
+        <p>ADR examines the documents from both sides and can direct a provider to take practical action, correct or credit an account, refund charges, apologise or pay a financial award. Communications Ombudsman and CISAS each publish a maximum financial remedy of £10,000, but that is a ceiling rather than a typical award or promise. The result turns on the contract, law, relevant codes, evidence and what is fair in the individual case.</p>
+        <p>Ask for a remedy you can justify. Separate direct financial loss from inconvenience, show the calculation and avoid treating the scheme maximum as a target. Communications Ombudsman says the provider has 28 days to implement an accepted decision. CISAS says a provider normally has 20 working days after the customer accepts its decision. Confirm the deadline in the decision you actually receive.</p>
+        <p>You can generally reject an ADR decision and consider another route, including court, but legal costs and risk are different. If you accept, the provider is bound by the decision and you should not expect to accept only the favourable parts while challenging the award. Obtain independent legal advice before court action, especially where the claimed loss is substantial or a limitation deadline may apply.</p>
+
+        <h2>Broadband complaint compensation is not one single scheme</h2>
+        <p><a href="https://www.ofcom.org.uk/phones-and-broadband/service-quality/automatic-compensation-need-know" target="_blank" rel="noopener noreferrer">Ofcom&apos;s voluntary Automatic Compensation Scheme</a> can pay eligible residential customers of participating providers without an ADR ruling. At rates verified on 23 August 2026, delayed repair after a total loss of service earns £10.34 per qualifying calendar day, a missed appointment earns £32.31, and a delayed new-service start earns £6.46 per qualifying calendar day.</p>
+        <p>Automatic compensation has provider, event and exclusion rules. It does not replace a formal complaint where the payment is missing, the provider disputes eligibility or the loss falls outside the code. Include the expected automatic payment in the complaint, identify the qualifying dates and explain separately any further remedy requested. This prevents an ADR application from mixing a fixed code payment with an unsupported general compensation figure.</p>
+
+        <h2>Does Ofcom deal with individual broadband complaints?</h2>
+        <p><strong>Ofcom does not resolve an individual broadband dispute or order a provider to refund one customer.</strong> It sets and enforces sector rules, approves ADR schemes and uses consumer reports to identify wider patterns. Report a regulatory concern to Ofcom where appropriate, but keep the provider complaint and ADR case moving because an Ofcom report is not a substitute for either.</p>
+        <p>Consumers needing help with rights or disputed bills can contact Citizens Advice in England and Wales, Advice Direct Scotland in Scotland, or Consumerline in Northern Ireland. If the relationship with the provider is no longer workable after the dispute is closed, check your contract and use our <Link href="/guides/how-to-switch-broadband-uk">UK broadband switching guide</Link>. Compare services for the exact address through our <Link href="/compare">broadband comparison</Link> rather than cancelling first and risking avoidable downtime or exit charges.</p>
+
+        <h2>What to do today</h2>
+        <ol>
+          <li>Write down the problem, dates, evidence, financial effect and exact remedy.</li>
+          <li>Submit it through the provider&apos;s formal complaints route and save the reference.</li>
+          <li>Set a calendar reminder for six weeks from the original complaint date.</li>
+          <li>Request a deadlock letter sooner if the provider confirms it has no further offer.</li>
+          <li>Verify the provider&apos;s scheme, then submit one organised evidence file to CISAS or Communications Ombudsman.</li>
+        </ol>
+        <p>If the dispute concerns an exit fee or a rise in the contract price, read the <Link href="/guides/broadband-contract-end-rights">broadband contract end rights guide</Link> and our guide to <Link href="/guides/can-i-leave-broadband-early-after-price-rise">leaving after a broadband price rise</Link>. Those pages explain the contract questions to settle before asking the provider or ADR scheme for penalty-free cancellation.</p>
+      </>
+    ),
+    faqs: [
+      { question: 'How do I complain about my broadband provider?', answer: 'Report the problem, then use the provider’s published complaints code and state that you want a formal complaint logged. Include the account number, a dated timeline, bills or technical evidence, financial loss and the remedy requested. Save the complaint reference, emails, letters and chats. If it remains unresolved, that record supports a free application to the provider’s approved ADR scheme.' },
+      { question: 'How long must I wait before contacting the broadband ombudsman?', answer: 'For a broadband complaint first raised on or after 8 April 2026, you can normally use the provider’s ADR scheme after six weeks without resolution. You can apply earlier if the provider sends a deadlock or final-response letter. Complaints first raised before 8 April 2026 retain the previous eight-week threshold unless deadlock was reached sooner.' },
+      { question: 'What is a broadband complaint deadlock letter?', answer: 'A deadlock letter, also called a final response, is written confirmation that the broadband provider cannot agree a resolution or has no further proposal. It allows you to take the complaint to the provider’s approved ADR scheme before the normal waiting period ends. Keep the letter and apply within the scheme’s time limit, explaining why the final offer is inadequate.' },
+      { question: 'Should I use CISAS or Communications Ombudsman?', answer: 'Use the scheme named in your broadband provider’s complaints code. Ofcom currently lists Sky, Virgin Media, TalkTalk, Vodafone and NOW among CISAS members, while BT, EE and Plusnet are among Communications Ombudsman members. Check Ofcom’s current ADR page before applying because smaller providers, business divisions and scheme memberships can differ or change.' },
+      { question: 'Can the broadband ombudsman award compensation?', answer: 'An approved broadband ADR scheme can direct practical action, refunds, account credits, an apology or a financial award when the evidence supports it. Both CISAS and Communications Ombudsman publish a £10,000 maximum, but ordinary awards can be far lower and no outcome is guaranteed. Show direct losses separately from inconvenience and explain how every amount requested was calculated.' },
+      { question: 'Does Ofcom investigate my individual broadband complaint?', answer: 'Ofcom regulates UK communications providers, approves ADR schemes and records consumer reports, but it does not decide an individual dispute or order a refund for one customer. Continue through the provider’s formal process and then its approved ADR scheme. Reporting the issue to Ofcom can still help the regulator identify wider breaches, but it does not replace the complaint case.' },
+      { question: 'Can I stop paying my broadband bill while a complaint is open?', answer: 'Do not assume that a complaint suspends every payment. Pay charges that are not disputed and ask the provider in writing how it will treat the contested amount. Citizens Advice warns that late-payment consequences may follow if a bill dispute is unsuccessful, while CISAS says debt activity can continue during a case. Seek debt or legal advice if payment is unaffordable.' },
     ],
   },
 
@@ -1131,6 +1230,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
 
         <h2>What to do after checking your contract</h2>
         <p>Once you know whether the increase was disclosed and whether an exit fee applies, compare the cost of staying, renegotiating and switching. Ask your provider to confirm any fee in writing before you cancel, and keep copies of the pre-contract summary and price-rise notice.</p>
+        <p>If the provider rejects a supported request for penalty-free cancellation, make a formal complaint rather than cancelling the direct debit. The <Link href="/guides/broadband-complaints-and-ombudsman-uk">UK broadband ombudsman route</Link> explains how to request deadlock and take an unresolved dispute to the provider&apos;s approved ADR scheme.</p>
       </>
     ),
     faqs: [
@@ -1793,6 +1893,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
 
         <h2>A practical contract-end checklist</h2>
         <p>Record the current price, post-contract price, notice period and any equipment-return requirement. Then compare services available at your address, ask the existing provider for its best retention offer and choose on total cost rather than the introductory price alone.</p>
+        <p>Challenge an exit fee or incorrect final bill through the provider&apos;s formal process and keep the contract, bill and complaint reference. Our <Link href="/guides/broadband-complaints-and-ombudsman-uk">broadband complaints and ombudsman guide</Link> covers deadlock letters, the current ADR waiting period and the evidence needed for escalation.</p>
       </>
     ),
     faqs: [

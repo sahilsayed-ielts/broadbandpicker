@@ -78,6 +78,53 @@ export const guides: GuideMetadata[] = [
     ],
   },
   {
+    slug: 'broadband-complaints-and-ombudsman-uk',
+    title: 'Broadband Complaints and Ombudsman: Your UK Rights',
+    metaTitle: 'Broadband Complaints Ombudsman UK: Your Rights',
+    metaDescription: 'Make a UK broadband complaint, build the evidence and escalate it free to CISAS or Communications Ombudsman after six weeks or a deadlock letter.',
+    publishDate: '2026-08-23',
+    updatedDate: '2026-08-23',
+    excerpt: 'For a broadband complaints ombudsman case in the UK, complain formally to the provider first and keep a dated evidence file. If it remains unresolved for six weeks, or the provider sends a deadlock letter sooner, apply free to its Ofcom-approved scheme: CISAS or Communications Ombudsman. Ofcom regulates providers but does not decide individual disputes.',
+    readingTime: 11,
+    category: 'switching-and-rights',
+    keyTakeaways: [
+      'Tell the provider explicitly that you are making a formal complaint, ask for a reference and record the original complaint date.',
+      'For complaints first raised on or after 8 April 2026, unresolved cases can normally reach ADR after six weeks or sooner with a deadlock letter.',
+      'Use the provider’s own approved scheme. Ofcom currently approves CISAS and Communications Ombudsman, and provider membership decides the route.',
+      'Keep automatic compensation separate from any additional ADR remedy, and support every requested refund or award with dates and evidence.',
+    ],
+    sources: [
+      {
+        label: 'Ofcom: making a complaint and using ADR',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/service-quality/adr-schemes?language=en',
+      },
+      {
+        label: 'Ofcom: six-week ADR rule from 8 April 2026',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/service-quality/quicker-complaints-resolution-for-telecoms-customers-under-new-ofcom-rules',
+      },
+      {
+        label: 'Communications Ombudsman: dispute resolution process',
+        href: 'https://www.commsombudsman.org/our-process',
+      },
+      {
+        label: 'CISAS: help, evidence and adjudication process',
+        href: 'https://www.cedr.com/consumer/cisas/help-guides/',
+      },
+      {
+        label: 'CISAS scheme rules from April 2026',
+        href: 'https://www.cedr-assist.com/hubfs/CISAS/CISAS%20Scheme%20Rules%20-%20April%202026.pdf',
+      },
+      {
+        label: 'Citizens Advice: disputing an internet or TV bill',
+        href: 'https://www.citizensadvice.org.uk/consumer/phone-internet-downloads-or-tv/dispute-a-phone-internet-or-tv-bill/',
+      },
+      {
+        label: 'Ofcom: automatic broadband compensation',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/service-quality/automatic-compensation-need-know',
+      },
+    ],
+  },
+  {
     slug: 'best-broadband-deals-uk',
     title: 'Best Broadband Deals in the UK Right Now',
     metaTitle: 'Best Broadband Deals UK June 2026 | BroadbandPicker',

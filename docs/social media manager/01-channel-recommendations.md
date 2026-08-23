@@ -12,7 +12,7 @@ X already exists as @broadbandPicker on the site. That is the only live consumer
 
 ## Why these, given the business
 
-BroadbandPicker makes money when a human compares a deal and signs up (Free for consumers. Revenue from affiliate commissions when someone clicks through and signs up. Rankings are not sold. Providers can be listed with or without an affiliate relationship.).
+BroadbandPicker makes money when a human compares a deal and signs up. The site is free; providers pay affiliate commission. Rankings are not for sale.
 
 That needs:
 

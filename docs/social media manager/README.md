@@ -18,6 +18,13 @@ The script **reads this workspace** (about page, how-we-make-money, providers, g
 
 Also in this root: master strategy, channel recommendations, voice playbook, brand intelligence JSON.
 
+**Need to make an actual design?** Open `04-design-prompts.md` (or the "Design Prompts" tab
+in `social-content-planner.xlsx`) — one ready-to-paste ChatGPT/DALL-E prompt per static graphic
+each idea needs, grouped by platform and placement (Instagram feed 1080x1350, Instagram quote
+card 1080x1080, Reel/Story or TikTok cover 1080x1920, X image 1600x900). Copy the fenced block,
+paste it into an image generator, done — the size, on-screen text, brand colours, typography and
+logo rule are already baked in from that idea's design brief.
+
 ## What to open
 
 **Now:** X (already live as @broadbandPicker), Instagram, TikTok, LinkedIn, YouTube.
