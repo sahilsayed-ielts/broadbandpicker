@@ -173,6 +173,72 @@ consistent with every prior scan this session).
   deals category since no dedicated hub-page competitor sample exists to
   benchmark against directly.
 
+## Follow-up: mobile and cross-device navigation (2026-08-23, later same day)
+
+New script: `scripts/analyze_mobile_ux.py`. Fetches with a mobile Safari
+user agent and looks for markup/CSS signals that correlate with
+mobile-friendly patterns — this cannot render or measure an actual layout
+at any viewport width, so it's read as directional evidence, not visual
+confirmation. Targets: Uswitch (hub + BT review), broadband.co.uk deals,
+choose.co.uk broadband, MoneySavingExpert (blocked, 403 — reported, not
+bypassed). Output: `docs/home page UX/mobile-ux-scan.json`.
+
+| Signal | Result |
+|---|---|
+| Viewport meta tag | Universal (4/4 successful fetches) |
+| Hamburger menu marker | Universal (4/4) |
+| `tel:` click-to-call links | **None found (0/4)** — not a pattern this vertical uses |
+| Sticky bottom CTA bar | Weak (1/4, choose.co.uk only) |
+| `apple-touch-icon` | Mixed (2/4, Uswitch only) |
+
+**Read carefully**: the viewport-meta and hamburger-menu findings are
+universal but not new information — checked our own site directly and
+confirmed both were already correct (Next.js ships the viewport meta by
+default; a hamburger button already existed). The real, actionable gap
+wasn't found in the competitor sample — it was found by reading our own
+mobile nav directly: it was a small anchored dropdown of 10 flat text
+links with no grouping, no icons, and touch targets around 36px tall
+(under the ~44px Apple HIG / 48dp Material minimum), while the desktop
+nav right next to it was a fully structured mega-menu. That mismatch,
+not a competitor gap, is what this pass fixes.
+
+**Shipped**:
+- New `components/MobileNav.tsx` replacing the old flat dropdown in
+  `app/layout.tsx`. Full-width slide-down panel (not a small anchored
+  box) so it behaves the same on a narrow phone or a tablet in portrait,
+  reusing the same `ICONS`/quick-link data the desktop mega-menu already
+  uses (exported from `components/MainNav.tsx`) so the two stay
+  structurally consistent and don't drift.
+- Every link and section in the mobile panel uses `min-h-11` (44px) —
+  meets the touch-target minimum the flat dropdown didn't.
+- The postcode checker — the site's primary conversion tool — is now
+  reachable from the mobile menu on every page. Previously the header's
+  `PostcodeChecker` was `hidden lg:flex` (desktop-only); on mobile it
+  only existed on the homepage and `/deals`, so a phone user reading a
+  provider review or a guide had no quick way to check their postcode
+  without navigating back to the homepage first.
+- Added an anchor `id` to each guide category section on `/guides`
+  (`app/guides/page.tsx`) so the mobile Guides menu can jump straight to
+  a category instead of linking to a non-functional `?category=` query
+  param that the page never read.
+
+**Deliberately not done**:
+- No `tel:` click-to-call link — the 0/4 signal says this isn't how the
+  vertical works, and BroadbandPicker doesn't take orders by phone, so
+  adding one would be adding UI for a workflow that doesn't exist.
+- No sticky bottom mobile CTA bar — only 1/4 competitors show this
+  signal, too weak to treat as a confirmed pattern, and it would be
+  intrusive glued across long-form guide pages that make up a large share
+  of the site.
+- No `apple-touch-icon` — genuinely useful for iOS home-screen
+  bookmarking and a real 2/4 signal, but it needs a proper rasterised
+  icon asset, not something to improvise from primitive shapes; flagged
+  for a follow-up with a real design asset rather than shipped half-done.
+- Existing `overflow-x-auto` table wrapper (deal tables) and the compact
+  CTA sizing inside dense list/table rows were left as-is — no competitor
+  signal or direct inspection pointed at either as broken, and they're a
+  legitimate density tradeoff a nav-focused pass shouldn't rewrite.
+
 ## Deliberately not done
 
 - No stock photography was added or sourced — the evidence above says

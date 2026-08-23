@@ -67,7 +67,7 @@ export default function GuidesPage() {
           if (categoryGuides.length === 0) return null
 
           return (
-            <section key={category.slug}>
+            <section key={category.slug} id={category.slug} className="scroll-mt-24">
               <div className="mb-4">
                 <h2 className="text-xl font-bold text-slate-900">{category.label}</h2>
                 <p className="text-sm text-slate-500 mt-1">{category.description}</p>

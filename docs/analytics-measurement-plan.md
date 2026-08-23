@@ -10,6 +10,11 @@
 | `speed_test_failed` | The test fails | attribution and page context | Is reliability suppressing completion? |
 | `deal_filter_changed` | A deal filter changes or clears | `filter_name`, `filter_value` | Which constraints matter to shoppers? |
 | `deal_sort_changed` | Deal ordering changes | `sort_order`, `visible_deals` | How do visitors evaluate the table? |
+| `compare_shortlist_added` | A provider is added to the compare shortlist | `provider_slug`, `shortlist_size` | Which providers reach a shopper's final consideration set? |
+| `compare_shortlist_removed` | A provider is removed from the shortlist | `provider_slug`, `shortlist_size` | Which providers are rejected during comparison? |
+| `compare_shortlist_cleared` | The shortlist is cleared | attribution and page context | How often do shoppers restart their decision? |
+| `compare_shortlist_limit_reached` | A visitor tries to select more than three providers | `shortlist_size` | Is the three-provider comparison limit causing friction? |
+| `compare_basket_viewed` | A visitor opens their side-by-side finalists | `shortlist_size`, `provider_slugs` | Which consideration sets reach active comparison? |
 | `outbound_provider_click` | An affiliate CTA is clicked | `provider_slug`, `source_page`, `postcode_area`, `outbound_host`, `link_label` | Which journeys create qualified provider visits? |
 
 Every event also carries a session-scoped `journey_id`, first `landing_page`, `referrer_host`,
@@ -18,15 +23,17 @@ to GA4. Only the outward postcode area is used.
 
 ## GA4 setup
 
-1. Register `postcode_area`, `component_size`, `destination_path`, `speed_band`, `filter_name`,
-   `filter_value`, `sort_order`, `provider_slug`, `source_page`, `outbound_host`, `link_label`,
-   `journey_id`, `landing_page`, `referrer_host`, `utm_source`, `utm_medium` and `utm_campaign`
-   as event-scoped custom dimensions where they are needed in reports.
+1. Register only low-cardinality custom parameters needed in reports, such as `postcode_area`,
+   `component_size`, `speed_band`, `filter_name`, `filter_value`, `sort_order`, `provider_slug`,
+   `shortlist_size`, `outbound_host` and `link_label`, as event-scoped custom dimensions. Use
+   GA4's built-in page, landing-page, referrer and campaign dimensions instead of duplicating them.
+   Do not register `journey_id` or the comma-separated `provider_slugs` value as custom dimensions
+   because their high cardinality can degrade reporting.
 2. Register `ping_ms`, `download_mbps`, `upload_mbps` and `visible_deals` as custom metrics.
 3. Mark `outbound_provider_click` as a key event. Keep `postcode_submit` and
    `speed_test_completed` as secondary journey events unless business reporting requires otherwise.
 4. Build a funnel exploration: landing/session start → postcode submit or speed-test completion →
-   filter/sort engagement → outbound provider click.
+   filter/sort or shortlist engagement → side-by-side comparison → outbound provider click.
 
 ## Weekly reporting loop
 

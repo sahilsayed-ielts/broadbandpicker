@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { guides, guideCategories } from '@/data/guides'
 
-const ICONS = {
+export const ICONS = {
   providers: (
     <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8} aria-hidden="true">
       <path strokeLinecap="round" strokeLinejoin="round" d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1m4 0h1m-6 4h1m4 0h1m-6 4h1m4 0h1" />
@@ -26,14 +26,14 @@ const ICONS = {
   ),
 }
 
-const PROVIDER_QUICK_LINKS = [
+export const PROVIDER_QUICK_LINKS = [
   { slug: 'bt', name: 'BT' },
   { slug: 'sky', name: 'Sky' },
   { slug: 'virgin-media', name: 'Virgin Media' },
   { slug: 'ee', name: 'EE' },
 ]
 
-const POSTCODE_QUICK_LINKS = [
+export const POSTCODE_QUICK_LINKS = [
   { href: '/postcode/london', label: 'London' },
   { href: '/postcode/manchester', label: 'Manchester' },
   { href: '/postcode/birmingham', label: 'Birmingham' },
@@ -41,7 +41,7 @@ const POSTCODE_QUICK_LINKS = [
   { href: '/postcode/leeds', label: 'Leeds' },
 ]
 
-const TOOL_LINKS = [
+export const TOOL_LINKS = [
   { href: '/tools/broadband-match', label: 'Broadband Match', desc: 'Get a personalised, ranked recommendation' },
   { href: '/speed-test', label: 'Speed Test', desc: 'Check your current connection speed' },
   { href: '/tools/broadband-cost-calculator', label: 'Cost Calculator', desc: 'True monthly cost, not just the headline price' },

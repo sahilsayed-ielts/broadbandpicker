@@ -243,6 +243,14 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "target": "app/compare",
         "dependencies": "None",
         "source": "Growth playbook — UX pillar",
+        "verified_status": "Done",
+        "completion_notes": (
+            "Shipped to Vercel production 2026-08-23: visitors can shortlist two or three "
+            "providers on /compare, retain the shortlist in local storage, compare price, "
+            "maximum speed, contract, setup fee, coverage and customer rating in responsive "
+            "finalist cards, then continue to a provider review or tracked deal link. Includes "
+            "accessible controls, a three-provider limit and GA4 shortlist/basket events."
+        ),
     },
     {
         "item_id": "feat-review-aggregation-module",
@@ -531,6 +539,36 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
             "app/providers/[slug]/page.tsx, app/guides/[slug]/page.tsx, "
             "app/postcode/[area]/page.tsx"
         ),
+        "dependencies": "None",
+        "source": "User request 2026-08-23 — researched before implementing per the Strategic Lens process",
+    },
+    {
+        "item_id": "feat-mobile-cross-device-navigation",
+        "type": "Feature",
+        "pillar": "UX",
+        "title": "Mobile and cross-device navigation overhaul",
+        "description": (
+            "New scripts/analyze_mobile_ux.py scanned Uswitch, broadband.co.uk and "
+            "choose.co.uk (MoneySavingExpert 403, reported not bypassed) with a mobile "
+            "Safari user agent for markup/CSS signals: viewport meta and hamburger menu "
+            "markers were universal but already correct on our own site; tel: click-to-call "
+            "was absent everywhere (0/4, skipped); sticky bottom CTA (1/4) and "
+            "apple-touch-icon (2/4) were too weak/incomplete to act on. The real gap was "
+            "found by direct inspection, not the scan: the mobile nav was a small anchored "
+            "dropdown of 10 flat links with ~36px touch targets, while the desktop nav beside "
+            "it was a full mega-menu, and the header postcode checker was desktop-only so "
+            "phone users had no quick postcode access outside the homepage/deals page. "
+            "Replaced it with new components/MobileNav.tsx: a full-width slide-down panel "
+            "reusing the desktop mega-menu's own icon/link data (exported from MainNav.tsx, "
+            "so the two can't drift apart), every link at a 44px (min-h-11) touch target, "
+            "and the postcode checker embedded at the top so it's reachable from any page. "
+            "Added anchor ids to /guides category sections so the new mobile Guides menu "
+            "jumps to a real target instead of an unread query param."
+        ),
+        "priority_score": 51,
+        "impact_score": 56,
+        "effort": "Medium",
+        "target": "components/MobileNav.tsx, components/MainNav.tsx, app/layout.tsx, app/guides/page.tsx",
         "dependencies": "None",
         "source": "User request 2026-08-23 — researched before implementing per the Strategic Lens process",
     },
