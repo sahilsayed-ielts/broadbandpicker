@@ -1,37 +1,41 @@
-Implemented the Brsk provider page as a current legacy/migration review.
+Built `/guides/black-friday-broadband-deals-uk` without committing, pushing, or deploying.
 
 Key findings:
 
-- Brsk became YouFibre on 16 March 2026, so no standalone Brsk deals remain.
-- Ranking pages generally contain 1,700–2,400 words, covering packages, speeds, coverage, equipment, contracts, support, verdicts and FAQs.
-- The rendered page contains 1,934 visible words against the 1,500-word research target.
-- No AI Overview appeared in the checked UK search surface.
-- Historical Brsk prices are clearly labelled and excluded from Offer schema.
-- Conflicting Trustpilot snapshots of 4.8 and 4.6 are reported separately, not averaged.
-- Coverage is labelled “Regional” rather than presenting the combined Netomnia footprint as a precise Brsk percentage.
+- Ranking pages generally contain 800–1,500 editorial words plus postcode-led comparison tools, timing guidance, effective monthly cost checks, provider coverage and FAQs.
+- The page exceeds the selected 1,400-word minimum.
+- No AI Overview appeared in the UK SERP check on 23 August 2026.
+- Confirmed 2026 offers are not yet widely published, so the page clearly labels historic examples and avoids inventing a winner or current discount.
+- Black Friday 2026 is 27 November; Cyber Monday is 30 November.
 
-Primary sources included the [official Brsk redirect](https://www.brsk.co.uk/) and Brsk price book. Independent and regulatory corroboration included [Uswitch](https://www.uswitch.com/broadband/reviews/brsk/), [Choose](https://www.choose.co.uk/broadband/brsk/), [BroadbandSwitch](https://broadbandswitch.uk/provider/brsk/) and [Ofcom](https://www.ofcom.org.uk/phones-and-broadband/service-quality/automatic-compensation-need-know).
+Implemented:
+
+- Answer-first verdict and freshness notice
+- Sale timing and whole-contract-cost tables
+- Provider, broadband-and-TV and existing-customer guidance
+- Six 35–90 word standalone FAQs
+- Article and FAQ schema through the existing template
+- Visible citations and relevant internal links
+- Three contextual inbound links from related guides
+- Sitemap inclusion through the existing data-driven guide sitemap
+
+Sources include [Ofcom’s price-rise guidance](https://www.ofcom.org.uk/phones-and-broadband/saving-money/telecoms-price-rises-what-are-your-rights), [Ofcom’s 2026 pricing report](https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/multi-sector/pricing/2025/pricing-and-consumer-engagement-report.pdf?v=412887), [BT](https://www.bt.com/black-friday), [EE](https://ee.co.uk/broadband/black-friday), [MoneySavingExpert](https://www.moneysavingexpert.com/compare-broadband-deals/black-friday-broadband-deals/) and [Broadband Genie](https://www.broadband.co.uk/broadband/black-friday).
+
+Changed files:
+
+- [app/guides/[slug]/page.tsx](/Users/sahilrafiqsayed/broadbandpicker/app/guides/[slug]/page.tsx)
+- [data/guides.ts](/Users/sahilrafiqsayed/broadbandpicker/data/guides.ts)
+- [current-page-research.json](/Users/sahilrafiqsayed/broadbandpicker/docs/page-build-pipeline/current-page-research.json)
+- [broadbandpicker-keyword-mapping.xlsx](/Users/sahilrafiqsayed/broadbandpicker/docs/broadbandpicker-keyword-mapping.xlsx)
 
 Validation:
 
-- `npm run build -- --webpack`: passed
-- TypeScript: passed
-- Static generation: 161/161 pages
-- `/providers/brsk`: HTTP 200
-- Rendered title: `Brsk Broadband Review 2026 | Now YouFibre | BroadbandPicker`
-- JSON-LD: Article, FAQPage and BreadcrumbList
-- Logo: HTTP 200, `image/svg+xml`
-- No visible em dashes, `undefined` or `NaN`
+- `npx tsc --noEmit`: passed
+- Research validator: passed
+- `npm run build`: Turbopack hit the known managed-runner port restriction
+- Automatic `next build --webpack` fallback: passed, 168 static pages generated
+- Full page pipeline validation: passed
+- Local route: HTTP 200
 - `git diff --check`: passed
 
-Files associated with the completed page:
-
-- [data/providers.ts](/Users/sahilrafiqsayed/broadbandpicker/data/providers.ts)
-- [page.tsx](/Users/sahilrafiqsayed/broadbandpicker/app/providers/[slug]/page.tsx)
-- [index.ts](/Users/sahilrafiqsayed/broadbandpicker/types/index.ts)
-- [brsk.svg](/Users/sahilrafiqsayed/broadbandpicker/public/logos/brsk.svg)
-- [current-page-research.json](/Users/sahilrafiqsayed/broadbandpicker/docs/page-build-pipeline/current-page-research.json)
-
-The SVG is explicitly a text-wordmark placeholder because no official reusable Brsk logo was verified.
-
-Important workspace note: a concurrently running pipeline process committed and pushed commit `b506ced` and advanced the workbook/next-page packet while I was working. I did not initiate that commit, push or deployment. Current uncommitted changes include the final retired-provider metadata/schema corrections and research-source additions, alongside externally modified workbook/packet files and a pre-existing untracked `.github/` directory.
+The workbook remains “Planned — live check unavailable” because the page was intentionally not deployed. The unrelated untracked `.github/` directory was left untouched.

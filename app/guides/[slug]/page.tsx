@@ -59,6 +59,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
           <li><strong>Contract length</strong> — 12 months gives more flexibility, 18–24 months usually means a lower monthly price</li>
           <li><strong>Setup fees</strong> — many providers now offer free installation</li>
         </ul>
+        <p>If your contract ends in November, use our <Link href="/guides/black-friday-broadband-deals-uk">Black Friday broadband deals guide</Link> to compare seasonal rewards with the full minimum-term cost.</p>
         <h2>Step 3: Sign up with your new provider</h2>
         <p>Once you&apos;ve chosen a deal, sign up directly with the new provider. Under One Touch Switching, they will contact your current provider to initiate the switch on your behalf. You won&apos;t normally need to call your old provider at all.</p>
         <h2>Step 4: Keep your old connection live until switch day</h2>
@@ -81,6 +82,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
     body: (
       <>
         <p>Finding the best broadband deal in the UK means looking beyond the headline monthly price. You need to consider speed, contract length, setup fees, and what the price rises to after the introductory period.</p>
+        <p>Shopping later in the year? Our <Link href="/guides/black-friday-broadband-deals-uk">UK Black Friday broadband guide</Link> explains how to test seasonal discounts, bill credits and vouchers against an ordinary live offer.</p>
         <h2>What makes a broadband deal &ldquo;best&rdquo;?</h2>
         <p>The best deal for you depends on your household. A family of four streaming in 4K and gaming needs very different broadband than a single person checking email. Key factors to weigh:</p>
         <ul>
@@ -119,6 +121,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         <h2>Why this matters more now</h2>
         <p>For years, broadband customers were caught by inflation-linked increases that made the true cost of a deal hard to predict. Ofcom&apos;s newer rules improved transparency by requiring fixed pounds-and-pence price-rise wording on newer contracts, but that still does not mean every provider is equally good on price certainty.</p>
         <p>If your goal is predictability, the best broadband deal is not always the cheapest headline deal. It is the cheapest <em>stable</em> deal over the term you are likely to keep.</p>
+        <p>The same check applies during seasonal sales. Read our <Link href="/guides/black-friday-broadband-deals-uk">Black Friday broadband deal checklist</Link> before treating a reward or free-month promotion as a saving.</p>
 
         <h2>What to look for in a no-price-rise deal</h2>
         <ul>
@@ -3497,6 +3500,235 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
       {
         question: 'What should I do if a broadband application is declined?',
         answer: 'Ask whether the provider ran a hard search and which credit reference agency it used, then check your statutory reports for genuine errors. Avoid making several applications in quick succession. Ask about a deposit, social tariff or broadband-only alternative, verify a no-check provider directly, or use prepaid mobile data temporarily while you resolve the problem.',
+      },
+    ],
+  },
+
+  'black-friday-broadband-deals-uk': {
+    body: (
+      <>
+        <p className="text-lg">
+          <strong>Our verdict:</strong> the best Black Friday broadband deals are the ones that
+          reduce your total contract cost for a suitable speed at your address. Black Friday 2026
+          falls on 27 November, with Cyber Monday on 30 November. Confirmed 2026 offers are not yet
+          widely available as of 23 August, so compare live prices now and check again from early
+          November rather than waiting with an expired contract.
+        </p>
+
+        <div className="rounded-xl border border-amber-200 bg-amber-50 p-5">
+          <p className="mb-0 text-sm">
+            <strong>Current offer status:</strong> this guide was reviewed on 23 August 2026. EE
+            says its full 2026 Black Friday details will appear closer to the event, while BT&apos;s
+            indexed campaign page still names 2025. We therefore do not present last year&apos;s prices
+            or rewards as current deals. Use our <Link href="/compare">postcode comparison</Link>
+            {' '}for offers available at your address today.
+          </p>
+        </div>
+
+        <h2>Black Friday broadband dates and when to compare</h2>
+        <p>
+          Black Friday is Friday 27 November 2026 and Cyber Monday is Monday 30 November 2026.
+          Broadband campaigns often start before the Friday itself. BT says Black Friday sales can
+          extend for up to two weeks, while current comparison pages advise checking from early or
+          mid-November. These are useful planning signals, not a promise that every provider will
+          use the same dates.
+        </p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm border-collapse">
+            <caption className="pb-3 text-left text-sm text-slate-600">
+              A practical checking schedule for the 2026 sale period.
+            </caption>
+            <thead>
+              <tr className="bg-slate-50">
+                {['Period', 'What to do', 'Why'].map((heading) => (
+                  <th scope="col" key={heading} className="text-left px-4 py-3 border border-slate-200 font-semibold text-slate-700">{heading}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                ['Now to 31 October', 'Record your contract end date, current price and required speed', 'This gives you a real baseline and exposes any early exit charge'],
+                ['Early to mid-November', 'Check your address and save the strongest suitable offer', 'Providers may launch campaigns before Black Friday'],
+                ['27 to 30 November', 'Recheck price, reward, setup fee and terms before ordering', 'Some promotions change across Black Friday weekend'],
+                ['After Cyber Monday', 'Compare remaining live deals with your saved baseline', 'An ordinary December offer can still cost less overall'],
+              ].map(([period, action, reason]) => (
+                <tr key={period} className="border-b border-slate-100">
+                  <td className="px-4 py-3 font-semibold text-slate-900">{period}</td>
+                  <td className="px-4 py-3 text-slate-700">{action}</td>
+                  <td className="px-4 py-3 text-slate-600">{reason}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <h2>What Black Friday broadband offers usually include</h2>
+        <p>
+          UK broadband promotions commonly use monthly discounts, free months, bill credits,
+          reward cards, waived setup fees or extras such as streaming subscriptions. Broadband
+          Genie&apos;s current explainer groups offers in much the same way. The format does not tell
+          you the value: a £100 voucher can lose to a smaller monthly price cut over a 24-month
+          contract, and a bundled extra is worth nothing if you would not otherwise buy it.
+        </p>
+        <ul>
+          <li><strong>Reduced monthly price:</strong> check how long it lasts and the later monthly charge.</li>
+          <li><strong>Free months or bill credit:</strong> confirm when the credit is applied and whether you must claim it.</li>
+          <li><strong>Reward card or voucher:</strong> read the redemption deadline and eligible retailers.</li>
+          <li><strong>No setup fee:</strong> include activation, delivery and installation charges, not just the field called setup.</li>
+          <li><strong>Broadband and TV bundle:</strong> price the channels you will use and the separate post-promotion terms.</li>
+        </ul>
+
+        <h2>Are Black Friday broadband deals worth it?</h2>
+        <p>
+          They can be, but the sale label is not evidence of a saving. MoneySavingExpert notes that
+          providers run offers throughout the year and assesses Black Friday deals individually.
+          Ofcom&apos;s 2026 pricing report provides the broader reason to compare: in September 2025,
+          promoted prices were below list prices by an average £6.84 a month for superfast dual-play
+          bundles and £7.94 for ultrafast dual-play bundles. Those are market averages from a defined
+          dataset, not a forecast of your Black Friday saving.
+        </p>
+
+        <h3>Calculate the effective monthly cost</h3>
+        <p>
+          Add every monthly payment expected during the minimum term, including stated annual
+          rises, then add setup costs and subtract guaranteed bill credits or rewards. Divide the
+          result by the contract length. Our <Link href="/tools/broadband-cost-calculator">broadband
+          cost calculator</Link> can help compare changing monthly prices.
+        </p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm border-collapse">
+            <caption className="pb-3 text-left text-sm text-slate-600">
+              Hypothetical 24-month examples showing why the headline offer can mislead. These are
+              calculations, not live packages.
+            </caption>
+            <thead>
+              <tr className="bg-slate-50">
+                {['Example', 'Contract calculation', 'Effective monthly cost'].map((heading) => (
+                  <th scope="col" key={heading} className="text-left px-4 py-3 border border-slate-200 font-semibold text-slate-700">{heading}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border-b border-slate-100">
+                <td className="px-4 py-3 font-semibold text-slate-900">£28 monthly plus £100 reward</td>
+                <td className="px-4 py-3 text-slate-700">(£28 × 24 − £100) ÷ 24</td>
+                <td className="px-4 py-3 text-slate-700">£23.83 before any stated rise</td>
+              </tr>
+              <tr className="border-b border-slate-100">
+                <td className="px-4 py-3 font-semibold text-slate-900">£24 monthly plus £20 setup</td>
+                <td className="px-4 py-3 text-slate-700">(£24 × 24 + £20) ÷ 24</td>
+                <td className="px-4 py-3 text-slate-700">£24.83 before any stated rise</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Since 17 January 2025, Ofcom requires specified price rises in new consumer contracts to
+          be shown upfront in pounds and pence, with their timing. Put each stated increase into the
+          calculation. Also compare the price after the minimum term, although that later amount is
+          separate from the minimum-term calculation.
+        </p>
+
+        <h2>Which providers should you check?</h2>
+        <p>
+          Start with every suitable network at your address, not a preset national winner. The
+          ranking pages consistently watch major providers such as BT, Sky, Virgin Media and
+          Vodafone, while local full-fibre networks may also discount service. Read our
+          {' '}<Link href="/providers/bt">BT</Link>, <Link href="/providers/sky">Sky</Link>,
+          {' '}<Link href="/providers/virgin-media">Virgin Media</Link> and
+          {' '}<Link href="/providers/vodafone">Vodafone</Link> reviews, then verify the exact
+          package on the provider&apos;s order page.
+        </p>
+        <p>
+          A provider cannot be the best Black Friday broadband choice if it does not serve your
+          property or cannot deliver the speed you need. Use an address-level checker because a
+          postcode can contain homes connected to different networks or technologies. Compare the
+          guaranteed or estimated speed supplied for your line, not only the national advertised
+          average.
+        </p>
+
+        <h3>Black Friday broadband and TV deals</h3>
+        <p>
+          TV bundles can carry larger-looking discounts because the normal package costs more. List
+          the channels and services you would pay for separately, then compare that value with the
+          bundle&apos;s full contract cost. A broadband-only offer plus separate streaming may be
+          cheaper for light viewers, while a genuine bundle can suit homes already paying for live
+          sport, cinema or premium channels.
+        </p>
+
+        <h2>What to check before ordering</h2>
+        <ol>
+          <li><strong>Eligibility:</strong> confirm the offer and network are available at your full address.</li>
+          <li><strong>Speed:</strong> choose enough capacity for your household rather than buying the highest tier because it is discounted.</li>
+          <li><strong>Minimum term:</strong> make sure 18 or 24 months fits any planned move.</li>
+          <li><strong>Total price:</strong> include every stated rise, setup cost and required add-on.</li>
+          <li><strong>Reward terms:</strong> check claim dates, delivery method and exclusions.</li>
+          <li><strong>Switch date:</strong> avoid overlapping bills while keeping service live until the change completes.</li>
+        </ol>
+        <p>
+          Keep a screenshot or PDF of the order summary and terms. It gives you a record of the
+          advertised monthly prices, increase dates, minimum speed, reward and setup charge if a
+          later bill or claim does not match what you accepted.
+        </p>
+
+        <h2>Black Friday deals for existing broadband customers</h2>
+        <p>
+          Most prominent sale offers target new customers, but existing customers can still ask for
+          a renewal, upgrade or retention price. Check the public new-customer offer and competing
+          address-level deals before contacting your provider. Ask for the full minimum-term cost in
+          writing, not just a monthly discount, and compare it with the cost and practical effort of
+          switching.
+        </p>
+        <p>
+          Do not start a new minimum term solely to obtain a voucher or faster tier you do not need.
+          If your current contract has ended, Ofcom advises shopping around because providers often
+          increase the main monthly price after the minimum term. If it has not ended, obtain the
+          exact early termination charge before deciding. Follow our
+          {' '}<Link href="/guides/how-to-switch-broadband-uk">UK broadband switching guide</Link>.
+        </p>
+
+        <h2>Should you wait until Black Friday?</h2>
+        <p>
+          Wait and recheck in November if your contract ends near the sale and your current service
+          remains competitively priced. Do not pay an inflated out-of-contract price for several
+          months in the hope of an unknown saving. Compare the best suitable deal available now
+          with the maximum plausible benefit of waiting, and include the extra bills you would pay
+          in the meantime.
+        </p>
+        <p>
+          We would start with total contract cost and address availability, then use Black Friday
+          as a final price check. A clearly cheaper ordinary offer that meets your speed and contract
+          needs beats a heavily advertised seasonal package with a costly annual rise or unwanted
+          bundle. See the broader <Link href="/guides/best-broadband-deals-uk">best broadband deals
+          guide</Link> and our guide to <Link href="/guides/broadband-deals-with-no-mid-contract-price-rise">deals
+          without a mid-contract price rise</Link> before ordering.
+        </p>
+      </>
+    ),
+    faqs: [
+      {
+        question: 'When do Black Friday broadband deals start in the UK?',
+        answer: 'Black Friday is 27 November 2026 and Cyber Monday is 30 November. UK broadband providers often begin campaigns in early or mid-November, with some offers changing through the weekend. Exact launch and end dates vary by provider. Start recording live prices from early November, then recheck the full contract cost immediately before ordering.',
+      },
+      {
+        question: 'Are Black Friday broadband deals actually cheaper?',
+        answer: 'Some Black Friday broadband deals are cheaper, but a sale label does not prove value. Compare every monthly payment during the minimum term, stated annual rises, setup fees and required extras, then subtract guaranteed credits or rewards. Divide by the contract months. An ordinary offer can win if its effective monthly cost is lower for the speed available at your address.',
+      },
+      {
+        question: 'Which provider has the best Black Friday broadband deals?',
+        answer: 'There is no supported universal winner before address-specific 2026 offers are live. Check major providers including BT, Sky, Virgin Media and Vodafone, plus full-fibre networks serving your property. The best choice is the eligible package with suitable speed and the lowest whole-contract cost after price rises, setup charges and usable rewards are included.',
+      },
+      {
+        question: 'Can existing customers get Black Friday broadband deals?',
+        answer: 'Existing customers may be offered renewal, upgrade or retention discounts, although the most visible Black Friday promotions commonly target new customers. Compare public new-customer and rival offers first, then ask your provider for its full renewal cost in writing. Check the new minimum term, annual rises and any lost benefits before accepting.',
+      },
+      {
+        question: 'Should I wait for Black Friday to switch broadband?',
+        answer: 'Waiting can make sense if your minimum term ends close to 27 November 2026 and your current monthly price is still reasonable. Switch sooner if you are already paying a costly out-of-contract rate and a suitable live deal saves more than waiting might. If you are in contract, obtain the exact early termination charge before comparing either route.',
+      },
+      {
+        question: 'Are Black Friday broadband and TV deals good value?',
+        answer: 'A Black Friday broadband and TV bundle is good value only if you would pay for its channels or services separately. Compare the bundle’s full minimum-term cost, stated rises and setup charges with broadband-only service plus your chosen streaming subscriptions. Large headline discounts can reflect a high normal bundle price rather than a lower cost for your household.',
       },
     ],
   },

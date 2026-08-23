@@ -950,6 +950,31 @@ export const guides: GuideMetadata[] = [
       },
     ],
   },
+  {
+    slug: 'black-friday-broadband-deals-uk',
+    title: 'Black Friday Broadband Deals UK 2026: What to Expect and How to Compare',
+    metaTitle: 'Black Friday Broadband Deals UK 2026 | Buying Guide',
+    metaDescription: 'Compare Black Friday broadband deals in the UK for 2026. Check sale dates, offer types, whole-contract cost, price rises and when to switch.',
+    publishDate: '2026-08-23',
+    updatedDate: '2026-08-23',
+    excerpt: 'Black Friday broadband deals can cut the total cost of a suitable UK package, but confirmed 2026 offers are not yet widely available as of 23 August. Black Friday falls on 27 November and Cyber Monday on 30 November. Compare address availability, every contract payment, stated price rises, setup fees and usable rewards rather than choosing the largest headline discount.',
+    readingTime: 11,
+    category: 'deals-and-pricing',
+    keyTakeaways: [
+      'Black Friday is 27 November 2026 and Cyber Monday is 30 November; provider campaigns may begin earlier in November.',
+      'Confirmed 2026 offers are not yet widely published, so expired 2025 prices should not be treated as current deals.',
+      'Compare effective monthly cost across the minimum term, including stated rises and setup fees and subtracting usable rewards.',
+      'Do not wait on an expensive out-of-contract tariff solely for an unknown seasonal discount.',
+    ],
+    sources: [
+      { label: 'Ofcom telecoms price-rise rights and pounds-and-pence rules, verified 23 August 2026', href: 'https://www.ofcom.org.uk/phones-and-broadband/saving-money/telecoms-price-rises-what-are-your-rights' },
+      { label: 'Ofcom Pricing and Consumer Engagement Report 2026, promoted and list-price evidence, verified 23 August 2026', href: 'https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/multi-sector/pricing/2025/pricing-and-consumer-engagement-report.pdf?v=412887' },
+      { label: 'BT Black Friday campaign timing and historic participation, verified 23 August 2026', href: 'https://www.bt.com/black-friday' },
+      { label: 'EE 2026 Black Friday status and labelled 2025 examples, verified 23 August 2026', href: 'https://ee.co.uk/broadband/black-friday' },
+      { label: 'MoneySavingExpert independent Black Friday broadband comparison, verified 23 August 2026', href: 'https://www.moneysavingexpert.com/compare-broadband-deals/black-friday-broadband-deals/' },
+      { label: 'Broadband Genie offer types, timing and effective-cost guidance, verified 23 August 2026', href: 'https://www.broadband.co.uk/broadband/black-friday' },
+    ],
+  },
 ]
 
 export function getGuideBySlug(slug: string): GuideMetadata | undefined {
