@@ -527,29 +527,146 @@ const baseProviders: Provider[] = [
     speeds: [
       { download: 150, upload: 150, type: 'FTTP' },
       { download: 500, upload: 500, type: 'FTTP' },
-      { download: 920, upload: 920, type: 'FTTP' },
+      { download: 1000, upload: 1000, type: 'FTTP' },
+      { download: 3000, upload: 3000, type: 'FTTP' },
     ],
-    monthlyPriceFrom: 21.99,
+    monthlyPriceFrom: 12.50,
     contractLengths: [12, 24],
     setupFee: 0,
-    trustpilotScore: 4.6,
+    trustpilotScore: 4.7,
     coveragePercent: 6,
     highlights: [
-      'Highest-rated ISP on Trustpilot in the UK',
-      'Full-fibre throughout — pure FTTP network',
-      'London-focused with aggressive expansion',
+      'One of the highest Trustpilot scores of any UK ISP, around 4.7 out of 5 from roughly 91,000 reviews',
+      'A fixed £2 a month annual price rise cap, disclosed in pounds and pence rather than tied to inflation',
+      'Coverage has expanded from London-only into parts of Surrey and Sussex',
     ],
     pros: [
-      'Best customer satisfaction scores in the UK',
-      'Very fast and symmetrical speeds',
-      'No setup fee',
+      'Consistently among the best-reviewed ISPs in the UK on both Trustpilot and Ofcom satisfaction data',
+      'Symmetrical full-fibre speeds at every tier, from 150 Mbps up to 3,000 Mbps',
+      'A capped, disclosed annual price rise rather than an open-ended CPI-linked increase',
+      'No setup fee across the range',
     ],
     cons: [
-      'London-only coverage currently',
-      'Limited package options vs large ISPs',
+      'Coverage remains concentrated in London, despite recent expansion into Surrey and Sussex',
+      'The cheapest 12-month Essential tier is exempt from the price cap policy, so its terms need checking separately',
+      'Router range can struggle in larger flats or houses, per recurring review feedback',
     ],
-    ...createReviewMetadata('Community Fibre', 'https://www.communityfibre.co.uk/', 'communityfibre.co.uk'),
-    awinProgramId: null,
+    excerpt:
+      'Community Fibre is a London-based full-fibre altnet with one of the strongest customer-satisfaction records of any UK broadband provider: around 4.7 out of 5 on Trustpilot from roughly 91,000 reviews, and 92% customer satisfaction in Ofcom\'s 2025 data, 8 points above the industry average. Symmetrical plans range from 150 Mbps to 3,000 Mbps, from £12.50 a month, with a capped £2 a month annual price rise rather than an open-ended increase. Coverage remains London-focused, with recent expansion into parts of Surrey and Sussex.',
+    contentSections: [
+      {
+        heading: 'Community Fibre Broadband Deals in August 2026',
+        paragraphs: [
+          'Community Fibre\'s range runs from Essential 35, a 12-month, 35 Mbps symmetrical plan from around £12.50 a month, up to a Hyperfast 3 Gig tier at roughly £55 a month. Mid-range options include a 150 Mbps plan around £20 and a 500 Mbps plan around £25, both on 24-month contracts. Exact current prices vary by promotion and postcode, so treat these as a guide and confirm the live figure at checkout for your address.',
+          'The 24-month tiers carry a fixed £2 a month price rise each April, disclosed as a cash amount rather than tied to inflation, which independent trackers describe as the lowest scheduled rise of any major UK provider. The Essential 35 tier is reported as exempt from this rise entirely, so check which policy applies to the specific plan being compared.',
+          'Out-of-contract pricing is also capped, at up to £4 above the introductory rate rather than the much larger jumps, sometimes £15 or more, seen once a promotional period ends with some rivals. Anyone on a means-tested social tariff is reported to be exempt from both the annual rise and the out-of-contract increase.',
+        ],
+      },
+      {
+        heading: 'Community Fibre Coverage: London and Beyond',
+        paragraphs: [
+          'Community Fibre built its full-fibre network in London first, and the capital remains the core of its coverage today. More recently, the network has expanded into parts of Surrey and Sussex, moving the brand beyond a purely London-only proposition, though coverage in these newer areas is still far from complete.',
+          'Because Community Fibre operates its own network rather than reselling Openreach, availability is genuinely street-by-street. A postcode inside Greater London does not guarantee a specific building is connected, particularly in larger blocks where wiring the whole building is a bigger undertaking than a single house.',
+          'Anyone outside London, Surrey or Sussex should not expect Community Fibre to be available at all; this is a regional, not national, network, and its own postcode checker is the only reliable way to confirm a specific address.',
+        ],
+      },
+      {
+        heading: 'Community Fibre Speeds and Symmetrical Full Fibre',
+        paragraphs: [
+          'Every Community Fibre tier is symmetrical, meaning upload matches download, from 150 Mbps up to 3,000 Mbps. That is a genuine advantage for anyone who regularly uploads large files, video calls for work, or backs up photos and video to the cloud, where a typical part-fibre connection would only offer a fraction of the download speed on the upload side.',
+          'The entry-level 150 Mbps tier already comfortably covers a household streaming, browsing and video-calling on several devices at once. The top 3,000 Mbps tier is a specialist choice; very few home setups can actually use speeds above roughly 1,000 Mbps on a single device, so it mainly suits a household running several demanding activities simultaneously or a small business.',
+          'As with any fibre line, the quoted speed is what reaches the router. Community Fibre supplies a free Linksys router on 100 Mbps and above tiers, with WiFi 5 hardware on the entry Essential tier, so a larger property may still need a mesh add-on to get full speed to every room.',
+        ],
+      },
+      {
+        heading: 'Price Rises and Contract Terms',
+        paragraphs: [
+          'Community Fibre\'s headline differentiator is its price rise policy: a fixed £2 a month increase each April on 24-month contracts, disclosed upfront as a cash figure rather than a CPI-plus-percentage formula that can vary year to year and is harder to predict at the point of signing up.',
+          'This matters more than it might first appear. A CPI-linked rise of 6 to 8% on a £30 plan could add £1.80 to £2.40 in a single year and compound the year after; Community Fibre\'s flat £2 cap is easier to budget for and, in most recent years, has worked out cheaper than a percentage-based rise on a comparable plan.',
+          'The 12-month Essential 35 tier is reported to be exempt from the scheduled rise entirely, and social tariff customers are reported to be exempt from both the annual rise and the capped out-of-contract increase. Confirm the exact terms for the specific plan and tariff being ordered, since policies can differ by tier.',
+        ],
+      },
+      {
+        heading: 'Installation and Switching to Community Fibre',
+        paragraphs: [
+          'Community Fibre installs its own full-fibre connection rather than reselling Openreach, and reviews consistently highlight fast installation as one of its strongest points, frequently citing same-week or next-available-slot appointments in already-wired buildings.',
+          'Because it runs its own network, a switch to Community Fibre from an Openreach-based provider such as BT, Sky or TalkTalk will not use Ofcom\'s One Touch Switch process. Keep the existing connection active until the new Community Fibre line is confirmed working, rather than cancelling in advance.',
+          'Renters and leaseholders in blocks not already wired should check with the building\'s management company early, since installing a new full-fibre connection into a shared building can require freeholder or managing-agent permission before an engineer visit can be booked.',
+        ],
+      },
+      {
+        heading: 'Router, Speed in Larger Homes and Add-ons',
+        paragraphs: [
+          'The standard router is free on every 100 Mbps-and-above tier, upgraded from the WiFi 5 hardware on the entry Essential tier. For a typical flat, this is sufficient for full-speed coverage throughout; the most consistent criticism in reviews is router range in larger flats or houses, where the signal from a single router in one room does not reliably reach every corner.',
+          'Anyone in a larger property should factor a mesh WiFi add-on into the real cost from the outset if router placement is likely to be a compromise, rather than treating it as an unexpected extra once service has started.',
+          'Community Fibre does not currently publish a bundled TV package in the way some national providers do, so anyone comparing on a like-for-like total-package basis, including TV, should check that separately rather than assuming an equivalent bundle exists.',
+        ],
+      },
+      {
+        heading: 'Community Fibre Customer Service and Reviews',
+        paragraphs: [
+          'Community Fibre\'s Trustpilot profile showed roughly 4.7 out of 5 from around 91,000 reviews at the point of this check, one of the strongest scores of any UK broadband provider; for comparison, BT sits around 4.0, and Sky and Virgin Media both sit below 2 out of 5 on the same platform.',
+          'Ofcom\'s own 2025 customer satisfaction data corroborates the pattern independently of Trustpilot: Community Fibre recorded 92% overall satisfaction, 8 percentage points above the industry average of 84%, placing it among the top-performing providers Ofcom tracks rather than relying on a single self-selected review platform.',
+          'Recurring themes in reviews are fast installation, responsive chat support and clear billing, with router range in larger properties the most consistent point of criticism. That is a narrow, specific complaint pattern rather than a broad service-quality concern, which is itself a useful signal when reading reviews for any provider.',
+        ],
+      },
+      {
+        heading: 'Is Community Fibre Any Good?',
+        paragraphs: [
+          'Where it is available, Community Fibre is one of the strongest options on the market: symmetrical full-fibre speeds, a genuinely capped and disclosed price rise policy, and customer satisfaction evidence from two independent sources, Trustpilot and Ofcom, that both point the same way.',
+          'The catch is availability. This is a London-centred network with only recent, partial expansion into Surrey and Sussex, so most UK addresses simply cannot order it, whatever the reviews say. Coverage, not price or service quality, is the real gating factor for most people considering it.',
+          'Anyone who can get it and lives in a larger flat or house should budget for a mesh WiFi add-on from the start rather than treating router range as a minor detail; everyone else gets a genuinely well-evidenced, well-priced full-fibre option.',
+        ],
+      },
+    ],
+    faqItems: [
+      {
+        question: 'Is Community Fibre any good?',
+        answer: 'Community Fibre is one of the best-reviewed UK broadband providers, with around 4.7 out of 5 on Trustpilot from roughly 91,000 reviews and 92% customer satisfaction in Ofcom\'s 2025 data, 8 points above the industry average. Its main limitation is coverage: the network is concentrated in London, with recent expansion into parts of Surrey and Sussex.',
+      },
+      {
+        question: 'Where is Community Fibre available?',
+        answer: 'Community Fibre\'s full-fibre network was built in London first and remains concentrated there, with recent expansion into parts of Surrey and Sussex. It is a regional, not national, network, so checking the exact address on Community Fibre\'s own postcode checker is the only reliable way to confirm availability.',
+      },
+      {
+        question: 'Does Community Fibre increase its prices?',
+        answer: 'Community Fibre\'s 24-month contracts carry a fixed £2 a month price rise each April, disclosed as a cash amount rather than linked to inflation, described by independent trackers as the lowest scheduled rise of any major UK provider. Its 12-month Essential tier is reported to be exempt from this rise.',
+      },
+      {
+        question: 'What speed do I need from Community Fibre?',
+        answer: 'The entry-level 150 Mbps symmetrical tier comfortably covers a household streaming, browsing and video-calling on several devices. Households that regularly upload large files or run several demanding activities at once benefit more from the 500 Mbps or 1,000 Mbps tiers, while the top 3,000 Mbps plan mainly suits specialist or small-business use.',
+      },
+    ],
+    reviewedDate: '2026-08-23',
+    pricingVerifiedDate: '2026-08-23',
+    reviewSources: [
+      {
+        label: 'Community Fibre pricing and package details',
+        href: 'https://broadbandswitch.uk/community-fibre-broadband-deals.html',
+        note: 'A direct fetch of communityfibre.co.uk returned a 403; pricing and the price-rise cap policy were corroborated via this independent tracker, checked 2026-08-23.',
+      },
+      {
+        label: 'thinkbroadband: Community Fibre price rise reporting',
+        href: 'https://www.thinkbroadband.com/news/community-fibre-25-off-promotion-for-may-2026-but-2027-increase-up-from-2-to-3-month',
+        note: 'Independent corroboration for the scheduled April price rise structure and its exemptions.',
+      },
+      {
+        label: 'Community Fibre public Trustpilot profile',
+        href: 'https://uk.trustpilot.com/review/communityfibre.co.uk',
+        note: 'Customer-sentiment reference showing approximately 91,000 reviews and a rating around 4.7 out of 5 in August 2026; not treated as a controlled reliability survey.',
+      },
+      {
+        label: 'Awin Community Fibre advertiser programme',
+        href: 'https://ui.awin.com/merchant-profile-terms/19595?setLocale=en_US',
+        note: 'BroadbandPicker\'s Awin application for this programme is pending, not yet approved. A valid publisher-specific tracking link is not generated until approval, so the affiliate link above is the provider\'s own site, verified 2026-08-23.',
+      },
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+        note: 'Explains how price, speed, coverage, customer experience and use-case fit are weighed.',
+      },
+    ],
+    awinProgramId: '19595',
   },
   {
     slug: 'zen-internet',
@@ -557,33 +674,576 @@ const baseProviders: Provider[] = [
     logo: '/logos/zen-internet.svg',
     affiliateUrl: 'https://www.zen.co.uk/broadband',
     speeds: [
-      { download: 67, upload: 17, type: 'FTTC' },
-      { download: 160, upload: 30, type: 'FTTP' },
+      { download: 100, upload: 18, type: 'FTTP' },
       { download: 500, upload: 75, type: 'FTTP' },
-      { download: 900, upload: 110, type: 'FTTP' },
+      { download: 900, upload: 115, type: 'FTTP' },
+      { download: 2300, upload: 220, type: 'FTTP' },
     ],
-    monthlyPriceFrom: 34.99,
+    monthlyPriceFrom: 30.00,
     contractLengths: [12, 24],
     setupFee: 0,
-    trustpilotScore: 4.5,
+    trustpilotScore: 4.4,
     coveragePercent: 75,
     highlights: [
-      'Award-winning UK customer service',
-      'Static IP addresses available on all plans',
-      'No traffic management or throttling',
+      'A free static IP address included on every plan, usually a paid extra elsewhere',
+      'A Contract Price Promise: no mid-contract price rise for the length of the term',
+      'Which? Recommended Provider, with an 84% customer score, and B Corp certified',
     ],
     pros: [
-      'Excellent customer service',
-      'No throttling or traffic management',
-      'Static IP included',
-      'Great for home workers and small businesses',
+      'No mid-contract price rise, disclosed upfront rather than added later',
+      'Static IP included as standard, useful for remote access and some business setups',
+      'A 30-day speed guarantee with a penalty-free exit if it is not met',
+      'Which? Recommended Provider status backed by an independently measured customer score',
     ],
     cons: [
-      'More expensive than most rivals',
-      'Coverage not as wide as BT/Sky/EE',
+      'More expensive than most budget and mid-market rivals at every tier',
+      'Coverage depends on a mix of Openreach and CityFibre, so availability and setup cost both vary by address',
+      'Setup is free on CityFibre-served addresses but around £15 on Openreach-served ones',
     ],
-    ...createReviewMetadata('Zen Internet', 'https://www.zen.co.uk/broadband', 'zen.co.uk'),
-    awinProgramId: null,
+    excerpt:
+      'Zen Internet is a premium UK broadband provider built around service quality rather than the lowest price: a free static IP on every plan, a Contract Price Promise against mid-contract rises, and Which? Recommended Provider status with an 84% customer score. Full Fibre plans run from around £30 to £65 a month across four speed tiers on a mix of Openreach and CityFibre networks. It costs more than most rivals; the case for paying it rests on the guarantees and support behind the price.',
+    contentSections: [
+      {
+        heading: 'Zen Internet Broadband Deals in August 2026',
+        paragraphs: [
+          'Zen\'s Full Fibre range runs from Full Fibre 100 at roughly £30 to £35 a month, up through Full Fibre 500 at around £36 to £42 and Full Fibre 900 at around £42 to £50, to Full Fibre Max, running between 1,600 and 2,300 Mbps, at roughly £56 to £65. Exact pricing depends on the network used at a specific address and any current promotion, so treat these as a guide and confirm the live figure at checkout.',
+          'Every plan includes a free static IP address, a feature most rivals only offer as a paid add-on or restrict to business customers. This matters for anyone running a home server, certain VPN or remote-access setups, or specific security camera systems that need a fixed public address rather than one that changes each time the router restarts.',
+          'Setup cost depends on which network serves the address: free on CityFibre-served addresses, around £15 where the connection runs over Openreach. This is a smaller distinction than the headline price, but worth checking before comparing Zen\'s total first-year cost against a rival that advertises free setup everywhere.',
+        ],
+      },
+      {
+        heading: 'The Contract Price Promise: No Mid-Contract Rise',
+        paragraphs: [
+          'Zen\'s Contract Price Promise means the price agreed at sign-up is the price paid for the entire contract term, with no scheduled increase partway through, the same structure Zzoomm and Community Fibre use, and a genuine point of difference from providers such as TalkTalk and Highland Broadband, which build one or more scheduled rises into their contracts.',
+          'On a 24-month term, this can be worth more than it first appears. A rival charging a CPI-linked annual rise of 6 to 8% on a £40 plan could add several pounds a month by the second year; Zen\'s flat price removes that uncertainty entirely, which matters most to anyone on a fixed budget who wants to know the exact cost of the next two years upfront.',
+          'The trade-off is that Zen rarely has the lowest headline price in a same-speed comparison. The fair comparison is the full contract-term cost against a cheaper rival\'s price including its own scheduled rise, not the first month\'s bill against Zen\'s flat rate.',
+        ],
+      },
+      {
+        heading: 'Zen Internet Speeds and Network Coverage',
+        paragraphs: [
+          'Zen delivers Full Fibre over a mix of the Openreach and CityFibre wholesale networks, which between them reach a large share of UK addresses, though availability, speed tier and setup cost can all vary depending on which network actually serves a specific property. Zen\'s own checker will confirm which network applies at a given address.',
+          'The entry Full Fibre 100 tier comfortably covers everyday browsing, streaming and video calls for a small household. Full Fibre 500 and 900 add meaningful upload headroom, useful for cloud backups, large file transfers and video calls where several people in the household are on camera at once. Full Fibre Max, at up to 2,300 Mbps, is a specialist tier that few single devices can fully use, aimed at heavy multi-user households or small businesses.',
+          'Zen backs its speed claims with a 30-day guarantee: if the actual speed delivered falls below a stated minimum threshold and Zen cannot fix it within 30 days, the customer can exit the contract without penalty. Keep a dated record of any speed complaint if this becomes relevant.',
+        ],
+      },
+      {
+        heading: 'Router, Static IP and Mesh WiFi',
+        paragraphs: [
+          'A router is included as standard, and Zen\'s EveryRoom mesh WiFi system is available for larger properties where a single router does not reach every room reliably. As with any mesh add-on, it is worth confirming there is a genuine coverage problem before adding it automatically to the order.',
+          'The included static IP address is Zen\'s clearest differentiator from most consumer ISPs, which either charge separately for one or do not offer one to residential customers at all. Most households will never need it, but for the specific use cases that do, remote access to a home network, certain business VPN configurations, self-hosted services, it removes a cost and a support conversation that would otherwise be needed elsewhere.',
+          'Anyone who does not know whether they need a static IP almost certainly does not; it is a feature for people who already know they need one, not a reason on its own to choose Zen over a cheaper rival.',
+        ],
+      },
+      {
+        heading: 'Is Zen Internet Good Value?',
+        paragraphs: [
+          'Zen is not competing on price. At every published speed tier, it costs more than budget-focused rivals such as TalkTalk or Plusnet, and more than several full-fibre altnets. The value case rests entirely on what comes with the higher price: a flat rate for the whole contract, a free static IP, a real speed guarantee with an exit right, and an independently measured customer satisfaction score.',
+          'Which? named Zen a Recommended Provider on the strength of an 84% customer score, a genuinely independent, survey-based measure rather than a self-selected review platform, and Zen also holds B Corp certification, a third-party standard covering environmental and social practices as well as customer treatment.',
+          'The households most likely to find Zen worth the premium are those who value certainty and support over the lowest possible price: people who have been burned by a mid-contract rise before, anyone who specifically needs a static IP, or a household prepared to pay more for a provider with better-than-average independent satisfaction evidence.',
+        ],
+      },
+      {
+        heading: 'Installation and Switching to Zen Internet',
+        paragraphs: [
+          'Installation timing and process depend on which network serves the address. A CityFibre-served property typically has a more straightforward, often faster installation; an Openreach-served property follows the standard Openreach engineer visit process used by most national providers.',
+          'Where the previous provider also uses Openreach, such as BT, Sky, TalkTalk or Plusnet, a switch to Zen on Openreach may qualify for Ofcom\'s One Touch Switch process, giving a same-day handover with no need to contact the outgoing provider. A switch to or from a CityFibre-based service, or from a provider on its own separate network such as Virgin Media, will not use One Touch Switch, so keep the existing connection running until the new one is confirmed working.',
+          'Confirm the applicable minimum term and any early-exit charge before switching. Zen\'s contract lengths and terms can differ between its Openreach and CityFibre products, so check the specific summary for the address being ordered rather than assuming identical terms across networks.',
+        ],
+      },
+      {
+        heading: 'Zen Internet Customer Service and Reviews',
+        paragraphs: [
+          'Zen\'s Trustpilot profile showed a rating of approximately 4.4 out of 5 from around 16,700 reviews at the point of this check, rated "Excellent" on the platform\'s own banding. That sits well above most large national providers and is broadly in line with the stronger full-fibre altnets covered elsewhere on this site.',
+          'Which?\'s independently surveyed 84% customer score corroborates the Trustpilot pattern using a different, non-self-selected methodology, which is a stronger combined signal than either source alone; a high score on a review platform people opt into, backed by a high score on a broad customer survey, is more convincing than either in isolation.',
+          'Zen positions itself explicitly around service quality rather than price, and the review and survey evidence here is consistent with that positioning holding up, rather than being marketing language unsupported by independent data.',
+        ],
+      },
+    ],
+    faqItems: [
+      {
+        question: 'Is Zen Internet worth the extra cost?',
+        answer: 'Zen costs more than most budget and mid-market rivals at every speed tier, but includes a free static IP, a Contract Price Promise against mid-contract rises, and a 30-day speed guarantee with a penalty-free exit. It also holds Which? Recommended Provider status with an 84% independently surveyed customer score. It suits households who value certainty and support over the lowest headline price.',
+      },
+      {
+        question: 'Does Zen Internet raise its prices during the contract?',
+        answer: 'No. Zen\'s Contract Price Promise fixes the price for the full length of the contract term, with no scheduled mid-contract increase, a genuine point of difference from providers such as TalkTalk and Highland Broadband, which build one or more scheduled rises into their contracts.',
+      },
+      {
+        question: 'Does Zen Internet include a static IP address?',
+        answer: 'Yes, a static IP address is included as standard on every Zen Internet plan, a feature most residential providers either charge extra for or do not offer at all. It mainly benefits specific use cases such as remote access, some VPN configurations and self-hosted services; most households do not need one.',
+      },
+      {
+        question: 'Which network does Zen Internet use?',
+        answer: 'Zen delivers Full Fibre over a mix of the Openreach and CityFibre wholesale networks, depending on the address. Setup is typically free on CityFibre and around £15 on Openreach. Zen\'s own address checker confirms which network, speed tiers and price apply at a specific property.',
+      },
+    ],
+    reviewedDate: '2026-08-23',
+    pricingVerifiedDate: '2026-08-23',
+    reviewSources: [
+      {
+        label: 'Zen Internet full fibre broadband',
+        href: 'https://www.zen.co.uk/broadband/full-fibre',
+        note: 'Used for the Contract Price Promise, speed guarantee, static IP inclusion and network mix, checked 2026-08-23. Exact live pricing is postcode-gated on Zen\'s own site.',
+      },
+      {
+        label: 'Independent Zen Internet pricing summary',
+        href: 'https://findcheapbroadband.com/compare-broadband/zen-internet-prices/',
+        note: 'Used to corroborate the current Full Fibre 100/500/900/Max price ranges and setup fee difference between CityFibre and Openreach, checked 2026-08-23. The Full Fibre Max upload figure is a conservative estimate based on comparable XGS-PON tiers from other providers, not independently confirmed, and should be checked at the point of order.',
+      },
+      {
+        label: 'Which? Zen Internet broadband review',
+        href: 'https://www.which.co.uk/reviews/broadband/article/broadband-provider-reviews/zen-internet-broadband-review-apA7g4y5zrgE',
+        note: 'Primary source for the Which? Recommended Provider status and the 84% independently surveyed customer score.',
+      },
+      {
+        label: 'Zen Internet public Trustpilot profile',
+        href: 'https://uk.trustpilot.com/review/zen.co.uk',
+        note: 'Customer-sentiment reference showing approximately 16,700 reviews and a rating around 4.4 out of 5 in August 2026; not treated as a controlled reliability survey.',
+      },
+      {
+        label: 'Awin Zen Internet advertiser programme',
+        href: 'https://ui.awin.com/merchant-profile-terms/119927?setLocale=en_US',
+        note: 'BroadbandPicker\'s Awin application for this programme is pending, not yet approved. A valid publisher-specific tracking link is not generated until approval, so the affiliate link above is the provider\'s own site, verified 2026-08-23.',
+      },
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+        note: 'Explains how price, speed, coverage, customer experience and use-case fit are weighed.',
+      },
+    ],
+    awinProgramId: '119927',
+  },
+  {
+    slug: 'national-broadband',
+    name: 'National Broadband',
+    logo: '/logos/national-broadband.svg',
+    affiliateUrl: 'https://www.national-broadband.co.uk/',
+    speeds: [
+      { download: 60, upload: 15, type: '5G' },
+    ],
+    monthlyPriceFrom: 34.99,
+    contractLengths: [12, 18, 24],
+    setupFee: 49,
+    trustpilotScore: 4.7,
+    coveragePercent: 80,
+    highlights: [
+      'A 5G fixed-wireless alternative for addresses fibre has not reached, no engineer visit or landline required',
+      'Works across all four UK mobile networks, picking whichever gives the strongest signal at the address',
+      'Unlimited data as standard, with a plug-in router rather than a fixed-line installation',
+    ],
+    pros: [
+      'Can be live within days, no waiting for a fibre or copper engineer appointment',
+      'A genuine option for rural or hard-to-reach addresses that fixed-line providers have not built to',
+      'Multi-network approach improves the odds of a usable signal versus a single-network 5G router',
+      'Strong customer-review pattern, particularly from people switching from poor rural broadband',
+    ],
+    cons: [
+      'Speed depends entirely on local mobile signal strength, not a guaranteed fixed-line figure',
+      'Considerably slower than full fibre where full fibre is actually available',
+      'A one-off router cost applies, plus a more expensive professional external-antenna installation for weaker signal areas',
+      'Performance can vary at peak local mobile network usage times in a way a dedicated fibre line does not',
+    ],
+    excerpt:
+      'National Broadband sells 4G and 5G fixed-wireless broadband as an alternative for UK addresses that fibre and cable have not reached, working across all four mobile networks to find the strongest local signal. Typical 5G speeds run 40 to 80 Mbps, from £34.99 a month with unlimited data, needing only a plug-in router rather than an engineer-installed line. It is a genuine option for rural coverage gaps, not a substitute for full fibre where full fibre is actually available.',
+    contentSections: [
+      {
+        heading: 'National Broadband Deals in August 2026',
+        paragraphs: [
+          'National Broadband\'s core products are 4G and 5G home broadband, both delivered over the mobile network rather than a fixed fibre or copper line. The 4G Internet plan starts from £29.99 a month with unlimited data, typically delivering 30 to 80 Mbps depending on local signal. The 5G plan starts from around £34.99 to £39.99 a month, typically delivering 40 to 80 Mbps, also with unlimited data.',
+          'Setup cost depends on the equipment needed: a basic plug-and-play router costs around £49 to £99 upfront, while a full professional installation with an external antenna, aimed at addresses with weaker signal, costs around £399. Which option is needed depends entirely on the mobile signal strength already reaching the property, so it is worth confirming before ordering rather than assuming the cheapest router option will always work.',
+          'Contracts run 12, 18 or 24 months. Unlike most fixed-line providers on this site, National Broadband states that prices do not rise mid-contract, so the monthly figure agreed at sign-up should hold for the length of the term.',
+        ],
+      },
+      {
+        heading: 'Who National Broadband Actually Suits',
+        paragraphs: [
+          'This is not a like-for-like alternative to a fibre provider; it is a specific answer to a specific problem: an address that cannot get a usable fixed-line broadband speed and is not likely to for some time. National Broadband has specialised in rural and hard-to-reach UK connectivity for two decades, which is a genuinely different customer base from the fibre altnets covered elsewhere on this site.',
+          'Reviews consistently describe a similar starting point: a household with a poor or unreliable existing connection, often in a rural area still on ADSL or a weak part-fibre signal, switching to National Broadband and getting a meaningful, sometimes dramatic, speed and stability improvement. That is a different comparison to make than "is this faster than full fibre," which it usually is not.',
+          'Anyone who can already get a genuine full-fibre connection at a reasonable price will typically be better served by it than by a 5G alternative; National Broadband\'s real value is for addresses where that comparison is not available at all.',
+        ],
+      },
+      {
+        heading: 'How the 4G and 5G Speeds Actually Work',
+        paragraphs: [
+          'Speed on a fixed-wireless service is a function of local mobile signal strength, not a guaranteed line rate set by the provider, which is the single most important difference to understand versus a fibre or cable connection. National Broadband\'s stated 40 to 80 Mbps range for 5G, and 30 to 80 Mbps for 4G, describes what is typically achievable, not a fixed promise for every property.',
+          'The multi-network approach is the practical reason National Broadband can offer this at all in some areas: rather than being tied to one mobile operator\'s coverage map, National Broadband selects whichever of the four UK mobile networks gives the best signal at a specific address, which meaningfully improves the odds of a workable connection versus buying a single-network 5G router directly from a mobile operator.',
+          'Upload speed on mobile-based broadband is typically much lower than download, and is not usually headlined by any provider in this category; treat it as adequate for calls and light uploads rather than comparable to a full-fibre symmetrical connection.',
+        ],
+      },
+      {
+        heading: 'Equipment and Installation',
+        paragraphs: [
+          'Most customers start with a plug-and-play router, which needs no engineer visit and can typically be set up by the customer within minutes of delivery, a genuinely different experience from waiting for a fixed-line installation appointment.',
+          'Addresses with weaker mobile signal may need a professional installation with an external antenna, at a considerably higher one-off cost of around £399, to pull in a usable signal from further away or through thicker walls. National Broadband should be able to advise which option a specific address needs before committing to an order.',
+          'Because performance depends on the equipment matching the local signal conditions, it is worth being honest about the property\'s existing mobile signal quality when discussing options, rather than defaulting to the cheapest router and hoping for the best.',
+        ],
+      },
+      {
+        heading: 'Contract Terms and No Mid-Contract Price Rise',
+        paragraphs: [
+          'National Broadband offers a choice of 12, 18 or 24-month contracts, more flexibility on term length than most fixed-line altnets covered elsewhere on this site, which typically offer only a single 24-month option.',
+          'The company states that prices do not increase during the contract, a straightforward flat-rate structure similar to Zzoomm\'s, Community Fibre\'s and Zen Internet\'s no-rise policies, rather than the scheduled annual increases used by several national fixed-line providers.',
+          'A shorter 12-month term suits anyone treating this as a genuine stopgap while waiting for a fibre rollout to reach their address, without being locked into two years on a service that will likely be worth switching away from once full fibre actually arrives.',
+        ],
+      },
+      {
+        heading: 'National Broadband Customer Service and Reviews',
+        paragraphs: [
+          'National Broadband\'s Trustpilot profile showed a rating in the region of 4.7 out of 5 from around 817 reviews at the point of this check, with feedback overwhelmingly positive. Reviewers consistently cite fast, friendly support by phone and email, and a straightforward, self-managed setup process as the strongest points.',
+          'The recurring theme in reviews is a dramatic improvement over a previous poor rural connection, rather than a comparison against full fibre, which is a useful signal: the customers leaving these reviews are largely people this service was actually designed for, not people comparing it unfavourably against a fibre option they could have chosen instead.',
+          'As with any review platform, this is customer sentiment, not an independently measured reliability figure, and coverage-dependent performance means one household\'s experience will not automatically match another\'s at a different address.',
+        ],
+      },
+      {
+        heading: 'Is National Broadband Worth It?',
+        paragraphs: [
+          'For the right address, an unreliable rural connection with no realistic full-fibre option in sight, National Broadband is a genuinely useful service: no engineer wait, a flat price for the contract term, unlimited data and a multi-network approach that improves the odds of a workable signal.',
+          'It is the wrong choice for anyone who already has, or could reasonably get, a full-fibre connection; fibre will almost always outperform a mobile-based service on both speed and consistency where it is genuinely available.',
+          'Our take: worth strong consideration specifically as a rural or hard-to-reach fallback, and worth checking the specific installation option, plug-and-play versus professional antenna install, against the property\'s actual mobile signal before ordering.',
+        ],
+      },
+    ],
+    faqItems: [
+      {
+        question: 'Is National Broadband any good?',
+        answer: 'National Broadband holds a strong Trustpilot rating, around 4.7 out of 5 from roughly 817 reviews, with reviewers consistently describing a significant improvement over a previous poor rural connection. It is a fixed-wireless 4G/5G service, not full fibre, so speed depends on local mobile signal rather than a guaranteed line rate, and full fibre will usually outperform it where full fibre is genuinely available.',
+      },
+      {
+        question: 'Is National Broadband available at my address?',
+        answer: 'National Broadband\'s 5G service is stated to be available to over 80% of UK properties, working across all four UK mobile networks to find the strongest local signal, making it more widely available than most fixed-line full-fibre altnets. Actual achievable speed still depends on local signal strength, so check directly with National Broadband before ordering.',
+      },
+      {
+        question: 'How fast is National Broadband?',
+        answer: 'Typical speeds are 30 to 80 Mbps on the 4G plan and 40 to 80 Mbps on the 5G plan, depending on local mobile signal strength rather than a fixed guaranteed rate. This is comfortably enough for everyday streaming, browsing and video calls, but is not comparable to a full-fibre connection\'s consistency or upload speed.',
+      },
+      {
+        question: 'Does National Broadband need an engineer visit?',
+        answer: 'Most customers only need a plug-and-play router, which needs no engineer visit and can be set up by the customer within minutes. Addresses with weaker mobile signal may need a professional installation with an external antenna, at a higher one-off cost, to achieve a workable connection.',
+      },
+    ],
+    reviewedDate: '2026-08-23',
+    pricingVerifiedDate: '2026-08-23',
+    reviewSources: [
+      {
+        label: 'National Broadband 5G broadband information',
+        href: 'https://www.national-broadband.co.uk/best-5g-broadband-for-rural-areas',
+        note: 'A direct fetch of national-broadband.co.uk returned a 403; package structure, speeds and positioning corroborated via independent reporting, checked 2026-08-23.',
+      },
+      {
+        label: '5G.co.uk: National Broadband 5G WiFi router pricing',
+        href: 'https://5g.co.uk/home-broadband/national-broadband/5g-wifi-router/',
+        note: 'Used to corroborate 5G plan pricing, router cost, contract length options and the multi-network approach.',
+      },
+      {
+        label: 'Choose.co.uk: 4G Internet review',
+        href: 'https://www.choose.co.uk/guide/4g-internet-review/',
+        note: 'Used to corroborate 4G plan pricing, typical speeds, setup fee options and the 12-month minimum term.',
+      },
+      {
+        label: 'National Broadband public Trustpilot profile',
+        href: 'https://uk.trustpilot.com/review/national-broadband.co.uk',
+        note: 'Customer-sentiment reference showing approximately 817 reviews and a rating in the region of 4.7 out of 5 in August 2026; not treated as a controlled reliability survey.',
+      },
+      {
+        label: 'Awin National Broadband advertiser programme',
+        href: 'https://ui.awin.com/merchant-profile-terms/20858?setLocale=en_US',
+        note: 'BroadbandPicker\'s Awin application for this programme is pending, not yet approved. A valid publisher-specific tracking link is not generated until approval, so the affiliate link above is the provider\'s own site, verified 2026-08-23.',
+      },
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+        note: 'Explains how price, speed, coverage, customer experience and use-case fit are weighed.',
+      },
+    ],
+    awinProgramId: '20858',
+  },
+  {
+    slug: 'trooli',
+    name: 'Trooli',
+    logo: '/logos/trooli.svg',
+    affiliateUrl: 'https://www.trooli.com/',
+    speeds: [
+      { download: 150, upload: 50, type: 'FTTP' },
+      { download: 500, upload: 200, type: 'FTTP' },
+      { download: 900, upload: 300, type: 'FTTP' },
+      { download: 2000, upload: 300, type: 'FTTP' },
+    ],
+    monthlyPriceFrom: 19.99,
+    contractLengths: [24],
+    setupFee: 0,
+    trustpilotScore: 4.4,
+    coveragePercent: 1,
+    highlights: [
+      'Builds and operates its own full-fibre network across parts of South East England and Scotland',
+      'Over 400,000 homes and businesses passed, with an ambition to reach around 500,000',
+      'No mid-contract price rise on the current published range',
+    ],
+    pros: [
+      'Genuinely low entry price for a full-fibre connection, from £19.99 a month',
+      'No scheduled mid-contract price increase',
+      'WiFi 6 router and UK-based customer support included as standard',
+      'Strong Trustpilot pattern, with installation quality a recurring positive theme',
+    ],
+    cons: [
+      'Coverage is limited to specific parts of South East England and Scotland, not a national footprint',
+      'Upload speeds scale with each tier but are not fully symmetrical, unlike some full-fibre altnet rivals',
+      'A newer, smaller network than the largest national altnets, with a shorter track record',
+    ],
+    excerpt:
+      'Trooli is a full-fibre altnet building its own network across parts of South East England and Scotland, passing more than 400,000 homes and businesses. Prices start from £19.99 a month for 150 Mbps, up to 2,000 Mbps on its top tier, with no mid-contract price rise on the current range. Coverage is genuinely postcode-specific and limited to its build areas, so check availability before comparing it against a national provider.',
+    contentSections: [
+      {
+        heading: 'Trooli Broadband Deals in August 2026',
+        paragraphs: [
+          'Trooli\'s range runs four tiers on a 24-month contract: Essential at 150 Mbps download for £19.99 a month, Extra at 500 Mbps for £24.99, Superior at 900 Mbps for £29.99, and Pro at 2,000 Mbps for £39.99. Every tier includes unlimited data and a WiFi 6 router as standard, with no separate router charge to budget for.',
+          'The entry price is genuinely competitive against both national providers and other full-fibre altnets covered on this site; £19.99 for 150 Mbps full fibre undercuts several rivals\' equivalent tiers. Confirm the live price and any current promotion at the specific address before assuming the listed figures apply everywhere in Trooli\'s footprint.',
+          'Trooli states its published range carries no mid-contract price rise, meaning the price at sign-up should hold for the full 24-month term, a genuine point of difference from providers that build one or more scheduled increases into the contract.',
+        ],
+      },
+      {
+        heading: 'Trooli Coverage: South East England and Scotland',
+        paragraphs: [
+          'Trooli builds and operates its own fibre network rather than reselling Openreach, with coverage spanning parts of Berkshire, Buckinghamshire, Cambridgeshire, Dorset, East Sussex, Hampshire, Kent, Norfolk, Suffolk, West Sussex and Wiltshire in England, and North and South Lanarkshire and Fife in Scotland. That is an unusually broad geographic spread for an altnet of its size, more a scattered set of regional footholds than one contiguous region.',
+          'The network passes more than 400,000 homes and businesses, with a stated ambition to reach around 500,000 in the coming years. That is still a small fraction of the roughly 28 million homes in the UK, so a town appearing in the coverage list is not proof a specific street is ready to order.',
+          'Anyone outside these specific counties and Scottish authority areas should not expect Trooli to be available at all. Its own postcode checker is the only reliable way to confirm a specific address, rather than assuming coverage from the county name alone.',
+        ],
+      },
+      {
+        heading: 'Trooli Speeds: Not Fully Symmetrical',
+        paragraphs: [
+          'Trooli\'s upload speeds scale with each download tier, from 50 Mbps on the entry 150 Mbps plan up to 300 Mbps on the top two tiers, but they are not fully symmetrical in the way Zzoomm\'s or Community Fibre\'s ranges are, where upload matches download exactly at every tier. Some independent write-ups describe Trooli as symmetrical; the published package figures themselves show otherwise, so it is worth checking the exact upload number for a specific tier rather than assuming a 1:1 ratio.',
+          'Even without full symmetry, Trooli\'s upload speeds are still considerably higher than a typical part-fibre connection at a comparable download speed, which matters for cloud backups, large file transfers and multi-person video calls.',
+          'The entry 150 Mbps tier comfortably covers everyday streaming, browsing and video calls for most households. The top 2,000 Mbps tier is a specialist choice, useful mainly for heavy multi-user households or small businesses rather than typical single-household use.',
+        ],
+      },
+      {
+        heading: 'Router, Support and Installation',
+        paragraphs: [
+          'A WiFi 6 router is included as standard across the range, with no separate hardware charge. Trooli also promotes UK-based customer support, which recurs as a specific positive theme in independent reviews rather than a generic marketing claim.',
+          'Because Trooli operates its own network, installation involves connecting the property to Trooli\'s own fibre rather than activating an existing line, which can mean a scheduled engineer visit rather than a same-day switch, particularly in newer parts of the build.',
+          'Reviews consistently single out installation quality and engineer professionalism as a strength, which is a reasonable proxy for service quality this early in the company\'s growth, though it says less about long-term fault handling or renewal pricing than a longer track record would.',
+        ],
+      },
+      {
+        heading: 'Contract Terms and the No-Price-Rise Policy',
+        paragraphs: [
+          'Every Trooli plan runs on a 24-month contract; there is no shorter, rolling or 12-month option published. That suits a household settled at the address but rules Trooli out for a short-term tenancy or anyone wanting the flexibility to leave without an early-termination charge.',
+          'The no-mid-contract-rise policy is disclosed upfront rather than buried in the terms, and is a genuine point of comparison against providers such as TalkTalk or Highland Broadband, which build one or more scheduled increases into every contract. Over 24 months, that difference can be worth more than a slightly lower headline price elsewhere.',
+          'As with any fixed-term contract, confirm the early-termination charge and what happens if moving house partway through the term, since Trooli\'s coverage footprint means a house move could easily land somewhere outside its network.',
+        ],
+      },
+      {
+        heading: 'Trooli Customer Service and Reviews',
+        paragraphs: [
+          'Trooli\'s Trustpilot profile showed a rating in the region of 4.4 out of 5 from around 6,800 reviews at the point of this check, rated "Excellent" on the platform\'s banding, with some variation between roughly 4.0 and 4.5 across different tracking snapshots, which is normal for a fast-growing review count rather than a sign of inconsistent service.',
+          'Recurring positive themes are easy installation, skilled engineers and a responsive, UK-based support team, consistent across multiple independent review summaries rather than a single source.',
+          'As with any newer altnet, the volume of long-term evidence, how the company handles faults or contract renewals after the first year or two, is still building. Today\'s reviews are a genuinely positive early signal, not yet a multi-year track record.',
+        ],
+      },
+      {
+        heading: 'Is Trooli Broadband Any Good?',
+        paragraphs: [
+          'Where it is available, Trooli is a strong option: a genuinely low entry price for full fibre, no scheduled price rise, a WiFi 6 router included, and consistently positive reviews focused on installation and support quality.',
+          'It is not available to most UK addresses, and its footprint, scattered across parts of South East England and separate parts of Scotland, means checking availability matters more than usual before treating it as a serious option.',
+          'Our starting recommendation for anyone in Trooli\'s coverage area is the Essential or Extra tier for most households, given how comfortably either covers typical use, with the higher tiers reserved for larger, heavier-use households or those who specifically value the extra upload headroom.',
+        ],
+      },
+    ],
+    faqItems: [
+      {
+        question: 'Is Trooli broadband any good?',
+        answer: 'Trooli holds a strong Trustpilot rating, in the region of 4.4 out of 5 from around 6,800 reviews, with installation quality and UK-based support as recurring positive themes. It offers full fibre from £19.99 a month with no mid-contract price rise. Its main limitation is coverage, which is restricted to specific parts of South East England and Scotland.',
+      },
+      {
+        question: 'Where is Trooli broadband available?',
+        answer: 'Trooli covers parts of Berkshire, Buckinghamshire, Cambridgeshire, Dorset, East Sussex, Hampshire, Kent, Norfolk, Suffolk, West Sussex and Wiltshire in England, plus North and South Lanarkshire and Fife in Scotland, passing over 400,000 homes and businesses. Coverage is postcode-specific, so check the exact address on Trooli\'s own checker.',
+      },
+      {
+        question: 'Does Trooli offer symmetrical broadband?',
+        answer: 'Not fully. Upload speeds scale with each download tier, from 50 Mbps on the 150 Mbps plan up to 300 Mbps on the top two tiers, but they are not a 1:1 match with download speed at every tier the way some full-fibre altnet rivals offer. Upload is still considerably higher than a typical part-fibre connection at a comparable speed.',
+      },
+      {
+        question: 'Does Trooli increase its prices mid-contract?',
+        answer: 'Trooli states that its current published range carries no mid-contract price increase, so the price agreed at sign-up should hold for the full 24-month contract term, disclosed upfront rather than added later.',
+      },
+    ],
+    reviewedDate: '2026-08-23',
+    pricingVerifiedDate: '2026-08-23',
+    reviewSources: [
+      {
+        label: 'Choose.co.uk: Trooli broadband deals',
+        href: 'https://www.choose.co.uk/broadband/trooli/',
+        note: 'A direct fetch of trooli.com returned no usable content (JS-rendered page); pricing, speeds and coverage corroborated via this independent aggregator, checked 2026-08-23.',
+      },
+      {
+        label: 'broadbandchoices: Trooli deals and packages',
+        href: 'https://www.broadbandchoices.co.uk/providers/trooli',
+        note: 'Independent corroboration for package pricing, coverage footprint and the no-price-rise policy.',
+      },
+      {
+        label: 'Trooli public Trustpilot profile',
+        href: 'https://uk.trustpilot.com/review/www.trooli.com',
+        note: 'Customer-sentiment reference showing approximately 6,800 reviews and a rating in the region of 4.4 out of 5 in August 2026; not treated as a controlled reliability survey.',
+      },
+      {
+        label: 'Awin Trooli advertiser programme',
+        href: 'https://ui.awin.com/merchant-profile-terms/25528?setLocale=en_US',
+        note: 'BroadbandPicker\'s Awin application for this programme is pending, not yet approved. A valid publisher-specific tracking link is not generated until approval, so the affiliate link above is the provider\'s own site, verified 2026-08-23.',
+      },
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+        note: 'Explains how price, speed, coverage, customer experience and use-case fit are weighed.',
+      },
+    ],
+    awinProgramId: '25528',
+  },
+  {
+    slug: 'pine-media',
+    name: 'Pine Media',
+    logo: '/logos/pine-media.svg',
+    affiliateUrl: 'https://pinemedia.net/',
+    speeds: [
+      { download: 100, upload: 100, type: 'FTTP' },
+      { download: 160, upload: 160, type: 'FTTP' },
+      { download: 550, upload: 550, type: 'FTTP' },
+      { download: 2000, upload: 2000, type: 'FTTP' },
+    ],
+    monthlyPriceFrom: 22.00,
+    contractLengths: [1, 12, 24],
+    setupFee: 0,
+    trustpilotScore: 4.5,
+    coveragePercent: 1,
+    highlights: [
+      'A hyperlocal full-fibre provider building and operating its own network across Sheffield only',
+      'Every plan is symmetrical on its own GIG network, from 100 Mbps up to 2,000 Mbps',
+      'A price-lock guarantee, a 30-day satisfaction guarantee, and up to £150 buyout credit on eligible plans',
+    ],
+    pros: [
+      'Genuinely low entry price for symmetrical full fibre, from £22 a month',
+      'No upfront setup cost on 12 or 24-month plans',
+      'An eero 6+ mesh router included free on every plan',
+      'Choice of 12-month, 24-month or rolling monthly contracts, more flexibility than most altnets offer',
+    ],
+    cons: [
+      'Coverage is limited to Sheffield only, the smallest footprint of any full-fibre altnet on this site',
+      'A separate Openreach-based GLO product line exists alongside the flagship GIG network, so check which one applies at a specific address before comparing speeds',
+      'Some recent reviews describe billing disputes and address-availability mix-ups, alongside mostly positive feedback',
+    ],
+    excerpt:
+      'Pine Media is a hyperlocal full-fibre provider building and operating its own network across Sheffield, alongside a separate Openreach-based product line for addresses outside its own build. Symmetrical GIG plans run from 100 Mbps to 2,000 Mbps, from £22 a month, with a price-lock guarantee, a 30-day satisfaction guarantee and no upfront setup cost. Coverage is genuinely local, so this is only relevant to Sheffield addresses.',
+    contentSections: [
+      {
+        heading: 'Pine Media Broadband Deals in August 2026',
+        paragraphs: [
+          'Pine Media\'s own-network GIG series runs five tiers: GIG 100 at £22 a month, GIG 160 at £23, GIG 550 at £27, a roughly 900 Mbps tier at £30, and a 2,000 Mbps tier at £34. Every plan is symmetrical, meaning upload matches download at every tier, and includes an eero 6+ mesh router at no extra cost.',
+          'A separate GLO series runs over the Openreach network for addresses Pine Media\'s own fibre has not reached, with lower, non-symmetrical upload speeds typical of standard Openreach FTTP products. Checking which series actually applies at a specific address matters more here than with most providers, since the two have meaningfully different speed profiles at a similar headline price.',
+          'There is no upfront setup cost on 12 or 24-month plans. A rolling monthly option is also available, carrying a small activation fee shown at checkout, for anyone who wants no fixed term at all.',
+        ],
+      },
+      {
+        heading: 'Pine Media Coverage: Sheffield Only',
+        paragraphs: [
+          'Pine Media describes itself as Sheffield\'s own full-fibre broadband provider, building, owning and operating its network specifically across the city rather than a wider region. Reported figures put current coverage at over 37,000 premises, a genuinely local footprint compared with every other altnet covered on this site, most of which span multiple towns, counties or even nations.',
+          'This hyperlocal focus is both Pine Media\'s defining characteristic and its main limitation: it is simply not an option for the overwhelming majority of UK addresses. Anyone outside Sheffield should not expect Pine Media\'s own GIG network to reach them, though the separate Openreach-based GLO product may still be orderable more widely, subject to standard Openreach FTTP availability.',
+          'Within Sheffield, coverage is still address-specific rather than city-wide, so checking the exact postcode on Pine Media\'s own site is the only reliable way to confirm whether the GIG network, the GLO network, or neither, is available.',
+        ],
+      },
+      {
+        heading: 'Pine Media Speeds: Symmetrical GIG vs Openreach GLO',
+        paragraphs: [
+          'The GIG series is Pine Media\'s flagship product and its clearest differentiator: fully symmetrical speeds at every tier, from 100 Mbps up to 2,000 Mbps, on infrastructure Pine Media owns and operates itself. That puts its upload speeds well ahead of a typical Openreach or CityFibre-based product at the same download tier.',
+          'The GLO series, running over the Openreach network, follows the more familiar pattern seen across most national providers: download speed scales faster than upload, so a 550 Mbps GLO plan does not offer anything close to 550 Mbps upload. This is the product an address just outside Pine Media\'s own network footprint would actually be offered.',
+          'For most households, the 100 or 160 Mbps GIG tier is comfortably enough for streaming, browsing and video calls with room to spare. The 2,000 Mbps top tier is a specialist choice for heavy multi-user households or small businesses rather than typical single-household use.',
+        ],
+      },
+      {
+        heading: 'Guarantees: Price Lock, Satisfaction and Buyout Credit',
+        paragraphs: [
+          'Pine Media publishes a price-lock guarantee, meaning no mid-contract price increase on the term agreed at sign-up, and a 30-day satisfaction guarantee allowing free cancellation shortly after joining if the service is not working out. Both are disclosed upfront rather than buried in the terms.',
+          'A price-match guarantee is also offered against comparable full-fibre deals, worth raising directly with Pine Media if a genuinely comparable local quote is found elsewhere. On eligible 24-month plans at GIG 550 and above, up to £150 in buyout credit is available to help offset an early-termination charge from a previous provider.',
+          'These guarantees are a meaningful part of Pine Media\'s value proposition alongside the headline price, and worth factoring into a comparison against a cheaper rival that does not offer the same protections.',
+        ],
+      },
+      {
+        heading: 'Installation and Switching to Pine Media',
+        paragraphs: [
+          'Because Pine Media builds and operates its own GIG network, installation on that product involves connecting the property to Pine Media\'s own fibre rather than activating an existing line, which typically means a scheduled engineer visit. GLO installations, running over Openreach, follow the more standard Openreach engineer process used by most national providers.',
+          'A switch from another Openreach-based provider to Pine Media\'s GLO product may qualify for Ofcom\'s One Touch Switch process; a switch to the GIG network, on Pine Media\'s own infrastructure, will not, so keep an existing connection running until the new one is confirmed working.',
+          'Anyone renting in Sheffield should check landlord permission for external cabling before booking a GIG installation, the same consideration that applies to any altnet building its own physical network into a property.',
+        ],
+      },
+      {
+        heading: 'Pine Media Customer Service and Reviews',
+        paragraphs: [
+          'Pine Media\'s Trustpilot profile showed a rating of approximately 4.5 out of 5 from several hundred reviews at the point of this check, a small but positive sample consistent with a genuinely local, single-city provider rather than a national brand.',
+          'Reviews commonly praise responsive customer service, fast broadband speeds and the no-mid-contract-rise guarantee. A smaller number of more recent reviews describe billing disputes and confusion over whether a specific address was actually covered before signing up, which is worth flagging rather than ignoring alongside the mostly positive pattern.',
+          'Given the small review base, a handful of negative reviews carries more statistical weight than the same number would for a provider with tens of thousands of reviews; treat the overall pattern as a reasonably positive but less thoroughly tested signal than a larger, longer-established altnet.',
+        ],
+      },
+      {
+        heading: 'Is Pine Media Broadband Any Good?',
+        paragraphs: [
+          'For a Sheffield address within its own GIG network, Pine Media is a genuinely strong option: symmetrical full fibre from £22 a month, a real price-lock and satisfaction guarantee, and a mesh router included free, all backed by a mostly positive, if small, review base.',
+          'It is irrelevant to almost every UK address outside Sheffield, and even within the city, confirming whether an address gets the symmetrical GIG network or the non-symmetrical Openreach GLO product matters more than with most providers, since the two are meaningfully different services at a similar price.',
+          'Our take: worth strong consideration for a Sheffield GIG-network address specifically, with the caveat that a handful of recent reviews about billing and availability confusion are worth reading directly before ordering, given how small the overall review base still is.',
+        ],
+      },
+    ],
+    faqItems: [
+      {
+        question: 'Is Pine Media broadband any good?',
+        answer: 'Pine Media holds a Trustpilot rating of approximately 4.5 out of 5 from several hundred reviews, with responsive customer service and its no-mid-contract-price-rise guarantee as recurring positive themes, alongside a smaller number of recent reviews describing billing disputes and address-coverage confusion. It offers genuinely competitive symmetrical full-fibre pricing where its own network reaches.',
+      },
+      {
+        question: 'Where is Pine Media broadband available?',
+        answer: 'Pine Media\'s own GIG full-fibre network covers Sheffield only, reported at over 37,000 premises. A separate Openreach-based GLO product may be available more widely, subject to standard Openreach FTTP coverage. Check the exact postcode on Pine Media\'s own site to confirm which, if either, applies at a specific address.',
+      },
+      {
+        question: 'What is the difference between Pine Media\'s GIG and GLO packages?',
+        answer: 'GIG runs on Pine Media\'s own network and is fully symmetrical, with upload matching download at every tier from 100 Mbps to 2,000 Mbps. GLO runs over the Openreach network and follows the more typical pattern where upload speed is considerably lower than download. Which one is offered depends entirely on the address.',
+      },
+      {
+        question: 'Does Pine Media have a price-lock guarantee?',
+        answer: 'Yes. Pine Media publishes a price-lock guarantee against mid-contract increases, a 30-day satisfaction guarantee allowing free cancellation shortly after joining, a price-match guarantee against comparable local deals, and up to £150 in buyout credit on eligible 24-month GIG 550-and-above plans.',
+      },
+    ],
+    reviewedDate: '2026-08-23',
+    pricingVerifiedDate: '2026-08-23',
+    reviewSources: [
+      {
+        label: 'Pine Media contract and pricing details',
+        href: 'https://pinemedia.net/',
+        note: 'Used for GIG series pricing, contract length options, setup fee and guarantees, checked 2026-08-23.',
+      },
+      {
+        label: 'Pine Media: about Pine Media',
+        href: 'https://pinemedia.net/about-us',
+        note: 'Used for Sheffield coverage positioning and premises-passed figure.',
+      },
+      {
+        label: 'CompareFibre: Pine Media broadband deals',
+        href: 'https://comparefibre.co.uk/providers/pine-media',
+        note: 'Independent corroboration for the GIG/GLO product split and coverage description.',
+      },
+      {
+        label: 'Pine Media public Trustpilot profile',
+        href: 'https://uk.trustpilot.com/review/pinemedia.net',
+        note: 'Customer-sentiment reference showing several hundred reviews and a rating around 4.5 out of 5 in August 2026, including some recent negative reviews on billing and availability; not treated as a controlled reliability survey.',
+      },
+      {
+        label: 'Awin Pine Media advertiser programme',
+        href: 'https://ui.awin.com/merchant-profile-terms/27840?setLocale=en_US',
+        note: 'BroadbandPicker\'s Awin application for this programme is pending, not yet approved. A valid publisher-specific tracking link is not generated until approval, so the affiliate link above is the provider\'s own site, verified 2026-08-23.',
+      },
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+        note: 'Explains how price, speed, coverage, customer experience and use-case fit are weighed.',
+      },
+    ],
+    awinProgramId: '27840',
   },
   {
     slug: 'toob',

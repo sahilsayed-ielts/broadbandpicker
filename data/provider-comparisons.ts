@@ -1929,6 +1929,259 @@ export const providerComparisons: ProviderComparison[] = [
       },
     ],
   },
+  {
+    slug: 'community-fibre-vs-hyperoptic',
+    providerA: 'community-fibre',
+    providerB: 'hyperoptic',
+    title: 'Community Fibre vs Hyperoptic: London\'s Two Biggest Full-Fibre Altnets Compared',
+    metaTitle: 'Community Fibre vs Hyperoptic 2026 | London Full Fibre Compared',
+    metaDescription:
+      'Community Fibre and Hyperoptic both build symmetrical full fibre into London flats and blocks. Compare price rises, Trustpilot scores and coverage before choosing.',
+    excerpt:
+      'Community Fibre and Hyperoptic are the two biggest symmetrical full-fibre altnets targeting London flats and apartment blocks, and they frequently compete for the same building. Community Fibre currently has the edge on price-rise policy and the higher Trustpilot score; Hyperoptic has the longer track record.',
+    publishDate: '2026-08-23',
+    updatedDate: '2026-08-23',
+    bestForA: 'The lowest entry price and a capped, disclosed annual price rise',
+    bestForB: 'A longer-established brand with a wider footprint across major UK cities beyond London',
+    winner:
+      'Community Fibre is the stronger pick where both are available: a lower entry price, a capped £2 a month annual rise against Hyperoptic\'s roughly £4 CPI-style increase, and a higher current Trustpilot score. Hyperoptic remains the better choice for major UK cities outside London where Community Fibre does not build.',
+    intro: [
+      'Community Fibre and Hyperoptic are both full-fibre altnets that specialise in wiring flats and apartment blocks with symmetrical broadband, rather than reselling Openreach\'s copper-to-cabinet network, and both have significant overlap in London specifically, where they frequently compete for the same building.',
+      'Outside London, the comparison changes: Hyperoptic has built into other major UK cities that Community Fibre has not reached, while Community Fibre\'s expansion beyond London has so far been limited to parts of Surrey and Sussex. Which one is even available at a specific address often decides this comparison before price or reviews do.',
+    ],
+    verdict: [
+      'Choose Community Fibre if both are available at your address: it currently has the lower entry price, the smaller scheduled annual rise, and the higher Trustpilot score.',
+      'Choose Hyperoptic if you live in a major UK city outside London and Surrey/Sussex, where Community Fibre simply does not build, or if you specifically want its longer operating history and larger review base.',
+    ],
+    keyDifferences: [
+      {
+        label: 'Price rise policy',
+        detail:
+          'Community Fibre applies a fixed £2 a month rise each April on its 24-month tiers, disclosed as a cash amount. Hyperoptic\'s fixed-term contracts commonly include an annual increase of around £4 a month. Over a 24-month contract, this is a meaningful, compounding difference in total cost.',
+      },
+      {
+        label: 'Trustpilot score',
+        detail:
+          'Community Fibre sits around 4.7 out of 5 from roughly 91,000 reviews; Hyperoptic sits around 4.5 to 4.6 from a broadly comparable review volume. Both are exceptionally strong scores for a UK ISP; Community Fibre currently has a small but consistent edge.',
+      },
+      {
+        label: 'Coverage footprint',
+        detail:
+          'Community Fibre is concentrated in London, with recent expansion into parts of Surrey and Sussex. Hyperoptic covers London and a range of other major UK cities. Anyone outside London specifically should check Hyperoptic first, since Community Fibre is unlikely to reach them at all.',
+      },
+      {
+        label: 'Entry price and speed tiers',
+        detail:
+          'Community Fibre\'s entry symmetrical tier starts lower, from around £22 a month for 150 Mbps, against Hyperoptic\'s comparable symmetrical entry tier from around £23 to £29. Both offer a non-symmetrical lower-cost entry option below their main symmetrical range; check which applies to the specific plan being compared.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Is Community Fibre or Hyperoptic cheaper?',
+        answer:
+          'Community Fibre\'s entry symmetrical tier is typically slightly cheaper than Hyperoptic\'s comparable tier, and its scheduled annual price rise is smaller, around £2 a month against Hyperoptic\'s roughly £4. Over a full 24-month contract this compounds into a meaningful difference, so compare the full-term cost, not just the entry price.',
+      },
+      {
+        question: 'Can I get both Community Fibre and Hyperoptic at my address?',
+        answer:
+          'Possibly, if you live in London, where both networks have significant coverage. Outside London, Community Fibre is limited to parts of Surrey and Sussex, while Hyperoptic covers a range of other major UK cities, so most addresses outside London will only realistically have one of the two, if either.',
+      },
+      {
+        question: 'Which has better reviews, Community Fibre or Hyperoptic?',
+        answer:
+          'Both are among the best-reviewed ISPs in the UK. Community Fibre currently sits slightly higher, around 4.7 out of 5 against Hyperoptic\'s 4.5 to 4.6, both from tens of thousands of reviews. The gap is real but not large enough on its own to override a coverage or price difference at a specific address.',
+      },
+      {
+        question: 'Do Community Fibre and Hyperoptic raise prices during the contract?',
+        answer:
+          'Yes, both do, but by different amounts. Community Fibre applies a fixed £2 a month rise each April on its 24-month tiers. Hyperoptic\'s fixed-term contracts commonly include a larger annual increase of around £4 a month. Factor the scheduled rise into the total contract cost for either provider before comparing headline prices.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Community Fibre pricing and package details',
+        href: 'https://broadbandswitch.uk/community-fibre-broadband-deals.html',
+      },
+      {
+        label: 'Hyperoptic broadband packages and pricing',
+        href: 'https://www.hyperoptic.com/',
+      },
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+      },
+    ],
+  },
+  {
+    slug: 'trooli-vs-zzoomm',
+    providerA: 'trooli',
+    providerB: 'zzoomm',
+    title: 'Trooli vs Zzoomm: Two Multi-Region Full-Fibre Altnets With No Price Rise',
+    metaTitle: 'Trooli vs Zzoomm Broadband 2026 | Coverage and Price Compared',
+    metaDescription:
+      'Trooli and Zzoomm are both regional full-fibre altnets with a no-price-rise policy, but they build in almost entirely different places. Compare coverage, speed and price.',
+    excerpt:
+      'Trooli and Zzoomm are both full-fibre altnets spread across several separate regions rather than one city, both with a no-mid-contract-price-rise policy. Their coverage footprints barely overlap, so which one, if either, reaches a specific address is usually the deciding factor.',
+    publishDate: '2026-08-23',
+    updatedDate: '2026-08-23',
+    bestForA: 'Parts of South East England and Scotland outside Zzoomm\'s market towns',
+    bestForB: 'English market towns, particularly following its 2026 merger with FullFibre',
+    winner:
+      'Neither is a national default; each covers a different, non-overlapping set of areas. Where genuinely comparable, Zzoomm\'s larger combined network (around 600,000 premises against Trooli\'s 400,000-plus) and slightly wider speed range give it a marginal edge, but coverage at the specific address decides this comparison far more than the small differences between the two.',
+    intro: [
+      'Trooli and Zzoomm both fit the same broad pattern: a full-fibre altnet building its own network across a scattered set of towns and regions rather than one city, and both currently publish a no-mid-contract-price-rise policy on their core range, a genuine point of difference from national providers like TalkTalk.',
+      'Their actual coverage footprints are almost entirely separate. Trooli builds across parts of Berkshire, Buckinghamshire, Cambridgeshire, Dorset, East Sussex, Hampshire, Kent, Norfolk, Suffolk, West Sussex and Wiltshire, plus North and South Lanarkshire and Fife in Scotland. Zzoomm, following its 2026 merger with FullFibre, builds across roughly 110 smaller English market towns spanning counties including Berkshire, Cheshire, Derbyshire and Yorkshire. The two footprints barely overlap.',
+    ],
+    verdict: [
+      'Choose Trooli if you are in one of its specific South East England counties or its two Scottish authority areas.',
+      'Choose Zzoomm if you are in one of its roughly 110 English market towns, particularly if the wider speed range, up to 2,300 Mbps against Trooli\'s 2,000 Mbps, or the slightly larger combined network matters to you.',
+    ],
+    keyDifferences: [
+      {
+        label: 'Coverage areas',
+        detail:
+          'Trooli spans specific counties in South East England plus North and South Lanarkshire and Fife in Scotland. Zzoomm spans roughly 110 English market towns following its 2026 FullFibre merger. The two networks were built in almost entirely different places, so most addresses that can order one cannot order the other.',
+      },
+      {
+        label: 'Network scale',
+        detail:
+          'Zzoomm\'s combined network reaches around 600,000 premises following its FullFibre merger. Trooli\'s network passes more than 400,000 premises, with an ambition to reach around 500,000. Zzoomm is currently the larger of the two, though both are small compared with a national Openreach-based footprint.',
+      },
+      {
+        label: 'Speed and symmetry',
+        detail:
+          'Zzoomm is fully symmetrical at every tier, from 200 Mbps to 2,300 Mbps. Trooli\'s upload speeds scale with each tier, from 50 Mbps on its entry plan to 300 Mbps on its top two tiers, but are not fully symmetrical the way Zzoomm\'s are.',
+      },
+      {
+        label: 'Entry price',
+        detail:
+          'Trooli\'s entry tier, 150 Mbps, starts from £19.99 a month, slightly undercutting Zzoomm\'s entry 200 Mbps tier at £20 on a 24-month term. The two are close enough at entry level that coverage, not price, should usually be the deciding factor.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can I get both Trooli and Zzoomm at my address?',
+        answer:
+          'Very unlikely. Trooli builds across specific parts of South East England and two Scottish authority areas; Zzoomm builds across roughly 110 separate English market towns following its 2026 FullFibre merger. The two coverage footprints barely overlap, so most addresses able to order one will not be able to order the other.',
+      },
+      {
+        question: 'Is Trooli or Zzoomm cheaper?',
+        answer:
+          'Entry prices are close: Trooli\'s 150 Mbps tier starts from £19.99 a month, Zzoomm\'s 200 Mbps tier from £20 on a 24-month term. Neither has a scheduled mid-contract price rise on its current range, so the entry price is a reasonable proxy for the full contract cost with either provider.',
+      },
+      {
+        question: 'Which has faster upload speeds, Trooli or Zzoomm?',
+        answer:
+          'Zzoomm is fully symmetrical at every tier, so upload always matches download, from 200 Mbps to 2,300 Mbps. Trooli\'s upload speeds scale with each tier but are not fully symmetrical, running from 50 Mbps on its entry plan up to 300 Mbps on its top two tiers.',
+      },
+      {
+        question: 'Do Trooli and Zzoomm raise prices mid-contract?',
+        answer:
+          'Neither currently applies a scheduled mid-contract price rise on its core published range, a genuine point of difference from national providers such as TalkTalk. Always confirm the current terms for the specific plan being ordered, since policies can change.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Choose.co.uk: Trooli broadband deals',
+        href: 'https://www.choose.co.uk/broadband/trooli/',
+      },
+      {
+        label: 'Zzoomm broadband packages and pricing',
+        href: 'https://www.zzoomm.com/',
+      },
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+      },
+    ],
+  },
+  {
+    slug: 'national-broadband-vs-highland-broadband',
+    providerA: 'national-broadband',
+    providerB: 'highland-broadband',
+    title: 'National Broadband vs Highland Broadband: 5G Now or Wait for Full Fibre?',
+    metaTitle: 'National Broadband vs Highland Broadband 2026 | Rural Scotland Compared',
+    metaDescription:
+      'For rural Scottish addresses, National Broadband\'s 5G is available now but slower; Highland Broadband\'s full fibre is faster but still being built. Compare both.',
+    excerpt:
+      'This is not a like-for-like comparison: National Broadband is a 5G fixed-wireless service available to most UK addresses today, while Highland Broadband is a full-fibre network still being built across rural Scotland. For someone in Highland Broadband\'s build area right now, the real choice is between a working 5G connection today and a faster fibre connection that may still be months away.',
+    publishDate: '2026-08-23',
+    updatedDate: '2026-08-23',
+    bestForA: 'An address anywhere Highland Broadband has not yet built, or as a stopgap while waiting',
+    bestForB: 'An address already connected to Highland Broadband\'s own full-fibre network',
+    winner:
+      'Highland Broadband wins on raw speed, upload symmetry and long-term value wherever its own network has actually reached a property. National Broadband wins on availability today: its 5G service does not depend on a construction timeline, which matters for anyone who needs a working connection now rather than when a build programme reaches their street.',
+    intro: [
+      'National Broadband and Highland Broadband solve a similar underlying problem, poor broadband in rural and hard-to-reach parts of the UK, including large parts of rural Scotland, using completely different technology. National Broadband delivers 5G and 4G fixed-wireless broadband over the mobile network, needing only a plug-in router; Highland Broadband is building its own full-fibre network physically into the ground across the Highlands, Argyll, Fife, the Lothians, Moray and Stirlingshire.',
+      'For most of Highland Broadband\'s eventual coverage area, the realistic comparison is not "which is better" in the abstract, but "is Highland Broadband\'s fibre live at my address yet, and if not, is National Broadband\'s 5G worth having in the meantime."',
+    ],
+    verdict: [
+      'Choose Highland Broadband if its full-fibre network has actually reached your address; it will outperform 5G broadband on speed, upload capacity and long-term reliability.',
+      'Choose National Broadband if Highland Broadband has not built to your address yet, or is not planning to, and you need a working connection now rather than on a construction timeline you cannot control.',
+    ],
+    keyDifferences: [
+      {
+        label: 'Technology',
+        detail:
+          'National Broadband uses 4G and 5G mobile signal, delivered through a plug-in router with no engineer visit needed for most properties. Highland Broadband is a physical fibre-to-the-premises network, requiring the property to actually be connected by an engineer once the build reaches that street.',
+      },
+      {
+        label: 'Availability today',
+        detail:
+          'National Broadband\'s 5G service is stated to reach over 80% of UK properties today, working across all four mobile networks. Highland Broadband is still mid-build, targeting full Highlands coverage by the end of 2026, with roughly half of rural Highlands premises connected as of its most recent reporting.',
+      },
+      {
+        label: 'Speed and upload',
+        detail:
+          'Highland Broadband is fully symmetrical, from 150 Mbps to 5,000 Mbps upload and download, well beyond what any mobile-based service can offer. National Broadband\'s 5G typically delivers 40 to 80 Mbps download with considerably lower upload, dependent on local mobile signal strength rather than a fixed guaranteed rate.',
+      },
+      {
+        label: 'Price and contract',
+        detail:
+          'National Broadband\'s 5G plan starts around £34.99 to £39.99 a month on a 12, 18 or 24-month contract, with no mid-contract price rise. Highland Broadband starts from £29.99 a month on a 24-month-only contract, with a scheduled £4 a month rise each April from 2027.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Should I get National Broadband while waiting for Highland Broadband?',
+        answer:
+          'If Highland Broadband has not yet built to your address and you need a working connection now, National Broadband\'s 5G service, available to over 80% of UK properties with no construction wait, is a reasonable stopgap. Consider a 12-month National Broadband contract rather than a longer one if you expect Highland Broadband to reach your address within the next year or two.',
+      },
+      {
+        question: 'Is Highland Broadband faster than National Broadband?',
+        answer:
+          'Yes, substantially. Highland Broadband is fully symmetrical full fibre, from 150 Mbps up to 5,000 Mbps. National Broadband\'s 5G service typically delivers 40 to 80 Mbps download with considerably lower upload, dependent on local mobile signal rather than a fixed line rate.',
+      },
+      {
+        question: 'Does National Broadband cover the Scottish Highlands?',
+        answer:
+          'National Broadband\'s 5G service is stated to reach over 80% of UK properties generally, working across all four mobile networks to find the strongest local signal, which should include much of the Highlands, though actual usable speed still depends on local mobile coverage and should be confirmed directly before ordering.',
+      },
+      {
+        question: 'Which is cheaper, National Broadband or Highland Broadband?',
+        answer:
+          'Highland Broadband\'s entry price, from £29.99 a month, is lower than National Broadband\'s 5G entry price of around £34.99 to £39.99, but Highland Broadband includes a scheduled £4 a month price rise each April from 2027, while National Broadband states no mid-contract rise. Compare the full contract-term cost, not just the entry price, and remember these are fundamentally different services, not just different prices for the same thing.',
+      },
+    ],
+    sources: [
+      {
+        label: 'National Broadband 5G broadband information',
+        href: 'https://www.national-broadband.co.uk/best-5g-broadband-for-rural-areas',
+      },
+      {
+        label: 'Highland Broadband packages and pricing',
+        href: 'https://highlandbroadband.com/broadband/packages-pricing/',
+      },
+      {
+        label: 'ISPreview: Highland Broadband secures £50m funding',
+        href: 'https://www.ispreview.co.uk/index.php/2025/08/highland-broadband-secures-50m-funding-to-boost-expand-fttp-rollout.html',
+      },
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+      },
+    ],
+  },
 ]
 
 export function getProviderComparisonBySlug(slug: string) {

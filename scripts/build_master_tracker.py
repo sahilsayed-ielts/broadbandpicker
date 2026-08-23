@@ -757,6 +757,54 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-23 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-awin-pending-provider-deep-content",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Deep, researched content for Awin-pending providers (Community Fibre, Cuckoo, Zen Internet, National Broadband, Trooli, Pine Media)",
+        "description": (
+            "Follow-up to content-awin-approved-provider-deep-content, extending the same "
+            "research process to the 6 real UK-relevant advertisers pending Awin approval "
+            "(Sky ROI excluded -- Republic of Ireland Sky, not UK, out of scope for a UK site, "
+            "confirmed with the user). Community Fibre and Zen Internet were existing but thin "
+            "entries, fully rewritten. Cuckoo was already deep and dated the previous day; "
+            "verified rather than rewritten. National Broadband, Trooli and Pine Media were "
+            "brand-new Provider entries. National Broadband is the site's first 4G/5G "
+            "fixed-wireless provider (a genuinely new content category, not another fibre "
+            "altnet); Pine Media is a hyperlocal single-city (Sheffield-only) provider with a "
+            "two-tier product split (its own symmetrical GIG network vs an Openreach-based GLO "
+            "product) that needed explaining clearly to avoid conflating the two. Key design "
+            "decision: because these programmes are pending, not joined, affiliateUrl stays as "
+            "each provider's own plain site URL rather than an Awin tracking link -- confirmed "
+            "via a live API test that Awin's linkbuilder will generate a structurally valid "
+            "tracking URL even for a pending programme, which would be misleading to publish "
+            "since it likely would not earn commission (or could breach Awin's terms) before "
+            "approval. Each reviewSources array carries an explicit 'pending, not yet approved' "
+            "note on the Awin source, matching the existing Gigaclear convention. All copy "
+            "hand-checked for zero em dashes and zero banned AI-tell vocabulary/phrases. Three "
+            "new comparison pages, chosen for genuine evidentiary value over one-per-provider "
+            "completeness: community-fibre-vs-hyperoptic (London's two biggest symmetrical "
+            "altnets, direct competitors), trooli-vs-zzoomm (two multi-region altnets with "
+            "near-zero coverage overlap and matching no-price-rise policies), and "
+            "national-broadband-vs-highland-broadband (5G available now vs fibre still being "
+            "built -- a genuine buy-now-or-wait decision for the same rural Scottish "
+            "customer). Cuckoo, Zen Internet and Pine Media were deliberately left without a "
+            "new comparison this round -- no natural, non-forced head-to-head partner existed "
+            "for any of them without inventing artificial relevance."
+        ),
+        "priority_score": 55,
+        "impact_score": 58,
+        "effort": "High",
+        "target": (
+            "data/providers.ts (community-fibre, cuckoo, zen-internet, national-broadband, "
+            "trooli, pine-media), data/provider-comparisons.ts (community-fibre-vs-hyperoptic, "
+            "trooli-vs-zzoomm, national-broadband-vs-highland-broadband), "
+            "public/logos/national-broadband.svg, public/logos/trooli.svg, "
+            "public/logos/pine-media.svg"
+        ),
+        "dependencies": "content-awin-approved-provider-deep-content, ops-awin-publisher-api-integration",
+        "source": "User request 2026-08-23 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",
