@@ -87,7 +87,14 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "title": "Continue selective Awin advertiser outreach",
         "description": (
             "Apply to best-fit provider programmes with tailored pitches, relevant live URLs, "
-            "audience evidence, promotional method and compliance controls; log decisions and feedback."
+            "audience evidence, promotional method and compliance controls; log decisions and feedback. "
+            "Real status pulled from the Awin Publisher API 2026-08-23 (see "
+            "ops-awin-publisher-api-integration): joined -- TalkTalk, Broadband Genie, Zzoomm, "
+            "Highland Broadband. Pending -- Sky ROI, Community Fibre, National Broadband, Trooli, "
+            "Pine Media, Cuckoo, Zen Internet. Rejected -- BT (consumer + business), Vodafone, "
+            "Plusnet, EE, Virgin Media, Hyperoptic, toob, giffgaff. The 8 rejected mainstream "
+            "providers are the priority re-application targets; Zzoomm and Highland Broadband are "
+            "approved but not yet added as providers on the site at all."
         ),
         "priority_score": 60,
         "impact_score": 70,
@@ -676,20 +683,26 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "pillar": "Monetisation",
         "title": "Direct Awin Publisher API access — programme status and link generation",
         "description": (
-            "User asked to connect Claude to their Awin account. There's no one-click "
-            "connector for Awin (unlike Google Drive/Gmail), so this uses Awin's own "
-            "Publisher API directly. Researched live (WebSearch, 2026-08-23) to confirm "
-            "current endpoints rather than relying on possibly-stale API knowledge: "
-            "GET /publishers/{id}/programmedetails?relationship=any for advertiser "
-            "programme status (joined/pending/suspended/rejected/notjoined), and "
-            "POST /publishers/{id}/linkbuilder/generate for correct current tracking "
-            "links. Built scripts/awin_sync.py with both operations, reading "
-            "AWIN_API_TOKEN and AWIN_PUBLISHER_ID (defaults to the publisher ID already "
-            "referenced elsewhere in this repo, 2942019) from env vars. Fails gracefully "
-            "with setup instructions if the token isn't set. Internal tooling only -- "
-            "never touches the live site or Vercel env vars. Not yet verified against a "
-            "real token/live API response since none was available at build time -- "
-            "verify the first real run once the user generates their token."
+            "User asked to connect Claude to their Awin account and provided a real API "
+            "token. There's no one-click connector for Awin (unlike Google Drive/Gmail), "
+            "so this uses Awin's own Publisher API directly. First live run corrected two "
+            "wrong assumptions from documentation research: 'programmedetails' requires a "
+            "specific advertiserId (not a bulk listing endpoint) -- the actual bulk-status "
+            "endpoint is GET /publishers/{id}/programmes?relationship=X, and 'any' is not "
+            "a valid value for it (loops joined/pending/suspended/rejected instead; "
+            "'notjoined' returns the ~21k whole-platform catalogue so it's excluded from "
+            "the default and only fetched on request). POST /publishers/{id}/"
+            "linkbuilder/generate confirmed working, verified against TalkTalk (advertiser "
+            "3674). REAL FINDING from the first run, both surfaced to the user and worth "
+            "acting on: only 4 programmes are joined (TalkTalk, Broadband Genie, Zzoomm, "
+            "Highland Broadband), 7 pending (Sky ROI, Community Fibre, National Broadband, "
+            "Trooli, Pine Media, Cuckoo, Zen Internet), and 9 REJECTED including BT "
+            "(both consumer and business), Vodafone, Plusnet, EE, Virgin Media, Hyperoptic "
+            "and toob. Cross-checked data/providers.ts: none of the currently-live "
+            "affiliateUrl values (including TalkTalk, which IS approved) use Awin's "
+            "awin1.com tracking format -- they're all plain provider URLs, so the site is "
+            "very likely not earning commission on any current outbound click, joined or "
+            "not, despite the on-page commercial disclosures implying it might."
         ),
         "priority_score": 47,
         "impact_score": 45,

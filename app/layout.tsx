@@ -27,6 +27,11 @@ export const metadata: Metadata = {
   },
   description:
     'Compare the best broadband deals in the UK. Find cheap fibre and full-fibre packages from BT, Sky, Virgin Media, EE and more. Free postcode checker.',
+  icons: {
+    icon: [{ url: '/favicon.ico', type: 'image/x-icon', sizes: '48x48' }],
+    shortcut: '/favicon.ico',
+    apple: '/apple-icon.png',
+  },
   alternates: {
     canonical: 'https://broadbandpicker.co.uk',
     languages: { 'en-GB': 'https://broadbandpicker.co.uk' },

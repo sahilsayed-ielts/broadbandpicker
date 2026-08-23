@@ -55,36 +55,44 @@ def publisher_id() -> str:
     return os.environ.get("AWIN_PUBLISHER_ID", DEFAULT_PUBLISHER_ID)
 
 
-def check_programmes(relationship: str) -> None:
-    token = get_token()
-    pid = publisher_id()
-    url = f"{API_BASE}/publishers/{pid}/programmedetails"
+GENUINE_STATUSES = ["joined", "pending", "suspended", "rejected"]
+
+
+def _fetch_relationship(pid: str, token: str, relationship: str) -> list[dict]:
     resp = requests.get(
-        url,
+        f"{API_BASE}/publishers/{pid}/programmes",
         headers={"Authorization": f"Bearer {token}"},
         params={"relationship": relationship},
         timeout=20,
     )
     if resp.status_code != 200:
-        print(f"Awin API error {resp.status_code}: {resp.text[:500]}", file=sys.stderr)
+        print(f"Awin API error {resp.status_code} ({relationship}): {resp.text[:300]}", file=sys.stderr)
         sys.exit(1)
+    return resp.json()
 
-    programmes = resp.json()
-    if not programmes:
-        print(f"No programmes found with relationship='{relationship}'.")
-        return
 
-    by_status: dict[str, list[dict]] = {}
-    for p in programmes:
-        status = p.get("relationship", "unknown")
-        by_status.setdefault(status, []).append(p)
+def check_programmes(relationship: str) -> None:
+    token = get_token()
+    pid = publisher_id()
 
-    print(f"{len(programmes)} programme(s), relationship filter = '{relationship}'\n")
-    for status, items in sorted(by_status.items()):
-        print(f"-- {status} ({len(items)}) --")
-        for p in sorted(items, key=lambda x: x.get("advertiserName", "")):
-            print(f"  [{p.get('id')}] {p.get('advertiserName')}")
+    # 'notjoined' returns the entire ~21k Awin advertiser catalogue (every
+    # programme you haven't applied to, not just broadband-relevant ones) —
+    # only fetch it if explicitly asked for. The other 4 statuses are your
+    # actual applications and are always worth seeing together.
+    statuses = GENUINE_STATUSES if relationship == "any" else [relationship]
+
+    total = 0
+    for status in statuses:
+        programmes = _fetch_relationship(pid, token, status)
+        total += len(programmes)
+        print(f"-- {status} ({len(programmes)}) --")
+        for p in sorted(programmes, key=lambda x: x.get("name", "")):
+            sector = p.get("primarySector") or "—"
+            print(f"  [{p.get('id')}] {p.get('name')}  ({sector})")
         print()
+
+    if relationship == "notjoined":
+        print(f"{total} programme(s) not yet applied to across the whole Awin platform (not filtered to broadband).")
 
 
 def generate_link(advertiser_id: int, destination_url: str) -> None:
@@ -111,7 +119,9 @@ def main() -> None:
         "--relationship",
         default="any",
         choices=["joined", "pending", "suspended", "rejected", "notjoined", "any"],
-        help="Filter programmes by relationship status (default: any)",
+        help="Filter programmes by relationship status. 'any' (default) covers "
+        "joined/pending/suspended/rejected together; 'notjoined' is separate "
+        "because it returns the whole ~21k Awin catalogue.",
     )
     parser.add_argument("--generate-link", action="store_true", help="Generate a tracking link")
     parser.add_argument("--advertiser-id", type=int, help="Awin advertiser ID (required with --generate-link)")
