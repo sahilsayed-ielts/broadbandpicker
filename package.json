@@ -12,6 +12,8 @@
     "page:build": "python3 scripts/build_keyword_mapping.py --skip-source-sheet --max-pages 1000 --build-all-priority --max-priority-pages 5 --deploy-production --approve-factual-review --update-google-sheet-id 1Ke0YWo5T-45JRpuXpfqL_0vwmcBbS0i06Da47quRRH0",
     "page:build:all": "python3 scripts/build_keyword_mapping.py --skip-source-sheet --max-pages 1000 --build-all-priority --max-priority-pages 0 --deploy-production --approve-factual-review --update-google-sheet-id 1Ke0YWo5T-45JRpuXpfqL_0vwmcBbS0i06Da47quRRH0",
     "page:deploy": "python3 scripts/build_keyword_mapping.py --skip-source-sheet --build-next-page --use-existing-draft --deploy-production --approve-factual-review --update-google-sheet-id 1Ke0YWo5T-45JRpuXpfqL_0vwmcBbS0i06Da47quRRH0",
+    "speed-test:audit": "python3 scripts/audit_speed_test.py",
+    "speed-test:build": "python3 scripts/audit_speed_test.py --build-and-deploy",
     "deals:sync": "node scripts/provider-deal-agent.mjs",
     "deals:sync:dry": "node scripts/provider-deal-agent.mjs --dry-run",
     "social:plan": "python3 scripts/plan_social_media_strategy.py"

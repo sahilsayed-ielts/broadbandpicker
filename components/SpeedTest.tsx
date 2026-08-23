@@ -86,7 +86,14 @@ async function measureDownload(onTick: (mbps: number) => void): Promise<number> 
 async function measureUpload(onTick: (mbps: number) => void): Promise<number> {
   const SIZE = 5 * 1024 * 1024 // 5 MB
   const data = new Uint8Array(SIZE)
-  for (let i = 0; i < SIZE; i++) data[i] = (i * 13 + 7) & 0xff
+  // crypto.getRandomValues caps out at 65536 bytes per call, so fill in chunks.
+  // Genuinely random bytes, not a repeating pattern — a predictable payload
+  // risks the same silent inflation the download test had if anything in the
+  // path ever starts compressing request bodies.
+  const RAND_CHUNK = 65536
+  for (let offset = 0; offset < SIZE; offset += RAND_CHUNK) {
+    crypto.getRandomValues(data.subarray(offset, Math.min(offset + RAND_CHUNK, SIZE)))
+  }
 
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest()
@@ -118,6 +125,7 @@ export default function SpeedTest() {
   const [download, setDownload]   = useState<number | null>(null)
   const [upload, setUpload]       = useState<number | null>(null)
   const [error, setError]         = useState<string | null>(null)
+  const [jitter, setJitter]       = useState<number | null>(null)
 
   const runTest = useCallback(async () => {
     trackEvent('speed_test_started')
@@ -127,8 +135,11 @@ export default function SpeedTest() {
 
     try {
       // Ping
-      const pingMs = await measurePing()
+      const pingSamples = await Promise.all(Array.from({ length: 5 }, async () => measurePing()))
+      const pingMs = pingSamples.reduce((sum, value) => sum + value, 0) / pingSamples.length
+      const jitterMs = pingSamples.reduce((sum, value) => sum + Math.abs(value - pingMs), 0) / pingSamples.length
       setPing(Math.round(pingMs))
+      setJitter(Math.round(jitterMs))
 
       // Download
       setPhase('download')
@@ -154,11 +165,12 @@ export default function SpeedTest() {
         ping_ms: Math.round(pingMs),
         download_mbps: dlFinal,
         upload_mbps: ulFinal,
+        jitter_ms: Math.round(jitterMs),
         speed_band: speedLabel(dlFinal).toLowerCase(),
       })
     } catch {
       trackEvent('speed_test_failed')
-      setError('Test failed — please check your connection and try again.')
+      setError('Test failed. Please check your connection and try again.')
       setPhase('idle')
     }
   }, [])
@@ -233,11 +245,12 @@ export default function SpeedTest() {
         </div>
 
         {/* Speed indicators */}
-        <div className="flex gap-8 mt-2">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8 mt-2" aria-live="polite">
           {[
             { label: 'Ping', value: ping !== null ? `${ping} ms` : '—' },
             { label: 'Download', value: download !== null ? `${download} Mbps` : '—' },
             { label: 'Upload', value: upload !== null ? `${upload} Mbps` : '—' },
+            { label: 'Jitter', value: jitter !== null ? `${jitter} ms` : '—' },
           ].map(({ label, value }) => (
             <div key={label} className="text-center">
               <div className="text-xs text-slate-500 uppercase tracking-wide mb-1">{label}</div>
@@ -249,16 +262,16 @@ export default function SpeedTest() {
         {/* Phase label */}
         <div className="h-6 mt-4">
           {isRunning && (
-            <p className="text-sky-400 text-sm font-medium animate-pulse">{phaseLabel}</p>
+            <p className="text-sky-400 text-sm font-medium motion-safe:animate-pulse" aria-live="polite">{phaseLabel}</p>
           )}
-          {error && <p className="text-red-400 text-sm">{error}</p>}
+          {error && <p className="text-red-400 text-sm" role="alert">{error}</p>}
         </div>
 
         {/* Button */}
         {(phase === 'idle' || phase === 'done') && (
           <button
             onClick={runTest}
-            className="mt-4 px-10 py-3.5 bg-sky-500 hover:bg-sky-600 active:bg-sky-700 text-white font-bold rounded-full text-base transition-colors shadow-lg shadow-sky-500/20"
+            className="mt-4 px-10 py-3.5 bg-sky-500 hover:bg-sky-600 active:bg-sky-700 text-white font-bold rounded-full text-base transition-colors shadow-lg shadow-sky-500/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-300"
           >
             {phase === 'done' ? 'Test again' : 'Start test'}
           </button>
@@ -272,11 +285,12 @@ export default function SpeedTest() {
             <p className="text-sm text-slate-300 leading-relaxed">{recommendation(download)}</p>
           </div>
 
-          <div className="grid grid-cols-3 gap-3 text-center">
+          <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 text-center">
             {[
               { label: 'Ping', value: `${ping} ms`, note: ping! < 20 ? 'Excellent' : ping! < 50 ? 'Good' : 'High' },
               { label: 'Download', value: `${download} Mbps`, note: speedLabel(download) },
               { label: 'Upload', value: `${upload} Mbps`, note: '' },
+              { label: 'Jitter', value: `${jitter} ms`, note: jitter! < 10 ? 'Stable' : jitter! < 30 ? 'Variable' : 'Unstable' },
             ].map(({ label, value, note }) => (
               <div key={label} className="bg-slate-800/40 rounded-xl p-4">
                 <div className="text-xs text-slate-500 uppercase tracking-wide mb-1">{label}</div>
@@ -289,6 +303,7 @@ export default function SpeedTest() {
           <div className="flex flex-col sm:flex-row gap-3">
             <Link
               href="/compare"
+              onClick={() => trackEvent('speed_test_compare_clicked', { speed_band: speedLabel(download).toLowerCase() })}
               className="flex-1 text-center px-6 py-3 bg-sky-500 hover:bg-sky-600 text-white font-bold rounded-xl text-sm transition-colors"
             >
               Compare broadband deals →

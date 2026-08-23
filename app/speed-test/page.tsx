@@ -4,10 +4,10 @@ import BreadcrumbNav from '@/components/BreadcrumbNav'
 import SpeedTest from '@/components/SpeedTest'
 
 const PAGE_URL = 'https://broadbandpicker.co.uk/speed-test'
-const REVIEWED_DATE = '2026-08-01'
+const REVIEWED_DATE = '2026-08-23'
 
 export const metadata: Metadata = {
-  title: 'Free Broadband Speed Test UK',
+  title: 'Internet Speed Test UK: Check Broadband Speed Free',
   description:
     'Run a free UK broadband speed test. Check download speed, upload speed and ping, understand your result, then compare options available at your postcode.',
   alternates: { canonical: PAGE_URL },
@@ -28,7 +28,7 @@ const faqs = [
   {
     question: 'What is a good broadband speed in the UK?',
     answer:
-      'A good speed depends on the household. Around 30 Mbps can support everyday browsing, HD streaming and video calls for a small household. Busy homes, simultaneous 4K streaming and large downloads benefit from 100 Mbps or more. Ofcom classifies 30 to 300 Mbps as superfast and more than 300 Mbps as ultrafast.',
+      'A good speed depends on the household and the stability of the connection. Around 30 Mbps can support browsing, HD streaming and video calls for a small household. Busy homes, simultaneous 4K streams and large downloads benefit from 100 Mbps or more. Also check upload speed, ping and jitter rather than judging the connection from download speed alone.',
   },
   {
     question: 'Why is my speed-test result lower than my advertised speed?',
@@ -115,7 +115,7 @@ export default function SpeedTestPage() {
               Measure your download speed, upload speed and ping in your browser. For the most useful result,
               stop large downloads and test once over Wi-Fi and once with an Ethernet cable.
             </p>
-            <p className="text-slate-400 mt-3 text-sm">Free to use · No registration · Reviewed {REVIEWED_DATE}</p>
+            <p className="text-slate-400 mt-3 text-sm">Free to use · No registration · Reviewed 23 August 2026</p>
           </header>
           <SpeedTest />
           <aside className="max-w-2xl mx-auto border border-slate-700 bg-slate-900 rounded-xl p-4 text-sm text-slate-300 leading-relaxed">
@@ -171,11 +171,11 @@ export default function SpeedTestPage() {
         <section className="mt-12" aria-labelledby="methodology">
           <h2 id="methodology" className="text-2xl font-bold text-slate-900">How BroadbandPicker measures your connection</h2>
           <div className="mt-4 space-y-4 leading-relaxed">
-            <p><strong>Ping:</strong> five small requests are sent to the server; the median round-trip time is reported in milliseconds to reduce the effect of one unusual request.</p>
+            <p><strong>Ping and jitter:</strong> repeated small requests are sent to the server. Ping reports typical round-trip delay; jitter reports how much that delay varies. Low jitter matters for calls and gaming because a connection can be fast but still feel unstable.</p>
             <p><strong>Download:</strong> your browser receives a test payload and calculates megabits transferred per second. <strong>Upload:</strong> it sends a test payload and measures the transfer rate.</p>
             <p><strong>Limitations:</strong> this browser test measures the route to our server, not the access-line speed inside your provider&apos;s network. Wi-Fi, device capability, browser load, routing and congestion can affect it. We do not claim Ofcom accreditation.</p>
           </div>
-          <p className="text-sm text-slate-500 mt-4">Methodology reviewed by the BroadbandPicker editorial team on 1 August 2026.</p>
+          <p className="text-sm text-slate-500 mt-4">Methodology reviewed by the BroadbandPicker editorial team on 23 August 2026.</p>
         </section>
 
         <section className="mt-12 rounded-2xl bg-slate-900 text-white p-7 sm:p-9" aria-labelledby="slow-result">
@@ -200,9 +200,10 @@ export default function SpeedTestPage() {
           <ul className="list-disc pl-5 mt-3 space-y-2">
             <li><a className="text-sky-700 underline" href="https://www.ofcom.org.uk/phones-and-broadband/saving-money/get-more-from-your-broadband" rel="noopener noreferrer">Ofcom: Get more from your broadband</a></li>
             <li><a className="text-sky-700 underline" href="https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/clear-information-before-you-buy-broadband" rel="noopener noreferrer">Ofcom: Clear information before you buy broadband</a></li>
+            <li><a className="text-sky-700 underline" href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content" rel="noopener noreferrer">Google Search Central: Creating helpful, reliable, people-first content</a></li>
             <li><Link className="text-sky-700 underline" href="/how-we-review-broadband">BroadbandPicker review methodology</Link> and <Link className="text-sky-700 underline" href="/editorial-policy">editorial policy</Link></li>
           </ul>
-          <p className="mt-4 text-slate-500">Last tested and reviewed: 1 August 2026. We review this page when the test method or relevant Ofcom guidance changes.</p>
+          <p className="mt-4 text-slate-500">Last tested and reviewed: 23 August 2026. We review this page when the test method or relevant Ofcom guidance changes.</p>
         </section>
       </div>
     </main>

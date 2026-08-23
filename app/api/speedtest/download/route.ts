@@ -1,14 +1,9 @@
+import { randomFillSync } from 'node:crypto'
+
 export const dynamic = 'force-dynamic'
 
 const CHUNK = 65536 // 64 KB per enqueue
 const TOTAL = 10 * 1024 * 1024 // 10 MB total
-
-// Pre-build one chunk of incompressible pseudo-random data
-const TEMPLATE = (() => {
-  const buf = new Uint8Array(CHUNK)
-  for (let i = 0; i < CHUNK; i++) buf[i] = (i * 37 + 91) & 0xff
-  return buf
-})()
 
 export async function GET() {
   let sent = 0
@@ -19,7 +14,14 @@ export async function GET() {
         controller.close()
         return
       }
-      controller.enqueue(TEMPLATE.slice())
+      // Genuinely random bytes on every chunk. A deterministic or repeated
+      // pattern here gets flattened by Vercel's automatic Brotli/gzip
+      // compression before it ever leaves the edge — the browser then
+      // reports the decompressed byte count while only a tiny fraction of
+      // that actually crossed the network, wildly inflating the result.
+      // True high-entropy data can't be meaningfully compressed, so what
+      // the client measures matches what really transferred.
+      controller.enqueue(randomFillSync(new Uint8Array(CHUNK)))
       sent += CHUNK
     },
   })

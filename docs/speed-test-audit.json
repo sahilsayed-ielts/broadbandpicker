@@ -1,0 +1,228 @@
+{
+  "generated": "2026-08-23T19:50:09.326263+00:00",
+  "page": "https://broadbandpicker.co.uk/speed-test",
+  "objective": "A fast, trustworthy UK speed test that diagnoses the result and gives a relevant, disclosed comparison next step.",
+  "ranking_note": "The pipeline targets usefulness and discoverability; it cannot guarantee position 1, AI Overview inclusion or LLM citations.",
+  "keyword_source": "Ubersuggest UK live snapshot, 2026-08-23",
+  "keyword_map": [
+    {
+      "keyword": "internet speed test",
+      "role": "primary reach",
+      "uk_volume": 1220000,
+      "difficulty": 66,
+      "slot": "title, intro, tool"
+    },
+    {
+      "keyword": "broadband speed test",
+      "role": "primary UK",
+      "uk_volume": 201000,
+      "difficulty": 59,
+      "slot": "title, H1, tool"
+    },
+    {
+      "keyword": "internet speed test free",
+      "role": "secondary",
+      "uk_volume": 12100,
+      "difficulty": 58,
+      "slot": "intro and FAQ"
+    },
+    {
+      "keyword": "broadband speed test in UK",
+      "role": "secondary",
+      "uk_volume": 6600,
+      "difficulty": 11,
+      "slot": "answer-first section"
+    },
+    {
+      "keyword": "internet speed test download and upload",
+      "role": "secondary",
+      "uk_volume": 880,
+      "difficulty": 65,
+      "slot": "tool labels and methodology"
+    },
+    {
+      "keyword": "internet speed test ping",
+      "role": "secondary",
+      "uk_volume": 170,
+      "difficulty": 60,
+      "slot": "results and definitions"
+    },
+    {
+      "keyword": "Wi-Fi speed test vs Ethernet",
+      "role": "supporting intent",
+      "uk_volume": null,
+      "difficulty": null,
+      "slot": "accuracy guide and FAQ"
+    }
+  ],
+  "competitors": [
+    {
+      "name": "Ookla Speedtest",
+      "url": "https://www.speedtest.net/",
+      "checked": "2026-08-23",
+      "status": 200,
+      "headings": [
+        "Speedtest by Ookla",
+        "GO"
+      ],
+      "signals": {
+        "download": true,
+        "upload": true,
+        "latency_or_ping": false,
+        "loaded_latency": false,
+        "accuracy_guidance": false,
+        "troubleshooting": false,
+        "commercial_next_step": false
+      },
+      "visible_words": 7193
+    },
+    {
+      "name": "FAST.com",
+      "url": "https://fast.com/",
+      "checked": "2026-08-23",
+      "status": 200,
+      "headings": [],
+      "signals": {
+        "download": true,
+        "upload": true,
+        "latency_or_ping": true,
+        "loaded_latency": true,
+        "accuracy_guidance": false,
+        "troubleshooting": false,
+        "commercial_next_step": false
+      },
+      "visible_words": 429
+    },
+    {
+      "name": "Cloudflare Speed Test",
+      "url": "https://speed.cloudflare.com/",
+      "checked": "2026-08-23",
+      "status": 200,
+      "headings": [],
+      "signals": {
+        "download": false,
+        "upload": false,
+        "latency_or_ping": false,
+        "loaded_latency": false,
+        "accuracy_guidance": false,
+        "troubleshooting": false,
+        "commercial_next_step": false
+      },
+      "visible_words": 121
+    },
+    {
+      "name": "Uswitch Broadband Speed Test",
+      "url": "https://www.uswitch.com/broadband/speedtest/",
+      "checked": "2026-08-23",
+      "status": 200,
+      "headings": [
+        "Test your broadband speed with Uswitch",
+        "About your broadband",
+        "What is my broadband speed?",
+        "How does the Uswitch broadband speed checker work?",
+        "What does my speed actually mean?",
+        "How can I get accurate results when I check my broadband speed?",
+        "Why is my broadband connection so slow?",
+        "Which broadband provider is the fastest?",
+        "How far am I from my broadband exchange?",
+        "What is the Voluntary Code of Practice on Broadband Speed?",
+        "Why you should run an internet speed test when working from home",
+        "Technical specifications",
+        "How accurate is my speed test result?",
+        "How is download speed measured?",
+        "How is upload speed measured?",
+        "What is the speed test\u2019s capacity?",
+        "Learn more about your broadband speed"
+      ],
+      "signals": {
+        "download": true,
+        "upload": true,
+        "latency_or_ping": false,
+        "loaded_latency": false,
+        "accuracy_guidance": true,
+        "troubleshooting": true,
+        "commercial_next_step": true
+      },
+      "visible_words": 6830
+    },
+    {
+      "name": "Broadband.co.uk Speed Test",
+      "url": "https://www.broadband.co.uk/broadband-speed-test",
+      "checked": "2026-08-23",
+      "status": 200,
+      "headings": [
+        "Broadband Speed Test"
+      ],
+      "signals": {
+        "download": true,
+        "upload": true,
+        "latency_or_ping": true,
+        "loaded_latency": false,
+        "accuracy_guidance": true,
+        "troubleshooting": true,
+        "commercial_next_step": true
+      },
+      "visible_words": 1881
+    }
+  ],
+  "endpoint_checks": [
+    {
+      "endpoint": "ping",
+      "url": "https://broadbandpicker.co.uk/api/speedtest/ping?audit=1787514612",
+      "status": 204,
+      "elapsed_ms": 542.0,
+      "bytes": 0,
+      "cache_control": "no-store",
+      "passed": true
+    },
+    {
+      "endpoint": "download",
+      "url": "https://broadbandpicker.co.uk/api/speedtest/download?audit=1787514613",
+      "status": 200,
+      "elapsed_ms": 613.5,
+      "bytes": 10485760,
+      "cache_control": "no-store",
+      "passed": true
+    },
+    {
+      "endpoint": "upload",
+      "url": "https://broadbandpicker.co.uk/api/speedtest/upload?audit=1787514613",
+      "status": 200,
+      "elapsed_ms": 307.4,
+      "bytes": 11,
+      "cache_control": "no-store",
+      "passed": true
+    }
+  ],
+  "source_contract": {
+    "requirements": {
+      "download_upload_ping_jitter": true,
+      "ga4_start_complete_failure_cta": true,
+      "accessible_live_status": true,
+      "responsive_results": true,
+      "methodology_and_limitations": true,
+      "affiliate_disclosure": true,
+      "faq_and_webapplication_schema": true,
+      "primary_sources": true
+    },
+    "passed": true
+  },
+  "required_editorial_sections": [
+    "answer-first explanation",
+    "download, upload, ping and jitter definitions",
+    "speed-by-household-task table",
+    "Wi-Fi versus Ethernet testing protocol",
+    "why tests differ",
+    "minimum guaranteed speed and complaint steps",
+    "transparent test methodology and limitations",
+    "dated primary sources",
+    "standalone FAQs"
+  ],
+  "affiliate_rules": [
+    "Interpret the result before showing an offer",
+    "Use postcode-led comparison rather than claiming one universal fastest provider",
+    "Show commission disclosure beside the CTA",
+    "Track the CTA without sending a postcode or test result as personal data"
+  ],
+  "passed": true
+}
