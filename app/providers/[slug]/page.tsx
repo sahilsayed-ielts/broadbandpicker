@@ -315,7 +315,9 @@ export default async function ProviderPage({
           },
           { label: 'Max speed', value: `${maxSpeed.download} Mbps` },
           { label: 'Coverage', value: isRetired ? 'Regional' : `${provider.coveragePercent}%` },
-          { label: 'Trustpilot', value: `${provider.trustpilotScore.toFixed(1)}/5` },
+          isRetired
+            ? { label: 'Current status', value: `Now ${provider.successorName}` }
+            : { label: 'Trustpilot', value: `${provider.trustpilotScore.toFixed(1)}/5` },
         ].map(({ label, value }) => (
           <div key={label} className="bg-white border border-slate-200 rounded-xl p-4 text-center">
             <div className="text-lg font-bold text-slate-900">{value}</div>
@@ -333,9 +335,9 @@ export default async function ProviderPage({
             fees, coverage, and service trade-offs rather than just the cheapest headline deal.
           </p>
           <p>
-            The evidence inputs for this page are listed below, including the pricing snapshot
-            date and customer-sentiment reference we used during review. Trustpilot is treated
-            as one input rather than a standalone ranking system.
+            {isRetired
+              ? 'The evidence inputs below separate dated information about the former service from current support and switching guidance. Historic prices and customer-service measures do not describe the successor provider today.'
+              : 'The evidence inputs for this page are listed below, including the pricing snapshot date and customer-sentiment reference we used during review. Trustpilot is treated as one input rather than a standalone ranking system.'}
           </p>
         </div>
       </section>

@@ -311,6 +311,29 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-22 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "feat-homepage-visual-redesign",
+        "type": "Feature",
+        "pillar": "UX",
+        "title": "Homepage visual redesign: illustrations + interactivity",
+        "description": (
+            "Researched via scripts/analyze_homepage_visual_design.py against 5 UK broadband "
+            "comparison homepages: none uses stock-photo hero banners; the dominant visual "
+            "language is heavy inline SVG (Uswitch ships 195) and provider logos, no carousel/"
+            "animation library detected anywhere. Generated 7 original on-brand SVG "
+            "illustrations (scripts/generate_homepage_illustrations.py: hero network graphic, "
+            "3 colour-filled step icons, 2 gradient blobs, a quiz illustration) rather than "
+            "stock photography, matching what's actually proven in this vertical. Added a "
+            "scroll-reveal component, hover interactions, and restructured the Broadband Match "
+            "promo to a two-column illustrated layout. Content/copy unchanged, visual/UX only."
+        ),
+        "priority_score": 52,
+        "impact_score": 55,
+        "effort": "Medium",
+        "target": "app/page.tsx, components/ScrollReveal.tsx, public/illustrations/",
+        "dependencies": "None",
+        "source": "User request 2026-08-23 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",

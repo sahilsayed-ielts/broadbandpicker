@@ -1222,6 +1222,201 @@ const baseProviders: Provider[] = [
     ],
     awinProgramId: null,
   },
+  {
+    slug: 'shell-energy',
+    name: 'Shell Energy',
+    logo: '/logos/shell-energy.svg',
+    affiliateUrl: 'https://www.talktalk.co.uk/broadband',
+    speeds: [
+      { download: 11, upload: 1, type: 'ADSL' },
+      { download: 38, upload: 9, type: 'FTTC' },
+      { download: 67, upload: 17, type: 'FTTC' },
+      { download: 100, upload: 20, type: 'FTTP' },
+      { download: 200, upload: 30, type: 'FTTP' },
+      { download: 500, upload: 75, type: 'FTTP' },
+      { download: 944, upload: 110, type: 'FTTP' },
+    ],
+    monthlyPriceFrom: 19.99,
+    contractLengths: [18],
+    setupFee: 0,
+    trustpilotScore: 1.5,
+    coveragePercent: 0,
+    highlights: [
+      'Shell Energy Broadband closed to new customers and its broadband accounts moved to TalkTalk in 2024',
+      'Former packages used Openreach ADSL, part-fibre and full-fibre lines with average downloads up to 944 Mbps',
+      'Historic prices on this page are for identifying an old plan, not offers that can be ordered today',
+    ],
+    pros: [
+      'The former range covered basic ADSL through to gigabit-class Openreach full fibre',
+      'Existing routers and contract terms were expected to continue during the 2024 migration',
+      'Former customers can compare and switch from their current TalkTalk account when eligible',
+      'The sale and switching guidance can be checked against official and regulatory sources',
+    ],
+    cons: [
+      'No new Shell Energy broadband deals are available',
+      'Old package prices and contact details in ranking reviews may now be misleading',
+      'Shell Energy had a poor historical Ofcom complaints result in Q2 2022',
+      'A former customer must check their current TalkTalk bill and minimum term rather than rely on a Shell-era review',
+    ],
+    retiredDate: '2024-10-01',
+    successorName: 'TalkTalk',
+    successorUrl: 'https://www.talktalk.co.uk/broadband',
+    excerpt:
+      'Shell Energy Broadband is no longer available to new customers. Its roughly 500,000 UK broadband and home-phone accounts moved to TalkTalk during 2024 after Octopus Energy sold the broadband arm. Former customers should check their current TalkTalk account for billing, contract and support details. The Shell Energy broadband review below keeps old speeds and prices clearly labelled as history, not live deals.',
+    contentSections: [
+      {
+        heading: 'Is Shell Energy Broadband Still Available?',
+        paragraphs: [
+          'No. Shell Energy Broadband stopped operating as a retail choice for new UK customers in 2024. Octopus Energy announced on 6 February 2024 that it had agreed to sell the broadband arm of Shell Energy Retail to TalkTalk\'s shareholders. Shell Energy\'s current support result now tells broadband and phone customers that they have moved to TalkTalk. A page advertising a new Shell broadband order is therefore out of date.',
+          'This Shell Energy broadband review is an archive and practical next-step guide. It can help a former customer identify an old package, understand why a bill or account now carries TalkTalk branding, and decide what to check before switching. It cannot provide a live Shell quote because there is no current Shell retail range. The button on this page goes to TalkTalk, the successor provider, and our comparison link shows other current options.',
+          'If a search result still lists Shell Energy broadband deals, check its publication date, destination URL and order journey. Several pages ranking in August 2026 still displayed prices from the active-brand period. Those figures may be useful on an old statement, but they do not prove availability. Do not enter payment details on an unfamiliar page that presents itself as a current Shell broadband checkout.',
+        ],
+      },
+      {
+        heading: 'What Happened to Shell Energy Broadband and TalkTalk?',
+        paragraphs: [
+          'Octopus Energy completed its acquisition of Shell Energy Retail in December 2023. Octopus retained the household energy operation but did not plan to provide broadband. Its February 2024 announcement said the broadband arm would be sold to TalkTalk\'s shareholders and noted that Shell Energy Broadband was already supported by TalkTalk\'s platform. The transfer was therefore a change of retail ownership and account management, not a sale of a separate national fibre network.',
+          'MoneySavingExpert reported that approximately 500,000 broadband and home-phone customers were involved. During the staged move, customers were told that service should continue, existing routers would still work and contract terms would remain in place. That report described the migration period in 2024. A customer looking at an account now should use the terms, price and minimum-period date shown by TalkTalk rather than assume every original migration statement still controls the account.',
+          'Shell Energy and TalkTalk are not two current providers to compare for a new order. Shell is the retired brand and TalkTalk is where the transferred accounts went. A prospective customer should compare a live TalkTalk quote with other providers available at the same address. A former Shell customer should first identify whether they are still in a minimum term, the monthly price now charged, and any phone or add-on services attached to the account.',
+        ],
+      },
+      {
+        heading: 'Shell Energy Broadband Deals and Historic Prices',
+        paragraphs: [
+          'Shell Energy broadband deals once ranged from 11 Mbps ADSL through 38 Mbps and 67 Mbps part-fibre packages to full-fibre tiers advertised up to 944 Mbps. The archived entry price of £19.99 a month and the 18-month term shown above come from old commercial listings, not a price verified for sale in 2026. They are included only because they can help someone recognise a legacy contract or judge whether an old review is describing the same product.',
+          'Historic package tables vary by date. One ranking review listed £19.99 for 11 Mbps Fast Broadband, £28.99 for 67 Mbps Superfast Fibre Plus and £41.99 for 145 Mbps Ultrafast Broadband, all on 18-month terms. Another described later full-fibre tiers reaching 944 Mbps. These populations should not be combined into a supposed final range because products, promotions, connection types and dates differed. No old headline price should be compared directly with a live offer without checking the total contract cost.',
+          'For a current deal comparison, record the monthly price in each contract year, setup charge, minimum term, average download, minimum guaranteed speed, upload rate, phone inclusion, router terms and exit charge. Then compare like with like at the full address. A cheap Shell-era FTTC price is not an alternative that can be bought, and a current full-fibre deal may involve different installation work even when both services use Openreach infrastructure.',
+        ],
+      },
+      {
+        heading: 'Shell Energy Broadband Speeds, Coverage and Network',
+        paragraphs: [
+          'Shell Energy resold broadband delivered over Openreach infrastructure. Its older Fast Broadband product used ADSL, Superfast products used fibre to the cabinet with copper for the final connection, and later Full Fibre products used fibre to the premises. Shell did not operate a separate UK access network. That relationship explains why advertised speed depended on the line available at an individual address rather than a single Shell coverage footprint.',
+          'The historic average download tiers included 11 Mbps, 38 Mbps, 67 Mbps and a selection of full-fibre speeds up to 944 Mbps. Uploads were much lower than downloads, including roughly 110 Mbps upload on the old 944 Mbps tier, because these were not symmetrical services. The personalised speed estimate and minimum guarantee in an old contract are more relevant to a former customer than the maximum once advertised nationally.',
+          'There is no meaningful current Shell Energy broadband coverage percentage because the brand no longer accepts orders. Current availability belongs to the provider selling service now and can differ even on an Openreach line. Enter the full address into a live provider checker, not only the postcode, and wait until a replacement service is active before cancelling a working connection if the switch requires separate installation.',
+        ],
+      },
+      {
+        heading: 'Shell Energy Broadband Router and Home Phone',
+        paragraphs: [
+          'Shell Energy supplied different routers across its former range. Later Superfast and Full Fibre customers could receive a dual-band Wi-Fi 6 hub, while some older products used Technicolor or Zyxel hardware. The router model on the label matters more than a generic review because port speeds, wireless standard and connection settings differ. A legacy router cannot make an 11 Mbps or 67 Mbps line run at full-fibre speed.',
+          'Customers were told during the TalkTalk migration that they would not need new equipment simply because the account moved. If a former Shell router still provides the service, do not factory-reset or replace it during a fault unless current TalkTalk support instructs you to do so. First check power, the broadband or optical light, Ethernet performance and Wi-Fi separately. Record the model and serial number before contacting support.',
+          'Old Shell packages often included line rental and pay-as-you-go calls, with optional call plans. The current bill is the reliable record of whether a phone service or call package remains attached. Before switching, decide whether the landline number must be kept and tell the new provider. Ofcom also advises customers to consider any provider-hosted email address, because access may end after a switch.',
+        ],
+      },
+      {
+        heading: 'Shell Energy Broadband Contact, Billing and Complaints',
+        paragraphs: [
+          'A former Shell Energy broadband customer should start with the contact route shown in their current TalkTalk bill, online account or recent service email. Old Shell Energy broadband contact numbers and login links can be retired, repurposed or unrelated to the migrated account. The current Shell support result confirms the move to TalkTalk, but the exact account identifier and support channel must come from the customer\'s present documentation.',
+          'Do not cancel a Direct Debit merely because the payee name changed during migration. Match the amount to the bill and query an unexplained charge through the current provider. Keep copies of the original Shell contract, migration messages, TalkTalk bills, payment dates, fault references and the resolution requested. That evidence is useful if a billing or contract dispute cannot be resolved during the first contact.',
+          'Historical service measures need a date and population. Ofcom recorded 31 Shell Energy broadband complaints per 100,000 customers in the second quarter of 2022, against an industry average of 11. Ofcom later fined Shell Energy £1.4 million in November 2023 for failures involving end-of-contract and annual best-tariff notifications affecting more than 70,000 customers. Neither figure measures current TalkTalk service, so this review reports them only as Shell-era context.',
+        ],
+      },
+      {
+        heading: 'Can Former Shell Energy Broadband Customers Switch?',
+        paragraphs: [
+          'Yes. A former Shell Energy customer can switch from the current TalkTalk service, subject to any minimum-term and early-exit conditions on the account. Check the contract end date and ask for the expected early termination charge before committing elsewhere. If the minimum term has ended, compare current prices rather than allowing a legacy out-of-contract rate to continue without review.',
+          'Ofcom says One Touch Switch lets the new provider arrange most residential broadband switches. After the customer supplies matching account details and confirms the change, the new provider coordinates the preferred date where possible; the old service should end after the replacement is working. Keep the old router until the current provider confirms whether it must be returned, and save proof of postage for any equipment return.',
+          'Use a simple decision check: confirm the exact address and available network, compare total contract cost, check average and guaranteed speeds, preserve any landline number, plan for email-address changes, and understand installation timing. If the current service has a fault or unresolved bill, switching does not automatically settle the complaint. Keep pursuing the existing case and use the provider\'s formal complaint process when needed.',
+        ],
+      },
+      {
+        heading: 'Is Shell Energy Broadband Any Good?',
+        paragraphs: [
+          'Shell Energy Broadband cannot be recommended for a new order because it no longer sells one. During its active period it offered a broad Openreach range and later reached gigabit-class downloads, but the value depended on the address, promotion and contract date. Its poor 2022 complaints figure and the 2023 Ofcom enforcement action are material historical cautions, not evidence about every customer or about TalkTalk today.',
+          'For a former customer, the best next step is to audit the current account rather than judge it by Shell-era marketing. Check the TalkTalk price, term, speed guarantee, phone plan and any add-ons. Stay if the service and total cost compare well at the address. Switch if an eligible alternative offers a better combination of price, speed, installation confidence and support terms.',
+          'Our verdict is therefore specific: ignore pages presenting Shell Energy broadband deals as live, use archived package details only to understand an old contract, and make any buying decision from current address-level quotes. TalkTalk is the relevant successor for account support, while Ofcom\'s switching guidance and a saved pre-contract summary provide the safest route to a different provider.',
+        ],
+      },
+    ],
+    faqItems: [
+      {
+        question: 'Is Shell Energy Broadband still operating?',
+        answer:
+          'No. Shell Energy Broadband stopped taking new UK customers and its broadband and home-phone accounts moved to TalkTalk during 2024. Octopus Energy announced the agreed sale in February 2024, and Shell Energy\'s current support result directs former broadband customers to TalkTalk. Any Shell package price shown today should be treated as historical, not a live offer.',
+      },
+      {
+        question: 'What happened to Shell Energy Broadband customers?',
+        answer:
+          'About 500,000 Shell Energy broadband and home-phone customers were transferred to TalkTalk in 2024 after Octopus Energy acquired Shell Energy Retail and sold the broadband arm separately. Customers were told the migration would be automatic and that existing routers and contract terms would continue during the move. Current billing, support and minimum-term details now need checking with TalkTalk.',
+      },
+      {
+        question: 'Are there any Shell Energy broadband deals?',
+        answer:
+          'No new Shell Energy broadband deals are available. Search results may still display former 18-month plans and speeds from 11 Mbps to 944 Mbps, but those are archive records. Compare current providers using your full address and check each deal\'s total contract cost, annual price changes, setup fee, guaranteed speed and exit terms before ordering.',
+      },
+      {
+        question: 'What is the Shell Energy broadband contact number?',
+        answer:
+          'Former Shell Energy broadband customers should use the contact details on their current TalkTalk bill, online account or recent service message. Old Shell broadband numbers and login pages may no longer operate. Keep the account number, bills and migration emails ready, and use TalkTalk\'s formal complaint route if billing, contract or service issues are not resolved.',
+      },
+      {
+        question: 'Can I keep using my Shell Energy broadband router?',
+        answer:
+          'Customers were told that their existing Shell Energy router could continue working when accounts moved to TalkTalk. If it still provides service, do not reset or discard it without current support advice. Check the model label, power and broadband lights first, and ask TalkTalk whether replacement or return is required before changing equipment.',
+      },
+      {
+        question: 'Can I switch from Shell Energy Broadband to another provider?',
+        answer:
+          'Yes. The account is now with TalkTalk, so first check its current minimum-term date and any early termination charge. Under Ofcom\'s One Touch Switch process, the new provider normally coordinates the move. Compare address-specific prices and speeds, protect any landline number or provider-hosted email, and keep equipment-return evidence after the new service works.',
+      },
+    ],
+    reviewedDate: '2026-08-23',
+    pricingVerifiedDate: '2026-08-23',
+    reviewSources: [
+      {
+        label: 'Octopus Energy announcement of the Shell Energy Broadband sale',
+        href: 'https://octopus.energy/press/Octopus-Energy-Shell-Energy-Broadband/',
+        note: 'Primary source used for the February 2024 sale to TalkTalk shareholders, the existing TalkTalk platform relationship and migration plan; rechecked on 2026-08-23.',
+      },
+      {
+        label: 'Shell Energy account support',
+        href: 'https://uk.shellenergy.com/help/contact-us/account-queries',
+        note: 'Primary source whose current search result states that Shell Energy broadband and phone customers moved to TalkTalk; checked on 2026-08-23.',
+      },
+      {
+        label: 'MoneySavingExpert Shell Energy broadband transfer report',
+        href: 'https://www.moneysavingexpert.com/news/2024/02/shell-energy-broadband-sold-talktalk/',
+        note: 'Independent corroboration for the approximate 500,000 accounts, automatic migration, router continuity and contract guidance published during the 2024 transfer; rechecked on 2026-08-23.',
+      },
+      {
+        label: 'Ofcom enforcement action against Shell Energy',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/switching-provider/shell-energy-fined-customer-contracts-deals',
+        note: 'Regulatory source for the £1.4 million November 2023 fine and more than 70,000 affected customers; reported as dated Shell-era evidence, checked on 2026-08-23.',
+      },
+      {
+        label: 'Ofcom historical telecoms complaints release',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/service-quality/most-complained-about-telecoms-and-pay-tv-providers',
+        note: 'Regulatory source for Q2 2022 Shell Energy complaints of 31 per 100,000 customers versus the industry average of 11; not used as a current TalkTalk measure, checked on 2026-08-23.',
+      },
+      {
+        label: 'Ofcom broadband switching guidance',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/switching-provider/switching-broadband-provider',
+        note: 'Regulatory source for current One Touch Switch steps and provider-hosted email cautions, checked on 2026-08-23.',
+      },
+      {
+        label: 'BroadbandPicker TalkTalk review',
+        href: '/providers/talktalk',
+        note: 'Internal next step for current TalkTalk package, price and provider context.',
+      },
+      {
+        label: 'BroadbandPicker switching guide',
+        href: '/guides/how-to-switch-broadband-uk',
+        note: 'Internal practical guide for comparing and completing a UK broadband switch.',
+      },
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+        note: 'Explains how price, speed, coverage, customer experience and use-case fit are weighed across provider reviews.',
+      },
+      {
+        label: 'BroadbandPicker editorial policy',
+        href: '/editorial-policy',
+        note: 'Sets out editorial independence, correction standards and handling of commercial relationships.',
+      },
+    ],
+    awinProgramId: null,
+  },
 ]
 
 export const providers: Provider[] = baseProviders.map(applyLiveDealOverlay)

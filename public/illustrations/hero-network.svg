@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" fill="none">
+  <defs>
+    <radialGradient id="washGrad" cx="72%" cy="42%" r="65%">
+      <stop offset="0%" stop-color="#0EA5E9" stop-opacity="0.22" />
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7DD3FC" />
+      <stop offset="100%" stop-color="#22C55E" />
+    </linearGradient>
+    <radialGradient id="nodeGrad" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#0EA5E9" />
+    </radialGradient>
+    <radialGradient id="hubGrad" cx="35%" cy="35%" r="70%">
+      <stop offset="0%" stop-color="#7DD3FC" />
+      <stop offset="55%" stop-color="#0EA5E9" />
+      <stop offset="100%" stop-color="#22C55E" />
+    </radialGradient>
+  </defs>
+  <rect width="640" height="480" fill="url(#washGrad)" />
+  <circle cx="460.8" cy="201.6" r="28" fill="none" stroke="#7DD3FC" stroke-width="1" opacity="0.35" /><circle cx="460.8" cy="201.6" r="50" fill="none" stroke="#7DD3FC" stroke-width="1" opacity="0.26" /><circle cx="460.8" cy="201.6" r="72" fill="none" stroke="#7DD3FC" stroke-width="1" opacity="0.17" /><circle cx="460.8" cy="201.6" r="94" fill="none" stroke="#7DD3FC" stroke-width="1" opacity="0.08" />
+  <path d="M 392.1 304.6 Q 426.4 268.3 460.8 201.6" stroke="url(#lineGrad)" stroke-width="1.6" fill="none" opacity="0.55" /><path d="M 610.0 263.7 Q 535.4 217.3 460.8 201.6" stroke="url(#lineGrad)" stroke-width="1.6" fill="none" opacity="0.55" /><path d="M 610.0 251.2 Q 535.4 230.3 460.8 201.6" stroke="url(#lineGrad)" stroke-width="1.6" fill="none" opacity="0.55" /><path d="M 327.0 246.0 Q 393.9 230.5 460.8 201.6" stroke="url(#lineGrad)" stroke-width="1.6" fill="none" opacity="0.55" /><path d="M 270.0 275.0 Q 365.4 232.2 460.8 201.6" stroke="url(#lineGrad)" stroke-width="1.6" fill="none" opacity="0.55" /><path d="M 493.7 346.9 Q 477.2 276.5 460.8 201.6" stroke="url(#lineGrad)" stroke-width="1.6" fill="none" opacity="0.55" /><path d="M 305.3 140.2 Q 383.1 149.9 460.8 201.6" stroke="url(#lineGrad)" stroke-width="1.6" fill="none" opacity="0.55" /><path d="M 610.0 248.6 Q 535.4 204.0 460.8 201.6" stroke="url(#lineGrad)" stroke-width="1.6" fill="none" opacity="0.55" /><path d="M 553.7 290.5 Q 507.2 231.9 460.8 201.6" stroke="url(#lineGrad)" stroke-width="1.6" fill="none" opacity="0.55" />
+  <circle cx="392.1" cy="304.6" r="7.3" fill="url(#nodeGrad)" opacity="0.9" /><circle cx="392.1" cy="304.6" r="12.3" fill="none" stroke="#7DD3FC" stroke-width="1" opacity="0.35" /><circle cx="610.0" cy="263.7" r="5.8" fill="url(#nodeGrad)" opacity="0.9" /><circle cx="610.0" cy="263.7" r="10.8" fill="none" stroke="#7DD3FC" stroke-width="1" opacity="0.35" /><circle cx="610.0" cy="251.2" r="4.2" fill="url(#nodeGrad)" opacity="0.9" /><circle cx="610.0" cy="251.2" r="9.2" fill="none" stroke="#7DD3FC" stroke-width="1" opacity="0.35" /><circle cx="327.0" cy="246.0" r="4.5" fill="url(#nodeGrad)" opacity="0.9" /><circle cx="327.0" cy="246.0" r="9.5" fill="none" stroke="#7DD3FC" stroke-width="1" opacity="0.35" /><circle cx="270.0" cy="275.0" r="4.6" fill="url(#nodeGrad)" opacity="0.9" /><circle cx="270.0" cy="275.0" r="9.6" fill="none" stroke="#7DD3FC" stroke-width="1" opacity="0.35" /><circle cx="493.7" cy="346.9" r="8.7" fill="url(#nodeGrad)" opacity="0.9" /><circle cx="493.7" cy="346.9" r="13.7" fill="none" stroke="#7DD3FC" stroke-width="1" opacity="0.35" /><circle cx="305.3" cy="140.2" r="8.9" fill="url(#nodeGrad)" opacity="0.9" /><circle cx="305.3" cy="140.2" r="13.9" fill="none" stroke="#7DD3FC" stroke-width="1" opacity="0.35" /><circle cx="610.0" cy="248.6" r="5.4" fill="url(#nodeGrad)" opacity="0.9" /><circle cx="610.0" cy="248.6" r="10.4" fill="none" stroke="#7DD3FC" stroke-width="1" opacity="0.35" /><circle cx="553.7" cy="290.5" r="5.5" fill="url(#nodeGrad)" opacity="0.9" /><circle cx="553.7" cy="290.5" r="10.5" fill="none" stroke="#7DD3FC" stroke-width="1" opacity="0.35" />
+  <circle cx="460.8" cy="201.6" r="19" fill="url(#hubGrad)" />
+  <circle cx="460.8" cy="201.6" r="19" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.5" />
+</svg>

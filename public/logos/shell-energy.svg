@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 72" role="img" aria-labelledby="title desc">
+  <title id="title">Shell Energy text placeholder</title>
+  <desc id="desc">A labelled text wordmark placeholder for the retired Shell Energy Broadband brand.</desc>
+  <rect width="240" height="72" rx="12" fill="#fff7ed"/>
+  <rect x="1" y="1" width="238" height="70" rx="11" fill="none" stroke="#fdba74" stroke-width="2"/>
+  <text x="120" y="34" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#9a3412">Shell Energy</text>
+  <text x="120" y="54" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#9a3412">RETIRED BRAND • TEXT PLACEHOLDER</text>
+</svg>

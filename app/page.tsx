@@ -5,6 +5,7 @@ import DealTable from '@/components/DealTable'
 import ProviderLogo from '@/components/ProviderLogo'
 import NewsletterSignup from '@/components/NewsletterSignup'
 import SocialProofCounter from '@/components/SocialProofCounter'
+import ScrollReveal from '@/components/ScrollReveal'
 import { providers, getTopDeals, providerDatasetUpdatedDate } from '@/data/providers'
 
 export const metadata: Metadata = {
@@ -66,71 +67,21 @@ const HOW_IT_WORKS = [
     title: 'Enter your postcode',
     description:
       "Type your postcode into the search box above. We'll show every broadband deal available at your address.",
-    icon: (
-      <svg
-        className="w-8 h-8 text-sky-500"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth={1.5}
-        aria-hidden="true"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
-        />
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
-        />
-      </svg>
-    ),
+    illustration: '/illustrations/icon-postcode.svg',
   },
   {
     step: '2',
     title: 'Compare deals',
     description:
       'Filter by speed, price, and contract length. Compare broadband packages from every major UK provider side by side.',
-    icon: (
-      <svg
-        className="w-8 h-8 text-sky-500"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth={1.5}
-        aria-hidden="true"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z"
-        />
-      </svg>
-    ),
+    illustration: '/illustrations/icon-compare.svg',
   },
   {
     step: '3',
     title: 'Switch and save',
     description:
       "Click through to your chosen provider and sign up. Switching is simpler than ever — most providers handle everything for you.",
-    icon: (
-      <svg
-        className="w-8 h-8 text-sky-500"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth={1.5}
-        aria-hidden="true"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.745 3.745 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.745 3.745 0 013.296-1.043A3.745 3.745 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.745 3.745 0 013.296 1.043 3.745 3.745 0 011.043 3.296A3.745 3.745 0 0121 12z"
-        />
-      </svg>
-    ),
+    illustration: '/illustrations/icon-switch.svg',
   },
 ]
 
@@ -157,8 +108,14 @@ export default function HomePage() {
       />
 
       {/* Hero */}
-      <section className="bg-gradient-to-br from-slate-900 via-sky-950 to-slate-900 py-16 lg:py-24">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-sky-950 to-slate-900 py-16 lg:py-24">
+        <img
+          src="/illustrations/hero-network.svg"
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 right-0 hidden h-full w-[46%] object-cover object-left opacity-80 lg:block"
+        />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-4 leading-tight">
             Compare Broadband Deals
             <br className="hidden sm:block" /> for Your Postcode
@@ -286,48 +243,70 @@ export default function HomePage() {
       </section>
 
       {/* Broadband Match promo */}
-      <section className="bg-gradient-to-br from-sky-950 to-slate-900 py-14">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sky-400 text-sm font-semibold uppercase tracking-widest">New &middot; Free 60-second tool</p>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-white mt-3">
-            Not sure what broadband speed you actually need?
-          </h2>
-          <p className="text-slate-300 mt-3 max-w-xl mx-auto">
-            Answer 6 quick questions about your household and we&apos;ll rank the providers that
-            genuinely fit — not just the cheapest headline price.
-          </p>
-          <Link
-            href="/tools/broadband-match"
-            className="inline-block mt-6 px-8 py-3.5 bg-sky-500 hover:bg-sky-600 text-white font-bold rounded-full transition-colors"
-          >
-            Find my broadband match &rarr;
-          </Link>
-        </div>
+      <section className="relative overflow-hidden bg-gradient-to-br from-sky-950 to-slate-900 py-14">
+        <img
+          src="/illustrations/blob-sky-green.svg"
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-24 -top-24 w-[420px] opacity-70"
+        />
+        <ScrollReveal className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid items-center gap-8 sm:grid-cols-[1fr_auto] sm:text-left text-center">
+            <div>
+              <p className="text-sky-400 text-sm font-semibold uppercase tracking-widest">New &middot; Free 60-second tool</p>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-white mt-3">
+                Not sure what broadband speed you actually need?
+              </h2>
+              <p className="text-slate-300 mt-3 max-w-xl">
+                Answer 6 quick questions about your household and we&apos;ll rank the providers that
+                genuinely fit — not just the cheapest headline price.
+              </p>
+              <Link
+                href="/tools/broadband-match"
+                className="inline-block mt-6 px-8 py-3.5 bg-sky-500 hover:bg-sky-600 text-white font-bold rounded-full transition-transform hover:scale-105"
+              >
+                Find my broadband match &rarr;
+              </Link>
+            </div>
+            <img
+              src="/illustrations/quiz-match.svg"
+              alt=""
+              aria-hidden="true"
+              className="mx-auto hidden w-40 sm:block lg:w-52"
+            />
+          </div>
+        </ScrollReveal>
       </section>
 
       {/* Email alerts */}
       <NewsletterSignup variant="inline" source="homepage" />
 
       {/* How it works */}
-      <section className="bg-white py-14 border-y border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-white py-14 border-y border-slate-200">
+        <img
+          src="/illustrations/blob-green-sky.svg"
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-32 top-1/2 w-[360px] -translate-y-1/2 opacity-60"
+        />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-slate-900 text-center mb-10">
             How BroadbandPicker Works
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {HOW_IT_WORKS.map((step) => (
-              <div key={step.step} className="text-center">
+            {HOW_IT_WORKS.map((step, index) => (
+              <ScrollReveal key={step.step} delayMs={index * 120} className="text-center">
                 <div className="flex justify-center mb-4">
-                    <div className="w-16 h-16 bg-sky-50 rounded-2xl flex items-center justify-center">
-                      {step.icon}
-                    </div>
+                  <div className="w-24 h-24 bg-sky-50 rounded-2xl flex items-center justify-center transition-transform hover:scale-105">
+                    <img src={step.illustration} alt="" aria-hidden="true" className="w-16 h-16" />
                   </div>
+                </div>
                 <div className="text-xs font-bold text-sky-700 uppercase tracking-widest mb-2">
                   Step {step.step}
                 </div>
                 <h3 className="text-lg font-bold text-slate-900 mb-2">{step.title}</h3>
                 <p className="text-slate-600 text-sm leading-relaxed">{step.description}</p>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>

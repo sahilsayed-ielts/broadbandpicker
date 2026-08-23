@@ -1,174 +1,172 @@
 {
-  "slug": "guides/black-friday-broadband-deals-uk",
-  "primary_keyword": "black friday broadband deals",
+  "slug": "providers/shell-energy",
+  "primary_keyword": "shell energy broadband broadband",
   "search_locale": "UK",
   "secondary_keywords": [
     {
-      "keyword": "Black Friday broadband deals UK 2026",
-      "intent": "Seasonal commercial",
-      "page_slot": "title, excerpt and opening answer",
-      "coverage_note": "State the 2026 sale date, current pre-sale status and what UK shoppers can do before offers launch."
-    },
-    {
-      "keyword": "when do Black Friday broadband deals start",
-      "intent": "Seasonal timing",
-      "page_slot": "H2 timing section and FAQ",
-      "coverage_note": "Explain that provider campaigns commonly begin in early or mid-November and may run through Cyber Monday, while exact dates vary."
-    },
-    {
-      "keyword": "are Black Friday broadband deals worth it",
+      "keyword": "Shell Energy broadband review",
       "intent": "Commercial investigation",
-      "page_slot": "H2 value test, worked cost table and FAQ",
-      "coverage_note": "Give a conditional verdict based on whole-contract cost, annual rises, setup fees and rewards rather than assuming a sale label means best value."
+      "page_slot": "excerpt, Is Shell Energy Broadband Still Available?, verdict and FAQ",
+      "coverage_note": "Answers the review query with a current status-led assessment rather than presenting retired deals as orderable."
     },
     {
-      "keyword": "best Black Friday broadband deals",
-      "intent": "Commercial comparison",
-      "page_slot": "H2 provider shortlist and verdict",
-      "coverage_note": "Explain which provider types to check and refuse to name a universal winner before address-specific live offers exist."
+      "keyword": "Shell Energy broadband deals",
+      "intent": "Transactional",
+      "page_slot": "historic packages table and Shell Energy Broadband Deals section",
+      "coverage_note": "Explains that there are no new Shell-branded deals and labels all package figures as historical."
     },
     {
-      "keyword": "Black Friday broadband deals for existing customers",
-      "intent": "Retention and renewal",
-      "page_slot": "H2 existing-customer section and FAQ",
-      "coverage_note": "Separate new-customer promotions from renewal, upgrade and retention routes."
+      "keyword": "Shell Energy broadband TalkTalk",
+      "intent": "Brand transition support",
+      "page_slot": "excerpt, What Happened to Shell Energy Broadband? section and FAQ",
+      "coverage_note": "Makes the sale, migration and current account relationship explicit."
     },
     {
-      "keyword": "Black Friday broadband and TV deals",
-      "intent": "Bundle comparison",
-      "page_slot": "H3 bundle comparison and FAQ",
-      "coverage_note": "Cover TV bundle discounts while warning readers to value required channels and full contract cost."
+      "keyword": "Shell Energy broadband contact number",
+      "intent": "Customer support navigation",
+      "page_slot": "Support, Billing and Complaints section and FAQ",
+      "coverage_note": "Directs migrated customers to current TalkTalk account channels and warns against relying on old Shell contact details."
+    },
+    {
+      "keyword": "Shell Energy broadband router",
+      "intent": "Product support",
+      "page_slot": "Shell Energy Router and Network section and FAQ",
+      "coverage_note": "Explains the legacy Wi-Fi 6 and Technicolor hardware and what migrated customers should do with it."
+    },
+    {
+      "keyword": "can I switch from Shell Energy broadband",
+      "intent": "Switching advice",
+      "page_slot": "Can Former Shell Energy Customers Switch? section and FAQ",
+      "coverage_note": "Provides current Ofcom One Touch Switch steps and minimum-term cautions."
     }
   ],
   "serp_competitors": [
     {
-      "url": "https://www.moneysavingexpert.com/compare-broadband-deals/black-friday-broadband-deals/",
-      "title": "Black Friday broadband deals | MoneySavingExpert",
-      "observed_structure": "Postcode-led comparison tool followed by definitions, sale timing, value judgement, provider-specific questions, need-to-knows and FAQs.",
+      "url": "https://www.moneysupermarket.com/broadband/providers/reviews/shell-energy/",
+      "title": "Shell Energy broadband review 2026",
+      "observed_structure": "About 2,000 words with a five-minute-read label, contents navigation, answer-led review, cost, speed, usage, router, phone, TV, extras, service, pros and cons, and named-provider comparisons.",
+      "approx_word_count": 2000,
+      "content_gap_to_improve": "The page still describes Shell as orderable and quotes an active range despite the 2024 transfer to TalkTalk. BroadbandPicker should lead with the closed-brand status and distinguish historical facts from current choices.",
+      "useful_ux_patterns": "Contents links, short topic sections, pros and cons, and direct comparisons help readers scan a long provider review.",
+      "useful_ui_patterns": "Clear section hierarchy, author identity, updated date and related-provider links.",
+      "interactive_or_functional_elements": "Contents jump links and links to comparison journeys.",
+      "trust_signals": "Named author, updated date and established comparison brand, although the current-status mismatch weakens freshness.",
+      "citation_patterns": "Few close primary citations in the visible copy; many claims are stated editorially and linked mainly to internal guides."
+    },
+    {
+      "url": "https://www.broadbandswitch.co.uk/reviews/shell-energy-broadband-review/",
+      "title": "Shell Energy Broadband Review 2026 - Is It Any Good?",
+      "observed_structure": "About 1,300 words with legacy deal cards first, an in-page contents list, narrative review, package facts, speeds, router, positives, negatives, rating and related tools.",
+      "approx_word_count": 1300,
+      "content_gap_to_improve": "The active deal cards and checkout links are obsolete. A safer page should make the closure unmistakable before showing any historic package data.",
+      "useful_ux_patterns": "A compact facts block, scannable pros and cons, and speed labels answer common commercial questions quickly.",
+      "useful_ui_patterns": "Deal-card table presentation, contents list and strongly separated positive and negative sections.",
+      "interactive_or_functional_elements": "Postcode and speed-checker links, though the Shell deal actions appear stale.",
+      "trust_signals": "Named reviewer and explicit rating, but no clear current reviewed date or close citations for the retired offers.",
+      "citation_patterns": "Limited external sourcing; provider claims are presented without visible dated source notes."
+    },
+    {
+      "url": "https://selectra.co.uk/tv-broadband/providers/shell-broadband",
+      "title": "Shell Broadband (archive): closed in 2024, customers moved to TalkTalk",
+      "observed_structure": "About 1,500 words with a closure alert, at-a-glance status facts, dated archive label, brand history timeline, current destination, live alternatives, contact guidance and closure FAQs.",
       "approx_word_count": 1500,
-      "content_gap_to_improve": "Make the pre-sale 2026 status unmistakable and show a reproducible whole-contract calculation without presenting expired deals as current.",
-      "useful_ux_patterns": ["Postcode-first next step", "Need-to-know checklist", "Clear distinction between advertised and address-specific availability"],
-      "useful_ui_patterns": ["Compact answer sections", "Numbered consumer warnings", "FAQ block"],
-      "interactive_or_functional_elements": ["Address checker", "Deal filters", "Social tariff option"],
-      "trust_signals": ["Named comparison scope", "Methodology disclosure", "Consumer-focused warnings"],
-      "citation_patterns": "Primarily internal methodology and comparison links, with claims explained in surrounding copy."
-    },
-    {
-      "url": "https://www.broadband.co.uk/broadband/black-friday",
-      "title": "Black Friday broadband deals | Compare & save UK offers",
-      "observed_structure": "Live deal cards and postcode checker, then 2026 overview, offer-type list, timing, switching steps and a short FAQ.",
-      "approx_word_count": 1000,
-      "content_gap_to_improve": "Give readers a neutral calculation they can apply to any deal and distinguish verified historic examples from future expectations.",
-      "useful_ux_patterns": ["Effective monthly cost", "Deal type definitions", "Step-by-step switching path"],
-      "useful_ui_patterns": ["At-a-glance deal fields", "Highlighted tips", "Author and updated date"],
-      "interactive_or_functional_elements": ["Address checker", "Expandable deal details", "Deal comparison"],
-      "trust_signals": ["Ofcom accreditation statement", "Named author", "Visible last-updated date", "Comparison scope"],
-      "citation_patterns": "Provider and internal explainer links close to offer types and switching advice."
-    },
-    {
-      "url": "https://www.uswitch.com/broadband/compare/black_friday/",
-      "title": "Black Friday 2026 Broadband Deals - Uswitch",
-      "observed_structure": "Commercial introduction and deal comparison followed by provider expectations, timing, savings explanation, seasonal alternatives and FAQs.",
-      "approx_word_count": 900,
-      "content_gap_to_improve": "Avoid unsupported forward-looking savings and give a transparent example that includes annual price rises and one-off costs.",
-      "useful_ux_patterns": ["Seasonal timing answers", "Provider-by-provider scan", "Direct comparison CTA"],
-      "useful_ui_patterns": ["Short FAQ answers", "Provider cards", "Savings methodology link"],
-      "interactive_or_functional_elements": ["Postcode comparison", "Provider offer cards"],
-      "trust_signals": ["Savings calculation methodology", "Updated copy", "Established comparison service"],
-      "citation_patterns": "Methodology link sits next to the headline savings claim; provider reviews support entity detail."
+      "content_gap_to_improve": "The archive format is accurate but BroadbandPicker can add primary sale evidence, Ofcom-backed switching steps, a clearly dated service-quality limitation and a safer historic-package explanation.",
+      "useful_ux_patterns": "Status alert, at-a-glance facts, timeline, current next steps and FAQs closely match the real task behind the query.",
+      "useful_ui_patterns": "Closed-brand badge, compact status panel, timeline and clearly separated alternatives.",
+      "interactive_or_functional_elements": "Links to current alternatives and a dedicated where-to-go-next anchor.",
+      "trust_signals": "Archived date, explicit closed status and historical framing.",
+      "citation_patterns": "Some linked supporting sources and related pages, but fewer close official citations than BroadbandPicker will expose in source notes."
     }
   ],
   "ai_overview": {
     "checked": true,
     "present": false,
-    "observation": "No AI Overview or AI answer was surfaced in the live UK search-result checks on 23 August 2026. Standard organic results and provider pages appeared, so there were no AI Overview citations to record.",
+    "observation": "Checked the accessible UK web results for the exact packet term and the natural variant 'Shell Energy broadband' on 23 August 2026. No AI Overview block or cited-source panel was exposed by the available search interface. This records what was observable in that interface, not a claim about every personalised Google result.",
     "cited_sources": []
   },
   "people_also_ask": [
-    "When should I start looking for Black Friday broadband deals?",
-    "How long do Black Friday broadband deals last?",
-    "Are Black Friday broadband deals worth it?",
-    "Are Black Friday broadband deals only for new customers?",
-    "Can I get faster broadband deals on Black Friday?",
-    "Do broadband and TV packages go on sale for Black Friday?"
+    "Is Shell Energy Broadband still operating?",
+    "What happened to Shell Energy Broadband?",
+    "Has Shell Energy Broadband changed to TalkTalk?",
+    "Can I switch from Shell Energy Broadband?",
+    "Who do former Shell Energy Broadband customers contact?",
+    "Can I keep using my Shell Energy broadband router?"
   ],
   "sources": [
     {
-      "url": "https://www.ofcom.org.uk/phones-and-broadband/saving-money/telecoms-price-rises-what-are-your-rights",
-      "source_type": "regulator",
-      "verified_date": "2026-08-23",
-      "claims_supported": "Since 17 January 2025, specified in-contract price rises on new consumer contracts must be stated upfront in pounds and pence; out-of-contract customers should shop around."
-    },
-    {
-      "url": "https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/multi-sector/pricing/2025/pricing-and-consumer-engagement-report.pdf?v=412887",
-      "source_type": "regulator",
-      "verified_date": "2026-08-23",
-      "claims_supported": "Promoted broadband prices remain below list prices; September 2025 average monthly price differentials were £4.17 for standard, £6.84 for superfast and £7.94 for ultrafast dual-play bundles."
-    },
-    {
-      "url": "https://www.bt.com/black-friday",
+      "url": "https://octopus.energy/press/Octopus-Energy-Shell-Energy-Broadband/",
       "source_type": "primary",
       "verified_date": "2026-08-23",
-      "claims_supported": "BT has run Black Friday broadband promotions and states that campaigns can extend for up to two weeks around Black Friday and Cyber Monday; its indexed page still refers to 2025, so it does not support a current 2026 offer."
+      "claims_supported": "Octopus agreed the sale of Shell Energy Broadband to TalkTalk shareholders on 6 February 2024; TalkTalk already supported the service platform; customers were to be contacted during migration."
     },
     {
-      "url": "https://ee.co.uk/broadband/black-friday",
+      "url": "https://uk.shellenergy.com/help/contact-us/account-queries",
       "source_type": "primary",
       "verified_date": "2026-08-23",
-      "claims_supported": "EE says full 2026 Black Friday broadband details will be published closer to the event and provides clearly labelled 2025 examples, supporting the page's pre-sale status warning."
+      "claims_supported": "Shell Energy's current support result states that broadband and phone customers have moved to TalkTalk."
     },
     {
-      "url": "https://www.moneysavingexpert.com/compare-broadband-deals/black-friday-broadband-deals/",
+      "url": "https://www.moneysavingexpert.com/news/2024/02/shell-energy-broadband-sold-talktalk/",
       "source_type": "independent",
       "verified_date": "2026-08-23",
-      "claims_supported": "Providers run broadband offers throughout the year; Black Friday can be cheaper, but deals require analysis and comparison rather than assuming every promotion is good."
+      "claims_supported": "Approximately 500,000 customers were transferred, migration was automatic, contracts and routers continued during the move, and customers should not cancel payment instructions without checking their account."
     },
     {
-      "url": "https://www.broadband.co.uk/broadband/black-friday",
-      "source_type": "independent",
+      "url": "https://www.ofcom.org.uk/phones-and-broadband/switching-provider/shell-energy-fined-customer-contracts-deals",
+      "source_type": "regulator",
       "verified_date": "2026-08-23",
-      "claims_supported": "Common promotion types include reward cards, bill credits, monthly price cuts and extras; effective monthly cost is a useful comparison field."
+      "claims_supported": "Ofcom fined Shell Energy £1.4 million in November 2023 for failures involving end-of-contract and annual best-tariff notifications affecting more than 70,000 customers."
+    },
+    {
+      "url": "https://www.ofcom.org.uk/phones-and-broadband/switching-provider/switching-broadband-provider",
+      "source_type": "regulator",
+      "verified_date": "2026-08-23",
+      "claims_supported": "Under One Touch Switch, a new provider generally arranges the switch and the old service ends when the new one is working; customers should check provider-hosted email consequences."
+    },
+    {
+      "url": "https://www.ofcom.org.uk/phones-and-broadband/service-quality/most-complained-about-telecoms-and-pay-tv-providers",
+      "source_type": "regulator",
+      "verified_date": "2026-08-23",
+      "claims_supported": "Historical service-quality context: Shell Energy recorded 31 broadband complaints per 100,000 customers in Q2 2022 against an industry average of 11; this is not a current TalkTalk measure."
     }
   ],
-  "recommended_min_words": 1400,
+  "recommended_min_words": 1500,
   "required_sections": [
-    "Answer-first 2026 status and verdict",
-    "Black Friday and Cyber Monday dates",
-    "Expected offer types",
-    "Provider and bundle shortlist",
-    "Whole-contract cost calculation",
-    "Address, speed and contract checklist",
-    "Existing-customer options",
-    "Switching timing and rights",
-    "Actionable verdict",
+    "Standalone status answer",
+    "Why choose status summary",
+    "Historical package table",
+    "Pros and cons",
+    "Current availability and TalkTalk migration",
+    "Historic deals and speeds",
+    "Router and Openreach network",
+    "Support, billing and complaints",
+    "Switching checklist",
+    "Evidence-based verdict",
     "Standalone FAQs",
-    "Visible editorial sources"
+    "Editorial and source notes"
   ],
   "internal_links": [
-    "/compare",
-    "/deals",
-    "/guides/best-broadband-deals-uk",
+    "/providers/talktalk",
     "/guides/how-to-switch-broadband-uk",
-    "/guides/broadband-deals-with-no-mid-contract-price-rise",
-    "/tools/broadband-cost-calculator",
-    "/providers/bt",
-    "/providers/virgin-media",
-    "/providers/sky",
-    "/providers/vodafone"
+    "/compare",
+    "/providers",
+    "/how-we-review-broadband",
+    "/editorial-policy"
   ],
   "schema_types": ["Article", "FAQPage"],
   "ux_ui_requirements": [
-    "Use the existing Key Takeaways panel for an immediate pre-sale status and buying verdict, serving readers who need the answer before browsing detail.",
-    "Add an accessible whole-contract comparison table with explicit labels and a worked hypothetical example, serving readers who need to compare unlike reward formats.",
-    "Add a compact timing table for early November, Black Friday and Cyber Monday, serving readers planning when to check or switch.",
-    "Use visible reviewed dates and source notes near material claims, serving readers who need to separate 2026 facts from expired 2025 promotions.",
-    "Provide contextual links to provider reviews, switching guidance and the postcode comparison route, serving readers ready to verify availability or act."
+    "Use the existing retired-provider treatment so the closed status appears in the header, excerpt, CTA and package heading; this prevents a reader mistaking archive prices for live deals.",
+    "Use the existing responsive package table for a dated historic speed range; this serves readers comparing an old bill or contract while keeping the archive label visible.",
+    "Use concise pros and cons plus answer-first sections; ranking pages show that readers want a quick assessment before detailed hardware and service history.",
+    "Show reviewed and pricing-verification dates and visible source notes; this addresses the stale information found in two ranking reviews.",
+    "Add contextual links from the TalkTalk page and switching guide so former customers can move between the brand history, current provider review and switching process."
   ],
   "functional_requirements": [
-    "Reuse the existing live DealTable and postcode comparison path rather than fabricate seasonal offers before providers publish them.",
-    "Show a worked effective-monthly-cost formula that readers can apply manually to any live offer.",
-    "Keep all deal examples labelled as hypothetical or historic and send readers to address-level comparison for live availability."
+    "Retired-brand CTAs must route to TalkTalk rather than an obsolete Shell checkout.",
+    "Do not emit Offer JSON-LD for the retired Shell brand; retain Article and FAQPage JSON-LD only.",
+    "Keep postcode comparison and current-provider actions available through the existing accessible CTAs.",
+    "Ensure the provider is generated by generateStaticParams and included automatically in the provider hub and sitemap dataset."
   ],
-  "research_summary": "The live UK SERP is led by comparison services and provider campaign pages. Comparison pages combine postcode tools with roughly 800 to 1,500 words covering offer types, timing, effective monthly cost, switching warnings and FAQs. Provider pages are shorter and promotional. As of 23 August 2026, some pages are prepared for the 2026 event but confirmed offers are generally not yet published. The useful editorial opportunity is an evergreen, evidence-led buying method that clearly distinguishes confirmed dates and consumer rules from provisional or historic promotions.",
-  "depth_rationale": "A 1,400-word minimum matches the upper end of the substantive editorial content visible across the three ranking comparison pages without duplicating their live deal inventories. The topic needs enough room for timing, provider coverage, a worked total-cost method, annual price-rise treatment, existing-customer advice, switching checks and six standalone FAQs. More words would risk padding before 2026 offers are live; fewer would omit decision-critical checks that ranking pages consistently include."
+  "research_summary": "The natural UK query is 'Shell Energy broadband'; the duplicated final word in the packet appears to be a keyword-data artefact and is retained only as the validator's primary_keyword value. Current results mix obsolete commercial reviews with accurate archive pages. The official Octopus announcement and current Shell support result establish that the broadband customer base moved to TalkTalk in 2024. The page should therefore be an archive and support guide, not a live deal page. Ranking pages commonly use 1,300 to 2,000 words, contents-style scanning, package facts, speed and router sections, pros and cons, comparisons and FAQs. The most useful differentiator is a prominent current-status answer backed by official and regulatory evidence.",
+  "depth_rationale": "A 1,500-word minimum matches the accurate Selectra archive and exceeds the roughly 1,300-word Broadbandswitch review without padding to the longest result. That depth is needed to answer both major intents visible in the results: prospective users checking whether Shell deals still exist and former customers seeking TalkTalk, billing, router, complaint or switching help. Historical package details are included only where they help identify a legacy service, while current actions and limitations receive more space."
 }
