@@ -671,6 +671,35 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-23 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "ops-awin-publisher-api-integration",
+        "type": "Tooling",
+        "pillar": "Monetisation",
+        "title": "Direct Awin Publisher API access — programme status and link generation",
+        "description": (
+            "User asked to connect Claude to their Awin account. There's no one-click "
+            "connector for Awin (unlike Google Drive/Gmail), so this uses Awin's own "
+            "Publisher API directly. Researched live (WebSearch, 2026-08-23) to confirm "
+            "current endpoints rather than relying on possibly-stale API knowledge: "
+            "GET /publishers/{id}/programmedetails?relationship=any for advertiser "
+            "programme status (joined/pending/suspended/rejected/notjoined), and "
+            "POST /publishers/{id}/linkbuilder/generate for correct current tracking "
+            "links. Built scripts/awin_sync.py with both operations, reading "
+            "AWIN_API_TOKEN and AWIN_PUBLISHER_ID (defaults to the publisher ID already "
+            "referenced elsewhere in this repo, 2942019) from env vars. Fails gracefully "
+            "with setup instructions if the token isn't set. Internal tooling only -- "
+            "never touches the live site or Vercel env vars. Not yet verified against a "
+            "real token/live API response since none was available at build time -- "
+            "verify the first real run once the user generates their token."
+        ),
+        "priority_score": 47,
+        "impact_score": 45,
+        "effort": "Low",
+        "target": "scripts/awin_sync.py",
+        "dependencies": "AWIN_API_TOKEN from the user's Awin account (user menu -> API Credentials)",
+        "source": "User request 2026-08-23 — researched before implementing per the Strategic Lens process",
+        "initial_status": "In progress",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",

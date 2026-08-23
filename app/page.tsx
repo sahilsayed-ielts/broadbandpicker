@@ -10,23 +10,29 @@ import ScrollReveal from '@/components/ScrollReveal'
 import { providers, getTopDeals, providerDatasetUpdatedDate } from '@/data/providers'
 
 export const metadata: Metadata = {
-  title: { absolute: 'Compare Broadband Deals for Your Postcode | BroadbandPicker' },
+  title: { absolute: 'Compare Broadband Deals UK | BroadbandPicker' },
   description:
     'Compare broadband deals from BT, Sky, Virgin Media, EE and more. Enter your postcode to find the cheapest fibre deals available at your address.',
   alternates: { canonical: 'https://broadbandpicker.co.uk' },
   openGraph: {
-    title: 'Compare Broadband Deals for Your Postcode | BroadbandPicker',
+    title: 'Compare Broadband Deals UK | BroadbandPicker',
     description: 'Find the cheapest fibre and full-fibre deals available at your address in seconds.',
     url: 'https://broadbandpicker.co.uk',
+    siteName: 'BroadbandPicker',
+    locale: 'en_GB',
+    type: 'website',
   },
 }
 
 const websiteJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
+  '@id': 'https://broadbandpicker.co.uk/#website',
   name: 'BroadbandPicker',
-  url: 'https://broadbandpicker.co.uk',
+  alternateName: ['BroadbandPicker.co.uk', 'broadbandpicker.co.uk'],
+  url: 'https://broadbandpicker.co.uk/',
   description: 'Compare broadband deals for your UK postcode',
+  publisher: { '@id': 'https://broadbandpicker.co.uk/#organisation' },
   potentialAction: {
     '@type': 'SearchAction',
     target: {
@@ -40,9 +46,20 @@ const websiteJsonLd = {
 const organizationJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
+  '@id': 'https://broadbandpicker.co.uk/#organisation',
   name: 'BroadbandPicker',
-  url: 'https://broadbandpicker.co.uk',
-  logo: 'https://broadbandpicker.co.uk/logo.png',
+  alternateName: 'BroadbandPicker.co.uk',
+  url: 'https://broadbandpicker.co.uk/',
+  logo: {
+    '@type': 'ImageObject',
+    url: 'https://broadbandpicker.co.uk/logo.png',
+    width: 1024,
+    height: 1024,
+  },
+  sameAs: [
+    'https://x.com/broadbandPicker',
+    'https://www.instagram.com/broadbandpicker/',
+  ],
   description: 'UK broadband comparison service',
 }
 
@@ -53,6 +70,8 @@ const homePageCommercialJsonLd = {
   description:
     'BroadbandPicker homepage for UK broadband comparison, postcode checking, provider reviews, and deals discovery.',
   url: 'https://broadbandpicker.co.uk',
+  isPartOf: { '@id': 'https://broadbandpicker.co.uk/#website' },
+  about: { '@id': 'https://broadbandpicker.co.uk/#organisation' },
   dateModified: providerDatasetUpdatedDate,
   citation: [
     'https://broadbandpicker.co.uk/providers',

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Scrape the leading UK broadband comparison sites for structural/UX signals.
+"""Audit leading UK affiliate/comparison sites for UX and Google SERP signals.
 
 This is competitive research, not content scraping for reuse: it records what
 each competitor's broadband landing page *does* (tools present, trust signals,
@@ -28,6 +28,7 @@ from dataclasses import asdict, dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+from urllib.parse import urljoin
 
 import requests
 from lxml import html
@@ -41,6 +42,7 @@ USER_AGENT = (
 )
 
 TARGETS = [
+    ("BroadbandPicker", "https://broadbandpicker.co.uk/"),
     ("Uswitch", "https://www.uswitch.com/broadband/"),
     ("Compare the Market", "https://www.comparethemarket.com/broadband/"),
     ("MoneySuperMarket", "https://www.moneysupermarket.com/broadband/"),
@@ -49,6 +51,9 @@ TARGETS = [
     ("broadbandchoices", "https://www.broadbandchoices.co.uk/"),
     ("choose.co.uk", "https://www.choose.co.uk/broadband/"),
     ("broadband.co.uk", "https://www.broadband.co.uk/broadband"),
+    ("MoneySavingExpert", "https://www.moneysavingexpert.com/"),
+    ("NerdWallet UK", "https://www.nerdwallet.com/uk/"),
+    ("Go.Compare", "https://www.gocompare.com/"),
 ]
 
 TRUST_SIGNAL_PATTERNS = [
@@ -78,6 +83,14 @@ class SiteScan:
     status: int | str = ""
     title: str = ""
     meta_description: str = ""
+    canonical_url: str = ""
+    og_site_name: str = ""
+    favicon_url: str = ""
+    favicon_sizes: str = ""
+    favicon_content_type: str = ""
+    favicon_status: int | str = ""
+    title_length: int = 0
+    meta_description_length: int = 0
     h1: str = ""
     h2_count: int = 0
     word_count: int = 0
@@ -85,6 +98,9 @@ class SiteScan:
     js_rendered_suspected: bool = False
     nav_labels: list[str] = field(default_factory=list)
     schema_types: list[str] = field(default_factory=list)
+    website_names: list[str] = field(default_factory=list)
+    organization_names: list[str] = field(default_factory=list)
+    organization_logos: list[str] = field(default_factory=list)
     trust_signals_found: list[str] = field(default_factory=list)
     tool_signals_found: list[str] = field(default_factory=list)
     internal_link_count: int = 0
@@ -118,11 +134,32 @@ def scan_site(name: str, url: str) -> SiteScan:
         lower = clean_text.lower()
 
         scan.title = " ".join(tree.xpath("//title/text()")).strip()
+        scan.title_length = len(scan.title)
         descriptions = tree.xpath(
             "//meta[translate(@name,'ABCDEFGHIJKLMNOPQRSTUVWXYZ',"
             "'abcdefghijklmnopqrstuvwxyz')='description']/@content"
         )
         scan.meta_description = descriptions[0].strip() if descriptions else ""
+        scan.meta_description_length = len(scan.meta_description)
+        canonicals = tree.xpath("//link[translate(@rel,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')='canonical']/@href")
+        scan.canonical_url = canonicals[0].strip() if canonicals else ""
+        site_names = tree.xpath("//meta[translate(@property,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')='og:site_name']/@content")
+        scan.og_site_name = site_names[0].strip() if site_names else ""
+
+        icon_nodes = tree.xpath(
+            "//link[contains(concat(' ', translate(@rel,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'), ' '), ' icon ')]"
+        )
+        if icon_nodes:
+            icon = icon_nodes[0]
+            scan.favicon_url = urljoin(response.url, icon.get('href', ''))
+            scan.favicon_sizes = icon.get('sizes', '')
+            try:
+                icon_response = fetch(scan.favicon_url)
+                scan.favicon_status = icon_response.status_code
+                scan.favicon_content_type = icon_response.headers.get('Content-Type', '').split(';')[0]
+            except Exception as exc:
+                scan.favicon_status = "error"
+                scan.notes = f"Favicon fetch failed: {str(exc)[:100]}"
         h1s = [re.sub(r"\s+", " ", t).strip() for t in tree.xpath("//h1//text()")]
         scan.h1 = " / ".join(h for h in h1s if h)[:200]
         scan.h2_count = len(tree.xpath("//h2"))
@@ -132,17 +169,47 @@ def scan_site(name: str, url: str) -> SiteScan:
         scan.nav_labels = sorted({re.sub(r"\s+", " ", n).strip() for n in nav_links if n.strip()})[:25]
 
         schema_types: set[str] = set()
+        website_names: set[str] = set()
+        organization_names: set[str] = set()
+        organization_logos: set[str] = set()
+
+        def walk_schema(value: Any) -> None:
+            if isinstance(value, list):
+                for item in value:
+                    walk_schema(item)
+                return
+            if not isinstance(value, dict):
+                return
+            node_type = value.get("@type")
+            types = node_type if isinstance(node_type, list) else [node_type] if node_type else []
+            schema_types.update(str(item) for item in types)
+            if "WebSite" in types:
+                for key in ("name", "alternateName"):
+                    names = value.get(key, [])
+                    names = names if isinstance(names, list) else [names]
+                    website_names.update(str(item) for item in names if item)
+            if "Organization" in types:
+                if value.get("name"):
+                    organization_names.add(str(value["name"]))
+                logo = value.get("logo")
+                if isinstance(logo, str):
+                    organization_logos.add(logo)
+                elif isinstance(logo, dict) and logo.get("url"):
+                    organization_logos.add(str(logo["url"]))
+            for child in value.values():
+                if isinstance(child, (dict, list)):
+                    walk_schema(child)
+
         for raw in tree.xpath("//script[@type='application/ld+json']/text()"):
             try:
                 payload = json.loads(raw)
-                nodes = payload if isinstance(payload, list) else [payload]
-                for node in nodes:
-                    if isinstance(node, dict) and node.get("@type"):
-                        value = node["@type"]
-                        schema_types.update(value if isinstance(value, list) else [str(value)])
+                walk_schema(payload)
             except (json.JSONDecodeError, TypeError):
                 pass
         scan.schema_types = sorted(schema_types)
+        scan.website_names = sorted(website_names)
+        scan.organization_names = sorted(organization_names)
+        scan.organization_logos = sorted(organization_logos)
 
         scan.trust_signals_found = [
             label for label, pattern in TRUST_SIGNAL_PATTERNS if re.search(pattern, lower)
@@ -182,7 +249,22 @@ def main() -> None:
         results.append(asdict(scan))
         time.sleep(0.5)
 
-    payload = {"generated": RUN_DATE, "sites": results}
+    successful = [site for site in results if site["status"] == 200]
+    benchmarks = {
+        "successful_scans": len(successful),
+        "sites_with_fetchable_favicon": sum(1 for site in successful if site["favicon_status"] == 200),
+        "sites_with_website_schema": sum(1 for site in successful if "WebSite" in site["schema_types"]),
+        "sites_with_organization_schema": sum(1 for site in successful if "Organization" in site["schema_types"]),
+        "sites_with_og_site_name": sum(1 for site in successful if site["og_site_name"]),
+        "median_title_length": sorted(site["title_length"] for site in successful)[len(successful) // 2] if successful else 0,
+        "median_meta_description_length": sorted(site["meta_description_length"] for site in successful)[len(successful) // 2] if successful else 0,
+    }
+    payload = {
+        "generated": RUN_DATE,
+        "scope": "Structural, branding and SERP-source signals only; no competitor prose is retained or reused.",
+        "benchmarks": benchmarks,
+        "sites": results,
+    }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(payload, indent=2), encoding="utf-8")
     print(f"Saved {args.output.resolve()}")
