@@ -863,6 +863,44 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-best-broadband-tv-deals-guide",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Research-led editorial refresh: Best Broadband and TV Deals guide",
+        "description": (
+            "User-requested application of the same Stage 3/4/4a research process from the "
+            "Awin content batches to a single existing guide page, "
+            "/guides/best-broadband-and-tv-deals. Unlike the thin provider stubs rewritten in "
+            "the Awin batches, this guide was already well-built (tables, methodology, 7 FAQs, "
+            "real Ofcom citations, last checked 29 July 2026) -- not a stub needing a ground-up "
+            "rewrite, so this was a verify-and-deepen pass grounded in fresh research rather "
+            "than a full replacement. Scraped 2 top-ranking competitors (MoneySuperMarket, "
+            "Uswitch) per Stage 3.0: found MoneySupermarket runs a 15-question FAQ (ours had "
+            "7) and leads with an expert-quoted bundling-savings statistic. Traced that claim "
+            "to its actual primary source rather than citing the secondary restatement: Ofcom's "
+            "own February 2026 research, savings of £26-£48/month from bundling and pay-TV "
+            "averaging £12/month within a bundle (23% real-terms fall) -- a stronger, more "
+            "current, primary-sourced figure than the competitor's 2023-dated stat, added as a "
+            "new section. Also found and added two genuinely new, specific facts the page "
+            "didn't have: Virgin Media's Max Volt bundle (real current pricing including its "
+            "two scheduled rises to April 2028) as a concrete worked example, and Virgin "
+            "Media's 'Most Reliable Broadband Provider' win at the 2026 Uswitch Telecoms "
+            "Awards (Opensignal-verified, a genuine third-party measurement). Named the "
+            "specific Sky bundle example (Sky Stream, Sky TV, Netflix + Full Fibre 300, "
+            "£35/month) that the existing copy referenced only vaguely. Added 2 new FAQs tied "
+            "to the new content. Fixed 2 pre-existing em dashes found during the pass (a "
+            "legitimate en-dash numeric range, '50-100Mbps', was left alone -- not an AI-tell, "
+            "different typographic use). Updated the page's stated fact-check date and "
+            "guides.ts updatedDate to 2026-08-24."
+        ),
+        "priority_score": 48,
+        "impact_score": 45,
+        "effort": "Medium",
+        "target": "app/guides/[slug]/page.tsx (best-broadband-and-tv-deals), data/guides.ts",
+        "dependencies": "None",
+        "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",

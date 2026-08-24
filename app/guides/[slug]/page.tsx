@@ -332,7 +332,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         <div className="rounded-xl border border-amber-200 bg-amber-50 p-5">
           <p className="mb-0 text-sm">
             <strong>Price and availability check:</strong> provider features and public offer
-            examples on this page were checked against official UK sources on 29 July 2026. Offers
+            examples on this page were checked against official UK sources on 24 August 2026. Offers
             can change, and the packages shown at your address may differ. Confirm the full price,
             annual changes, setup costs and channel list before ordering.
           </p>
@@ -387,6 +387,14 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
           25Mbps, rising to 30Mbps for UHD or an additional puck.
         </p>
         <p>
+          As one concrete example, at the time of writing Sky was advertising Sky Stream, Sky TV
+          and Netflix bundled with Full Fibre 300 broadband from £35 a month on a 24-month
+          contract, and Sky Ultimate TV bundled with Full Fibre 500 from £39 a month. Sky Essential
+          TV alone runs from around £15 a month, and Sky Ultimate TV alone from around £24 a month,
+          rising to a standard rate after the introductory period. These specific package names and
+          prices are examples, not a live quote, so confirm the current offer for your postcode.
+        </p>
+        <p>
           Sky is less compelling if you only watch a few on-demand apps. Check the price of every
           extra, the minimum term, whether the advertised broadband tier is available, and the
           price-change wording. See our <Link href="/providers/sky">Sky broadband review</Link> or
@@ -398,11 +406,23 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
           Virgin Media is a strong fit for homes that want premium television and faster broadband
           on the same bill. Its current bundle range separates entertainment, cinema, sport and
           combined sport-and-cinema needs. Virgin also offers Flex, a lighter TV option with a
-          rolling 30-day TV element alongside a longer broadband contract.
+          rolling 30-day TV element alongside a longer broadband contract. Virgin Media was named
+          Most Reliable Broadband Provider at the 2026 Uswitch Telecoms Awards, based on independent
+          network data from Opensignal, which is a genuine third-party measurement rather than a
+          claim Virgin Media makes about itself.
+        </p>
+        <p>
+          Its most complete bundle, Max Volt, illustrates what a full household package can look
+          like: at the time of writing it combined M500 broadband boosted to gigabit speed, an O2 5G
+          SIM with unlimited data and calls, Virgin TV 360 with more than 230 channels including Sky
+          Sports HD, Sky Cinema HD and Netflix, and free UK landline and mobile calls, from £74.99 a
+          month, rising to £81.49 from March 2027 and £87.99 from April 2028. That scheduled two-step
+          rise is exactly the kind of detail worth reading before signing up to any large bundle, not
+          just Virgin Media's.
         </p>
         <p>
           Availability is the deciding factor: Virgin Media uses its own network and cannot serve
-          every property. Its official terms also show why headline comparisons need care—TV boxes,
+          every property. Its official terms also show why headline comparisons need care: TV boxes,
           premium packs, installation and the broadband minimum term can have separate conditions.
           Read our <Link href="/providers/virgin-media">Virgin Media review</Link> before ordering.
         </p>
@@ -425,7 +445,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         <h2>Current offer examples: what the headline price leaves out</h2>
         <p>
           A live offer is useful as an example, but it should not be treated as a permanent ranking.
-          On 29 July 2026, Sky advertised selected TV and full-fibre combinations from £35 per month
+          On 24 August 2026, Sky advertised selected TV and full-fibre combinations from £35 per month
           for new customers, while BT advertised promotional EE TV pricing with the broadband cost
           selected separately. Virgin Media displayed package features by postcode rather than one
           universal bundle price. These examples can change without notice.
@@ -434,6 +454,22 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
           The only reliable comparison is the checkout result for your address. Record the
           introductory price, scheduled in-contract changes, setup cost, minimum term, price after
           the minimum term, and every paid channel or streaming add-on.
+        </p>
+
+        <h2>How much can bundling actually save you?</h2>
+        <p>
+          Ofcom research published in February 2026 found that households who bundle their
+          telecoms services together typically pay £26 to £48 a month less than buying broadband,
+          TV and landline separately from different providers. Within a bundle, Ofcom found the
+          average price paid for a pay-TV service fell by 23% in real terms over the past year, to
+          around £12 a month, a genuinely large saving compared with a standalone pay-TV
+          subscription.
+        </p>
+        <p>
+          That saving only applies if you actually use what you are paying for. A large bundle with
+          premium sport and cinema packs you rarely watch is not a saving; it is a bigger bill with
+          extra channels attached. Use the Ofcom figures as a sense check on a live quote, not a
+          guarantee that any specific bundle is good value for your household.
         </p>
 
         <h2>How to compare the true cost of a broadband and TV bundle</h2>
@@ -537,6 +573,8 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
       { question: 'What broadband speed do I need for streaming TV?', answer: 'Sky recommends at least 25Mbps for Sky Stream and 30Mbps for UHD or an extra puck. A household with several simultaneous streams and other heavy internet use should allow more capacity and reliable Wi-Fi.' },
       { question: 'Does One Touch Switch cancel the TV part of my old bundle?', answer: 'Not always. Ofcom says you may need to contact your old provider separately to cancel another service in the bundle, such as TV. Confirm contract end dates, equipment returns and any early termination charges before switching.' },
       { question: 'What should I compare besides the monthly price?', answer: 'Compare the full minimum-term cost, broadband speed at your address, in-contract price changes, post-contract price, setup and delivery fees, included channels, streaming plans, UHD or multiroom costs, equipment returns and cancellation terms.' },
+      { question: 'How much can I actually save by bundling broadband and TV?', answer: 'Ofcom research published in February 2026 found households save £26 to £48 a month on average by bundling telecoms services rather than buying them separately, with the average price paid for pay-TV within a bundle falling 23% in real terms to around £12 a month. This only holds if you use what is included; an unused premium pack is not a saving.' },
+      { question: 'What is Virgin Media Max Volt?', answer: 'Max Volt is Virgin Media\'s most complete bundle, combining gigabit-boosted broadband, an O2 5G SIM with unlimited data and calls, Virgin TV 360 with over 230 channels including Sky Sports HD and Sky Cinema HD, and free UK calls. At the time of writing it started from £74.99 a month with two scheduled price rises built into the 24-month contract, so check the full-term cost before treating the entry price as final.' },
     ],
   },
 

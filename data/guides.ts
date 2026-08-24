@@ -167,15 +167,16 @@ export const guides: GuideMetadata[] = [
     metaTitle: 'Best Broadband and TV Deals UK 2026 | Compare Bundles',
     metaDescription: 'Compare UK broadband and TV bundles from Sky, Virgin Media and EE TV. See the best options for sports, entertainment and flexible streaming.',
     publishDate: '2026-06-21',
-    updatedDate: '2026-07-29',
+    updatedDate: '2026-08-24',
     excerpt: 'The best broadband and TV bundle depends on what you watch, the broadband available at your address, and the full contract cost. Compare the leading UK options.',
-    readingTime: 13,
+    readingTime: 14,
     category: 'deals-and-pricing',
     keyTakeaways: [
       'Sky is our starting point for a TV-first household; Virgin Media stands out for fast broadband plus broad channel bundles where its network is available.',
       'EE TV is the strongest alternative when you want NOW-based entertainment or TNT Sports with broadband and the option to change the TV pack.',
-      'Compare the total minimum-term cost—not only the introductory monthly price—and check whether TV, broadband and add-ons have different end dates.',
-      'Prices, channels and availability change by address. Our provider facts were checked against official UK sources on 29 July 2026.',
+      'Ofcom found bundling saves £26 to £48 a month on average, but only if you actually use what is included, not just because more services are bundled together.',
+      'Compare the total minimum-term cost, not only the introductory monthly price, and check whether TV, broadband and add-ons have different end dates.',
+      'Prices, channels and availability change by address. Our provider facts were checked against official UK sources on 24 August 2026.',
     ],
     sources: [
       {
@@ -189,6 +190,10 @@ export const guides: GuideMetadata[] = [
       {
         label: 'BT and EE TV packages',
         href: 'https://www.bt.com/tv/packages',
+      },
+      {
+        label: 'Ofcom: new research reveals how to cut phone and internet bills',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/bills-and-charges/new-ofcom-research-reveals-how-to-cut-phone-and-internet-bills',
       },
       {
         label: 'Ofcom money-saving advice for broadband and pay-TV',
