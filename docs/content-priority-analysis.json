@@ -56,25 +56,6 @@
       "notes": ""
     },
     {
-      "path": "/guides/cheapest-broadband-uk",
-      "page_type": "guide",
-      "status": 200,
-      "word_count": 481,
-      "has_faq_schema": true,
-      "has_answer_first_paragraph": true,
-      "checked_date": "2026-06-01",
-      "months_since_checked": 2.8,
-      "mapped_volume": 19400,
-      "ai_feature_impressions": 130,
-      "thin": true,
-      "stale": false,
-      "missing_geo_signals": [
-        "below 1200-word depth floor for a guide page"
-      ],
-      "refresh_score": 91.0,
-      "notes": ""
-    },
-    {
       "path": "/guides/best-full-fibre-broadband-uk",
       "page_type": "guide",
       "status": 200,
@@ -98,37 +79,16 @@
       "word_count": 596,
       "has_faq_schema": true,
       "has_answer_first_paragraph": true,
-      "checked_date": null,
-      "months_since_checked": null,
+      "checked_date": "2026-08-01",
+      "months_since_checked": 0.8,
       "mapped_volume": 2900,
       "ai_feature_impressions": 142,
       "thin": true,
       "stale": false,
       "missing_geo_signals": [
-        "below 1200-word depth floor for a guide page",
-        "no parseable reviewed/checked date in visible text"
+        "below 1200-word depth floor for a guide page"
       ],
-      "refresh_score": 87.4,
-      "notes": ""
-    },
-    {
-      "path": "/guides/best-phone-and-broadband-deals",
-      "page_type": "guide",
-      "status": 200,
-      "word_count": 457,
-      "has_faq_schema": true,
-      "has_answer_first_paragraph": true,
-      "checked_date": null,
-      "months_since_checked": null,
-      "mapped_volume": 29600,
-      "ai_feature_impressions": 14,
-      "thin": true,
-      "stale": false,
-      "missing_geo_signals": [
-        "below 1200-word depth floor for a guide page",
-        "no parseable reviewed/checked date in visible text"
-      ],
-      "refresh_score": 72.8,
+      "refresh_score": 82.4,
       "notes": ""
     },
     {
@@ -148,6 +108,42 @@
         "below 1200-word depth floor for a guide page"
       ],
       "refresh_score": 71.0,
+      "notes": ""
+    },
+    {
+      "path": "/guides/best-phone-and-broadband-deals",
+      "page_type": "guide",
+      "status": 200,
+      "word_count": 457,
+      "has_faq_schema": true,
+      "has_answer_first_paragraph": true,
+      "checked_date": "2026-08-01",
+      "months_since_checked": 0.8,
+      "mapped_volume": 29600,
+      "ai_feature_impressions": 14,
+      "thin": true,
+      "stale": false,
+      "missing_geo_signals": [
+        "below 1200-word depth floor for a guide page"
+      ],
+      "refresh_score": 67.8,
+      "notes": ""
+    },
+    {
+      "path": "/guides/cheapest-broadband-uk",
+      "page_type": "guide",
+      "status": 200,
+      "word_count": 1237,
+      "has_faq_schema": true,
+      "has_answer_first_paragraph": true,
+      "checked_date": "2026-08-24",
+      "months_since_checked": 0.0,
+      "mapped_volume": 19400,
+      "ai_feature_impressions": 130,
+      "thin": false,
+      "stale": false,
+      "missing_geo_signals": [],
+      "refresh_score": 66.0,
       "notes": ""
     },
     {
@@ -246,26 +242,6 @@
       "notes": ""
     },
     {
-      "path": "/guides/satellite-broadband-uk",
-      "page_type": "guide",
-      "status": 200,
-      "word_count": 437,
-      "has_faq_schema": true,
-      "has_answer_first_paragraph": true,
-      "checked_date": null,
-      "months_since_checked": null,
-      "mapped_volume": 2400,
-      "ai_feature_impressions": 21,
-      "thin": true,
-      "stale": false,
-      "missing_geo_signals": [
-        "below 1200-word depth floor for a guide page",
-        "no parseable reviewed/checked date in visible text"
-      ],
-      "refresh_score": 58.2,
-      "notes": ""
-    },
-    {
       "path": "/guides/broadband-moving-house",
       "page_type": "guide",
       "status": 200,
@@ -282,6 +258,25 @@
         "below 1200-word depth floor for a guide page"
       ],
       "refresh_score": 54.0,
+      "notes": ""
+    },
+    {
+      "path": "/guides/satellite-broadband-uk",
+      "page_type": "guide",
+      "status": 200,
+      "word_count": 437,
+      "has_faq_schema": true,
+      "has_answer_first_paragraph": true,
+      "checked_date": "2026-08-01",
+      "months_since_checked": 0.8,
+      "mapped_volume": 2400,
+      "ai_feature_impressions": 21,
+      "thin": true,
+      "stale": false,
+      "missing_geo_signals": [
+        "below 1200-word depth floor for a guide page"
+      ],
+      "refresh_score": 53.2,
       "notes": ""
     },
     {

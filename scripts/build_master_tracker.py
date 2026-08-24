@@ -1004,6 +1004,38 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-best-business-broadband-guide",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Deep rewrite: Best Business Broadband Providers UK guide (3rd content-priority-analysis target)",
+        "description": (
+            "Third target from scripts/analyze_content_priority.py's ranked list: 142 real "
+            "GSC AI-feature impressions at 596 words. This page lives on a different template "
+            "than the [slug]-based guides (app/guides/best-business-broadband-providers-uk/ "
+            "is a standalone PrioritySeoPage route backed by data/priority-pages.ts), and had "
+            "2 pre-existing em dashes fixed as part of the pass. Rewritten to 1,050 words with "
+            "real, specific per-provider data: Vodafone Business has the most competitive "
+            "entry-level price (~£20-22/mo excl. VAT), Zen Business leads on satisfaction "
+            "(Which? Recommended since 2021, 84% score) -- consistent with, and corroborating, "
+            "the consumer Zen Internet findings from the Awin-rejected batch, Virgin Media "
+            "Business has the fastest raw speed (442 Mbps average), and a genuinely useful, "
+            "specific stat: out-of-contract business customers overpay 24.86% more per month "
+            "on average. Added a real contended-vs-uncontended leased-line explainer with "
+            "current pricing (from ~£69/mo entry-level). Also fixed a real bug in the analysis "
+            "script itself found while validating this page: DATE_RE didn't recognise the "
+            "PrioritySeoPage template's 'Last researched and reviewed:' phrasing (colon, "
+            "different verb), so every page on that template was incorrectly scored as having "
+            "no checked date -- fixed and confirmed it also corrected the score for "
+            "/guides/satellite-broadband-uk on the same template."
+        ),
+        "priority_score": 50,
+        "impact_score": 52,
+        "effort": "Medium",
+        "target": "data/priority-pages.ts (business), scripts/analyze_content_priority.py",
+        "dependencies": "ops-content-priority-analysis-tooling",
+        "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",

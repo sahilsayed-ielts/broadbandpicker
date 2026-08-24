@@ -54,7 +54,8 @@ THIN_THRESHOLD = {
 STALE_MONTHS = 6
 
 DATE_RE = re.compile(
-    r"(?:Reviewed|Updated|verified|checked(?: against official UK sources)?(?: on)?)\s*"
+    r"(?:Reviewed|Updated|verified|checked(?: against official UK sources)?(?: on)?"
+    r"|researched and reviewed)\s*:?\s*"
     r"(\d{1,2}\s+(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{4}"
     r"|\d{4}-\d{2}-\d{2})",
     re.IGNORECASE,
