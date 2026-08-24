@@ -575,12 +575,27 @@ export const guides: GuideMetadata[] = [
     slug: 'broadband-moving-house',
     title: 'Broadband When Moving House UK 2026: Complete Checklist',
     metaTitle: 'Broadband Moving House UK 2026 | Complete Checklist & Guide',
-    metaDescription: 'Moving house? Here is exactly what to do about your broadband — when to give notice, how to avoid early termination fees, and how to set up broadband at your new address.',
+    metaDescription: 'Moving house? Here is exactly what to do about your broadband: when to give notice, how to avoid early termination fees, how One Touch Switch works, and how to set up broadband at your new address.',
     publishDate: '2026-06-19',
-    updatedDate: '2026-06-19',
-    excerpt: 'Sorting broadband when moving house is easier than most people expect — but only if you do things in the right order. Follow our step-by-step checklist to stay connected with no gaps.',
-    readingTime: 8,
+    updatedDate: '2026-08-24',
+    excerpt: 'Sorting broadband when moving house is easier than most people expect, but only if you do things in the right order. Follow our step-by-step checklist, including how One Touch Switch and Ofcom\'s early termination rules work, to stay connected with no gaps.',
+    readingTime: 9,
     category: 'use-cases-and-lifestyle',
+    keyTakeaways: [
+      'Ofcom closed its One Touch Switch enforcement case on 11 June 2026, having found more than 2 million customers had already used the process successfully; it is now the industry\'s permanent standard for switching provider.',
+      'If your current provider genuinely cannot serve your new address, Ofcom\'s General Conditions require them to waive the early termination charge, regardless of how much of your minimum term remains.',
+      'A house move is a natural point to check phone-line arrangements too, since the PSTN is being fully retired by 31 January 2027 and a new address may already be on Digital Voice.',
+    ],
+    sources: [
+      {
+        label: 'Ofcom closes One Touch Switch enforcement programme',
+        href: 'https://findcheapbroadband.com/blog/ofcom-closes-one-touch-switch-enforcement-programme/',
+      },
+      {
+        label: 'Ofcom guide to the landline switch-over',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/landline-phones/future-of-landline-calls',
+      },
+    ],
   },
   {
     slug: 'best-broadband-for-rural-areas-uk',

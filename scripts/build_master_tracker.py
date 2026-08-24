@@ -1247,6 +1247,36 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-broadband-moving-house-guide",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Deep rewrite: Broadband When Moving House checklist guide (11th content-priority-analysis target)",
+        "description": (
+            "Eleventh target from scripts/analyze_content_priority.py's ranked list: 948 "
+            "words, structurally sound (evergreen checklist format) but missing a genuinely "
+            "newsworthy development -- Ofcom closed its One Touch Switch enforcement case "
+            "on 11 June 2026 after finding more than 2 million customers had already used "
+            "the process successfully, meaning it is now the industry's permanent standard "
+            "rather than a monitored pilot, which the old copy still implied. Added this, "
+            "plus a genuinely missing section on what a house move means for a home phone "
+            "line given the 31 January 2027 PSTN switch-off (reusing research from the "
+            "phone-and-broadband and broadband-without-phone-line refreshes earlier this "
+            "session), Ofcom's Spring 2026 coverage split for the 'check availability' "
+            "step, and corrected the ETC explanation to reflect Ofcom's actual cap rule "
+            "(remaining payments, ex-VAT) rather than a flat multiplication. Re-verified "
+            "the pre-existing GBP183.60/year switching-saving stat against fresh 2026 "
+            "sources (found independently corroborated) and added the 4.2m/GBP100-240 "
+            "social tariff stat already used elsewhere on this site. Word count 948 -> "
+            "1,446."
+        ),
+        "priority_score": 40,
+        "impact_score": 36,
+        "effort": "Medium",
+        "target": "app/guides/[slug]/page.tsx (broadband-moving-house), data/guides.ts",
+        "dependencies": "ops-content-priority-analysis-tooling",
+        "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",

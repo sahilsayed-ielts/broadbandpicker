@@ -1874,7 +1874,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
   'broadband-moving-house': {
     body: (
       <>
-        <p>When moving house, your broadband needs to be handled in a specific order to avoid gaps in service, early termination charges, or paying for two connections at once. Follow this checklist and you will have broadband set up at your new address with no unnecessary costs.</p>
+        <p>When moving house, your broadband needs to be handled in a specific order to avoid gaps in service, early termination charges, or paying for two connections at once. Since September 2024, most switches are also covered by Ofcom&apos;s One Touch Switch process, which shifted from an actively enforced pilot to the permanent industry standard when Ofcom closed its enforcement case on 11 June 2026, having found more than 2 million customers had already used it successfully. Follow this checklist and you will have broadband set up at your new address with no unnecessary costs.</p>
 
         <h2>Broadband moving house — the complete checklist</h2>
         <ul>
@@ -1888,20 +1888,20 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         </ul>
 
         <h2>Step 1: Check broadband availability at your new address</h2>
-        <p>Do this as soon as you know your new address — ideally 8–12 weeks before moving. Use our postcode checker to see which providers and connection types are available. Do not assume your current provider covers your new address — especially if you are moving to a different area, rural location, or new build development.</p>
-        <p>Key question: is full fibre (FTTP) available at the new address? If yes, moving is an opportunity to upgrade. If your current provider offers FTTP at the new address, they can often migrate you without an early termination charge.</p>
+        <p>Do this as soon as you know your new address, ideally 8 to 12 weeks before moving. Use our postcode checker to see which providers and connection types are available. Do not assume your current provider covers your new address, especially if you are moving to a different area, a rural location, or a new build development.</p>
+        <p>Key question: is full fibre (FTTP) available at the new address? Ofcom&apos;s Spring 2026 Connected Nations data put full-fibre coverage at 82% of UK premises and gigabit-capable coverage at 89%, though the split is uneven, 93% in urban areas against 66% in rural areas. If FTTP is available where you are moving, it is a genuine opportunity to upgrade, and if your current provider offers it at the new address, they can often migrate you without an early termination charge.</p>
 
         <h2>Step 2: Decide whether to move your service or switch</h2>
         <p>Contact your current provider first and ask: <em>&ldquo;Can I move my existing service to my new address?&rdquo;</em></p>
         <ul>
           <li><strong>If yes, same provider is available</strong> — you can usually transfer your contract to the new address without penalty, and without restarting your minimum term</li>
-          <li><strong>If no, provider does not cover the new address</strong> — you can typically exit your contract without an early termination charge due to the change in service availability</li>
+          <li><strong>If no, provider does not cover the new address</strong> — Ofcom&apos;s General Conditions require your provider to waive early termination charges when they genuinely cannot serve your new address, regardless of how much of your minimum term remains</li>
           <li><strong>Moving is a chance to switch and save</strong> — even if your current provider is available, compare deals at your new postcode before committing. New customers almost always get better rates than transferring existing customers</li>
         </ul>
 
         <h2>Step 3: Check your early termination charge</h2>
-        <p>Log in to your account or check your contract documents to find your contract end date. If you are within your minimum term, the early termination charge (ETC) is typically the remaining months multiplied by your monthly fee. For example: 4 months remaining at £30/month = up to £120 ETC.</p>
-        <p>Exceptions that may waive the ETC: your provider cannot serve the new address; your provider raises prices mid-contract; your provider fails to deliver minimum guaranteed speeds.</p>
+        <p>Log in to your account or check your contract documents to find your contract end date. If you are within your minimum term, the early termination charge (ETC) is typically your discounted monthly price, excluding VAT, multiplied by the months remaining, and Ofcom caps it at the total value of those remaining payments so a provider cannot charge more than what was actually owed. For example: 4 months remaining at £30 a month works out to up to £120 in ETC.</p>
+        <p>Exceptions that may waive the ETC: your provider cannot serve the new address; your provider raises prices mid-contract by more than was disclosed at sign-up; your provider fails to deliver minimum guaranteed speeds.</p>
 
         <h2>Step 4: Give the required notice</h2>
         <p>Notice requirements vary by provider:</p>
@@ -1934,8 +1934,11 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         </div>
 
         <h2>Step 5: Book the new connection</h2>
-        <p>For FTTC connections at a property with existing phone wiring, activation is usually remote and takes 1–3 working days. For FTTP (full fibre) at a property being connected for the first time, you need an Openreach engineer visit — allow 2–4 weeks. Book as early as possible to get a slot close to your move date.</p>
-        <p>If you are using One Touch Switching to switch provider, your new provider handles the connection booking. You do not need to contact your old provider.</p>
+        <p>For FTTC connections at a property with existing phone wiring, activation is usually remote and takes 1 to 3 working days. For FTTP (full fibre) at a property being connected for the first time, you need an Openreach or altnet engineer visit; allow 2 to 4 weeks. Book as early as possible to get a slot close to your move date.</p>
+        <p>If you are switching provider rather than just moving your existing service, One Touch Switch means your new provider handles the connection booking and notifies your old provider automatically; you do not need to contact your old provider separately. This is now the standard, permanent process across the industry rather than a pilot, following Ofcom&apos;s closure of its enforcement case in June 2026.</p>
+
+        <h2>What moving house means for your home phone</h2>
+        <p>A house move is also a natural point to check what happens to any home phone line. The UK&apos;s old analogue phone network (the PSTN) is being fully retired by 31 January 2027, and a new address may already be on Digital Voice, a phone service delivered through the broadband router rather than a separately powered copper line. If anyone in the household relies on a landline number, telecare or a medical alarm, request number porting during the order rather than cancelling the old line first, and confirm any alarm or telecare equipment is compatible with Digital Voice before the move, since it will not work in a power cut without a backup solution.</p>
 
         <h2>Step 6: On moving day</h2>
         <ul>
@@ -1945,14 +1948,15 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         </ul>
 
         <h2>Moving house as an opportunity to get a better deal</h2>
-        <p>Research by broadband.co.uk found that customers who switch provider when moving house save an average of £183.60 per year compared to those who transfer their existing deal. New customer rates are almost always lower than retention rates. Use the move to check every provider available at your new postcode — you may find a faster service at a lower price than you were paying before.</p>
+        <p>Industry research published in 2026 puts the average saving from switching broadband provider at roughly £180 to £292 over a contract, with one widely cited figure estimating that the 8.8 million UK households currently out of contract could save an average of £183.60 a year by switching rather than staying on a rolled-over standard tariff. New customer rates are almost always lower than retention rates, so use the move to check every provider available at your new postcode; you may find a faster service at a lower price than you were paying before. If you qualify for a social tariff, the potential saving is larger still: Ofcom estimates 4.2 million eligible households could save a further £100 to £240 a year on top of any switching saving, though take-up remains low.</p>
       </>
     ),
     faqs: [
-      { question: 'Can I take my broadband with me when I move house?', answer: 'Usually yes, if your current provider covers your new address. Contact them and ask to transfer your service. If they cannot serve your new address, you can typically exit the contract without an early termination charge. BT and Sky will usually transfer the contract without restarting the minimum term.' },
-      { question: 'How much notice do I need to give before cancelling broadband when moving?', answer: 'Most providers require 30 days notice. BT requires a minimum of 14 days. Sky recommends 31 days. Virgin Media requires 30 days. Give notice as early as possible to avoid paying for an unused period after your move. If using One Touch Switching to switch provider, your new provider handles the cancellation.' },
-      { question: 'Will I pay an early termination charge when moving house?', answer: 'Not necessarily. If your current provider cannot serve your new address, they must let you leave without an early termination charge. If they can serve the new address and you want to leave anyway, an ETC will apply based on your remaining contract months. Always check with your provider first.' },
-      { question: 'How long does it take to get broadband set up in a new home?', answer: 'For FTTC (part-fibre) at a property with existing wiring, activation takes 1–3 working days. For FTTP (full fibre) requiring an Openreach engineer visit, allow 2–4 weeks from order to installation. Book as early as possible — engineer slots fill up quickly in popular moving months (May, June, August).' },
+      { question: 'Can I take my broadband with me when I move house?', answer: 'Usually yes, if your current provider covers your new address. Contact them and ask to transfer your service. If they cannot serve your new address, Ofcom\'s rules require them to let you exit the contract without an early termination charge. BT and Sky will usually transfer the contract without restarting the minimum term.' },
+      { question: 'How much notice do I need to give before cancelling broadband when moving?', answer: 'Most providers require 30 days\' notice. BT requires a minimum of 14 days. Sky recommends 31 days. Virgin Media and TalkTalk require 30 days. Give notice as early as possible to avoid paying for an unused period after your move. If you are switching provider via One Touch Switch, your new provider handles the cancellation automatically.' },
+      { question: 'Will I pay an early termination charge when moving house?', answer: 'Not necessarily. If your current provider cannot serve your new address, Ofcom\'s General Conditions require them to let you leave without an early termination charge, regardless of how much of your minimum term remains. If they can serve the new address and you want to leave anyway, an ETC will apply, capped by Ofcom at the total value of your remaining contract payments.' },
+      { question: 'How long does it take to get broadband set up in a new home?', answer: 'For FTTC (part-fibre) at a property with existing wiring, activation takes 1 to 3 working days. For FTTP (full fibre) requiring an engineer visit, allow 2 to 4 weeks from order to installation. Book as early as possible; engineer slots fill up quickly in popular moving months such as May, June and August.' },
+      { question: 'What is One Touch Switch and does it help when moving house?', answer: 'One Touch Switch is the standard UK process for changing broadband provider: your new provider handles the entire switch, including notifying your old provider, so you only deal with one company. It launched in September 2024, and Ofcom closed its enforcement case in June 2026 after finding more than 2 million customers had used it successfully, making it the industry\'s permanent standard rather than a pilot.' },
     ],
   },
 
