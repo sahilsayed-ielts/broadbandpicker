@@ -373,13 +373,28 @@ export const guides: GuideMetadata[] = [
   {
     slug: 'best-broadband-providers-uk',
     title: 'Best Broadband Providers UK 2026: Ranked and Reviewed',
-    metaTitle: 'Best Broadband Providers UK 2026 | Ranked by Speed, Price & Reliability',
-    metaDescription: 'We ranked every major UK broadband provider by speed, reliability, complaints, and value. The best UK broadband provider in 2026 is EE for reliability, Community Fibre for satisfaction.',
+    metaTitle: 'Best Broadband Providers UK 2026 | Ranked by Price, Complaints & Trustpilot',
+    metaDescription: 'We ranked every major UK broadband provider using Ofcom\'s Q1 2026 complaints data, current pricing and Trustpilot scores. Plusnet has the best major-provider complaints record; TalkTalk the worst.',
     publishDate: '2026-06-19',
-    updatedDate: '2026-06-19',
-    excerpt: 'Not all broadband providers are equal. We ranked every major UK ISP by Ofcom speed data, complaints figures, Trustpilot scores, and price — so you can see at a glance who is actually worth switching to.',
+    updatedDate: '2026-08-24',
+    excerpt: 'Not all broadband providers are equal. We ranked every major UK ISP using Ofcom\'s record-low Q1 2026 complaints data, current pricing and Trustpilot scores, so you can see who is actually worth switching to.',
     readingTime: 11,
     category: 'providers-and-comparisons',
+    keyTakeaways: [
+      'Ofcom\'s Q1 2026 complaints data recorded an industry average of just 6 per 100,000 customers, the lowest figure since the regulator\'s series began in Q4 2010; Plusnet had the best major-provider record at 4, TalkTalk the worst at 10.',
+      'Sky and NOW Broadband share a parent company and an identical Openreach network, yet NOW\'s complaints record is more than double Sky\'s, a genuine data point about support quality rather than infrastructure.',
+      'Community Fibre is the cheapest full-fibre package covered on this site at £12.50 a month, but coverage remains limited to London, Surrey and Sussex.',
+    ],
+    sources: [
+      {
+        label: 'Ofcom: telecoms and pay-TV complaints fall to a record low',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/service-quality/ofcom-telecoms-and-pay-tv-complaints-fall-to-record-low',
+      },
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+      },
+    ],
   },
   {
     slug: 'broadband-price-rises-2026',

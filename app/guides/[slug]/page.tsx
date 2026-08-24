@@ -1175,10 +1175,10 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
   'best-broadband-providers-uk': {
     body: (
       <>
-        <p>The best broadband provider in the UK depends on what you need most — reliability, speed, price, or customer service. Based on Ofcom&apos;s Q4 2025 complaints data, Ofcom Connected Nations speed reports, and Trustpilot scores, here is how every major UK provider ranks in 2026.</p>
+        <p>The best broadband provider in the UK depends on what matters most to you: price, customer service, symmetrical speed, or nationwide coverage. Based on Ofcom&apos;s Q1 2026 complaints data (published 23 July 2026, and the lowest figure in the regulator&apos;s published series since Q4 2010), current package pricing, and Trustpilot scores checked in August 2026, here is how every major UK provider actually ranks.</p>
 
         <h2>How we ranked UK broadband providers</h2>
-        <p>Each provider was scored across five criteria: download speed (Ofcom Connected Nations data), Ofcom complaints per 100,000 customers (Q4 2025), Trustpilot score, monthly price from, and coverage. No provider paid to be ranked. Providers with high complaints are marked accordingly — regardless of commercial relationships.</p>
+        <p>Each provider is scored against real current pricing, Ofcom&apos;s Q1 2026 complaints data (complaints per 100,000 customers, the regulator&apos;s standard measure), Trustpilot score, and coverage. No provider paid to be ranked or featured, and providers with above-average complaints are marked accordingly regardless of any commercial relationship with this site.</p>
 
         <h2>UK broadband providers ranked at a glance</h2>
         <div className="overflow-x-auto">
@@ -1192,18 +1192,18 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
             </thead>
             <tbody>
               {[
-                ['Community Fibre', '£21.99/mo', '4.6 ★', '3 per 100k', 'Customer satisfaction'],
-                ['Toob', '£22.00/mo', '4.7 ★', 'N/A*', 'Speed & satisfaction'],
-                ['Hyperoptic', '£22.00/mo', '4.4 ★', '4 per 100k', 'Full fibre, symmetrical'],
-                ['Zen Internet', '£34.99/mo', '4.5 ★', '3 per 100k', 'Home workers, static IP'],
-                ['EE', '£26.99/mo', '4.1 ★', '5 per 100k', 'Reliability, nationwide'],
-                ['Sky', '£25.00/mo', '3.8 ★', '6 per 100k', 'TV bundles, no setup fee'],
-                ['Plusnet', '£22.99/mo', '3.9 ★', '5 per 100k', 'Transparent pricing'],
-                ['BT', '£30.99/mo', '3.6 ★', '7 per 100k', 'UK coverage breadth'],
-                ['Vodafone', '£24.00/mo', '3.4 ★', '11 per 100k', 'Mobile bundle discount'],
-                ['Virgin Media', '£28.00/mo', '3.2 ★', '5 per 100k', 'Fastest cable speeds'],
-                ['NOW Broadband', '£17.99/mo', '3.2 ★', '8 per 100k', 'Lowest entry price'],
-                ['TalkTalk', '£19.99/mo', '2.8 ★', '10 per 100k', 'Budget only'],
+                ['Community Fibre', '£12.50/mo', '4.7 ★', 'N/A*', 'Cheapest full fibre, satisfaction'],
+                ['Toob', '£19.50/mo', '4.5 ★', 'N/A*', 'Symmetrical speed, no price rises'],
+                ['Hyperoptic', '£21.50/mo', '4.5 ★', 'N/A*', 'Symmetrical speed, social tariff'],
+                ['Plusnet', '£21.99/mo', '2.0 ★', '4 per 100k', 'Best major-provider complaints record'],
+                ['Sky', '£23.00/mo', '2.7 ★', '5 per 100k', 'TV bundles, strong complaints record'],
+                ['NOW Broadband', '£23.00/mo', '1.2 ★', '11 per 100k (Q4 2025)†', 'Lowest price on the Openreach network'],
+                ['EE', '£22.99/mo', '1.3 ★', '6 per 100k', 'Mobile bundle, wide 5G-adjacent reach'],
+                ['BT', '£23.99/mo', '4.0 ★‡', '7 per 100k', 'Widest UK coverage, 98% of homes'],
+                ['Zen Internet', '£30.00/mo', '4.4 ★', 'N/A*', 'Home workers, free static IP'],
+                ['Vodafone', '£25.00/mo', '1.3 ★', '8 per 100k', '2026 value and speed awards'],
+                ['TalkTalk', '£25.00/mo', '1.5 ★', '10 per 100k', 'Cheapest big-name full fibre'],
+                ['Virgin Media', '£33.00/mo', '1.4 ★', '6 per 100k', 'Fastest widely available speeds'],
               ].map(([p, price, tp, complaints, best]) => (
                 <tr key={p} className="border-b border-slate-100 hover:bg-slate-50">
                   <td className="px-4 py-3 font-semibold text-slate-900">{p}</td>
@@ -1216,32 +1216,36 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
             </tbody>
           </table>
         </div>
-        <p className="text-xs text-slate-500 mt-2">*Toob is too small for Ofcom&apos;s quarterly complaints report threshold. Ofcom data: Q4 2025. Trustpilot scores as of June 2026.</p>
+        <p className="text-xs text-slate-500 mt-2">*Community Fibre, Toob, Hyperoptic and Zen Internet are too small for Ofcom&apos;s quarterly complaints report threshold. †NOW Broadband is not separately listed in Ofcom&apos;s Q1 2026 table; figure shown is its Q4 2025 result. ‡BT has two active Trustpilot pages, bt.com (4.0) and the older btbroadband.com (around 1.5); see the two-page explainer below. Ofcom data: Q1 2026, published 23 July 2026, industry average 6 per 100,000. Trustpilot and pricing checked August 2026.</p>
 
-        <h2>Best UK broadband provider for reliability — EE</h2>
-        <p>EE consistently delivers the fastest average speeds of any major UK provider, according to Ofcom&apos;s Connected Nations data. EE recorded 5 complaints per 100,000 customers in Q4 2025 — below the industry average of 7. Its nationwide FTTP rollout uses the Openreach network, covering 97% of UK premises. EE broadband starts from £26.99/month on an 18-month contract with no setup fee.</p>
+        <h2>Best for the lowest complaints record — Plusnet</h2>
+        <p>Plusnet recorded just 4 complaints per 100,000 customers in Ofcom&apos;s Q1 2026 report, the lowest figure of any major nationwide provider and comfortably below the record-low industry average of 6. This sits alongside a genuinely low Trustpilot score, around 2.0 out of 5, one of the clearer examples on this site of a provider whose self-selected review page looks worse than its independently regulated complaints record actually is.</p>
 
-        <h2>Best for customer satisfaction — Community Fibre and Toob</h2>
-        <p>Community Fibre holds a 4.6 Trustpilot score and generated just 3 complaints per 100,000 customers in Q4 2025 — the lowest of any reportable UK provider. Coverage is currently London-only. Toob, serving Southampton and surrounding areas, holds a 4.7 Trustpilot score — the highest of any UK ISP. Both are alt-net providers building their own full-fibre networks rather than renting Openreach infrastructure.</p>
+        <h2>Best for customer satisfaction and value — Community Fibre and Toob</h2>
+        <p>Community Fibre holds a 4.7 Trustpilot score from roughly 91,000 reviews and starts from £12.50 a month, the cheapest full-fibre package covered on this site; coverage has expanded beyond London into parts of Surrey and Sussex. Toob, serving Southampton and a growing footprint of around 290,000 premises across 29 towns and cities, holds a 4.5 Trustpilot score and includes a Wi-Fi 7 router as standard. Both are altnets building their own full-fibre networks rather than reselling Openreach infrastructure, and both are too small for Ofcom&apos;s quarterly complaints threshold.</p>
 
-        <h2>Best budget broadband provider — NOW Broadband</h2>
-        <p>NOW Broadband is the cheapest widely available broadband in the UK, starting from £17.99/month on a 12-month contract. It uses Sky&apos;s Openreach-based network, meaning the underlying line quality is identical to Sky&apos;s own service. The trade-off is customer service — NOW generates 8 complaints per 100,000 customers, above the industry average. It is best for light users who prioritise price over support quality.</p>
+        <h2>Best budget option on a national network — NOW Broadband</h2>
+        <p>NOW Broadband, owned by Sky, is the cheapest widely available broadband on the Openreach network, from £23 a month on a 24-month contract, a £5 advance fee credited back to the first bill. It is a genuine exception to the usual pattern on this list: unlike most providers, where a low Trustpilot score sits alongside a decent Ofcom record, NOW scores poorly on both, around 1.2 out of 5 on Trustpilot and 11 complaints per 100,000 customers in Ofcom&apos;s most recent report covering it, noticeably worse than its own parent brand Sky.</p>
 
-        <h2>Worst for Ofcom complaints — Vodafone and TalkTalk</h2>
-        <p>Vodafone received 11 complaints per 100,000 customers in Q4 2025 — the highest of any major UK broadband provider. TalkTalk recorded 10 per 100,000, making it the second most complained-about provider. Both exceeded the industry average of 7. Vodafone&apos;s complaints were driven primarily by faults, service, and provisioning issues. TalkTalk has a long record of below-average customer satisfaction and a 2.8 Trustpilot score.</p>
+        <h2>Sky vs NOW: same network, different support quality</h2>
+        <p>Sky and NOW Broadband run on the identical Openreach network and share a parent company, yet their independently measured service records diverge sharply. Sky recorded just 5 complaints per 100,000 customers in Ofcom&apos;s Q1 2026 report, among the best of any major provider; NOW&apos;s most recent figure was more than double that. Because the underlying line quality is the same, the difference reflects support and account-handling quality specifically, a genuinely useful data point when the choice is simply between a brand&apos;s full-price and budget tier.</p>
+
+        <h2>Worst for Ofcom complaints — TalkTalk</h2>
+        <p>TalkTalk recorded 10 complaints per 100,000 customers in Ofcom&apos;s Q1 2026 report, the highest of any major UK provider and the only provider Ofcom does not consider statistically comparable to any other in that quarter&apos;s data. Its current range starts from £25 a month, no longer the clearly cheapest big-name option it once was, positioning it closer to Vodafone on price while carrying the weakest complaints record on this list.</p>
 
         <h2>Best for speed — Hyperoptic and Community Fibre</h2>
-        <p>Hyperoptic and Community Fibre offer symmetrical full-fibre packages on parts of their networks, meaning upload speed can match download speed. This can help with video calls, content uploads and cloud backups. Both have limited geographic footprints, so check the exact speeds, current price and terms available at your address.</p>
+        <p>Hyperoptic and Community Fibre both offer genuinely symmetrical full-fibre packages, meaning upload speed matches download speed, useful for video calls, cloud backups and uploading large files. Hyperoptic also runs a real social tariff at two price points, £15 and £20 a month, with no fixed contract. Both have limited, though growing, geographic footprints, so check the exact speed, current price and terms available at a specific address before assuming national availability.</p>
 
         <h2>Best for coverage — BT</h2>
-        <p>BT covers 98% of UK premises — the widest coverage of any broadband provider. Its FTTP rollout, delivered via Openreach, is the UK&apos;s largest. BT is more expensive than competitors (from £30.99/month), and its Trustpilot score of 3.6 is below average. But if you live in a rural or hard-to-reach area, BT is often the only viable full-fibre provider.</p>
+        <p>BT covers around 98% of UK premises, the widest reach of any provider on this list, delivered via the Openreach network it also wholesales to most rival ISPs. It starts from £23.99 a month on a 24-month contract with a £30 setup fee offset by a reward card. BT has two active Trustpilot pages showing very different scores, 4.0 on bt.com and around 1.5 on the older btbroadband.com; Ofcom&apos;s Q1 2026 data, 7 complaints per 100,000, is the more neutral cross-check, placing BT just above the industry average.</p>
       </>
     ),
     faqs: [
-      { question: 'Which UK broadband provider has the best customer service?', answer: 'Based on Ofcom Q4 2025 complaints data, Community Fibre (3 per 100,000 customers) and Zen Internet (3 per 100,000) have the best customer service records. Among major nationwide providers, EE (5 per 100,000) performs best. Vodafone (11) and TalkTalk (10) have the worst complaint rates.' },
-      { question: 'Which is the most reliable UK broadband provider?', answer: 'EE is the most reliable major UK broadband provider based on Ofcom speed and complaints data. It delivers the fastest average speeds of any provider using the Openreach network and maintains below-average complaint rates.' },
-      { question: 'Which UK broadband provider is cheapest?', answer: 'NOW Broadband is the cheapest widely available UK broadband provider, starting from £17.99/month. TalkTalk (from £19.99/month) is the next cheapest. For full-fibre specifically, Community Fibre starts from £21.99/month in London.' },
-      { question: 'Which UK broadband provider has the worst complaints record?', answer: 'Vodafone had the worst broadband complaints record in Q4 2025, with 11 complaints per 100,000 customers — the highest of any major UK provider. TalkTalk was second with 10 per 100,000. The industry average is 7 per 100,000.' },
+      { question: 'Which UK broadband provider has the best customer service?', answer: 'Based on Ofcom\'s Q1 2026 complaints data, Plusnet has the best record of any major nationwide provider at just 4 complaints per 100,000 customers, against a record-low industry average of 6. Community Fibre, Toob, Hyperoptic and Zen Internet are all too small for Ofcom\'s reporting threshold but carry Trustpilot scores of 4.4 or higher.' },
+      { question: 'Which is the most reliable UK broadband provider?', answer: 'On Ofcom\'s regulated Q1 2026 complaints data, Plusnet (4 per 100,000) and Sky (5 per 100,000) have the strongest records among major nationwide providers, both comfortably below the industry average of 6. TalkTalk (10 per 100,000) has the weakest.' },
+      { question: 'Which UK broadband provider is cheapest?', answer: 'Community Fibre is the cheapest full-fibre provider covered on this site, from £12.50 a month, though coverage is limited to London, Surrey and Sussex. For a widely available option on the Openreach network, NOW Broadband from £23 a month and Sky from £23 a month are the cheapest.' },
+      { question: 'Which UK broadband provider has the worst complaints record?', answer: 'TalkTalk had the worst broadband complaints record in Ofcom\'s Q1 2026 report, at 10 complaints per 100,000 customers, the only provider Ofcom does not consider statistically comparable to any other that quarter. The industry average was a record-low 6 per 100,000.' },
+      { question: 'Why do some providers have very different Trustpilot and Ofcom results?', answer: 'Trustpilot reviews are self-selected and skew toward customers who had a problem, while Ofcom\'s complaints data is a regulated, standardised measure applied identically to every provider. Sky, Plusnet and Virgin Media all show this pattern, a low Trustpilot score alongside a comparatively strong Ofcom record; NOW Broadband is a rarer case that scores poorly on both.' },
     ],
   },
 

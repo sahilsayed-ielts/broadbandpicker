@@ -1185,6 +1185,39 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-best-broadband-providers-uk-guide",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Deep rewrite: Best Broadband Providers UK ranking guide (9th content-priority-analysis target)",
+        "description": (
+            "Ninth target from scripts/analyze_content_priority.py's ranked list. This "
+            "ranking page's data was badly stale: it cited Q4 2025 Ofcom complaints "
+            "figures and June-2026 Trustpilot scores that had already been superseded by "
+            "this site's own freshly-researched provider pages (Sky, NOW Broadband, BT, "
+            "Virgin Media, EE, Plusnet, Vodafone, TalkTalk from earlier this session). "
+            "Rather than re-researching each provider from scratch, cross-referenced this "
+            "page's ranking table against data/providers.ts's own already-vetted current "
+            "fields (price, Trustpilot, reviewedDate) and fetched a fresh single-source "
+            "Ofcom Q1 2026 complaints table (published 23 July 2026, record-low industry "
+            "average of 6 per 100k) to replace the mixed-quarter data. Corrected several "
+            "materially wrong claims: TalkTalk was still framed as 'budget only' at "
+            "GBP19.99 when it is now GBP25 and no longer the cheapest big-name option; "
+            "Community Fibre was described as 'London-only' when coverage has expanded "
+            "into Surrey and Sussex; EE's 'best for reliability' halo no longer holds "
+            "under Q1 2026 data (6 per 100k, tied with Virgin Media, not uniquely best). "
+            "Added a new section contrasting sister brands Sky (5 per 100k) and NOW "
+            "Broadband (11 per 100k, different quarter, footnoted) on the identical "
+            "Openreach network, a genuine support-quality data point. Word count "
+            "872 -> 1,333."
+        ),
+        "priority_score": 42,
+        "impact_score": 38,
+        "effort": "Medium",
+        "target": "app/guides/[slug]/page.tsx (best-broadband-providers-uk), data/guides.ts",
+        "dependencies": "ops-content-priority-analysis-tooling",
+        "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",
