@@ -941,6 +941,37 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-best-full-fibre-guide",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Deep rewrite: Best Full Fibre Broadband UK guide (top content-priority-analysis target)",
+        "description": (
+            "Top-ranked target from scripts/analyze_content_priority.py's first real run: "
+            "512 AI-feature impressions in the last 28 days (real GSC data) at only 636 words. "
+            "Fully rewritten to 1,596 words, drawing on already-verified provider facts from "
+            "the three Awin content batches (BT, EE, Vodafone, Plusnet, Community Fibre, "
+            "Hyperoptic, toob, Zen Internet) plus new research for Sky and a genuinely "
+            "counter-intuitive finding worth surfacing on its own: every major national "
+            "provider has a low Trustpilot score, but Ofcom's Q1 2026 complaints data "
+            "separates them clearly (Plusnet best at 4/100k, TalkTalk worst at 10/100k) -- "
+            "explained as two measures of different things, not a contradiction. Also "
+            "verified and included Vodafone's real 2026 award wins (Expert Reviews Broadband "
+            "Awards, Uswitch Most Popular Provider) alongside its poor Ofcom complaints "
+            "position, rather than picking one narrative. Caught and fixed a real bug before "
+            "shipping: wrote several apostrophes as literal backslash-escapes ( \\' ) copying "
+            "the .ts string-literal habit from data/providers.ts into JSX text content, where "
+            "they would have rendered as a visible backslash -- fixed to the file's existing "
+            "&apos; convention and verified against the live rendered HTML, not just the build "
+            "passing, before considering it done."
+        ),
+        "priority_score": 54,
+        "impact_score": 58,
+        "effort": "Medium",
+        "target": "app/guides/[slug]/page.tsx (best-full-fibre-broadband-uk), data/guides.ts",
+        "dependencies": "ops-content-priority-analysis-tooling",
+        "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",

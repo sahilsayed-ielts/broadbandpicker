@@ -439,16 +439,36 @@ export const guides: GuideMetadata[] = [
     slug: 'best-full-fibre-broadband-uk',
     title: 'Best Full Fibre Broadband UK 2026',
     metaTitle: 'Best Full Fibre Broadband UK 2026 | BroadbandPicker',
-    metaDescription: 'Compare the best full fibre broadband providers in the UK, including speed, reliability, value, and who each FTTP provider is best for in 2026.',
+    metaDescription: 'Compare the best full fibre broadband providers in the UK on real Ofcom complaints data, Trustpilot scores and 2026 award results, not just headline price.',
     publishDate: '2026-06-21',
-    updatedDate: '2026-06-21',
-    excerpt: 'The best full fibre broadband is not just the fastest package. Here is how to compare UK FTTP providers on speed, value, coverage, and real household fit.',
-    readingTime: 9,
+    updatedDate: '2026-08-24',
+    excerpt: 'The best full fibre broadband is not just the fastest package. Ofcom complaints data, Trustpilot scores and 2026 award results tell different, useful stories, checked here provider by provider.',
+    readingTime: 11,
     category: 'technology-and-speeds',
     keyTakeaways: [
       'Full fibre runs fibre to the property and usually offers better reliability and upload performance than copper-based broadband.',
-      'The best provider depends on address-level availability, total cost, upload speed, service terms and support.',
-      'Most households do not need the fastest tier; choose a package based on simultaneous use and large upload requirements.',
+      'Every major national provider has a low Trustpilot score, but Ofcom complaints data separates them clearly: Plusnet best at 4 per 100,000 in Q1 2026, TalkTalk worst at 10.',
+      'Vodafone won major 2026 customer-survey awards for value and speed while also ranking second-worst on Ofcom complaints — both are genuine and measure different things.',
+      'Where a full-fibre altnet reaches your address, it is frequently better value and better reviewed than a national provider at the same price.',
+      'Prices, speeds and Ofcom/Trustpilot figures were checked against official UK sources on 24 August 2026.',
+    ],
+    sources: [
+      {
+        label: 'Ofcom: telecoms and pay-TV complaints fall to a record low',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/service-quality/ofcom-telecoms-and-pay-tv-complaints-fall-to-record-low',
+      },
+      {
+        label: 'Expert Reviews Broadband Awards 2026',
+        href: 'https://www.expertreviews.co.uk/technology/broadband-mobile-networks/best-broadband-uk-internet-provider',
+      },
+      {
+        label: 'BroadbandPicker provider reviews',
+        href: '/providers',
+      },
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+      },
     ],
   },
   {

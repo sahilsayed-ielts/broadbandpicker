@@ -1413,62 +1413,99 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
   'best-full-fibre-broadband-uk': {
     body: (
       <>
-        <p>The best <strong>full fibre broadband</strong> is the provider that gives you the right balance of speed, reliability, price, and availability at your postcode. The fastest FTTP package is not always the best answer. For many households, the smarter choice is the provider that offers enough speed with the strongest overall fit.</p>
+        <p>The best <strong>full fibre broadband</strong> is the provider that gives you the right balance of speed, price and genuine reliability at your postcode, not the one with the biggest advertising budget. Ofcom&apos;s own satisfaction data and each provider&apos;s formal complaints record tell a more useful story than review-platform star ratings alone, and the two do not always point the same way. Below is what the evidence actually shows for each major UK full-fibre provider, checked directly against official sources.</p>
+
+        <div className="rounded-xl border border-amber-200 bg-amber-50 p-5">
+          <p className="mb-0 text-sm">
+            <strong>Price and evidence check:</strong> provider facts, prices and the Ofcom and Trustpilot figures below were checked against official UK sources on 24 August 2026. Prices and availability change by address; confirm the live figure at checkout.
+          </p>
+        </div>
 
         <h2>Why full fibre is different</h2>
-        <p>Full fibre, also called <strong>FTTP</strong>, uses fibre all the way to your home. That normally means more stable performance, lower latency, and better long-term reliability than older copper-based broadband. In 2026, it is the best fixed-line technology available for most UK households.</p>
+        <p>Full fibre, also called FTTP, runs fibre optic cable all the way to the property rather than handing over to copper at a street cabinet. That generally means faster, more consistent upload speeds and lower latency than part-fibre (FTTC), and it is the technology most UK providers are now actively expanding rather than the copper network they are retiring.</p>
 
-        <h2>Best full fibre provider types at a glance</h2>
+        <h2>Full fibre providers at a glance</h2>
         <div className="overflow-x-auto">
           <table className="w-full text-sm border-collapse">
             <thead>
               <tr className="bg-slate-50">
-                {['Provider type', 'Best examples', 'Why it stands out'].map((heading) => (
+                {['Provider', 'From', 'Trustpilot (broadband-specific)', 'Ofcom complaints position', 'Best for'].map((heading) => (
                   <th key={heading} className="text-left px-4 py-3 border border-slate-200 font-semibold text-slate-700">{heading}</th>
                 ))}
               </tr>
             </thead>
             <tbody>
               {[
-                ['National all-rounder', 'EE, BT', 'Broad reach and stronger mainstream reliability confidence'],
-                ['Mainstream value pick', 'Sky, Vodafone, Plusnet', 'Good FTTP pricing without needing a niche provider'],
-                ['Urban altnet value leader', 'Community Fibre, Hyperoptic, Toob', 'Excellent speed-per-pound and strong customer sentiment where available'],
-                ['Premium support-led option', 'Zen Internet', 'Best when service quality matters more than the lowest monthly cost'],
-              ].map(([type, examples, reason]) => (
-                <tr key={type} className="border-b border-slate-100 hover:bg-slate-50">
-                  <td className="px-4 py-3 font-semibold text-slate-900">{type}</td>
-                  <td className="px-4 py-3 text-slate-700">{examples}</td>
-                  <td className="px-4 py-3 text-slate-600">{reason}</td>
+                ['BT', '£23.99/mo', '1.5/5', 'Third-worst, Q1 2026 (7/100k)', 'Widest coverage, 98% of UK homes'],
+                ['Sky', '£25/mo', '~1.2-1.3/5', 'Below average, Q4 2025 (5/100k)', 'Family TV bundles, familiar brand'],
+                ['EE', '£22.99/mo', '1.3/5', 'Worst-three, Q4 2025 (~10/100k)', 'Speed, reliability and 4G/5G backup'],
+                ['Vodafone', '£25/mo', '1.3/5', 'Second-worst, Q1 2026 (8/100k)', '2026 award-winning value and speed survey scores'],
+                ['Plusnet', '£21.99/mo', '2.0/5', 'Best of any major provider, Q1 2026 (4/100k)', 'Budget price with the strongest complaints record'],
+                ['Community Fibre', '£12.50/mo', '4.7/5', '92% Ofcom satisfaction, 2025 data', 'London value and symmetrical speed'],
+                ['Hyperoptic', '£21.50/mo', '4.5/5', 'Not in worst-ranked providers', 'Symmetrical speed in apartment blocks'],
+                ['toob', '£19.50/mo', '4.5/5', 'Not in worst-ranked providers', 'South East England value, no price rise'],
+                ['Zen Internet', '£30/mo', '4.4/5', 'Not in worst-ranked providers', 'Static IP included, no price rise'],
+              ].map(([provider, price, tp, ofcom, best]) => (
+                <tr key={provider} className="border-b border-slate-100 hover:bg-slate-50">
+                  <td className="px-4 py-3 font-semibold text-slate-900">{provider}</td>
+                  <td className="px-4 py-3 text-slate-700">{price}</td>
+                  <td className="px-4 py-3 text-slate-700">{tp}</td>
+                  <td className="px-4 py-3 text-slate-600">{ofcom}</td>
+                  <td className="px-4 py-3 text-slate-600">{best}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
+        <p className="text-xs text-slate-500">
+          Read the full review for any provider: <Link href="/providers/bt">BT</Link>,{' '}
+          <Link href="/providers/sky">Sky</Link>, <Link href="/providers/ee">EE</Link>,{' '}
+          <Link href="/providers/vodafone">Vodafone</Link>, <Link href="/providers/plusnet">Plusnet</Link>,{' '}
+          <Link href="/providers/community-fibre">Community Fibre</Link>,{' '}
+          <Link href="/providers/hyperoptic">Hyperoptic</Link>, <Link href="/providers/toob">toob</Link> or{' '}
+          <Link href="/providers/zen-internet">Zen Internet</Link>.
+        </p>
 
-        <h2>Who wins for most households</h2>
-        <p><strong>EE</strong> is one of the strongest all-round full-fibre options if you want a mainstream national provider with strong reliability positioning. <strong>Sky</strong> stays compelling for family homes and buyers who want a familiar mainstream brand. Where available, <strong>Community Fibre</strong>, <strong>Hyperoptic</strong>, and <strong>Toob</strong> can offer even better pure value on speed and customer satisfaction.</p>
+        <h2>Why Trustpilot scores and Ofcom complaints data tell different stories</h2>
+        <p>Every major national full-fibre provider covered on this site has a low Trustpilot score, several below 1.5 out of 5. That is not a sign the whole industry provides poor service; it reflects how Trustpilot reviews are collected. Customers are far more likely to leave a review after a bad installation, an unresolved fault or a difficult cancellation call than after an unremarkable, working connection, so the review pool is skewed toward complaints by design.</p>
+        <p>Ofcom&apos;s own complaints data measures something different: the actual volume of formal complaints across a provider&apos;s entire customer base. On that measure, the same providers separate out much more clearly. Plusnet recorded the best complaints record of any major UK provider in Ofcom&apos;s Q1 2026 report, at 4 per 100,000 customers, while TalkTalk topped the table at 10 per 100,000 and Vodafone followed at 8. Sky&apos;s Q4 2025 figure of 5 per 100,000 sat comfortably below the industry average of 8 at the time. Treat the Ofcom figures as the more representative signal of typical service reliability, and Trustpilot as useful only for reading specific, recent complaint themes.</p>
 
-        <h2>When the cheapest FTTP deal is not the best one</h2>
-        <p>A very cheap full-fibre package can still be the wrong choice if the provider is a poor support fit, the contract is too long, or the package does not match how your home uses broadband. Busy households, gamers, and home workers should weigh consistency and service quality as well as price.</p>
+        <h2>Vodafone&apos;s 2026 award wins, and how they fit the wider evidence</h2>
+        <p>Vodafone won six category awards, including Best Overall, at the Expert Reviews Broadband Awards 2026, based on a survey of over 1,500 UK residents conducted in September 2025 covering speed, value, reliability and performance while gaming and streaming. It was also named Most Popular Broadband Provider at the 2026 Uswitch Broadband Awards. Those are genuine, survey-based recognitions, not marketing claims Vodafone makes about itself.</p>
+        <p>They sit alongside, not instead of, the complaints picture above: Ofcom&apos;s Q1 2026 report named Vodafone the second most complained-about broadband provider in the UK. Both things can be true at once. A broad customer survey capturing perceived value and speed, and a count of formal complaints when something goes wrong, measure genuinely different aspects of a provider&apos;s service. Vodafone appears to deliver strong day-to-day value and performance for most customers, while its complaint-handling record lags when problems do occur.</p>
+
+        <h2>National providers: BT, Sky, EE and Vodafone</h2>
+        <p><strong>BT</strong> remains the widest-reaching option, covering around 98% of UK homes over the Openreach network, useful anywhere a smaller altnet has not built. Its Full Fibre range starts at £23.99 a month, with a flat £4 a month price rise every March built into every current contract.</p>
+        <p><strong>Sky</strong> is the strongest pick for a household that also wants a TV bundle, with Sky Stream delivering television over the same broadband connection. Sky&apos;s Ofcom complaints record, 5 per 100,000 in Q4 2025, was comfortably below the industry average at the time.</p>
+        <p><strong>EE</strong> offers a genuinely distinctive feature: automatic 4G or 5G mobile backup if the fixed line drops, and it was named National Broadband Provider of the Year at the 2026 Uswitch Telecoms Awards for speed and reliability. Its Ofcom complaints position was weaker, in the worst-three bracket in Q4 2025.</p>
+        <p><strong>Vodafone</strong> is the strongest 2026-award performer on price, speed and reliability survey data, and bundles an Apple TV 4K device on its Xtra plans, but carries the second-worst Ofcom complaints position of any major UK provider as of Q1 2026.</p>
+
+        <h2>The budget pick with the best complaints record: Plusnet</h2>
+        <p><strong>Plusnet</strong>, part of BT Group, starts from £21.99 a month and recorded the best Ofcom complaints figure of any major UK provider in Q1 2026, at 4 per 100,000 customers, against a 6-per-100,000 industry average. Its Trustpilot score is low, in line with the rest of the industry, but the regulatory evidence points to it being a genuinely strong, low-risk budget choice rather than a compromise pick.</p>
+
+        <h2>Full-fibre altnets: Community Fibre, Hyperoptic, toob and Zen Internet</h2>
+        <p>Where a full-fibre altnet reaches a specific address, it is frequently the stronger choice than a national Openreach-based provider, on both price and independently measured customer sentiment. <strong>Community Fibre</strong>, concentrated in London with recent expansion into Surrey and Sussex, recorded 92% customer satisfaction in Ofcom&apos;s 2025 data, 8 points above the industry average, alongside a 4.7 Trustpilot score from around 91,000 reviews. <strong>Hyperoptic</strong> and <strong>toob</strong> both offer fully symmetrical speeds above their entry tiers and Trustpilot scores around 4.5. <strong>Zen Internet</strong> includes a free static IP on every plan and a Contract Price Promise against mid-contract rises, at a higher price than the altnets above, aimed at households that value certainty and support over the lowest headline cost.</p>
+        <p>The trade-off with every altnet on this list is coverage: each covers a small, specific footprint rather than a national one, so checking the exact address matters more than with BT, Sky, EE or Vodafone.</p>
 
         <h2>What to compare on a full fibre deal</h2>
         <ul>
-          <li>Whether the provider uses Openreach FTTP or its own alternative fibre network</li>
-          <li>The speed tier your household actually needs</li>
-          <li>Setup fees, contract length, and post-promo pricing</li>
-          <li>Customer trust and support quality if reliability matters to you</li>
-          <li>Whether a strong altnet is available at your exact address</li>
+          <li>Whether the provider uses Openreach FTTP, another wholesale network, or its own independent infrastructure</li>
+          <li>The speed tier your household actually needs, not the fastest one advertised</li>
+          <li>Whether a scheduled price rise is built into the contract, and how large it is</li>
+          <li>Ofcom&apos;s published complaints data for that provider, not just its Trustpilot score</li>
+          <li>Whether a stronger-value altnet is available at your exact address before defaulting to a national brand</li>
         </ul>
 
         <h2>The simplest buying rule</h2>
-        <p>Choose the best available full-fibre provider at your postcode, not just the strongest national brand headline. Availability still shapes this market, so the right answer is usually the strongest provider you can really order today.</p>
+        <p>Check what a genuine full-fibre altnet offers at your exact address first; where one reaches, it is frequently better value and better reviewed than a national provider at the same price. Where none does, weigh Ofcom&apos;s complaints data alongside price rather than the headline monthly cost alone, since the providers at the top of this market currently differ far more on service reliability than on the price of a comparable speed tier.</p>
       </>
     ),
     faqs: [
-      { question: 'What is the best full fibre broadband in the UK?', answer: 'There is no single best FTTP provider for every home. EE is one of the strongest all-round national options, while Community Fibre, Hyperoptic, and Toob can offer better pure value where their networks are available.' },
-      { question: 'Is full fibre worth paying more for?', answer: 'Usually yes, especially for busy households, home workers, gamers, and anyone wanting a more stable long-term connection. When the price gap is small, full fibre is often the better buy.' },
-      { question: 'Which full fibre provider is best for value?', answer: 'Where available, Community Fibre, Hyperoptic, and Toob often stand out for value. Among larger national brands, Vodafone and Sky are often strong full-fibre value contenders.' },
-      { question: 'Do most homes need gigabit full fibre?', answer: 'No. Many homes are better served by a solid mid-tier full-fibre package. Gigabit is most useful for very heavy-use households or people who simply want extra headroom for the future.' },
+      { question: 'What is the best full fibre broadband in the UK?', answer: 'There is no single best FTTP provider for every address. Where a full-fibre altnet such as Community Fibre, Hyperoptic, toob or Zen Internet reaches, it is frequently better value and better reviewed than a national provider. Among national providers, Plusnet has the strongest Ofcom complaints record, Vodafone the strongest 2026 award and survey results, and BT the widest coverage.' },
+      { question: 'Why do BT, Sky, EE and Vodafone all have low Trustpilot scores?', answer: 'Trustpilot reviews are self-selected and skew toward customers who had a specific bad experience, such as a difficult installation or cancellation call, rather than the average customer. Ofcom’s complaints data measures formal complaint volume across the entire customer base and is the more representative signal; on that measure, providers separate out much more clearly, from Plusnet’s best-in-class 4 per 100,000 to TalkTalk’s 10.' },
+      { question: 'Is Vodafone broadband actually good if it won 2026 awards but has a poor complaints record?', answer: 'Both things are genuine and measure different aspects of the service. Vodafone’s 2026 award wins are based on a broad customer survey of speed, value and reliability perception, while Ofcom’s complaints data counts formal complaints when something goes wrong. Vodafone appears to deliver strong everyday value for most customers, with a real, evidenced weak point in complaint handling for the minority who need it.' },
+      { question: 'Is full fibre worth paying more for than part-fibre?', answer: 'Usually yes, especially for households that upload large files, work from home on video calls, or want a more stable long-term connection. Full fibre runs fibre all the way to the property rather than handing over to copper at a cabinet, which generally means faster, more consistent upload speeds and lower latency.' },
+      { question: 'Do most homes need gigabit full fibre?', answer: 'No. A mid-tier full-fibre package, typically 150 to 300 Mbps, comfortably covers most households, including several simultaneous streams and devices. Gigabit-and-above tiers mainly suit very heavy-use households or people who specifically want headroom for the future.' },
     ],
   },
 
