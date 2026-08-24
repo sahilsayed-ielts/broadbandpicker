@@ -423,16 +423,16 @@ export const guides: GuideMetadata[] = [
     slug: 'broadband-price-rises-2026',
     title: 'Broadband Price Rises 2026: Every Provider Explained',
     metaTitle: 'Broadband Price Rises 2026: Which Providers Are Putting Prices Up?',
-    metaDescription: 'BT, Sky, Virgin Media, Vodafone and EE all raised broadband prices in April 2026. Find out how much each provider increased by, your rights, and how to leave without a penalty.',
+    metaDescription: 'BT, EE, Plusnet, TalkTalk and Hyperoptic all raised broadband prices by around £4/month in April 2026. Real current figures for every major provider, your rights, and which providers genuinely had no rise.',
     publishDate: '2026-06-19',
-    updatedDate: '2026-06-19',
-    excerpt: 'April 2026 saw the biggest round of UK broadband price rises in years. We break down exactly what every provider is charging, what your rights are, and which providers have no price rises at all.',
-    readingTime: 9,
+    updatedDate: '2026-08-24',
+    excerpt: 'TalkTalk and Hyperoptic are often assumed to be lower-rise providers, but both raised prices by around £4 a month in April 2026, the same as BT. Real current figures for every major provider, and the two "no-rise" altnets that actually do apply a scheduled increase.',
+    readingTime: 10,
     category: 'switching-and-rights',
     keyTakeaways: [
-      'A clearly disclosed annual increase does not normally create an automatic right to leave without a fee.',
-      'Contracts signed after January 17, 2025 should show price rises in pounds and pence rather than inflation-linked formulas.',
-      'Check the pre-contract summary, the date of the rise and the total minimum-term cost before switching.',
+      'TalkTalk raised its standard mid-contract rise from £3 to £4 a month for contracts signed from 16 November 2025, the same level as BT, EE and Plusnet.',
+      'Hyperoptic and Community Fibre are sometimes assumed to be no-rise altnets, but both apply a real scheduled increase, around £4 and a capped £2 a month respectively.',
+      'A clearly disclosed annual increase does not normally create an automatic right to leave without a fee; contracts signed after 17 January 2025 should show any rise in pounds and pence rather than an inflation-linked formula.',
     ],
     sources: [
       {
@@ -442,6 +442,10 @@ export const guides: GuideMetadata[] = [
       {
         label: 'Financial Times coverage of Ofcom pounds-and-pence rules',
         href: 'https://www.ft.com/content/fe8db852-d185-42b8-be99-459fa7a2362d',
+      },
+      {
+        label: 'ISPreview: TalkTalk increases UK mid-contract price hikes to £4',
+        href: 'https://www.ispreview.co.uk/index.php/2025/11/broadband-isp-talktalk-increases-uk-mid-contract-price-hikes-to-4.html',
       },
     ],
   },

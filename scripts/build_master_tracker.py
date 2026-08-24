@@ -1471,6 +1471,35 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-broadband-price-rises-2026-guide",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Deep rewrite: Broadband Price Rises 2026 guide (19th and final content-priority-analysis target this session)",
+        "description": (
+            "Nineteenth target from scripts/analyze_content_priority.py's ranked list. "
+            "This page had the most individually-wrong data points found in a single "
+            "page this session: TalkTalk was listed at +GBP2.50/mo (real current figure, "
+            "verified via ISPreview, is +GBP4.00/mo for contracts from 16 November 2025 "
+            "-- TalkTalk raised its own rise from GBP3 to GBP4 partway through the year); "
+            "Hyperoptic and Community Fibre were both listed as 'No rise' when both "
+            "apply a real scheduled increase (~GBP4/mo and a capped GBP2/mo respectively, "
+            "confirmed against their own already-researched provider pages). Also caught "
+            "and fixed a bug introduced earlier THIS session: the NOW Broadband provider "
+            "page wrongly claimed NOW mirrors Sky's price rise at a flat GBP4/mo, "
+            "corrected first in data/providers.ts (5 instances) before writing this page, "
+            "to GBP0 in April 2026 with GBP3 scheduled for April 2027 and 2028. Added a "
+            "dedicated section directly naming the 'no-rise altnet' assumption as false "
+            "for 2 of the 4 providers commonly assumed to qualify. Word count 758 -> "
+            "1,100."
+        ),
+        "priority_score": 32,
+        "impact_score": 40,
+        "effort": "Medium",
+        "target": "app/guides/[slug]/page.tsx (broadband-price-rises-2026), data/guides.ts, data/providers.ts (now-broadband fix)",
+        "dependencies": "ops-content-priority-analysis-tooling",
+        "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",

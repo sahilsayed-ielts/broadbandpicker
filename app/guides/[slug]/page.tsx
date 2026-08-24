@@ -1268,7 +1268,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
   'broadband-price-rises-2026': {
     body: (
       <>
-        <p>In April 2026, every major UK broadband provider raised prices. BT, EE, and Plusnet increased by £4/month. Virgin Media raised prices by £4/month. Sky increased by £3/month. Vodafone added £3.50/month. These are the largest coordinated broadband price rises since the industry moved away from CPI-linked increases in January 2025.</p>
+        <p>In April 2026, most major UK broadband providers raised prices, though the picture is more mixed than a single across-the-board figure suggests. BT, EE and Plusnet increased by £4 a month. TalkTalk and Hyperoptic, both often assumed to be lower-rise providers, also increased by around £4. Sky rose by £3. NOW Broadband and toob applied no rise at all in April 2026. These are the second full year of flat, disclosed pounds-and-pence rises since the industry moved away from CPI-linked increases in January 2025.</p>
 
         <h2>Which providers raised prices in April 2026?</h2>
         <div className="overflow-x-auto">
@@ -1285,18 +1285,19 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
                 ['BT', '+£4.00/mo', '+£48/year', 'April 2026'],
                 ['EE', '+£4.00/mo', '+£48/year', 'April 2026'],
                 ['Plusnet', '+£4.00/mo', '+£48/year', 'April 2026'],
-                ['Virgin Media', '+£4.00/mo', '+£48/year', 'April 2026'],
+                ['Virgin Media', '+£4.00/mo*', '+£48/year', 'April 2026'],
+                ['TalkTalk', '+£4.00/mo*', '+£48/year', 'April 2026'],
+                ['Hyperoptic', '+£4.00/mo', '+£48/year', 'April 2026'],
+                ['Vodafone', '+£3.50/mo*', '+£42/year', 'April 2026'],
                 ['Sky', '+£3.00/mo', '+£36/year', 'April 2026'],
-                ['Vodafone', '+£3.50/mo', '+£42/year', 'April 2026'],
-                ['TalkTalk', '+£2.50/mo', '+£30/year', 'April 2026'],
-                ['NOW Broadband', 'No rise', '—', '—'],
-                ['Hyperoptic', 'No rise', '—', '—'],
-                ['Community Fibre', 'No rise', '—', '—'],
-                ['Zen Internet', 'No rise', '—', '—'],
+                ['Community Fibre', '+£2.00/mo (capped)', '+£24/year', 'April 2026'],
+                ['NOW Broadband', 'No rise in 2026†', '—', 'Scheduled £3 in April 2027'],
+                ['toob', 'No rise', '—', '—'],
+                ['Zen Internet', 'No rise (Contract Price Promise)', '—', '—'],
               ].map(([p, mo, yr, when]) => (
                 <tr key={p} className="border-b border-slate-100 hover:bg-slate-50">
                   <td className="px-4 py-3 font-semibold text-slate-900">{p}</td>
-                  <td className={`px-4 py-3 font-medium ${mo === 'No rise' ? 'text-green-700' : 'text-red-600'}`}>{mo}</td>
+                  <td className={`px-4 py-3 font-medium ${String(mo).startsWith('No rise') ? 'text-green-700' : 'text-red-600'}`}>{mo}</td>
                   <td className="px-4 py-3 text-slate-700">{yr}</td>
                   <td className="px-4 py-3 text-slate-600">{when}</td>
                 </tr>
@@ -1304,32 +1305,37 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
             </tbody>
           </table>
         </div>
+        <p className="text-xs text-slate-500 mt-2">*Virgin Media and TalkTalk both moved to a higher rise for contracts signed after a cutover date in late 2025 (Virgin Media: £3.50 for contracts from January-September 2025, £4 from October 2025 onward; TalkTalk: £3 for contracts from August 2024 to mid-November 2025, £4 for contracts from 16 November 2025). Vodafone similarly rose by £3.00 for older contracts and £3.50 for contracts from 12 November 2025 onward. †NOW Broadband applied no rise in April 2026, but current contracts disclose a scheduled £3 rise for April 2027 and a further £3 for April 2028.</p>
+
+        <h2>Two real corrections worth knowing about "no-rise" providers</h2>
+        <p>Hyperoptic and Community Fibre are sometimes assumed to be part of the no-rise altnet group, but neither is: Hyperoptic applies a scheduled rise of around £4 a month each April on its fixed-term contracts, and Community Fibre applies a capped £2 a month rise each April, both disclosed upfront in pounds and pence. Only toob and Zen Internet, among the providers checked here, applied genuinely no scheduled rise in April 2026, and Zen backs this with an explicit Contract Price Promise rather than just an absence of an announced increase.</p>
 
         <h2>Your rights when broadband prices go up mid-contract</h2>
-        <p>Since January 2025, Ofcom requires all new broadband contracts to state any mid-contract price rises as a fixed pound amount rather than a CPI-linked percentage. This means if your contract was signed after January 2025 and your provider raises prices by more than the amount stated in your contract, you have the right to exit without an early termination charge.</p>
-        <p>For contracts signed before January 2025, the old rules apply — your provider may have been able to raise prices by CPI+3.9% without triggering your right to exit.</p>
+        <p>Since January 2025, Ofcom requires all new broadband contracts to state any mid-contract price rises as a fixed pound amount rather than a CPI-linked percentage. This means if a contract was signed after January 2025 and the provider raises prices by more than the amount stated in the contract, there is a right to exit without an early termination charge.</p>
+        <p>For contracts signed before January 2025, or in some cases before a provider’s own later cutover date, the old rules may still apply, meaning a provider could have raised prices by a CPI-linked percentage without automatically triggering an exit right.</p>
 
-        <h2>How to leave your broadband contract because of a price rise</h2>
+        <h2>How to leave a broadband contract because of a price rise</h2>
         <ul>
-          <li><strong>Check your contract start date</strong> — if you signed after January 2025, you have stronger rights</li>
-          <li><strong>Get the price rise notification in writing</strong> — your provider must give you at least 30 days&apos; notice</li>
-          <li><strong>Contact your provider and state you wish to leave penalty-free</strong> — cite the price rise as your reason</li>
-          <li><strong>Use One Touch Switching</strong> — sign up with a new provider and they handle the rest</li>
-          <li><strong>Act within 30 days of the notice</strong> — your right to exit without penalty expires</li>
+          <li><strong>Check the contract start date</strong> — a contract signed after January 2025 carries stronger rights</li>
+          <li><strong>Get the price rise notification in writing</strong> — providers must give at least 30 days&apos; notice</li>
+          <li><strong>Contact the provider and state a wish to leave penalty-free</strong> — cite the price rise as the reason</li>
+          <li><strong>Use One Touch Switch</strong> — sign up with a new provider and they handle the rest automatically</li>
+          <li><strong>Act within 30 days of the notice</strong> — the right to exit without penalty expires after that window</li>
         </ul>
 
-        <h2>Which broadband providers have no price rises in 2026?</h2>
-        <p>Several providers did not raise prices in April 2026: NOW Broadband, Hyperoptic, Community Fibre, Toob, and Zen Internet. Alt-net providers in particular have used price stability as a competitive differentiator. Zen Internet explicitly markets itself as having no surprise price rises. Community Fibre and Hyperoptic both offer fixed-price contracts in some tiers.</p>
+        <h2>Which broadband providers genuinely had no price rise in 2026?</h2>
+        <p>Only toob and Zen Internet applied no scheduled rise at all in April 2026 among the providers checked here, and NOW Broadband also had no rise this specific year, though it now discloses scheduled rises for April 2027 and April 2028 on new contracts. Altnets in particular have used price stability as a competitive differentiator, but "altnet" alone is not a reliable predictor: Hyperoptic and Community Fibre, both altnets, do apply a scheduled annual rise.</p>
 
         <h2>What changed with broadband pricing rules in 2025?</h2>
-        <p>From January 2025, Ofcom banned the practice of linking mid-contract broadband price rises to inflation (CPI or RPI). For all new contracts signed from that date, any price rise during the contract term must be stated as a fixed pound amount at the point of sale. This gives consumers predictability — you know exactly what any price rise will be before you sign up. The previous system (CPI+3.9%) made it impossible to calculate the true long-term cost of a contract.</p>
+        <p>From January 2025, Ofcom banned the practice of linking mid-contract broadband price rises to inflation (CPI or RPI). For all new contracts signed from that date, any price rise during the contract term must be stated as a fixed pound amount at the point of sale. This gives more predictability, since the rise is known before signing up, unlike the previous CPI+3.9% system, which made the true long-term cost of a contract impossible to calculate in advance.</p>
       </>
     ),
     faqs: [
-      { question: 'Can I leave my broadband contract because of a price rise?', answer: 'Yes, in most cases. If your contract was signed after January 2025 and your provider raises prices by more than stated in the contract, you can exit penalty-free. You must act within 30 days of receiving the price rise notification. Contact your provider in writing and cite the price rise as your reason for leaving.' },
-      { question: 'Which broadband providers did not raise prices in 2026?', answer: 'Providers that did not raise prices in April 2026 include NOW Broadband, Hyperoptic, Community Fibre, Toob, and Zen Internet. All are alt-net or specialist providers. The major providers — BT, Sky, Virgin Media, EE, TalkTalk, and Vodafone — all raised prices.' },
-      { question: 'How much did BT raise broadband prices in 2026?', answer: 'BT raised broadband prices by £4 per month in April 2026, adding £48 to the annual cost. EE and Plusnet (both part of the BT Group) also raised prices by £4/month at the same time.' },
-      { question: 'What is the new Ofcom rule about broadband price rises?', answer: 'From January 2025, Ofcom banned inflation-linked mid-contract price rises. New broadband contracts must now state any in-contract price rise as a fixed pound amount (e.g., "prices may rise by up to £3.50/month"). This replaced the old system where rises were tied to CPI+3.9%, making the total cost unpredictable.' },
+      { question: 'Can I leave my broadband contract because of a price rise?', answer: 'Yes, in most cases, if the contract was signed after January 2025 and the provider raises prices by more than stated in the contract. Act within 30 days of receiving the price rise notification, contact the provider in writing and cite the price rise as the reason for leaving.' },
+      { question: 'Which broadband providers did not raise prices in 2026?', answer: 'toob and Zen Internet applied no scheduled rise at all in April 2026. NOW Broadband also had no rise this specific year, though it now discloses scheduled £3 rises for April 2027 and April 2028. Hyperoptic and Community Fibre are sometimes wrongly assumed to be no-rise altnets, but both applied a real scheduled increase in April 2026.' },
+      { question: 'How much did BT raise broadband prices in 2026?', answer: 'BT raised broadband prices by £4 a month in April 2026, adding £48 to the annual cost. EE and Plusnet, both part of the BT Group, also raised prices by £4 a month at the same time.' },
+      { question: 'How much did TalkTalk raise broadband prices in 2026?', answer: 'TalkTalk raised its standard mid-contract rise from £3 to £4 a month for contracts signed from 16 November 2025 onward, applied from April 2026. Customers who joined between August 2024 and mid-November 2025 continue on the earlier £3 rise; those who joined before August 2024 remain on the older CPI-linked system.' },
+      { question: 'What is the new Ofcom rule about broadband price rises?', answer: 'From January 2025, Ofcom banned inflation-linked mid-contract price rises. New broadband contracts must now state any in-contract price rise as a fixed pound amount, for example "prices may rise by up to £4 a month." This replaced the old CPI+3.9% system, which made the total cost unpredictable at the point of signing up.' },
     ],
   },
 
