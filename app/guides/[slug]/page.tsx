@@ -1718,7 +1718,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
   'broadband-social-tariffs-uk': {
     body: (
       <>
-        <p>A broadband social tariff is a heavily discounted broadband package offered exclusively to households receiving means-tested government benefits. Social tariffs start from £12.50/month — less than half the typical broadband price. Over 4 million UK households are eligible, but according to Ofcom research published in October 2025, 70% of those eligible have never heard of them.</p>
+        <p>A broadband social tariff is a heavily discounted broadband package offered to households receiving means-tested government benefits, from £12.50 a month, less than half the typical broadband price. Ofcom estimates 4.2 million UK households are eligible, but a thinkbroadband study published in August 2026 found only around 34% of eligible households are even aware social tariffs exist, and just 8.6% of Universal Credit recipients have taken one up.</p>
 
         <h2>Who qualifies for a broadband social tariff?</h2>
         <p>Eligibility varies by provider, but most social tariffs are available to households receiving any of the following benefits:</p>
@@ -1737,11 +1737,10 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
               {[
                 ['Universal Credit', '✓', '✓', '✓', '✓'],
                 ['Pension Credit', '✓', '✓', '✓', '✓'],
-                ['Income Support', '✓', '✓', '✓', '✓'],
-                ['Jobseeker\'s Allowance (income-based)', '✓', '✓', '✓', '✓'],
-                ['Employment & Support Allowance', '✓', '✓', '✗', '✓'],
+                ['Income Support', '✓', '✗', '✓', '✓'],
+                ['Jobseeker\'s Allowance (income-based)', '✓', '✗', '✓', '✓'],
+                ['Employment & Support Allowance', '✓', '✗', '✓', '✓'],
                 ['Council Tax Support', '✓', '✗', '✗', '✗'],
-                ['Child Tax Credit', '✗', '✓', '✗', '✗'],
               ].map(([benefit, ...cols]) => (
                 <tr key={benefit} className="border-b border-slate-100 hover:bg-slate-50">
                   <td className="px-4 py-3 text-slate-700">{benefit}</td>
@@ -1753,62 +1752,68 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
             </tbody>
           </table>
         </div>
+        <p className="text-xs text-slate-500 mt-2">Sky&apos;s Broadband Basics accepts Universal Credit or Pension Credit only, and is only available to existing Sky customers, a genuine restriction worth knowing before assuming it is an open sign-up option.</p>
 
         <h2>Social tariff broadband deals compared</h2>
         <div className="overflow-x-auto">
           <table className="w-full text-sm border-collapse">
             <thead>
               <tr className="bg-slate-50">
-                {['Provider', 'Tariff name', 'Monthly price', 'Download speed', 'Contract'].map(h => (
+                {['Provider', 'Tariff name', 'Monthly price', 'Download speed', 'Notes'].map(h => (
                   <th key={h} className="text-left px-4 py-3 border border-slate-200 font-semibold text-slate-700">{h}</th>
                 ))}
               </tr>
             </thead>
             <tbody>
               {[
-                ['BT', 'Home Essentials', '£15.00/mo', '36 Mbps', 'Monthly rolling'],
-                ['Sky', 'Broadband Basics', '£20.00/mo', '36 Mbps', '18 months'],
-                ['Virgin Media', 'Essential Broadband', '£20.00/mo', '15 Mbps', 'Monthly rolling'],
-                ['Vodafone', 'Vodafone Together Social', '£12.50/mo', '38 Mbps', 'Monthly rolling'],
-                ['EE (via BT)', 'Home Essentials', '£15.00/mo', '36 Mbps', 'Monthly rolling'],
-                ['Hyperoptic', 'Social Tariff', '£19.00/mo', '150 Mbps', 'Monthly rolling'],
-                ['Community Fibre', 'Social Broadband', '£16.00/mo', '50 Mbps', 'Monthly rolling'],
-              ].map(([p, name, price, speed, contract]) => (
+                ['Virgin Media', 'Essential Broadband', '£12.50/mo', '15 Mbps', 'Essential Broadband Plus: £20/mo for 54 Mbps'],
+                ['Community Fibre', 'Essential', '£12.50/mo', '20 Mbps', 'London, Surrey and Sussex network only'],
+                ['BT', 'Home Essentials', '£15.00/mo', '36 Mbps', 'Fibre 2 tier: £23/mo for 67 Mbps'],
+                ['Hyperoptic', 'Fair Fibre 50', '£15.00/mo', '50 Mbps', 'Fair Fibre 150: £20/mo for 150 Mbps'],
+                ['KCOM', 'Full Fibre Flex', '£14.99/mo', '30 Mbps', 'Hull and East Yorkshire network only'],
+                ['Sky', 'Broadband Basics', '£20.00/mo', '36 Mbps', 'Existing Sky customers only'],
+                ['NOW Broadband', 'Broadband Basics', '£20.00/mo', '36 Mbps', 'Owned by Sky, same eligibility pattern'],
+                ['Vodafone', 'Essentials Broadband', '£20.00/mo', '73 Mbps', 'Rises to £25/mo after 12 months if no action taken'],
+              ].map(([p, name, price, speed, notes]) => (
                 <tr key={p} className="border-b border-slate-100 hover:bg-slate-50">
                   <td className="px-4 py-3 font-semibold text-slate-900">{p}</td>
                   <td className="px-4 py-3 text-slate-700">{name}</td>
                   <td className="px-4 py-3 font-bold text-sky-700">{price}</td>
                   <td className="px-4 py-3 text-slate-700">{speed}</td>
-                  <td className="px-4 py-3 text-slate-600 text-xs">{contract}</td>
+                  <td className="px-4 py-3 text-slate-600 text-xs">{notes}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-        <p className="text-xs text-slate-500 mt-2">Prices as of June 2026. Eligibility varies — check with provider before applying.</p>
+        <p className="text-xs text-slate-500 mt-2">Prices checked against each provider&apos;s own social tariff page, August 2026. Eligibility varies; check with the provider before applying.</p>
+
+        <h2>Providers are burying their own social tariffs, a 2026 report found</h2>
+        <p>A thinkbroadband study published in August 2026 directly tested how easy major providers make it to find and understand their own social tariff, against commitments made in the industry&apos;s Telecoms Consumer Charter. Its finding on BT was blunt: &ldquo;We would challenge anyone here to go to bt.com and find where social tariffs are without using a search engine. Once you find it, tell us how much it costs.&rdquo; Sky, Virgin Media and Vodafone all scored poorly too, for tariff information that was hard to locate and pricing or contract terms that were unclear once found. Smaller altnets, including Community Fibre, B4RN and B4SH, scored noticeably better on clarity and accessibility. The practical lesson: do not expect to find a social tariff through a provider&apos;s normal homepage or deals page; go directly to the specific social tariff sign-up page, often only reachable via search.</p>
 
         <h2>How to apply for a broadband social tariff</h2>
         <ol className="list-decimal pl-6 space-y-2">
           <li><strong>Check which benefits you receive</strong> — use the eligibility table above to identify which providers you qualify with.</li>
-          <li><strong>Contact the provider directly</strong> — social tariffs are not listed on standard comparison pages. Call or use the provider&apos;s social tariff sign-up page.</li>
+          <li><strong>Go directly to the provider&apos;s social tariff page</strong> — social tariffs are rarely listed on standard comparison or deals pages; search for the tariff name directly.</li>
           <li><strong>Provide proof of eligibility</strong> — most providers ask for a recent Universal Credit or benefit statement. Some verify automatically if you provide your National Insurance number.</li>
-          <li><strong>Cancel your existing broadband if switching</strong> — under One Touch Switching, your new provider handles this. Give your current provider notice if required.</li>
-          <li><strong>Verify the price every 12 months</strong> — social tariff prices can change. Set a reminder to re-check annually.</li>
+          <li><strong>Cancel your existing broadband if switching</strong> — under One Touch Switch, your new provider handles this. Give your current provider notice if required.</li>
+          <li><strong>Verify the price every 12 months</strong> — some tariffs, including Vodafone Essentials, automatically rise to a higher standard price if not proactively renewed after 12 months. Set a reminder to re-check annually.</li>
         </ol>
 
         <h2>Are social tariffs worth it?</h2>
-        <p>Yes — social tariffs represent the best value broadband available in the UK for eligible households. The cheapest is Vodafone Together Social at £12.50/month for 38 Mbps, which is significantly faster than many standard deals at more than double the price. Most social tariffs use the same Openreach network as standard packages, meaning line quality is identical to non-social deals.</p>
-        <p>The main limitation is speed — most social tariffs cap at 36–50 Mbps. For a single person or couple using broadband for streaming, browsing, and video calls, this is entirely sufficient. Larger households with heavy gaming or 4K streaming across multiple screens may find these speeds limiting.</p>
+        <p>Yes, social tariffs represent the best value broadband available in the UK for eligible households. Virgin Media Essential Broadband and Community Fibre Essential are jointly the cheapest at £12.50 a month, though Community Fibre&apos;s 20 Mbps edges out Virgin Media&apos;s 15 Mbps at the same price, if it is available at the address. Most social tariffs on the Openreach network use the same underlying line as standard packages, meaning line quality is identical to non-social deals at the same address.</p>
+        <p>The main limitation is speed: most social tariffs cap at 15 to 73 Mbps. For a single person or couple using broadband for streaming, browsing and video calls, this is entirely sufficient. Larger households with heavy gaming or 4K streaming across multiple screens may find the lower-speed tiers limiting and should compare a higher-speed social tariff, such as Hyperoptic Fair Fibre 150 or BT&apos;s Fibre 2 tier, where available.</p>
 
         <h2>Why don&apos;t more people know about social tariffs?</h2>
-        <p>Providers are not required to proactively offer social tariffs to eligible customers. They are not marketed prominently — you will not typically see them advertised in TV commercials or on provider homepages. Ofcom has called for providers to do more to raise awareness. In October 2025, Ofcom data confirmed that 70% of eligible UK households — over 4 million people — had never heard of a social tariff. Take-up grew from 1.2% to 9.6% of eligible households between 2022 and 2024, but millions remain unaware of their entitlement.</p>
+        <p>Providers are not required to proactively offer social tariffs to eligible customers, and as the 2026 thinkbroadband report found, several make them genuinely difficult to locate even for someone actively searching. Ofcom has repeatedly called for providers to do more to raise awareness. Of the 4.2 million eligible UK households, only around 34% are aware social tariffs exist, and just 8.6% of Universal Credit recipients have taken one up, despite a typical saving of roughly £12 a month or more over a standard tariff.</p>
       </>
     ),
     faqs: [
-      { question: 'What is a broadband social tariff?', answer: 'A broadband social tariff is a discounted broadband package available to households receiving means-tested benefits such as Universal Credit or Pension Credit. Social tariffs start from £12.50/month — significantly cheaper than standard broadband deals. They are offered by BT, Sky, Virgin Media, Vodafone, EE, Hyperoptic, Community Fibre, and others.' },
-      { question: 'Who qualifies for a broadband social tariff in the UK?', answer: 'You qualify if you receive Universal Credit, Pension Credit, Income Support, income-based Jobseeker\'s Allowance, or other means-tested benefits. Exact eligibility varies by provider — BT\'s Home Essentials scheme also accepts Council Tax Support. Most require at least one person in the household to receive a qualifying benefit.' },
-      { question: 'How do I apply for BT Home Essentials?', answer: 'Contact BT directly and say you want to apply for Home Essentials. BT will ask you to verify you receive a qualifying benefit — typically Universal Credit, Pension Credit, or income-based JSA. BT may verify this automatically using your National Insurance number, or ask for a recent benefit statement. The tariff costs £15/month for 36 Mbps on a rolling monthly contract.' },
-      { question: 'Can I switch from a standard broadband deal to a social tariff?', answer: 'Yes. If you are currently on a standard broadband deal and become eligible for a social tariff, you can switch. If switching to a different provider, use One Touch Switching. If staying with your current provider, call them and ask to move to their social tariff — you should not face an early termination charge for switching to a social tariff with the same provider.' },
+      { question: 'What is a broadband social tariff?', answer: 'A broadband social tariff is a discounted broadband package available to households receiving means-tested benefits such as Universal Credit or Pension Credit. Social tariffs start from £12.50 a month, significantly cheaper than standard broadband deals. They are offered by BT, Sky, Virgin Media, Vodafone, Hyperoptic, Community Fibre, KCOM and others.' },
+      { question: 'Who qualifies for a broadband social tariff in the UK?', answer: 'Most providers accept Universal Credit, Pension Credit, Income Support or income-based Jobseeker\'s Allowance. Exact eligibility varies: Sky\'s Broadband Basics only accepts Universal Credit or Pension Credit and is limited to existing Sky customers, while BT\'s Home Essentials also accepts Council Tax Support.' },
+      { question: 'Which broadband social tariff is cheapest?', answer: 'Virgin Media Essential Broadband and Community Fibre Essential are jointly the cheapest at £12.50 a month. Community Fibre offers a faster 20 Mbps against Virgin Media\'s 15 Mbps at the same price, but its network is limited to London, Surrey and Sussex.' },
+      { question: 'Why is it hard to find a social tariff on some provider websites?', answer: 'A thinkbroadband study published in August 2026 found that BT, Sky, Virgin Media and Vodafone all made their own social tariffs difficult to locate and understand, despite commitments in the industry\'s Telecoms Consumer Charter. Go directly to the specific tariff\'s sign-up page rather than a provider\'s general deals page.' },
+      { question: 'Can I switch from a standard broadband deal to a social tariff?', answer: 'Yes. If you become eligible for a social tariff while on a standard deal, you can switch. If moving to a different provider, use One Touch Switch. If staying with your current provider, ask to move to their social tariff directly; you should not face an early termination charge for switching to a social tariff with the same provider.' },
     ],
   },
 

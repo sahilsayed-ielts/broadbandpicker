@@ -1332,6 +1332,37 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-broadband-social-tariffs-guide",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Deep rewrite: Broadband Social Tariffs UK guide (14th content-priority-analysis target)",
+        "description": (
+            "Fourteenth target from scripts/analyze_content_priority.py's ranked list: "
+            "777 words with a materially wrong 'cheapest tariff' claim -- Vodafone "
+            "Together Social was listed at GBP12.50/mo for 38Mbps and named the cheapest "
+            "option, but the real current Vodafone Essentials Broadband tariff is "
+            "GBP20/mo for 73Mbps (verified directly against Vodafone's own tariff page), "
+            "meaning Virgin Media Essential Broadband and Community Fibre Essential "
+            "(both genuinely GBP12.50/mo) are actually jointly cheapest. Also corrected "
+            "Virgin Media's own tariff, which the old page listed at GBP20/mo. Added a "
+            "genuinely newsworthy find: a thinkbroadband report published in August 2026 "
+            "(days before this rewrite) tested how easy major providers make it to find "
+            "their own social tariffs and scored BT, Sky, Virgin Media and Vodafone "
+            "poorly, with a pointed BT quote, against smaller altnets scoring better. "
+            "Corrected the eligibility table (Sky accepts UC/PC only, existing customers "
+            "only, a real restriction the old page omitted) and added KCOM's Hull-only "
+            "tariff. Refreshed the awareness stat with the newer, more specific "
+            "thinkbroadband figures (34% aware, 8.6% UC take-up). Word count 777 -> "
+            "1,161."
+        ),
+        "priority_score": 37,
+        "impact_score": 34,
+        "effort": "Medium",
+        "target": "app/guides/[slug]/page.tsx (broadband-social-tariffs-uk), data/guides.ts",
+        "dependencies": "ops-content-priority-analysis-tooling",
+        "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",
