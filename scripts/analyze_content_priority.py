@@ -225,6 +225,67 @@ def load_ai_feature_impressions() -> dict[str, int]:
     return impressions
 
 
+def _read_csv(path: Path) -> list[dict]:
+    with path.open(newline="", encoding="utf-8") as f:
+        return list(csv.DictReader(f))
+
+
+def summarise_gsc_export() -> dict | None:
+    """Analyse every file in the GSC 'Search Generative AI Features' export,
+    not just Pages.csv: the daily trend, country split and device split all
+    carry real signal that page-level scoring alone throws away."""
+    folders = list(GSC_DIR.glob("*")) if GSC_DIR.exists() else []
+    export_dirs = [f for f in folders if f.is_dir() and (f / "Pages.csv").exists()]
+    if not export_dirs:
+        return None
+    export_dir = sorted(export_dirs)[-1]  # most recent by folder name (date-stamped)
+
+    summary: dict = {"export_folder": export_dir.name}
+
+    chart_path = export_dir / "Chart.csv"
+    if chart_path.exists():
+        rows = _read_csv(chart_path)
+        daily = [(r["Date"], int(r["Impressions"])) for r in rows if r.get("Date")]
+        total = sum(v for _, v in daily)
+        first_week = sum(v for _, v in daily[:7])
+        last_week = sum(v for _, v in daily[-7:])
+        summary["trend"] = {
+            "window_days": len(daily),
+            "total_impressions": total,
+            "first_7_days": first_week,
+            "last_7_days": last_week,
+            "growth_multiple": round(last_week / first_week, 1) if first_week else None,
+        }
+
+    countries_path = export_dir / "Countries.csv"
+    if countries_path.exists():
+        rows = _read_csv(countries_path)
+        total = sum(int(r["Impressions"]) for r in rows)
+        uk = next((int(r["Impressions"]) for r in rows if r["Country"] == "United Kingdom"), 0)
+        summary["countries"] = {
+            "total_impressions": total,
+            "uk_impressions": uk,
+            "uk_share_pct": round(uk / total * 100, 1) if total else None,
+            "country_count": len(rows),
+        }
+
+    devices_path = export_dir / "Devices.csv"
+    if devices_path.exists():
+        rows = _read_csv(devices_path)
+        total = sum(int(r["Impressions"]) for r in rows)
+        summary["devices"] = {
+            r["Device"]: {"impressions": int(r["Impressions"]), "share_pct": round(int(r["Impressions"]) / total * 100, 1) if total else None}
+            for r in rows
+        }
+
+    pages_path = export_dir / "Pages.csv"
+    if pages_path.exists():
+        rows = _read_csv(pages_path)
+        summary["pages"] = {"total_impressions": sum(int(r["Impressions"]) for r in rows), "page_count": len(rows)}
+
+    return summary
+
+
 def load_top_gaps(limit: int = 10) -> list[dict]:
     """Surface the top N-not-yet-built pages already ranked in the Content
     Gap Roadmap, so the new-vs-refresh decision sits on one list."""
@@ -291,10 +352,27 @@ def main() -> None:
 
     print("Loading real Search Generative AI Features impressions from Search Console...")
     ai_impressions = load_ai_feature_impressions()
+    gsc_summary = summarise_gsc_export()
     if ai_impressions:
         print(f"  Found {len(ai_impressions)} pages with real AI-feature impressions in data/GSC/")
     else:
         print("  No data/GSC export found — GEO scoring falls back to depth/schema/date proxy signals only")
+
+    if gsc_summary:
+        trend = gsc_summary.get("trend", {})
+        countries = gsc_summary.get("countries", {})
+        devices = gsc_summary.get("devices", {})
+        print(f"\n=== AI-feature visibility trend ({gsc_summary['export_folder']}) ===")
+        if trend:
+            print(f"  {trend['total_impressions']} total impressions over {trend['window_days']} days")
+            print(f"  First 7 days: {trend['first_7_days']}  |  Last 7 days: {trend['last_7_days']}"
+                  + (f"  ({trend['growth_multiple']}x growth)" if trend.get('growth_multiple') else ""))
+        if countries:
+            print(f"  {countries['uk_share_pct']}% UK ({countries['uk_impressions']}/{countries['total_impressions']}), "
+                  f"{countries['country_count']} countries total")
+        if devices:
+            device_line = ", ".join(f"{name} {d['share_pct']}%" for name, d in devices.items())
+            print(f"  Device split: {device_line}")
 
     print("Fetching live sitemap...")
     paths = get_live_paths()
@@ -330,6 +408,7 @@ def main() -> None:
             "schema and date signals remain proxies for pages with no GSC history yet."
         ),
         "ai_feature_data_present": bool(ai_impressions),
+        "gsc_ai_features_summary": gsc_summary,
         "pages_audited": len(audits),
         "top_refresh_candidates": [asdict(a) for a in top_refresh],
         "top_new_build_gaps": top_new,

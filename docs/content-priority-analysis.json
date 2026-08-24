@@ -2,27 +2,42 @@
   "generated": "2026-08-24",
   "method": "Live crawl of every provider/comparison/guide URL in the current sitemap, scored on word count against this session's own established depth floors, FAQPage schema presence, a detectable answer-first paragraph, and a checked/reviewed date parsed from visible text, cross-referenced against real mapped search volume already researched in docs/broadbandpicker-keyword-mapping.xlsx AND real per-page impression counts from Google Search Console's 'Performance on Search Generative AI Features' export (data/GSC/), when present. The GSC figures are actual ground truth that a page has already been surfaced inside an AI Overview or similar generative feature, not a proxy, and are weighted heavily in the score for exactly that reason. Word count, schema and date signals remain proxies for pages with no GSC history yet.",
   "ai_feature_data_present": true,
+  "gsc_ai_features_summary": {
+    "export_folder": "broadbandpicker.co.uk-Performance-on-Search-Generative-AI-Features-2026-08-24",
+    "trend": {
+      "window_days": 28,
+      "total_impressions": 2663,
+      "first_7_days": 146,
+      "last_7_days": 902,
+      "growth_multiple": 6.2
+    },
+    "countries": {
+      "total_impressions": 2663,
+      "uk_impressions": 2467,
+      "uk_share_pct": 92.6,
+      "country_count": 39
+    },
+    "devices": {
+      "Desktop": {
+        "impressions": 1881,
+        "share_pct": 70.6
+      },
+      "Mobile": {
+        "impressions": 729,
+        "share_pct": 27.4
+      },
+      "Tablet": {
+        "impressions": 53,
+        "share_pct": 2.0
+      }
+    },
+    "pages": {
+      "total_impressions": 2666,
+      "page_count": 62
+    }
+  },
   "pages_audited": 96,
   "top_refresh_candidates": [
-    {
-      "path": "/guides/best-full-fibre-broadband-uk",
-      "page_type": "guide",
-      "status": 200,
-      "word_count": 636,
-      "has_faq_schema": true,
-      "has_answer_first_paragraph": true,
-      "checked_date": "2026-06-21",
-      "months_since_checked": 2.1,
-      "mapped_volume": 2900,
-      "ai_feature_impressions": 512,
-      "thin": true,
-      "stale": false,
-      "missing_geo_signals": [
-        "below 1200-word depth floor for a guide page"
-      ],
-      "refresh_score": 114.0,
-      "notes": ""
-    },
     {
       "path": "/guides/best-broadband-and-tv-deals",
       "page_type": "guide",
@@ -57,6 +72,23 @@
         "below 1200-word depth floor for a guide page"
       ],
       "refresh_score": 91.0,
+      "notes": ""
+    },
+    {
+      "path": "/guides/best-full-fibre-broadband-uk",
+      "page_type": "guide",
+      "status": 200,
+      "word_count": 1672,
+      "has_faq_schema": true,
+      "has_answer_first_paragraph": true,
+      "checked_date": "2026-08-24",
+      "months_since_checked": 0.0,
+      "mapped_volume": 2900,
+      "ai_feature_impressions": 512,
+      "thin": false,
+      "stale": false,
+      "missing_geo_signals": [],
+      "refresh_score": 89.0,
       "notes": ""
     },
     {

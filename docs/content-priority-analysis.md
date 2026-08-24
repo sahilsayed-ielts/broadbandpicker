@@ -30,13 +30,34 @@ it ever reached the main content. Both fixed by parsing the DOM with lxml,
 stripping `script`/`style`, and scoping the whole audit to `<main>`;
 verified directly against the BT page before re-running site-wide.
 
+## The full GSC "Search Generative AI Features" export, not just Pages.csv
+
+The first pass only used `Pages.csv` for per-page scoring and treated
+`Chart.csv`, `Countries.csv` and `Devices.csv` as a manual glance rather
+than part of the actual analysis. Fixed: `summarise_gsc_export()` now reads
+every file in the export and both prints and saves the result.
+
+- **Real growth, not a flat baseline**: 2,663 total AI-feature impressions
+  over the 28-day window, but the first 7 days totalled only 146 against
+  902 in the last 7 — a 6.2x increase. AI-feature visibility on this site is
+  accelerating, which is worth reading alongside the pace of deep-content
+  work landing through the same window rather than as a coincidence.
+- **92.6% UK** (2,467 of 2,663 impressions), across 39 countries total — the
+  right shape for a UK-focused site; the international tail is incidental,
+  not worth chasing.
+- **Desktop dominates AI-feature impressions at 70.6%**, against 27.4%
+  mobile and 2.0% tablet. That's a genuinely notable split: general UK web
+  traffic usually skews mobile-heavy, so AI-feature surfacing specifically
+  leaning desktop is worth keeping in mind rather than assuming mobile-first
+  behaviour applies equally to this traffic source.
+
 ## Top pages to update, weighted by real AI-feature visibility
 
 | Score | Page | AI-feature impr. (28d) | Volume/mo | Words | Issue |
 |---|---|---|---|---|---|
-| 114.0 | `/guides/best-full-fibre-broadband-uk` | **512** | 2,900 | 636 | Thin |
-| 100.0 | `/guides/best-broadband-and-tv-deals` | 1,295 | 12,100 | 2,126 | None — already refreshed this session |
-| 91.0 | `/guides/cheapest-broadband-uk` | 130 | 19,400 | 481 | Thin |
+| 100.0 | `/guides/best-broadband-and-tv-deals` | 1,295 | 12,100 | 2,126 | None — refreshed this session |
+| 91.0 | `/guides/cheapest-broadband-uk` | 130 | 19,400 | 481 | Thin — **current top open priority** |
+| 89.0 | `/guides/best-full-fibre-broadband-uk` | 512 | 2,900 | 1,672 | None — refreshed this session |
 | 87.4 | `/guides/best-business-broadband-providers-uk` | 142 | 2,900 | 596 | Thin, no checked date |
 | 72.8 | `/guides/best-phone-and-broadband-deals` | 14 | 29,600 | 457 | Thin, no checked date |
 | 71.0 | `/guides/best-5g-home-broadband-uk` | 30 | 4,400 | 601 | Thin |
