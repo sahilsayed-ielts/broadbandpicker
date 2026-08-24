@@ -1153,31 +1153,127 @@ const baseProviders: Provider[] = [
     logo: '/logos/now-broadband.svg',
     affiliateUrl: 'https://www.nowtv.com/broadband',
     speeds: [
-      { download: 36, upload: 9, type: 'FTTC' },
       { download: 67, upload: 17, type: 'FTTC' },
-      { download: 150, upload: 30, type: 'FTTP' },
+      { download: 75, upload: 20, type: 'FTTP' },
+      { download: 100, upload: 20, type: 'FTTP' },
+      { download: 300, upload: 50, type: 'FTTP' },
     ],
-    monthlyPriceFrom: 17.99,
-    contractLengths: [12],
+    monthlyPriceFrom: 23.00,
+    contractLengths: [24],
     setupFee: 5,
-    trustpilotScore: 3.2,
+    trustpilotScore: 1.2,
     coveragePercent: 95,
     highlights: [
-      'One of the cheapest broadband options in the UK',
-      'Flexible 12-month contracts',
-      'NOW TV entertainment bundles available',
+      'Owned by Sky, running on the same Openreach network, but a noticeably weaker customer service record than its parent brand',
+      'No longer a budget or flexible-contract option: every current package is a standard 24-month term from £23 a month',
+      'A £5 advance fee is credited back to the first bill, so it is not a genuine extra cost if the credit is applied correctly',
     ],
     pros: [
-      'Very cheap entry price',
-      'Shorter 12-month contract option',
-      'Good for light users',
+      'Full Fibre 100 undercuts Sky\'s own equivalent full-fibre tier by around £1 a month',
+      'Voucher credits worth £70-£75 are commonly available at sign-up',
+      'Runs on the wide-reaching Openreach network, like its parent brand Sky',
     ],
     cons: [
-      'Speeds can be inconsistent',
-      'Customer service rated poorly',
-      'Setup fee on some plans',
+      'Very low Trustpilot score, around 1.2 out of 5, and an Ofcom complaints record that is also genuinely poor rather than just self-selected review noise',
+      'No longer offers the shorter, flexible 12-month contracts it built its early reputation on; every package is now a 24-month term',
+      'A flat £4 a month price rise applies every March, the same as its parent brand Sky',
+      'Customer service, especially around cancellation and the auto-renewal process, is the most consistently cited weakness',
     ],
-    ...createReviewMetadata('NOW Broadband', 'https://www.nowtv.com/broadband', 'nowtv.com'),
+    excerpt:
+      'NOW Broadband is owned by Sky and runs on the same Openreach network, with prices from £23 a month for Full Fibre 100, up to £26 for Full Fibre 300, all on 24-month contracts. A £5 advance fee is credited back to the first bill. Unlike Sky, where a low Trustpilot score sits alongside a strong Ofcom complaints record, NOW Broadband scores poorly on both: around 1.2 out of 5 on Trustpilot and 11 complaints per 100,000 customers in Ofcom\'s Q4 2025 data, above the industry average of 8.',
+    contentSections: [
+      {
+        heading: 'NOW Broadband Deals in August 2026',
+        paragraphs: [
+          'NOW\'s current range runs from Superfast at £24 a month for an average 67 Mbps, Full Fibre 75 also at £24, Full Fibre 100 at £23 (the cheapest tier despite being faster than Superfast), up to Full Fibre 300 at £26. A £5 advance fee applies at sign-up but is credited back to the first bill, so it is not a genuine net cost if the credit is applied as promised.',
+          'Every package is sold on a 24-month contract, with no shorter or rolling option currently available. Voucher credits worth £70 to £75 are commonly attached to NOW\'s current deals, worth factoring into the real cost when comparing against a rival\'s headline monthly price.',
+          'NOW is a genuinely simpler, no-frills product than its parent brand Sky: there is no equivalent TV bundle range, and the pitch is a lower headline price on the same underlying Openreach network rather than any additional service.',
+        ],
+      },
+      {
+        heading: 'NOW Broadband Is No Longer a Budget, Flexible-Contract Option',
+        paragraphs: [
+          'NOW Broadband built its early reputation on shorter, more flexible 12-month contracts at a genuinely low price, a real point of difference from most major providers. That is no longer the case: every current package is sold on a standard 24-month term, the same length BT, Sky and most other national providers use.',
+          'The pricing gap has also narrowed. Full Fibre 100 at £23 a month undercuts Sky\'s own equivalent full-fibre tier by only around £1, not the large gap NOW\'s reputation as a genuinely cheap budget brand might suggest. Anyone choosing NOW specifically for its old reputation should re-check the current contract length and price against Sky and other Openreach-based rivals before assuming it is still the clearly cheaper or more flexible option.',
+          'This matters because a household that specifically wants a shorter commitment, rather than just a lower price, will not find that on NOW\'s current range and should look at a genuinely rolling or 12-month contract from a different, smaller provider instead.',
+        ],
+      },
+      {
+        heading: 'The March Price Rise',
+        paragraphs: [
+          'NOW Broadband applies the same flat £4 a month price rise every March as its parent brand Sky, disclosed in pounds and pence rather than tied to inflation, following Ofcom\'s ban on inflation-linked, percentage-based price rise terms in all new contracts from 17 January 2025.',
+          'On a 24-month contract, that adds £48 to the second year\'s cost at every tier, the same structure as Sky and most other national Openreach-based providers, and a figure worth adding to NOW\'s headline monthly price when comparing the real two-year cost against a provider with no scheduled rise.',
+        ],
+      },
+      {
+        heading: 'NOW Broadband Customer Service: Poor on Both Trustpilot and Ofcom',
+        paragraphs: [
+          'NOW Broadband is a genuine exception to the usual pattern seen across most providers on this site, where a very low Trustpilot score sits alongside a much stronger, independently regulated Ofcom complaints position. NOW scores poorly on both: around 1.2 out of 5 on Trustpilot from more than 14,000 reviews, and 11 complaints per 100,000 customers in Ofcom\'s Q4 2025 data, above the industry average of 8 and well behind sister brand Sky.',
+          'The most consistently cited issues are customer service quality, the cancellation process and how the contract auto-renewal is communicated, alongside standard fault and billing complaints. Because NOW shares Sky\'s underlying Openreach network and infrastructure, the gap in service quality between the two Sky-owned brands is a genuine, worthwhile data point rather than noise: the network is the same, but the support experience is measurably worse on NOW.',
+          'Anyone drawn to NOW mainly for a lower headline price should weigh this genuinely poor complaints record against the relatively small saving over Sky\'s own equivalent full-fibre tier before deciding it is worth the trade-off.',
+        ],
+      },
+      {
+        heading: 'Is NOW Broadband Worth It?',
+        paragraphs: [
+          'NOW\'s real advantage is a slightly lower headline price than its parent brand Sky on the same Openreach network, plus commonly available voucher credits at sign-up. The £5 advance fee is not a genuine extra cost as long as the credit is correctly applied to the first bill.',
+          'It is not the budget or flexible-contract option it once was: contracts are now a standard 24 months, and the price gap against Sky has narrowed to around £1 a month on the equivalent tier. Its customer service record is genuinely weaker than Sky\'s on both an independent, self-selected review platform and Ofcom\'s regulated complaints data, not just one or the other.',
+          'Our take: NOW suits a household that specifically wants the lowest possible headline price on the Openreach network and does not expect to need much customer support, rather than anyone drawn to its older reputation for flexible, shorter contracts, which no longer applies.',
+        ],
+      },
+    ],
+    faqItems: [
+      {
+        question: 'Is NOW Broadband any good?',
+        answer: 'NOW Broadband offers a genuinely low headline price on the same Openreach network as its parent brand Sky, but its customer service record is weaker on both measures that matter: around 1.2 out of 5 on Trustpilot and 11 complaints per 100,000 customers in Ofcom\'s Q4 2025 data, above the industry average of 8 and worse than Sky itself.',
+      },
+      {
+        question: 'Does NOW Broadband still offer 12-month contracts?',
+        answer: 'No. Every current NOW Broadband package is sold on a standard 24-month contract, the same length as most major providers. Its earlier reputation for shorter, more flexible 12-month terms no longer reflects the current range.',
+      },
+      {
+        question: 'Is NOW Broadband cheaper than Sky?',
+        answer: 'Only slightly. NOW\'s Full Fibre 100 at £23 a month undercuts Sky\'s equivalent full-fibre tier by around £1, a much smaller gap than NOW\'s budget reputation might suggest, given both now run on the same network with the same 24-month contract length and the same flat £4 a month March price rise.',
+      },
+      {
+        question: 'Does NOW Broadband raise its prices during the contract?',
+        answer: 'Yes. NOW applies the same flat £4 a month rise every March as Sky, disclosed in pounds and pence rather than tied to inflation. Over a 24-month contract, this adds £48 to the second year\'s cost at every tier.',
+      },
+    ],
+    reviewedDate: '2026-08-24',
+    pricingVerifiedDate: '2026-08-24',
+    reviewSources: [
+      {
+        label: 'Uswitch: NOW Broadband packages and pricing',
+        href: 'https://www.uswitch.com/broadband/providers/now_broadband/',
+        note: 'Used for the current package lineup, pricing snapshot, setup fee and contract length, checked 2026-08-24.',
+      },
+      {
+        label: 'thinkbroadband: NOW broadband contracts now 24 months long',
+        href: 'https://www.thinkbroadband.com/news/10101-now-broadband-contracts-now-24-months-long',
+        note: 'Primary source for the change away from NOW\'s earlier shorter, flexible contract terms.',
+      },
+      {
+        label: 'Ofcom: telecoms and pay-TV complaints fall to a record low',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/service-quality/ofcom-telecoms-and-pay-tv-complaints-fall-to-record-low',
+        note: 'Primary regulatory source for NOW Broadband\'s Q4 2025 complaints ranking (11 per 100,000) and the industry average.',
+      },
+      {
+        label: 'Selectra: NOW (NOW TV) Trustpilot, Reviews.io and complaints summary',
+        href: 'https://selectra.co.uk/tv-broadband/providers/now-tv/review',
+        note: 'Used to corroborate the Trustpilot score and identify the most common complaint categories.',
+      },
+      {
+        label: 'NOW public Trustpilot profile',
+        href: 'https://uk.trustpilot.com/review/nowtv.com',
+        note: 'Customer-sentiment reference showing a rating around 1.2 out of 5 from more than 14,000 reviews in early 2026; not treated as a controlled reliability survey.',
+      },
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+        note: 'Explains how price, speed, coverage, customer experience and use-case fit are weighed.',
+      },
+    ],
     awinProgramId: null,
   },
   {

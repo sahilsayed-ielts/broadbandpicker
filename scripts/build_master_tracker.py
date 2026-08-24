@@ -1125,6 +1125,35 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-now-broadband-provider-page",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Deep rewrite: NOW Broadband provider page (7th content-priority-analysis target)",
+        "description": (
+            "Seventh target from scripts/analyze_content_priority.py's ranked list: "
+            "/providers/now-broadband was 386 words with no excerpt or contentSections, "
+            "and its top-level fields were stale on two counts that research corrected -- "
+            "contractLengths was still [12] (NOW dropped its flexible 12-month contracts; "
+            "every current package is now a standard 24-month term, per thinkbroadband's "
+            "dedicated news item on the change) and monthlyPriceFrom was a stale GBP17.99 "
+            "against a real current cheapest tier of GBP23 (Full Fibre 100). Rewritten to "
+            "~1,450 words with 5 contentSections. The genuinely distinctive finding here, "
+            "different from every other Trustpilot-vs-Ofcom section written this session: "
+            "NOW is a real exception to the usual pattern, scoring poorly on BOTH Trustpilot "
+            "(1.2/5, corrected from a stale 3.2) AND Ofcom's Q4 2025 complaints data (11 per "
+            "100k vs the 8 industry average), noticeably worse than sister brand Sky on the "
+            "same underlying Openreach network -- written up as a genuine data point about "
+            "support quality diverging from infrastructure quality within the same corporate "
+            "group, not just review-platform noise. Also corrected trustpilotScore 3.2 -> 1.2."
+        ),
+        "priority_score": 44,
+        "impact_score": 40,
+        "effort": "Medium",
+        "target": "data/providers.ts (now-broadband)",
+        "dependencies": "ops-content-priority-analysis-tooling",
+        "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",
