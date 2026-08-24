@@ -1372,11 +1372,11 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
   'broadband-without-phone-line': {
     body: (
       <>
-        <p>Yes — you can get broadband without a phone line in the UK. Full fibre (FTTP) broadband, Virgin Media cable, and 5G home broadband all work without a traditional copper telephone line. As of 2026, the majority of new broadband contracts no longer require a landline.</p>
+        <p>Yes, you can get broadband without a phone line in the UK. Full fibre (FTTP) broadband, Virgin Media cable, and 5G home broadband all work without a traditional copper telephone line, and most new broadband contracts no longer require one. The bigger question for most households now is not whether a line is needed, but what happens to phone access during a power cut once the old copper network is switched off.</p>
 
         <h2>Why you used to need a phone line for broadband</h2>
-        <p>Standard ADSL and FTTC (part-fibre) broadband both used the copper telephone wire between the street cabinet and your home to carry the internet signal. This meant a BT phone line was technically required — and line rental was billed separately, typically adding £10–£20/month to the cost.</p>
-        <p>That era is ending. As the UK&apos;s Public Switched Telephone Network (PSTN) is switched off — a process BT is completing by the end of 2027 — all providers are migrating customers to broadband-only connections. Line rental as a concept is being phased out entirely.</p>
+        <p>Standard ADSL and FTTC (part-fibre) broadband both used the copper telephone wire between the street cabinet and the home to carry the internet signal, which meant a BT phone line was technically required, with line rental billed separately, typically adding £10 to £20 a month to the cost.</p>
+        <p>That era is ending. The UK&apos;s old analogue phone network (the PSTN) is being fully retired by 31 January 2027, a date now treated as fixed after Openreach confirmed the technical barriers behind the original December 2025 target were resolved. Ofcom recorded 5.2 million customers still on the PSTN in July 2024, falling to 3.2 million by July 2025, so most of the country has already moved, or will move, to a broadband-only or Digital Voice connection well before the final date.</p>
 
         <h2>Which providers offer broadband without a phone line?</h2>
         <div className="overflow-x-auto">
@@ -1390,15 +1390,15 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
             </thead>
             <tbody>
               {[
-                ['BT', 'FTTP (full fibre)', 'No', '£30.99/mo'],
-                ['Sky', 'FTTP (full fibre)', 'No', '£25.00/mo'],
-                ['EE', 'FTTP (full fibre)', 'No', '£26.99/mo'],
-                ['Virgin Media', 'Cable', 'No — never needed one', '£28.00/mo'],
-                ['Vodafone', 'FTTP (full fibre)', 'No', '£24.00/mo'],
-                ['TalkTalk', 'FTTP (full fibre)', 'No', '£19.99/mo'],
-                ['Hyperoptic', 'FTTP (full fibre)', 'No — never needed one', '£22.00/mo'],
-                ['Community Fibre', 'FTTP (full fibre)', 'No — never needed one', '£21.99/mo'],
-                ['EE (5G)', '5G home broadband', 'No — no line at all', 'From £30/mo'],
+                ['BT', 'FTTP (full fibre)', 'No', '£23.99/mo'],
+                ['Sky', 'FTTP (full fibre)', 'No', '£23.00/mo'],
+                ['EE', 'FTTP (full fibre)', 'No', '£22.99/mo'],
+                ['Virgin Media', 'Cable', 'No — never needed one', '£33.00/mo'],
+                ['Vodafone', 'FTTP (full fibre)', 'No', '£25.00/mo'],
+                ['TalkTalk', 'FTTP (full fibre)', 'No', '£25.00/mo'],
+                ['Hyperoptic', 'FTTP (full fibre)', 'No — never needed one', '£21.50/mo'],
+                ['Community Fibre', 'FTTP (full fibre)', 'No — never needed one', '£12.50/mo'],
+                ['Three (5G)', '5G home broadband', 'No — no line at all', 'From £29/mo'],
               ].map(([p, tech, needed, from]) => (
                 <tr key={p} className="border-b border-slate-100 hover:bg-slate-50">
                   <td className="px-4 py-3 font-semibold text-slate-900">{p}</td>
@@ -1412,24 +1412,28 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         </div>
 
         <h2>Full fibre (FTTP) broadband without a landline</h2>
-        <p>Full fibre broadband uses optical fibre cable all the way from the exchange directly into your home. There is no copper wire in the connection at any point. This means it does not depend on — or need — a telephone line. FTTP is available from every major UK provider including BT, Sky, EE, TalkTalk, Vodafone, and Plusnet via the Openreach network, plus alt-nets like Hyperoptic and Community Fibre on their own infrastructure.</p>
-        <p>As of Spring 2026, 89% of UK premises can access a gigabit-capable network. Check availability at your address using our postcode checker.</p>
+        <p>Full fibre broadband uses optical fibre cable all the way from the exchange directly into the home, with no copper wire in the connection at any point, so it does not depend on or need a telephone line. FTTP is available from every major UK provider, including BT, Sky, EE, TalkTalk, Vodafone and Plusnet via the Openreach network, plus altnets like Hyperoptic and Community Fibre on their own infrastructure.</p>
+        <p>Ofcom&apos;s Spring 2026 Connected Nations data put gigabit-capable coverage at 89% of UK premises (27.1 million homes), up from 87% a year earlier, with full-fibre specifically now reaching 82% of homes. Coverage is uneven by area: 93% in urban areas against 66% in rural areas, so check availability at a specific address using our postcode checker rather than assuming national figures apply everywhere.</p>
 
         <h2>Virgin Media cable broadband</h2>
-        <p>Virgin Media has never used the traditional copper phone network. Its broadband is delivered via its own coaxial cable infrastructure, which reaches approximately 53% of UK premises. Virgin Media broadband has never required a landline — it is a pure broadband service, with phone calls available as an optional add-on using Voice over IP (VoIP). Speeds start from 132 Mbps and go up to 1.1 Gbps.</p>
+        <p>Virgin Media has never used the traditional copper phone network. Its broadband is delivered via its own coaxial cable infrastructure, which reaches around 52% of UK premises, a separate, non-overlapping footprint from Openreach. Virgin Media broadband has never required a landline; it is a pure broadband service, with phone calls available as an optional Digital Voice add-on. Speeds start from 132 Mbps and go up to 1,130 Mbps on its fastest current tier.</p>
 
-        <h2>5G home broadband — no line at all</h2>
-        <p>5G home broadband uses a mobile 5G signal rather than any fixed line connection. A 5G router is delivered to your home — it connects to the mobile network and broadcasts Wi-Fi. There is no engineer visit and no wires to your property at all. EE, Vodafone, and Three all offer 5G home broadband. Speeds vary significantly by location but can reach 300+ Mbps in well-covered urban areas. Not suitable for rural areas with limited 5G coverage.</p>
+        <h2>5G home broadband: no line at all</h2>
+        <p>5G home broadband uses a mobile 5G signal rather than any fixed line connection. A 5G router is delivered to the home, connects to the mobile network and broadcasts Wi-Fi, with no engineer visit and no wires to the property at all. Three currently offers the best value at around £29 a month for roughly 150 Mbps, Vodafone&apos;s GigaCube starts from £21 a month on a fixed term, and EE&apos;s Smart 5G Hub has the broadest UK 5G coverage from £30 to £50 a month. Speeds depend heavily on local signal strength and are not a reliable option in areas with weak or no 5G coverage.</p>
+
+        <h2>What happens to a home phone during a power cut?</h2>
+        <p>This is the real practical question once a line moves to Digital Voice rather than whether a line is needed at all. Because Digital Voice runs through the broadband router rather than a separately powered copper line, it will not work during a power cut unless a backup solution is in place. Ofcom requires every provider to guarantee at least one hour of continued access to emergency services during a power cut, and providers under the industry PSTN Charter have committed to not migrating telecare or medical-alarm users unless their specific device is confirmed compatible, with backup solutions that go beyond Ofcom&apos;s one-hour minimum for those households. Anyone with telecare, an alarm system or accessibility needs should raise this directly with their provider before a migration date is set.</p>
 
         <h2>Do I still need a phone number?</h2>
-        <p>No. Most UK households are moving away from landline phone numbers entirely. If you want to keep a phone number, providers offer Digital Voice (VoIP) services that work over your broadband connection. Ofcom&apos;s research shows fewer than 30% of UK households now make regular landline calls. You are not required to take a phone service alongside any broadband package.</p>
+        <p>No. Most UK households are moving away from landline phone numbers entirely, and no provider requires a phone service alongside a broadband package. Anyone who wants to keep an existing number can request porting to a Digital Voice service that runs over the broadband connection; do not cancel the old line first, since that can put the number at risk of being lost rather than transferred.</p>
       </>
     ),
     faqs: [
-      { question: 'Can I get broadband without a BT phone line?', answer: 'Yes. Full fibre (FTTP) broadband from BT, Sky, EE, TalkTalk, Vodafone, and others does not require a copper phone line. Virgin Media cable broadband has never needed one. 5G home broadband requires no line at all.' },
-      { question: 'What is broadband-only — no landline?', answer: 'Broadband-only means you receive internet service without a traditional telephone line or phone service included. All major UK providers now offer broadband-only packages, particularly for full-fibre connections. You can add Digital Voice (internet-based phone calls) separately if you want a phone number.' },
-      { question: 'Does BT broadband still require a phone line?', answer: 'For new BT full-fibre (FTTP) customers, no — a phone line is no longer required. BT\'s old FTTC packages used the copper phone line, but BT now sells FTTP as a standalone broadband service. BT is migrating all customers from the copper network as part of the PSTN switch-off, due to complete by end of 2027.' },
-      { question: 'Is broadband without a phone line cheaper?', answer: 'It can be. Under the old system, line rental added £10–£20/month to the broadband cost. Full-fibre broadband-only deals bundle the connection cost into a single monthly price. Many providers have eliminated line rental entirely for FTTP customers.' },
+      { question: 'Can I get broadband without a BT phone line?', answer: 'Yes. Full fibre (FTTP) broadband from BT, Sky, EE, TalkTalk, Vodafone and others does not require a copper phone line. Virgin Media cable broadband has never needed one. 5G home broadband requires no line at all.' },
+      { question: 'What is broadband-only, no landline?', answer: 'Broadband-only means internet service without a traditional telephone line or phone service included. All major UK providers now offer broadband-only packages, particularly for full-fibre connections. Digital Voice (internet-based phone calls) can be added separately for anyone who wants to keep a phone number.' },
+      { question: 'When is the UK landline switch-off happening?', answer: 'The old analogue PSTN network is being fully retired by 31 January 2027, a date now treated as fixed after Openreach confirmed the technical barriers behind the original December 2025 target were resolved. The number of customers still on the PSTN fell from 5.2 million in July 2024 to 3.2 million in July 2025.' },
+      { question: 'Will a Digital Voice phone work in a power cut?', answer: 'Not without a backup solution, since Digital Voice runs through the broadband router rather than a separately powered line. Ofcom requires providers to guarantee at least one hour of access to emergency services during a power cut, and providers under the industry PSTN Charter offer stronger backup for telecare and vulnerable-user households specifically.' },
+      { question: 'Is broadband without a phone line cheaper?', answer: 'Often, yes. Under the old system, line rental added £10 to £20 a month to the broadband cost. Full-fibre broadband-only deals now bundle the connection cost into a single monthly price, and many providers have eliminated line rental entirely for FTTP customers.' },
     ],
   },
 

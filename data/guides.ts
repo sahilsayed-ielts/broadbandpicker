@@ -452,12 +452,27 @@ export const guides: GuideMetadata[] = [
     slug: 'broadband-without-phone-line',
     title: 'Broadband Without a Phone Line UK 2026: Your Full Options',
     metaTitle: 'Broadband Without a Phone Line UK 2026 | No Landline Needed',
-    metaDescription: 'You no longer need a phone line to get broadband in the UK. Full fibre, Virgin Media cable, and 5G home broadband all work without a landline. Compare your options.',
+    metaDescription: 'You no longer need a phone line to get broadband in the UK. Full fibre, Virgin Media cable, and 5G home broadband all work without a landline. Real current prices, plus what the 31 January 2027 PSTN switch-off means for power cuts.',
     publishDate: '2026-06-19',
-    updatedDate: '2026-06-19',
-    excerpt: 'The days of needing a landline to get broadband are over. Here is every way to get broadband in the UK without a phone line — and which providers offer the best deals.',
-    readingTime: 7,
+    updatedDate: '2026-08-24',
+    excerpt: 'The days of needing a landline to get broadband are over. Here is every way to get broadband in the UK without a phone line, real current prices, and what the 31 January 2027 PSTN switch-off means for phone access during a power cut.',
+    readingTime: 8,
     category: 'technology-and-speeds',
+    keyTakeaways: [
+      'The UK\'s old analogue phone network is being fully retired by 31 January 2027, with customers still on it falling from 5.2 million (July 2024) to 3.2 million (July 2025).',
+      'A Digital Voice phone line will not work in a power cut without a backup solution; Ofcom requires at least one hour of access to emergency services, and the industry PSTN Charter offers stronger protection for telecare and vulnerable-user households.',
+      'Gigabit-capable coverage reached 89% of UK premises in Ofcom\'s Spring 2026 data, with full fibre specifically at 82%, but coverage is uneven: 93% in urban areas against 66% in rural areas.',
+    ],
+    sources: [
+      {
+        label: 'Ofcom guide to the landline switch-over',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/landline-phones/future-of-landline-calls',
+      },
+      {
+        label: 'Ofcom: Connected Nations update, Spring 2026',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/connected-nations-update-spring-2026',
+      },
+    ],
   },
   {
     slug: 'best-5g-home-broadband-uk',

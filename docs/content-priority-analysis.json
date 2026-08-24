@@ -147,25 +147,6 @@
       "notes": ""
     },
     {
-      "path": "/guides/best-broadband-providers-uk",
-      "page_type": "guide",
-      "status": 200,
-      "word_count": 872,
-      "has_faq_schema": true,
-      "has_answer_first_paragraph": true,
-      "checked_date": "2026-06-19",
-      "months_since_checked": 2.2,
-      "mapped_volume": 5400,
-      "ai_feature_impressions": 0,
-      "thin": true,
-      "stale": false,
-      "missing_geo_signals": [
-        "below 1200-word depth floor for a guide page"
-      ],
-      "refresh_score": 65.0,
-      "notes": ""
-    },
-    {
       "path": "/guides/broadband-without-phone-line",
       "page_type": "guide",
       "status": 200,
@@ -313,6 +294,25 @@
       "stale": false,
       "missing_geo_signals": [
         "below 900-word depth floor for a comparison page"
+      ],
+      "refresh_score": 44.0,
+      "notes": ""
+    },
+    {
+      "path": "/guides/best-rolling-monthly-broadband-deals",
+      "page_type": "guide",
+      "status": 200,
+      "word_count": 522,
+      "has_faq_schema": true,
+      "has_answer_first_paragraph": true,
+      "checked_date": "2026-06-21",
+      "months_since_checked": 2.1,
+      "mapped_volume": 1900,
+      "ai_feature_impressions": 0,
+      "thin": true,
+      "stale": false,
+      "missing_geo_signals": [
+        "below 1200-word depth floor for a guide page"
       ],
       "refresh_score": 44.0,
       "notes": ""

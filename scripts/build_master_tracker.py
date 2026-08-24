@@ -1218,6 +1218,35 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-broadband-without-phone-line-guide",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Deep rewrite: Broadband Without a Phone Line guide (10th content-priority-analysis target)",
+        "description": (
+            "Tenth target from scripts/analyze_content_priority.py's ranked list: "
+            "770 words, stale pricing table (every one of 8 providers priced against "
+            "months-old figures already corrected on this site's own provider pages), and "
+            "a wrong PSTN switch-off date ('by the end of 2027' -- the real, now-locked-in "
+            "date is 31 January 2027). Rewrote using the same PSTN research gathered for "
+            "the best-phone-and-broadband-deals refresh earlier this session (5.2m -> 3.2m "
+            "migration stat, Ofcom's 1-hour power-cut battery backup minimum, the PSTN "
+            "Charter's telecare protections), added a genuinely missing section -- 'What "
+            "happens to a home phone during a power cut?' -- since the old version covered "
+            "whether a line is needed at all but never addressed the actual practical "
+            "question once Digital Voice is the default. Refreshed all 8 provider prices "
+            "against data/providers.ts's own current fields, updated Virgin Media coverage "
+            "52% (was 53%) and added Ofcom's Spring 2026 Connected Nations split (89% "
+            "gigabit-capable, 82% full fibre, 93% urban vs 66% rural). Word count 770 -> "
+            "1,196; left just under the self-imposed 1,200-word floor rather than pad."
+        ),
+        "priority_score": 41,
+        "impact_score": 37,
+        "effort": "Medium",
+        "target": "app/guides/[slug]/page.tsx (broadband-without-phone-line), data/guides.ts",
+        "dependencies": "ops-content-priority-analysis-tooling",
+        "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",
