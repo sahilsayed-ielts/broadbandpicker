@@ -331,12 +331,23 @@ export const guides: GuideMetadata[] = [
     slug: 'best-broadband-for-working-from-home',
     title: 'Best Broadband for Working From Home UK 2026',
     metaTitle: 'Best Broadband for Working From Home | BroadbandPicker',
-    metaDescription: 'Working from home? You need fast, reliable broadband with a strong upload speed. Compare the best home office broadband packages in the UK.',
+    metaDescription: 'Working from home? You need fast, reliable broadband with a strong upload speed. Real current prices for Community Fibre, Hyperoptic, Zen Internet and BT, plus when a business line is worth it.',
     publishDate: '2026-02-01',
-    updatedDate: '2026-06-01',
-    excerpt: 'Working from home demands reliable, fast broadband — especially for video calls. Here\'s what to look for and the best packages available right now.',
-    readingTime: 8,
+    updatedDate: '2026-08-24',
+    excerpt: 'Working from home demands reliable, fast broadband, especially for video calls and upload-heavy tasks. Real current prices, what to look for, and when a business-grade line is actually worth the extra cost.',
+    readingTime: 9,
     category: 'use-cases-and-lifestyle',
+    keyTakeaways: [
+      'Upload speed, not download speed, is usually the limiting factor for video calls; a single HD call typically needs 3 to 4 Mbps of stable upload.',
+      'Community Fibre offers genuinely symmetrical full fibre from £12.50 a month, the cheapest fully symmetrical option covered on this site, though coverage remains limited.',
+      'A business-grade line, from around £20 to £22 a month with providers like Vodafone Business, is worth it specifically when a static IP or a faster fault-fix guarantee has real value, not as a default upgrade.',
+    ],
+    sources: [
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+      },
+    ],
   },
   {
     slug: 'best-broadband-for-students',

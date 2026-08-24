@@ -1363,6 +1363,32 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-best-broadband-working-from-home-guide",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Deep rewrite: Best Broadband for Working From Home guide (15th content-priority-analysis target)",
+        "description": (
+            "Fifteenth target from scripts/analyze_content_priority.py's ranked list: "
+            "565 words, no real prices anywhere, and a stale 'EE is consistently rated "
+            "the most reliable major UK broadband provider' claim that no longer holds "
+            "under this session's own Q1 2026 Ofcom complaints research. Rewrote with "
+            "real current prices for Community Fibre, Hyperoptic, Zen Internet and BT, "
+            "and added a genuinely new section this page never had: when a business-grade "
+            "line (static IP, faster fault-fix SLA) is actually worth it for a freelancer "
+            "or remote worker over a residential package, using real Vodafone Business/"
+            "Zen Business/Sky Business pricing already researched for this site's business "
+            "broadband guide. Added concrete video-call upload-bandwidth guidance (3-4 "
+            "Mbps per HD call) rather than vague 'upload matters' framing. Word count "
+            "565 -> 986."
+        ),
+        "priority_score": 36,
+        "impact_score": 33,
+        "effort": "Medium",
+        "target": "app/guides/[slug]/page.tsx (best-broadband-for-working-from-home), data/guides.ts",
+        "dependencies": "ops-content-priority-analysis-tooling",
+        "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",
