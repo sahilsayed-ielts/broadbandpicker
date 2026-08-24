@@ -1065,6 +1065,34 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-best-phone-and-broadband-deals-guide",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Deep rewrite: Best Phone and Broadband Deals guide (5th content-priority-analysis target)",
+        "description": (
+            "Fifth target from scripts/analyze_content_priority.py's ranked list: the old "
+            "copy was generic Digital Voice/line-rental advice with no dates, no stats and "
+            "one pre-existing em dash, at 457 words. Rewritten with the real PSTN "
+            "switch-off timeline: full shutdown now locked in for 31 January 2027 (moved "
+            "from the original December 2025 target after Openreach confirmed the "
+            "technical barriers were resolved), with PSTN customer numbers falling from "
+            "5.2 million (July 2024) to 3.2 million (July 2025). Added Ofcom's minimum "
+            "one-hour battery backup requirement for emergency-services access during a "
+            "power cut, and the industry PSTN Charter's commitment not to migrate "
+            "telecare/vulnerable users without confirmed-compatible equipment. Added a "
+            "real, specific call-plan cost example (TalkTalk's Anytime Calls add-on at "
+            "GBP12/mo on top of base broadband) to replace the previous fully generic "
+            "'compare the whole contract' advice. FAQs expanded from 3 to 5. Fixed the "
+            "pre-existing em dash in the dek field."
+        ),
+        "priority_score": 45,
+        "impact_score": 44,
+        "effort": "Medium",
+        "target": "data/priority-pages.ts (phone)",
+        "dependencies": "ops-content-priority-analysis-tooling",
+        "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",
