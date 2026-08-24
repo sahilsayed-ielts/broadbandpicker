@@ -542,12 +542,27 @@ export const guides: GuideMetadata[] = [
     slug: 'best-broadband-for-gaming-uk',
     title: 'Best Broadband for Gaming UK 2026: Speed, Ping and Providers',
     metaTitle: 'Best Broadband for Gaming UK 2026 | Low Ping, High Speed',
-    metaDescription: 'The best broadband for gaming in the UK is full fibre with low latency. We compare ping, speeds, and reliability across BT, EE, Virgin Media, Community Fibre and more.',
+    metaDescription: 'The best broadband for gaming in the UK is full fibre with low latency. We compare real current ping, speeds and prices across BT, EE, Virgin Media, Community Fibre, Hyperoptic and Zen Internet.',
     publishDate: '2026-06-19',
-    updatedDate: '2026-06-19',
-    excerpt: 'Gaming broadband is about low ping first, speed second. We tested and ranked the best UK broadband providers for online gaming based on latency, reliability, and value.',
-    readingTime: 9,
+    updatedDate: '2026-08-24',
+    excerpt: 'Gaming broadband is about low ping first, speed second. We compare real current prices and latency across the UK providers most worth considering for online gaming, including one genuinely useful pick for hosting a private server.',
+    readingTime: 10,
     category: 'use-cases-and-lifestyle',
+    keyTakeaways: [
+      'Ping matters more than download speed for online gaming; a 50 Mbps connection at 10ms will outperform a 500 Mbps connection at 60ms.',
+      'Community Fibre now offers genuinely symmetrical speeds up to 3,000 Mbps from £12.50 a month, the cheapest full-fibre package covered on this site.',
+      'Zen Internet includes a free static IP address as standard, a genuine advantage specifically for anyone hosting a private game server rather than just playing online.',
+    ],
+    sources: [
+      {
+        label: 'Ofcom: Connected Nations update, Spring 2026',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/connected-nations-update-spring-2026',
+      },
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+      },
+    ],
   },
   {
     slug: 'broadband-social-tariffs-uk',

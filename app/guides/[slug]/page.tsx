@@ -1673,26 +1673,32 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         <h2>Best broadband providers for gaming UK 2026</h2>
 
         <h3>EE — best for reliability and speed</h3>
-        <p>EE consistently delivers the fastest average speeds and lowest latency of any major UK provider using the Openreach network, according to Ofcom. EE&apos;s full-fibre packages start from £26.99/month and offer typical latency of 5–8ms on FTTP connections. EE also offers a gaming-specific router add-on with traffic prioritisation for gaming packets.</p>
+        <p>EE consistently delivers among the fastest average speeds of any major UK provider using the Openreach network, according to Ofcom&apos;s Connected Nations data. EE&apos;s full-fibre packages start from £22.99 a month and offer typical latency of 5 to 8ms on FTTP connections. EE also offers a gaming-focused router add-on with traffic prioritisation for gaming packets.</p>
 
-        <h3>Community Fibre — best for ping (London)</h3>
-        <p>Community Fibre&apos;s pure FTTP network in London delivers some of the lowest latency available — typically 4–6ms on its gigabit tier. Its symmetrical speeds (920 Mbps up and down) are ideal for households where multiple people stream and game simultaneously. From £21.99/month. London-only coverage.</p>
+        <h3>Community Fibre — best for ping and symmetrical speed</h3>
+        <p>Community Fibre&apos;s pure FTTP network delivers some of the lowest latency available, typically 4 to 6ms, with genuinely symmetrical speeds up to 3,000 Mbps up and down on its fastest current tier, ideal for households where multiple people stream and game simultaneously or want to host a private game server. From £12.50 a month, the cheapest full-fibre package on this site. Coverage has expanded beyond London into parts of Surrey and Sussex, though it remains far from nationwide.</p>
 
-        <h3>Hyperoptic — best symmetrical full fibre</h3>
-        <p>Hyperoptic offers 1 Gbps symmetrical broadband (matching upload and download speeds) at competitive prices. Latency on Hyperoptic&apos;s network typically falls between 4–7ms. Available in selected apartment buildings and developments across major UK cities. From £22/month.</p>
+        <h3>Hyperoptic — best symmetrical full fibre for flats and apartments</h3>
+        <p>Hyperoptic offers genuinely symmetrical broadband (matching upload and download speeds) on every tier except its cheapest entry-level plan, with latency typically falling between 4 and 7ms. Available mainly in selected apartment buildings and developments across major UK cities. From £21.50 a month.</p>
 
-        <h3>Virgin Media — best speed for console gaming</h3>
-        <p>Virgin Media&apos;s cable network delivers high speeds with consistent performance across its coverage area. Its M500 package (516 Mbps) is well-suited to households with multiple gamers. Latency on Virgin&apos;s network is typically 8–12ms — slightly higher than full fibre, but acceptable for competitive gaming.</p>
+        <h3>Virgin Media — fastest widely available top-end speed</h3>
+        <p>Virgin Media&apos;s cable network delivers the fastest widely available speeds in the UK, up to 1,130 Mbps on its Gig1 tier, well suited to households with multiple gamers and streamers active at once. Latency on Virgin&apos;s network is typically 8 to 12ms, slightly higher than full fibre but still acceptable for competitive gaming. From £33 a month.</p>
 
         <h3>BT — best coverage for gaming</h3>
-        <p>If you live outside a city, BT is often the only provider offering full-fibre speeds across the UK&apos;s 98% coverage area. BT&apos;s FTTP connections deliver 5–8ms latency, and BT offers a Smart Hub 2 router with automatic band steering and quality-of-service gaming prioritisation. FTTP packages from £30.99/month.</p>
+        <p>If you live outside a city, BT is often the only provider offering full-fibre speeds across its 98% Openreach coverage area, the widest of any provider on this site. BT&apos;s FTTP connections deliver 5 to 8ms latency, and its Smart Hub 2 router includes automatic band steering and quality-of-service gaming prioritisation. Full-fibre packages from £23.99 a month, and Full Fibre 900&apos;s Stay Fast Guarantee pays out automatically if delivered speed drops below a set minimum, a genuine reliability backstop for anyone gaming competitively.</p>
+
+        <h3>Zen Internet — best for hosting a private game server</h3>
+        <p>Zen Internet includes a free static IP address as standard on every plan, usually a paid extra elsewhere, which matters specifically for anyone hosting a private game server, running port forwarding for peer-to-peer titles, or wanting a stable, predictable address for remote access. It also carries a Contract Price Promise, no mid-contract price rise for the length of the term. From £30 a month.</p>
 
         <h2>Ping vs download speed: which matters more for gaming?</h2>
-        <p>Ping matters more than download speed for online gaming. A connection with 20ms ping and 50 Mbps download will feel smoother than one with 80ms ping and 500 Mbps download. This is because online gaming involves constant two-way communication with game servers — every input you send and every update you receive depends on how quickly the connection responds, not how much data it can move in bulk.</p>
-        <p>Download speed matters mainly for downloading games (a 50 GB game downloads in 70 minutes at 100 Mbps) and for households where multiple people are streaming while you game.</p>
+        <p>Ping matters more than download speed for online gaming. A connection with 20ms ping and 50 Mbps download will feel smoother than one with 80ms ping and 500 Mbps download. This is because online gaming involves constant two-way communication with game servers; every input sent and every update received depends on how quickly the connection responds, not how much data it can move in bulk.</p>
+        <p>Download speed matters mainly for downloading games (a 50 GB game downloads in around 70 minutes at 100 Mbps) and for households where multiple people are streaming while someone else games.</p>
 
         <h2>Wired vs Wi-Fi for gaming</h2>
-        <p>Always use a wired Ethernet connection for serious gaming. Wi-Fi adds 5–20ms of latency on top of your broadband&apos;s base latency, and introduces jitter (variable delay) that causes lag spikes. A wired connection directly from your router eliminates both problems. If you cannot run a cable, a powerline adapter (which carries Ethernet through your existing mains wiring) is a significantly better option than Wi-Fi for gaming.</p>
+        <p>Always use a wired Ethernet connection for serious gaming. Wi-Fi adds 5 to 20ms of latency on top of a connection&apos;s base latency and introduces jitter, variable delay that causes lag spikes. A wired connection directly from the router eliminates both problems. If running a cable is not possible, a powerline adapter, which carries Ethernet through existing mains wiring, is a significantly better option than Wi-Fi for gaming.</p>
+
+        <h2>Why contract length and price rises matter for gamers too</h2>
+        <p>Most full-fibre gaming-suitable packages are sold on 24-month contracts, with a flat, disclosed pounds-and-pence price rise each year at most national providers, following Ofcom&apos;s ban on inflation-linked rises from January 2025. This does not affect latency or performance directly, but it affects the real two-year cost of a package advertised mainly on its headline first-month price, worth factoring in alongside the ping and speed figures above when comparing options.</p>
         <div className="not-prose rounded-xl border-2 border-sky-200 bg-sky-50 p-5 my-6">
           <p className="font-bold text-slate-900 mb-1">Want a personalised recommendation instead?</p>
           <p className="text-sm text-slate-700 mb-3">Answer 6 quick questions about your household and gaming setup, and our free Broadband Match tool ranks the providers that actually fit — not just the cheapest headline price.</p>
@@ -1701,10 +1707,11 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
       </>
     ),
     faqs: [
-      { question: 'What broadband speed do I need for gaming?', answer: 'You need at least 10 Mbps download and 3 Mbps upload for online gaming. However, ping (latency) matters more than speed. Aim for under 20ms ping. A 50 Mbps connection with 10ms ping will outperform a 500 Mbps connection with 60ms ping for gaming.' },
-      { question: 'What is a good ping for gaming in the UK?', answer: 'Under 20ms is excellent for gaming. 20–50ms is good for most games. 50–100ms is playable for casual gaming but may cause issues in fast-paced competitive games. Over 100ms will feel laggy in most online games. Full-fibre (FTTP) broadband typically achieves 4–10ms ping to UK servers.' },
-      { question: 'Is Virgin Media good for gaming?', answer: 'Yes. Virgin Media\'s cable network delivers consistent speeds and typically 8–12ms latency — suitable for online gaming. Its high-speed packages (M500, Gig1) are well-suited to households with multiple gamers and streamers. Virgin is not available everywhere — check coverage at your postcode.' },
-      { question: 'Does full fibre make gaming better?', answer: 'Yes. Full fibre (FTTP) delivers the lowest latency of any fixed-line broadband technology in the UK — typically 4–8ms, compared to 15–30ms on FTTC and 30–60ms on ADSL. Lower latency directly improves responsiveness in online games. Full fibre also has lower jitter, meaning less variation in your ping.' },
+      { question: 'What broadband speed do I need for gaming?', answer: 'At least 10 Mbps download and 3 Mbps upload for online gaming. However, ping (latency) matters more than speed. Aim for under 20ms ping. A 50 Mbps connection with 10ms ping will outperform a 500 Mbps connection with 60ms ping for gaming.' },
+      { question: 'What is a good ping for gaming in the UK?', answer: 'Under 20ms is excellent for gaming, 20 to 50ms is good for most games, 50 to 100ms is playable for casual gaming but may cause issues in fast-paced competitive games, and over 100ms will feel laggy in most online games. Full-fibre (FTTP) broadband typically achieves 4 to 10ms ping to UK servers.' },
+      { question: 'Is Virgin Media good for gaming?', answer: 'Yes. Virgin Media\'s cable network delivers the fastest widely available speeds in the UK, up to 1,130 Mbps on its Gig1 tier, with typically 8 to 12ms latency, suitable for online gaming. It is not available everywhere; check coverage at your postcode, since its cable network reaches only around 52% of UK premises.' },
+      { question: 'Does full fibre make gaming better?', answer: 'Yes. Full fibre (FTTP) delivers the lowest latency of any fixed-line broadband technology in the UK, typically 4 to 8ms, compared to 15 to 30ms on FTTC and 30 to 60ms on ADSL. Lower latency directly improves responsiveness in online games, and full fibre also has lower jitter, meaning less variation in ping.' },
+      { question: 'What broadband is best for hosting a private game server?', answer: 'A static IP address makes hosting and port forwarding much more reliable, since the address does not change. Zen Internet includes a free static IP as standard on every plan, a genuine advantage for anyone specifically hosting a game server rather than just playing online.' },
     ],
   },
 

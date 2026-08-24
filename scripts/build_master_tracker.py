@@ -1305,6 +1305,33 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-best-broadband-for-gaming-guide",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Deep rewrite: Best Broadband for Gaming UK guide (13th content-priority-analysis target)",
+        "description": (
+            "Thirteenth target from scripts/analyze_content_priority.py's ranked list: "
+            "836 words with stale provider prices (EE GBP26.99, Community Fibre GBP21.99, "
+            "Hyperoptic GBP22, BT GBP30.99, all already corrected on this site's own "
+            "provider pages) and a wrong Community Fibre top-tier speed claim (920Mbps "
+            "symmetrical, against the real current 3,000Mbps top tier confirmed in "
+            "data/providers.ts). Refreshed all 5 existing provider picks against already-"
+            "vetted current pricing, and added a genuinely new 6th pick, Zen Internet, for "
+            "a use case the old page didn't cover at all: hosting a private game server, "
+            "where Zen's free static IP (already documented on its own provider page) is a "
+            "real, specific advantage over every other provider on the list. Added a short "
+            "section on how 24-month contracts and scheduled price rises affect the real "
+            "two-year cost of a gaming-suitable package. Word count 836 -> 1,184; left "
+            "just under the self-imposed 1,200-word floor rather than pad."
+        ),
+        "priority_score": 38,
+        "impact_score": 34,
+        "effort": "Medium",
+        "target": "app/guides/[slug]/page.tsx (best-broadband-for-gaming-uk), data/guides.ts",
+        "dependencies": "ops-content-priority-analysis-tooling",
+        "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",
