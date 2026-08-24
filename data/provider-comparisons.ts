@@ -30,73 +30,92 @@ export const providerComparisons: ProviderComparison[] = [
     providerA: 'bt',
     providerB: 'sky',
     title: 'BT vs Sky Broadband: Which Is Better in 2026?',
-    metaTitle: 'BT vs Sky Broadband 2026 | Prices, Speeds and Value',
+    metaTitle: 'BT vs Sky Broadband 2026 | Real Prices, Complaints and Coverage',
     metaDescription:
-      'BT vs Sky broadband compared on price, speeds, contract length, setup fees, coverage, and customer satisfaction. Find out which provider is better for your home in 2026.',
+      'BT vs Sky broadband compared on real current price, Ofcom complaints, coverage and Trustpilot scores for August 2026. Prices are now nearly identical; the real difference is complaints and coverage.',
     excerpt:
-      'BT and Sky are two of the biggest broadband brands in the UK, but they suit different households. Here is how they compare on speed, pricing, coverage, bundles, and value.',
+      'BT and Sky are two of the biggest Openreach-based broadband brands in the UK, and their prices have converged to within a pound of each other. The real differences now are Ofcom complaints record and coverage breadth.',
     publishDate: '2026-06-21',
-    updatedDate: '2026-06-21',
-    bestForA: 'Wider coverage, premium support, and rural households',
-    bestForB: 'Cheaper pricing, TV bundles, and lower upfront cost',
+    updatedDate: '2026-08-24',
+    bestForA: 'Widest UK coverage, at around 98% of homes',
+    bestForB: 'A stronger Ofcom complaints record and TV bundle options',
     winner:
-      'Sky is the better value option for most households, while BT remains stronger if coverage breadth and premium service matter more than price.',
+      'Prices are now within a pound of each other, so the decision comes down to priorities: Sky for a stronger, independently regulated complaints record and TV bundles, BT for the widest coverage and a more transparent future price-rise structure.',
+    factSnapshot: {
+      providerA: { fromPrice: '£23.99/mo', maxSpeed: '900 Mbps', coverage: '98%', trustpilot: '4.0 / 1.5 (two pages)', contract: '24 months', setupFee: '£30 (reward card offsets)' },
+      providerB: { fromPrice: '£23.00/mo', maxSpeed: '900 Mbps', coverage: '95%', trustpilot: '2.7', contract: '24 months', setupFee: '£0 (currently advertised)' },
+    },
     intro: [
-      'BT and Sky both rely heavily on the Openreach network, which means the underlying availability can be similar at many postcodes. The real difference is usually in pricing, contract structure, extras, and how each provider positions itself.',
-      'For most households choosing between them, the decision comes down to whether you want BT’s broader premium positioning or Sky’s cheaper deals and stronger TV bundle story.',
+      'BT and Sky both sell broadband over the Openreach network, so line quality and top available speed at a given address are largely the same regardless of which is chosen. As of August 2026, their entry prices have converged to within a pound of each other, £23.99 for BT against £23.00 for Sky, both on standard 24-month contracts, a genuine change from the larger price gap and different contract lengths this comparison showed in the past.',
+      'With pricing this close, the real differences are Ofcom\'s independently regulated complaints data, total coverage, and how each provider structures its future price rises, not the headline monthly figure.',
     ],
     verdict: [
-      'Choose BT if you value maximum UK coverage, stronger premium support positioning, and are willing to pay more for the package.',
-      'Choose Sky if you want better introductory value, no setup fee, and you may also want TV bundled with broadband.',
+      'Choose BT if maximum coverage matters most, since it reaches around 98% of UK homes against Sky\'s 95%, or if a clearer, more predictable future price-rise structure matters.',
+      'Choose Sky if a stronger, independently regulated complaints record matters, or if bundling Sky TV or Sky Sports onto the same bill is a genuine priority.',
     ],
     keyDifferences: [
       {
         label: 'Pricing',
         detail:
-          'Sky starts cheaper, while BT usually charges more for broadly similar entry-level connectivity.',
+          'Now nearly identical: BT from £23.99 a month, Sky from £23.00, both on 24-month contracts. This is a real change from the larger gap and different contract lengths seen previously.',
       },
       {
-        label: 'Contracts',
+        label: 'Ofcom complaints',
         detail:
-          'BT leans heavily on 24-month terms; Sky is typically shorter at 18 months, which gives a little more flexibility.',
+          'Sky recorded 5 complaints per 100,000 customers in Ofcom\'s Q1 2026 report, among the best of any major provider. BT recorded 7, just above the industry average of 6.',
       },
       {
         label: 'Coverage',
         detail:
-          'BT has the edge on national coverage breadth and is often the safer bet in harder-to-serve or rural locations.',
+          'BT reaches around 98% of UK premises via Openreach, slightly ahead of Sky\'s 95%, a genuine edge in harder-to-serve or rural locations.',
+      },
+      {
+        label: 'Trustpilot',
+        detail:
+          'BT has two separate Trustpilot pages showing very different scores, 4.0 on bt.com against around 1.5 on the older btbroadband.com. Sky has one page, around 2.7.',
+      },
+      {
+        label: 'Price rises',
+        detail:
+          'BT applies a flat £4 a month rise every March, fully disclosed at sign-up. Sky\'s April 2026 rise was a flat £3, its first year using pounds and pence, but its contract terms for future years only say prices "may rise" without a fixed figure disclosed upfront.',
       },
       {
         label: 'Bundles',
         detail:
-          'Sky is the more natural choice if TV matters; BT is more focused on broadband plus support-led extras.',
+          'Sky has the more mature TV bundle range, including Sky Sports and combined streaming packages. BT focuses on broadband plus support-led extras like its Complete Wi-Fi service.',
       },
     ],
     faqs: [
       {
         question: 'Is BT broadband faster than Sky broadband?',
         answer:
-          'BT and Sky both sell Openreach-based broadband, so real-world availability is often similar at the same postcode. BT has a slightly stronger premium speed profile, but the best choice depends on which specific packages are available at your address.',
+          'Both sell broadband over the same Openreach network, so real-world speed at a given address is largely the same regardless of provider. Both offer a flagship tier around 900 Mbps; the actual limiting factor is what infrastructure has reached the specific address, not which of the two providers is chosen.',
       },
       {
         question: 'Which is cheaper, BT or Sky broadband?',
         answer:
-          'Sky is usually cheaper at entry level and also has no setup fee on its mainstream packages. BT tends to cost more but positions itself as a more premium service.',
+          'As of August 2026, they are nearly identical: Sky from £23.00 a month, BT from £23.99, both on 24-month contracts. This is a real change from the past, when Sky was meaningfully cheaper and offered a shorter contract.',
+      },
+      {
+        question: 'Which has a better complaints record, BT or Sky?',
+        answer:
+          'Sky, clearly. Ofcom\'s Q1 2026 report recorded Sky at 5 complaints per 100,000 customers, among the best of any major provider, against BT\'s 7, just above the industry average of 6.',
       },
       {
         question: 'Should I choose BT or Sky for TV bundles?',
         answer:
-          'Sky is usually the better fit if TV matters to you, because its broadband and entertainment proposition is more tightly integrated.',
+          'Sky is the better fit if TV matters, with a more mature bundle range including Sky Sports and combined streaming packages. BT\'s proposition is more focused on broadband itself, backed by extras like its Complete Wi-Fi mesh service.',
       },
       {
         question: 'Which is better for rural broadband, BT or Sky?',
         answer:
-          'BT generally has the edge for rural households because of its broader national reach and stronger coverage positioning.',
+          'BT generally has the edge for rural households, reaching around 98% of UK premises against Sky\'s 95%, both via the same underlying Openreach network.',
       },
     ],
     sources: [
       {
-        label: 'Google Search Central: AI features and your website',
-        href: 'https://developers.google.com/search/docs/appearance/ai-features',
+        label: 'Ofcom: telecoms and pay-TV complaints fall to a record low',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/service-quality/ofcom-telecoms-and-pay-tv-complaints-fall-to-record-low',
       },
       {
         label: 'BroadbandPicker methodology',

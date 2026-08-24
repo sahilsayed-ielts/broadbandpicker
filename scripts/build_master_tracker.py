@@ -1417,6 +1417,34 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-bt-vs-sky-comparison",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Deep rewrite: BT vs Sky comparison page (17th content-priority-analysis target)",
+        "description": (
+            "Seventeenth target from scripts/analyze_content_priority.py's ranked list, "
+            "and the first comparison-type (not guide or provider) page in this refresh "
+            "sequence: 496 words of entirely generic, number-free copy ('Sky starts "
+            "cheaper,' 'BT usually charges more,' 'Sky is typically shorter at 18 "
+            "months') that was also factually stale -- Sky moved to 24-month contracts "
+            "some time ago, the same length as BT, a real premise this page's whole "
+            "'contract flexibility' differentiator was built on. Rewrote using the "
+            "already-vetted current data from this session's own BT and Sky provider-page "
+            "rewrites: prices have converged to within a pound (BT GBP23.99 vs Sky "
+            "GBP23.00), Sky has the clearly better Ofcom Q1 2026 complaints record (5 vs "
+            "7 per 100k), BT has wider coverage (98% vs 95%), and BT's flat GBP4/year "
+            "March price rise is more transparently disclosed for future years than "
+            "Sky's 'prices may rise' contract wording. Populated the previously-empty "
+            "factSnapshot field. Word count 496 -> 717."
+        ),
+        "priority_score": 34,
+        "impact_score": 32,
+        "effort": "Medium",
+        "target": "data/provider-comparisons.ts (bt-vs-sky)",
+        "dependencies": "ops-content-priority-analysis-tooling",
+        "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",
