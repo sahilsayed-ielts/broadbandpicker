@@ -147,25 +147,6 @@
       "notes": ""
     },
     {
-      "path": "/providers/now-broadband",
-      "page_type": "provider",
-      "status": 200,
-      "word_count": 386,
-      "has_faq_schema": true,
-      "has_answer_first_paragraph": true,
-      "checked_date": "2026-06-21",
-      "months_since_checked": 2.1,
-      "mapped_volume": 9320,
-      "ai_feature_impressions": 4,
-      "thin": true,
-      "stale": false,
-      "missing_geo_signals": [
-        "below 1400-word depth floor for a provider page"
-      ],
-      "refresh_score": 65.8,
-      "notes": ""
-    },
-    {
       "path": "/providers/youfibre",
       "page_type": "provider",
       "status": 200,
@@ -315,6 +296,25 @@
         "below 1200-word depth floor for a guide page"
       ],
       "refresh_score": 45.2,
+      "notes": ""
+    },
+    {
+      "path": "/guides/broadband-deals-under-20",
+      "page_type": "guide",
+      "status": 200,
+      "word_count": 608,
+      "has_faq_schema": true,
+      "has_answer_first_paragraph": true,
+      "checked_date": "2026-06-21",
+      "months_since_checked": 2.1,
+      "mapped_volume": 2000,
+      "ai_feature_impressions": 0,
+      "thin": true,
+      "stale": false,
+      "missing_geo_signals": [
+        "below 1200-word depth floor for a guide page"
+      ],
+      "refresh_score": 45.0,
       "notes": ""
     }
   ],

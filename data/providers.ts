@@ -2614,29 +2614,135 @@ const baseProviders: Provider[] = [
     affiliateUrl: 'https://www.youfibre.com/',
     speeds: [
       { download: 200, upload: 200, type: 'FTTP' },
-      { download: 900, upload: 900, type: 'FTTP' },
-      { download: 1800, upload: 1800, type: 'FTTP' },
+      { download: 1000, upload: 1000, type: 'FTTP' },
+      { download: 2000, upload: 2000, type: 'FTTP' },
+      { download: 8000, upload: 8000, type: 'FTTP' },
     ],
     monthlyPriceFrom: 20.00,
-    contractLengths: [1, 12, 24],
+    contractLengths: [1, 24],
     setupFee: 0,
     trustpilotScore: 4.6,
     coveragePercent: 10,
     highlights: [
-      'Rolling monthly contract option — unusual among full-fibre altnets',
-      'No mid-contract price rises on any deal',
-      'Symmetrical upload and download on every tier, including a 1.8 Gbps option',
+      'Genuinely symmetrical upload and download speeds on every tier, up to 8 Gbps',
+      'No mid-contract price rises on any deal, fixed or rolling',
+      'Its parent group is mid-acquisition into the Virgin Media O2 orbit, pending a CMA Phase 2 competition investigation',
     ],
     pros: [
-      'Flexible contract lengths, including rolling monthly',
-      'Fixed pricing for the full term — no scheduled mid-contract increases',
-      'Wi-Fi 7 router included on current deals',
+      'No scheduled mid-contract price increases on any package, a genuine point of difference from BT, Sky and most national providers',
+      'Rolling monthly contracts available alongside a standard 24-month term, unusual among full-fibre altnets',
+      'Wi-Fi 7 router included as standard, with no setup fee',
+      'Strong Trustpilot score, around 4.6 out of 5, on its main youfibre.com profile',
     ],
     cons: [
-      'Coverage limited to selected towns and cities on the Netomnia network',
-      'Trustpilot sentiment has been mixed since absorbing BRSK customers in 2025/26',
+      'Coverage limited to selected towns on the Netomnia network, around 10% of UK premises',
+      'Real billing and account-access problems were reported during the March 2026 Brsk-to-YouFibre migration',
+      'Its parent group, Substantial Group, is being acquired into the Virgin Media O2 orbit, a deal not yet cleared by the competition regulator',
+      'A separate, lower-scoring youfibre.co.uk Trustpilot profile exists alongside the main youfibre.com page',
     ],
-    ...createReviewMetadata('YouFibre', 'https://www.youfibre.com/', 'youfibre.com'),
+    excerpt:
+      'YouFibre is a full-fibre altnet built on the Netomnia network, covering around 10% of UK premises across more than 150 towns after absorbing the Brsk brand in March 2026. Prices run from £20 a month for You 200 up to £50 for You 8000, all symmetrical and with no mid-contract price rises, on either a 24-month or rolling monthly contract. Its Trustpilot score is a strong 4.6 out of 5, though the Brsk migration caused genuine billing and login problems for some customers, and its parent group is currently mid-acquisition into the Virgin Media O2 orbit, pending regulatory approval.',
+    contentSections: [
+      {
+        heading: 'YouFibre Broadband Deals in August 2026',
+        paragraphs: [
+          'YouFibre\'s current 24-month range runs from You 200 at £20 a month, through You 1000 at £25 and You 2000 at £30, up to You 8000 at £50, all with genuinely symmetrical upload and download speeds. A rolling monthly option is also available at a higher price, from £33.99 for You 150 up to £129.99 for You 8000, requiring 30 days\' notice to cancel rather than a fixed minimum term.',
+          'No setup fee applies on any package, and a Wi-Fi 7 router is included as standard, a genuinely newer specification than most national providers currently offer even on their flagship tiers.',
+          'YouFibre\'s central pricing promise is that the monthly price stays fixed for the whole contract term, with no scheduled mid-contract increase of the kind BT, Sky, EE and Vodafone all now apply as a flat pounds-and-pence rise. This remains a genuine, real point of difference rather than a marketing claim, and applies equally to the rolling monthly option.',
+        ],
+      },
+      {
+        heading: 'Coverage: The Netomnia Network After the Brsk Merger',
+        paragraphs: [
+          'YouFibre runs on the Netomnia network, its own full-fibre infrastructure entirely separate from Openreach and Virgin Media\'s cable network. Coverage reached over 100 towns before merging with sister altnet Brsk in early 2026, and expanded to more than 150 towns afterward, spanning around 3 million UK premises across roughly 98 cities and towns, from Durham and Dover to Swansea, Stockton, Stockport, Bolton, Preston and Blackburn.',
+          'As with any altnet, an address either has Netomnia\'s fibre running to it or does not; there is no partial or gradual coverage the way some national rollouts work. Always check the specific postcode rather than assuming general town-level coverage applies to a particular street or building.',
+          'At around 10% of UK premises, YouFibre\'s reach is still far behind Openreach-based providers or Virgin Media, but it is a genuinely large and growing altnet, among the bigger alternative full-fibre networks in the UK alongside CityFibre.',
+        ],
+      },
+      {
+        heading: 'The Brsk Merger: What Actually Happened to Customers',
+        paragraphs: [
+          'Netomnia merged its two retail broadband brands, Brsk and YouFibre, under the single YouFibre name, with customer migration beginning on 16 March 2026. The company said there would be "no immediate changes" to former Brsk customers\' contracts, plans or pricing during the transition.',
+          'In practice, the migration caused real, documented problems for some customers: billing errors including bills arriving noticeably higher than expected, difficulty logging into accounts or resetting passwords on the new YouFibre system, reports of speed drops during the switchover, and an overwhelmed customer support chat unable to keep up with the volume of queries.',
+          'Anyone who was a Brsk customer before March 2026, or who is considering YouFibre now partly on the strength of Brsk\'s own reputation, should check their current bill against what they were originally promised, since migration-related billing errors were a genuine, reported issue rather than an isolated complaint.',
+        ],
+      },
+      {
+        heading: 'YouFibre\'s Parent Group Is Being Acquired Into the Virgin Media O2 Orbit',
+        paragraphs: [
+          'In February 2026, InfraVia, Liberty Global and Telefónica agreed to acquire Substantial Group, the parent company of Netomnia, YouFibre and Brsk, for £2 billion through their existing joint venture, nexfibre, the same infrastructure venture behind part of Virgin Media O2\'s network build-out. Nexfibre plans to then sell the retail YouFibre and Brsk brands on to Virgin Media O2 for £150 million.',
+          'This deal has not completed. The UK\'s Competition and Markets Authority referred the acquisition for an in-depth Phase 2 investigation on 1 July 2026, and completion is not expected until around the third quarter of 2026 at the earliest, subject to that review\'s outcome.',
+          'This matters for anyone choosing YouFibre specifically for its identity as an independent altnet, separate from the Openreach-vs-Virgin Media duopoly: if the deal completes, YouFibre\'s ultimate ownership will sit within the same corporate group as Virgin Media O2, even though the network and retail brand are expected to continue operating as before in the near term.',
+        ],
+      },
+      {
+        heading: 'YouFibre Customer Service and Trustpilot',
+        paragraphs: [
+          'YouFibre\'s main youfibre.com Trustpilot page shows a strong rating, around 4.6 out of 5 from more than 30,000 reviews, well above most national Openreach-based providers and consistent with reviewer comments about hassle-free installation and responsive problem-solving. A separate youfibre.co.uk profile exists with a noticeably lower score, a genuine dual-domain split worth knowing about, though the main youfibre.com page is the one actively promoted and used by the company.',
+          'The strong headline score should be read alongside the specific, documented problems from the March 2026 Brsk migration above; a high overall Trustpilot average does not mean every customer\'s experience during a major system transition was smooth.',
+        ],
+      },
+      {
+        heading: 'Is YouFibre Worth It?',
+        paragraphs: [
+          'YouFibre\'s real advantages are genuine: no scheduled mid-contract price rise, symmetrical speeds on every tier, a current-generation Wi-Fi 7 router included free, and a strong underlying Trustpilot record. For an address within its expanding Netomnia footprint, it is a genuinely competitive alternative to the Openreach-based majority of the market.',
+          'The coverage footprint is still a real limitation at around 10% of UK premises, the Brsk migration caused genuine short-term problems for some customers, and its parent group\'s pending acquisition into the Virgin Media O2 orbit is a real, ongoing story rather than settled fact.',
+          'Our take: YouFibre suits a household within its coverage area that specifically values fixed pricing for the full contract term and symmetrical speeds, and is comfortable with a still-growing altnet whose ownership structure is currently in flux pending regulatory approval.',
+        ],
+      },
+    ],
+    faqItems: [
+      {
+        question: 'Is YouFibre any good?',
+        answer: 'YouFibre has a strong Trustpilot score, around 4.6 out of 5, and a genuine pricing advantage: no scheduled mid-contract price rise on any package, unlike BT, Sky, EE and Vodafone. Its main limitation is coverage, at around 10% of UK premises, and the March 2026 Brsk migration caused real, documented billing and login problems for some former Brsk customers.',
+      },
+      {
+        question: 'Is YouFibre being taken over by Virgin Media O2?',
+        answer: 'Its parent company, Substantial Group, is being acquired by nexfibre, a joint venture between InfraVia, Liberty Global and Telefónica, which plans to then sell the YouFibre and Brsk retail brands to Virgin Media O2. The deal was announced in February 2026 but has not completed; the CMA referred it for an in-depth Phase 2 investigation on 1 July 2026, with completion not expected before around the third quarter of 2026.',
+      },
+      {
+        question: 'What happened when Brsk merged into YouFibre?',
+        answer: 'Migration of former Brsk customers to YouFibre began on 16 March 2026. Despite a "no immediate changes" pledge, some customers reported real billing errors, including bills notably higher than expected, difficulty logging into their new YouFibre account, reported speed drops during the switchover, and an overwhelmed customer support chat.',
+      },
+      {
+        question: 'Does YouFibre raise its prices during the contract?',
+        answer: 'No. YouFibre\'s monthly price stays fixed for the full contract term on both its 24-month and rolling monthly options, with no scheduled mid-contract increase of the kind most national providers now apply.',
+      },
+    ],
+    reviewedDate: '2026-08-24',
+    pricingVerifiedDate: '2026-08-24',
+    reviewSources: [
+      {
+        label: 'Uswitch: YouFibre broadband packages and pricing',
+        href: 'https://www.uswitch.com/broadband/providers/youfibre/',
+        note: 'Used for the current package lineup, 24-month and rolling monthly pricing, checked 2026-08-24.',
+      },
+      {
+        label: 'Virgin Media O2: InfraVia, Liberty Global and Telefónica acquire Substantial Group',
+        href: 'https://news.virginmediao2.co.uk/infravia-liberty-global-and-telefonica-acquire-substantial-group-for-2-billion-through-their-existing-joint-venture-nexfibre/',
+        note: 'Primary source for the £2bn nexfibre acquisition of Substantial Group and the planned £150m resale of YouFibre/Brsk to Virgin Media O2.',
+      },
+      {
+        label: 'thinkbroadband: nexfibre/Netomnia submission to competition investigation into merger',
+        href: 'https://www.thinkbroadband.com/news/nexfibre-netomnia-submission-to-competition-investigation-into-merger',
+        note: 'Source for the CMA\'s Phase 2 investigation referral and the deal\'s incomplete regulatory status as of August 2026.',
+      },
+      {
+        label: 'ISPreview: Broadband ISP migrations from Brsk to YouFibre trigger UK billing errors',
+        href: 'https://www.ispreview.co.uk/index.php/2026/03/broadband-isp-migrations-from-brsk-to-youfibre-trigger-uk-billing-errors.html',
+        note: 'Primary source for the specific, documented billing and account-access problems during the March 2026 Brsk migration.',
+      },
+      {
+        label: 'YouFibre public Trustpilot profile',
+        href: 'https://uk.trustpilot.com/review/youfibre.com',
+        note: 'Customer-sentiment reference showing a rating around 4.6 out of 5 from more than 30,000 reviews in August 2026; not treated as a controlled reliability survey.',
+      },
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+        note: 'Explains how price, speed, coverage, customer experience and use-case fit are weighed.',
+      },
+    ],
     awinProgramId: null,
   },
   {

@@ -1154,6 +1154,37 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-youfibre-provider-page",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Deep rewrite: YouFibre provider page (8th content-priority-analysis target)",
+        "description": (
+            "Eighth target from scripts/analyze_content_priority.py's ranked list: "
+            "/providers/youfibre was 397 words with no excerpt or contentSections. "
+            "Rewritten to ~1,575 words with 6 contentSections. The standout finding, "
+            "verified against a primary Virgin Media O2 press release after a first-pass "
+            "WebSearch AI summary over-stated it as a done deal: YouFibre's parent company, "
+            "Substantial Group (Netomnia), is being acquired for GBP2bn by nexfibre (a joint "
+            "venture of InfraVia, Liberty Global and Telefonica), which then plans to resell "
+            "the YouFibre/Brsk retail brands to Virgin Media O2 for GBP150m -- announced Feb "
+            "2026, referred to the CMA for a Phase 2 investigation on 1 July 2026, and NOT "
+            "yet completed (expected ~Q3 2026 at the earliest). Also wrote up the real, "
+            "documented fallout from the March 2026 Brsk-to-YouFibre customer migration "
+            "(billing errors, login/password-reset failures, reported speed drops, "
+            "overwhelmed support chat), sourced from ISPreview rather than the vague "
+            "pre-existing 'Trustpilot sentiment has been mixed' line. Updated the speeds "
+            "array to the real current tiers (200/1000/2000/8000 Mbps symmetrical, "
+            "replacing stale 200/900/1800) and contractLengths from [1,12,24] to [1,24] "
+            "to match the two options confirmed by current pricing research."
+        ),
+        "priority_score": 43,
+        "impact_score": 39,
+        "effort": "Medium",
+        "target": "data/providers.ts (youfibre)",
+        "dependencies": "ops-content-priority-analysis-tooling",
+        "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",
