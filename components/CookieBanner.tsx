@@ -42,6 +42,16 @@ export default function CookieBanner() {
     localStorage.setItem(CONSENT_KEY, 'accepted')
     setVisible(false)
     updateGoogleConsent('granted')
+    // The initial GA configuration may have run while consent was denied.
+    // Send the first consented page view immediately so Realtime starts without
+    // requiring the visitor to navigate or reload.
+    if (typeof window !== 'undefined' && typeof (window as any).gtag === 'function') {
+      ;(window as any).gtag('event', 'page_view', {
+        page_location: window.location.href,
+        page_path: window.location.pathname,
+        page_title: document.title,
+      })
+    }
   }
 
   function decline() {

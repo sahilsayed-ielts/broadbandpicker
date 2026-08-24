@@ -901,6 +901,46 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "ops-content-priority-analysis-tooling",
+        "type": "Tooling",
+        "pillar": "Content",
+        "title": "Content priority analysis: real SEO + GEO signals, build vs. update on one list",
+        "description": (
+            "User asked for a script that does detailed SEO analysis of the site's own data "
+            "and prioritises what to build vs. update, weighting generative-AI/GEO reports "
+            "specifically. Built scripts/analyze_content_priority.py: combines real mapped "
+            "search volume already researched in docs/broadbandpicker-keyword-mapping.xlsx "
+            "with a live crawl of every provider/comparison/guide page (word count against "
+            "this session's own depth floors, FAQPage schema, a detectable answer-first "
+            "paragraph, a parsed checked/reviewed date). Mid-build discovered the user's "
+            "actual request: a real Google Search Console 'Performance on Search Generative "
+            "AI Features' export had been dropped into data/GSC/, which is ground truth for "
+            "AI Overview surfacing, not a proxy -- rebuilt the script to load and heavily "
+            "weight it. Caught and fixed two real bugs before reporting any findings: word "
+            "counts of 15k-17k+ caused by the React RSC hydration payload inside <script> tags "
+            "being counted as visible text, and every page falsely flagging 'no answer-first "
+            "paragraph' because the <p> search matched header mega-menu labels before reaching "
+            "the main content -- both fixed by parsing with lxml, stripping script/style, and "
+            "scoping to <main>. Real finding once the GSC data was wired in: "
+            "/guides/best-full-fibre-broadband-uk earned 512 real AI-feature impressions in the "
+            "last 28 days while sitting at 636 words, the clearest 'already working, just needs "
+            "depth' signal on the site -- now the top-ranked refresh target, above even "
+            "/providers/sky's 172,237 monthly search volume, since Sky currently earns almost "
+            "no AI-feature traction (4 impressions) and represents a different kind of "
+            "opportunity. Sky also does not appear in any of the 3 Awin relationship lists at "
+            "all (joined/pending/rejected), confirmed via a direct re-check -- no record of "
+            "ever applying. Every row in the Content Gap Roadmap is already marked built "
+            "(33/33), so there are currently no new-page gaps on the existing curated keyword "
+            "list. Findings written up in docs/content-priority-analysis.md."
+        ),
+        "priority_score": 56,
+        "impact_score": 60,
+        "effort": "Medium",
+        "target": "scripts/analyze_content_priority.py",
+        "dependencies": "docs/broadbandpicker-keyword-mapping.xlsx (existing keyword research)",
+        "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",

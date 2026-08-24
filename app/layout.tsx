@@ -28,8 +28,8 @@ export const metadata: Metadata = {
   description:
     'Compare the best broadband deals in the UK. Find cheap fibre and full-fibre packages from BT, Sky, Virgin Media, EE and more. Free postcode checker.',
   icons: {
-    icon: [{ url: '/favicon.ico', type: 'image/x-icon', sizes: '48x48' }],
-    shortcut: '/favicon.ico',
+    icon: [{ url: '/broadbandpicker-favicon-96.png', type: 'image/png', sizes: '96x96' }],
+    shortcut: '/broadbandpicker-favicon-96.png',
     apple: '/apple-icon.png',
   },
   alternates: {
@@ -287,10 +287,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </Script>
             <Script
               src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-              strategy="lazyOnload"
+              strategy="afterInteractive"
             />
-            <Script id="ga-init" strategy="lazyOnload">
-              {`gtag('js',new Date());gtag('config','${gaId}');`}
+            <Script id="ga-init" strategy="afterInteractive">
+              {`gtag('js',new Date());gtag('config','${gaId}',{send_page_view:true});`}
             </Script>
           </>
         )}

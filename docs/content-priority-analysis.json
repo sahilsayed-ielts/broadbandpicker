@@ -1,0 +1,295 @@
+{
+  "generated": "2026-08-24",
+  "method": "Live crawl of every provider/comparison/guide URL in the current sitemap, scored on word count against this session's own established depth floors, FAQPage schema presence, a detectable answer-first paragraph, and a checked/reviewed date parsed from visible text, cross-referenced against real mapped search volume already researched in docs/broadbandpicker-keyword-mapping.xlsx AND real per-page impression counts from Google Search Console's 'Performance on Search Generative AI Features' export (data/GSC/), when present. The GSC figures are actual ground truth that a page has already been surfaced inside an AI Overview or similar generative feature, not a proxy, and are weighted heavily in the score for exactly that reason. Word count, schema and date signals remain proxies for pages with no GSC history yet.",
+  "ai_feature_data_present": true,
+  "pages_audited": 96,
+  "top_refresh_candidates": [
+    {
+      "path": "/guides/best-full-fibre-broadband-uk",
+      "page_type": "guide",
+      "status": 200,
+      "word_count": 636,
+      "has_faq_schema": true,
+      "has_answer_first_paragraph": true,
+      "checked_date": "2026-06-21",
+      "months_since_checked": 2.1,
+      "mapped_volume": 2900,
+      "ai_feature_impressions": 512,
+      "thin": true,
+      "stale": false,
+      "missing_geo_signals": [
+        "below 1200-word depth floor for a guide page"
+      ],
+      "refresh_score": 114.0,
+      "notes": ""
+    },
+    {
+      "path": "/guides/best-broadband-and-tv-deals",
+      "page_type": "guide",
+      "status": 200,
+      "word_count": 2126,
+      "has_faq_schema": true,
+      "has_answer_first_paragraph": true,
+      "checked_date": "2026-08-24",
+      "months_since_checked": 0.0,
+      "mapped_volume": 12100,
+      "ai_feature_impressions": 1295,
+      "thin": false,
+      "stale": false,
+      "missing_geo_signals": [],
+      "refresh_score": 100,
+      "notes": ""
+    },
+    {
+      "path": "/guides/cheapest-broadband-uk",
+      "page_type": "guide",
+      "status": 200,
+      "word_count": 481,
+      "has_faq_schema": true,
+      "has_answer_first_paragraph": true,
+      "checked_date": "2026-06-01",
+      "months_since_checked": 2.8,
+      "mapped_volume": 19400,
+      "ai_feature_impressions": 130,
+      "thin": true,
+      "stale": false,
+      "missing_geo_signals": [
+        "below 1200-word depth floor for a guide page"
+      ],
+      "refresh_score": 91.0,
+      "notes": ""
+    },
+    {
+      "path": "/guides/best-business-broadband-providers-uk",
+      "page_type": "guide",
+      "status": 200,
+      "word_count": 596,
+      "has_faq_schema": true,
+      "has_answer_first_paragraph": true,
+      "checked_date": null,
+      "months_since_checked": null,
+      "mapped_volume": 2900,
+      "ai_feature_impressions": 142,
+      "thin": true,
+      "stale": false,
+      "missing_geo_signals": [
+        "below 1200-word depth floor for a guide page",
+        "no parseable reviewed/checked date in visible text"
+      ],
+      "refresh_score": 87.4,
+      "notes": ""
+    },
+    {
+      "path": "/guides/best-phone-and-broadband-deals",
+      "page_type": "guide",
+      "status": 200,
+      "word_count": 457,
+      "has_faq_schema": true,
+      "has_answer_first_paragraph": true,
+      "checked_date": null,
+      "months_since_checked": null,
+      "mapped_volume": 29600,
+      "ai_feature_impressions": 14,
+      "thin": true,
+      "stale": false,
+      "missing_geo_signals": [
+        "below 1200-word depth floor for a guide page",
+        "no parseable reviewed/checked date in visible text"
+      ],
+      "refresh_score": 72.8,
+      "notes": ""
+    },
+    {
+      "path": "/guides/best-5g-home-broadband-uk",
+      "page_type": "guide",
+      "status": 200,
+      "word_count": 601,
+      "has_faq_schema": true,
+      "has_answer_first_paragraph": true,
+      "checked_date": "2026-06-21",
+      "months_since_checked": 2.1,
+      "mapped_volume": 4400,
+      "ai_feature_impressions": 30,
+      "thin": true,
+      "stale": false,
+      "missing_geo_signals": [
+        "below 1200-word depth floor for a guide page"
+      ],
+      "refresh_score": 71.0,
+      "notes": ""
+    },
+    {
+      "path": "/providers/sky",
+      "page_type": "provider",
+      "status": 200,
+      "word_count": 387,
+      "has_faq_schema": true,
+      "has_answer_first_paragraph": true,
+      "checked_date": "2026-06-21",
+      "months_since_checked": 2.1,
+      "mapped_volume": 172237,
+      "ai_feature_impressions": 4,
+      "thin": true,
+      "stale": false,
+      "missing_geo_signals": [
+        "below 1400-word depth floor for a provider page"
+      ],
+      "refresh_score": 65.8,
+      "notes": ""
+    },
+    {
+      "path": "/providers/now-broadband",
+      "page_type": "provider",
+      "status": 200,
+      "word_count": 386,
+      "has_faq_schema": true,
+      "has_answer_first_paragraph": true,
+      "checked_date": "2026-06-21",
+      "months_since_checked": 2.1,
+      "mapped_volume": 9320,
+      "ai_feature_impressions": 4,
+      "thin": true,
+      "stale": false,
+      "missing_geo_signals": [
+        "below 1400-word depth floor for a provider page"
+      ],
+      "refresh_score": 65.8,
+      "notes": ""
+    },
+    {
+      "path": "/providers/youfibre",
+      "page_type": "provider",
+      "status": 200,
+      "word_count": 397,
+      "has_faq_schema": true,
+      "has_answer_first_paragraph": true,
+      "checked_date": "2026-06-21",
+      "months_since_checked": 2.1,
+      "mapped_volume": 4400,
+      "ai_feature_impressions": 0,
+      "thin": true,
+      "stale": false,
+      "missing_geo_signals": [
+        "below 1400-word depth floor for a provider page"
+      ],
+      "refresh_score": 65.0,
+      "notes": ""
+    },
+    {
+      "path": "/guides/best-broadband-providers-uk",
+      "page_type": "guide",
+      "status": 200,
+      "word_count": 872,
+      "has_faq_schema": true,
+      "has_answer_first_paragraph": true,
+      "checked_date": "2026-06-19",
+      "months_since_checked": 2.2,
+      "mapped_volume": 5400,
+      "ai_feature_impressions": 0,
+      "thin": true,
+      "stale": false,
+      "missing_geo_signals": [
+        "below 1200-word depth floor for a guide page"
+      ],
+      "refresh_score": 65.0,
+      "notes": ""
+    },
+    {
+      "path": "/guides/broadband-without-phone-line",
+      "page_type": "guide",
+      "status": 200,
+      "word_count": 770,
+      "has_faq_schema": true,
+      "has_answer_first_paragraph": true,
+      "checked_date": "2026-06-19",
+      "months_since_checked": 2.2,
+      "mapped_volume": 5800,
+      "ai_feature_impressions": 0,
+      "thin": true,
+      "stale": false,
+      "missing_geo_signals": [
+        "below 1200-word depth floor for a guide page"
+      ],
+      "refresh_score": 65.0,
+      "notes": ""
+    },
+    {
+      "path": "/guides/satellite-broadband-uk",
+      "page_type": "guide",
+      "status": 200,
+      "word_count": 437,
+      "has_faq_schema": true,
+      "has_answer_first_paragraph": true,
+      "checked_date": null,
+      "months_since_checked": null,
+      "mapped_volume": 2400,
+      "ai_feature_impressions": 21,
+      "thin": true,
+      "stale": false,
+      "missing_geo_signals": [
+        "below 1200-word depth floor for a guide page",
+        "no parseable reviewed/checked date in visible text"
+      ],
+      "refresh_score": 58.2,
+      "notes": ""
+    },
+    {
+      "path": "/guides/broadband-moving-house",
+      "page_type": "guide",
+      "status": 200,
+      "word_count": 948,
+      "has_faq_schema": true,
+      "has_answer_first_paragraph": true,
+      "checked_date": "2026-06-19",
+      "months_since_checked": 2.2,
+      "mapped_volume": 2900,
+      "ai_feature_impressions": 0,
+      "thin": true,
+      "stale": false,
+      "missing_geo_signals": [
+        "below 1200-word depth floor for a guide page"
+      ],
+      "refresh_score": 54.0,
+      "notes": ""
+    },
+    {
+      "path": "/guides/best-broadband-for-gaming-uk",
+      "page_type": "guide",
+      "status": 200,
+      "word_count": 836,
+      "has_faq_schema": true,
+      "has_answer_first_paragraph": true,
+      "checked_date": "2026-06-19",
+      "months_since_checked": 2.2,
+      "mapped_volume": 2400,
+      "ai_feature_impressions": 0,
+      "thin": true,
+      "stale": false,
+      "missing_geo_signals": [
+        "below 1200-word depth floor for a guide page"
+      ],
+      "refresh_score": 49.0,
+      "notes": ""
+    },
+    {
+      "path": "/guides/broadband-social-tariffs-uk",
+      "page_type": "guide",
+      "status": 200,
+      "word_count": 777,
+      "has_faq_schema": true,
+      "has_answer_first_paragraph": true,
+      "checked_date": "2026-06-19",
+      "months_since_checked": 2.2,
+      "mapped_volume": 2400,
+      "ai_feature_impressions": 0,
+      "thin": true,
+      "stale": false,
+      "missing_geo_signals": [
+        "below 1200-word depth floor for a guide page"
+      ],
+      "refresh_score": 49.0,
+      "notes": ""
+    }
+  ],
+  "top_new_build_gaps": []
+}
