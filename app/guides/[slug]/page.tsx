@@ -834,59 +834,66 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
   'broadband-deals-under-20': {
     body: (
       <>
-        <p>Broadband deals under <strong>£20 per month</strong> are still available in the UK, but they are usually found on entry-level fibre packages with trade-offs around contract length, setup fees, and support quality. The key is not just finding a price under £20. It is making sure the package is still right for your home.</p>
+        <p>Broadband deals under <strong>£20 a month</strong> are still available in the UK, but the providers that reliably offer them have shifted. NOW Broadband and TalkTalk, long the default answer to this question, both now start above £20 a month on their current standard ranges; the genuine under-£20 segment in August 2026 is led by a different, mostly altnet-driven set of providers.</p>
 
-        <h2>What broadband under £20 usually looks like</h2>
+        <h2>Real UK broadband deals under £20, August 2026</h2>
         <div className="overflow-x-auto">
           <table className="w-full text-sm border-collapse">
             <thead>
               <tr className="bg-slate-50">
-                {['Typical deal type', 'What you usually get', 'Main trade-off'].map((heading) => (
-                  <th key={heading} className="text-left px-4 py-3 border border-slate-200 font-semibold text-slate-700">{heading}</th>
+                {['Provider', 'From', 'Contract', 'Coverage', 'Best for'].map(h => (
+                  <th key={h} className="text-left px-4 py-3 border border-slate-200 font-semibold text-slate-700">{h}</th>
                 ))}
               </tr>
             </thead>
             <tbody>
               {[
-                ['Budget standard fibre', 'Enough speed for browsing, streaming, and light home use', 'Less headroom for busy family homes'],
-                ['Longer-contract promo deal', 'Lower monthly price', 'You may be locked in for 18 or 24 months'],
-                ['Shorter low-cost deal', 'More flexibility', 'Often a setup fee or less generous pricing after the promo period'],
-                ['Social tariff', 'Very low monthly cost for eligible households', 'Availability depends on benefits eligibility'],
-              ].map(([type, offer, tradeoff]) => (
-                <tr key={type} className="border-b border-slate-100 hover:bg-slate-50">
-                  <td className="px-4 py-3 font-semibold text-slate-900">{type}</td>
-                  <td className="px-4 py-3 text-slate-700">{offer}</td>
-                  <td className="px-4 py-3 text-slate-600">{tradeoff}</td>
+                ['Community Fibre', '£12.50/mo', '12 or 24 months', 'London, Surrey, Sussex', 'The cheapest full-fibre deal on this site'],
+                ['Onestream', '£18.50/mo', '12 or 24 months', '94% of UK premises', 'Widest availability of any under-£20 option'],
+                ['Gigaclear', '£19.00/mo', '18 months', 'Selected rural areas (2%)', 'Symmetrical rural full fibre'],
+                ['toob', '£19.50/mo', '18 or 24 months', 'Southampton area, ~290,000 premises', 'No mid-contract price rise'],
+                ['Trooli', '£19.99/mo', '24 months', 'Selected areas (1%)', 'Fast entry speed for the price'],
+              ].map(([p, price, contract, coverage, best]) => (
+                <tr key={p} className="border-b border-slate-100 hover:bg-slate-50">
+                  <td className="px-4 py-3 font-semibold text-slate-900">{p}</td>
+                  <td className="px-4 py-3 font-bold text-sky-700">{price}</td>
+                  <td className="px-4 py-3 text-slate-700">{contract}</td>
+                  <td className="px-4 py-3 text-slate-600 text-xs">{coverage}</td>
+                  <td className="px-4 py-3 text-slate-600 text-xs">{best}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
+        <p className="text-xs text-slate-500 mt-2">Prices checked against each provider&apos;s own current range, August 2026. All are full-fibre (FTTP) except where a provider offers a mixed range; coverage percentages are approximate and address-specific.</p>
 
-        <h2>Which providers usually appear under £20</h2>
-        <p><strong>NOW Broadband</strong> and <strong>TalkTalk</strong> are the most common names in this price bracket among mainstream providers. Depending on postcode and promotions, some other brands may briefly dip close to the line, but the true under-£20 segment is still mostly driven by budget-first providers and promotional entry offers.</p>
+        <h2>Why NOW Broadband and TalkTalk are no longer the obvious answer</h2>
+        <p>NOW Broadband, owned by Sky, dropped its shorter, more flexible contract options and now starts from £23 a month on a standard 24-month term. TalkTalk&apos;s current range starts from £25 a month. Both remain reasonable options at their current prices, but neither is genuinely part of the sub-£20 segment any more, a real shift from their earlier budget positioning that older comparison content across the web, including this page&apos;s previous version, had not caught up with.</p>
+
+        <h2>What broadband under £20 usually looks like now</h2>
+        <p>Every current under-£20 option on this site is an altnet running its own full-fibre network rather than a national Openreach reseller, with the exception of Onestream, which sells over Openreach and is genuinely available to around 94% of UK premises, making it the most realistic under-£20 option for anyone outside a smaller altnet&apos;s footprint. Community Fibre, toob, Gigaclear and Trooli are all limited to specific towns, cities or regions, so availability must be checked at the exact address rather than assumed from a postcode area alone.</p>
 
         <h2>When paying slightly more is worth it</h2>
-        <p>A deal at £21 to £24 per month can still be better value than one under £20 if it gives you a shorter contract, no setup fee, or enough extra speed to suit the household properly. That is especially true if several people stream, game, or work from home on the same connection.</p>
+        <p>A deal at £21 to £25 a month can still be better value than one under £20 if it gives a meaningfully higher speed, no scheduled price rise, or a stronger complaints record. Sky, for example, starts from £23 a month but carries one of the best Ofcom complaints records of any major provider, a genuine trade-off worth weighing against a marginally cheaper altnet deal, especially for a household where several people stream, game or work from home on the same connection.</p>
 
         <h2>What to check before choosing a cheap deal</h2>
         <ul>
           <li>The total cost over the whole minimum term, not just the first monthly figure</li>
-          <li>Whether a setup or activation fee wipes out the saving</li>
-          <li>Whether the contract is 12, 18, or 24 months long</li>
-          <li>Whether the speed is actually enough for your household</li>
-          <li>What the out-of-contract or post-promo price becomes later</li>
+          <li>Whether a scheduled annual price rise applies, and how much it adds by year two</li>
+          <li>Whether the contract is 12, 18 or 24 months long</li>
+          <li>Whether the speed is actually enough for the household</li>
+          <li>Whether the exact address is genuinely covered, not just the general town or postcode area</li>
         </ul>
 
         <h2>Who should target under-£20 broadband</h2>
-        <p>This category suits one-person homes, small flats, budget-led households, and users with light to moderate internet needs. Bigger homes should be more careful, because saving a few pounds a month is rarely worth it if the connection becomes frustrating every evening.</p>
+        <p>This category suits one-person homes, small flats, budget-led households and users with light to moderate internet needs. Bigger homes should be more careful, because saving a few pounds a month is rarely worth it if the connection becomes frustrating every evening, and several of the genuinely cheapest current options have limited geographic coverage that rules them out for most UK addresses regardless of price.</p>
       </>
     ),
     faqs: [
-      { question: 'Can you still get broadband under £20 in the UK?', answer: 'Yes. Deals under £20 still appear, especially from NOW Broadband and TalkTalk, although availability and contract structure depend on postcode and current promotions.' },
-      { question: 'Which provider has the best broadband deal under £20?', answer: 'NOW Broadband is often the most obvious mainstream contender for under-£20 deals, while TalkTalk is also frequently relevant. The best option depends on setup fees, contract length, and what speed your home actually needs.' },
-      { question: 'Is broadband under £20 good enough for streaming?', answer: 'For a small household with light to moderate streaming, yes. For larger homes with several people online at once, a very cheap deal can feel limiting, especially if it is an entry-level speed tier.' },
-      { question: 'Should I choose a broadband deal under £20 or pay a little more?', answer: 'Choose under £20 if your needs are modest and the contract is sensible. Pay a little more if it meaningfully improves flexibility, speed, or total contract value.' },
+      { question: 'Can you still get broadband under £20 in the UK?', answer: 'Yes, though the providers have changed. NOW Broadband and TalkTalk, long the default answer, now both start above £20 a month. The current genuine under-£20 segment is led by altnets: Community Fibre from £12.50, Onestream from £18.50 (94% of UK premises), Gigaclear from £19.00, toob from £19.50 and Trooli from £19.99.' },
+      { question: 'Which provider has the best broadband deal under £20?', answer: 'Community Fibre is the cheapest at £12.50 a month, though limited to London, Surrey and Sussex. Onestream, from £18.50 a month, has by far the widest availability of any current under-£20 option at around 94% of UK premises, making it the most realistic pick for most households.' },
+      { question: 'Is broadband under £20 good enough for streaming?', answer: 'For a small household with light to moderate streaming, yes. For larger homes with several people online at once, check the specific speed tier rather than assuming an entry-level plan will be enough, since several under-£20 options offer meaningfully different speeds.' },
+      { question: 'Should I choose a broadband deal under £20 or pay a little more?', answer: 'Choose under £20 if the needs are modest, the provider genuinely covers the address, and the contract is sensible. Pay a little more, for example around £23 for Sky, if it meaningfully improves the complaints record, speed or contract terms.' },
     ],
   },
 

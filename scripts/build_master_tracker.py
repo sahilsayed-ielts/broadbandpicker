@@ -1389,6 +1389,34 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-broadband-deals-under-20-guide",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Deep rewrite: Broadband Deals Under GBP20 guide (16th content-priority-analysis target)",
+        "description": (
+            "Sixteenth target from scripts/analyze_content_priority.py's ranked list, "
+            "and the one with the largest factual break of this whole refresh sequence: "
+            "the page's entire premise named NOW Broadband and TalkTalk as 'the most "
+            "common names in this price bracket,' but both now start above GBP20/mo "
+            "(NOW at GBP23, TalkTalk at GBP25, both already corrected on their own "
+            "provider pages this session). Rebuilt the page around who is actually under "
+            "GBP20 today by querying data/providers.ts directly for every provider with "
+            "monthlyPriceFrom < 20: Community Fibre (GBP12.50), Onestream (GBP18.50, 94% "
+            "Openreach coverage -- the most realistic pick for most addresses), Gigaclear "
+            "(GBP19.00, rural symmetrical), toob (GBP19.50) and Trooli (GBP19.99). Also "
+            "caught and excluded Shell Energy (GBP19.99 in the data file) after finding "
+            "its own provider-page highlights note it closed to new customers and "
+            "migrated to TalkTalk in 2024 -- an old, non-orderable plan that would have "
+            "been a real error to list as a current deal. Word count 608 -> 890."
+        ),
+        "priority_score": 35,
+        "impact_score": 42,
+        "effort": "Medium",
+        "target": "app/guides/[slug]/page.tsx (broadband-deals-under-20), data/guides.ts",
+        "dependencies": "ops-content-priority-analysis-tooling",
+        "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",
