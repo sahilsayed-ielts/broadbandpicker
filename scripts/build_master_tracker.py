@@ -972,6 +972,38 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-cheapest-broadband-guide",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Deep rewrite: Cheapest Broadband Deals UK guide (2nd content-priority-analysis target)",
+        "description": (
+            "Second target from scripts/analyze_content_priority.py's ranked list: 130 real "
+            "GSC AI-feature impressions at 481 words, and materially stale (last touched "
+            "2026-06-01, still citing NOW Broadband at a since-changed £17.99). Rewritten to "
+            "1,101 words, drawing on session-verified pricing across 11 providers rather than "
+            "fresh research for most of them. Real correction made: NOW Broadband's usable "
+            "Full Fibre 75 now starts at £23/mo, not the stale £17.99 the old copy cited -- no "
+            "longer reliably the cheapest option, now similar to or pricier than Plusnet "
+            "(£21.99) and EE (£22.99). Real new finding: Community Fibre's Essential 35 at "
+            "£12.50/mo is the genuinely cheapest full-fibre deal on the market (London/Surrey/"
+            "Sussex only). Verified current social tariff pricing (Virgin Media £12.50, BT "
+            "Home Essentials £15-20, Sky Broadband Basics £20 existing-customers-only) plus a "
+            "real, citable Ofcom stat: ~4.2 million eligible households, only ~532,000 "
+            "actually claiming one. Caught the same JSX-vs-.ts apostrophe-escaping bug found "
+            "on the previous guide (one instance this time, in the NOW Broadband paragraph) "
+            "before shipping -- confirmed via the file's own reviewSources-style checked-date "
+            "convention. 1,101 words sits just under this session's own 1,200-word guide "
+            "depth floor; left as is rather than padding for its own sake, since the content "
+            "is already comprehensive (2 real data tables, 5 FAQs, all newly sourced)."
+        ),
+        "priority_score": 52,
+        "impact_score": 55,
+        "effort": "Medium",
+        "target": "app/guides/[slug]/page.tsx (cheapest-broadband-uk), data/guides.ts",
+        "dependencies": "ops-content-priority-analysis-tooling",
+        "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",

@@ -724,26 +724,110 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
   'cheapest-broadband-uk': {
     body: (
       <>
-        <p>The cheapest broadband deals in the UK currently start from around <strong>£17.99/month</strong>. But &ldquo;cheapest&rdquo; isn&apos;t always &ldquo;best value&rdquo; — you need to compare the total cost over the contract term and check what the price rises to after any introductory period.</p>
-        <h2>The cheapest broadband providers in 2026</h2>
-        <p><strong>NOW Broadband</strong> consistently offers the lowest entry prices among major UK providers, with deals from £17.99/month on a 12-month contract. <strong>TalkTalk</strong> is another budget option, often available from £19.99/month, with wider availability across the UK.</p>
-        <h2>How to get even cheaper broadband</h2>
+        <p>The genuinely cheapest full-fibre broadband in the UK right now is Community Fibre&apos;s Essential 35 at £12.50 a month, where its network reaches. Among providers available nationwide, Plusnet and toob-style regional altnets undercut the well-known budget names, and NOW Broadband, often assumed to be the cheapest option, has moved to £23 a month for a usable speed. &ldquo;Cheapest&rdquo; also is not always &ldquo;best value&rdquo;: compare the total cost over the contract term, not just the first month&apos;s bill.</p>
+
+        <div className="rounded-xl border border-amber-200 bg-amber-50 p-5">
+          <p className="mb-0 text-sm">
+            <strong>Price check:</strong> every price below was checked against official provider sources on 24 August 2026. Prices and availability vary by address; confirm the live figure at checkout.
+          </p>
+        </div>
+
+        <h2>The cheapest broadband deals in the UK right now</h2>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm border-collapse">
+            <thead>
+              <tr className="bg-slate-50">
+                {['Provider', 'From', 'Speed', 'Coverage'].map((heading) => (
+                  <th key={heading} className="text-left px-4 py-3 border border-slate-200 font-semibold text-slate-700">{heading}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                ['Community Fibre', '£12.50/mo', '35 Mbps symmetrical full fibre', 'London, Surrey, Sussex only'],
+                ['toob', '£19.50/mo', '150 Mbps symmetrical full fibre', 'Parts of Hampshire, Dorset, Surrey, Sussex, Berkshire'],
+                ['Trooli', '£19.99/mo', '150 Mbps full fibre', 'Parts of South East England and Scotland'],
+                ['Zzoomm', 'From £20/mo', '200 Mbps symmetrical full fibre', 'Around 110 English market towns'],
+                ['Hyperoptic', '£21.50/mo', '50 Mbps (non-symmetrical entry tier)', 'London and other major UK cities, flats and blocks'],
+                ['Plusnet', '£21.99/mo', '74 Mbps full fibre', 'Nationwide, Openreach'],
+                ['EE', '£22.99/mo', '100 Mbps full fibre', 'Nationwide, Openreach'],
+                ['NOW Broadband', 'From £23/mo', '75 Mbps full fibre', 'Nationwide, Openreach'],
+                ['BT', '£23.99/mo', '150 Mbps full fibre', 'Nationwide, Openreach, widest coverage'],
+                ['Sky / Vodafone', 'From £25/mo', '150 Mbps full fibre', 'Nationwide, Openreach'],
+              ].map(([provider, price, speed, coverage]) => (
+                <tr key={provider} className="border-b border-slate-100 hover:bg-slate-50">
+                  <td className="px-4 py-3 font-semibold text-slate-900">{provider}</td>
+                  <td className="px-4 py-3 text-slate-700">{price}</td>
+                  <td className="px-4 py-3 text-slate-700">{speed}</td>
+                  <td className="px-4 py-3 text-slate-600">{coverage}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-xs text-slate-500">
+          Full reviews: <Link href="/providers/community-fibre">Community Fibre</Link>, <Link href="/providers/toob">toob</Link>,{' '}
+          <Link href="/providers/trooli">Trooli</Link>, <Link href="/providers/zzoomm">Zzoomm</Link>,{' '}
+          <Link href="/providers/hyperoptic">Hyperoptic</Link>, <Link href="/providers/plusnet">Plusnet</Link>,{' '}
+          <Link href="/providers/ee">EE</Link>, <Link href="/providers/now-broadband">NOW Broadband</Link>,{' '}
+          <Link href="/providers/bt">BT</Link>, <Link href="/providers/sky">Sky</Link> and <Link href="/providers/vodafone">Vodafone</Link>.
+        </p>
+
+        <h2>Community Fibre: the genuinely cheapest full-fibre deal, if it reaches you</h2>
+        <p>Community Fibre&apos;s Essential 35 package, £12.50 a month for 35 Mbps symmetrical, is the lowest full-fibre price of any provider covered on this site, and it comes from a provider with one of the strongest customer-satisfaction records in the UK: around 4.7 out of 5 on Trustpilot and 92% customer satisfaction in Ofcom&apos;s 2025 data. The catch is coverage: this is a London-centred network with only recent, partial expansion into Surrey and Sussex, so it simply is not available to most UK addresses.</p>
+
+        <h2>NOW Broadband: not as cheap as its reputation suggests</h2>
+        <p>NOW Broadband, part of the Sky group, is widely assumed to be the default cheapest option, and it was, historically. Its current entry-level Brilliant Broadband package runs on older, slower ADSL-style technology, and its more usable Full Fibre 75 package starts from £23 a month on a 24-month contract, not meaningfully cheaper than Plusnet or EE&apos;s full-fibre entry tiers. Its Trustpilot score sits around 1.2 out of 5 from over 14,000 reviews, with reviews commonly citing long activation waits and slow support. Check the actual current price before assuming NOW is automatically the cheapest option; it frequently is not.</p>
+
+        <h2>Social tariffs: the cheapest broadband most eligible households have never claimed</h2>
+        <p>If you or someone in your household receives Universal Credit or certain other means-tested benefits, a social tariff is very likely the cheapest genuinely reliable broadband available, and it is not subject to the mid-contract price rises standard contracts now carry. Ofcom estimates around 4.2 million UK households are eligible, yet only around 532,000 were actually taking up a social tariff as of its most recent published data, a large, well-documented gap between eligibility and uptake.</p>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm border-collapse">
+            <thead>
+              <tr className="bg-slate-50">
+                {['Tariff', 'Price', 'Speed', 'Note'].map((heading) => (
+                  <th key={heading} className="text-left px-4 py-3 border border-slate-200 font-semibold text-slate-700">{heading}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                ['Virgin Media Essential Broadband', '£12.50/mo', '15 Mbps', 'Cable network, no phone line needed'],
+                ['BT Home Essentials', '£15/mo or £20/mo', '36 Mbps or 67 Mbps', 'Faster tier is the quickest widely available social tariff'],
+                ['Sky Broadband Basics', '£20/mo', '36 Mbps', 'Existing Sky customers only'],
+                ['Community Fibre social tariff', 'Exempt from standard pricing', '35 Mbps', 'London, Surrey, Sussex only'],
+                ['Hyperoptic Essential', '£15 or £20/mo', '50 or 150 Mbps', 'No fixed contract'],
+              ].map(([tariff, price, speed, note]) => (
+                <tr key={tariff} className="border-b border-slate-100 hover:bg-slate-50">
+                  <td className="px-4 py-3 font-semibold text-slate-900">{tariff}</td>
+                  <td className="px-4 py-3 text-slate-700">{price}</td>
+                  <td className="px-4 py-3 text-slate-700">{speed}</td>
+                  <td className="px-4 py-3 text-slate-600">{note}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p>Social tariffs typically run on rolling monthly terms with no exit fee, so there is little downside to switching to one if eligible, even as a temporary measure. Read our full <Link href="/guides/broadband-social-tariffs-uk">guide to broadband social tariffs</Link> for eligibility and how to apply with each provider.</p>
+
+        <h2>How to get an even cheaper deal</h2>
         <ul>
-          <li><strong>Negotiate with your current provider</strong> — call your provider and ask if they can match a competitor&apos;s deal. Many providers have retention teams with unpublished offers.</li>
-          <li><strong>Look for cashback deals</strong> — some providers offer £50–£150 in cashback or gift cards on top of the monthly price. Check cashback sites before signing up.</li>
-          <li><strong>Switch if you&apos;re out of contract</strong> — loyalty rarely pays with broadband. New customers almost always get better rates than existing customers.</li>
-          <li><strong>Check social tariffs</strong> — if you receive Universal Credit or certain other benefits, you may be eligible for a social tariff. BT&apos;s Home Essentials, Sky&apos;s Broadband Basics, and Virgin Media&apos;s Essential Broadband all offer significantly discounted rates.</li>
+          <li><strong>Negotiate with your current provider.</strong> Call and ask if they can match a competitor&apos;s advertised price; retention teams often have unpublished offers not shown on the public website.</li>
+          <li><strong>Check for cashback or a reward card.</strong> Several providers, including BT and Plusnet, currently offer reward cards worth £80 to £140 on top of the headline price, but only if you actually claim them.</li>
+          <li><strong>Switch once you are out of contract.</strong> New-customer pricing is almost always better than what an existing, out-of-contract customer is quietly paying.</li>
+          <li><strong>Check whether a local altnet has launched since you last looked.</strong> Community Fibre, toob, Trooli and Zzoomm have all expanded meaningfully in 2026; a postcode that had no altnet option a year ago may have one now.</li>
         </ul>
-        <h2>Cheapest full-fibre broadband</h2>
-        <p>If full-fibre (FTTP) is available in your area, the gap in price between FTTC and FTTP has narrowed significantly. Community Fibre and Hyperoptic (in London) and Toob (in Southampton) offer gigabit full-fibre from around £22/month — comparable to standard fibre packages from major providers.</p>
-        <h2>Watch out for price rises</h2>
-        <p>Budget providers often increase prices significantly after the introductory period. Always check what the &ldquo;out of contract&rdquo; price is before signing up, and set a reminder to compare deals again before your contract ends.</p>
+
+        <h2>Watch out for scheduled price rises</h2>
+        <p>Since Ofcom banned inflation-linked, percentage-based price rise terms in all new contracts from 17 January 2025, every major national provider now discloses a flat, pounds-and-pence rise upfront instead, typically £3 to £4 a month each year. BT, EE, Vodafone and Plusnet all currently apply this. Several altnets, including Community Fibre, Zzoomm, toob and Zen Internet, currently apply no scheduled rise at all on their published range, which can make a slightly higher headline price the actually cheaper option over a full contract term. Always add the disclosed rise to the headline price before comparing two deals.</p>
       </>
     ),
     faqs: [
-      { question: 'What is the absolute cheapest broadband in the UK?', answer: 'The cheapest deals start from around £17.99/month from NOW Broadband. However, some providers offer lower prices via cashback sites or exclusive online deals — always check comparison tools for the latest rates.' },
-      { question: 'Are there cheap broadband deals for low-income households?', answer: 'Yes — social tariffs are available from BT (Home Essentials), Sky (Broadband Basics), Virgin Media (Essential Broadband), and others for households receiving Universal Credit or certain benefits. These typically cost £15–£25/month for standard broadband.' },
-      { question: 'Is cheap broadband reliable?', answer: 'Budget providers use the same Openreach network as premium providers for FTTC connections, so the underlying line quality is the same. The difference is usually in customer service response times and router quality.' },
+      { question: 'What is the cheapest broadband in the UK right now?', answer: 'Community Fibre\'s Essential 35 at £12.50 a month is the cheapest full-fibre deal covered on this site, but it is only available in London, Surrey and Sussex. Among nationally available providers, Plusnet from £21.99 and EE from £22.99 currently undercut NOW Broadband, which has moved to £23 a month and is no longer the automatic cheapest option it once was.' },
+      { question: 'Is NOW Broadband still the cheapest option?', answer: 'Not reliably. NOW Broadband\'s usable Full Fibre 75 package currently starts from £23 a month, similar to or more expensive than Plusnet or EE\'s entry-level full-fibre tiers. Its cheapest Brilliant Broadband package uses older, slower ADSL-style technology rather than full fibre.' },
+      { question: 'Are there cheap broadband deals for low-income households?', answer: 'Yes. Social tariffs are available from Virgin Media (£12.50/mo), BT Home Essentials (£15 or £20/mo), Sky Broadband Basics (£20/mo, existing customers only), and several full-fibre altnets, for households receiving Universal Credit or certain other benefits. Ofcom estimates 4.2 million households are eligible but only around 532,000 currently claim one.' },
+      { question: 'Is cheap broadband reliable?', answer: 'Budget providers on the Openreach network, such as Plusnet and EE, use the same physical lines as premium providers like BT, so line quality is not the differentiator. The real differences are customer service response times, contract price-rise policy and router quality.' },
+      { question: 'Does the cheapest broadband deal raise its price during the contract?', answer: 'Often, yes. Most national providers now apply a flat £3 to £4 a month rise each year, disclosed upfront. Several full-fibre altnets currently apply no scheduled rise at all, which can make them cheaper over a full contract even with a similar or slightly higher starting price.' },
     ],
   },
 

@@ -1,0 +1,356 @@
+{
+  "generated_at": "2026-08-24T21:31:27.201813+00:00",
+  "scope": "Repository instrumentation audit plus GA4/GSC SEO measurement design; not a GA4 reporting-data export.",
+  "summary": {
+    "events_found": 15,
+    "required_events_implemented": 9,
+    "required_events_total": 14,
+    "coverage_percent": 64.3,
+    "p0_missing": [],
+    "p1_missing": [
+      "newsletter_signup",
+      "content_section_view",
+      "deal_results_empty",
+      "web_vital"
+    ]
+  },
+  "event_inventory": {
+    "compare_basket_viewed": [
+      "components/ComparisonTable.tsx"
+    ],
+    "compare_shortlist_added": [
+      "components/ComparisonTable.tsx"
+    ],
+    "compare_shortlist_cleared": [
+      "components/ComparisonTable.tsx"
+    ],
+    "compare_shortlist_limit_reached": [
+      "components/ComparisonTable.tsx"
+    ],
+    "compare_shortlist_removed": [
+      "components/ComparisonTable.tsx"
+    ],
+    "contact_form_submit": [
+      "components/ContactForm.tsx"
+    ],
+    "deal_filter_changed": [
+      "components/DealsClient.tsx"
+    ],
+    "deal_sort_changed": [
+      "components/DealTable.tsx"
+    ],
+    "outbound_provider_click": [
+      "components/AffiliateCTA.tsx"
+    ],
+    "page_view": [
+      "components/CookieBanner.tsx"
+    ],
+    "postcode_submit": [
+      "components/PostcodeChecker.tsx"
+    ],
+    "speed_test_compare_clicked": [
+      "components/SpeedTest.tsx"
+    ],
+    "speed_test_completed": [
+      "components/SpeedTest.tsx"
+    ],
+    "speed_test_failed": [
+      "components/SpeedTest.tsx"
+    ],
+    "speed_test_started": [
+      "components/SpeedTest.tsx"
+    ]
+  },
+  "requirements": [
+    {
+      "event": "page_view",
+      "stage": "acquisition",
+      "priority": "P0",
+      "key_event": false,
+      "recommended_ga4_event": "page_view",
+      "question": "Which organic landing pages attract visits?",
+      "implemented": true,
+      "source_files": [
+        "components/CookieBanner.tsx"
+      ]
+    },
+    {
+      "event": "postcode_submit",
+      "stage": "intent",
+      "priority": "P0",
+      "key_event": false,
+      "recommended_ga4_event": "search",
+      "question": "Which landing pages start a local availability journey?",
+      "implemented": true,
+      "source_files": [
+        "components/PostcodeChecker.tsx"
+      ]
+    },
+    {
+      "event": "outbound_provider_click",
+      "stage": "commercial",
+      "priority": "P0",
+      "key_event": true,
+      "recommended_ga4_event": "select_item",
+      "question": "Which organic pages and providers create qualified affiliate exits?",
+      "implemented": true,
+      "source_files": [
+        "components/AffiliateCTA.tsx"
+      ]
+    },
+    {
+      "event": "speed_test_started",
+      "stage": "tool engagement",
+      "priority": "P1",
+      "key_event": false,
+      "recommended_ga4_event": null,
+      "question": "Do organic visitors start the speed-test tool?",
+      "implemented": true,
+      "source_files": [
+        "components/SpeedTest.tsx"
+      ]
+    },
+    {
+      "event": "speed_test_completed",
+      "stage": "tool engagement",
+      "priority": "P1",
+      "key_event": false,
+      "recommended_ga4_event": null,
+      "question": "Which landing pages produce completed tests and comparison intent?",
+      "implemented": true,
+      "source_files": [
+        "components/SpeedTest.tsx"
+      ]
+    },
+    {
+      "event": "deal_filter_changed",
+      "stage": "consideration",
+      "priority": "P1",
+      "key_event": false,
+      "recommended_ga4_event": null,
+      "question": "Which price, speed and contract constraints matter?",
+      "implemented": true,
+      "source_files": [
+        "components/DealsClient.tsx"
+      ]
+    },
+    {
+      "event": "compare_shortlist_added",
+      "stage": "consideration",
+      "priority": "P1",
+      "key_event": false,
+      "recommended_ga4_event": "select_item",
+      "question": "Which providers enter the final consideration set?",
+      "implemented": true,
+      "source_files": [
+        "components/ComparisonTable.tsx"
+      ]
+    },
+    {
+      "event": "compare_basket_viewed",
+      "stage": "consideration",
+      "priority": "P1",
+      "key_event": false,
+      "recommended_ga4_event": "view_item_list",
+      "question": "Which visits reach active side-by-side comparison?",
+      "implemented": true,
+      "source_files": [
+        "components/ComparisonTable.tsx"
+      ]
+    },
+    {
+      "event": "contact_form_submit",
+      "stage": "lead",
+      "priority": "P1",
+      "key_event": true,
+      "recommended_ga4_event": "generate_lead",
+      "question": "Which acquisition sources generate contact enquiries?",
+      "implemented": true,
+      "source_files": [
+        "components/ContactForm.tsx"
+      ]
+    },
+    {
+      "event": "newsletter_signup",
+      "stage": "retention",
+      "priority": "P1",
+      "key_event": true,
+      "recommended_ga4_event": "sign_up",
+      "question": "Which SEO content builds a returning audience?",
+      "implemented": false,
+      "source_files": []
+    },
+    {
+      "event": "content_section_view",
+      "stage": "content engagement",
+      "priority": "P1",
+      "key_event": false,
+      "recommended_ga4_event": null,
+      "question": "Which answer sections are actually reached on long editorial pages?",
+      "implemented": false,
+      "source_files": []
+    },
+    {
+      "event": "faq_expand",
+      "stage": "content engagement",
+      "priority": "P2",
+      "key_event": false,
+      "recommended_ga4_event": "select_content",
+      "question": "Which questions reveal unmet search intent?",
+      "implemented": false,
+      "source_files": []
+    },
+    {
+      "event": "deal_results_empty",
+      "stage": "friction",
+      "priority": "P1",
+      "key_event": false,
+      "recommended_ga4_event": null,
+      "question": "Where do postcode/filter journeys produce no useful result?",
+      "implemented": false,
+      "source_files": []
+    },
+    {
+      "event": "web_vital",
+      "stage": "technical SEO",
+      "priority": "P1",
+      "key_event": false,
+      "recommended_ga4_event": null,
+      "question": "Which templates have poor LCP, INP or CLS for real users?",
+      "implemented": false,
+      "source_files": []
+    }
+  ],
+  "custom_dimensions": [
+    {
+      "name": "content_type",
+      "scope": "event",
+      "purpose": "Low-cardinality template family: guide, provider, comparison, local, tool or deal."
+    },
+    {
+      "name": "provider_slug",
+      "scope": "event",
+      "purpose": "Provider involved in shortlist and affiliate interactions."
+    },
+    {
+      "name": "postcode_area",
+      "scope": "event",
+      "purpose": "Outward postcode area only; never collect a full postcode."
+    },
+    {
+      "name": "speed_band",
+      "scope": "event",
+      "purpose": "Result band rather than raw speed for segmentation."
+    },
+    {
+      "name": "filter_name",
+      "scope": "event",
+      "purpose": "Deal constraint changed by the visitor."
+    },
+    {
+      "name": "filter_value",
+      "scope": "event",
+      "purpose": "Selected low-cardinality filter value."
+    },
+    {
+      "name": "link_label",
+      "scope": "event",
+      "purpose": "CTA wording used for the affiliate exit."
+    },
+    {
+      "name": "outbound_host",
+      "scope": "event",
+      "purpose": "Affiliate/provider destination host."
+    },
+    {
+      "name": "section_id",
+      "scope": "event",
+      "purpose": "Stable editorial section identifier, not visible copy."
+    }
+  ],
+  "custom_metrics": [
+    {
+      "name": "download_mbps",
+      "purpose": "Average speed-test download result; also report by speed_band."
+    },
+    {
+      "name": "upload_mbps",
+      "purpose": "Average speed-test upload result."
+    },
+    {
+      "name": "ping_ms",
+      "purpose": "Average speed-test latency."
+    },
+    {
+      "name": "visible_deals",
+      "purpose": "Deal inventory remaining after filtering."
+    },
+    {
+      "name": "metric_value",
+      "purpose": "Numeric Web Vital value, analysed with metric_name."
+    }
+  ],
+  "seo_scorecard": [
+    {
+      "area": "Search demand",
+      "metrics": "GSC impressions, clicks, CTR and average position",
+      "breakdown": "Query + canonical landing page",
+      "cadence": "28 days vs previous 28 days"
+    },
+    {
+      "area": "Landing quality",
+      "metrics": "Organic sessions, engaged sessions, engagement rate and average engagement time",
+      "breakdown": "Landing page + device",
+      "cadence": "Weekly"
+    },
+    {
+      "area": "Intent activation",
+      "metrics": "postcode_submit users / organic landing sessions",
+      "breakdown": "Landing page + content_type",
+      "cadence": "Weekly"
+    },
+    {
+      "area": "Comparison activation",
+      "metrics": "filter, shortlist or comparison users / organic landing sessions",
+      "breakdown": "Landing page",
+      "cadence": "Weekly"
+    },
+    {
+      "area": "Affiliate CTR",
+      "metrics": "outbound_provider_click users / organic landing sessions",
+      "breakdown": "Landing page + provider_slug",
+      "cadence": "Weekly"
+    },
+    {
+      "area": "Tool completion",
+      "metrics": "speed_test_completed users / speed_test_started users",
+      "breakdown": "Device + browser",
+      "cadence": "Weekly"
+    },
+    {
+      "area": "Content depth",
+      "metrics": "90% scroll users and content_section_view reach",
+      "breakdown": "Landing page + section_id",
+      "cadence": "Monthly after enough volume"
+    },
+    {
+      "area": "SEO conversion",
+      "metrics": "Key-event users / organic landing sessions",
+      "breakdown": "Landing page + session source/medium",
+      "cadence": "28 days vs previous 28 days"
+    },
+    {
+      "area": "Technical experience",
+      "metrics": "LCP p75, INP p75, CLS p75 and error rate",
+      "breakdown": "content_type + device",
+      "cadence": "Weekly"
+    }
+  ],
+  "guardrails": [
+    "Never send full postcodes, names, email addresses, phone numbers or query strings containing personal data to GA4.",
+    "Mark commercial outcomes as key events; do not mark every engagement event as a key event.",
+    "Avoid registering journey_id, full URLs with query strings or free-text values as custom dimensions because of high cardinality.",
+    "Use GSC for rankings, queries, impressions and CTR; use GA4 for onsite behaviour and key events. Join at canonical landing-page level.",
+    "Use at least 28 days of data for SEO prioritisation unless diagnosing a release regression."
+  ]
+}

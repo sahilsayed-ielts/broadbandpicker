@@ -295,12 +295,37 @@ export const guides: GuideMetadata[] = [
     slug: 'cheapest-broadband-uk',
     title: 'Cheapest Broadband Deals in the UK 2026',
     metaTitle: 'Cheapest Broadband Deals UK 2026 | BroadbandPicker',
-    metaDescription: 'Looking for the cheapest broadband in the UK? Compare the lowest-priced deals from every provider. Budget packages from £17.99/month.',
+    metaDescription: 'The cheapest full fibre broadband in the UK is £12.50/month from Community Fibre. Compare real current prices from every provider, plus social tariffs from £12.50/month.',
     publishDate: '2026-01-25',
-    updatedDate: '2026-06-01',
-    excerpt: 'You don\'t need to spend a fortune on broadband. Here are the cheapest deals available in the UK right now — including tips to negotiate an even lower price.',
-    readingTime: 6,
+    updatedDate: '2026-08-24',
+    excerpt: 'Community Fibre\'s £12.50 deal is the cheapest full-fibre broadband in the UK, where it reaches. Compare real current prices across every provider, plus social tariffs most eligible households have never claimed.',
+    readingTime: 8,
     category: 'deals-and-pricing',
+    keyTakeaways: [
+      'Community Fibre\'s Essential 35, £12.50 a month, is the cheapest full-fibre deal on the market, but only in London, Surrey and Sussex.',
+      'NOW Broadband is no longer reliably the cheapest option: its usable Full Fibre 75 now starts from £23 a month, similar to or more than Plusnet and EE.',
+      'Social tariffs from £12.50 a month are available to around 4.2 million UK households, yet only around 532,000 currently claim one.',
+      'Several full-fibre altnets currently apply no scheduled price rise at all, which can make a slightly higher headline price the cheaper option over a full contract.',
+      'Prices were checked against official provider sources on 24 August 2026.',
+    ],
+    sources: [
+      {
+        label: 'Ofcom: telecoms and pay-TV complaints fall to a record low',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/service-quality/ofcom-telecoms-and-pay-tv-complaints-fall-to-record-low',
+      },
+      {
+        label: 'Ofcom: 532,000 UK consumers taking social broadband and mobile tariffs',
+        href: 'https://www.ispreview.co.uk/index.php/2026/02/ofcom-find-532000-uk-homes-taking-social-broadband-and-mobile-tariffs.html',
+      },
+      {
+        label: 'BroadbandPicker provider reviews',
+        href: '/providers',
+      },
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+      },
+    ],
   },
   {
     slug: 'best-broadband-for-working-from-home',
