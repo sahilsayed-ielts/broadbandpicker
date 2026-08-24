@@ -1176,7 +1176,7 @@ const baseProviders: Provider[] = [
     cons: [
       'Very low Trustpilot score, around 1.2 out of 5, and an Ofcom complaints record that is also genuinely poor rather than just self-selected review noise',
       'No longer offers the shorter, flexible 12-month contracts it built its early reputation on; every package is now a 24-month term',
-      'A flat £4 a month price rise applies every March, the same as its parent brand Sky',
+      'New contracts disclose a scheduled £3 a month rise in April 2027 and again in April 2028, a more predictable structure than Sky\'s open-ended "prices may rise" wording',
       'Customer service, especially around cancellation and the auto-renewal process, is the most consistently cited weakness',
     ],
     excerpt:
@@ -1199,10 +1199,10 @@ const baseProviders: Provider[] = [
         ],
       },
       {
-        heading: 'The March Price Rise',
+        heading: 'NOW\'s Price Rise Structure: More Predictable Than Sky\'s',
         paragraphs: [
-          'NOW Broadband applies the same flat £4 a month price rise every March as its parent brand Sky, disclosed in pounds and pence rather than tied to inflation, following Ofcom\'s ban on inflation-linked, percentage-based price rise terms in all new contracts from 17 January 2025.',
-          'On a 24-month contract, that adds £48 to the second year\'s cost at every tier, the same structure as Sky and most other national Openreach-based providers, and a figure worth adding to NOW\'s headline monthly price when comparing the real two-year cost against a provider with no scheduled rise.',
+          'NOW Broadband did not apply a mid-contract price rise in April 2026, unlike its parent brand Sky, which raised prices by a flat £3 a month that month. Current NOW contracts instead disclose a scheduled £3 a month rise dated for April 2027, and a further £3 for April 2028, a fixed, dated structure rather than Sky\'s open-ended "prices may rise" wording, following Ofcom\'s ban on inflation-linked, percentage-based price rise terms in all new contracts from 17 January 2025.',
+          'Over a 24-month contract starting now, that means the price stays flat through the first year, with a £3 rise from April 2027 if the contract is still running by then. This is a genuinely clearer structure than several rivals, worth factoring into the real cost comparison against a provider with an undisclosed or larger scheduled rise.',
         ],
       },
       {
@@ -1233,11 +1233,11 @@ const baseProviders: Provider[] = [
       },
       {
         question: 'Is NOW Broadband cheaper than Sky?',
-        answer: 'Only slightly. NOW\'s Full Fibre 100 at £23 a month undercuts Sky\'s equivalent full-fibre tier by around £1, a much smaller gap than NOW\'s budget reputation might suggest, given both now run on the same network with the same 24-month contract length and the same flat £4 a month March price rise.',
+        answer: 'Only slightly. NOW\'s Full Fibre 100 at £23 a month undercuts Sky\'s equivalent full-fibre tier by around £1, a much smaller gap than NOW\'s budget reputation might suggest, given both now run on the same network with the same 24-month contract length. NOW\'s price-rise structure is actually more predictable than Sky\'s, with scheduled £3 rises dated for April 2027 and April 2028 rather than Sky\'s open-ended contract wording.',
       },
       {
         question: 'Does NOW Broadband raise its prices during the contract?',
-        answer: 'Yes. NOW applies the same flat £4 a month rise every March as Sky, disclosed in pounds and pence rather than tied to inflation. Over a 24-month contract, this adds £48 to the second year\'s cost at every tier.',
+        answer: 'Not immediately. NOW did not raise prices in April 2026, unlike Sky, which applied a flat £3 a month rise that month. Current NOW contracts do disclose a scheduled £3 a month rise for April 2027, and a further £3 for April 2028, both fixed and dated rather than open-ended.',
       },
     ],
     reviewedDate: '2026-08-24',
