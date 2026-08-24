@@ -1277,6 +1277,34 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-satellite-broadband-uk-guide",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Deep rewrite: Satellite Broadband UK guide (12th content-priority-analysis target)",
+        "description": (
+            "Twelfth target from scripts/analyze_content_priority.py's ranked list, and "
+            "the page whose DATE_RE regex bug was found and fixed earlier this session "
+            "(58.2 -> 53.2) without ever getting a content rewrite. The old copy was "
+            "generic to the point of naming no real prices at all -- 'Starlink is the "
+            "most visible option' with zero named plans, figures or alternatives. "
+            "Rewritten with real, current Starlink UK pricing (Residential 100/200/Max "
+            "at GBP40/60/80 per month, Roam at GBP55-100, Standard Kit GBP449 commonly "
+            "discounted to ~GBP299 or free on Max), and a genuinely current news item: "
+            "Starlink's Global Roam plan stopped taking new customers 15 July 2026 and "
+            "was withdrawn entirely for existing customers on 17 August 2026, one week "
+            "before this rewrite. Named 2 real smaller alternatives (SkyDSL, Bigblu "
+            "Broadband) and clarified that Eutelsat/OneWeb, despite frequent mention "
+            "alongside Starlink, sells no UK consumer home-broadband plans at all. Word "
+            "count 437 -> 1,038."
+        ),
+        "priority_score": 39,
+        "impact_score": 35,
+        "effort": "Medium",
+        "target": "data/priority-pages.ts (satellite)",
+        "dependencies": "ops-content-priority-analysis-tooling",
+        "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",

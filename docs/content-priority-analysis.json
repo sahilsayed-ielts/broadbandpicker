@@ -166,25 +166,6 @@
       "notes": ""
     },
     {
-      "path": "/guides/broadband-moving-house",
-      "page_type": "guide",
-      "status": 200,
-      "word_count": 948,
-      "has_faq_schema": true,
-      "has_answer_first_paragraph": true,
-      "checked_date": "2026-06-19",
-      "months_since_checked": 2.2,
-      "mapped_volume": 2900,
-      "ai_feature_impressions": 0,
-      "thin": true,
-      "stale": false,
-      "missing_geo_signals": [
-        "below 1200-word depth floor for a guide page"
-      ],
-      "refresh_score": 54.0,
-      "notes": ""
-    },
-    {
       "path": "/guides/satellite-broadband-uk",
       "page_type": "guide",
       "status": 200,
@@ -307,6 +288,25 @@
       "has_answer_first_paragraph": true,
       "checked_date": "2026-06-21",
       "months_since_checked": 2.1,
+      "mapped_volume": 1900,
+      "ai_feature_impressions": 0,
+      "thin": true,
+      "stale": false,
+      "missing_geo_signals": [
+        "below 1200-word depth floor for a guide page"
+      ],
+      "refresh_score": 44.0,
+      "notes": ""
+    },
+    {
+      "path": "/guides/broadband-price-rises-2026",
+      "page_type": "guide",
+      "status": 200,
+      "word_count": 758,
+      "has_faq_schema": true,
+      "has_answer_first_paragraph": true,
+      "checked_date": "2026-06-19",
+      "months_since_checked": 2.2,
       "mapped_volume": 1900,
       "ai_feature_impressions": 0,
       "thin": true,
