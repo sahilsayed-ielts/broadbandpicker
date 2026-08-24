@@ -581,7 +581,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
   'best-rolling-monthly-broadband-deals': {
     body: (
       <>
-        <p>Rolling monthly broadband is designed for people who need flexibility more than the absolute lowest monthly price. It is especially useful for renters, short-term lets, people moving house soon, or anyone who does not want to lock into an 18- or 24-month contract.</p>
+        <p>Rolling monthly broadband is designed for people who need flexibility more than the absolute lowest monthly price. It is especially useful for renters, short-term lets, people moving house soon, or anyone who does not want to lock into an 18- or 24-month contract. Genuine rolling monthly broadband from a national provider is rarer than it used to be; the honest starting point is knowing which providers actually still offer it.</p>
 
         <h2>Who should consider rolling monthly broadband</h2>
         <ul>
@@ -591,8 +591,11 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
           <li>People moving again within the year</li>
         </ul>
 
-        <h2>Rolling monthly vs short fixed contracts</h2>
-        <p>Some users ask for rolling monthly broadband when what they actually need is a shorter fixed contract. A 12-month contract can sometimes be the smarter compromise because it lowers the monthly cost while still avoiding the longest lock-in periods.</p>
+        <h2>YouFibre: a genuine rolling monthly full-fibre option</h2>
+        <p>YouFibre, a full-fibre altnet on the Netomnia network, is one of the few providers on this site that genuinely offers a rolling monthly contract alongside its standard 24-month term, with no mid-contract price rise on either option. Rolling prices run from £33.99 a month for its entry tier up to £129.99 for its fastest 8 Gbps package, requiring 30 days&apos; notice to cancel rather than a fixed minimum term. This is a real, meaningful premium over its 24-month pricing (from £20 a month for the equivalent entry tier), so it only makes sense for households that genuinely value the flexibility over the extra cost. Coverage is limited to around 10% of UK premises across more than 150 towns, following its 2026 merger with sister altnet Brsk.</p>
+
+        <h2>Rolling monthly vs a 12-month contract</h2>
+        <p>Some people ask for rolling monthly broadband when what they actually need is just a shorter fixed contract. A 12-month term can be the smarter middle ground, lowering the monthly cost while still avoiding the longest 24-month lock-in. Hyperoptic, Community Fibre and Onestream all currently offer a 12-month option alongside their standard 24-month term, a real, moderate-flexibility alternative to YouFibre&apos;s more expensive rolling plan.</p>
 
         <div className="overflow-x-auto">
           <table className="w-full text-sm border-collapse">
@@ -605,9 +608,9 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
             </thead>
             <tbody>
               {[
-                ['Rolling monthly', 'Maximum flexibility', 'Usually higher monthly price'],
-                ['12-month contract', 'Lower cost with moderate flexibility', 'Still a minimum-term commitment'],
-                ['18 to 24 months', 'Lowest mainstream promotional pricing', 'Least flexible if your plans change'],
+                ['Rolling monthly (YouFibre)', 'Maximum flexibility, 30 days’ notice', 'A genuine price premium over its own 24-month rate'],
+                ['12-month contract (Hyperoptic, Community Fibre, Onestream)', 'Lower cost with moderate flexibility', 'Still a minimum-term commitment'],
+                ['18 to 24 months', 'Lowest mainstream promotional pricing', 'Least flexible if plans change'],
               ].map(([option, fit, tradeoff]) => (
                 <tr key={option} className="border-b border-slate-100 hover:bg-slate-50">
                   <td className="px-4 py-3 font-semibold text-slate-900">{option}</td>
@@ -619,26 +622,30 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
           </table>
         </div>
 
-        <h2>Providers worth checking</h2>
-        <p><strong>NOW Broadband</strong> is often relevant because of its shorter 12-month positioning. <strong>social tariffs</strong> from some providers can also be useful because they are often on rolling terms. In some areas, altnets and specialist providers can be more flexible than the biggest national brands.</p>
+        <h2>Why NOW Broadband is no longer a flexible-contract option</h2>
+        <p>NOW Broadband used to be a common recommendation here specifically for its shorter, more flexible contract positioning. That is no longer accurate: every current NOW Broadband package is sold on a standard 24-month term, the same length as its parent brand Sky and most other national providers. Anyone specifically drawn to NOW for flexibility should look at YouFibre&apos;s rolling option or a 12-month altnet contract instead.</p>
+
+        <h2>Social tariffs are often on shorter or no-exit-fee terms</h2>
+        <p>Several broadband social tariffs, available to households receiving qualifying means-tested benefits, are structured as no-contract or short-contract products with no early exit fees, a genuine additional flexibility benefit alongside their much lower price. This is worth checking specifically for eligible households that want both a lower bill and less lock-in.</p>
 
         <h2>What to watch out for</h2>
         <ul>
-          <li>Higher setup or activation fees can erase the value of flexibility</li>
-          <li>Monthly contracts are not always the fastest or most feature-rich packages</li>
-          <li>Availability matters a lot, especially if you want full fibre on a short-term basis</li>
-          <li>You may still need to return equipment promptly when leaving</li>
+          <li>Higher monthly pricing can erase the value of flexibility if the actual stay ends up being longer than expected</li>
+          <li>Monthly or short-term contracts are not always the fastest or most feature-rich packages available at an address</li>
+          <li>Availability matters a lot, especially for full fibre on a short-term basis, since coverage for genuinely flexible providers like YouFibre remains limited</li>
+          <li>Equipment must usually still be returned promptly when leaving, regardless of contract length</li>
         </ul>
 
         <h2>The best rule of thumb</h2>
-        <p>If you expect to stay put for under a year, flexibility matters enough that rolling or near-rolling deals become attractive. If you are likely to stay longer, a cheaper fixed-term deal often wins overall.</p>
+        <p>If a stay of under a year is expected, flexibility matters enough that YouFibre&apos;s rolling option or a 12-month altnet contract becomes genuinely worth the extra cost. If a longer stay is likely, a cheaper 24-month fixed-term deal usually wins on total value.</p>
       </>
     ),
     faqs: [
-      { question: 'What is the best rolling monthly broadband deal in the UK?', answer: 'The best option depends on your postcode and whether you truly need a monthly contract or just a shorter one. NOW Broadband is often relevant because of its shorter contract positioning, while some social tariffs and specialist providers also offer more flexibility.' },
-      { question: 'Is rolling monthly broadband more expensive?', answer: 'Usually yes. Flexibility normally costs more per month than an 18- or 24-month deal, which is why it makes most sense when your plans may change soon.' },
-      { question: 'Should I choose rolling monthly or a 12-month broadband contract?', answer: 'Choose rolling monthly if maximum flexibility is the priority. Choose 12 months if you still want some flexibility but do not want to pay the full premium of a truly monthly arrangement.' },
-      { question: 'Who benefits most from flexible broadband?', answer: 'Renters, movers, short-stay households, and anyone waiting for a better network option to become available benefit most from flexible broadband.' },
+      { question: 'What is the best rolling monthly broadband deal in the UK?', answer: 'YouFibre is one of the few providers offering a genuine rolling monthly contract, from £33.99 a month with 30 days\' notice to cancel, though coverage is limited to around 10% of UK premises. NOW Broadband no longer offers flexible contracts; every current package is a standard 24-month term.' },
+      { question: 'Is rolling monthly broadband more expensive?', answer: 'Yes. YouFibre\'s rolling monthly price is a genuine premium over its own 24-month rate for the equivalent speed tier, which is why rolling makes most sense specifically when plans may change within the year rather than as a default choice.' },
+      { question: 'Should I choose rolling monthly or a 12-month broadband contract?', answer: 'Choose rolling monthly if maximum flexibility is the priority and YouFibre covers the address. Choose a 12-month contract with Hyperoptic, Community Fibre or Onestream if some flexibility is wanted without paying the full premium of a truly monthly arrangement.' },
+      { question: 'Does NOW Broadband still offer flexible contracts?', answer: 'No. Every current NOW Broadband package is sold on a standard 24-month term, the same as its parent brand Sky. Its earlier reputation for shorter, more flexible contracts no longer reflects the current range.' },
+      { question: 'Who benefits most from flexible broadband?', answer: 'Renters, people moving again within the year, short-stay households, and anyone waiting for a better network option to become available at their address benefit most from a genuinely flexible contract.' },
     ],
   },
 

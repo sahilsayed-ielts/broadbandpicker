@@ -1445,6 +1445,32 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-best-rolling-monthly-broadband-guide",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Deep rewrite: Best Rolling Monthly Broadband Deals guide (18th content-priority-analysis target)",
+        "description": (
+            "Eighteenth target from scripts/analyze_content_priority.py's ranked list: "
+            "522 words repeating the same stale claim caught twice already this session "
+            "-- 'NOW Broadband is often relevant because of its shorter 12-month "
+            "positioning,' when NOW dropped flexible contracts entirely and now sells "
+            "only a standard 24-month term. This page's whole premise rested on that "
+            "wrong claim, so it needed a real replacement for 'who actually offers "
+            "flexible broadband now,' not just a correction. Rewrote around YouFibre, "
+            "confirmed via its own already-rewritten provider page as one of the only "
+            "genuine rolling-monthly full-fibre options left (from GBP33.99/mo, 30 days' "
+            "notice, vs GBP20/mo on its own 24-month term), plus Hyperoptic/Community "
+            "Fibre/Onestream's 12-month middle-ground option, and a note on social "
+            "tariffs' no-exit-fee terms. Word count 522 -> 907."
+        ),
+        "priority_score": 33,
+        "impact_score": 31,
+        "effort": "Medium",
+        "target": "app/guides/[slug]/page.tsx (best-rolling-monthly-broadband-deals), data/guides.ts",
+        "dependencies": "ops-content-priority-analysis-tooling",
+        "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",
