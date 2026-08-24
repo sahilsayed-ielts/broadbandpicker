@@ -1432,17 +1432,54 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
   'best-5g-home-broadband-uk': {
     body: (
       <>
-        <p>The best <strong>5G home broadband</strong> is the package that gives you strong signal quality at your address, low enough latency for your normal usage, and an easier setup path than fixed-line broadband. It can be excellent for some homes, but it is not a universal replacement for full fibre.</p>
+        <p>Three currently offers the best value in UK 5G home broadband, from £29 a month on a 24-month contract with unlimited data and no upfront cost, averaging around 150 Mbps. Vodafone&apos;s 5G GigaCube is cheaper still at £21 a month on a fixed term, or £60 a month with no contract at all. EE&apos;s Smart 5G Hub costs more, from £30 to £50 a month, but has the broadest 5G coverage of any UK network. National Broadband, a multi-network specialist rather than a single mobile operator, is worth checking specifically for rural addresses a single network cannot reach.</p>
 
-        <h2>What 5G home broadband is best for</h2>
-        <ul>
-          <li>Homes that want broadband quickly without an engineer visit</li>
-          <li>Renters and short-term households that value flexibility</li>
-          <li>Properties where fixed-line options are weak or limited</li>
-          <li>People who do not want a traditional landline or cable install</li>
-        </ul>
+        <div className="rounded-xl border border-amber-200 bg-amber-50 p-5">
+          <p className="mb-0 text-sm">
+            <strong>Price check:</strong> every price and speed figure below was checked against official provider sources on 24 August 2026. 5G performance is genuinely address-specific; confirm expected signal strength before ordering.
+          </p>
+        </div>
 
-        <h2>5G home broadband vs fixed-line broadband</h2>
+        <h2>5G home broadband providers compared</h2>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm border-collapse">
+            <thead>
+              <tr className="bg-slate-50">
+                {['Provider', 'From', 'Contract', 'Avg. speed', 'Best for'].map((heading) => (
+                  <th key={heading} className="text-left px-4 py-3 border border-slate-200 font-semibold text-slate-700">{heading}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                ['Three 5G Hub', '£29/mo', '24 months (or £34/mo on 12)', '~150 Mbps', 'Best overall value where Three\'s network is strong'],
+                ['Vodafone 5G GigaCube', '£21/mo (+£15 upfront)', '24 months, or £60/mo rolling', '150-200 Mbps', 'Cheapest fixed-term option, or genuine no-contract flexibility'],
+                ['EE Smart 5G Hub', '£30-50/mo', 'Varies by plan', '~146 Mbps', 'Broadest UK 5G coverage; best where rivals are weak'],
+                ['National Broadband', 'From £34.99/mo', '12, 18 or 24 months', '40-80 Mbps', 'Rural addresses; picks the strongest of all four UK networks automatically'],
+              ].map(([provider, price, contract, speed, best]) => (
+                <tr key={provider} className="border-b border-slate-100 hover:bg-slate-50">
+                  <td className="px-4 py-3 font-semibold text-slate-900">{provider}</td>
+                  <td className="px-4 py-3 text-slate-700">{price}</td>
+                  <td className="px-4 py-3 text-slate-600">{contract}</td>
+                  <td className="px-4 py-3 text-slate-700">{speed}</td>
+                  <td className="px-4 py-3 text-slate-600">{best}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-xs text-slate-500">Full review: <Link href="/providers/national-broadband">National Broadband</Link>.</p>
+
+        <h2>Three vs EE: value against coverage</h2>
+        <p>Three is typically the cheaper of the two big single-network options and delivers strong average speeds where its network is genuinely strong, but Three has appeared in the worst quartile of Ofcom&apos;s complaints data for both broadband and mobile, alongside EE and Vodafone. EE costs more but has the broadest 5G coverage of any UK network, which is the more decisive factor than price for anyone in an area where signal strength varies between networks. Check both networks&apos; coverage checkers for the exact address before deciding on price alone.</p>
+
+        <h2>Vodafone GigaCube: cheapest fixed term, or genuine flexibility</h2>
+        <p>Vodafone&apos;s GigaCube Unlimited is the cheapest fixed-term 5G home broadband covered here, at £21 a month plus a modest £15 upfront cost on a 24-month term, typically delivering 150 to 200 Mbps. A separate 30-day rolling version exists at £60 a month with a higher £150 upfront cost, aimed specifically at anyone who wants to test 5G broadband at an address with no long-term commitment, at a real premium for that flexibility.</p>
+
+        <h2>National Broadband: the multi-network specialist for rural addresses</h2>
+        <p>National Broadband does not run its own mobile network; it deals with all four UK networks and connects each customer to whichever gives the strongest signal at their specific address, which is a genuinely different value proposition from a single-network provider like Three, Vodafone or EE. It is a stronger starting point for a rural or hard-to-reach address than committing to one network directly, since a poor Three signal at a specific property does not rule out a strong EE or Vodafone one nearby.</p>
+
+        <h2>5G home broadband vs full fibre</h2>
         <div className="overflow-x-auto">
           <table className="w-full text-sm border-collapse">
             <thead>
@@ -1454,9 +1491,9 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
             </thead>
             <tbody>
               {[
-                ['5G home broadband', 'Fast setup and no fixed line needed', 'Performance depends heavily on local mobile coverage'],
-                ['Full fibre (FTTP)', 'Most stable speeds and strongest long-term reliability', 'Needs availability and sometimes an installation visit'],
-                ['FTTC / standard fibre', 'Widely available and familiar', 'Usually slower and less future-proof than 5G or FTTP'],
+                ['5G home broadband', 'No engineer visit, fast setup, genuine flexibility on some plans', 'Performance depends heavily on local mobile signal, not a fixed line rate'],
+                ['Full fibre (FTTP)', 'Most stable speeds and the strongest long-term reliability', 'Needs availability, and usually an installation appointment'],
+                ['FTTC / part fibre', 'Widely available and familiar', 'Usually slower and offers less headroom than 5G or full fibre'],
               ].map(([option, advantage, downside]) => (
                 <tr key={option} className="border-b border-slate-100 hover:bg-slate-50">
                   <td className="px-4 py-3 font-semibold text-slate-900">{option}</td>
@@ -1467,30 +1504,26 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
             </tbody>
           </table>
         </div>
-
-        <h2>When 5G broadband is a smart choice</h2>
-        <p>5G broadband makes the most sense when your address has strong mobile coverage and you value convenience more than absolute connection consistency. It can be especially useful for renters, recent movers, and people who need internet quickly without waiting for engineer appointments.</p>
-
-        <h2>When full fibre is still the better answer</h2>
-        <p>If you work from home heavily, game competitively, or simply want the most predictable performance every evening, full fibre is usually the stronger choice where available. Fixed-line FTTP tends to be more stable than 5G because it is not affected in the same way by mobile signal conditions and local network congestion.</p>
+        <p>If your postcode has a genuine full-fibre option at a similar price, it will usually be more predictable than 5G, which is affected by local mobile congestion and signal conditions in a way a dedicated fixed line is not. See our full <Link href="/guides/best-full-fibre-broadband-uk">guide to the best full fibre broadband</Link>, including why every major provider&apos;s Trustpilot score and its real Ofcom complaints position often tell different stories, a pattern that applies to 5G-focused mobile networks too.</p>
 
         <h2>What to check before buying 5G home broadband</h2>
         <ul>
-          <li>How strong the 5G signal is inside your actual property</li>
-          <li>Whether the provider offers a trial, returns window, or flexibility if performance is poor</li>
-          <li>Whether your household needs stable low latency for gaming or work</li>
-          <li>Whether a full-fibre deal is available at a similar monthly price</li>
+          <li>How strong the specific network&apos;s 5G signal is inside your actual property, not just the postcode-level coverage map</li>
+          <li>Whether the provider offers a trial period or returns window if performance is disappointing once installed</li>
+          <li>Whether your household needs consistently low latency for gaming or video calls, where a fixed line is generally more predictable</li>
+          <li>Whether a full-fibre deal is available at a similar monthly price before committing to a mobile-based alternative</li>
         </ul>
 
         <h2>The simplest buying rule</h2>
-        <p>Choose 5G home broadband when flexibility, fast setup, and no line installation matter most. Choose full fibre when you want the strongest long-term stability and your postcode has a good FTTP option.</p>
+        <p>Check Three first for value, EE if Three&apos;s coverage is weak at your address, and National Broadband specifically if you are rural and want the option of whichever network actually works there. Choose full fibre instead when your postcode has a genuine FTTP option at a similar price and you want the most predictable performance.</p>
       </>
     ),
     faqs: [
-      { question: 'Is 5G home broadband good in the UK?', answer: 'It can be very good in the right postcode, especially where mobile coverage is strong and fixed-line alternatives are weak or inconvenient. The quality varies much more by location than full fibre does.' },
-      { question: 'Is 5G home broadband better than fibre?', answer: 'Usually not where full fibre is available. Full fibre is normally more stable and predictable, while 5G wins on convenience, speed of setup, and no fixed-line installation.' },
-      { question: 'Who should choose 5G broadband?', answer: 'Renters, movers, short-term households, and people in areas with limited fixed-line options are often the best fit for 5G home broadband.' },
-      { question: 'What is the biggest risk with 5G home broadband?', answer: 'The biggest risk is postcode variability. A package that works well in one street can perform very differently in another, which is why local signal quality matters so much.' },
+      { question: 'What is the best 5G home broadband in the UK?', answer: 'Three currently offers the best value, from £29 a month with unlimited data and around 150 Mbps average speed. EE costs more, from £30 to £50 a month, but has the broadest 5G coverage of any UK network. Vodafone\'s GigaCube is cheaper still at £21 a month on a fixed term. The right choice depends more on which network is genuinely strong at your specific address than on price alone.' },
+      { question: 'Is 5G home broadband better than full fibre?', answer: 'Usually not where full fibre is genuinely available at a similar price. Full fibre is normally more stable and predictable because it is not affected by local mobile signal conditions or network congestion the way 5G is. 5G wins on setup speed, contract flexibility and being a genuine option where fixed-line broadband is weak or unavailable.' },
+      { question: 'Which 5G network has the best coverage?', answer: 'EE has the broadest 5G coverage of any UK network, according to independent testing, which is why it remains worth its higher price specifically in areas where Three\'s coverage is weaker. National Broadband, which connects to whichever of the four UK networks is strongest at a given address, is a stronger starting point than committing to a single network directly for a rural or borderline-coverage property.' },
+      { question: 'Can I get 5G home broadband with no fixed contract?', answer: 'Yes. Vodafone\'s 30-day rolling GigaCube plan costs £60 a month with £150 upfront, a real premium over its 24-month equivalent at £21 a month, aimed specifically at testing 5G performance at an address before committing to a longer term.' },
+      { question: 'What is the biggest risk with 5G home broadband?', answer: 'Address-level signal variability. A network that performs well on one street can perform very differently a few hundred metres away, which is why checking indoor signal strength at the specific property, not just a postcode-level coverage map, matters more than with a fixed line.' },
     ],
   },
 

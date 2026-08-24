@@ -1036,6 +1036,35 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-best-5g-home-broadband-guide",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Deep rewrite: Best 5G Home Broadband UK guide (4th content-priority-analysis target)",
+        "description": (
+            "Fourth target from scripts/analyze_content_priority.py's ranked list: 30 real "
+            "GSC AI-feature impressions at 601 words, and the old copy named no real "
+            "providers or prices at all, just generic 5G-vs-fibre advice. Rewritten to 1,036 "
+            "words with real current data for all 4 major UK 5G home broadband options: Three "
+            "(best value, from GBP29/mo, ~150 Mbps), Vodafone GigaCube (cheapest fixed term at "
+            "GBP21/mo, or a genuine GBP60/mo no-contract option), EE Smart 5G Hub (broadest UK "
+            "5G coverage, GBP30-50/mo), and National Broadband (already deeply covered in the "
+            "Awin-pending batch) framed correctly here as a multi-network specialist rather "
+            "than a single-network alternative -- it connects to whichever of the 4 UK "
+            "networks is strongest at a given address, a genuinely different value "
+            "proposition worth explaining rather than just listing as a fourth option. Found "
+            "and included a real Trustpilot-vs-Ofcom divergence for Three specifically (4.5 "
+            "Trustpilot, worst-quartile Ofcom complaints alongside EE and Vodafone) and linked "
+            "to the full-fibre guide's deeper explanation of that pattern rather than "
+            "repeating it in full."
+        ),
+        "priority_score": 47,
+        "impact_score": 46,
+        "effort": "Medium",
+        "target": "app/guides/[slug]/page.tsx (best-5g-home-broadband-uk), data/guides.ts",
+        "dependencies": "ops-content-priority-analysis-tooling",
+        "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",
