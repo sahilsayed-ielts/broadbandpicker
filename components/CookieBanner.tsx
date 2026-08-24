@@ -7,6 +7,7 @@ export type ConsentState = 'accepted' | 'declined' | null
 
 export const CONSENT_KEY = 'bbp_cookie_consent'
 export const OPEN_CONSENT_EVENT = 'bbp:open-cookie-preferences'
+export const CONSENT_UPDATED_EVENT = 'bbp:analytics-consent-updated'
 
 export function getConsent(): ConsentState {
   if (typeof window === 'undefined') return null
@@ -52,12 +53,14 @@ export default function CookieBanner() {
         page_title: document.title,
       })
     }
+    window.dispatchEvent(new Event(CONSENT_UPDATED_EVENT))
   }
 
   function decline() {
     localStorage.setItem(CONSENT_KEY, 'declined')
     updateGoogleConsent('denied')
     setVisible(false)
+    window.dispatchEvent(new Event(CONSENT_UPDATED_EVENT))
   }
 
   if (!visible) return null

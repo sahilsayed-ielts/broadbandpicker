@@ -39,6 +39,7 @@ class EventRequirement:
 
 REQUIREMENTS = (
     EventRequirement("page_view", "acquisition", "P0", False, "page_view", "Which organic landing pages attract visits?"),
+    EventRequirement("ai_referral_visit", "AI acquisition", "P0", False, None, "Which identifiable AI assistants send engaged and converting visits?"),
     EventRequirement("postcode_submit", "intent", "P0", False, "search", "Which landing pages start a local availability journey?"),
     EventRequirement("outbound_provider_click", "commercial", "P0", True, "select_item", "Which organic pages and providers create qualified affiliate exits?"),
     EventRequirement("speed_test_started", "tool engagement", "P1", False, None, "Do organic visitors start the speed-test tool?"),
@@ -55,6 +56,9 @@ REQUIREMENTS = (
 )
 
 CUSTOM_DIMENSIONS = (
+    ("ai_platform", "event", "Identifiable AI assistant referring the consented visit."),
+    ("referrer_domain", "event", "AI referring domain or explicit AI campaign source."),
+    ("page_type", "event", "Low-cardinality template family receiving the AI referral."),
     ("content_type", "event", "Low-cardinality template family: guide, provider, comparison, local, tool or deal."),
     ("provider_slug", "event", "Provider involved in shortlist and affiliate interactions."),
     ("postcode_area", "event", "Outward postcode area only; never collect a full postcode."),
@@ -77,6 +81,7 @@ CUSTOM_METRICS = (
 SEO_SCORECARD = (
     ("Search demand", "GSC impressions, clicks, CTR and average position", "Query + canonical landing page", "28 days vs previous 28 days"),
     ("Landing quality", "Organic sessions, engaged sessions, engagement rate and average engagement time", "Landing page + device", "Weekly"),
+    ("AI referral quality", "AI sessions, engagement and key-event rate", "AI platform + landing page + page type", "Weekly"),
     ("Intent activation", "postcode_submit users / organic landing sessions", "Landing page + content_type", "Weekly"),
     ("Comparison activation", "filter, shortlist or comparison users / organic landing sessions", "Landing page", "Weekly"),
     ("Affiliate CTR", "outbound_provider_click users / organic landing sessions", "Landing page + provider_slug", "Weekly"),

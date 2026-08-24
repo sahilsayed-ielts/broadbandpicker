@@ -252,33 +252,137 @@ const baseProviders: Provider[] = [
     logo: '/logos/sky.svg',
     affiliateUrl: 'https://www.sky.com/shop/broadband',
     speeds: [
-      { download: 36, upload: 9, type: 'FTTC' },
-      { download: 59, upload: 17, type: 'FTTC' },
-      { download: 145, upload: 27, type: 'FTTP' },
-      { download: 500, upload: 60, type: 'FTTP' },
+      { download: 35, upload: 9, type: 'FTTC' },
+      { download: 67, upload: 16, type: 'FTTC' },
+      { download: 145, upload: 27, type: 'FTTC' },
+      { download: 900, upload: 90, type: 'FTTP' },
     ],
-    monthlyPriceFrom: 25.00,
-    contractLengths: [18],
+    monthlyPriceFrom: 23.00,
+    contractLengths: [24],
     setupFee: 0,
-    trustpilotScore: 3.8,
+    trustpilotScore: 2.7,
     coveragePercent: 95,
     highlights: [
-      'No setup fee on all packages',
-      'Sky Broadband Shield parental controls included',
-      'Pairs with Sky TV for bundle savings',
+      'One of the best Ofcom complaints records of any major provider, 5 per 100,000 customers in Q4 2025',
+      'A flat £3 a month price rise from April 2026, its first year using pounds and pence instead of a percentage',
+      'Sky Broadband Shield parental controls and strong TV bundle options included',
     ],
     pros: [
-      'Competitive introductory pricing',
-      'No setup fee',
-      'Good parental controls',
-      'Excellent TV bundles',
+      'Best-in-class Ofcom complaints record alongside Plusnet, well below the industry average',
+      'No setup costs on current advertised packages',
+      'Strong, mature TV bundle range for households that also want Sky TV or Sky Sports',
+      'Good parental controls via Sky Broadband Shield, included as standard',
     ],
     cons: [
-      'Price rises after initial period',
-      'Average upload speeds on FTTC',
-      'Customer service can be slow',
+      'Low Trustpilot score, around 2.7 out of 5, despite the strong Ofcom record',
+      'Only 24-month contracts are offered, with no shorter or rolling option',
+      'Contract terms for years after the first only say prices "may rise," without a fixed future figure disclosed at sign-up',
+      'Average upload speeds on the Superfast and Ultrafast copper-based tiers',
     ],
-    ...createReviewMetadata('Sky', 'https://www.sky.com/shop/broadband', 'sky.com'),
+    excerpt:
+      'Sky sells broadband over the Openreach network, with prices from £23 a month for Superfast (67 Mbps) up to £28 for Full Fibre Gigafast (900 Mbps), all on 24-month contracts with no current setup cost. Ofcom\'s Q4 2025 complaints data ranks Sky among the best of any major UK provider, just 5 complaints per 100,000 customers against an industry average of 8, yet its Trustpilot score sits at a low 2.7 out of 5, a genuine gap between the two sources worth understanding before judging Sky on Trustpilot alone.',
+    contentSections: [
+      {
+        heading: 'Sky Broadband Deals in August 2026',
+        paragraphs: [
+          'Sky\'s current range starts with Superfast at £23 a month for an average 67 Mbps, then Full Fibre 150 at £24, up to Full Fibre Gigafast at £28 for an average 900 Mbps and Full Fibre 2.5 Gigafast+ at £35 for 2,500 Mbps. A cheaper Superfast 35 tier, averaging 35 Mbps, is also available for addresses without a faster option. Every package is currently advertised with no setup cost.',
+          'TV bundles sit above the broadband-only range: Sky Essential TV with Netflix and Superfast or Full Fibre runs from £35 a month, and Sky Ultimate TV, adding Disney+ and HBO Max, starts from £41. These are genuine, mature bundle options, a real point of difference from most broadband-only altnets and resellers covered elsewhere on this site.',
+          'Every package is sold on a 24-month contract, with no shorter or rolling option currently published. Sky\'s own site notes a £9.95 router delivery charge plus a £10 activation fee "may be required" outside of the current no-setup-cost promotional period, worth confirming at checkout rather than assuming it will always be waived.',
+        ],
+      },
+      {
+        heading: 'Sky Speeds and the Openreach Network',
+        paragraphs: [
+          'Sky sells broadband over the Openreach network, the same underlying infrastructure used by BT, TalkTalk, Plusnet and most other national providers. Line quality and top available speed at a given address is largely determined by that shared network rather than by Sky specifically; the differences between Openreach-based providers are price, contract terms, extras and support.',
+          'Superfast and Ultrafast are delivered over copper-based FTTC and G.Fast technology, while Full Fibre 150 upward runs on a genuine fibre-to-the-premises connection with meaningfully faster and more consistent upload speeds. Anyone doing regular video calls, cloud backups or uploading large files should prioritise a Full Fibre tier over Superfast even where the download speed difference looks modest on paper.',
+          'For most households, Full Fibre 150 comfortably covers streaming, browsing, working from home and several devices in use at once. Gigafast and 2.5 Gigafast+ mainly benefit larger households running multiple demanding activities simultaneously, or anyone who specifically wants among the fastest widely available speeds on the Openreach network.',
+        ],
+      },
+      {
+        heading: 'The April 2026 Price Rise: Sky\'s First Flat-Rate Year',
+        paragraphs: [
+          'Sky raised broadband and TV prices by a flat £3 a month for almost all customers from 1 April 2026, including those already mid-contract. This is the first year Sky has used a flat pounds-and-pence figure rather than a percentage; its 2025 rise was 6.2%, tied to inflation. The change follows Ofcom\'s ban on inflation-linked, percentage-based price rise terms in all new contracts from 17 January 2025.',
+          'One genuine nuance sets Sky apart from BT or Vodafone here: for customers already in contract, Sky\'s terms state prices "may rise" during the minimum term rather than disclosing a fixed future figure in pounds and pence at the point of sale. New customers signing up now see the April 2026 rise clearly disclosed, but what happens in the second year of a fresh 24-month contract is not fixed at sign-up the way it is with some rivals.',
+          'Ofcom requires that any customer who receives a price rise notification can leave the contract penalty-free within 30 days, a right that applies across the industry following the January 2025 ban, not just to Sky customers specifically.',
+        ],
+      },
+      {
+        heading: 'Sky Broadband Shield and TV Bundles',
+        paragraphs: [
+          'Sky Broadband Shield, included as standard, gives parental controls that can be set at a household or per-device level, covering categories like adult content, gambling and social media, a genuinely useful extra for families that some rival providers charge separately for or omit entirely.',
+          'Sky\'s real differentiator against most other providers on this site is its TV bundle range. A household that wants Sky Sports, Sky Atlantic or a combined Netflix, Disney+ and HBO Max package alongside broadband can genuinely get a single bill and a single provider relationship, rather than stitching together separate broadband and streaming subscriptions.',
+          'Anyone who only wants broadband should stick to the Superfast or Full Fibre range without a TV tier attached; the TV bundles are worth it specifically for households that would be paying for that content separately anyway, not as a default upgrade.',
+        ],
+      },
+      {
+        heading: 'Sky Customer Service: A Strong Ofcom Record Against a Low Trustpilot Score',
+        paragraphs: [
+          'Ofcom\'s Q4 2025 complaints data placed Sky at just 5 complaints per 100,000 customers, comfortably below the industry average of 8 and among the best of any major UK provider, a position it shares with Plusnet. Which?\'s own customer satisfaction survey found 54% of Sky complainants were satisfied with how their complaint was handled, one of only two providers to score above 50% on that specific measure.',
+          'Sky\'s Trustpilot score tells a different story: around 2.7 out of 5 from roughly 29,000 reviews on its main sky.com page. Recurring themes in that review set include mid-contract price rises, retention pressure when customers try to haggle at renewal, and slow refunds after cancellation; Sky rarely replies to reviews on Trustpilot, which tends to keep a page\'s score depressed compared to providers that actively respond.',
+          'The practical takeaway is that Sky\'s independently regulated complaints record, the metric Ofcom uses to hold every provider to the same standard, is genuinely one of the best in the market, even though its self-selected public review page looks similar to providers with a considerably worse formal complaints history.',
+        ],
+      },
+      {
+        heading: 'Is Sky Broadband Worth It?',
+        paragraphs: [
+          'Sky\'s real advantage is the combination of a strong, independently verified complaints record and a mature TV bundle range, at prices broadly in line with BT and other major Openreach-based providers. Its parental controls are included as standard rather than sold as an add-on.',
+          'It is not the cheapest option at any given speed, only offers 24-month contracts, and its second-year price rise is not fixed at sign-up the way some rivals now disclose it. The very low Trustpilot score is a fair reflection of a vocal, complaint-skewed review page rather than the fuller regulatory picture.',
+          'Our take: Sky suits a household that wants a well-known, established provider with a genuinely strong complaints record, particularly one that also wants Sky TV or Sky Sports on the same bill, and is prepared to actively haggle at renewal and factor an undisclosed future price rise into the real two-year cost.',
+        ],
+      },
+    ],
+    faqItems: [
+      {
+        question: 'Is Sky broadband any good?',
+        answer: 'Sky has one of the strongest Ofcom complaints records of any major UK provider, 5 per 100,000 customers in Q4 2025 against an industry average of 8, a position it shares with Plusnet. Its Trustpilot score is low, around 2.7 out of 5, which mainly reflects a self-selected, complaint-skewed review page rather than Sky\'s formal, regulated complaints record.',
+      },
+      {
+        question: 'Why is Sky\'s Trustpilot score so low if Ofcom ranks it well?',
+        answer: 'Trustpilot reviews are self-selected and skew heavily toward customers who had a problem, and Sky rarely replies to reviews on the platform, which tends to keep a page\'s score depressed. Ofcom\'s complaints data is a regulated, standardised measure applied identically across every provider, and by that measure Sky performed among the best in the market in Q4 2025.',
+      },
+      {
+        question: 'Does Sky raise its prices during the contract?',
+        answer: 'Yes. Sky raised broadband and TV prices by a flat £3 a month from April 2026, its first year using a fixed pounds-and-pence figure instead of a percentage. For customers already in contract, the terms state prices "may rise" without fixing a future figure at sign-up, so budget for a further increase in year two of a new contract.',
+      },
+      {
+        question: 'What speed do I need from Sky?',
+        answer: 'Full Fibre 150 comfortably covers most households, including streaming, browsing and several devices in use at once. Full Fibre Gigafast and 2.5 Gigafast+ mainly benefit larger households running multiple demanding activities simultaneously or anyone who specifically wants among the fastest widely available speeds on the Openreach network.',
+      },
+    ],
+    reviewedDate: '2026-08-24',
+    pricingVerifiedDate: '2026-08-24',
+    reviewSources: [
+      {
+        label: 'Uswitch: Sky broadband packages and pricing',
+        href: 'https://www.uswitch.com/broadband/providers/sky/',
+        note: 'Used for the current package lineup, pricing snapshot and contract length, checked 2026-08-24.',
+      },
+      {
+        label: 'Ofcom: telecoms and pay-TV complaints fall to a record low',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/service-quality/ofcom-telecoms-and-pay-tv-complaints-fall-to-record-low',
+        note: 'Primary regulatory source for Sky\'s Q4 2025 complaints ranking (5 per 100,000) and the industry average.',
+      },
+      {
+        label: 'Sky confirms April 2026 price rises for broadband and TV',
+        href: 'https://www.choose.co.uk/news/2026/sky-confirms-april-2026-broadband-and-tv-price-rises/',
+        note: 'Source for the flat £3 a month April 2026 rise and the comparison against 2025\'s 6.2% inflation-linked rise.',
+      },
+      {
+        label: 'Selectra: Sky broadband Trustpilot, Ofcom and Which? review summary',
+        href: 'https://selectra.co.uk/tv-broadband/providers/sky/review',
+        note: 'Used for the Which? complaint-satisfaction survey result and to corroborate the Trustpilot-versus-Ofcom gap.',
+      },
+      {
+        label: 'Sky public Trustpilot profile',
+        href: 'https://uk.trustpilot.com/review/sky.com',
+        note: 'Customer-sentiment reference showing a rating around 2.7 out of 5 from roughly 29,000 reviews in August 2026, consistent with the figure already used on this site\'s BT-vs-Sky and Sky-vs-Virgin Media comparison pages; not treated as a controlled reliability survey.',
+      },
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+        note: 'Explains how price, speed, coverage, customer experience and use-case fit are weighed.',
+      },
+    ],
     awinProgramId: null,
   },
   {

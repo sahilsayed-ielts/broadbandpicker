@@ -10,6 +10,7 @@ import CookiePreferencesButton from '@/components/CookiePreferencesButton'
 import Logo from '@/components/Logo'
 import MainNav from '@/components/MainNav'
 import MobileNav from '@/components/MobileNav'
+import AiReferralTracker from '@/components/AiReferralTracker'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -278,6 +279,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="flex-1">{children}</main>
         <Footer />
         <CookieBanner />
+        <AiReferralTracker />
 
         {gaId && (
           <>

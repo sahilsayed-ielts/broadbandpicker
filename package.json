@@ -15,6 +15,7 @@
     "speed-test:audit": "python3 scripts/audit_speed_test.py",
     "speed-test:build": "python3 scripts/audit_speed_test.py --build-and-deploy",
     "analytics:audit": "python3 scripts/audit_ga4_seo_measurement.py",
+    "analytics:ai-config": "python3 scripts/configure_ga4_ai_tracking.py --credentials /Users/sahilrafiqsayed/broadbandpicker-ga4-credentials.json",
     "deals:sync": "node scripts/provider-deal-agent.mjs",
     "deals:sync:dry": "node scripts/provider-deal-agent.mjs --dry-run",
     "social:plan": "python3 scripts/plan_social_media_strategy.py"

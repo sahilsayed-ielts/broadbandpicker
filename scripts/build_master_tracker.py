@@ -1093,6 +1093,38 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-sky-provider-page",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Deep rewrite: Sky provider page (6th content-priority-analysis target, first provider-type page)",
+        "description": (
+            "Sixth target from scripts/analyze_content_priority.py's ranked list, and the "
+            "first provider-page (not guide-page) target: /providers/sky carries the "
+            "single highest mapped search volume of any page on the site (172,237/mo) but "
+            "was only 387 words with no excerpt or contentSections at all -- the sky entry "
+            "in data/providers.ts was missing those two fields entirely, unlike the "
+            "already-rewritten bt and virgin-media entries. Rewritten to ~1,700 words with "
+            "6 contentSections (deals, Openreach network/speeds, the April 2026 flat GBP3 "
+            "price rise -- Sky's first year using pounds-and-pence instead of a percentage, "
+            "down from 6.2% in 2025 -- Sky Broadband Shield/TV bundles, a "
+            "Trustpilot-vs-Ofcom section, and a final verdict), plus 4 FAQs and full "
+            "reviewSources. Corrected 3 stale top-level fields that were actively wrong: "
+            "trustpilotScore 3.8 -> 2.7 (cross-checked against this site's own existing "
+            "bt-vs-sky and sky-vs-vodafone comparison pages, which already used 2.7 as of "
+            "21 August 2026 -- caught and fixed a first-pass error of my own where a single "
+            "WebFetch summary suggested 1.4, before corroborating against two independent "
+            "sources and this site's own prior content), contractLengths [18] -> [24] "
+            "(Sky has not offered an 18-month contract for some time), and monthlyPriceFrom "
+            "25.00 -> 23.00 to match the real current cheapest tier (Superfast, 67 Mbps)."
+        ),
+        "priority_score": 66,
+        "impact_score": 60,
+        "effort": "Medium",
+        "target": "data/providers.ts (sky)",
+        "dependencies": "ops-content-priority-analysis-tooling",
+        "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",

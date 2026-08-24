@@ -1,16 +1,17 @@
 # BroadbandPicker GA4 SEO measurement strategy
 
-Generated: 2026-08-24T21:31:27.201813+00:00
+Generated: 2026-08-24T22:08:32.885612+00:00
 
 ## Audit outcome
 
-The repository contains **15 distinct analytics events** and covers **64.3%** of the proposed SEO/commercial measurement contract. Code presence is not proof of reporting: production events must also be checked in Realtime and DebugView.
+The repository contains **16 distinct analytics events** and covers **66.7%** of the proposed SEO/commercial measurement contract. Code presence is not proof of reporting: production events must also be checked in Realtime and DebugView.
 
 ## Event coverage and priorities
 
 | Priority | Journey stage | Event | Status | GA4 alignment | Decision supported |
 | --- | --- | --- | --- | --- | --- |
 | P0 | acquisition | `page_view` | Implemented | `page_view` | Which organic landing pages attract visits? |
+| P0 | AI acquisition | `ai_referral_visit` | Implemented | `Custom event` | Which identifiable AI assistants send engaged and converting visits? |
 | P0 | intent | `postcode_submit` | Implemented | `search` | Which landing pages start a local availability journey? |
 | P0 | commercial | `outbound_provider_click` | Implemented | `select_item` | Which organic pages and providers create qualified affiliate exits? |
 | P1 | tool engagement | `speed_test_started` | Implemented | `Custom event` | Do organic visitors start the speed-test tool? |
@@ -31,6 +32,7 @@ The repository contains **15 distinct analytics events** and covers **64.3%** of
 | --- | --- | --- | --- |
 | Search demand | GSC impressions, clicks, CTR and average position | Query + canonical landing page | 28 days vs previous 28 days |
 | Landing quality | Organic sessions, engaged sessions, engagement rate and average engagement time | Landing page + device | Weekly |
+| AI referral quality | AI sessions, engagement and key-event rate | AI platform + landing page + page type | Weekly |
 | Intent activation | postcode_submit users / organic landing sessions | Landing page + content_type | Weekly |
 | Comparison activation | filter, shortlist or comparison users / organic landing sessions | Landing page | Weekly |
 | Affiliate CTR | outbound_provider_click users / organic landing sessions | Landing page + provider_slug | Weekly |
@@ -49,6 +51,9 @@ Mark `outbound_provider_click`, `contact_form_submit` and the future `newsletter
 
 | Parameter | Purpose |
 | --- | --- |
+| `ai_platform` | Identifiable AI assistant referring the consented visit. |
+| `referrer_domain` | AI referring domain or explicit AI campaign source. |
+| `page_type` | Low-cardinality template family receiving the AI referral. |
 | `content_type` | Low-cardinality template family: guide, provider, comparison, local, tool or deal. |
 | `provider_slug` | Provider involved in shortlist and affiliate interactions. |
 | `postcode_area` | Outward postcode area only; never collect a full postcode. |

@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-08-24T21:31:27.201813+00:00",
+  "generated_at": "2026-08-24T22:08:32.885612+00:00",
   "scope": "Repository instrumentation audit plus GA4/GSC SEO measurement design; not a GA4 reporting-data export.",
   "summary": {
-    "events_found": 15,
-    "required_events_implemented": 9,
-    "required_events_total": 14,
-    "coverage_percent": 64.3,
+    "events_found": 16,
+    "required_events_implemented": 10,
+    "required_events_total": 15,
+    "coverage_percent": 66.7,
     "p0_missing": [],
     "p1_missing": [
       "newsletter_signup",
@@ -15,6 +15,9 @@
     ]
   },
   "event_inventory": {
+    "ai_referral_visit": [
+      "components/AiReferralTracker.tsx"
+    ],
     "compare_basket_viewed": [
       "components/ComparisonTable.tsx"
     ],
@@ -72,6 +75,18 @@
       "implemented": true,
       "source_files": [
         "components/CookieBanner.tsx"
+      ]
+    },
+    {
+      "event": "ai_referral_visit",
+      "stage": "AI acquisition",
+      "priority": "P0",
+      "key_event": false,
+      "recommended_ga4_event": null,
+      "question": "Which identifiable AI assistants send engaged and converting visits?",
+      "implemented": true,
+      "source_files": [
+        "components/AiReferralTracker.tsx"
       ]
     },
     {
@@ -223,6 +238,21 @@
   ],
   "custom_dimensions": [
     {
+      "name": "ai_platform",
+      "scope": "event",
+      "purpose": "Identifiable AI assistant referring the consented visit."
+    },
+    {
+      "name": "referrer_domain",
+      "scope": "event",
+      "purpose": "AI referring domain or explicit AI campaign source."
+    },
+    {
+      "name": "page_type",
+      "scope": "event",
+      "purpose": "Low-cardinality template family receiving the AI referral."
+    },
+    {
       "name": "content_type",
       "scope": "event",
       "purpose": "Low-cardinality template family: guide, provider, comparison, local, tool or deal."
@@ -301,6 +331,12 @@
       "area": "Landing quality",
       "metrics": "Organic sessions, engaged sessions, engagement rate and average engagement time",
       "breakdown": "Landing page + device",
+      "cadence": "Weekly"
+    },
+    {
+      "area": "AI referral quality",
+      "metrics": "AI sessions, engagement and key-event rate",
+      "breakdown": "AI platform + landing page + page type",
       "cadence": "Weekly"
     },
     {
