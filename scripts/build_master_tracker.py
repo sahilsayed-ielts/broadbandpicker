@@ -1779,6 +1779,30 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-25 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-broadband-speeds-explained-guide",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Deep rewrite: Broadband Speeds Explained guide (34th content-priority-analysis target)",
+        "description": (
+            "Second target in the second 13-page batch: 476 words, the thinnest guide "
+            "examined all session, with entirely generic, dateless content. Added a real "
+            "Ofcom stat this page never had: average maximum available download speed is "
+            "285 Mbps (up ~30% from 223 Mbps), with the important nuance that median "
+            "speed actually delivered on FTTC is closer to 80-100 Mbps -- the average and "
+            "the typical experience are genuinely different things. Reused the FTTC/cable "
+            "evening-congestion explanation (shared capacity per street cabinet/node) "
+            "already written for best-broadband-for-streaming earlier this session, with "
+            "a matching new FAQ. Added real current symmetrical-speed examples (Community "
+            "Fibre 3,000Mbps, YouFibre 8,000Mbps). Word count 476 -> 787."
+        ),
+        "priority_score": 26,
+        "impact_score": 25,
+        "effort": "Medium",
+        "target": "app/guides/[slug]/page.tsx (broadband-speeds-explained), data/guides.ts",
+        "dependencies": "ops-content-priority-analysis-tooling",
+        "source": "User request 2026-08-25 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",

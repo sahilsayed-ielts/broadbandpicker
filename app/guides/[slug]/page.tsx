@@ -690,7 +690,9 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         <h2>Download speed vs upload speed</h2>
         <p><strong>Download speed</strong> is how quickly data comes from the internet to your device. This affects streaming, web browsing, downloading files, and loading video calls.</p>
         <p><strong>Upload speed</strong> is how quickly data goes from your device to the internet. This affects video calls, cloud backups, uploading photos, and live streaming.</p>
-        <p>Most broadband packages have much higher download speeds than upload speeds. Full-fibre (FTTP) packages are the exception — they often offer symmetric speeds.</p>
+        <p>Most broadband packages have much higher download speeds than upload speeds. Full-fibre (FTTP) packages are the exception, and several altnets now go well beyond simply matching the two: Community Fibre offers up to 3,000 Mbps symmetrical on its fastest tier, and YouFibre up to 8,000 Mbps, both with upload matching download exactly.</p>
+        <h2>The UK&apos;s "average speed" is higher than what most people actually get</h2>
+        <p>Ofcom&apos;s Connected Nations data recorded the average maximum available download speed at 285 Mbps, up nearly 30% from 223 Mbps the year before, driven by the rapid rollout of gigabit-capable full fibre. This figure describes what is technically available, not what a typical household experiences day to day: the median speed actually delivered on FTTC connections specifically is closer to 80 to 100 Mbps, since the national average is pulled upward by full-fibre connections capable of far higher speeds. When comparing a package against "the UK average," check whether the figure describes availability or actual delivered speed, since the two can differ substantially.</p>
         <h2>What broadband speed do you actually need?</h2>
         <div className="overflow-x-auto">
           <table className="w-full text-sm border-collapse">
@@ -719,7 +721,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
           </table>
         </div>
         <h2>Why does my speed vary?</h2>
-        <p>Advertised speeds are &ldquo;up to&rdquo; figures. Your actual speed depends on: the technology (FTTC, FTTP, Cable), how far you are from the exchange or cabinet (for FTTC), the time of day, your home wiring, and your router&apos;s placement.</p>
+        <p>Advertised speeds are &ldquo;up to&rdquo; figures. Actual speed depends on the technology (FTTC, FTTP, Cable), how far the property is from the exchange or cabinet (for FTTC), the time of day, home wiring and router placement. FTTC and cable connections also share capacity with other properties on the same street cabinet or node, so speed can dip during peak evening hours, roughly 7pm to 10pm, when many nearby homes are online at once. Full fibre (FTTP) is far less affected by this specific problem, since each property has its own dedicated fibre line rather than a shared one.</p>
         <p>Under Ofcom rules, providers must tell you the minimum guaranteed speed you can expect before you sign up. If you consistently receive below this, you have the right to exit your contract without penalty.</p>
         <h2>What is latency?</h2>
         <p>Latency (or ping) is the delay in milliseconds between sending a request and receiving a response. For gaming and video calls, low latency (under 30ms) is more important than raw speed. Full-fibre connections typically deliver much lower latency than FTTC or ADSL.</p>
@@ -729,6 +731,8 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
       { question: 'Is 100 Mbps broadband fast?', answer: 'Yes — 100 Mbps is more than sufficient for most UK households. It supports multiple 4K streams, video calls, gaming, and general browsing simultaneously without issues.' },
       { question: 'What does Mbps mean?', answer: 'Mbps stands for Megabits per second. It\'s a measure of data transfer speed. 1,000 Mbps = 1 Gbps (Gigabit). To download a 1GB file at 100 Mbps takes approximately 80 seconds.' },
       { question: 'Why is my broadband slower than advertised?', answer: 'Advertised speeds are "up to" figures. For FTTC, actual speed depends heavily on your distance from the street cabinet — the further away you are, the slower your speed. Wi-Fi can also reduce speeds compared to a wired connection.' },
+      { question: 'What is the average UK broadband speed?', answer: 'Ofcom recorded the average maximum available download speed at 285 Mbps, up nearly 30% from 223 Mbps the year before. This describes what is technically available, not what most households experience: the median speed actually delivered on FTTC connections specifically is closer to 80 to 100 Mbps.' },
+      { question: 'Why does my broadband slow down in the evening specifically?', answer: 'FTTC and cable connections share capacity with other properties on the same street cabinet or node, so speed can dip during peak hours, roughly 7pm to 10pm, when many homes are online at once. Full fibre (FTTP) is far less affected, since each property has its own dedicated fibre line.' },
     ],
   },
 

@@ -312,12 +312,23 @@ export const guides: GuideMetadata[] = [
     slug: 'broadband-speeds-explained',
     title: 'Broadband Speeds Explained: What Speed Do You Actually Need?',
     metaTitle: 'Broadband Speeds Explained | BroadbandPicker',
-    metaDescription: 'Not sure what broadband speed you need? Our guide explains download vs upload speeds, Mbps vs Gbps, and exactly what speed suits your household.',
+    metaDescription: 'Not sure what broadband speed you need? Real Ofcom average vs median speed data, why FTTC and cable slow down in the evening, and exactly what speed suits your household.',
     publishDate: '2026-01-20',
-    updatedDate: '2026-06-01',
-    excerpt: 'Mbps, Gbps, download vs upload — broadband jargon is confusing. This guide cuts through it and tells you exactly what speed you need at home.',
-    readingTime: 7,
+    updatedDate: '2026-08-25',
+    excerpt: 'Ofcom\'s "average" UK broadband speed of 285 Mbps describes what is technically available, not what most households actually get. Real speed data, why FTTC and cable connections slow down specifically in the evening, and what speed genuinely suits your household.',
+    readingTime: 8,
     category: 'technology-and-speeds',
+    keyTakeaways: [
+      'Ofcom\'s average maximum available download speed is 285 Mbps, but the median speed actually delivered on FTTC connections is closer to 80 to 100 Mbps.',
+      'FTTC and cable connections share capacity with other properties on the same street cabinet or node, causing evening slowdowns; full fibre is far less affected.',
+      'Community Fibre and YouFibre now offer genuinely symmetrical speeds up to 3,000 Mbps and 8,000 Mbps respectively, well beyond older FTTP benchmarks.',
+    ],
+    sources: [
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+      },
+    ],
   },
   {
     slug: 'cheapest-broadband-uk',
