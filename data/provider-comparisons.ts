@@ -221,73 +221,77 @@ export const providerComparisons: ProviderComparison[] = [
     providerA: 'sky',
     providerB: 'vodafone',
     title: 'Sky vs Vodafone Broadband: Which One Offers Better Value?',
-    metaTitle: 'Sky vs Vodafone Broadband 2026 | Price, Speed and Contracts',
+    metaTitle: 'Sky vs Vodafone Broadband 2026 | Real Prices, Speed and Complaints',
     metaDescription:
-      'Compare Sky vs Vodafone broadband on introductory price, full-fibre options, contract terms, mobile bundle value, and customer trade-offs.',
+      'Sky vs Vodafone broadband compared on real current price and Ofcom complaints for August 2026. Sky is cheaper, not Vodafone, and has a far better complaints record.',
     excerpt:
-      'Sky and Vodafone are both strong mainstream picks, but they win in different ways. Sky is the cleaner all-round family option, while Vodafone is often the sharper value choice for mobile bundle households.',
+      'Vodafone is often assumed to be the sharper-value pick against Sky. In August 2026, Sky is actually cheaper, from £23 against Vodafone\'s £25, and holds one of the best Ofcom complaints records in the market against Vodafone\'s second-worst.',
     publishDate: '2026-06-21',
-    updatedDate: '2026-06-21',
-    bestForA: 'TV bundles, simple setup, and mainstream households',
-    bestForB: 'Mobile bundle discounts and sharper FTTP pricing',
+    updatedDate: '2026-08-25',
+    bestForA: 'A genuinely lower price plus one of the best Ofcom complaints records in the market',
+    bestForB: 'Mobile bundle discounts for existing Vodafone customers and real 2026 award wins',
     winner:
-      'Vodafone often wins on price and bundle value, while Sky remains the safer all-round choice if you want a simpler household broadband-and-TV package.',
+      'Sky is the stronger overall choice on price and complaints record. Vodafone remains worth considering specifically for existing Vodafone mobile customers eligible for a genuine bundle discount, or for its real 2026 award recognition on value and speed.',
+    factSnapshot: {
+      providerA: { fromPrice: '£23.00/mo', maxSpeed: '900 Mbps', coverage: '95%', trustpilot: '2.7', contract: '24 months', setupFee: '£0 (currently advertised)' },
+      providerB: { fromPrice: '£25.00/mo', maxSpeed: '910 Mbps', coverage: '94%', trustpilot: '1.3', contract: '24 months', setupFee: '£0' },
+    },
     intro: [
-      'Sky and Vodafone sit in a similar part of the market: national retail brands using Openreach-based infrastructure for much of their footprint. The difference is not usually basic availability. It is value, bundling, and how much you care about TV versus mobile discounts.',
-      'For a lot of buyers, this is a trade-off between cleaner mainstream packaging from Sky and more aggressive pricing from Vodafone.',
+      'Sky and Vodafone both sell broadband over the Openreach network, so line quality and top available speed at a given address are broadly similar regardless of which is chosen. As of August 2026, Sky starts from £23 a month against Vodafone\'s £25, a reversal of the older assumption that Vodafone was the sharper-value option against Sky.',
+      'The bigger gap is service quality: Ofcom\'s Q1 2026 complaints report placed Sky among the best of any major provider, while Vodafone was the second-worst, behind only TalkTalk.',
     ],
     verdict: [
-      'Choose Sky if you want broadband tied into a TV-first ecosystem with no setup fee and a familiar family-focused offer.',
-      'Choose Vodafone if you already use Vodafone mobile or want a stronger value proposition on full-fibre pricing.',
+      'Choose Sky if a genuinely lower price combined with one of the best Ofcom complaints records in the market matters, or if bundling Sky TV is a priority.',
+      'Choose Vodafone specifically if already a Vodafone mobile customer eligible for a bundle discount, or if its 2026 award-winning value and speed recognition outweighs the price and complaints gap.',
     ],
     keyDifferences: [
       {
+        label: 'Pricing',
+        detail:
+          'Sky now starts from £23.00 a month, cheaper than Vodafone\'s £25.00, a reversal of the older assumption that Vodafone was the value pick.',
+      },
+      {
+        label: 'Ofcom complaints',
+        detail:
+          'Sky recorded 5 complaints per 100,000 customers in Ofcom\'s Q1 2026 report, among the best of any major provider. Vodafone recorded 8, the second-worst of any major UK provider that quarter.',
+      },
+      {
         label: 'Bundle strategy',
         detail:
-          'Sky is stronger for TV-led households, while Vodafone is more compelling when mobile bundle savings matter.',
+          'Sky is stronger for TV-led households; Vodafone offers a genuine mobile bundle discount for existing Vodafone customers.',
       },
       {
-        label: 'Price point',
+        label: 'Awards and recognition',
         detail:
-          'Vodafone is often more aggressive on price, especially on full-fibre tiers.',
-      },
-      {
-        label: 'Setup and switching feel',
-        detail:
-          'Sky has a simple mainstream proposition with no setup fee, while Vodafone’s value is often clearer once bundle discounts are included.',
-      },
-      {
-        label: 'Customer perception',
-        detail:
-          'Sky tends to feel more stable for conventional households; Vodafone can look stronger for deal-seekers but has more mixed support perception.',
+          'Vodafone won real 2026 customer-survey awards for value and speed, including from Expert Reviews and Uswitch, despite its weaker Ofcom complaints position and lower Trustpilot score.',
       },
     ],
     faqs: [
       {
         question: 'Is Sky or Vodafone broadband cheaper?',
         answer:
-          'Vodafone is often cheaper, especially if you can take advantage of a Vodafone mobile bundle discount. Sky can still be competitive, but its value tends to be stronger for TV-led households than for pure price shoppers.',
+          'Sky, as of August 2026: it starts from £23 a month against Vodafone\'s £25, a reversal of the older assumption that Vodafone was the sharper-value pick.',
+      },
+      {
+        question: 'Which has a better complaints record, Sky or Vodafone?',
+        answer:
+          'Sky, by a wide margin. Ofcom\'s Q1 2026 report placed Sky among the best of any major provider at 5 complaints per 100,000 customers, while Vodafone was the second-worst at 8, behind only TalkTalk.',
       },
       {
         question: 'Should I choose Sky or Vodafone for full fibre?',
         answer:
-          'Vodafone is often the better value choice on full fibre pricing, while Sky may appeal more if you want a more familiar bundle ecosystem and no setup fee.',
-      },
-      {
-        question: 'Is Sky or Vodafone better for a family home?',
-        answer:
-          'Sky is usually the simpler fit for family homes, especially where TV, parental controls, and a mainstream setup matter more than chasing the absolute lowest monthly price.',
+          'Sky is the stronger choice on price and complaints record now. Vodafone is worth choosing specifically for its mobile bundle discount for existing Vodafone customers, or its 2026 award-winning value recognition.',
       },
       {
         question: 'Does Vodafone broadband make more sense if I already use Vodafone mobile?',
         answer:
-          'Yes. That is one of Vodafone’s strongest advantages, because the bundle discount can materially improve the total value of the package.',
+          'Yes. Existing Vodafone mobile customers can access a genuine bundle discount, one of Vodafone\'s clearest remaining advantages now that Sky is the cheaper standalone option with a far better complaints record.',
       },
     ],
     sources: [
       {
-        label: 'BroadbandPicker provider reviews',
-        href: 'https://broadbandpicker.co.uk/providers',
+        label: 'Ofcom: telecoms and pay-TV complaints fall to a record low',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/service-quality/ofcom-telecoms-and-pay-tv-complaints-fall-to-record-low',
       },
       {
         label: 'BroadbandPicker methodology',
@@ -713,73 +717,82 @@ export const providerComparisons: ProviderComparison[] = [
     providerA: 'bt',
     providerB: 'vodafone',
     title: 'BT vs Vodafone Broadband: Coverage or Better Value?',
-    metaTitle: 'BT vs Vodafone Broadband 2026 | Compare Price, Speed and Coverage',
+    metaTitle: 'BT vs Vodafone Broadband 2026 | Real Prices, Coverage and Complaints',
     metaDescription:
-      'Compare BT vs Vodafone broadband on price, full-fibre value, contracts, coverage, mobile bundle savings, and customer trade-offs in 2026.',
+      'BT vs Vodafone broadband compared on real current price, coverage and Ofcom complaints for August 2026. BT is now the cheaper option, not Vodafone, and has a slightly better complaints record.',
     excerpt:
-      'BT and Vodafone both compete nationally, but they win on different things. BT is stronger on coverage breadth and premium familiarity, while Vodafone is often sharper on pricing and bundle value.',
+      'BT is often assumed to be the pricier, premium option against Vodafone. As of August 2026, BT actually starts cheaper, from £23.99 against Vodafone\'s £25, and holds a marginally better Ofcom complaints record too.',
     publishDate: '2026-06-21',
-    updatedDate: '2026-06-21',
-    bestForA: 'Coverage-first households and premium mainstream buyers',
-    bestForB: 'Price-led shoppers and Vodafone mobile customers',
+    updatedDate: '2026-08-25',
+    bestForA: 'A genuinely lower starting price and the widest UK coverage',
+    bestForB: 'Mobile bundle discounts for existing Vodafone customers and real 2026 award wins',
     winner:
-      'Vodafone often wins on value, while BT remains the safer pick if coverage confidence matters more than monthly savings.',
+      'BT is the stronger choice on price and coverage now, while Vodafone remains worth considering specifically for existing Vodafone mobile customers who can access a genuine bundle discount.',
+    factSnapshot: {
+      providerA: { fromPrice: '£23.99/mo', maxSpeed: '900 Mbps', coverage: '98%', trustpilot: '4.0 / 1.5 (two pages)', contract: '24 months', setupFee: '£30 (reward card offsets)' },
+      providerB: { fromPrice: '£25.00/mo', maxSpeed: '910 Mbps', coverage: '94%', trustpilot: '1.3', contract: '24 months', setupFee: '£0' },
+    },
     intro: [
-      'BT vs Vodafone is a classic mainstream comparison because both providers are available to large parts of the country and appeal to households making price-versus-confidence trade-offs.',
-      'BT brings stronger coverage breadth and brand reassurance. Vodafone brings sharper pricing and a clearer case when mobile bundle savings matter.',
+      'BT and Vodafone both sell broadband over the Openreach network, so line quality and top available speed at a given address are largely the same regardless of which is chosen. As of August 2026, BT starts from £23.99 a month against Vodafone\'s £25, a reversal of the older assumption that Vodafone was the cheaper, value-led option against BT.',
+      'Vodafone\'s real advantage is for existing Vodafone mobile customers, who can access a genuine bundle discount, and its 2026 award recognition for value and speed from independent bodies including Expert Reviews and Uswitch.',
     ],
     verdict: [
-      'Choose BT if you want the broader premium-feeling safety net and are happy to pay more for it.',
-      'Choose Vodafone if you want stronger value, especially when full-fibre pricing and mobile bundling make the package more competitive.',
+      'Choose BT if the lower starting price and the widest UK coverage, around 98% of premises, matter most.',
+      'Choose Vodafone specifically if already a Vodafone mobile customer eligible for a bundle discount, or if its 2026 award-winning value proposition outweighs BT\'s marginally lower headline price.',
     ],
     keyDifferences: [
       {
-        label: 'Price',
+        label: 'Pricing',
         detail:
-          'Vodafone usually looks better on entry price and value-led comparison terms.',
+          'BT now starts from £23.99 a month, cheaper than Vodafone\'s £25.00, a reversal of the older assumption that Vodafone was the value pick.',
       },
       {
         label: 'Coverage',
         detail:
-          'BT has stronger national reach and tends to feel safer in harder-to-serve areas.',
+          'BT reaches around 98% of UK premises via Openreach, slightly ahead of Vodafone\'s roughly 94%.',
+      },
+      {
+        label: 'Ofcom complaints',
+        detail:
+          'BT recorded 7 complaints per 100,000 customers in Ofcom\'s Q1 2026 report, marginally better than Vodafone\'s 8, the second-worst of any major UK provider that quarter.',
       },
       {
         label: 'Bundle logic',
         detail:
-          'Vodafone is stronger for buyers already in its mobile ecosystem; BT is more about broad household brand familiarity.',
+          'Vodafone offers a genuine mobile bundle discount for existing Vodafone customers, a real saving BT cannot match for non-BT mobile users.',
       },
       {
-        label: 'Support perception',
+        label: 'Awards and recognition',
         detail:
-          'BT feels more premium and established, while Vodafone can look more cost-efficient but less reassuring to some buyers.',
+          'Vodafone won real 2026 customer-survey awards for value and speed, including from Expert Reviews and Uswitch, despite its lower Trustpilot score and weaker Ofcom complaints position.',
       },
     ],
     faqs: [
       {
         question: 'Which is cheaper, BT or Vodafone broadband?',
         answer:
-          'Vodafone is usually cheaper in the current BroadbandPicker dataset, especially when a Vodafone mobile bundle discount is relevant.',
+          'BT, as of August 2026: it starts from £23.99 a month against Vodafone\'s £25, a reversal of the older assumption that Vodafone was the cheaper option.',
       },
       {
         question: 'Should I choose BT or Vodafone for full fibre?',
         answer:
-          'Vodafone is often the stronger value option on full-fibre pricing, while BT may still appeal more if coverage breadth and brand reassurance matter most.',
+          'BT is the stronger choice on price and coverage now. Vodafone is worth choosing specifically for the mobile bundle discount available to existing Vodafone customers, or for its 2026 award-winning value and speed recognition.',
       },
       {
         question: 'Is BT or Vodafone better for rural households?',
         answer:
-          'BT is generally the safer rural or harder-to-serve choice because of its broader coverage positioning.',
+          'BT, generally, because of its wider coverage, around 98% of UK premises against Vodafone\'s roughly 94%, both via the same underlying Openreach network.',
       },
       {
         question: 'Does Vodafone broadband make more sense if I already have Vodafone mobile?',
         answer:
-          'Yes. That is one of Vodafone’s biggest advantages, because bundle savings can make its broadband offer much more competitive overall.',
+          'Yes. Existing Vodafone mobile customers can access a genuine bundle discount, one of Vodafone\'s clearest remaining advantages now that BT is the cheaper standalone option.',
       },
     ],
     sources: [
       {
-        label: 'BroadbandPicker provider reviews',
-        href: 'https://broadbandpicker.co.uk/providers',
+        label: 'Ofcom: telecoms and pay-TV complaints fall to a record low',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/service-quality/ofcom-telecoms-and-pay-tv-complaints-fall-to-record-low',
       },
       {
         label: 'BroadbandPicker methodology',
@@ -792,73 +805,77 @@ export const providerComparisons: ProviderComparison[] = [
     providerA: 'ee',
     providerB: 'sky',
     title: 'EE vs Sky Broadband: Which Mainstream Provider Should You Choose?',
-    metaTitle: 'EE vs Sky Broadband 2026 | Compare Reliability, Price and Bundles',
+    metaTitle: 'EE vs Sky Broadband 2026 | Real Prices, Complaints and Bundles',
     metaDescription:
-      'Compare EE vs Sky broadband on pricing, reliability, contracts, coverage, and bundle strengths to find out which provider is better for your home in 2026.',
+      'EE vs Sky broadband compared on real current price and Ofcom complaints for August 2026. Prices are within a penny of each other; the real difference is mobile backup versus TV bundles.',
     excerpt:
-      'EE and Sky are both strong mainstream broadband brands, but they serve slightly different priorities. EE is often the stronger reliability-led option, while Sky is the easier TV-bundle and family-value choice.',
+      'EE and Sky are priced within a penny of each other, from £22.99 and £23.00 a month respectively, and both hold genuinely strong Ofcom complaints records. The real choice comes down to EE\'s automatic mobile backup versus Sky\'s TV bundle range.',
     publishDate: '2026-06-21',
-    updatedDate: '2026-06-21',
-    bestForA: 'Reliability-led households and EE mobile customers',
-    bestForB: 'TV bundles, mainstream simplicity, and family homes',
+    updatedDate: '2026-08-25',
+    bestForA: 'Automatic mobile backup and a genuinely improved complaints record',
+    bestForB: 'TV bundles and one of the best Ofcom complaints records in the market',
     winner:
-      'EE is often the better pure-broadband choice for reliability-minded households, while Sky remains the better fit if TV bundles and a familiar family proposition matter more.',
+      'There is no meaningful price gap between these two any more. Choose based on the genuine feature difference: EE\'s automatic mobile-network backup if the fixed line drops, or Sky\'s mature TV and Sky Sports bundle range.',
+    factSnapshot: {
+      providerA: { fromPrice: '£22.99/mo', maxSpeed: '900 Mbps', coverage: '97%', trustpilot: '4.2/5 (all EE services); 1.3/5 (broadband-specific)', contract: '24 months', setupFee: '£0 (on most current packages)' },
+      providerB: { fromPrice: '£23.00/mo', maxSpeed: '900 Mbps', coverage: '95%', trustpilot: '2.7/5', contract: '24 months', setupFee: '£0 (currently advertised)' },
+    },
     intro: [
-      'EE vs Sky is a strong comparison because both brands feel mainstream and safe, but they win for different reasons. EE’s case is built around reliability, speed reputation, and mobile ecosystem value. Sky’s case is built around family familiarity, no setup fee, and TV-led bundling.',
-      'The best choice depends on whether your home thinks of broadband as a utility first or part of a wider entertainment package.',
+      'EE and Sky both sell broadband over the Openreach network at almost identical prices, £22.99 against £23.00 a month, so price is not a meaningful differentiator here. Both also hold genuinely strong Ofcom Q1 2026 complaints records: EE at 6 per 100,000 customers, exactly the industry average and a real improvement from a worst-three position in Q4 2025, and Sky at 5, among the best of any major provider.',
+      'The real choice is a feature one: EE includes automatic 4G or 5G mobile backup on its packages, keeping the connection running if the fixed line drops, while Sky offers a considerably more mature TV and entertainment bundle range including Sky Sports.',
     ],
     verdict: [
-      'Choose EE if you want a stronger reliability-first broadband proposition and may benefit from EE mobile bundling.',
-      'Choose Sky if you want a simpler family fit and TV integration matters to your household.',
+      'Choose EE if automatic mobile-network backup matters, or you want marginally the lower price.',
+      'Choose Sky if TV bundling, particularly Sky Sports or a combined streaming package, is a genuine priority for the household.',
     ],
     keyDifferences: [
       {
-        label: 'Reliability positioning',
+        label: 'Pricing',
         detail:
-          'EE is stronger for buyers who want a broadband-first reliability story.',
+          'EE starts from £22.99 a month, Sky from £23.00, a difference of one penny and not a meaningful factor in the decision.',
+      },
+      {
+        label: 'Ofcom complaints',
+        detail:
+          'Sky recorded 5 complaints per 100,000 customers in Ofcom\'s Q1 2026 report, among the best of any major provider. EE recorded 6, exactly the industry average, a real improvement from a worst-three position in Q4 2025.',
+      },
+      {
+        label: 'Distinctive feature',
+        detail:
+          'EE includes automatic 4G or 5G mobile backup if the fixed line drops, a genuinely distinctive feature Sky does not offer.',
       },
       {
         label: 'Bundle fit',
         detail:
-          'Sky is stronger where the decision is partly about entertainment and TV, not just broadband.',
-      },
-      {
-        label: 'Price shape',
-        detail:
-          'Both can be competitive, but EE often looks stronger on pure connectivity value while Sky can look better in a wider bundle context.',
-      },
-      {
-        label: 'Household type',
-        detail:
-          'EE suits utility-first buyers; Sky suits households that want broadband wrapped into a mainstream home-media proposition.',
+          'Sky has the more mature TV and entertainment bundle range, including Sky Sports; EE\'s proposition is broadband-first with mobile-ecosystem bundling for existing EE mobile customers.',
       },
     ],
     faqs: [
       {
         question: 'Which is better, EE or Sky broadband?',
         answer:
-          'EE is often the better pure-broadband choice because of its reliability-led position, while Sky is often the better household choice if TV bundles and family simplicity matter more.',
+          'Both are priced within a penny of each other and hold genuinely strong Ofcom complaints records. Choose EE for its automatic mobile-backup feature, or Sky for its more mature TV and Sky Sports bundle range.',
       },
       {
         question: 'Is EE or Sky better for families?',
         answer:
-          'Sky is often the better family fit because of its bundle style and mainstream household proposition, especially where TV matters.',
+          'Sky is usually the better fit for families that also want TV, with a mature bundle range including Sky Sports. EE is a stronger pick for a household that mainly wants broadband plus a useful mobile-backup safety net.',
       },
       {
-        question: 'Should I choose EE or Sky for reliability?',
+        question: 'Which has a better Ofcom complaints record, EE or Sky?',
         answer:
-          'EE is usually the stronger reliability-led choice in this comparison.',
+          'Sky, slightly: 5 complaints per 100,000 customers in Ofcom\'s Q1 2026 report against EE\'s 6. Both are genuinely strong results, well below the record-low industry average of 6 that quarter for Sky and exactly at it for EE.',
       },
       {
         question: 'Does EE broadband make more sense if I already use EE mobile?',
         answer:
-          'Yes. EE mobile customers often have a clearer reason to choose EE broadband because the combined value proposition becomes stronger.',
+          'Potentially, through bundle discounts EE offers existing mobile customers. Its automatic mobile-backup feature is also more useful where EE\'s own signal at the property is already known to be strong.',
       },
     ],
     sources: [
       {
-        label: 'BroadbandPicker provider reviews',
-        href: 'https://broadbandpicker.co.uk/providers',
+        label: 'Ofcom: telecoms and pay-TV complaints fall to a record low',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/service-quality/ofcom-telecoms-and-pay-tv-complaints-fall-to-record-low',
       },
       {
         label: 'BroadbandPicker methodology',
@@ -1121,73 +1138,77 @@ export const providerComparisons: ProviderComparison[] = [
     providerA: 'plusnet',
     providerB: 'bt',
     title: 'Plusnet vs BT Broadband: Better Value or Broader Premium Coverage?',
-    metaTitle: 'Plusnet vs BT Broadband 2026 | Compare Price, Support and Coverage',
+    metaTitle: 'Plusnet vs BT Broadband 2026 | Real Prices, Complaints and Coverage',
     metaDescription:
-      'Compare Plusnet vs BT broadband on pricing, contracts, support, coverage, and value to find out which provider is better for your home in 2026.',
+      'Plusnet vs BT broadband compared on real current price and Ofcom complaints for August 2026. Plusnet is cheaper and has the best complaints record of any major UK provider; BT has the widest coverage.',
     excerpt:
-      'Plusnet and BT are closely linked in the market, but they do not target the same buyer. Plusnet is the simpler value-led option, while BT is the broader premium choice with stronger mainstream coverage confidence.',
+      'Plusnet, part of the BT Group, is genuinely cheaper than BT itself, from £21.99 against £23.99, and holds the best Ofcom complaints record of any major UK provider. BT remains ahead only on raw coverage breadth.',
     publishDate: '2026-06-21',
-    updatedDate: '2026-06-21',
-    bestForA: 'Transparent pricing, UK support, and straightforward value',
-    bestForB: 'Coverage-first households and premium mainstream buyers',
+    updatedDate: '2026-08-25',
+    bestForA: 'The best Ofcom complaints record of any major UK provider, at a lower price',
+    bestForB: 'The widest UK coverage, at around 98% of homes',
     winner:
-      'Plusnet is often the better-value choice for straightforward households, while BT remains the stronger pick if coverage confidence and the broader BT proposition matter more.',
+      'Plusnet is the stronger overall choice: it is cheaper than its own parent brand BT and holds the best Ofcom complaints record of any major UK provider. BT remains ahead only on raw coverage breadth.',
+    factSnapshot: {
+      providerA: { fromPrice: '£21.99/mo', maxSpeed: '900 Mbps', coverage: '97%', trustpilot: '2.0', contract: '24 months', setupFee: '£0' },
+      providerB: { fromPrice: '£23.99/mo', maxSpeed: '900 Mbps', coverage: '98%', trustpilot: '4.0 / 1.5 (two pages)', contract: '24 months', setupFee: '£30 (reward card offsets)' },
+    },
     intro: [
-      'Plusnet vs BT is a useful comparison because the two brands can look similar from a network perspective but very different from a buyer perspective. Plusnet appeals to people who want clear pricing and a no-fuss package. BT appeals to people who want the bigger premium brand and broader national reassurance.',
-      'That makes this less about raw technology and more about how much you want to pay for the broader BT experience versus simpler value.',
+      'Plusnet is owned by BT Group and sells broadband over the same Openreach network as BT itself, so line quality and top available speed at a given address are largely identical. Plusnet starts from £21.99 a month, genuinely cheaper than BT\'s £23.99, and with no setup fee against BT\'s £30.',
+      'The more striking difference is complaints record: Ofcom\'s Q1 2026 report placed Plusnet at 4 complaints per 100,000 customers, the lowest figure of any major UK provider that quarter, against BT\'s 7.',
     ],
     verdict: [
-      'Choose Plusnet if you want a straightforward value-led package with transparent pricing and UK support.',
-      'Choose BT if you want the broader premium-feeling proposition and are happy to pay more for coverage confidence and extras.',
+      'Choose Plusnet if a lower price combined with the best Ofcom complaints record in the market matters more than brand recognition or the widest possible coverage.',
+      'Choose BT if raw coverage breadth is the priority, at around 98% of UK premises against Plusnet\'s roughly 97%, or if BT-specific extras like the Stay Fast Guarantee matter.',
     ],
     keyDifferences: [
       {
-        label: 'Price',
+        label: 'Pricing',
         detail:
-          'Plusnet is clearly cheaper at entry level, which is a major reason buyers compare it with BT in the first place.',
+          'Plusnet starts from £21.99 a month with no setup fee, cheaper than BT\'s £23.99 plus a £30 setup fee (offset by a reward card only if claimed).',
       },
       {
-        label: 'Brand positioning',
+        label: 'Ofcom complaints',
         detail:
-          'Plusnet is the simpler value-focused option; BT is the bigger premium brand with a stronger nationwide identity.',
+          'Plusnet recorded just 4 complaints per 100,000 customers in Ofcom\'s Q1 2026 report, the lowest figure of any major UK provider. BT recorded 7, just above the industry average of 6.',
       },
       {
         label: 'Coverage',
         detail:
-          'BT has the edge on raw national coverage breadth and tends to feel safer in harder-to-serve locations.',
+          'BT reaches around 98% of UK premises via Openreach, marginally ahead of Plusnet\'s roughly 97%.',
       },
       {
-        label: 'Support style',
+        label: 'Trustpilot',
         detail:
-          'Plusnet benefits from a straightforward UK-support reputation, while BT offers a broader premium package with more brand extras around it.',
+          'Plusnet\'s Trustpilot score is low, around 2.0, despite its strong Ofcom record. BT has two active pages, 4.0 on bt.com and around 1.5 on the older btbroadband.com.',
       },
     ],
     faqs: [
       {
         question: 'Which is cheaper, Plusnet or BT broadband?',
         answer:
-          'Plusnet is cheaper in the current BroadbandPicker dataset, which is one of its clearest strengths against BT.',
+          'Plusnet, from £21.99 a month with no setup fee, against BT\'s £23.99 plus a £30 setup fee offset only by a reward card if claimed.',
+      },
+      {
+        question: 'Which has a better complaints record, Plusnet or BT?',
+        answer:
+          'Plusnet, by a wide margin. Ofcom\'s Q1 2026 report recorded Plusnet at 4 complaints per 100,000 customers, the lowest figure of any major UK provider, against BT\'s 7.',
       },
       {
         question: 'Is Plusnet as good as BT broadband?',
         answer:
-          'For many ordinary households, Plusnet can be just as practical and better value. BT still appeals more if you want the broader premium brand, wider coverage confidence, and extra household features.',
+          'On price and Ofcom complaints record, Plusnet is genuinely better than its own parent brand BT. BT\'s remaining advantage is raw coverage breadth, around 98% of UK premises against Plusnet\'s 97%.',
       },
       {
-        question: 'Should I choose Plusnet or BT for customer service?',
+        question: 'Why would someone choose BT instead of Plusnet?',
         answer:
-          'Plusnet is often liked for straightforward UK-based support, while BT is more associated with a larger premium service environment. The better fit depends on whether you want simplicity or the wider BT proposition.',
-      },
-      {
-        question: 'Why would someone pay more for BT instead of Plusnet?',
-        answer:
-          'Usually for coverage confidence, brand familiarity, and the sense of a more premium mainstream package. If those things matter less, Plusnet often looks like the smarter-value option.',
+          'Mainly for slightly wider coverage or BT-specific extras like the Stay Fast Guarantee on its fastest tier. On price and complaints record, Plusnet is the stronger choice for most households.',
       },
     ],
     sources: [
       {
-        label: 'BroadbandPicker provider reviews',
-        href: 'https://broadbandpicker.co.uk/providers',
+        label: 'Ofcom: telecoms and pay-TV complaints fall to a record low',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/service-quality/ofcom-telecoms-and-pay-tv-complaints-fall-to-record-low',
       },
       {
         label: 'BroadbandPicker methodology',

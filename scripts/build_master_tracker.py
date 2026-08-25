@@ -1851,6 +1851,34 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-25 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-4-more-thin-comparison-pages",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Deep rewrite: 4 more thin comparison pages (37th-40th content-priority-analysis targets)",
+        "description": (
+            "Continuing the second 13-page batch: 4 more comparison pages, 3 of which "
+            "repeated the same 'Vodafone is cheaper' error already found and fixed twice "
+            "this session on different pairs -- bt-vs-vodafone and sky-vs-vodafone both "
+            "claimed Vodafone was the value pick, when Vodafone (GBP25) is now more "
+            "expensive than both BT (GBP23.99) and Sky (GBP23.00). Rewrote all 4 with "
+            "real current prices, Ofcom Q1 2026 complaints figures and populated "
+            "factSnapshot fields: bt-vs-vodafone (BT now cheaper AND better complaints), "
+            "sky-vs-vodafone (Sky now cheaper AND far better complaints), ee-vs-sky "
+            "(prices within 1p of each other, both genuinely strong on Ofcom -- a real "
+            "penny-and-feature-based decision replacing entirely vague marketing copy), "
+            "plusnet-vs-bt (Plusnet has the best Ofcom complaints record of any major UK "
+            "provider AND is cheaper than its own parent brand BT, a much stronger "
+            "differentiator than the old page's vague 'UK support' framing). Word "
+            "counts: 455->600, 504->608, 500->648, 507->604."
+        ),
+        "priority_score": 35,
+        "impact_score": 34,
+        "effort": "High",
+        "target": "data/provider-comparisons.ts (bt-vs-vodafone, sky-vs-vodafone, ee-vs-sky, plusnet-vs-bt)",
+        "dependencies": "ops-content-priority-analysis-tooling",
+        "source": "User request 2026-08-25 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",
