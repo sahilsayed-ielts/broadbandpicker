@@ -1655,6 +1655,27 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-25 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-best-broadband-for-streaming-guide",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Deep rewrite: Best Broadband for Streaming guide (26th content-priority-analysis target)",
+        "description": (
+            "Twenty-sixth target: 699 words naming providers (Sky, Virgin Media, "
+            "Community Fibre, Hyperoptic) with zero real prices attached. Added current "
+            "prices for all 4, plus Virgin Media's real 1,130 Mbps top speed. Added a "
+            "genuinely new, technically accurate explanation this page never covered: "
+            "why evening buffering specifically affects FTTC and cable connections "
+            "(shared capacity per street cabinet/node) but not full fibre (dedicated "
+            "line per property), with a matching new FAQ. Word count 699 -> 893."
+        ),
+        "priority_score": 29,
+        "impact_score": 27,
+        "effort": "Medium",
+        "target": "app/guides/[slug]/page.tsx (best-broadband-for-streaming), data/guides.ts",
+        "dependencies": "ops-content-priority-analysis-tooling",
+        "source": "User request 2026-08-25 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",

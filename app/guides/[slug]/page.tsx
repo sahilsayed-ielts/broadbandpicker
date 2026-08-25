@@ -1166,20 +1166,20 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
           </table>
         </div>
         <h2>What actually causes buffering at home</h2>
-        <p>Buffering is not always caused by a slow package. In many homes, the real problems are weak Wi-Fi in the room with the TV, too many devices competing at once, or an older router that struggles in peak evening use. That means upgrading the broadband tier only solves part of the problem if the in-home setup is poor.</p>
+        <p>Buffering is not always caused by a slow package. In many homes, the real problems are weak Wi-Fi in the room with the TV, too many devices competing at once, or an older router that struggles in peak evening use. FTTC and cable connections are also more likely to slow down during the busiest evening hours, roughly 7pm to 10pm, when many homes on the same street cabinet or node are streaming at once; full fibre is far less affected by this kind of shared-network congestion because each property has its own dedicated fibre line. That means upgrading the broadband tier only solves part of the problem if the in-home Wi-Fi setup is poor.</p>
         <h2>Which broadband types suit streamers best</h2>
-        <p><strong>Full fibre</strong> is the strongest option if available because it delivers more stable speeds and lower congestion risk than older copper-based connections. Standard fibre can still be enough for many households if the speed tier is chosen sensibly. Gigabit broadband is usually unnecessary unless your home has several heavy users doing much more than streaming.</p>
+        <p><strong>Full fibre</strong> is the strongest option if available because it delivers more stable speeds and lower evening congestion risk than older copper-based or cable connections. Standard fibre (FTTC) can still be enough for many households if the speed tier is chosen sensibly. Gigabit broadband is usually unnecessary unless the home has several heavy users doing much more than streaming.</p>
         <h2>Best providers for streaming households</h2>
-        <p><strong>Sky</strong> is naturally relevant if your home also wants TV bundles. <strong>Virgin Media</strong> stands out where available if you want higher speed tiers for a big entertainment-heavy household. <strong>Community Fibre</strong> and <strong>Hyperoptic</strong> can be excellent for city homes that want fast full fibre at strong value.</p>
+        <p><strong>Sky</strong>, from £23 a month, is naturally relevant for households that also want Sky TV or Sky Sports bundled onto the same bill. <strong>Virgin Media</strong>, from £33 a month, stands out where its cable network is available: its Gig1 tier reaches up to 1,130 Mbps, genuinely the fastest widely available speed in the UK, well suited to a big entertainment-heavy household with several 4K streams running at once. <strong>Community Fibre</strong>, from £12.50 a month, and <strong>Hyperoptic</strong>, from £21.50 a month, can be excellent for city homes that want fast, genuinely symmetrical full fibre at strong value, though both have limited, city-specific coverage.</p>
         <h2>How to choose the right streaming package</h2>
         <ul>
           <li>Count how many people stream at the same time, not just total household size</li>
           <li>Match the speed tier to HD vs 4K habits</li>
-          <li>Check whether full fibre is available before paying extra for older network technology</li>
-          <li>Improve Wi-Fi placement before assuming you need a much faster deal</li>
+          <li>Check whether full fibre is available before paying extra for older network technology, since it holds up better during peak evening hours</li>
+          <li>Improve Wi-Fi placement before assuming a much faster deal is needed</li>
         </ul>
         <h2>The simplest answer for most homes</h2>
-        <p>If your household mainly streams TV and films, a solid 50 to 100 Mbps package is enough for many homes. The move to 100 to 300 Mbps becomes worthwhile when multiple people stream in 4K, game, or work from home at the same time.</p>
+        <p>If the household mainly streams TV and films, a solid 50 to 100 Mbps package is enough for many homes. The move to 100 to 300 Mbps becomes worthwhile when multiple people stream in 4K, game, or work from home at the same time. Anyone specifically prone to evening buffering on an older FTTC or cable connection should treat full fibre, where available, as the more direct fix than simply paying for a faster tier on the same congestion-prone technology.</p>
         <div className="not-prose rounded-xl border-2 border-sky-200 bg-sky-50 p-5 my-6">
           <p className="font-bold text-slate-900 mb-1">Want a personalised recommendation instead?</p>
           <p className="text-sm text-slate-700 mb-3">Answer 6 quick questions about your streaming habits and household, and our free Broadband Match tool ranks the providers that actually fit — not just the cheapest headline price.</p>
@@ -1192,6 +1192,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
       { question: 'Is full fibre better for streaming?', answer: 'Yes. Full fibre is usually more stable and better suited to busy households, especially in the evening when several devices are online at once. Standard fibre can still work well if the speed tier is appropriate.' },
       { question: 'Do I need gigabit broadband for Netflix and streaming apps?', answer: 'Usually no. Gigabit broadband is unnecessary for most streaming-only households. It becomes more relevant when a large home combines streaming with gaming, cloud backups, and home working across many devices.' },
       { question: 'Why does my TV buffer even though my broadband seems fast?', answer: 'The issue is often Wi-Fi quality rather than the broadband package itself. Weak signal in the TV room, router placement, device congestion, or older hardware can all cause buffering even when headline speeds look good.' },
+      { question: 'Why does streaming get worse in the evening specifically?', answer: 'FTTC and cable connections share capacity with other properties on the same street cabinet or node, so speed can dip during peak evening hours, roughly 7pm to 10pm, when many homes are streaming at once. Full fibre (FTTP) is far less affected by this because each property has its own dedicated fibre line rather than a shared one.' },
     ],
   },
 

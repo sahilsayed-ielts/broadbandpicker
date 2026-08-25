@@ -403,16 +403,22 @@ export const guides: GuideMetadata[] = [
     slug: 'best-broadband-for-streaming',
     title: 'Best Broadband for Streaming UK 2026',
     metaTitle: 'Best Broadband for Streaming UK 2026 | BroadbandPicker',
-    metaDescription: 'Find the best broadband for streaming in the UK, including the speeds you need for Netflix, Disney+, YouTube, and multi-room 4K streaming.',
+    metaDescription: 'Find the best broadband for streaming in the UK, including the speeds you need for Netflix, Disney+, YouTube, and multi-room 4K streaming. Real current prices, and why evening buffering happens on FTTC and cable specifically.',
     publishDate: '2026-06-21',
-    updatedDate: '2026-06-21',
-    excerpt: 'If your home streams a lot of TV and films, the best broadband is not always the fastest package available. Here is what really matters for smooth streaming in UK households.',
+    updatedDate: '2026-08-25',
+    excerpt: 'If your home streams a lot of TV and films, the best broadband is not always the fastest package available. What really matters, real current prices, and why evening buffering happens on FTTC and cable connections specifically.',
     readingTime: 8,
     category: 'use-cases-and-lifestyle',
     keyTakeaways: [
       'One 4K stream usually needs far less than a gigabit connection; simultaneous use across the household matters more.',
+      'FTTC and cable connections share capacity with other properties on the same street cabinet or node, causing evening buffering; full fibre is far less affected since each property has its own dedicated line.',
       'Reliable Wi-Fi coverage can make a larger difference than buying the fastest advertised package.',
-      'Estimate the number of simultaneous streams, calls and downloads before choosing a speed tier.',
+    ],
+    sources: [
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+      },
     ],
   },
   {
