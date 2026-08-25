@@ -1753,6 +1753,32 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-25 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-ee-vs-talktalk-comparison",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Update: EE vs TalkTalk comparison page (33rd content-priority-analysis target)",
+        "description": (
+            "First target in the second 13-page batch, and notable for having 38 real "
+            "GSC AI-feature impressions despite only 390/mo mapped volume -- the highest "
+            "AI-feature signal of any page examined this batch. The page itself was "
+            "already well-built (already followed the site's fixed comparison-page H2 "
+            "structure and dated sourcing, likely produced by the separate autonomous "
+            "content pipeline on 16 August), so this was a targeted correction: EE's "
+            "price was stale at GBP26.99/mo (real current, already fixed on EE's own "
+            "provider page this session, is GBP22.99) and its speed was overstated at "
+            "'1.6 Gbps' against EE's real current 900 Mbps flagship tier. Corrected both "
+            "throughout (factSnapshot, verdict, keyDifferences, all 4 FAQs, source "
+            "dates), and added EE's genuinely improved Q1 2026 Ofcom complaints figure "
+            "(6 per 100k, industry average) which the page previously omitted."
+        ),
+        "priority_score": 50,
+        "impact_score": 45,
+        "effort": "Low",
+        "target": "data/provider-comparisons.ts (ee-vs-talktalk)",
+        "dependencies": "ops-content-priority-analysis-tooling",
+        "source": "User request 2026-08-25 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",

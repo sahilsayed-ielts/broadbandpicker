@@ -1576,27 +1576,27 @@ export const providerComparisons: ProviderComparison[] = [
     metaDescription:
       'Compare EE vs TalkTalk broadband deals, speeds, coverage, contracts and customer evidence. See which provider suits your home in 2026.',
     excerpt:
-      'EE vs TalkTalk broadband has no universal winner. TalkTalk offers the cheaper comparable entry full-fibre deal with no setup fee, while EE reaches a higher maximum speed and performs better in current broadband customer research. Choose by checking both providers at your postcode, then weighing total contract cost against the service evidence.',
+      'EE vs TalkTalk broadband has no universal winner on price alone any more: EE now starts from £22.99 a month, cheaper than TalkTalk\'s £25. EE also reaches a higher maximum speed and its Ofcom complaints record has genuinely improved to the industry average, while TalkTalk remains the UK\'s most complained-about broadband provider.',
     publishDate: '2026-08-16',
-    updatedDate: '2026-08-16',
-    bestForA: 'Faster top-end packages and stronger customer evidence',
-    bestForB: 'Lower entry pricing and no setup fee',
+    updatedDate: '2026-08-25',
+    bestForA: 'A lower starting price, faster top-end packages and a genuinely improved complaints record',
+    bestForB: 'Unlimited data with no fair-use clause and a fully disclosed two-rise schedule',
     winner:
-      'There is no universal winner. TalkTalk is the value pick if its £25 Full Fibre 150 offer is available at your address. EE is the stronger all-round choice if you value speeds up to 1.6 Gbps and its better results in current broadband customer research enough to pay more upfront.',
+      'EE is the stronger overall choice now: it starts cheaper than TalkTalk, reaches a higher top speed, and its Ofcom complaints record has genuinely improved to the industry average, against TalkTalk\'s worst-in-market position for three consecutive quarters.',
     factSnapshot: {
       providerA: {
-        fromPrice: '£26.99/mo',
-        maxSpeed: '1.6 Gbps',
+        fromPrice: '£22.99/mo',
+        maxSpeed: '900 Mbps',
         coverage: 'Postcode-dependent',
-        trustpilot: '4.3/5 (all EE services)',
+        trustpilot: '4.2/5 (all EE services); 1.3/5 (broadband-specific)',
         contract: '24 months',
-        setupFee: '£30',
+        setupFee: '£0 (on most current packages)',
       },
       providerB: {
         fromPrice: '£25/mo',
         maxSpeed: '900 Mbps',
         coverage: 'Postcode-dependent',
-        trustpilot: '2.2/5 (all TalkTalk services)',
+        trustpilot: '1.5/5',
         contract: '24 months',
         setupFee: 'Free',
       },
@@ -1606,19 +1606,19 @@ export const providerComparisons: ProviderComparison[] = [
       'The evidence also needs careful separation. Ofcom complaints figures measure complaints made to the regulator, Uswitch surveyed home broadband customers, and Trustpilot profiles cover wider brand experiences. We report each source on its own terms and do not combine them into a single score.',
     ],
     verdict: [
-      'Choose TalkTalk if Full Fibre 150 at £25 a month is available and minimising the initial and monthly cost matters most. Its advertised price rises to £29 from April 2027 and £33 from April 2028, so compare the full 24-month cost.',
-      'Choose EE if you need its 1.6 Gbps tier, prefer its WiFi 7 hardware, or put more weight on current customer evidence. EE scored 4.18 against TalkTalk\'s 3.87 in Uswitch\'s 2026 broadband survey, while Ofcom named TalkTalk the most complained-about major broadband provider in the first quarter of 2026.',
+      'Choose TalkTalk specifically for unlimited data with no fair-use clause and a fully disclosed two-rise schedule: its advertised price rises to £29 from April 2027 and £33 from April 2028, both stated upfront.',
+      'Choose EE if the lower starting price, its 900 Mbps top tier, or its distinctive automatic 4G/5G mobile-backup feature matter, or if you put weight on current customer evidence. EE scored 4.18 against TalkTalk\'s 3.87 in Uswitch\'s 2026 broadband survey, and Ofcom\'s Q1 2026 report recorded EE at 6 complaints per 100,000 customers, exactly the industry average and a real improvement from a worst-three position in Q4 2025, against TalkTalk\'s 10, the most complained-about of any major UK provider.',
     ],
     keyDifferences: [
       {
         label: 'Pricing',
         detail:
-          'For EE vs TalkTalk broadband deals checked on 16 August 2026, TalkTalk advertised Full Fibre 150 at £25 a month with no setup fee. EE advertised Full Fibre 100 at £26.99 a month plus £30 activation. Both use 24-month terms and publish fixed annual price increases, so compare the total contract cost as well as the opening price.',
+          'For EE vs TalkTalk broadband deals checked on 25 August 2026, EE advertised Full Fibre 100 from £22.99 a month with no setup fee on most current packages, cheaper than TalkTalk\'s Full Fibre 150 at £25 a month. Both use 24-month terms and publish fixed annual price increases, so compare the total contract cost as well as the opening price.',
       },
       {
         label: 'Speed',
         detail:
-          'In this EE vs TalkTalk broadband speed comparison, EE has the higher headline ceiling: up to 1.6 Gbps, compared with TalkTalk\'s 900 Mbps. Availability and actual performance remain address-specific, and the two providers advertise different upload speeds and minimum speed guarantees by package.',
+          'In this EE vs TalkTalk broadband speed comparison, both top out at a similar 900 Mbps flagship tier over the Openreach network. EE also includes automatic 4G or 5G mobile backup on its packages, a genuinely distinctive feature TalkTalk does not offer. Availability and actual performance remain address-specific.',
       },
       {
         label: 'Coverage',
@@ -1628,29 +1628,29 @@ export const providerComparisons: ProviderComparison[] = [
       {
         label: 'Customer evidence',
         detail:
-          'Uswitch\'s December 2025 survey of more than 27,000 UK broadband decision-makers scored EE 4.18 and TalkTalk 3.87 overall. Separately, Ofcom said TalkTalk generated the most major-provider broadband complaints in January to March 2026. These findings use different methods and are not combined with Trustpilot ratings.',
+          'Uswitch\'s December 2025 survey of more than 27,000 UK broadband decision-makers scored EE 4.18 and TalkTalk 3.87 overall. Separately, Ofcom\'s Q1 2026 report recorded EE at 6 complaints per 100,000 customers, exactly the industry average, against TalkTalk\'s 10, the most complained-about of any major UK provider that quarter. These findings use different methods and are not combined with Trustpilot ratings.',
       },
     ],
     faqs: [
       {
         question: 'Which is better, EE or TalkTalk broadband?',
         answer:
-          'Neither is better for every home. TalkTalk is currently cheaper for a comparable entry full-fibre package and charges no setup fee. EE offers a faster 1.6 Gbps top tier and stronger results in current Ofcom and Uswitch broadband evidence. Check availability first, then compare the total 24-month price and the speed guaranteed for your address.',
+          'EE is the stronger overall choice as of August 2026: it now starts cheaper than TalkTalk, from £22.99 a month against £25, and its Ofcom complaints record has genuinely improved to the industry average. TalkTalk\'s case rests on unlimited data with no fair-use clause and a fully disclosed price-rise schedule, not on price or service any more.',
       },
       {
         question: 'Which EE vs TalkTalk broadband deals are cheaper?',
         answer:
-          'On 16 August 2026, TalkTalk advertised Full Fibre 150 from £25 a month with no setup fee. EE advertised Full Fibre 100 from £26.99 a month with a £30 activation fee. Both prices rise during the 24-month term, so use the providers\' checkout totals rather than judging the deal from month one alone.',
+          'As of 25 August 2026, EE advertised Full Fibre 100 from £22.99 a month with no setup fee on most packages, cheaper than TalkTalk\'s Full Fibre 150 at £25 a month. Both prices rise during the 24-month term, so use the providers\' checkout totals rather than judging the deal from month one alone.',
       },
       {
         question: 'Is EE or TalkTalk broadband faster?',
         answer:
-          'EE has the faster advertised maximum, with a 1.6 Gbps package against TalkTalk\'s 900 Mbps ceiling. That does not mean EE will be faster at every property. Available technology, the selected tier, the provider\'s address-specific estimate and in-home Wi-Fi conditions all affect the speed you can actually receive.',
+          'Both top out at a similar 900 Mbps flagship tier over the Openreach network, so speed alone is not a strong differentiator. EE\'s automatic 4G or 5G mobile-backup feature, which keeps the connection running if the fixed line drops, is the more meaningful practical difference.',
       },
       {
         question: 'What do EE vs TalkTalk broadband reviews show?',
         answer:
-          'Broadband-specific evidence favours EE. Uswitch\'s 2026 customer survey scored EE 4.18 overall and TalkTalk 3.87, while Ofcom named TalkTalk the most complained-about major broadband provider in early 2026. Trustpilot showed 4.3 for EE and 2.2 for TalkTalk on 16 August, but those profiles cover each brand\'s wider services.',
+          'Broadband-specific evidence favours EE. Uswitch\'s 2026 customer survey scored EE 4.18 overall and TalkTalk 3.87, and Ofcom\'s Q1 2026 report recorded EE at 6 complaints per 100,000 customers, the industry average, against TalkTalk\'s 10, the highest of any major provider. EE\'s broadband-specific Trustpilot score is 1.3, considerably lower than its 4.2 whole-brand score; TalkTalk\'s single Trustpilot page sits at 1.5.',
       },
       {
         question: 'Do EE and TalkTalk have the same broadband coverage?',
@@ -1660,7 +1660,7 @@ export const providerComparisons: ProviderComparison[] = [
     ],
     sources: [
       {
-        label: 'EE broadband deals, verified 16 August 2026',
+        label: 'EE broadband deals, verified 25 August 2026',
         href: 'https://ee.co.uk/broadband',
       },
       {
@@ -1672,7 +1672,7 @@ export const providerComparisons: ProviderComparison[] = [
         href: 'https://www.talktalk.co.uk/broadband/city-fibre',
       },
       {
-        label: 'Ofcom broadband complaints, Q1 2026, verified 16 August 2026',
+        label: 'Ofcom broadband complaints, Q1 2026, verified 25 August 2026',
         href: 'https://www.ofcom.org.uk/phones-and-broadband/service-quality/ofcom-telecoms-and-pay-tv-complaints-fall-to-record-low',
       },
       {
@@ -1680,8 +1680,8 @@ export const providerComparisons: ProviderComparison[] = [
         href: 'https://www.uswitch.com/broadband/reviews/customer-survey/',
       },
       {
-        label: 'EE Trustpilot profile, verified 16 August 2026',
-        href: 'https://uk.trustpilot.com/review/ee.co.uk',
+        label: 'EE broadband-specific Trustpilot profile, verified 25 August 2026',
+        href: 'https://uk.trustpilot.com/review/broadband.ee.co.uk',
       },
       {
         label: 'TalkTalk Trustpilot profile, verified 16 August 2026',
