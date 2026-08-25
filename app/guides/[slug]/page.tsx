@@ -652,30 +652,32 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
   'full-fibre-broadband-explained': {
     body: (
       <>
-        <p>Full fibre broadband — technically known as <strong>Fibre to the Premises (FTTP)</strong> — is the fastest, most reliable home broadband technology available in the UK. Unlike standard &ldquo;fibre&rdquo; broadband (which uses copper wiring between the street cabinet and your home), full fibre uses optical fibre all the way from the exchange to your front door.</p>
+        <p>Full fibre broadband, technically known as <strong>Fibre to the Premises (FTTP)</strong>, is the fastest, most reliable home broadband technology available in the UK. Unlike standard &ldquo;fibre&rdquo; broadband, which uses copper wiring between the street cabinet and the home, full fibre uses optical fibre all the way from the exchange to the front door, and by Spring 2026 it had reached 82% of UK premises.</p>
         <h2>FTTP vs FTTC: what&apos;s the difference?</h2>
-        <p><strong>FTTC (Fibre to the Cabinet)</strong> is the most common type of broadband in the UK. It runs fibre optic cable to the green street cabinet, then uses older copper telephone wire for the final stretch to your home. This limits maximum speeds to around 80 Mbps download.</p>
-        <p><strong>FTTP (Fibre to the Premises)</strong> runs fibre optic cable all the way to your home. There&apos;s no copper in the line at all, which means speeds of up to 1,000 Mbps (1 Gbps) are achievable, with much more consistent speeds and lower latency.</p>
+        <p><strong>FTTC (Fibre to the Cabinet)</strong> is still common across the UK. It runs fibre optic cable to the green street cabinet, then uses older copper telephone wire for the final stretch to the home. This limits maximum realistic speeds to around 80 Mbps download, and upload is typically only a fraction of that.</p>
+        <p><strong>FTTP (Fibre to the Premises)</strong> runs fibre optic cable all the way to the home, with no copper in the line at all. Speeds have moved well beyond the old 1,000 Mbps (1 Gbps) benchmark: most national providers now offer a flagship tier around 900 Mbps to 1 Gbps, while several altnets go considerably further, Community Fibre up to 3,000 Mbps and YouFibre up to 8,000 Mbps on their fastest current tiers, both genuinely symmetrical.</p>
         <h2>Is full fibre available at my address?</h2>
-        <p>Full fibre coverage is expanding rapidly across the UK. Openreach (which builds and maintains the network used by BT, Sky, EE, TalkTalk, and Plusnet) is targeting 25 million premises by 2026. Alternative network providers (altnets) like Hyperoptic, Community Fibre, and Toob are also building FTTP networks in specific cities.</p>
-        <p>To check if FTTP is available at your address, enter your postcode into our postcode checker above.</p>
+        <p>Ofcom&apos;s Spring 2026 Connected Nations data put gigabit-capable coverage at 89% of UK premises, 27.1 million homes, up from 87% a year earlier, with full fibre specifically now reaching 82%. Coverage is uneven by area though: 93% in urban areas against 66% in rural areas, so a national average tells only part of the story for any specific address. Openreach, which builds and maintains the network used by BT, Sky, EE, TalkTalk and Plusnet, continues to expand its rollout, and altnets including Hyperoptic, Community Fibre, toob and YouFibre are building entirely separate FTTP networks in specific towns and cities on top of that.</p>
+        <p>To check if FTTP is available at a specific address, enter the postcode into our postcode checker.</p>
         <h2>Is full fibre worth paying more for?</h2>
-        <p>Yes, for most households in 2026 — especially if you:</p>
+        <p>Often yes, and increasingly it does not mean paying much more at all. Community Fibre&apos;s entry full-fibre tier starts from £12.50 a month, cheaper than many FTTC packages, though its network remains limited to London, Surrey and Sussex. Full fibre is worth prioritising specifically for:</p>
         <ul>
-          <li>Have 3+ people working, streaming, or gaming simultaneously</li>
-          <li>Work from home regularly and need reliable video calls</li>
-          <li>Upload large files (photographers, videographers, content creators)</li>
-          <li>Want symmetrical upload speeds for backups and cloud services</li>
+          <li>Three or more people working, streaming or gaming simultaneously</li>
+          <li>Regular video calls that need a stable, fast upload speed, not just download</li>
+          <li>Uploading large files regularly, such as photographers, videographers or content creators</li>
+          <li>Wanting genuinely symmetrical upload speeds for backups and cloud services, which several full-fibre altnets, including Community Fibre, Hyperoptic and Trooli, now offer on most or all tiers</li>
         </ul>
-        <p>Full-fibre prices have dropped significantly and are now often comparable to FTTC packages, particularly from specialist providers.</p>
-        <h2>Will I need an engineer visit?</h2>
-        <p>Yes — FTTP requires a new optical fibre cable to be run into your property. This typically involves a 2–4 hour appointment. Most providers cover the installation cost as part of the deal.</p>
+        <h2>Full fibre and the landline switch-off</h2>
+        <p>Full fibre connections are also the natural home for Digital Voice, the internet-based phone service replacing the UK&apos;s old analogue landline network, which is being fully retired by 31 January 2027. A full-fibre line delivers Digital Voice more reliably than an older FTTC or ADSL connection, though it still depends on the broadband router rather than a separately powered copper line, so it will not work in a power cut without a backup solution meeting Ofcom&apos;s minimum one-hour requirement.</p>
+        <h2>Will an engineer visit be needed?</h2>
+        <p>Usually yes, if the property has not previously had FTTP installed. This requires a new optical fibre cable to be run into the property, typically a 2 to 4 hour appointment. Most providers include the installation cost as part of the standard deal, though a separate setup fee can still apply on some packages regardless of whether an engineer visit is needed.</p>
       </>
     ),
     faqs: [
-      { question: 'What is the difference between full fibre and superfast broadband?', answer: 'Superfast broadband (FTTC) uses fibre to the street cabinet and copper to your home, giving speeds up to ~80 Mbps. Full fibre (FTTP) uses fibre all the way to your property, enabling speeds of 100 Mbps to 1 Gbps.' },
-      { question: 'How fast is full fibre broadband?', answer: 'Full fibre (FTTP) packages in the UK typically range from 100 Mbps to 1,000 Mbps (1 Gbps) download, and often offer symmetrical upload speeds — meaning your upload speed matches your download speed.' },
-      { question: 'Does full fibre require a new router?', answer: 'Yes — your provider will send a new router compatible with the FTTP connection. You will also have an Optical Network Terminal (ONT) box installed at your property, which the router plugs into.' },
+      { question: 'What is the difference between full fibre and superfast broadband?', answer: 'Superfast broadband (FTTC) uses fibre to the street cabinet and copper to the home, giving speeds up to around 80 Mbps. Full fibre (FTTP) uses fibre all the way to the property, enabling speeds from 100 Mbps up to several thousand Mbps on the fastest current altnet tiers.' },
+      { question: 'How fast is full fibre broadband?', answer: 'Full fibre (FTTP) packages in the UK typically range from 100 Mbps up to a national-provider flagship tier around 900 Mbps to 1 Gbps, with some altnets now offering considerably more: Community Fibre up to 3,000 Mbps and YouFibre up to 8,000 Mbps on their fastest tiers, both genuinely symmetrical.' },
+      { question: 'Does full fibre require a new router?', answer: 'Yes. The provider sends a new router compatible with the FTTP connection, and an Optical Network Terminal (ONT) box is installed at the property, which the router plugs into.' },
+      { question: 'What percentage of the UK has full fibre broadband?', answer: 'Ofcom\'s Spring 2026 Connected Nations data put full-fibre coverage at 82% of UK premises, and gigabit-capable coverage more broadly at 89%. Coverage is uneven by area: 93% in urban areas against 66% in rural areas.' },
     ],
   },
 

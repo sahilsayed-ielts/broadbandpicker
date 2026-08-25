@@ -285,12 +285,27 @@ export const guides: GuideMetadata[] = [
     slug: 'full-fibre-broadband-explained',
     title: 'Full Fibre Broadband Explained: Is FTTP Worth It?',
     metaTitle: 'Full Fibre Broadband Explained | BroadbandPicker',
-    metaDescription: 'Full fibre (FTTP) broadband delivers speeds up to 1Gbps with no copper wiring. Find out if it\'s available at your address and whether it\'s worth upgrading.',
+    metaDescription: 'Full fibre (FTTP) now reaches 82% of UK premises, with top speeds from 900Mbps up to 8,000Mbps on the fastest altnet tiers. Find out if it\'s available at your address and whether it\'s worth upgrading.',
     publishDate: '2026-01-15',
-    updatedDate: '2026-06-01',
-    excerpt: 'Full fibre broadband is the fastest, most reliable connection available. But is it available at your address — and is it worth paying more for?',
-    readingTime: 9,
+    updatedDate: '2026-08-25',
+    excerpt: 'Full fibre broadband now reaches 82% of UK premises, and speeds have moved well beyond the old 1Gbps benchmark. Real current coverage data, speed tiers and prices, plus why full fibre matters for the 2027 landline switch-off.',
+    readingTime: 10,
     category: 'technology-and-speeds',
+    keyTakeaways: [
+      'Ofcom\'s Spring 2026 data put full-fibre coverage at 82% of UK premises and gigabit-capable coverage at 89%, though it is uneven: 93% in urban areas against 66% in rural areas.',
+      'Full-fibre top speeds have moved well beyond 1 Gbps: Community Fibre offers up to 3,000 Mbps and YouFibre up to 8,000 Mbps on their fastest current tiers, both genuinely symmetrical.',
+      'Full fibre is the natural home for Digital Voice ahead of the 31 January 2027 landline switch-off, though it still needs a backup power solution to keep working during a power cut.',
+    ],
+    sources: [
+      {
+        label: 'Ofcom: Connected Nations update, Spring 2026',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/connected-nations-update-spring-2026',
+      },
+      {
+        label: 'Ofcom guide to the landline switch-over',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/landline-phones/future-of-landline-calls',
+      },
+    ],
   },
   {
     slug: 'broadband-speeds-explained',

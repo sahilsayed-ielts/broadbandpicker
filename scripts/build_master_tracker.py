@@ -1555,6 +1555,32 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-25 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-full-fibre-broadband-explained-guide",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Deep rewrite: Full Fibre Broadband Explained guide (22nd content-priority-analysis target)",
+        "description": (
+            "Twenty-second target from the wider content-priority-analysis list: 538 "
+            "words with a stale 'speeds of up to 1,000 Mbps (1 Gbps) are achievable' "
+            "ceiling claim and a vague 'Openreach targeting 25 million premises by 2026' "
+            "coverage stat with no real current figure. Rewrote with Ofcom's actual "
+            "Spring 2026 Connected Nations data (82% full-fibre coverage, 89% "
+            "gigabit-capable, 93% urban vs 66% rural split) and updated the speed "
+            "ceiling to reflect real current top tiers already verified on this site's "
+            "own provider pages -- Community Fibre up to 3,000 Mbps and YouFibre up to "
+            "8,000 Mbps, both genuinely symmetrical, far beyond the old 1 Gbps "
+            "benchmark. Added a new section connecting full fibre to the 31 January 2027 "
+            "PSTN switch-off, reusing this session's own Digital Voice/power-cut "
+            "research. Word count 538 -> 922."
+        ),
+        "priority_score": 31,
+        "impact_score": 29,
+        "effort": "Medium",
+        "target": "app/guides/[slug]/page.tsx (full-fibre-broadband-explained), data/guides.ts",
+        "dependencies": "ops-content-priority-analysis-tooling",
+        "source": "User request 2026-08-25 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",
