@@ -1951,6 +1951,29 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-25 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-one-touch-switching-explained-guide",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Deep rewrite: One Touch Switching Explained guide (44th content-priority-analysis target)",
+        "description": (
+            "Twelfth target in the second 13-page batch, and the single most relevant "
+            "page on the site for the One Touch Switch enforcement-closure news (also "
+            "added to how-to-switch-broadband-uk and broadband-for-existing-customers "
+            "earlier this session) -- this page is literally about OTS specifically and "
+            "was still missing the fact entirely: Ofcom closed its dedicated enforcement "
+            "programme on 11 June 2026 after finding more than 2 million customers had "
+            "already used it successfully, confirming OTS as the industry's permanent "
+            "standard rather than a still-bedding-in pilot. Added a new dedicated "
+            "section, updated the intro, and a matching new FAQ. Word count 731 -> 921."
+        ),
+        "priority_score": 32,
+        "impact_score": 36,
+        "effort": "Medium",
+        "target": "app/guides/[slug]/page.tsx (one-touch-switching-explained), data/guides.ts",
+        "dependencies": "ops-content-priority-analysis-tooling",
+        "source": "User request 2026-08-25 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",

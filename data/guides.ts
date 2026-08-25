@@ -751,16 +751,26 @@ export const guides: GuideMetadata[] = [
     slug: 'one-touch-switching-explained',
     title: 'One Touch Switching Explained: How Broadband Switching Works in 2026',
     metaTitle: 'One Touch Switching Explained | BroadbandPicker UK Guide',
-    metaDescription: 'One Touch Switching lets most UK households change broadband provider by contacting the new provider only. Learn how it works, who it covers, and when you still need to take extra steps.',
+    metaDescription: 'One Touch Switching lets most UK households change broadband provider by contacting the new provider only. Now the industry\'s permanent standard after Ofcom closed its enforcement case in June 2026. Learn how it works and when you still need extra steps.',
     publishDate: '2026-06-21',
-    updatedDate: '2026-06-21',
-    excerpt: 'One Touch Switching changed how UK broadband users move between providers. Here is exactly what it covers, what it does not cover, and how to avoid mistakes when you switch.',
-    readingTime: 8,
+    updatedDate: '2026-08-25',
+    excerpt: 'Ofcom closed its dedicated One Touch Switch enforcement programme in June 2026, confirming it as the industry\'s permanent standard. Exactly what it covers, what it does not cover, and how to avoid mistakes when you switch.',
+    readingTime: 9,
     category: 'switching-and-rights',
     keyTakeaways: [
+      'Ofcom closed its One Touch Switch enforcement case on 11 June 2026, having found more than 2 million customers had already used it successfully, confirming it as the industry\'s permanent standard.',
       'One Touch Switching usually means you contact your new provider, and they coordinate the switch with the old one.',
       'It removes a lot of cancellation friction, but it does not erase early termination charges if you are still in contract.',
-      'Check exceptions, expected timelines, equipment returns and any installation requirements before the switch starts.',
+    ],
+    sources: [
+      {
+        label: 'findcheapbroadband.com: Ofcom closes One Touch Switch enforcement programme',
+        href: 'https://findcheapbroadband.com/blog/ofcom-closes-one-touch-switch-enforcement-programme/',
+      },
+      {
+        label: 'Ofcom: simpler broadband switching is here',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/switching-provider/simpler-broadband-switching-is-here',
+      },
     ],
   },
   {

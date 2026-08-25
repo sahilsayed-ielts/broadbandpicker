@@ -2079,7 +2079,10 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
   'one-touch-switching-explained': {
     body: (
       <>
-        <p><strong>One Touch Switching (OTS)</strong> is the UK system that lets most households change broadband provider by contacting the new provider only. In a standard fixed-line switch, the new provider usually manages the handover with the old one, which removes a lot of the friction that used to make switching feel risky.</p>
+        <p><strong>One Touch Switching (OTS)</strong> is the UK system that lets most households change broadband provider by contacting the new provider only. In a standard fixed-line switch, the new provider usually manages the handover with the old one, which removes a lot of the friction that used to make switching feel risky. Ofcom introduced the cross-network process on 12 September 2024, and closed its dedicated enforcement programme on 11 June 2026, around three years after opening it when providers missed the original legal deadline, after finding that more than 2 million customers had already used it successfully.</p>
+
+        <h2>From enforced pilot to permanent standard</h2>
+        <p>Ofcom created the enforcement case in 2023 specifically to monitor provider readiness and push implementation forward after the industry-wide launch deadline was missed. By June 2026, the regulator found the majority of customers now switch successfully using OTS, and that providers previously attempting workarounds had stopped doing so following regulatory engagement. In practice this changes little day to day, but it confirms OTS as the industry&apos;s permanent standard rather than a still-bedding-in process: Ofcom can still take targeted action against any individual provider found to be obstructing it, but the industry-wide supervision phase is over.</p>
 
         <h2>What One Touch Switching means in practice</h2>
         <p>Before OTS, many broadband users had to deal with both providers themselves: one to order the new service and one to cancel the old service. That often led to confusion, missed notice periods, and accidental downtime. Under the current process, the new provider is usually your main point of contact.</p>
@@ -2122,6 +2125,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
       { question: 'Does One Touch Switching mean I can leave my contract for free?', answer: 'No. One Touch Switching makes switching simpler, but it does not automatically remove early termination charges. If you are still within your minimum term, the old provider may still charge you unless you have a separate right to leave.' },
       { question: 'Does One Touch Switching work with every broadband provider?', answer: 'It covers most standard fixed-line broadband switches, but some moves involving different networks or new full-fibre installations can involve extra steps. If you are switching to or from a cable or altnet provider, ask the new provider exactly how the transfer will work.' },
       { question: 'Will I lose broadband during the switch?', answer: 'Most standard switches should involve little or no downtime. Delays are more likely where a new full-fibre installation or engineer visit is required.' },
+      { question: 'Is One Touch Switching still a temporary or pilot scheme?', answer: 'No. Ofcom closed its dedicated One Touch Switch enforcement programme on 11 June 2026, around three years after opening it, having found that more than 2 million customers had already switched successfully using the process. It is now the industry\'s permanent standard, though Ofcom can still take targeted action against any individual provider found to be obstructing it.' },
     ],
   },
 
