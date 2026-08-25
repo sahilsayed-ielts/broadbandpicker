@@ -1,6 +1,6 @@
 # BroadbandPicker weekly SEO + GEO intelligence
 
-Generated: 2026-08-25T20:44:19.638288+00:00
+Generated: 2026-08-25T21:02:40.387960+00:00
 Finalised comparison: 2026-07-26 to 2026-08-22 vs 2026-06-28 to 2026-07-25
 
 ## Executive summary

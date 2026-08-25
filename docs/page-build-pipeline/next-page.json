@@ -1,20 +1,20 @@
 {
-  "generated": "2026-08-23",
-  "slug": "guides/broadband-complaints-and-ombudsman-uk",
-  "url": "https://broadbandpicker.co.uk/guides/broadband-complaints-and-ombudsman-uk",
-  "title": "Broadband complaints and the ombudsman: your UK rights",
-  "cluster": "Trust & research",
-  "page_type": "Guide",
-  "data_file": "data/guides.ts",
-  "template": "app/guides/[slug]/page.tsx",
-  "interface": "GuideMetadata",
+  "generated": "2026-08-25",
+  "slug": "postcode/da1",
+  "url": "https://broadbandpicker.co.uk/postcode/da1",
+  "title": "Da1",
+  "cluster": "Postcode & location",
+  "page_type": "Postcode prefix page",
+  "data_file": "bespoke",
+  "template": "app/postcode/london/page.tsx",
+  "interface": "bespoke",
   "keywords": [
     {
-      "keyword": "broadband complaints ombudsman",
-      "volume": 720,
-      "difficulty": 26,
-      "cpc": 1.4,
-      "intent": "Informational",
+      "keyword": "broadband deals in dartford",
+      "volume": null,
+      "difficulty": null,
+      "cpc": null,
+      "intent": "Local commercial",
       "role": "primary",
       "recommended_slot": "title/excerpt",
       "source": "Curated keyword dataset"
@@ -22,5 +22,6 @@
   ],
   "provider_prerequisites": [],
   "missing_provider_prerequisites": [],
-  "brief": "/Users/sahilrafiqsayed/broadbandpicker/docs/page-build-pipeline-brief.md"
+  "brief": "/Users/sahilrafiqsayed/broadbandpicker/docs/page-build-pipeline-brief.md",
+  "build_mode": "complete_existing_page"
 }

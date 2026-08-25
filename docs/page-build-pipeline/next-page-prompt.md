@@ -111,4 +111,34 @@ Do not claim that a competitor pattern caused a ranking or AI citation. Treat ra
 and LLM visibility as evidence-informed targets, never guarantees. Do not clone a competitor page,
 add decorative UI without a task benefit, or invent data to populate a feature.
 
+## 7. Mandatory product, accessibility and measurement layer
+
+Every future page must ship as a useful product experience, not editorial copy alone:
+- Add page-specific interactive comparison functionality that helps the reader compare at least
+  two meaningful choices, scenarios, providers, prices, speeds, eligibility outcomes or next
+  actions. It must work without an account and retain a crawlable static explanation.
+- Make the complete journey responsive at mobile, tablet and desktop widths. Avoid horizontal
+  page overflow; allow wide data tables to scroll inside a labelled region; keep controls usable
+  on touch screens; and preserve task hierarchy when cards stack.
+- Use semantic HTML and keyboard-operable controls with visible focus states, programmatic labels,
+  accessible names, useful instructions and live status feedback where state changes. Never rely
+  on colour alone and respect reduced-motion preferences.
+- Track meaningful interaction and conversion steps through `trackEvent` from
+  `src/lib/analytics.ts`. Define stable snake_case GA4 event names and non-personal parameters. At
+  minimum track interaction start, comparison/decision completion and the primary conversion CTA.
+  Do not send postcodes, names, email addresses or other personal data to GA4.
+
+Add these mandatory fields to `docs/page-build-pipeline/current-page-research.json`:
+- `interactive_comparison`: non-empty `user_task`, `choices_compared`, `crawlable_fallback` and
+  `completion_state` values;
+- `responsive_requirements`: at least three concrete checks covering mobile, tablet and desktop;
+- `accessibility_requirements`: at least five concrete keyboard, semantics, labels, focus,
+  state-feedback or reduced-motion checks;
+- `ga4_events`: at least three objects with `name`, `trigger`, `parameters` and `conversion_role`.
+
+The outer runner owns production release. A normal build must pass local validation, deploy with
+`vercel --prod --yes`, verify the live route is served by Vercel, regenerate both trackers,
+synchronise the existing Google Sheet, mark the page built/live and calculate the next priority.
+Do not mark a page complete before all of those steps succeed.
+
 Do not commit, push or deploy. Run the relevant deterministic validation, including `npm run build`, and report exactly which files changed, the keyword research findings (what's currently ranking, what depth/structure you matched and why, whether an AI Overview was present), sources used, unresolved factual questions and validation results.

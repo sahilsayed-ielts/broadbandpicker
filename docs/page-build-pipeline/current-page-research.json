@@ -1,138 +1,208 @@
 {
-  "slug": "compare",
-  "primary_keyword": "compare broadband providers UK",
+  "slug": "postcode/da1",
+  "primary_keyword": "broadband deals in dartford",
   "search_locale": "UK",
   "secondary_keywords": [
-    { "keyword": "compare broadband deals", "intent": "Commercial transaction", "page_slot": "title, quick answer, comparison tool and FAQ", "coverage_note": "Lead with postcode availability, then compare price, speed, contract and provider evidence." },
-    { "keyword": "broadband comparison UK", "intent": "Commercial investigation", "page_slot": "H1, introduction and methodology", "coverage_note": "Explain what the provider-level comparison can and cannot establish before an address check." },
-    { "keyword": "compare broadband prices", "intent": "Price comparison", "page_slot": "total-cost section and checklist", "coverage_note": "Compare monthly price, setup fees, fixed rises and contract length rather than the headline price alone." },
-    { "keyword": "best broadband provider for me", "intent": "Decision support", "page_slot": "provider-type section, speed table and FAQs", "coverage_note": "Match household needs, network availability, support priorities and contract flexibility to the shortlist." },
-    { "keyword": "broadband providers in my area", "intent": "Local commercial", "page_slot": "postcode checker and availability section", "coverage_note": "Make clear that address-level network availability determines the real choice set." },
-    { "keyword": "broadband speed comparison", "intent": "Feature comparison", "page_slot": "speed requirement table and shortlist cards", "coverage_note": "Separate advertised average speed, maximum provider tier and personalised minimum guaranteed speed." },
-    { "keyword": "cheapest broadband provider UK", "intent": "Price-led commercial", "page_slot": "cost section and FAQ", "coverage_note": "Explain why the lowest starting monthly price may not produce the lowest contract cost." },
-    { "keyword": "switch broadband provider", "intent": "Commercial action", "page_slot": "switching section and FAQ", "coverage_note": "Explain One Touch Switch and why customers should normally contact the new provider rather than cancel first." }
+    {
+      "keyword": "best broadband deals in Dartford",
+      "intent": "Local commercial comparison",
+      "page_slot": "title, introduction and deal table",
+      "coverage_note": "Answer with the shortlist, total-cost checks and address-level qualification."
+    },
+    {
+      "keyword": "broadband providers in Dartford",
+      "intent": "Local provider research",
+      "page_slot": "providers section and FAQ",
+      "coverage_note": "Name the major providers serving the wider DA1 market and explain network differences."
+    },
+    {
+      "keyword": "full fibre broadband Dartford",
+      "intent": "Local technology research",
+      "page_slot": "coverage summary and full-fibre section",
+      "coverage_note": "Use Ofcom-derived DA1 gigabit availability and explain why the exact address still matters."
+    },
+    {
+      "keyword": "fastest broadband in Dartford",
+      "intent": "Local commercial research",
+      "page_slot": "provider cards, speed planner and FAQ",
+      "coverage_note": "Separate marketed package speed from area-level availability and measured performance."
+    },
+    {
+      "keyword": "cheap broadband Dartford",
+      "intent": "Price-led local commercial",
+      "page_slot": "deal table and best-deal checklist",
+      "coverage_note": "Compare total contract cost, setup fees, price rises and out-of-contract pricing."
+    },
+    {
+      "keyword": "DA1 broadband coverage",
+      "intent": "Local availability research",
+      "page_slot": "coverage summary and availability section",
+      "coverage_note": "Give the Ofcom-derived gigabit, ultrafast and superfast percentages with limitations."
+    }
   ],
   "serp_competitors": [
     {
+      "url": "https://www.broadbandchoice.co.uk/compare/broadband/dartford/",
+      "title": "Best Broadband Deals in Dartford | Providers & Speeds",
+      "observed_structure": "Address-led comparison, large deal inventory, sortable deal cards, local choosing guide and concise FAQs.",
+      "approx_word_count": 1200,
+      "content_gap_to_improve": "Provide clearer regulatory sourcing, DA1-specific percentages and a practical household speed recommendation.",
+      "useful_ux_patterns": "Immediate package comparison, visible total-cost explanation and saved-deal concept.",
+      "useful_ui_patterns": "Scannable deal cards with speed, contract, setup cost and monthly price.",
+      "interactive_or_functional_elements": "Postcode entry, filters, sorting and saved deals.",
+      "trust_signals": "Daily update claim, cost methodology and availability warning.",
+      "citation_patterns": "Limited visible primary-source citation in the scraped result."
+    },
+    {
+      "url": "https://homemove.com/broadband/dartford/",
+      "title": "Dartford Broadband | Compare by Postcode",
+      "observed_structure": "Local answer-first introduction, street-level examples, provider list, move-in framing and postcode comparison CTA.",
+      "approx_word_count": 900,
+      "content_gap_to_improve": "Replace anecdotal location examples with current DA1 regulator-derived coverage and a transparent comparison method.",
+      "useful_ux_patterns": "Explains early that availability changes street by street and directs the reader to an exact check.",
+      "useful_ui_patterns": "Short hero, clear comparison CTA and trust badges.",
+      "interactive_or_functional_elements": "Postcode-led comparison flow.",
+      "trust_signals": "Media references and an explicit local availability caveat.",
+      "citation_patterns": "Relies mainly on company statements rather than close primary-source citations."
+    },
+    {
+      "url": "https://broadbandin.co.uk/internet/eng/dartford/",
+      "title": "Dartford Broadband Deals: 100 Mbps to Gigabit",
+      "observed_structure": "Local market overview followed by a comparison engine with provider, speed, broadband type, price and contract filters.",
+      "approx_word_count": 1000,
+      "content_gap_to_improve": "Add verifiable Ofcom coverage figures, switching guidance and clearer evidence notes.",
+      "useful_ux_patterns": "Moves from a local summary into task-focused comparison controls.",
+      "useful_ui_patterns": "Filters reflect the actual decision criteria used by broadband shoppers.",
+      "interactive_or_functional_elements": "Provider, speed, type, price and contract filtering.",
+      "trust_signals": "Local framing and explicit comparison criteria.",
+      "citation_patterns": "Search result did not expose close citations for local claims."
+    },
+    {
       "url": "https://www.moneysavingexpert.com/compare-broadband-deals/",
-      "title": "Compare Broadband Deals August 2026",
-      "observed_structure": "Large postcode-first comparison tool with address refinement, social-tariff control, provider-coverage disclosure, customer-service methodology and extensive explanatory help.",
-      "approx_word_count": 3000,
-      "content_gap_to_improve": "Give users a provider shortlist before the address-level deal step and make the limits of provider coverage estimates explicit without claiming whole-market completeness.",
-      "useful_ux_patterns": "Postcode first, address refinement, social-tariff inclusion and clear explanations when results are incomplete.",
-      "useful_ui_patterns": "Prominent form, progressive eligibility states, filters and visible methodology links.",
-      "interactive_or_functional_elements": "Postcode and address lookup, result filters and social-tariff option.",
-      "trust_signals": "Named methodology, coverage limitations, provider inclusion disclosure and regularly refreshed deal data.",
-      "citation_patterns": "Methodology and provider coverage statements appear next to the tool rather than being hidden in generic terms."
-    },
-    {
-      "url": "https://broadband.which.co.uk/",
-      "title": "Which? Switch Broadband",
-      "observed_structure": "Deal cards lead with price, average speed, contract length, price-rise treatment and customer score, followed by a practical guide to choosing and switching.",
-      "approx_word_count": 1800,
-      "content_gap_to_improve": "Offer a neutral provider-level shortlist across national and local networks, then direct users to exact-address checks rather than presenting sample deals as universally available.",
-      "useful_ux_patterns": "Show decision-critical figures together and explain why total cost and household needs matter.",
-      "useful_ui_patterns": "Scannable deal cards, expert answer block, step sequence and strong headings.",
-      "interactive_or_functional_elements": "Postcode comparison, provider filters and deal-level actions.",
-      "trust_signals": "Named expert, customer score methodology, commercial-cost breakdown and update context.",
-      "citation_patterns": "Regulatory switching claims are paired with practical advice and identifiable expert commentary."
-    },
-    {
-      "url": "https://www.choose.co.uk/broadband/",
-      "title": "Compare Broadband Deals in the UK",
-      "observed_structure": "Postcode comparison with filters for speed, phone, contract and provider, followed by methodology, provider coverage, cheapest-price guidance, total-cost factors and social-tariff advice.",
-      "approx_word_count": 2500,
-      "content_gap_to_improve": "Make side-by-side finalist comparison the centre of the decision stage and add current primary Ofcom evidence for coverage, speeds and switching.",
-      "useful_ux_patterns": "Explain ranking order, show filters that match user constraints and state why address checking is mandatory.",
-      "useful_ui_patterns": "Filterable table, methodology block, provider list, short question-led sections and related guides.",
-      "interactive_or_functional_elements": "Postcode filtering, price and speed sorting, provider selection and phone or TV filters.",
-      "trust_signals": "Editorial oversight, ordering criteria, deal-update statement and commission-independent ranking explanation.",
-      "citation_patterns": "Commercial explanations link to deeper price-rise, cancellation and social-tariff guides."
-    },
-    {
-      "url": "https://broadbandswitch.uk/",
-      "title": "Compare UK Broadband Deals by Postcode",
-      "observed_structure": "Postcode-led deal database with total contract value, cost-first sorting, current Ofcom statistics, switching guidance, provider verification cards, tools and extensive FAQs.",
-      "approx_word_count": 4000,
-      "content_gap_to_improve": "Keep the evidence density but avoid unsupported universal recommendations and separate provider-level data from exact package-level availability and pricing.",
-      "useful_ux_patterns": "Cost methodology, dated statistics, short answers, shortlist language, clear fallback when live results are unavailable and direct next steps.",
-      "useful_ui_patterns": "Stat cards, jump links, deal controls, verification cards and source-linked answer sections.",
-      "interactive_or_functional_elements": "Postcode lookup, filters, total-contract-cost calculator, speed test and provider directory.",
-      "trust_signals": "Dated sources, ranking method, commission disclosure, provider verification framework and corrections notes.",
-      "citation_patterns": "Specific statistics are immediately attributed to named and dated Ofcom publications."
+      "title": "Compare Broadband Deals",
+      "observed_structure": "Postcode-first journey, address refinement, eligibility states and provider comparison with explanatory consumer guidance.",
+      "approx_word_count": 2000,
+      "content_gap_to_improve": "Offer a faster crawlable DA1 answer before asking the reader to enter a full address.",
+      "useful_ux_patterns": "Progressively refines postcode to address and explains when results are approximate.",
+      "useful_ui_patterns": "Strong form hierarchy, clear status messages and disabled states until sufficient information is supplied.",
+      "interactive_or_functional_elements": "Postcode and address lookup, filters and social-tariff inclusion.",
+      "trust_signals": "Comparison-scope disclosure and consumer-focused methodology.",
+      "citation_patterns": "Method and comparison scope are visible near the tool."
     }
   ],
   "ai_overview": {
     "checked": true,
     "present": false,
-    "observation": "The UK search response checked on 23 August 2026 did not expose an AI Overview for the exact primary query. No overview citations were available to inspect. The page is therefore structured for extractable answers and entity clarity without claiming AI Overview inclusion.",
+    "observation": "The UK web search snapshot for the exact local query did not expose an AI Overview. The page is therefore structured for direct citation without claiming that an overview currently appears.",
     "cited_sources": []
   },
   "people_also_ask": [
-    "How do I compare broadband providers in my area?",
-    "Which broadband provider is best in the UK?",
-    "What broadband speed do I need?",
-    "Should I choose the cheapest broadband deal?",
-    "Can I switch broadband before my contract ends?",
-    "Do I need to cancel my old broadband before switching?",
-    "What is the difference between full fibre and part fibre broadband?",
-    "Can I get a cheaper social broadband tariff?"
+    "What is the average broadband speed in Dartford?",
+    "Can I get full fibre broadband in Dartford?",
+    "Which broadband providers are available in DA1?",
+    "What is the cheapest broadband deal in Dartford?",
+    "Can I get broadband in Dartford with no upfront cost?"
   ],
   "sources": [
-    { "url": "https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/connected-nations-update-spring-2026", "source_type": "regulator", "verified_date": "2026-08-23", "claims_supported": "January 2026 UK availability: full fibre at 82% of residential premises and gigabit-capable broadband at 89%." },
-    { "url": "https://www.ofcom.org.uk/phones-and-broadband/switching-provider/switching", "source_type": "regulator", "verified_date": "2026-08-23", "claims_supported": "The new provider arranges a fixed broadband switch under One Touch Switch." },
-    { "url": "https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/broadband-speeds-code-practice", "source_type": "regulator", "verified_date": "2026-08-23", "claims_supported": "Customers should receive clear speed information and a minimum guaranteed speed from participating providers." },
-    { "url": "https://www.ofcom.org.uk/phones-and-broadband/service-quality/telecoms-and-pay-tv-complaints", "source_type": "regulator", "verified_date": "2026-08-23", "claims_supported": "Ofcom publishes provider complaints per 100,000 customers quarterly so providers of different sizes can be compared." },
-    { "url": "https://www.ofcom.org.uk/phones-and-broadband/service-quality/report", "source_type": "regulator", "verified_date": "2026-08-23", "claims_supported": "Ofcom publishes comparative customer-service evidence for major residential telecoms providers." },
-    { "url": "https://www.ofcom.org.uk/phones-and-broadband/saving-money/social-tariffs", "source_type": "regulator", "verified_date": "2026-08-23", "claims_supported": "Current provider social-tariff list, eligibility principles, price range and mid-contract price protection." },
-    { "url": "https://www.gov.uk/government/publications/telecoms-consumer-charter/telecoms-consumer-charter", "source_type": "government", "verified_date": "2026-08-23", "claims_supported": "Current expectations for clear pounds-and-pence rises, contract details and consumer price transparency." },
-    { "url": "https://www.ofcom.org.uk/phones-and-broadband/service-quality/automatic-compensation-need-know", "source_type": "regulator", "verified_date": "2026-08-23", "claims_supported": "Automatic compensation applies only to signed-up providers and qualifying delayed repairs, missed appointments and delayed service starts." }
+    {
+      "url": "https://checker.ofcom.org.uk/en-gb/broadband-coverage",
+      "source_type": "regulator",
+      "verified_date": "2026-08-25",
+      "claims_supported": "Ofcom provides postcode and address-level fixed broadband coverage checking and definitions."
+    },
+    {
+      "url": "https://www.ofcom.org.uk/phones-and-broadband/switching-provider/simpler-broadband-switching-is-here",
+      "source_type": "regulator",
+      "verified_date": "2026-08-25",
+      "claims_supported": "One Touch Switch lets most residential customers contact the new provider to coordinate a broadband switch."
+    },
+    {
+      "url": "https://www.openreach.com/fibre-checker",
+      "source_type": "primary",
+      "verified_date": "2026-08-25",
+      "claims_supported": "Openreach offers address-level Full Fibre availability states including available now, soon and planned."
+    },
+    {
+      "url": "https://www.broadbandchoice.co.uk/compare/broadband/dartford/",
+      "source_type": "independent",
+      "verified_date": "2026-08-25",
+      "claims_supported": "Current Dartford SERP structure, deal attributes, FAQs and comparison functionality."
+    }
   ],
-  "recommended_min_words": 1800,
+  "recommended_min_words": 1200,
   "required_sections": [
-    "Answer-first UK broadband comparison summary",
-    "Postcode-led provider comparison and shortlist tool",
-    "Transparent limits and provider-level methodology",
-    "Step-by-step broadband comparison framework",
-    "Household speed requirement table",
-    "Network and provider type comparison",
-    "Total contract cost and price-rise explanation",
-    "Customer service and complaint evidence",
-    "One Touch Switch explanation",
-    "Social tariff guidance",
-    "Standalone FAQs",
-    "Visible dated primary sources"
+    "Answer-first DA1 introduction",
+    "Ofcom-derived DA1 coverage summary",
+    "Sortable deal comparison",
+    "Interactive household speed planner",
+    "Dartford provider availability explanation",
+    "Total contract cost checklist",
+    "Full-fibre explanation",
+    "Moving-home and social-tariff guidance",
+    "Direct-answer FAQs",
+    "Visible source notes"
   ],
   "internal_links": [
-    "/postcode",
-    "/deals",
-    "/tools/broadband-cost-calculator",
-    "/tools/broadband-match",
-    "/speed-test",
+    "/compare",
+    "/providers",
     "/guides/how-to-switch-broadband-uk",
-    "/guides/fttp-vs-fttc-broadband",
-    "/research/broadband-customer-service-rankings-uk",
-    "/how-we-review-broadband",
+    "/guides/broadband-speeds-explained",
+    "/guides/broadband-social-tariffs-uk",
     "/editorial-policy"
   ],
-  "schema_types": ["CollectionPage", "ItemList", "FAQPage", "BreadcrumbList"],
+  "schema_types": ["WebPage", "ItemList", "FAQPage", "BreadcrumbList"],
   "ux_ui_requirements": [
-    "Lead with a 35 to 90 word answer panel explaining that the best provider depends on postcode, required speed, total contract cost and service priorities.",
-    "Keep the interactive two-to-three-provider shortlist and responsive finalist cards as the central decision tool.",
-    "Add a compact jump navigation for the comparison tool, decision framework, speed guide, switching, FAQs and sources.",
-    "Use responsive tables for speed needs and network types, with meaningful row and column headers.",
-    "Show methodology, commercial disclosure, dataset date and provider-level limitations immediately around the comparison tool.",
-    "Use short source-linked evidence panels for current Ofcom coverage and switching facts rather than unsupported marketing claims.",
-    "Use accessible disclosure elements for full FAQ answers that match FAQPage structured data."
+    "Put local coverage and the sortable comparison above long-form guidance.",
+    "Show package speed, monthly price, contract and setup cost in scannable rows.",
+    "Use an answer-first coverage panel with an explicit address-level limitation.",
+    "Provide a three-choice household speed planner with a persistent recommendation.",
+    "Keep evidence notes visible and linked near the end of the page."
   ],
   "functional_requirements": [
-    "Retain shortlist persistence, maximum-three validation, removal controls, affiliate CTAs and GA4 shortlist events.",
-    "Retain the postcode checker above the provider table and provide a direct link to postcode availability pages.",
-    "Emit CollectionPage, ItemList, FAQPage and BreadcrumbList structured data matching visible content.",
-    "Link to the cost calculator, recommendation quiz, speed test, switching guide and customer-service research.",
-    "Link each material 2026 regulatory or coverage claim directly to the relevant Ofcom or GOV.UK source.",
-    "Keep affiliate disclosure visible before commercial controls and do not describe the comparison as whole-of-market."
+    "Retain deal sorting by price, speed and rating.",
+    "Add an interactive household-use selector that recommends a speed band.",
+    "Track selector use, completed recommendation and provider outbound clicks.",
+    "Keep every recommendation and coverage explanation present in crawlable HTML."
   ],
-  "research_summary": "Current UK results favour postcode-led tools supported by transparent deal ordering, cost explanations, speed guidance, switching help and FAQs. The strongest pages state coverage limits and commercial methodology. BroadbandPicker can differentiate through its saved two-to-three-provider shortlist, clear separation between provider-level starting figures and exact-address offers, and current Ofcom evidence placed beside the decision it supports.",
-  "depth_rationale": "The reviewed ranking pages range from roughly 1,800 to more than 4,000 words because the broad commercial query combines provider discovery, local availability, price, speed, contract, service and switching intent. A minimum of 1,800 useful words is appropriate when the interactive table remains central and the supporting copy answers each decision question without duplicating individual provider reviews."
+  "interactive_comparison": {
+    "user_task": "Choose a realistic speed band for a Dartford household before comparing packages.",
+    "choices_compared": "Everyday use, busy household, and gaming or heavy use.",
+    "crawlable_fallback": "Static paragraphs explain each speed band and the address-level availability limitation.",
+    "completion_state": "The selected need displays a speed range, decision advice and compare-deals link."
+  },
+  "responsive_requirements": [
+    "Mobile controls stack in one column without horizontal overflow.",
+    "Tablet controls use a three-column layout with touch targets at least 44 pixels high.",
+    "Desktop content remains readable at a constrained line length while deal data uses the available width."
+  ],
+  "accessibility_requirements": [
+    "Household choices are semantic buttons operable by keyboard.",
+    "The selected choice is exposed with aria-pressed.",
+    "The recommendation uses aria-live for state feedback.",
+    "All controls have visible focus indicators.",
+    "The control group and coverage summary have programmatic labels.",
+    "The interaction avoids colour-only state communication and unnecessary animation."
+  ],
+  "ga4_events": [
+    {
+      "name": "local_speed_need_selected",
+      "trigger": "A reader chooses a household-use option.",
+      "parameters": ["area_code", "household_need", "recommended_speed_band"],
+      "conversion_role": "diagnostic"
+    },
+    {
+      "name": "local_speed_plan_completed",
+      "trigger": "A reader follows the speed recommendation to compare deals.",
+      "parameters": ["area_code", "household_need", "recommended_speed_band"],
+      "conversion_role": "diagnostic"
+    },
+    {
+      "name": "outbound_provider_click",
+      "trigger": "A reader clicks a provider deal.",
+      "parameters": ["provider_slug", "source_page", "outbound_host", "link_label"],
+      "conversion_role": "key_event"
+    }
+  ],
+  "research_summary": "DA1 already has first-page visibility but very low CTR. The improved page leads with the exact Dartford query, adds Ofcom-derived local coverage, qualifies street-level availability, retains deal sorting, adds a household speed decision tool and expands evidence-led local guidance.",
+  "depth_rationale": "The strongest local competitors combine roughly 900 to 1,200 words with postcode interaction and detailed deal attributes, while a national authority page is substantially deeper. A 1,200-word minimum is appropriate because the page must answer local coverage, provider, price, speed, switching and moving-home intent without padding."
 }

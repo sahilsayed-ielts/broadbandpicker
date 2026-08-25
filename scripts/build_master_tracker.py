@@ -1631,6 +1631,30 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-25 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-how-to-switch-broadband-guide",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Update: How to Switch Broadband Provider guide (25th content-priority-analysis target)",
+        "description": (
+            "Twenty-fifth target: /guides/how-to-switch-broadband-uk (6,000/mo volume) "
+            "was already excellent -- 1,913 words, dated citations, real Automatic "
+            "Compensation Scheme figures (GBP6.46/day, GBP32.31 per missed appointment), "
+            "no thinness or staleness flags. This was a targeted enhancement rather than "
+            "a rewrite: added the one genuinely relevant, on-topic development the page "
+            "was missing -- Ofcom closed its dedicated One Touch Switch enforcement "
+            "programme on 11 June 2026 after finding more than 2 million customers had "
+            "already used it successfully, confirming it as the industry's permanent "
+            "standard rather than a still-bedding-in process. Added this to the intro, "
+            "a new FAQ, and the guide's keyTakeaways/sources. Word count 1,913 -> 2,043."
+        ),
+        "priority_score": 44,
+        "impact_score": 38,
+        "effort": "Low",
+        "target": "app/guides/[slug]/page.tsx (how-to-switch-broadband-uk), data/guides.ts",
+        "dependencies": "ops-content-priority-analysis-tooling",
+        "source": "User request 2026-08-25 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",

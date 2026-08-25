@@ -1107,6 +1107,24 @@ def page_packet_for_url(url: str, keywords: list[KeywordRow]) -> dict[str, Any]:
     mapped_path = f"/{slug}"
     mapped = [row for row in keywords if row.get("mapped_url") == mapped_path]
     mapped.sort(key=lambda row: (row["difficulty"], -row["volume"]))
+    if not mapped and slug.startswith("postcode/"):
+        weekly_report = ROOT / "docs" / "weekly-seo-intelligence.json"
+        if weekly_report.exists():
+            report = json.loads(weekly_report.read_text(encoding="utf-8"))
+            opportunity = next(
+                (item for item in report.get("opportunities", []) if item.get("page") == mapped_path),
+                None,
+            )
+            if opportunity and opportunity.get("top_queries"):
+                mapped = [{
+                    "keyword": query,
+                    "volume": None,
+                    "difficulty": None,
+                    "cpc": None,
+                    "intent": "Local commercial",
+                    "cluster": "Postcode & location",
+                    "page_type": "Postcode prefix page",
+                } for query in opportunity["top_queries"]]
     if not mapped:
         raise RuntimeError(f"No curated keyword mapping exists for {mapped_path}")
     detailed_keywords = [{
