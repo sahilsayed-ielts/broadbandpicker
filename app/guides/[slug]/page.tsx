@@ -1855,14 +1855,14 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
   'best-broadband-for-rural-areas-uk': {
     body: (
       <>
-        <p>The best broadband for <strong>rural areas</strong> is the connection type that is genuinely available at your property and stable enough for everyday use. In rural UK broadband, the first question is often not “which provider is best?” but “which technology can really serve this address well?”</p>
+        <p>The best broadband for <strong>rural areas</strong> is the connection type that is genuinely available at the property and stable enough for everyday use. Ofcom&apos;s Spring 2026 Connected Nations data shows exactly why this matters: gigabit-capable coverage is 93% in urban areas but only 66% in rural areas, so a national headline figure tells a rural household very little. The first question is often not "which provider is best?" but "which technology can really serve this address well?"</p>
 
         <h2>What rural broadband buyers should check first</h2>
         <ul>
-          <li>Whether your postcode can get full fibre, FTTC, fixed wireless, 4G, or 5G home broadband</li>
-          <li>How far the property is from the cabinet if you are relying on older copper-based broadband</li>
+          <li>Whether the postcode can get full fibre, FTTC, satellite, or 4G/5G home broadband</li>
+          <li>How far the property is from the cabinet if relying on older copper-based broadband</li>
           <li>Whether mobile broadband coverage is strong enough to be realistic</li>
-          <li>How important stability is for work, school, streaming, or calling</li>
+          <li>Whether the property qualifies for the UK Gigabit Broadband Voucher Scheme, which can subsidise extending a fixed fibre connection to an eligible rural address</li>
         </ul>
 
         <h2>Best rural broadband options by connection type</h2>
@@ -1877,10 +1877,10 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
             </thead>
             <tbody>
               {[
-                ['Full fibre (FTTP)', 'Available at the property and you want the best fixed-line performance', 'Still unavailable in some hard-to-reach areas'],
-                ['FTTC / standard fibre', 'It is the only practical fixed-line option', 'Speed can fall sharply on long rural line runs'],
+                ['Full fibre (FTTP)', 'Available at the property and the best fixed-line performance is wanted', 'Still unavailable at around a third of rural properties'],
+                ['FTTC / standard fibre', 'The only practical fixed-line option', 'Speed can fall sharply on long rural line runs'],
                 ['4G or 5G home broadband', 'Mobile coverage is strong and fixed-line choices are weak', 'Performance can vary with signal and congestion'],
-                ['Fixed wireless / local rural options', 'A specialist rural provider serves your area', 'Coverage is highly local and limited'],
+                ['Satellite (Starlink)', 'Fixed and mobile options are all genuinely weak or unavailable', 'A larger upfront equipment cost, from around £299 to £449'],
               ].map(([type, bestWhen, limitation]) => (
                 <tr key={type} className="border-b border-slate-100 hover:bg-slate-50">
                   <td className="px-4 py-3 font-semibold text-slate-900">{type}</td>
@@ -1893,28 +1893,31 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         </div>
 
         <h2>Which providers usually make the shortlist</h2>
-        <p><strong>BT</strong> is often relevant in rural areas because of its broad national reach and stronger availability in harder-to-serve locations. <strong>EE</strong> can also be a strong option where Openreach full fibre is available and you want a reliability-led brand. If the fixed-line options are weak, a mobile broadband alternative may still be worth testing, but only if local coverage is genuinely strong.</p>
+        <p><strong>BT</strong> is often relevant in rural areas because of its broad national reach, around 98% of UK premises via Openreach, one of the widest of any provider. For 5G home broadband specifically, <strong>National Broadband</strong>, from £34.99 a month, is worth prioritising over a single-network option: it connects to whichever of the UK&apos;s four mobile networks is strongest at the specific address, a genuinely better fit for rural properties than committing to one network upfront. <strong>Three</strong>, from £29 a month, offers the best value where its own 5G signal is strong, and <strong>EE&apos;s Smart 5G Hub</strong> has the broadest single-network 5G coverage.</p>
+
+        <h2>When satellite makes sense in the countryside</h2>
+        <p>Where fixed-line and mobile options are all genuinely weak, Starlink is now the only consumer satellite option with genuinely competitive speeds, typically 120 to 300 Mbps with latency around 25ms. UK residential plans run from £40 to £80 a month, plus a dish and router kit from around £299 to £449. This is a considerably larger upfront cost than a typical fixed-line router, so it is worth checking eligibility for the Gigabit Broadband Voucher Scheme first, since a subsidised fibre extension can sometimes work out more cost-effective once installation is included.</p>
 
         <h2>When mobile broadband makes sense in the countryside</h2>
-        <p>4G and 5G home broadband can work surprisingly well in some rural homes, especially where fixed-line options are poor and mobile coverage at the property is strong. But this is highly local. Performance can change dramatically between villages, between roads, and even between two nearby buildings.</p>
+        <p>4G and 5G home broadband can work surprisingly well in some rural homes, especially where fixed-line options are poor and mobile coverage at the property is strong. But this is highly local: performance can change dramatically between villages, between roads, and even between two nearby buildings, which is exactly why a multi-network option like National Broadband is a genuinely different value proposition from a single-network provider for a rural address.</p>
 
         <h2>What rural households should prioritise</h2>
         <ul>
           <li>Stability before headline speed</li>
-          <li>Real postcode availability before national advertising claims</li>
-          <li>Trial periods or returns flexibility if testing a mobile broadband option</li>
-          <li>A provider with broad reach if you want the lowest-risk mainstream choice</li>
+          <li>Real postcode and address-level availability before national advertising claims</li>
+          <li>Trial periods or returns flexibility if testing a mobile or satellite broadband option</li>
+          <li>Checking Gigabit Broadband Voucher Scheme eligibility before assuming satellite is the only route to a fast connection</li>
         </ul>
 
         <h2>The best rule of thumb</h2>
-        <p>In rural broadband, the best option is often the best <em>available</em> option, not the flashiest one on paper. Start with connection reality, then compare providers inside the technologies your property can actually get.</p>
+        <p>In rural broadband, the best option is often the best <em>available</em> option, not the flashiest one on paper. Start with connection reality, then compare providers inside the technologies the property can actually get.</p>
       </>
     ),
     faqs: [
-      { question: 'What is the best broadband for rural areas in the UK?', answer: 'Full fibre is the best rural option where available, but many homes still need to choose between FTTC, fixed wireless, or 4G and 5G home broadband. BT and EE are often relevant because of their broad national reach.' },
-      { question: 'Is 5G broadband good for rural areas?', answer: 'Sometimes, but only where local mobile coverage is genuinely strong. In many rural areas, 5G is still too patchy to be a reliable primary home connection.' },
-      { question: 'Why is rural broadband often slower?', answer: 'Older copper-based broadband can lose speed over long distances from the cabinet or exchange, and newer network rollout is often slower in harder-to-reach rural areas.' },
-      { question: 'Should rural households choose BT broadband?', answer: 'BT is often a sensible rural shortlist option because of its wide coverage and mainstream availability. It may not always be the cheapest, but it is often one of the safer first providers to check.' },
+      { question: 'What is the best broadband for rural areas in the UK?', answer: 'Full fibre is the best rural option where available, but Ofcom\'s Spring 2026 data shows gigabit-capable coverage is only 66% in rural areas against 93% in urban areas. Where fixed-line options are weak, National Broadband\'s multi-network 5G service or Starlink satellite are worth checking.' },
+      { question: 'Is 5G broadband good for rural areas?', answer: 'Sometimes, but only where local mobile coverage is genuinely strong, and this varies a lot by exact location. National Broadband, from £34.99 a month, connects to whichever of the UK\'s four mobile networks is strongest at the address, a better fit for rural properties than committing to a single network upfront.' },
+      { question: 'Is satellite broadband a good option for rural areas?', answer: 'Starlink is currently the only consumer satellite option with genuinely competitive speeds, typically 120 to 300 Mbps. UK plans run from £40 to £80 a month plus a dish and router kit from around £299 to £449, a real upfront cost worth weighing against a subsidised fibre extension under the Gigabit Broadband Voucher Scheme first.' },
+      { question: 'Why is rural broadband often slower?', answer: 'Older copper-based broadband can lose speed over long distances from the cabinet or exchange, and full-fibre rollout has reached only around two-thirds of rural properties against 93% of urban ones, per Ofcom\'s Spring 2026 data.' },
     ],
   },
 

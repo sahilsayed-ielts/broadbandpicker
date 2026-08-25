@@ -1700,6 +1700,31 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-25 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-best-broadband-for-rural-areas-guide",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Deep rewrite: Best Broadband for Rural Areas guide (28th content-priority-analysis target)",
+        "description": (
+            "Twenty-eighth target: 635 words naming only BT and EE, with a real content "
+            "gap for a rural-specific guide -- no mention of satellite broadband at all, "
+            "despite Starlink being one of the classic genuine rural use cases already "
+            "covered in depth on this site's own satellite-broadband-uk guide earlier "
+            "this session. Added real Ofcom Spring 2026 rural coverage data (66% rural "
+            "vs 93% urban gigabit-capable), real 5G pricing (National Broadband from "
+            "GBP34.99/mo as the multi-network specialist genuinely suited to rural "
+            "addresses, Three from GBP29/mo, EE Smart 5G Hub), a full Starlink section "
+            "with real pricing, and the Gigabit Broadband Voucher Scheme as a "
+            "cost-effective alternative to satellite worth checking first. Word count "
+            "635 -> 908."
+        ),
+        "priority_score": 27,
+        "impact_score": 26,
+        "effort": "Medium",
+        "target": "app/guides/[slug]/page.tsx (best-broadband-for-rural-areas-uk), data/guides.ts",
+        "dependencies": "ops-content-priority-analysis-tooling",
+        "source": "User request 2026-08-25 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",

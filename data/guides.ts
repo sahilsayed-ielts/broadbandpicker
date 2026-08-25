@@ -675,16 +675,26 @@ export const guides: GuideMetadata[] = [
     slug: 'best-broadband-for-rural-areas-uk',
     title: 'Best Broadband for Rural Areas UK 2026',
     metaTitle: 'Best Broadband for Rural Areas UK 2026 | BroadbandPicker',
-    metaDescription: 'Looking for the best broadband for rural areas in the UK? Compare full fibre, fixed wireless, 4G, and 5G options, plus which providers are best for hard-to-reach homes.',
+    metaDescription: 'Looking for the best broadband for rural areas in the UK? Real current prices for National Broadband, Three, EE Smart 5G Hub and Starlink satellite, plus real Ofcom rural coverage data.',
     publishDate: '2026-06-21',
-    updatedDate: '2026-06-21',
-    excerpt: 'Rural broadband is not just about finding the fastest provider. It is about choosing the most realistic connection type for your postcode, property, and reliability needs.',
+    updatedDate: '2026-08-25',
+    excerpt: 'Ofcom\'s Spring 2026 data shows gigabit-capable coverage at just 66% in rural areas against 93% in urban ones. Real current prices for multi-network 5G, single-network 5G and Starlink satellite, the genuine rural alternatives when full fibre has not arrived yet.',
     readingTime: 9,
     category: 'use-cases-and-lifestyle',
     keyTakeaways: [
-      'Start with an address-level availability check because neighbouring rural properties can have very different options.',
-      'Compare full fibre, fixed wireless, 4G/5G and satellite on reliability, latency, data limits and installation cost.',
-      'Do not cancel an existing service until the replacement connection is installed and working reliably.',
+      'Ofcom\'s Spring 2026 Connected Nations data put gigabit-capable coverage at 66% in rural areas against 93% in urban areas.',
+      'National Broadband, from £34.99 a month, connects to whichever of the UK\'s four mobile networks is strongest at the address, a genuinely better fit for rural properties than a single-network 5G option.',
+      'Check eligibility for the UK Gigabit Broadband Voucher Scheme before assuming satellite, from £40 to £80 a month plus a GBP299-449 equipment kit, is the only route to a fast connection.',
+    ],
+    sources: [
+      {
+        label: 'Ofcom: Connected Nations update, Spring 2026',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/connected-nations-update-spring-2026',
+      },
+      {
+        label: 'UK Gigabit Broadband Voucher Scheme',
+        href: 'https://gigabitvoucher.culture.gov.uk/',
+      },
     ],
   },
   {
