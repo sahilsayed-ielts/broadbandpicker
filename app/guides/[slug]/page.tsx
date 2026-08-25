@@ -2029,7 +2029,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         <p>The best broadband deals for existing customers are usually not the ones you get by doing nothing. If you stay passive, you often move onto a more expensive standard tariff. If you negotiate or switch at the right moment, you can often cut your monthly bill significantly.</p>
 
         <h2>Why existing customers often overpay</h2>
-        <p>Broadband pricing still favors acquisition. Providers spend heavily to win new users, so the sharpest advertised deals are often aimed at people who are about to switch. Existing customers who let the contract roll on can end up paying more for the same or even a weaker package.</p>
+        <p>Broadband pricing still favors acquisition. Providers spend heavily to win new users, so the sharpest advertised deals are often aimed at people who are about to switch. Existing customers who let the contract roll on can end up paying more for the same or even a weaker package. Industry research published in 2026 puts the average saving from switching at roughly £180 to £292 over a contract, with one widely cited estimate suggesting the 8.8 million UK households currently out of contract could save an average of £183.60 a year by switching rather than staying on a rolled-over standard tariff.</p>
 
         <h2>Your three best options as an existing customer</h2>
         <h3>1. Renegotiate with your current provider</h3>
@@ -2039,7 +2039,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         <p>Some households are paying not just for loyalty, but for speed they no longer need. If your home is mostly browsing, streaming, and general video calls, dropping to a more sensible tier can save money quickly.</p>
 
         <h3>3. Switch provider</h3>
-        <p>If your current provider will not offer competitive value, switching is often the best answer. Being out of contract or close to contract end gives you leverage, and One Touch Switching has made the process easier than many users expect.</p>
+        <p>If your current provider will not offer competitive value, switching is often the best answer. Being out of contract or close to contract end gives you leverage. One Touch Switch, now the industry&apos;s permanent standard after Ofcom closed its dedicated enforcement case in June 2026 having found more than 2 million customers had already used it successfully, has made the process considerably easier than many users expect: the new provider handles the transfer and old service cancellation automatically.</p>
 
         <h2>When to negotiate</h2>
         <ul>
@@ -2051,6 +2051,9 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
 
         <h2>What to say to get a better deal</h2>
         <p>Keep it simple: tell the provider you are reviewing your options, mention a real alternative offer, and ask whether they can match or beat it. If the first offer is weak, ask if there is a retention package available.</p>
+
+        <h2>A scheduled price rise is a genuine trigger point</h2>
+        <p>Most major providers now apply a flat, disclosed annual price rise, BT and EE at £4 a month each March, TalkTalk at £4 for contracts from November 2025, and Sky at £3 as of April 2026. When that notification lands, it is a genuine, low-friction moment to check the market: Ofcom requires at least 30 days&apos; notice of a price rise, and if the increase was not clearly disclosed at sign-up, an exit right may apply within that window. Even where no exit right applies, receiving the notice is still a natural, unforced reason to call and ask whether a better deal is available.</p>
 
         <h2>When staying can still make sense</h2>
         <p>Staying is not always wrong. If the provider gives you a competitive retention deal, the service has been reliable, and switching would only save a tiny amount, the lower-friction option may be worth it. The key is that staying should be a choice, not inertia.</p>
@@ -2069,6 +2072,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
       { question: 'When should I ask my provider for a better deal?', answer: 'The best time is shortly before your contract ends, right after a price-rise notice, or whenever you discover your current bill is materially above current market rates.' },
       { question: 'Should existing customers switch or renegotiate?', answer: 'Do both in sequence. Compare the best alternative at your postcode, then ask your current provider if they can match or beat it. If they cannot, switching is usually the better move.' },
       { question: 'Can existing customers ever get the same price as new customers?', answer: 'Sometimes, especially through retention teams, but not always. The point of comparing first is to know whether the provider’s “best” offer is actually competitive.' },
+      { question: 'How much could I save by switching broadband provider?', answer: 'Industry research published in 2026 puts the average saving from switching at roughly £180 to £292 over a contract, with one estimate suggesting the 8.8 million UK households currently out of contract could save an average of £183.60 a year by switching rather than staying on a rolled-over standard tariff.' },
     ],
   },
 

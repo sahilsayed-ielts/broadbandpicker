@@ -1905,6 +1905,29 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-25 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-broadband-existing-customers-guide",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Deep rewrite: Broadband Deals for Existing Customers guide (42nd content-priority-analysis target)",
+        "description": (
+            "Tenth target in the second 13-page batch: 689 words of correct but "
+            "entirely generic negotiation advice with no real figures. Added the "
+            "GBP183.60/year switching-savings stat (already verified this session for "
+            "the moving-house guide), the One Touch Switch enforcement-closure news "
+            "(11 June 2026, permanent industry standard), and a new section reframing "
+            "a scheduled price rise notification as a genuine, low-friction negotiation "
+            "trigger, citing the real current rise figures already established this "
+            "session (BT/EE GBP4/mo March, TalkTalk GBP4/mo from Nov 2025 contracts, "
+            "Sky GBP3/mo April 2026). Word count 689 -> 946."
+        ),
+        "priority_score": 33,
+        "impact_score": 30,
+        "effort": "Medium",
+        "target": "app/guides/[slug]/page.tsx (broadband-for-existing-customers), data/guides.ts",
+        "dependencies": "ops-content-priority-analysis-tooling",
+        "source": "User request 2026-08-25 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",

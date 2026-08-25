@@ -725,16 +725,16 @@ export const guides: GuideMetadata[] = [
     slug: 'broadband-for-existing-customers',
     title: 'Best Broadband Deals for Existing Customers UK 2026',
     metaTitle: 'Best Broadband Deals for Existing Customers | BroadbandPicker',
-    metaDescription: 'Already have broadband and out of contract? Learn how existing customers can get a better deal, when to renegotiate, and when switching is the smarter move.',
+    metaDescription: 'Already have broadband and out of contract? Real switching savings data (up to GBP183.60/year), why a scheduled price rise is a genuine negotiation trigger, and when switching beats renegotiating.',
     publishDate: '2026-06-21',
-    updatedDate: '2026-06-21',
-    excerpt: 'Existing broadband customers often pay more than new ones, but that does not mean you have no leverage. Here is how to renegotiate, compare, or switch for a better deal.',
-    readingTime: 8,
+    updatedDate: '2026-08-25',
+    excerpt: 'Existing broadband customers often pay more than new ones. Real 2026 switching-savings data, why a scheduled price rise notification is a genuine trigger to negotiate, and when switching beats renegotiating.',
+    readingTime: 9,
     category: 'deals-and-pricing',
     keyTakeaways: [
-      'Compare the renewal offer with new-customer prices and the total cost of realistic alternatives.',
-      'Ask the retention team for its best price, then confirm any new minimum term and annual increases in writing.',
-      'If the contract has ended, switching is usually possible without an early termination charge, subject to notice and equipment rules.',
+      'Industry research puts the average switching saving at £180 to £292 over a contract; 8.8 million UK households currently out of contract could save an average of £183.60 a year.',
+      'A scheduled price rise notification, now standard at most major providers, is a genuine, low-friction moment to check the market, since Ofcom requires at least 30 days\' notice.',
+      'One Touch Switch is now the industry\'s permanent standard after Ofcom closed its enforcement case in June 2026, making a provider switch considerably lower-friction than it used to be.',
     ],
     sources: [
       {
