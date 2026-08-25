@@ -232,16 +232,22 @@ export const guides: GuideMetadata[] = [
     slug: 'broadband-deals-with-cashback',
     title: 'Broadband Deals With Cashback UK 2026',
     metaTitle: 'Broadband Deals With Cashback UK 2026 | BroadbandPicker',
-    metaDescription: 'Compare broadband deals with cashback, gift cards, and switching incentives in the UK. Learn how to judge true value and avoid offers that only look cheap on the surface.',
+    metaDescription: 'Compare broadband deals with cashback, gift cards, and switching incentives in the UK. Real BT reward card figures (GBP80-140) and why Community Fibre\'s no-reward GBP12.50/mo can still beat a bigger voucher.',
     publishDate: '2026-06-21',
-    updatedDate: '2026-06-21',
-    excerpt: 'Cashback broadband deals can look great, but the best offer is not always the one with the biggest gift card. Here is how to compare broadband incentives properly in the UK.',
+    updatedDate: '2026-08-25',
+    excerpt: 'Cashback broadband deals can look great, but the best offer is not always the one with the biggest gift card. Real reward-card figures from BT and NOW Broadband, and why a lower monthly price with no reward at all can still win.',
     readingTime: 8,
     category: 'deals-and-pricing',
     keyTakeaways: [
+      'BT\'s reward card ranges from around £80 to £140, offsetting a £30 setup fee, but only benefits the customer if actually claimed.',
       'Treat cashback as a reduction in total contract cost, not as guaranteed money in your account on day one.',
-      'Check whether the reward is automatic or must be claimed within a deadline after activation.',
-      'A lower monthly price may beat a larger reward once setup fees and the entire minimum term are included.',
+      'Community Fibre\'s no-reward £12.50 a month can still beat a pricier deal with a large one-off card once the full contract term is compared.',
+    ],
+    sources: [
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+      },
     ],
   },
   {

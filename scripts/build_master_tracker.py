@@ -1803,6 +1803,30 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-25 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-broadband-deals-with-cashback-guide",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Deep rewrite: Broadband Deals With Cashback guide (35th content-priority-analysis target)",
+        "description": (
+            "Third target in the second 13-page batch: 622 words with zero real "
+            "numbers -- entirely abstract advice about 'gift cards' and 'cashback' with "
+            "no concrete example of what a real reward is actually worth. Added BT's "
+            "real reward card figures (GBP80-140, offsetting a GBP30 setup fee, already "
+            "documented on BT's own provider page) and NOW Broadband's real GBP70-75 "
+            "voucher pattern. Added a genuinely concrete counter-example using "
+            "Community Fibre's no-reward GBP12.50/mo price to illustrate why a lower "
+            "ongoing price can beat a bigger one-off card once the full term is "
+            "compared, replacing the old page's entirely hypothetical framing. Word "
+            "count 622 -> 826."
+        ),
+        "priority_score": 25,
+        "impact_score": 23,
+        "effort": "Medium",
+        "target": "app/guides/[slug]/page.tsx (broadband-deals-with-cashback), data/guides.ts",
+        "dependencies": "ops-content-priority-analysis-tooling",
+        "source": "User request 2026-08-25 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",

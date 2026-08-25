@@ -947,11 +947,14 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
           </table>
         </div>
 
+        <h2>A real example: BT's reward card and the setup fee it offsets</h2>
+        <p>BT applies a £30 upfront setup fee on its current range, offset by a reward card ranging from around £80 on entry tiers up to £140 on its fastest package. This only works out in the customer&apos;s favour if the card is actually claimed and used; treat the setup fee as a genuine £30 cost at the point of paying, not a number automatically cancelled out by a reward that requires separate action to redeem. NOW Broadband, similarly, commonly attaches a £70 to £75 voucher to its current deals, on top of a £5 advance fee that is credited back to the first bill rather than being a real net cost.</p>
+
         <h2>When cashback deals are genuinely worth it</h2>
         <p>They make the most sense when the underlying broadband deal is already competitive and the reward simply improves the value further. They matter less when the monthly price is inflated, the contract is too long for your needs, or the reward is hard to redeem.</p>
 
         <h2>Cashback vs lower monthly price</h2>
-        <p>Many buyers focus too much on the headline reward. In practice, a lower monthly bill over 12 to 24 months can beat a larger one-off gift card. The best habit is to compare the full contract cost first, then treat cashback as a bonus rather than the main reason to choose a provider.</p>
+        <p>Many buyers focus too much on the headline reward. In practice, a lower monthly bill over 12 to 24 months can beat a larger one-off gift card. Community Fibre, for example, is genuinely the cheapest full-fibre package covered on this site at £12.50 a month with no reward attached at all, and that lower ongoing price can beat a pricier deal with a large one-off card once the full contract term is added up. The best habit is to compare the full contract cost first, then treat cashback as a bonus rather than the main reason to choose a provider.</p>
 
         <h2>Common mistakes with broadband rewards</h2>
         <ul>
@@ -970,6 +973,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
       { question: 'Is cashback better than a lower broadband monthly price?', answer: 'Not always. A lower monthly price can easily beat a one-off reward over the full contract term. The right comparison is total contract value, not headline incentive size.' },
       { question: 'What should I check before taking a cashback broadband deal?', answer: 'Check the full contract cost, setup fees, contract length, and whether the cashback requires a claim step or deadline. Also make sure the broadband package itself suits your household.' },
       { question: 'Do gift card broadband deals count as good value?', answer: 'They can, especially if you would genuinely use the gift card. But they are not automatically better than a plain lower-cost deal with no redemption friction.' },
+      { question: 'How much is BT\'s broadband reward card worth?', answer: 'BT\'s current reward card ranges from around £80 on entry-level packages up to £140 on its fastest tier, offsetting a £30 upfront setup fee. It only benefits the customer if actually claimed and used, so treat the £30 as a real cost at the point of paying rather than a number cancelled out automatically.' },
     ],
   },
 
