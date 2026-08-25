@@ -1500,6 +1500,35 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-24 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-ee-provider-page",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Update: EE provider page Ofcom complaints figure (20th content-priority-analysis target)",
+        "description": (
+            "Twentieth target from scripts/analyze_content_priority.py's wider ranked "
+            "list (top 30): /providers/ee carries the single highest mapped search volume "
+            "of any page on the site (202,237/mo) and was already well-built (1,649 "
+            "words, no thinness flag), so this was a targeted correction rather than a "
+            "full rewrite. The page's own reviewSources explicitly noted it could not "
+            "find EE's exact Q1 2026 Ofcom complaints figure and was still citing Q4 "
+            "2025's 'worst-three bracket, 10 per 100k' framing as the operative claim. "
+            "Filled that gap with the exact figure from the same broadbandswitch 'The "
+            "Complaints Floor' Q1 2026 table already used for the price-rises and "
+            "broadband-providers-ranking guides: EE recorded 6 per 100,000, exactly the "
+            "record-low industry average, a real, measurable improvement no longer in "
+            "the worst bracket. Rewrote the Ofcom section, cons, excerpt, FAQ and 'Is EE "
+            "Worth It' verdict to reflect this, reframing EE as a new example of the "
+            "low-Trustpilot-vs-strong-Ofcom pattern (joining Sky, Plusnet, Virgin Media) "
+            "rather than a provider genuinely weak on both measures."
+        ),
+        "priority_score": 60,
+        "impact_score": 55,
+        "effort": "Low",
+        "target": "data/providers.ts (ee)",
+        "dependencies": "ops-content-priority-analysis-tooling",
+        "source": "User request 2026-08-25 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",

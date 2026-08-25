@@ -568,10 +568,10 @@ const baseProviders: Provider[] = [
       'Broadband-specific Trustpilot score is exceptionally low, in the worst bracket alongside BT and Sky',
       'Only 24-month contracts are offered, with no shorter or rolling option',
       'A scheduled flat price rise applies every March',
-      'Ofcom\'s Q4 2025 complaints data placed EE in the worst-three bracket alongside TalkTalk and Vodafone',
+      'A genuinely low Trustpilot score despite an improved, now-average Ofcom complaints position',
     ],
     excerpt:
-      'EE, BT Group\'s mobile-led broadband brand, offers Full Fibre packages from £22.99 to around £30 a month, all on 24-month Openreach contracts, with a distinctive feature: automatic 4G or 5G mobile backup if the fixed line drops. Uswitch named it National Broadband Provider of the Year for 2026 on speed and reliability, yet its broadband-specific Trustpilot score is just 1.3 out of 5, far below the 4.2 headline figure most people see, which is dominated by mobile customers rather than broadband ones.',
+      'EE, BT Group\'s mobile-led broadband brand, offers Full Fibre packages from £22.99 to around £30 a month, all on 24-month Openreach contracts, with a distinctive feature: automatic 4G or 5G mobile backup if the fixed line drops. Uswitch named it National Broadband Provider of the Year for 2026 on speed and reliability, and Ofcom\'s Q1 2026 data shows a real improvement in its complaints record, now at the industry average, though its broadband-specific Trustpilot score, just 1.3 out of 5, has not caught up with that change.',
     contentSections: [
       {
         heading: 'EE Broadband Deals in August 2026',
@@ -614,26 +614,26 @@ const baseProviders: Provider[] = [
         ],
       },
       {
-        heading: 'Ofcom Complaints Data for EE',
+        heading: 'Ofcom Complaints Data for EE: A Real Improvement',
         paragraphs: [
-          'Ofcom\'s Q4 2025 complaints report placed EE in the worst-three bracket for broadband complaints, at 10 per 100,000 customers, alongside TalkTalk and Vodafone. This is a genuinely poor result and worth weighing seriously against EE\'s speed and reliability recognition from Uswitch.',
-          'Ofcom\'s more recent Q1 2026 report named TalkTalk, Vodafone and BT as the three worst providers for complaints, without EE among that specific top three, which would represent an improvement from the Q4 2025 position if it holds, though an exact Q1 2026 figure for EE specifically was not available at the point of this check.',
-          'Read alongside the broadband-specific Trustpilot score of 1.3, the overall picture for EE\'s customer service and fault handling is genuinely weaker than its speed and reliability recognition alone would suggest, and worth taking seriously rather than dismissed as review-platform noise.',
+          'Ofcom\'s Q4 2025 complaints report placed EE in the worst-three bracket for broadband complaints, at 10 per 100,000 customers, alongside TalkTalk and Vodafone. Its more recent Q1 2026 report, published 23 July 2026, shows a genuine improvement: EE recorded 6 complaints per 100,000 customers, exactly the record-low industry average that quarter, and well below TalkTalk\'s 10 and Vodafone\'s 8.',
+          'This is a real, measurable change rather than statistical noise, and it means EE now sits alongside Virgin Media at the industry average, no longer in the worst bracket. It is a genuinely different position from the one still commonly cited for EE elsewhere online, which tends to repeat the older Q4 2025 figure.',
+          'EE\'s broadband-specific Trustpilot score, still around 1.3 out of 5, has not moved in line with this improvement. This is now a clearer example of the pattern seen elsewhere on this site, Sky, Plusnet and Virgin Media among them, where a low, self-selected Trustpilot score sits alongside a considerably stronger, independently regulated Ofcom complaints record.',
         ],
       },
       {
         heading: 'Is EE Broadband Worth It?',
         paragraphs: [
           'EE\'s case rests on two real, independently recognised strengths: consistently fast, reliable speeds, and a genuinely distinctive automatic mobile backup feature that most rivals do not offer. Both are substantive, not marketing-only, benefits for anyone who values uptime highly.',
-          'The customer service and complaints evidence is a real weakness, not a review-platform quirk: a 1.3 broadband-specific Trustpilot score and a worst-three Ofcom complaints position in the most recent full report available both point the same way. Anyone choosing EE should go in with realistic expectations about support response times.',
-          'Our take: EE suits a household that prioritises connection speed, reliability and mobile-network backup over customer service responsiveness, and is prepared to manage most issues without expecting a fast support resolution if something does go wrong.',
+          'The complaints picture is now genuinely better than EE\'s reputation suggests: Ofcom\'s Q1 2026 data puts it at the industry average, a real improvement on its previous worst-three position. The exceptionally low 1.3 Trustpilot score has not caught up with that change, and mainly reflects a self-selected, complaint-skewed review page rather than EE\'s current, regulated complaints record.',
+          'Our take: EE suits a household that prioritises connection speed, reliability and mobile-network backup, and its customer service position is now closer to the industry norm than its Trustpilot score alone would suggest, though the Trustpilot pattern itself is still worth knowing about before ruling on reputation alone.',
         ],
       },
     ],
     faqItems: [
       {
         question: 'Is EE broadband any good?',
-        answer: 'EE was named National Broadband Provider of the Year at the 2026 Uswitch Telecoms Awards for speed and reliability, and offers a distinctive automatic 4G/5G mobile backup feature. Its broadband-specific Trustpilot score, around 1.3 out of 5, and a worst-three Ofcom complaints position in Q4 2025 both point to weaker customer service, so it suits speed-focused households more than those who expect fast support.',
+        answer: 'EE was named National Broadband Provider of the Year at the 2026 Uswitch Telecoms Awards for speed and reliability, and offers a distinctive automatic 4G/5G mobile backup feature. Its complaints record has genuinely improved: Ofcom\'s Q1 2026 data puts EE at 6 per 100,000 customers, exactly the industry average, up from a worst-three position in Q4 2025. Its broadband-specific Trustpilot score, still around 1.3 out of 5, has not caught up with that improvement.',
       },
       {
         question: 'Why does EE have two different Trustpilot scores?',
@@ -648,7 +648,7 @@ const baseProviders: Provider[] = [
         answer: 'Yes. EE applies a flat, disclosed price rise each March across its current range, following Ofcom\'s ban on inflation-linked price rise terms from January 2025. Every current package runs on a 24-month contract, so this rise applies in the second year of every new EE broadband agreement.',
       },
     ],
-    reviewedDate: '2026-08-23',
+    reviewedDate: '2026-08-25',
     pricingVerifiedDate: '2026-08-23',
     reviewSources: [
       {
@@ -664,7 +664,7 @@ const baseProviders: Provider[] = [
       {
         label: 'Selectra: EE broadband review, Trustpilot and Ofcom summary',
         href: 'https://selectra.co.uk/tv-broadband/providers/ee/broadband-review',
-        note: 'Primary source for the distinction between EE\'s mobile-dominated headline Trustpilot score and its broadband-specific score, and for the Uswitch Telecoms Awards recognition and Ofcom Q4 2025 complaints position.',
+        note: 'Primary source for the distinction between EE\'s mobile-dominated headline Trustpilot score and its broadband-specific score, and for the Uswitch Telecoms Awards recognition.',
       },
       {
         label: 'EE broadband-specific public Trustpilot profile',
@@ -672,9 +672,14 @@ const baseProviders: Provider[] = [
         note: 'Customer-sentiment reference showing a broadband-specific rating around 1.3 out of 5 in August 2026; not treated as a controlled reliability survey.',
       },
       {
+        label: 'broadbandswitch.uk: The Complaints Floor, Ofcom complaints Q1 2026',
+        href: 'https://broadbandswitch.uk/reports/the-complaints-floor/',
+        note: 'Primary source for EE\'s exact Q1 2026 complaints figure (6 per 100,000, the industry average), checked against each provider\'s own Ofcom-reported figure, verified 2026-08-25.',
+      },
+      {
         label: 'Ofcom: telecoms and pay-TV complaints fall to a record low',
         href: 'https://www.ofcom.org.uk/phones-and-broadband/service-quality/ofcom-telecoms-and-pay-tv-complaints-fall-to-record-low',
-        note: 'Primary regulatory source for the Q1 2026 complaints table; EE was not named among the top three worst providers in this specific report, unlike Q4 2025.',
+        note: 'Primary regulatory source for the Q1 2026 complaints report and the wider industry complaints table.',
       },
       {
         label: 'Awin EE advertiser programme',
