@@ -1676,6 +1676,30 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-25 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-can-i-leave-broadband-early-guide",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Deep rewrite: Can I Leave Broadband Early After a Price Rise guide (27th content-priority-analysis target)",
+        "description": (
+            "Twenty-seventh target: 783 words of correct but entirely abstract legal "
+            "explanation with zero real examples of what 'clearly disclosed' vs 'vague' "
+            "price-rise wording actually looks like in practice. Added the concrete "
+            "contrast this session's own research had already surfaced: BT and "
+            "TalkTalk both disclose a flat, dated pounds-and-pence rise upfront (the "
+            "clear case), while Sky's contract terms for years after the first only say "
+            "prices 'may rise' without a fixed figure (the genuinely weaker disclosure "
+            "case worth flagging). Added the specific 30-day notice/exit-window rule "
+            "with a matching new FAQ. Caught and fixed 2 instances of the recurring "
+            "backslash-apostrophe-in-JSX bug before shipping. Word count 783 -> 1,068."
+        ),
+        "priority_score": 28,
+        "impact_score": 26,
+        "effort": "Medium",
+        "target": "app/guides/[slug]/page.tsx (can-i-leave-broadband-early-after-price-rise), data/guides.ts",
+        "dependencies": "ops-content-priority-analysis-tooling",
+        "source": "User request 2026-08-25 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",

@@ -481,16 +481,16 @@ export const guides: GuideMetadata[] = [
     slug: 'can-i-leave-broadband-early-after-price-rise',
     title: 'Can I Leave Broadband Early After a Price Rise? UK Rules Explained',
     metaTitle: 'Can I Leave Broadband Early After a Price Rise? | BroadbandPicker',
-    metaDescription: 'Find out when you can leave your broadband contract early after a price rise in the UK, what Ofcom rules changed, and what steps to take if your bill goes up.',
+    metaDescription: 'Find out when you can leave your broadband contract early after a price rise in the UK, what Ofcom rules changed, and real examples of clear vs vague disclosure from BT, Sky and TalkTalk.',
     publishDate: '2026-06-21',
-    updatedDate: '2026-06-21',
-    excerpt: 'A broadband price rise does not always mean you can leave penalty-free. Here is when you can, when you cannot, and how to handle the process properly.',
-    readingTime: 8,
+    updatedDate: '2026-08-25',
+    excerpt: 'A broadband price rise does not always mean you can leave penalty-free. When you can, when you cannot, and why Sky\'s "prices may rise" wording is a genuinely weaker disclosure than BT or TalkTalk\'s dated, fixed pounds-and-pence rises.',
+    readingTime: 9,
     category: 'switching-and-rights',
     keyTakeaways: [
       'Your right to leave early depends heavily on when you signed the contract and what price-rise wording was shown at signup.',
-      'If an increase was clearly stated in pounds and pence before signup, an exit fee may still apply.',
-      'Check your contract and contact the provider before cancelling, then escalate unresolved disputes through its complaints process.',
+      'Most major providers now disclose a flat, dated pounds-and-pence rise upfront; Sky is a genuinely weaker case, since its contract terms for future years only say prices "may rise" without a fixed figure.',
+      'Ofcom requires at least 30 days\' notice of a price rise, and any genuine exit right must generally be used within that 30-day window.',
     ],
     sources: [
       {

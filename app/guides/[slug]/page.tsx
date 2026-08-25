@@ -1374,13 +1374,17 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
           <li>You simply no longer like the deal but the provider has followed the contract terms</li>
         </ul>
 
+        <h2>What "clearly disclosed" looks like in practice</h2>
+        <p>Most major providers now disclose a flat, dated pounds-and-pence figure at sign-up, which is the clearest version of this and generally does not create an exit right when it lands as promised: BT applies a flat £4 a month rise every March, and TalkTalk&apos;s standard contracts from November 2025 disclose £4 a month rises for both April 2027 and April 2028, both stated upfront. Sky is a genuinely different, murkier case worth knowing about specifically: its contract terms for years after the first only say prices "may rise" without fixing a future figure at sign-up, which is a weaker disclosure than a dated, fixed amount and worth checking closely if a rise notice arrives that was not clearly quantified when the contract was signed.</p>
+        <p>If a contract only ever said something vague, such as prices may increase in line with inflation, without a specific figure, and the provider then applies a rise larger than what a reasonable reading of that wording implied, that gap between vague wording and an unexpectedly large actual increase is exactly the kind of case worth challenging.</p>
+
         <h2>What to do if your bill goes up</h2>
         <ol>
           <li>Find the contract or order summary you originally agreed to.</li>
-          <li>Check exactly what it said about in-contract price rises.</li>
+          <li>Check exactly what it said about in-contract price rises, including whether a specific figure was given or only vague wording.</li>
           <li>Compare that wording with the notification you just received.</li>
-          <li>Ask the provider in writing whether you can leave without an early termination charge.</li>
-          <li>If you do have the right to leave, compare fresh deals before acting quickly.</li>
+          <li>Ask the provider in writing whether you can leave without an early termination charge; Ofcom requires at least 30 days&apos; notice of a price rise, and the right to exit penalty-free, where it applies, must generally be used within that 30-day window.</li>
+          <li>If you do have the right to leave, compare fresh deals before acting quickly, ideally using One Touch Switch so the new provider handles the transfer.</li>
         </ol>
 
         <h2>Do not confuse “annoying” with “unlawful”</h2>
@@ -1396,6 +1400,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
       { question: 'What changed with broadband price-rise rules after January 2025?', answer: 'Newer telecom contracts should describe in-contract price rises in fixed pounds-and-pence terms rather than unclear inflation-linked formulas. That makes it easier to judge whether a provider has followed the contract correctly.' },
       { question: 'What should I check first if my broadband bill rises?', answer: 'Check the order summary or contract wording you agreed to when you signed up. You need to see exactly what it said about in-contract price rises before deciding whether you may have a penalty-free exit right.' },
       { question: 'If I can leave after a price rise, what should I do next?', answer: 'Compare current deals at your postcode first, then contact the provider in writing. If they confirm you can leave without an early termination charge, you can decide whether to switch, renegotiate, or move to a more predictable deal.' },
+      { question: 'How much notice must a provider give before a price rise, and how long do I have to act?', answer: 'Ofcom requires at least 30 days\' notice of a price rise. Where a genuine exit right applies, it must generally be used within that 30-day window from the notification, so act promptly rather than waiting until the higher bill actually arrives.' },
     ],
   },
 
