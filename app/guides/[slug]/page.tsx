@@ -997,10 +997,10 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
             </thead>
             <tbody>
               {[
-                ['Mainstream family option', 'Sky, EE, BT', 'Lower-friction switching with recognisable brands'],
+                ['Mainstream family option', 'Sky, EE', 'Lower-friction switching with recognisable brands, no setup cost on most current packages'],
                 ['Budget-led option', 'TalkTalk, Plusnet', 'Keeps upfront cost low while still using major fixed-line networks'],
                 ['Value full fibre option', 'Vodafone, Community Fibre, Hyperoptic', 'Useful when you want FTTP without a large activation bill'],
-                ['Usually fee-charging alternative', 'Virgin Media, NOW Broadband', 'Can still be worth it, but only if the overall package wins on value'],
+                ['Genuinely charges a setup fee', 'BT (£30), Virgin Media (£35)', 'BT offsets its £30 fee with a reward card worth £80 to £140, but only if actually claimed; Virgin Media\'s £35 fee is not offset at all'],
               ].map(([type, examples, reason]) => (
                 <tr key={type} className="border-b border-slate-100 hover:bg-slate-50">
                   <td className="px-4 py-3 font-semibold text-slate-900">{type}</td>
@@ -1011,6 +1011,9 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
             </tbody>
           </table>
         </div>
+
+        <h2>Watch for a fee disguised as a credit</h2>
+        <p>Not every non-zero upfront charge is a real cost. NOW Broadband, for example, applies a £5 advance fee at sign-up, but credits it back to the first bill, so it functions as genuinely free setup as long as the credit is applied correctly. This is a real, different case from BT&apos;s £30 fee, which is only offset by a reward card that requires a separate claim step, or Virgin Media&apos;s £35 fee, which is not offset at all. Always check whether an "advance fee" is credited back automatically or requires an active claim before assuming it behaves like BT&apos;s reward card.</p>
 
         <h2>When no setup fee is genuinely the better deal</h2>
         <p>A no-fee offer usually matters most when two packages are otherwise close in monthly price, or when you want to minimise the immediate cost of moving or switching. It is also useful for renters, students, and short-term households that are already wary of paying too much upfront.</p>
@@ -1032,9 +1035,9 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
       </>
     ),
     faqs: [
-      { question: 'Which broadband providers have no setup fee in the UK?', answer: 'In the current BroadbandPicker dataset, providers such as Sky, EE, BT, TalkTalk, Plusnet, Vodafone, Hyperoptic, and Community Fibre all show no setup fee on their core offers. Always check the exact live package before ordering.' },
+      { question: 'Which broadband providers have no setup fee in the UK?', answer: 'Sky, EE, TalkTalk, Plusnet, Vodafone, Hyperoptic and Community Fibre all currently show no setup fee on their core offers. BT charges a genuine £30 fee, offset by a reward card only if claimed, and Virgin Media charges £35 with no offset. Always check the exact live package before ordering.' },
       { question: 'Is no setup fee broadband always better value?', answer: 'Not always. A deal with a setup fee can still be better overall if the monthly price is lower or the package is a much better fit for your home.' },
-      { question: 'Should I avoid broadband deals with setup fees?', answer: 'Avoid them only if the total contract value is worse. A setup fee matters, but it is just one part of the overall cost and should not outweigh a clearly better package.' },
+      { question: 'Does NOW Broadband charge a setup fee?', answer: 'It applies a £5 advance fee at sign-up, but credits it back to the first bill, so it functions as genuinely free setup as long as the credit is applied correctly, a different structure from BT\'s £30 fee, which requires actively claiming a reward card to offset.' },
       { question: 'Who benefits most from no-setup-fee broadband deals?', answer: 'Renters, movers, students, and budget-conscious households usually benefit most because they care more about keeping upfront costs low during the switch.' },
     ],
   },

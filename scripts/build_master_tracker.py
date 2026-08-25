@@ -1827,6 +1827,30 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-25 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-broadband-deals-no-setup-fee-guide",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Deep rewrite: Broadband Deals With No Setup Fee guide (36th content-priority-analysis target)",
+        "description": (
+            "Fourth target in the second 13-page batch: 648 words with a real error -- "
+            "BT was listed in the 'mainstream, no setup fee' table row alongside Sky "
+            "and EE, but BT genuinely charges a GBP30 setup fee (confirmed on its own "
+            "already-corrected provider page this session), only offset by a reward "
+            "card that must be actively claimed. Corrected the table and matching FAQ, "
+            "and added a new section distinguishing a genuine fee (BT's GBP30, Virgin "
+            "Media's GBP35 with no offset) from a fee that functions as free (NOW "
+            "Broadband's GBP5 advance fee, credited back to the first bill) -- a real "
+            "distinction the old page collapsed into a single 'usually fee-charging' "
+            "bucket. Word count 648 -> 812."
+        ),
+        "priority_score": 30,
+        "impact_score": 32,
+        "effort": "Medium",
+        "target": "app/guides/[slug]/page.tsx (broadband-deals-with-no-setup-fee), data/guides.ts",
+        "dependencies": "ops-content-priority-analysis-tooling",
+        "source": "User request 2026-08-25 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",
