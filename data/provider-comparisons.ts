@@ -128,73 +128,87 @@ export const providerComparisons: ProviderComparison[] = [
     providerA: 'bt',
     providerB: 'virgin-media',
     title: 'BT vs Virgin Media Broadband: Which Provider Should You Pick?',
-    metaTitle: 'BT vs Virgin Media Broadband 2026 | Speed, Coverage and Cost',
+    metaTitle: 'BT vs Virgin Media Broadband 2026 | Real Prices, Speed and Coverage',
     metaDescription:
-      'Compare BT vs Virgin Media broadband on coverage, speed, setup fees, contracts, and customer trade-offs. Find out which provider is better for your postcode in 2026.',
+      'BT vs Virgin Media broadband compared on real current price, speed, coverage, contract length and Ofcom complaints for August 2026. Different networks entirely, so postcode decides more than either brand.',
     excerpt:
-      'BT and Virgin Media take very different approaches to broadband. BT wins on coverage and network breadth, while Virgin Media often wins on raw speed where its cable network is available.',
+      'BT and Virgin Media run on entirely separate networks, Openreach versus Virgin\'s own cable, so the honest starting point is which one actually reaches a given address, not which brand is "better" in the abstract.',
     publishDate: '2026-06-21',
-    updatedDate: '2026-06-21',
-    bestForA: 'Coverage, rural reach, and mainstream full-fibre switching',
-    bestForB: 'Fast speeds, heavy-use homes, and cable-enabled postcodes',
+    updatedDate: '2026-08-25',
+    bestForA: 'Widest UK coverage, at around 98% of homes',
+    bestForB: 'The fastest widely available speeds, up to 1,130 Mbps',
     winner:
-      'Virgin Media is often the better choice where you can get it and want higher speeds for the money, while BT is the safer all-round option for coverage and wider availability.',
+      'Virgin Media wins on raw top-end speed and a shorter 18-month contract where its cable network reaches the property; BT wins everywhere else simply by being available almost everywhere, at around 98% of UK homes against Virgin Media\'s roughly 52%.',
+    factSnapshot: {
+      providerA: { fromPrice: '£23.99/mo', maxSpeed: '900 Mbps', coverage: '98%', trustpilot: '4.0 / 1.5 (two pages)', contract: '24 months', setupFee: '£30 (reward card offsets)' },
+      providerB: { fromPrice: '£33.00/mo', maxSpeed: '1,130 Mbps', coverage: '52%', trustpilot: '1.4', contract: '18 months', setupFee: '£35' },
+    },
     intro: [
-      'This comparison matters because BT and Virgin Media are not just different brands. They also sit on different network footprints. BT is tied closely to Openreach and has the wider national reach. Virgin Media depends on its own cable footprint, which is far faster in many covered areas but unavailable in large parts of the country.',
-      'That means postcode context matters more here than in many same-network provider comparisons.',
+      'BT and Virgin Media are not on the same underlying network, which makes this a genuinely different comparison from most on this site. BT sells broadband over Openreach, the same infrastructure used by Sky, TalkTalk, Plusnet and most other national providers. Virgin Media runs its own separate coaxial cable network, entirely independent of Openreach, reaching around 52% of UK premises against BT\'s roughly 98%.',
+      'Because the networks do not overlap in any meaningful way, an address either has Virgin Media cable access or it does not; there is no gradual or upgrade path the way there sometimes is within Openreach\'s own FTTC-to-FTTP rollout. Check the specific address before assuming either option is available.',
     ],
     verdict: [
-      'Choose Virgin Media if its network serves your property and your household needs stronger top-end speeds for gaming, streaming, or multiple heavy users.',
-      'Choose BT if you want the broader coverage safety net, a more conventional switching path, or you live outside Virgin Media’s footprint.',
+      'Choose Virgin Media if its cable network reaches the property and the household wants the fastest widely available speed in the UK, up to 1,130 Mbps, on a shorter 18-month contract.',
+      'Choose BT if Virgin Media does not reach the address, which is true for roughly half of UK homes, or if the wider 98% coverage and a well-known Openreach-based switching path matter more than outright top-end speed.',
     ],
     keyDifferences: [
       {
-        label: 'Network type',
+        label: 'Pricing',
         detail:
-          'BT mainly sells Openreach-based FTTC and FTTP services; Virgin Media uses its own cable footprint with higher widely-available speed tiers in covered areas.',
+          'BT starts from £23.99 a month on a 24-month contract; Virgin Media starts from £33.00 on an 18-month contract, reflecting its faster entry-level cable speeds rather than a like-for-like comparison.',
       },
       {
-        label: 'Speed ceiling',
+        label: 'Top speed',
         detail:
-          'Virgin Media has the higher top-end consumer speed proposition in many covered areas, including gigabit cable packages.',
+          'Virgin Media\'s Gig1 tier reaches up to 1,130 Mbps, genuinely the fastest widely available speed in the UK. BT\'s Full Fibre 900 tops out at 900 Mbps.',
       },
       {
         label: 'Coverage',
         detail:
-          'BT reaches far more UK homes overall. Virgin Media can be excellent where available, but its footprint is much narrower.',
+          'BT reaches around 98% of UK premises via Openreach. Virgin Media\'s own cable network reaches only around 52%, a completely separate, non-overlapping footprint.',
       },
       {
-        label: 'Setup and fees',
+        label: 'Contract length',
         detail:
-          'BT has no setup fee in the current dataset, while Virgin Media applies an upfront setup fee and has a more mixed customer service reputation.',
+          'Virgin Media\'s 18-month contract is genuinely shorter than BT\'s standard 24-month term, a real flexibility advantage where Virgin Media is available.',
+      },
+      {
+        label: 'Ofcom complaints',
+        detail:
+          'Virgin Media recorded 6 complaints per 100,000 customers in Ofcom\'s Q1 2026 report, at the industry average and better than BT\'s 7, despite Virgin Media\'s much lower Trustpilot score.',
+      },
+      {
+        label: 'Switching process',
+        detail:
+          'A switch to BT from another Openreach-based provider qualifies for Ofcom\'s One Touch Switch, a same-day handover. Switching to Virgin Media never qualifies, since it runs on a separate network, so the old service should stay active until the new Virgin Media connection is confirmed working.',
       },
     ],
     faqs: [
       {
         question: 'Is Virgin Media faster than BT broadband?',
         answer:
-          'In many covered areas, yes. Virgin Media’s cable network usually offers higher headline speeds than BT’s mainstream entry packages. BT remains competitive where full fibre is available, but Virgin Media often wins on raw speed per pound.',
+          'At the top end, yes: Virgin Media\'s Gig1 tier reaches up to 1,130 Mbps against BT\'s Full Fibre 900 at 900 Mbps. Both run on entirely separate networks, so the real question for most households is which one is available at the address, not which is faster in the abstract.',
       },
       {
         question: 'Which has better coverage, BT or Virgin Media?',
         answer:
-          'BT has much wider coverage across the UK. Virgin Media is only an option where its cable network has been built.',
+          'BT, by a wide margin: around 98% of UK premises via Openreach, against Virgin Media\'s roughly 52% on its own separate cable network. Virgin Media can be an excellent option where it is available, but BT is available almost everywhere.',
       },
       {
-        question: 'Should I choose BT or Virgin Media for gaming?',
+        question: 'Which has a better complaints record, BT or Virgin Media?',
         answer:
-          'Virgin Media can be a strong fit for high-speed homes, but BT may be the better practical choice if your postcode does not have Virgin coverage or if you prefer a standard full-fibre route.',
+          'Virgin Media, despite its much lower Trustpilot score. Ofcom\'s Q1 2026 data recorded Virgin Media at 6 complaints per 100,000 customers, the industry average, against BT\'s 7, just above average.',
       },
       {
-        question: 'Why does postcode matter so much in BT vs Virgin Media?',
+        question: 'Does switching to Virgin Media use One Touch Switch?',
         answer:
-          'Because this is not just a brand comparison. It is also a network-footprint comparison. The best answer changes depending on whether Virgin Media’s cable network actually reaches your address.',
+          'No. Because Virgin Media\'s cable network is entirely separate from Openreach, a switch to Virgin Media never qualifies for Ofcom\'s One Touch Switch process, regardless of which provider is being left. Keep the existing service active until the new Virgin Media connection is confirmed working.',
       },
     ],
     sources: [
       {
-        label: 'BroadbandPicker provider reviews',
-        href: 'https://broadbandpicker.co.uk/providers',
+        label: 'Ofcom: telecoms and pay-TV complaints fall to a record low',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/service-quality/ofcom-telecoms-and-pay-tv-complaints-fall-to-record-low',
       },
       {
         label: 'BroadbandPicker methodology',

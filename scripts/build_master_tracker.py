@@ -1529,6 +1529,32 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-25 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-bt-vs-virgin-media-comparison",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Deep rewrite: BT vs Virgin Media comparison page (21st content-priority-analysis target)",
+        "description": (
+            "Twenty-first target from the wider top-30 content-priority-analysis list: "
+            "526 words of entirely generic, number-free copy ('BT has no setup fee in "
+            "the current dataset' -- itself wrong, BT's setup fee is GBP30). Rewrote "
+            "using already-vetted current data from this session's own BT and Virgin "
+            "Media provider-page work: BT from GBP23.99/mo (24-month, 98% coverage, "
+            "Trustpilot 4.0/1.5 two-page split) vs Virgin Media from GBP33.00/mo "
+            "(18-month, 52% coverage, 1,130Mbps fastest widely available speed, "
+            "Trustpilot 1.4 but a genuinely better Q1 2026 Ofcom complaints record than "
+            "BT, 6 vs 7 per 100k). Added the genuinely important practical point this "
+            "page never covered: switching to Virgin Media never qualifies for One Touch "
+            "Switch since it runs on a separate network from Openreach. Populated the "
+            "previously-empty factSnapshot field. Word count 526 -> 718."
+        ),
+        "priority_score": 41,
+        "impact_score": 30,
+        "effort": "Medium",
+        "target": "data/provider-comparisons.ts (bt-vs-virgin-media)",
+        "dependencies": "ops-content-priority-analysis-tooling",
+        "source": "User request 2026-08-25 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",
