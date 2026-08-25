@@ -1608,6 +1608,29 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-25 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-virgin-media-provider-page",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Update: Virgin Media provider page Ofcom complaints figure (24th content-priority-analysis target)",
+        "description": (
+            "Twenty-fourth target, found via the same spot-check pattern that caught "
+            "EE's stale figure: /providers/virgin-media (63,112/mo volume, already "
+            "well-built at 1,798 words) was still citing its Q4 2025 Ofcom complaints "
+            "figure (7 per 100k) with vague framing ('has not appeared among the top "
+            "complained-about providers in Q1 2026 either'). Replaced with the exact "
+            "Q1 2026 figure from the same broadbandswitch table used for EE and the "
+            "price-rises guide: Virgin Media recorded 6 per 100,000, exactly the "
+            "industry average, a further improvement on its already-decent Q4 2025 "
+            "position. Added a dedicated source citation and updated reviewedDate."
+        ),
+        "priority_score": 45,
+        "impact_score": 40,
+        "effort": "Low",
+        "target": "data/providers.ts (virgin-media)",
+        "dependencies": "ops-content-priority-analysis-tooling",
+        "source": "User request 2026-08-25 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",
@@ -1730,6 +1753,22 @@ def load_manual_overrides(output: Path) -> dict[str, dict[str, Any]]:
     return overrides
 
 
+def load_weekly_seo_actions(output: Path) -> tuple[list[str], list[list[Any]]] | None:
+    """Carry the API-generated weekly action tab through tracker rebuilds."""
+    if not output.exists():
+        return None
+    try:
+        wb = load_workbook(output, data_only=False, read_only=True)
+        if "Weekly SEO Actions" not in wb.sheetnames:
+            return None
+        rows = list(wb["Weekly SEO Actions"].iter_rows(values_only=True))
+    except Exception:
+        return None
+    if not rows:
+        return None
+    return list(rows[0]), [list(row) for row in rows[1:] if any(value is not None for value in row)]
+
+
 def add_sheet(wb: Workbook, name: str, headers: list[str], rows: list[list[Any]]) -> Any:
     ws = wb.create_sheet(name)
     ws.append(headers)
@@ -1770,7 +1809,11 @@ def style_sheet(ws: Any) -> None:
                 cell.fill = PatternFill("solid", fgColor=pale)
 
 
-def build_workbook(page_items: list[dict[str, Any]], overrides: dict[str, dict[str, Any]]) -> Workbook:
+def build_workbook(
+    page_items: list[dict[str, Any]],
+    overrides: dict[str, dict[str, Any]],
+    weekly_actions: tuple[list[str], list[list[Any]]] | None = None,
+) -> Workbook:
     all_items = FEATURE_BUILDS + page_items
     for item in all_items:
         manual = overrides.get(item["item_id"], {})
@@ -1876,6 +1919,10 @@ def build_workbook(page_items: list[dict[str, Any]], overrides: dict[str, dict[s
     ]
     add_sheet(wb, "Methodology", ["Aspect", "Detail"], methodology)
 
+    if weekly_actions:
+        headers, rows = weekly_actions
+        add_sheet(wb, "Weekly SEO Actions", headers, rows)
+
     return wb
 
 
@@ -1887,7 +1934,8 @@ def main() -> None:
 
     page_items = load_page_builds(args.source)
     overrides = load_manual_overrides(args.output)
-    wb = build_workbook(page_items, overrides)
+    weekly_actions = load_weekly_seo_actions(args.output)
+    wb = build_workbook(page_items, overrides, weekly_actions)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     wb.save(args.output)
     print(f"Saved {args.output.resolve()}")

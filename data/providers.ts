@@ -465,7 +465,7 @@ const baseProviders: Provider[] = [
         heading: 'Virgin Media Customer Service: Trustpilot vs Ofcom',
         paragraphs: [
           'Virgin Media\'s Trustpilot score is genuinely one of the lowest of any major UK broadband provider, around 1.4 out of 5 from roughly 100,000 reviews at the point of this check, with scores across different tracking snapshots ranging from about 1.3 to 1.6.',
-          'Ofcom\'s own complaints data tells a noticeably different story. In its Q4 2025 report, Virgin Media recorded 7 complaints per 100,000 customers, at or slightly below the industry average of 8 at the time, and it has not appeared among the top complained-about providers in Ofcom\'s more recent Q1 2026 report either, where TalkTalk, Vodafone and BT took the top three spots.',
+          'Ofcom\'s own complaints data tells a noticeably different story. Its Q1 2026 report, published 23 July 2026, recorded Virgin Media at 6 complaints per 100,000 customers, exactly the record-low industry average that quarter, an improvement on its Q4 2025 figure of 7. TalkTalk, Vodafone and BT took the three worst spots in Q1 2026, not Virgin Media.',
           'This gap between an extremely low Trustpilot score and a comparatively unremarkable Ofcom complaints record is worth taking seriously rather than dismissing either source. Trustpilot reviews skew toward people motivated to complain about a specific bad experience, often billing or a difficult cancellation; Ofcom\'s data measures formal complaint volume across the whole customer base, which is the more representative measure of day-to-day service reliability for most customers.',
         ],
       },
@@ -496,7 +496,7 @@ const baseProviders: Provider[] = [
         answer: 'Virgin Media\'s cable network reaches around 52% of UK premises, a footprint entirely separate from the Openreach network most other providers use. Check Virgin Media\'s own postcode checker to confirm availability, since there is no partial coverage; an address either has cable access or it does not.',
       },
     ],
-    reviewedDate: '2026-08-23',
+    reviewedDate: '2026-08-25',
     pricingVerifiedDate: '2026-08-23',
     reviewSources: [
       {
@@ -517,7 +517,12 @@ const baseProviders: Provider[] = [
       {
         label: 'Selectra: Virgin Media Trustpilot and Ofcom review summary',
         href: 'https://selectra.co.uk/tv-broadband/providers/virgin-media/review',
-        note: 'Used to corroborate Trustpilot score range and Ofcom Q4 2025 complaints data.',
+        note: 'Used to corroborate Trustpilot score range.',
+      },
+      {
+        label: 'broadbandswitch.uk: The Complaints Floor, Ofcom complaints Q1 2026',
+        href: 'https://broadbandswitch.uk/reports/the-complaints-floor/',
+        note: 'Primary source for Virgin Media\'s exact Q1 2026 complaints figure (6 per 100,000, the industry average), verified 2026-08-25.',
       },
       {
         label: 'Virgin Media public Trustpilot profile',
