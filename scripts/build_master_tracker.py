@@ -1928,6 +1928,29 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-25 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-static-ip-business-broadband-guide",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Update: Static IP Business Broadband guide (43rd content-priority-analysis target)",
+        "description": (
+            "Eleventh target in the second 13-page batch: already an excellent, "
+            "precisely-dated, well-sourced page (1,076 words, real BT Business pricing), "
+            "so this was a targeted enhancement rather than a rewrite. Added a real "
+            "cross-provider contrast this session had already independently confirmed on "
+            "Zen Internet's own provider page (free static IP included on every plan) "
+            "and freshly verified for Vodafone Business (Essential offers one on request "
+            "at ~GBP5/mo+VAT, Pro includes it as standard, up to 8 orderable at a fixed "
+            "price) -- caught and corrected an initial draft claim about Vodafone's "
+            "policy against a fresh source before shipping. Word count 1,076 -> 1,151."
+        ),
+        "priority_score": 24,
+        "impact_score": 22,
+        "effort": "Low",
+        "target": "app/guides/[slug]/page.tsx (static-ip-business-broadband-explained), data/guides.ts",
+        "dependencies": "ops-content-priority-analysis-tooling",
+        "source": "User request 2026-08-25 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",

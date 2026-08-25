@@ -2240,9 +2240,12 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
           There is no single UK price. Some business broadband packages include one address,
           while others charge an add-on or reserve it for a higher tier. On 14 August 2026, BT
           Business listed one static IP at <strong>£5 per month excluding VAT</strong> on its
-          Essential plan and included it with Enhanced. Zen&apos;s published business fibre guide
-          described a static IP as included. These are provider examples, not a promise that the
-          same terms are available at every address.
+          Essential plan and included it with Enhanced. Zen Internet includes a free static IP as
+          standard on every plan, residential or business, a genuine differentiator against
+          providers that charge separately or reserve it for a higher tier. Vodafone Business splits by tier: its Essential plan offers a static IP on request at around £5
+          a month plus VAT, while its Pro tier includes one as standard, and up to eight can be
+          ordered for a fixed price if several are needed. These are provider examples, not a
+          promise that the same terms are available at every address.
         </p>
         <p>
           Compare the full minimum-term cost. Moving to a dearer package solely to obtain an

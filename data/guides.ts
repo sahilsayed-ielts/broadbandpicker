@@ -795,8 +795,8 @@ export const guides: GuideMetadata[] = [
     metaTitle: 'Static IP Business Broadband: Need and Cost Explained',
     metaDescription: 'Learn when a business broadband static IP is necessary, what it costs, the security implications, and what to check before choosing a UK provider.',
     publishDate: '2026-08-14',
-    updatedDate: '2026-08-14',
-    excerpt: 'Static IP business broadband is worth paying for when an external service must reliably identify or reach your office connection, such as an IP-allowlisted supplier portal, an on-site VPN gateway or remotely accessed equipment. Most firms using only cloud software, email and video calls do not need one. It may be included with a business package or sold as an add-on.',
+    updatedDate: '2026-08-25',
+    excerpt: 'Static IP business broadband is worth paying for when an external service must reliably identify or reach your office connection, such as an IP-allowlisted supplier portal, an on-site VPN gateway or remotely accessed equipment. Most firms using only cloud software, email and video calls do not need one. Zen Internet includes one free on every plan; Vodafone Business splits by tier.',
     readingTime: 8,
     category: 'technology-and-speeds',
     keyTakeaways: [
@@ -824,6 +824,10 @@ export const guides: GuideMetadata[] = [
       {
         label: 'Broadband.co.uk independent static IP guide, verified 14 August 2026',
         href: 'https://www.broadband.co.uk/broadband/help/what-static-ip',
+      },
+      {
+        label: 'Vodafone Business: ordering single or multiple static IP addresses, verified 25 August 2026',
+        href: 'https://www.vodafone.co.uk/business/support/articles/how-and-when-can-i-order-single-or-multiple-static-ip-addresses-for-my-business-broadband-service----7b47ca45-ec0d-4b21-b6ea-ee014ff65658',
       },
     ],
   },
