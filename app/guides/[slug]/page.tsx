@@ -279,22 +279,24 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         </ul>
 
         <h2>Broadband providers worth checking for price certainty</h2>
+        <p>"Altnet" is not a reliable shortcut for "no price rise." Hyperoptic and NOW Broadband are both sometimes wrongly assumed to be no-rise options, but both apply a real scheduled increase, so check the specific provider rather than the category.</p>
         <div className="overflow-x-auto">
           <table className="w-full text-sm border-collapse">
             <thead>
               <tr className="bg-slate-50">
-                {['Provider', 'Typical price-rise positioning', 'Why it may suit you'].map((heading) => (
+                {['Provider', 'Actual price-rise policy', 'Why it may suit you'].map((heading) => (
                   <th key={heading} className="text-left px-4 py-3 border border-slate-200 font-semibold text-slate-700">{heading}</th>
                 ))}
               </tr>
             </thead>
             <tbody>
               {[
-                ['Zen Internet', 'Known for no-surprise positioning', 'Good if you want clarity and are willing to pay more for it'],
-                ['Community Fibre', 'Often marketed as fixed-price where available', 'Strong value in London with a simple full-fibre proposition'],
-                ['Hyperoptic', 'Often competitive on fixed-price value', 'Good for city households that want symmetrical full fibre'],
-                ['NOW Broadband', 'More attractive where no annual rise applies', 'Useful if you want low entry pricing without a big ecosystem'],
-                ['Sky', 'Clearer than old inflation-led pricing but still check terms', 'Mainstream family option where TV bundles matter'],
+                ['Zen Internet', 'Genuinely no rise: a Contract Price Promise for the length of the term', 'Best for genuine price certainty, at a higher starting price'],
+                ['toob', 'Genuinely no rise on any current package', 'Southampton-area full fibre with real price certainty'],
+                ['Community Fibre', 'A real rise, but capped at £2 a month each April rather than open-ended', 'Cheapest full fibre on this site, with a small, predictable ceiling'],
+                ['Hyperoptic', 'A real scheduled rise of around £4 a month each April, not fixed-price', 'Still worth it for symmetrical speed, but budget for the rise'],
+                ['NOW Broadband', 'No rise in 2026, but £3 scheduled for April 2027 and April 2028', 'Cheap now, with the future rise at least dated and disclosed'],
+                ['Sky', 'A flat £3 rise in April 2026, but future years only say prices "may rise" with no fixed figure', 'Mainstream family option; budget for an undisclosed future rise'],
               ].map(([provider, policy, fit]) => (
                 <tr key={provider} className="border-b border-slate-100 hover:bg-slate-50">
                   <td className="px-4 py-3 font-semibold text-slate-900">{provider}</td>
@@ -314,10 +316,10 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
       </>
     ),
     faqs: [
-      { question: 'Which broadband providers have no mid-contract price rise?', answer: 'The exact answer changes over time, but providers such as Zen Internet, Community Fibre, Hyperoptic, and some NOW Broadband terms are often cited by buyers looking for stronger price certainty. Always check the current contract wording before signing up.' },
+      { question: 'Which broadband providers have no mid-contract price rise?', answer: 'Only Zen Internet and toob genuinely apply no scheduled rise at all among providers checked here. Hyperoptic and NOW Broadband are sometimes wrongly assumed to be no-rise altnets, but both apply a real scheduled increase. Always check the current contract wording before signing up.' },
       { question: 'Does no mid-contract price rise mean the deal is always cheaper overall?', answer: 'Not necessarily. Some fixed-price deals start a little higher than aggressive promotional deals. The benefit is predictability, not always the lowest initial monthly rate.' },
       { question: 'What changed with broadband price rises after January 2025?', answer: 'Newer rules require telecom providers to state in-contract price rises in pounds and pence rather than unclear inflation-linked formulas. That made contracts easier to compare, but it did not make every provider equally good on price certainty.' },
-      { question: 'Is a no-price-rise broadband deal better for families and fixed budgets?', answer: 'Often yes. If you want predictable bills and do not want to keep renegotiating, a fixed-price or no-rise deal can be the better fit even if the starting cost is slightly higher.' },
+      { question: 'Is Hyperoptic a no-price-rise broadband provider?', answer: 'No. Despite being an altnet, Hyperoptic applies a real scheduled rise of around £4 a month each April, disclosed upfront in pounds and pence. It is not a fixed-price deal, and the rise should be budgeted into the real contract cost.' },
     ],
   },
 

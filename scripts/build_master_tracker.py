@@ -1879,6 +1879,32 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-25 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-no-mid-contract-price-rise-guide",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Deep rewrite: Broadband Deals With No Mid-Contract Price Rise guide (41st content-priority-analysis target)",
+        "description": (
+            "Ninth target in the second 13-page batch, and directly about the exact "
+            "topic where this session already found real errors twice (Hyperoptic and "
+            "Community Fibre wrongly listed as no-rise on the price-rises guide): this "
+            "page repeated the same mistake, listing Hyperoptic as 'fixed-price value' "
+            "and NOW Broadband as 'no annual rise applies' when both apply real "
+            "scheduled increases. Rebuilt the whole table with accurate policies: only "
+            "Zen Internet and toob (previously missing from this page entirely) "
+            "genuinely have no rise; Community Fibre has a real but capped GBP2/mo "
+            "rise; Hyperoptic has a real ~GBP4/mo rise; NOW Broadband has no rise in "
+            "2026 but discloses GBP3 for April 2027/2028; Sky's future-year terms are "
+            "genuinely undisclosed. Added an explicit 'altnet is not a reliable proxy "
+            "for no-rise' framing. Word count 701 -> 828."
+        ),
+        "priority_score": 34,
+        "impact_score": 38,
+        "effort": "Medium",
+        "target": "app/guides/[slug]/page.tsx (broadband-deals-with-no-mid-contract-price-rise), data/guides.ts",
+        "dependencies": "ops-content-priority-analysis-tooling",
+        "source": "User request 2026-08-25 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",
