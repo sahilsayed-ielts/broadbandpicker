@@ -300,73 +300,82 @@ export const providerComparisons: ProviderComparison[] = [
     providerA: 'ee',
     providerB: 'bt',
     title: 'EE vs BT Broadband: Which Is Better for Reliability?',
-    metaTitle: 'EE vs BT Broadband 2026 | Reliability, Speed and Coverage',
+    metaTitle: 'EE vs BT Broadband 2026 | Real Prices, Complaints and Coverage',
     metaDescription:
-      'EE vs BT broadband compared on reliability, speed, price, contracts, and nationwide reach. Find out which provider suits your home in 2026.',
+      'EE vs BT broadband compared on real current price, speed, coverage and Ofcom complaints for August 2026. Both are BT Group brands, but EE\'s complaints record has genuinely improved to the industry average.',
     excerpt:
-      'EE and BT are closely related in the market, but they are not identical choices. EE often looks better on value and reliability positioning, while BT still has the strongest broad-coverage legacy presence.',
+      'EE and BT are both owned by BT Group and share the same Openreach network, so the real differences are price, complaints record and a distinctive mobile-backup feature EE offers that BT does not.',
     publishDate: '2026-06-21',
-    updatedDate: '2026-06-21',
-    bestForA: 'Reliability-led mainstream switching and EE mobile customers',
-    bestForB: 'Coverage breadth and premium BT ecosystem households',
+    updatedDate: '2026-08-25',
+    bestForA: 'A genuinely improved complaints record and automatic mobile backup',
+    bestForB: 'The widest UK coverage, at around 98% of homes',
     winner:
-      'EE is the better choice for many mainstream households because it combines strong reliability positioning with lower entry pricing than BT, while BT still matters for coverage-first buyers.',
+      'EE is the stronger choice on price and its distinctive automatic mobile-backup feature, with a complaints record that has genuinely caught up to the industry average. BT remains ahead only on raw coverage breadth.',
+    factSnapshot: {
+      providerA: { fromPrice: '£22.99/mo', maxSpeed: '900 Mbps', coverage: '97%', trustpilot: '1.3 (broadband-specific)', contract: '24 months', setupFee: '£0 (on most current packages)' },
+      providerB: { fromPrice: '£23.99/mo', maxSpeed: '900 Mbps', coverage: '98%', trustpilot: '4.0 / 1.5 (two pages)', contract: '24 months', setupFee: '£30 (reward card offsets)' },
+    },
     intro: [
-      'EE and BT sit closer together than many other provider matchups because they share group-level relationships and similar network access paths. Even so, they speak to different buyers.',
-      'EE increasingly feels like the stronger mainstream reliability pick, while BT still carries the broadest premium coverage identity in the market.',
+      'EE and BT are both owned by BT Group and sell broadband over the same Openreach network, so line quality and top available speed at a given address are largely identical regardless of which is chosen. EE starts from £22.99 a month, a pound cheaper than BT\'s £23.99, and includes a genuinely distinctive feature BT does not offer: automatic 4G or 5G mobile backup if the fixed line drops.',
+      'The complaints picture has also converged. Ofcom\'s Q1 2026 report recorded EE at 6 per 100,000 customers, exactly the industry average, a real improvement from a worst-three position in Q4 2025, against BT\'s 7, just above average.',
     ],
     verdict: [
-      'Choose EE if you want a strong reliability reputation, good value, and possible EE mobile bundle savings.',
-      'Choose BT if your priority is broad coverage confidence and the BT household ecosystem matters more than shaving monthly cost.',
+      'Choose EE if the slightly lower price and automatic mobile-backup feature matter, and its now-average Ofcom complaints record is reassuring enough.',
+      'Choose BT if raw coverage breadth is the priority, at around 98% of UK premises against EE\'s roughly 97%, or if the reward-card-offset setup fee structure suits better.',
     ],
     keyDifferences: [
       {
-        label: 'Price',
+        label: 'Pricing',
         detail:
-          'EE starts cheaper than BT in the current dataset, which matters when the underlying network experience may be similar at many addresses.',
+          'EE starts from £22.99 a month, a pound cheaper than BT\'s £23.99, both on 24-month contracts.',
       },
       {
-        label: 'Brand positioning',
+        label: 'Mobile backup',
         detail:
-          'EE feels more value-and-reliability driven; BT feels more premium and legacy-established.',
+          'EE\'s Full Fibre 100 to 500 packages include automatic 4G backup, upgraded to 5G on Full Fibre 900, a genuinely distinctive feature BT does not offer.',
+      },
+      {
+        label: 'Ofcom complaints',
+        detail:
+          'EE recorded 6 complaints per 100,000 customers in Ofcom\'s Q1 2026 report, exactly the industry average, a real improvement from a worst-three position in Q4 2025. BT recorded 7, just above average.',
       },
       {
         label: 'Coverage',
         detail:
-          'BT retains the edge on raw national coverage breadth, especially as a default rural-safe brand.',
+          'BT reaches around 98% of UK premises via Openreach, marginally ahead of EE\'s roughly 97%.',
       },
       {
-        label: 'Bundle logic',
+        label: 'Trustpilot',
         detail:
-          'EE is stronger if you already use EE mobile, while BT may suit households that want the BT-branded environment specifically.',
+          'EE\'s broadband-specific Trustpilot score is 1.3, though its whole-brand score (mobile-dominated) is 4.2. BT has two active pages, 4.0 on bt.com and around 1.5 on the older btbroadband.com.',
       },
     ],
     faqs: [
       {
         question: 'Is EE broadband better than BT broadband?',
         answer:
-          'For many households, EE is the better value choice because it combines strong reliability positioning with a lower starting price than BT. BT still has an edge on coverage breadth and premium brand familiarity.',
+          'On price and its distinctive automatic mobile-backup feature, yes. EE\'s complaints record has also genuinely improved to the industry average in Ofcom\'s Q1 2026 report. BT remains ahead only on raw coverage breadth, around 98% against EE\'s 97%.',
       },
       {
         question: 'Which is cheaper, EE or BT broadband?',
         answer:
-          'EE is cheaper in the current BroadbandPicker dataset. That makes it particularly attractive where both providers can offer similar Openreach-based connectivity.',
+          'EE, by around £1 a month: it starts from £22.99 against BT\'s £23.99, both on 24-month contracts over the same Openreach network.',
       },
       {
-        question: 'Should I choose EE or BT for rural broadband?',
+        question: 'Are EE and BT the same company?',
         answer:
-          'BT is usually the safer rural-coverage bet because of its stronger national reach. EE is still a strong option where service is available and competitive.',
+          'They are both owned by BT Group and sell broadband over the same Openreach network, though they operate as separate retail brands with different pricing, extras and complaints records.',
       },
       {
         question: 'Does EE broadband make more sense if I already use EE mobile?',
         answer:
-          'Yes. Existing EE mobile users can often get stronger overall value from bundling, which is one of EE’s clearest advantages over BT.',
+          'Potentially, through bundle discounts EE offers to existing mobile customers. Its automatic mobile-backup feature is also more useful where EE\'s own mobile signal at the property is already known to be strong.',
       },
     ],
     sources: [
       {
-        label: 'BroadbandPicker provider reviews',
-        href: 'https://broadbandpicker.co.uk/providers',
+        label: 'Ofcom: telecoms and pay-TV complaints fall to a record low',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/service-quality/ofcom-telecoms-and-pay-tv-complaints-fall-to-record-low',
       },
       {
         label: 'BroadbandPicker methodology',
@@ -537,73 +546,82 @@ export const providerComparisons: ProviderComparison[] = [
     providerA: 'sky',
     providerB: 'virgin-media',
     title: 'Sky vs Virgin Media Broadband: Which Is Better for Your Home?',
-    metaTitle: 'Sky vs Virgin Media Broadband 2026 | Compare Price, Speed and TV Value',
+    metaTitle: 'Sky vs Virgin Media Broadband 2026 | Real Prices, Speed and Complaints',
     metaDescription:
-      'Compare Sky vs Virgin Media broadband on speed, pricing, setup fees, contracts, TV bundles, and coverage to see which provider suits your home in 2026.',
+      'Sky vs Virgin Media broadband compared on real current price, speed, coverage and Ofcom complaints for August 2026. Both hold decent complaints records despite very different Trustpilot scores.',
     excerpt:
-      'Sky and Virgin Media are two of the biggest consumer broadband brands in the UK, but they are strong for different reasons. Sky is often the simpler mainstream bundle pick, while Virgin Media is stronger where speed matters and its network is available.',
+      'Sky and Virgin Media run on entirely different networks and cost very different amounts, but both share something unusual: a genuinely decent Ofcom complaints record despite low or very low Trustpilot scores.',
     publishDate: '2026-06-21',
-    updatedDate: '2026-06-21',
-    bestForA: 'TV-led households and simpler mainstream value',
-    bestForB: 'Faster broadband where Virgin coverage exists',
+    updatedDate: '2026-08-25',
+    bestForA: 'A genuinely low price plus a strong Ofcom complaints record',
+    bestForB: 'The fastest widely available speeds, up to 1,130 Mbps',
     winner:
-      'Sky is often the better all-round mainstream option, while Virgin Media wins where you need more speed and can get its cable network.',
+      'Sky wins on price and coverage breadth; Virgin Media wins decisively on top-end speed where its cable network reaches. Both hold a better Ofcom complaints record than their Trustpilot scores alone would suggest.',
+    factSnapshot: {
+      providerA: { fromPrice: '£23.00/mo', maxSpeed: '900 Mbps', coverage: '95%', trustpilot: '2.7', contract: '24 months', setupFee: '£0 (currently advertised)' },
+      providerB: { fromPrice: '£33.00/mo', maxSpeed: '1,130 Mbps', coverage: '52%', trustpilot: '1.4', contract: '18 months', setupFee: '£35' },
+    },
     intro: [
-      'This is one of the most common UK broadband comparison journeys because both brands have strong consumer awareness and TV crossover. But the right answer depends on whether you are really buying a media bundle or a higher-speed connection.',
-      'Sky usually wins on simplicity and mainstream household fit. Virgin Media usually wins on speed ceiling where its network is available.',
+      'Sky sells broadband over the Openreach network, reaching around 95% of UK premises; Virgin Media runs its own separate cable network, reaching only around 52%. Because the networks do not overlap, the real first question is which one is available at the address, not which brand is generally "better."',
+      'Price and speed pull in different directions here: Sky starts from £23 a month against Virgin Media\'s £33, but Virgin Media\'s Gig1 tier reaches up to 1,130 Mbps, genuinely the fastest widely available speed in the UK, against Sky\'s 900 Mbps flagship.',
     ],
     verdict: [
-      'Choose Sky if you want a cleaner broadband-and-TV proposition with lower friction and no setup fee.',
-      'Choose Virgin Media if your postcode is covered and your household needs more speed for heavy streaming, gaming, or multiple users.',
+      'Choose Sky if a lower price and wider availability matter more, or if Sky TV or Sky Sports bundling is wanted on the same bill.',
+      'Choose Virgin Media if its cable network reaches the property and the household genuinely needs the fastest widely available speed, on a shorter 18-month contract.',
     ],
     keyDifferences: [
       {
-        label: 'Speed',
+        label: 'Pricing',
         detail:
-          'Virgin Media has the stronger speed ceiling in covered areas, while Sky is more modest but widely understood and easier to compare.',
+          'Sky starts from £23 a month, meaningfully cheaper than Virgin Media\'s £33, though Virgin Media\'s entry speed is also considerably higher.',
       },
       {
-        label: 'Bundle fit',
+        label: 'Top speed',
         detail:
-          'Sky is the more natural fit for TV-led households, while Virgin Media suits homes where broadband speed is the bigger priority.',
+          'Virgin Media\'s Gig1 tier reaches up to 1,130 Mbps, the fastest widely available speed in the UK. Sky\'s Full Fibre Gigafast tops out at 900 Mbps.',
       },
       {
         label: 'Coverage',
         detail:
-          'Sky benefits from broader Openreach-based reach, while Virgin Media is limited to cable-enabled areas.',
+          'Sky reaches around 95% of UK premises via Openreach. Virgin Media\'s separate cable network reaches only around 52%.',
       },
       {
-        label: 'Upfront cost',
+        label: 'Ofcom complaints vs Trustpilot',
         detail:
-          'Sky has no setup fee in the current dataset; Virgin Media has an upfront setup charge.',
+          'Both are examples of a low Trustpilot score sitting alongside a decent Ofcom record: Sky recorded 5 complaints per 100,000 in Q1 2026 (Trustpilot 2.7), Virgin Media recorded 6 (Trustpilot 1.4), both at or better than the industry average of 6.',
+      },
+      {
+        label: 'Contract length',
+        detail:
+          'Virgin Media\'s 18-month contract is shorter than Sky\'s standard 24-month term, a genuine flexibility advantage where Virgin Media is available.',
       },
     ],
     faqs: [
       {
         question: 'Which is better, Sky or Virgin Media broadband?',
         answer:
-          'Sky is often the better mainstream family choice, especially if TV matters. Virgin Media is often the better choice if your household wants more speed and its network is available at your address.',
+          'Sky is the cheaper, more widely available option, from £23 a month against Virgin Media\'s £33. Virgin Media wins decisively on top-end speed, up to 1,130 Mbps, where its cable network reaches the property.',
       },
       {
         question: 'Is Virgin Media faster than Sky broadband?',
         answer:
-          'In many cases, yes. Virgin Media’s cable network usually offers faster top-end packages than Sky’s mainstream offers, especially where gigabit speed matters.',
+          'Yes, at the top end: Virgin Media\'s Gig1 tier reaches up to 1,130 Mbps against Sky\'s 900 Mbps flagship tier. Both run on entirely separate networks, so availability at the specific address matters more than the headline speed comparison.',
       },
       {
-        question: 'Should I choose Sky or Virgin Media for TV bundles?',
+        question: 'Do Sky and Virgin Media have good Ofcom complaints records?',
         answer:
-          'Sky is usually the more natural TV-bundle choice because its entertainment proposition is more central to the brand. Virgin Media can still be attractive if you want TV alongside faster broadband.',
+          'Both do, despite low Trustpilot scores. Ofcom\'s Q1 2026 report recorded Sky at 5 complaints per 100,000 customers and Virgin Media at 6, both at or better than the industry average, a genuine gap from their Trustpilot scores of 2.7 and 1.4 respectively.',
       },
       {
         question: 'Why does postcode matter in Sky vs Virgin Media?',
         answer:
-          'Because Virgin Media is only available where its cable network exists. Sky is often available more widely, so postcode availability changes the decision quickly.',
+          'Virgin Media is only available where its own separate cable network has been built, around 52% of UK premises. Sky, on the Openreach network, reaches around 95%, so postcode availability changes the realistic choice quickly.',
       },
     ],
     sources: [
       {
-        label: 'BroadbandPicker provider reviews',
-        href: 'https://broadbandpicker.co.uk/providers',
+        label: 'Ofcom: telecoms and pay-TV complaints fall to a record low',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/service-quality/ofcom-telecoms-and-pay-tv-complaints-fall-to-record-low',
       },
       {
         label: 'BroadbandPicker methodology',
@@ -852,74 +870,83 @@ export const providerComparisons: ProviderComparison[] = [
     slug: 'bt-vs-talktalk',
     providerA: 'bt',
     providerB: 'talktalk',
-    title: 'BT vs TalkTalk Broadband: Pay More for BT or Save With TalkTalk?',
-    metaTitle: 'BT vs TalkTalk Broadband 2026 | Compare Price, Coverage and Value',
+    title: 'BT vs TalkTalk Broadband: Which Is Really Cheaper in 2026?',
+    metaTitle: 'BT vs TalkTalk Broadband 2026 | Real Prices, Complaints and Value',
     metaDescription:
-      'Compare BT vs TalkTalk broadband on price, contracts, coverage, support, and value to see which provider is better for your home in 2026.',
+      'BT vs TalkTalk broadband compared on real current price, Ofcom complaints and contract terms for August 2026. TalkTalk is no longer the clearly cheaper option; it is now GBP1 more than BT.',
     excerpt:
-      'BT and TalkTalk sit at opposite ends of the mainstream market. BT is the more premium-feeling, coverage-led option, while TalkTalk is built around lower monthly pricing and budget appeal.',
+      'TalkTalk built its reputation on being the cheap option against BT. That is no longer true: TalkTalk now starts from £25 a month, a pound more than BT, while also carrying the worst Ofcom complaints record of any major UK provider.',
     publishDate: '2026-06-21',
-    updatedDate: '2026-06-21',
-    bestForA: 'Coverage-first homes and buyers who want a more established premium brand',
-    bestForB: 'Budget-led households that want the lower monthly cost',
+    updatedDate: '2026-08-25',
+    bestForA: 'Widest UK coverage and a far better Ofcom complaints record',
+    bestForB: 'Unlimited data with no fair-use clause and a clearly disclosed two-rise schedule',
     winner:
-      'TalkTalk usually wins on price, while BT remains the stronger choice for buyers who care more about coverage confidence and a more premium support perception.',
+      'BT is the stronger overall choice now that its price has converged with, and even slightly undercut, TalkTalk, while also carrying a meaningfully better Ofcom complaints record. TalkTalk\'s case rests mainly on its speed-guarantee exit right and fully disclosed future price rises, not on being the cheaper option any more.',
+    factSnapshot: {
+      providerA: { fromPrice: '£23.99/mo', maxSpeed: '900 Mbps', coverage: '98%', trustpilot: '4.0 / 1.5 (two pages)', contract: '24 months', setupFee: '£30 (reward card offsets)' },
+      providerB: { fromPrice: '£25.00/mo', maxSpeed: '900 Mbps', coverage: '96%', trustpilot: '1.5', contract: '24 months', setupFee: '£0' },
+    },
     intro: [
-      'BT vs TalkTalk is really a question about what kind of broadband buyer you are. BT appeals to households willing to pay more for a stronger brand, broader reach, and a more premium-feeling proposition. TalkTalk appeals to people who want to keep the monthly bill down and are comfortable with a more budget-market trade-off.',
-      'Because both can rely on Openreach-based infrastructure at many addresses, the practical difference is often less about the physical line and more about pricing, contract design, and service expectations.',
+      'BT vs TalkTalk used to be a straightforward premium-vs-budget choice, but the pricing has genuinely converged: as of August 2026, TalkTalk starts from £25 a month against BT\'s £23.99, meaning BT is now the marginally cheaper of the two, not TalkTalk. Both sell broadband over the Openreach network, so the practical difference between them comes down to price, complaints record and contract structure rather than the physical line.',
+      'TalkTalk also carries two scheduled price rises built into every current contract, in April 2027 and April 2028, both disclosed upfront. BT applies one flat £4 a month rise each March. Add these to the headline price when comparing the real two-year cost of either provider.',
     ],
     verdict: [
-      'Choose BT if you want the stronger mainstream safety-first option and do not mind paying more for it.',
-      'Choose TalkTalk if price is the main driver and you are comfortable accepting a more budget-led service proposition.',
+      'Choose BT if coverage breadth and a meaningfully better Ofcom complaints record matter, especially now that it is no longer the more expensive option.',
+      'Choose TalkTalk if unlimited data with no fair-use clause and a fully disclosed two-rise schedule to April 2028 matter more than avoiding the UK\'s most complained-about provider.',
     ],
     keyDifferences: [
       {
-        label: 'Price',
+        label: 'Pricing',
         detail:
-          'TalkTalk is usually much cheaper at entry level, which is its biggest advantage in this comparison.',
+          'BT now starts from £23.99 a month, TalkTalk from £25.00, a reversal of TalkTalk\'s old budget positioning against BT.',
       },
       {
-        label: 'Coverage and confidence',
+        label: 'Ofcom complaints',
         detail:
-          'BT has the stronger premium national-reach image and tends to feel safer for buyers who value established coverage breadth.',
+          'TalkTalk was named the UK\'s most complained-about broadband provider for the third consecutive quarter in Ofcom\'s Q1 2026 report, at 10 per 100,000 customers. BT recorded 7, just above the industry average of 6.',
       },
       {
-        label: 'Support perception',
+        label: 'Coverage',
         detail:
-          'BT is usually seen as the more reassuring service brand, while TalkTalk is more clearly a price-first choice.',
+          'BT reaches around 98% of UK premises via Openreach, slightly ahead of TalkTalk\'s roughly 96%.',
       },
       {
-        label: 'Buyer fit',
+        label: 'Price rise structure',
         detail:
-          'BT suits confidence-first households; TalkTalk suits budget-first households that want to save money every month.',
+          'TalkTalk discloses two scheduled rises upfront, in April 2027 and April 2028. BT applies one flat £4 a month rise each March, a simpler but ongoing structure.',
+      },
+      {
+        label: 'Trustpilot',
+        detail:
+          'BT has two active Trustpilot pages, 4.0 on bt.com against around 1.5 on the older btbroadband.com. TalkTalk has one page at 1.5, in Trustpilot\'s "Bad" band.',
       },
     ],
     faqs: [
       {
         question: 'Which is cheaper, BT or TalkTalk broadband?',
         answer:
-          'TalkTalk is usually cheaper by a clear margin in the current BroadbandPicker dataset, which is why it appeals strongly to budget-led households.',
+          'BT, as of August 2026: it starts from £23.99 a month against TalkTalk\'s £25.00, a reversal of TalkTalk\'s older budget positioning against BT.',
+      },
+      {
+        question: 'Which has a better complaints record, BT or TalkTalk?',
+        answer:
+          'BT, clearly. Ofcom\'s Q1 2026 report named TalkTalk the UK\'s most complained-about broadband provider for the third consecutive quarter, at 10 per 100,000 customers, against BT\'s 7.',
       },
       {
         question: 'Is BT better than TalkTalk broadband?',
         answer:
-          'BT is often better if you care more about coverage confidence, premium brand familiarity, and a more reassuring support perception. TalkTalk is often better if monthly savings matter most.',
-      },
-      {
-        question: 'Should I choose BT or TalkTalk for a family home?',
-        answer:
-          'BT may feel safer for households that want a more established mainstream provider, while TalkTalk can still work well if the main goal is keeping the household broadband bill as low as possible.',
+          'On price, coverage and Ofcom complaints, BT is now the stronger overall choice. TalkTalk\'s case rests on unlimited data with no fair-use clause and a fully disclosed price-rise schedule to April 2028, not on being the cheaper option any more.',
       },
       {
         question: 'Does TalkTalk use a different network from BT?',
         answer:
-          'In many areas, TalkTalk and BT both rely on Openreach-based infrastructure, which is why the main difference is often the retail offer rather than a completely different fixed-line network experience.',
+          'No. Both sell broadband over the Openreach network at most addresses, so line quality and top available speed are broadly the same regardless of which is chosen; the meaningful differences are price, complaints record and contract terms.',
       },
     ],
     sources: [
       {
-        label: 'BroadbandPicker provider reviews',
-        href: 'https://broadbandpicker.co.uk/providers',
+        label: 'Ofcom: telecoms and pay-TV complaints fall to a record low',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/service-quality/ofcom-telecoms-and-pay-tv-complaints-fall-to-record-low',
       },
       {
         label: 'BroadbandPicker methodology',
@@ -1011,73 +1038,77 @@ export const providerComparisons: ProviderComparison[] = [
     providerA: 'sky',
     providerB: 'talktalk',
     title: 'Sky vs TalkTalk Broadband: Which Is Better for Price and Everyday Use?',
-    metaTitle: 'Sky vs TalkTalk Broadband 2026 | Compare Price, Contracts and Value',
+    metaTitle: 'Sky vs TalkTalk Broadband 2026 | Real Prices, Complaints and Value',
     metaDescription:
-      'Compare Sky vs TalkTalk broadband on price, setup fees, contracts, customer experience, and family value to see which provider suits your home in 2026.',
+      'Sky vs TalkTalk broadband compared on real current price and Ofcom complaints for August 2026. Sky is cheaper, not TalkTalk, and has one of the best complaints records in the market against TalkTalk\'s worst.',
     excerpt:
-      'Sky and TalkTalk are both mainstream broadband names, but they attract different buyers. Sky is the cleaner all-round household choice, while TalkTalk is more aggressively priced for budget-led shoppers.',
+      'TalkTalk is often assumed to be the budget option against Sky. In August 2026 it is Sky that is cheaper, from £23 a month against TalkTalk\'s £25, while also holding one of the best Ofcom complaints records in the market against TalkTalk\'s worst.',
     publishDate: '2026-06-21',
-    updatedDate: '2026-06-21',
-    bestForA: 'TV bundles, mainstream family households, and lower-friction switching',
-    bestForB: 'Budget-led homes that want a lower monthly bill',
+    updatedDate: '2026-08-25',
+    bestForA: 'A genuinely low price plus one of the best Ofcom complaints records in the market',
+    bestForB: 'Unlimited data with no fair-use clause and a fully disclosed price-rise schedule',
     winner:
-      'Sky is often the better overall fit for mainstream households, while TalkTalk can still win for buyers who care more about price than polish.',
+      'Sky is the clearer overall choice now: it is both cheaper than TalkTalk and holds one of the best Ofcom complaints records of any major provider, against TalkTalk\'s worst-in-market position for three consecutive quarters.',
+    factSnapshot: {
+      providerA: { fromPrice: '£23.00/mo', maxSpeed: '900 Mbps', coverage: '95%', trustpilot: '2.7', contract: '24 months', setupFee: '£0 (currently advertised)' },
+      providerB: { fromPrice: '£25.00/mo', maxSpeed: '900 Mbps', coverage: '96%', trustpilot: '1.5', contract: '24 months', setupFee: '£0' },
+    },
     intro: [
-      'Sky vs TalkTalk is one of the most useful UK comparisons because both brands are familiar and widely available, but they solve different problems. Sky is built around household simplicity, entertainment bundles, and low-friction switching. TalkTalk is built around lower monthly pricing and a stronger budget-market pitch.',
-      'That means the answer usually comes down to whether you want the smoother all-round household option or the cheaper monthly deal.',
+      'Sky vs TalkTalk is a comparison where the old assumption, that TalkTalk is the budget option and Sky the more premium one, no longer holds on price. As of August 2026, Sky starts from £23 a month against TalkTalk\'s £25, and both now sit on standard 24-month contracts.',
+      'The bigger gap between them is service quality. Ofcom\'s Q1 2026 complaints report placed Sky among the best of any major provider, while TalkTalk was named the UK\'s most complained-about broadband provider for the third consecutive quarter.',
     ],
     verdict: [
-      'Choose Sky if you want a cleaner mainstream package with no setup fee and optional TV integration.',
-      'Choose TalkTalk if your goal is to keep monthly cost down and you are comfortable with a more budget-led support trade-off.',
+      'Choose Sky if a genuinely low price combined with one of the best Ofcom complaints records in the market matters, or if bundling Sky TV or Sky Sports is a priority.',
+      'Choose TalkTalk if unlimited data with no fair-use clause and a fully disclosed two-rise price schedule to April 2028 matter more than avoiding the UK\'s most complained-about provider.',
     ],
     keyDifferences: [
       {
-        label: 'Price',
+        label: 'Pricing',
         detail:
-          'TalkTalk is usually cheaper at entry level, which is its clearest advantage in this comparison.',
+          'Sky now starts from £23.00 a month, TalkTalk from £25.00, meaning Sky is the cheaper option, a reversal of the old "TalkTalk is the budget pick" assumption.',
       },
       {
-        label: 'Switching feel',
+        label: 'Ofcom complaints',
         detail:
-          'Sky offers a simpler household-friendly proposition with no setup fee and a more familiar mainstream bundle environment.',
+          'Sky recorded 5 complaints per 100,000 customers in Ofcom\'s Q1 2026 report, among the best of any major provider. TalkTalk recorded 10, the highest in the market and the only provider Ofcom does not consider statistically comparable to any other that quarter.',
+      },
+      {
+        label: 'Price rise structure',
+        detail:
+          'TalkTalk discloses two scheduled rises upfront, in April 2027 and April 2028. Sky\'s April 2026 rise was a flat £3, but its terms for future years only say prices "may rise" without a fixed figure.',
       },
       {
         label: 'TV and bundle logic',
         detail:
-          'Sky is much stronger if TV or entertainment bundles matter to your household, while TalkTalk is more about broadband cost than ecosystem value.',
-      },
-      {
-        label: 'Customer trade-off',
-        detail:
-          'Sky generally feels more polished and stable, while TalkTalk asks buyers to accept more compromise in exchange for lower monthly pricing.',
+          'Sky is much stronger if TV or entertainment bundles matter, with a mature range including Sky Sports. TalkTalk has TalkTalk TV as a separate rolling add-on rather than a core part of its pitch.',
       },
     ],
     faqs: [
       {
         question: 'Which is cheaper, Sky or TalkTalk broadband?',
         answer:
-          'TalkTalk is usually cheaper in the current BroadbandPicker dataset, which is why it appeals strongly to budget-conscious buyers.',
+          'Sky, as of August 2026: it starts from £23 a month against TalkTalk\'s £25, a reversal of the older assumption that TalkTalk was the budget option against Sky.',
+      },
+      {
+        question: 'Which has a better complaints record, Sky or TalkTalk?',
+        answer:
+          'Sky, by a wide margin. Ofcom\'s Q1 2026 report placed Sky among the best of any major provider at 5 complaints per 100,000 customers, while TalkTalk was named the UK\'s most complained-about broadband provider at 10 per 100,000.',
       },
       {
         question: 'Is Sky better than TalkTalk broadband?',
         answer:
-          'For many mainstream households, yes. Sky is often the better overall package because of its no-setup-fee positioning, family fit, and TV-bundle strengths. TalkTalk can still be the better answer if monthly price is the priority.',
-      },
-      {
-        question: 'Should I choose Sky or TalkTalk for a family home?',
-        answer:
-          'Sky is usually the easier recommendation for family homes, especially if entertainment bundles, parental controls, and a more mainstream proposition matter to you.',
+          'On price, complaints record and TV bundle strength, yes. TalkTalk\'s case rests on unlimited data with no fair-use clause and a fully disclosed price-rise schedule, not on being the cheaper or better-supported option.',
       },
       {
         question: 'Why would someone choose TalkTalk over Sky?',
         answer:
-          'Mostly for price. If your household wants to minimise monthly broadband cost and does not care about TV bundling or a more premium-feeling experience, TalkTalk can be the better fit.',
+          'Mainly for unlimited data with no fair-use clause and knowing both future price rises (April 2027 and April 2028) upfront, rather than Sky\'s less-specific "prices may rise" wording for later years. It is no longer a price advantage.',
       },
     ],
     sources: [
       {
-        label: 'BroadbandPicker provider reviews',
-        href: 'https://broadbandpicker.co.uk/providers',
+        label: 'Ofcom: telecoms and pay-TV complaints fall to a record low',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/service-quality/ofcom-telecoms-and-pay-tv-complaints-fall-to-record-low',
       },
       {
         label: 'BroadbandPicker methodology',

@@ -1725,6 +1725,34 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-25 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-4-thin-comparison-pages",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Deep rewrite: 4 thin comparison pages (29th-32nd content-priority-analysis targets)",
+        "description": (
+            "Final 4 targets in this batch, all comparison pages with the exact same "
+            "problem: entirely generic, number-free copy repeating a 'TalkTalk is "
+            "usually cheaper' claim that is now factually wrong on 2 of the 4 pages -- "
+            "bt-vs-talktalk and sky-vs-talktalk both still claimed TalkTalk was the "
+            "cheaper option, when TalkTalk now starts at GBP25/mo, more expensive than "
+            "both BT (GBP23.99) and Sky (GBP23.00). Rewrote all 4 with real current "
+            "prices, Ofcom Q1 2026 complaints figures and populated factSnapshot "
+            "fields: bt-vs-talktalk (BT now cheaper AND better complaints record), "
+            "sky-vs-talktalk (Sky now cheaper AND far better complaints record), "
+            "sky-vs-virgin-media (both genuinely decent on Ofcom despite very different "
+            "Trustpilot scores -- a real, useful pattern this page never mentioned), "
+            "ee-vs-bt (both BT Group brands, EE's complaints record improved to the "
+            "industry average, EE's real automatic mobile-backup differentiator). Word "
+            "counts: 515->670, 514->655, 505->621, 481->642."
+        ),
+        "priority_score": 45,
+        "impact_score": 42,
+        "effort": "High",
+        "target": "data/provider-comparisons.ts (bt-vs-talktalk, sky-vs-talktalk, sky-vs-virgin-media, ee-vs-bt)",
+        "dependencies": "ops-content-priority-analysis-tooling",
+        "source": "User request 2026-08-25 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",
