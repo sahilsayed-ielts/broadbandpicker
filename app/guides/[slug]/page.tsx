@@ -1103,18 +1103,20 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
           </table>
         </div>
         <h2>Which providers usually make sense for students</h2>
-        <p><strong>NOW Broadband</strong> is often relevant because its shorter-term positioning can suit student tenancies better than the longest mainstream contracts. <strong>TalkTalk</strong> can work well for low-cost shared houses. Where available, <strong>Hyperoptic</strong> and <strong>Community Fibre</strong> can be excellent for bigger student households that want faster full fibre without paying premium-brand prices.</p>
+        <p>Two names once commonly recommended here no longer fit as well as they used to. <strong>NOW Broadband</strong> dropped its flexible, shorter-term contracts and now sells only a standard 24-month term, the same length as most mainstream providers, so it no longer suits an academic-year tenancy any better than the rest of the market. <strong>TalkTalk</strong> also raised its standard price to £25 a month, no longer the clearly low-cost option it once was for shared houses.</p>
+        <p>For a genuinely shorter commitment, <strong>YouFibre</strong> offers a real rolling monthly contract, from £33.99 a month with 30 days&apos; notice, worth it specifically for an uncertain or short-stay tenancy, though its coverage remains limited to around 10% of UK premises. <strong>Onestream</strong>, from £18.50 a month on a 12-month option, has the widest availability of any current budget provider at around 94% of UK premises, a realistic fit for most student addresses. Where available, <strong>Hyperoptic</strong> and <strong>Community Fibre</strong> remain excellent for bigger student households wanting faster, genuinely symmetrical full fibre without paying premium-brand prices, both also offering a 12-month option.</p>
         <h2>When flexible broadband is worth paying more for</h2>
-        <p>If your tenancy end date is uncertain, or you expect to move again within the year, flexibility can matter more than chasing the lowest monthly price. Paying a little extra for a shorter or rolling contract can still be cheaper than getting stuck with early exit charges later.</p>
+        <p>If the tenancy end date is uncertain, or another move is likely within the year, flexibility can matter more than chasing the lowest monthly price. YouFibre&apos;s rolling option carries a genuine premium over its own 24-month rate, so it is worth it specifically when that flexibility will actually be used, not as a default choice; a 12-month contract from Hyperoptic, Community Fibre or Onestream is often the better middle ground for a typical academic-year tenancy.</p>
         <h2>Common student broadband mistakes</h2>
         <ul>
           <li>Choosing a contract longer than the tenancy</li>
           <li>Underbuying speed for a house share with lots of devices</li>
-          <li>Ignoring setup fees and router return charges</li>
+          <li>Ignoring setup fees, scheduled price rises and router return charges</li>
+          <li>Assuming a provider still offers the flexible contract it was known for in previous years, rather than checking its current range</li>
           <li>Leaving the order too late and relying on mobile hotspot data at move-in</li>
         </ul>
         <h2>The best rule of thumb</h2>
-        <p>If you are in a shared student home, buy broadband based on the <em>whole house</em>, not one person. A slightly faster, cleaner deal split across multiple flatmates is often better value than the cheapest plan on paper.</p>
+        <p>If living in a shared student home, buy broadband based on the <em>whole house</em>, not one person. A slightly faster, cleaner deal split across multiple flatmates is often better value than the cheapest plan on paper.</p>
         <div className="not-prose rounded-xl border-2 border-sky-200 bg-sky-50 p-5 my-6">
           <p className="font-bold text-slate-900 mb-1">Want a personalised recommendation instead?</p>
           <p className="text-sm text-slate-700 mb-3">Answer 6 quick questions about your household and budget, and our free Broadband Match tool ranks the providers that actually fit — not just the cheapest headline price.</p>
@@ -1123,10 +1125,11 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
       </>
     ),
     faqs: [
-      { question: 'What is the best broadband for students in the UK?', answer: 'The best student broadband usually combines low monthly cost, enough speed for a shared house, and a contract that fits the tenancy. NOW Broadband, TalkTalk, and some full-fibre altnets are often strong starting points depending on postcode.' },
-      { question: 'Should students choose rolling monthly broadband?', answer: 'Choose rolling monthly or shorter-term broadband if your tenancy is short or uncertain. If you know you will stay for the full academic year, a 12-month contract is often better value.' },
+      { question: 'What is the best broadband for students in the UK?', answer: 'The best student broadband combines low monthly cost, enough speed for a shared house, and a contract that fits the tenancy. Onestream (from £18.50/mo, 94% coverage) and YouFibre\'s genuine rolling monthly option are stronger current starting points than NOW Broadband or TalkTalk, which have both moved away from their earlier budget or flexible-contract positioning.' },
+      { question: 'Should students choose rolling monthly broadband?', answer: 'Choose YouFibre\'s rolling monthly option, from £33.99 a month with 30 days\' notice, if the tenancy is short or genuinely uncertain and its network covers the address. If the full academic year is confirmed, a 12-month contract with Hyperoptic, Community Fibre or Onestream is usually better value.' },
       { question: 'How much broadband speed do student houses need?', answer: 'A single student can manage on 30 to 50 Mbps, but most shared student houses should aim for at least 60 to 100 Mbps. Larger houses with regular gaming and 4K streaming often benefit from 100 to 300 Mbps full fibre.' },
-      { question: 'Can students get broadband without a long contract?', answer: 'Yes, but the options are narrower and often cost more per month. Rolling monthly deals, social tariffs in eligible households, and some shorter mainstream contracts can all help if flexibility matters most.' },
+      { question: 'Is NOW Broadband still a good option for students?', answer: 'Less than it used to be. NOW Broadband dropped its shorter, flexible contract options and now sells only a standard 24-month term, the same length as most national providers, so it no longer offers the tenancy-friendly flexibility it was previously known for.' },
+      { question: 'Can students get broadband without a long contract?', answer: 'Yes, though the genuinely flexible options are narrower than they once were. YouFibre\'s rolling monthly contract, social tariffs in eligible households, and a 12-month term from an altnet like Hyperoptic or Community Fibre are the most realistic current routes to avoiding a full 24-month lock-in.' },
     ],
   },
 

@@ -1581,6 +1581,33 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-25 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-best-broadband-for-students-guide",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Deep rewrite: Best Broadband for Students guide (23rd content-priority-analysis target)",
+        "description": (
+            "Twenty-third target from the wider content-priority-analysis list, and the "
+            "third page this session found repeating the exact same stale claim: 'NOW "
+            "Broadband is often relevant because its shorter-term positioning can suit "
+            "student tenancies' (also wrongly caught and fixed on best-rolling-monthly-"
+            "broadband-deals and broadband-deals-under-20 earlier this session). Also "
+            "corrected 'TalkTalk can work well for low-cost shared houses', no longer "
+            "true now that TalkTalk starts at GBP25/mo. Replaced both with the real "
+            "current options: YouFibre's genuine rolling monthly contract (from "
+            "GBP33.99/mo) for uncertain tenancies, and Onestream (GBP18.50/mo, 94% "
+            "Openreach coverage) as the realistic default for most student addresses, "
+            "alongside Hyperoptic/Community Fibre's 12-month middle ground. Added a new "
+            "common-mistake bullet: assuming a provider still offers the contract type "
+            "it was known for in previous years. Word count 668 -> 887."
+        ),
+        "priority_score": 30,
+        "impact_score": 28,
+        "effort": "Medium",
+        "target": "app/guides/[slug]/page.tsx (best-broadband-for-students), data/guides.ts",
+        "dependencies": "ops-content-priority-analysis-tooling",
+        "source": "User request 2026-08-25 — researched before implementing per the Strategic Lens process",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",
