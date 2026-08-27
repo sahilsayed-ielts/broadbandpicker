@@ -48,6 +48,35 @@ RUN_DATE = datetime.now(timezone.utc).date().isoformat()
 MANUAL_HEADERS = ("Status", "Owner", "Target Date", "Notes")
 DEFAULT_STATUS = "Not started"
 
+AWIN_MANUAL_HEADERS = ("Status", "Owner", "Last Contacted", "Next Follow-up", "Decision / Feedback")
+
+# Awin work is deliberately separated from the product/content build queue.
+# Programme status was last verified through the Awin Publisher API on
+# 2026-08-23; the action order favours monetising joined programmes first,
+# then resolving pending applications, then selective evidence-led reapplications.
+AWIN_OUTREACH_PRIORITIES: list[dict[str, Any]] = [
+    {"band": "P0 Activate joined", "advertiser": "TalkTalk", "id": 3674, "relationship": "Joined", "url": "/providers/talktalk"},
+    {"band": "P0 Activate joined", "advertiser": "Zzoomm", "id": 40398, "relationship": "Joined", "url": "/providers/zzoomm"},
+    {"band": "P0 Activate joined", "advertiser": "Highland Broadband", "id": 99387, "relationship": "Joined", "url": "/providers/highland-broadband"},
+    {"band": "P0 Activate joined", "advertiser": "Broadband Genie", "id": "", "relationship": "Joined", "url": "/compare"},
+    {"band": "P1 Follow up pending", "advertiser": "Community Fibre", "id": 19595, "relationship": "Pending", "url": "/providers/community-fibre"},
+    {"band": "P1 Follow up pending", "advertiser": "Zen Internet", "id": 119927, "relationship": "Pending", "url": "/providers/zen"},
+    {"band": "P1 Follow up pending", "advertiser": "National Broadband", "id": 20858, "relationship": "Pending", "url": "/providers/national-broadband"},
+    {"band": "P1 Follow up pending", "advertiser": "Trooli", "id": 25528, "relationship": "Pending", "url": "/providers/trooli"},
+    {"band": "P1 Follow up pending", "advertiser": "Pine Media", "id": 27840, "relationship": "Pending", "url": "/providers/pine-media"},
+    {"band": "P1 Follow up pending", "advertiser": "Cuckoo", "id": 118743, "relationship": "Pending", "url": "/providers/cuckoo"},
+    {"band": "P1 Follow up pending", "advertiser": "Sky ROI", "id": "", "relationship": "Pending", "url": "/providers/sky"},
+    {"band": "P2 Reapply with evidence", "advertiser": "BT Consumer", "id": 3041, "relationship": "Rejected", "url": "/providers/bt"},
+    {"band": "P2 Reapply with evidence", "advertiser": "BT Business", "id": 3042, "relationship": "Rejected", "url": "/providers/bt"},
+    {"band": "P2 Reapply with evidence", "advertiser": "Virgin Media", "id": 6399, "relationship": "Rejected", "url": "/providers/virgin-media"},
+    {"band": "P2 Reapply with evidence", "advertiser": "EE", "id": 3516, "relationship": "Rejected", "url": "/providers/ee"},
+    {"band": "P2 Reapply with evidence", "advertiser": "Plusnet", "id": 2973, "relationship": "Rejected", "url": "/providers/plusnet"},
+    {"band": "P2 Reapply with evidence", "advertiser": "Vodafone", "id": 1257, "relationship": "Rejected", "url": "/providers/vodafone"},
+    {"band": "P2 Reapply with evidence", "advertiser": "Hyperoptic", "id": 5737, "relationship": "Rejected", "url": "/providers/hyperoptic"},
+    {"band": "P2 Reapply with evidence", "advertiser": "toob", "id": 117433, "relationship": "Rejected", "url": "/providers/toob"},
+    {"band": "P2 Reapply with evidence", "advertiser": "giffgaff", "id": 3599, "relationship": "Rejected", "url": "/providers/giffgaff"},
+]
+
 # ---------------------------------------------------------------------------
 # Feature / UX / content-strategy builds — curated from the growth playbook.
 # Hand-scored on the same rough 0-100 scale as the page-build priority score
@@ -275,6 +304,16 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "target": "New shared component, used on provider + comparison pages",
         "dependencies": "research/uk-broadband-customer-satisfaction methodology",
         "source": "Growth playbook — Functionality pillar",
+        "verified_status": "Done",
+        "completion_notes": (
+            "Shipped to Vercel production 2026-08-26: added one shared, accessible "
+            "review-evidence module to every provider and provider-comparison page. "
+            "The module keeps Ofcom complaints, Ofcom satisfaction, Which? survey "
+            "scores and public Trustpilot sentiment separate instead of inventing a "
+            "blended trust score; dates each signal, explains limitations, links to "
+            "sources and methodology, identifies unavailable data without penalising "
+            "smaller providers, and suppresses current-score claims for retired providers."
+        ),
     },
     {
         "item_id": "audit-city-hub-thinness",
@@ -2112,6 +2151,30 @@ def load_weekly_seo_actions(output: Path) -> tuple[list[str], list[list[Any]]] |
     return list(rows[0]), [list(row) for row in rows[1:] if any(value is not None for value in row)]
 
 
+def load_awin_overrides(output: Path) -> dict[str, dict[str, Any]]:
+    """Preserve the human-maintained outreach log across regenerations."""
+    if not output.exists():
+        return {}
+    try:
+        wb = load_workbook(output, data_only=True, read_only=True)
+        if "Awin Outreach Priority" not in wb.sheetnames:
+            return {}
+        rows = list(wb["Awin Outreach Priority"].iter_rows(values_only=True))
+    except Exception:
+        return {}
+    if not rows:
+        return {}
+    positions = {name: i for i, name in enumerate(rows[0])}
+    if "Advertiser" not in positions:
+        return {}
+    return {
+        str(row[positions["Advertiser"]]): {
+            header: row[positions[header]] for header in AWIN_MANUAL_HEADERS if header in positions
+        }
+        for row in rows[1:] if row[positions["Advertiser"]]
+    }
+
+
 def add_sheet(wb: Workbook, name: str, headers: list[str], rows: list[list[Any]]) -> Any:
     ws = wb.create_sheet(name)
     ws.append(headers)
@@ -2156,6 +2219,7 @@ def build_workbook(
     page_items: list[dict[str, Any]],
     overrides: dict[str, dict[str, Any]],
     weekly_actions: tuple[list[str], list[list[Any]]] | None = None,
+    awin_overrides: dict[str, dict[str, Any]] | None = None,
 ) -> Workbook:
     all_items = FEATURE_BUILDS + page_items
     for item in all_items:
@@ -2190,6 +2254,8 @@ def build_workbook(
         ["Sources", "Page builds: docs/broadbandpicker-keyword-mapping.xlsx (Content Gap Roadmap). Feature builds: the growth playbook, scored on the same rough 0-100 scale."],
         ["Scoring", "Page rows use the existing SEO Build Priority Score / Revenue Priority Score from the keyword-mapping pipeline. Feature rows are hand-scored on the same scale — both numbers are directional priority signals, not a single unified formula."],
         ["Status is preserved", "Status, Owner, Target Date and Notes carry forward from the previous docs/master-build-tracker.xlsx on every re-run, matched by Item ID — safe to edit by hand."],
+        ["Focused views", "Awin Outreach Priority separates partnership actions. Page & Content Priority separates page creation, thin-content work and evidence-led SEO improvements."],
+        ["Roadmap state", "There are currently no unbuilt rows remaining in the page-build roadmap. Page & Content Priority therefore focuses on thin-content audits, existing-page improvements and the future research-page bet."],
         ["Re-run", "python3 scripts/build_master_tracker.py"],
     ]
     add_sheet(wb, "Read Me", ["Field", "Detail"], readme)
@@ -2222,6 +2288,73 @@ def build_workbook(
             item["owner"], item["target_date"], item["notes"],
         ])
     add_sheet(wb, "Pending Build Priority", pending_headers, pending_rows)
+
+    awin_overrides = awin_overrides or {}
+    awin_headers = [
+        "Rank", "Priority Band", "Advertiser", "Awin Advertiser ID", "Relationship",
+        "Recommended Action", "Relevant Live URL", "Timing / Gate", "Status", "Owner",
+        "Last Contacted", "Next Follow-up", "Decision / Feedback",
+    ]
+    awin_rows = []
+    for rank, programme in enumerate(AWIN_OUTREACH_PRIORITIES, 1):
+        manual = awin_overrides.get(programme["advertiser"], {})
+        relationship = programme["relationship"]
+        if relationship == "Joined":
+            action = "Verify the tracked deep link, feature the programme on relevant pages and reconcile GA4 outbound clicks against Awin transactions."
+            timing = "Now: approved revenue opportunity"
+            default = "In progress"
+        elif relationship == "Pending":
+            action = "Check API status and send one tailored follow-up with the relevant live page, audience evidence and compliance controls."
+            timing = "After a reasonable review interval"
+            default = "Waiting on advertiser"
+        else:
+            action = "Reapply selectively with stronger GSC traffic, GA4 commercial-click and content-quality evidence; record the rejection reason first."
+            timing = "Gate on stronger evidence; do not bulk reapply"
+            default = "Not started"
+        awin_rows.append([
+            rank, programme["band"], programme["advertiser"], programme["id"], relationship,
+            action, f"https://broadbandpicker.co.uk{programme['url']}", timing,
+            manual.get("Status") or default, manual.get("Owner") or "",
+            manual.get("Last Contacted") or "", manual.get("Next Follow-up") or "",
+            manual.get("Decision / Feedback") or "",
+        ])
+    add_sheet(wb, "Awin Outreach Priority", awin_headers, awin_rows)
+
+    content_headers = [
+        "Rank", "Workstream", "Target", "Opportunity", "Priority Source", "Source Score",
+        "Status", "Evidence", "Recommended Action",
+    ]
+    content_rows: list[list[Any]] = []
+    city_audit = next((item for item in all_items if item["item_id"] == "audit-city-hub-thinness"), None)
+    if city_audit and city_audit["status"] != "Done":
+        content_rows.append([1, "Thin-content audit", city_audit["target"], city_audit["title"],
+                             "Master tracker", city_audit["priority_score"], city_audit["status"],
+                             city_audit["description"], "Audit each city hub and add a genuinely local, sourced fact where missing."])
+    if weekly_actions:
+        headers, rows = weekly_actions
+        pos = {name: i for i, name in enumerate(headers)}
+        for row in rows:
+            opportunity = row[pos.get("Opportunity", 2)]
+            page = row[pos.get("Page", 1)]
+            if opportunity == "Monitor" or page == "/postcode/da1":
+                continue
+            evidence = (
+                f"Clicks {row[pos['Clicks']]}; impressions {row[pos['Impressions']]}; "
+                f"CTR {row[pos['CTR']]}; position {row[pos['Position']]}; "
+                f"top queries: {row[pos['Top Queries']]}"
+            )
+            content_rows.append([
+                0, "Existing-page SEO improvement", page, opportunity, "Weekly GSC/GA4 action queue",
+                row[pos["Score"]], "Not started", evidence, row[pos["Recommended Action"]],
+            ])
+    research = next((item for item in all_items if item["item_id"] == "bet-annual-research-report"), None)
+    if research and research["status"] != "Done":
+        content_rows.append([0, "New evidence-led page", research["target"], research["title"],
+                             "Master tracker", research["priority_score"], research["status"],
+                             research["description"], "Build after higher-confidence thin-content and ranking opportunities."])
+    for rank, row in enumerate(content_rows, 1):
+        row[0] = rank
+    add_sheet(wb, "Page & Content Priority", content_headers, content_rows)
 
     page_headers = [
         "Rank", "Title", "Cluster", "Priority Score", "Revenue Score", "Difficulty Band",
@@ -2258,6 +2391,8 @@ def build_workbook(
         ["Feature priority score", "Hand-scored 0-100 reflecting the growth playbook's sequencing: infra risk and quick wins first, bigger bets last."],
         ["Repo Sync column", "A single snapshot check of `git status` across the folders that hold page-build content — not a per-row git-blame lookup. 'Live but not committed to git' means production and git have diverged for that batch of pages."],
         ["Pending queue", "Pending Build Priority contains only non-Done items from the combined page, feature, audit and strategy list, ordered by Priority Score."],
+        ["Awin outreach", "Awin Outreach Priority is ordered by action stage: activate joined programmes, follow up pending applications, then make selective evidence-led reapplications. Manual outreach fields survive regeneration."],
+        ["Page/content queue", "Page & Content Priority combines the tracker thin-content audit with non-monitor weekly GSC/GA4 opportunities. Source scores use different models and are labelled; the list is a working sequence, not a claim that the scores are directly comparable."],
         ["Editing this file", "Status/Owner/Target Date/Notes are yours to edit freely — they survive the next `python3 scripts/build_master_tracker.py` run."],
     ]
     add_sheet(wb, "Methodology", ["Aspect", "Detail"], methodology)
@@ -2278,7 +2413,8 @@ def main() -> None:
     page_items = load_page_builds(args.source)
     overrides = load_manual_overrides(args.output)
     weekly_actions = load_weekly_seo_actions(args.output)
-    wb = build_workbook(page_items, overrides, weekly_actions)
+    awin_overrides = load_awin_overrides(args.output)
+    wb = build_workbook(page_items, overrides, weekly_actions, awin_overrides)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     wb.save(args.output)
     print(f"Saved {args.output.resolve()}")

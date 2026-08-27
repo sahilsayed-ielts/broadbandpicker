@@ -11,6 +11,7 @@ import { buildProviderOfferJsonLd } from '@/lib/dealSchema'
 import PostcodeContextBar from '@/components/PostcodeContextBar'
 import ProviderAvailabilityBadge from '@/components/ProviderAvailabilityBadge'
 import RatingStars from '@/components/RatingStars'
+import ReviewEvidencePanel from '@/components/ReviewEvidencePanel'
 
 export async function generateStaticParams() {
   return providers.map((p) => ({ slug: p.slug }))
@@ -370,6 +371,8 @@ export default async function ProviderPage({
           </p>
         </div>
       </section>
+
+      <ReviewEvidencePanel providers={[provider]} heading={`${provider.name} customer-review evidence`} />
 
       {provider.contentSections?.map((section) => (
         <section key={section.heading} className="mb-10">

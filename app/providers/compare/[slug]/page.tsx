@@ -5,6 +5,7 @@ import BreadcrumbNav from '@/components/BreadcrumbNav'
 import FAQAccordion from '@/components/FAQAccordion'
 import { getProviderBySlug } from '@/data/providers'
 import { getProviderComparisonBySlug, providerComparisons } from '@/data/provider-comparisons'
+import ReviewEvidencePanel from '@/components/ReviewEvidencePanel'
 
 export async function generateStaticParams() {
   return providerComparisons.map((comparison) => ({ slug: comparison.slug }))
@@ -130,6 +131,11 @@ export default async function ProviderComparisonPage({
         <h2 className="text-lg font-bold text-slate-900 mb-2">Quick Verdict</h2>
         <p className="text-sm text-slate-700 leading-relaxed">{comparison.winner}</p>
       </section>
+
+      <ReviewEvidencePanel
+        providers={[providerA, providerB]}
+        heading={`${providerA.name} vs ${providerB.name}: customer-review evidence`}
+      />
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 mb-10">
         {providers.map(({ provider, bestFor, maxSpeed, facts }) => (
