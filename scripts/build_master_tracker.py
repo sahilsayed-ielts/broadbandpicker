@@ -2013,6 +2013,36 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-25 — researched before implementing per the Strategic Lens process",
     },
     {
+        "item_id": "content-refresh-postcode-m1-ng1-rg1-ct1-rm1",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "De-duplicate 5 postcode pages with genuinely local, sourced content (M1, NG1, RG1, CT1, RM1)",
+        "description": (
+            "User-flagged near-duplicate-content risk: /postcode/[area] is a single shared "
+            "template, and every district page beyond the DA1 special case only swapped "
+            "Ofcom coverage numbers into otherwise identical boilerplate sentences. Inspected "
+            "the template (app/postcode/[area]/page.tsx) and the curated dataset "
+            "(data/postcodes.ts), then researched real, sourced local network facts for each "
+            "of the 5 requested districts -- CityFibre/Openreach/Virgin Media/Community Fibre "
+            "rollout investment figures, completion dates, named neighbourhoods, and honest "
+            "coverage gaps (e.g. Canterbury/CT1 not yet in Openreach's Kent Fibre First build; "
+            "Havering's uneven rollout leaving South Hornchurch and Rainham behind while RM1 "
+            "itself sits in Community Fibre's core area). Added new data/postcodeLocalIntel.ts "
+            "(hand-verified only, not a mapping for all 2,818 districts) and wired it into 4 "
+            "new generalised template sections plus a widened 'coverage at a glance' callout "
+            "and FAQ enhancement, without touching DA1's existing bespoke content. Each page "
+            "grew from ~600-700 generic words to ~1,400-1,500 words of area-specific, sourced "
+            "content. Verified via tsc, npm run build, and word/apostrophe/undefined checks "
+            "both locally and on the live production URL for all 5 pages."
+        ),
+        "priority_score": 34,
+        "impact_score": 38,
+        "effort": "Medium",
+        "target": "app/postcode/[area]/page.tsx, data/postcodeLocalIntel.ts",
+        "dependencies": "ops-content-priority-analysis-tooling",
+        "source": "User request 2026-08-27/28 — 'the postcode pages share templates, so they should not all receive generic expanded copy'",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",
