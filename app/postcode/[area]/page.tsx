@@ -20,6 +20,7 @@ import AffiliateCTA from '@/components/AffiliateCTA'
 import NewsletterSignup from '@/components/NewsletterSignup'
 import RatingStars from '@/components/RatingStars'
 import DartfordBroadbandNeeds from '@/components/DartfordBroadbandNeeds'
+import { getPostcodeLocalIntel } from '@/data/postcodeLocalIntel'
 import { buildDealListJsonLd } from '@/lib/dealSchema'
 
 export async function generateStaticParams() {
@@ -239,6 +240,8 @@ export default async function PostcodeAreaPage({
   const prefix = postcodeArea.prefix.toUpperCase()
   const districtCoverage = getDistrictCoverage(prefix)
   const isDartford = prefix === 'DA1'
+  const localIntel = getPostcodeLocalIntel(prefix)
+  const hasLocalIntel = Boolean(localIntel) && !isDartford
 
   const availableProviders = providers.filter((p) =>
     postcodeArea.availableProviders.includes(p.slug)
@@ -274,7 +277,7 @@ export default async function PostcodeAreaPage({
     },
     {
       question: `What average broadband speeds can I get in ${postcodeArea.town}?`,
-      answer: `${isDartford && districtCoverage ? `Ofcom postcode-level data shows ${districtCoverage.superfastPercent}% superfast and ${districtCoverage.gigabitPercent}% gigabit-capable coverage across DA1. ` : ''}Our area model estimates an average download speed of ${postcodeArea.avgDownloadSpeed} Mbps in ${postcodeArea.town}. ${hasFttp ? `Full-fibre packages can offer up to ${Math.max(...availableProviders.flatMap((p) => p.speeds.map((s) => s.download)))} Mbps.` : `Superfast fibre (FTTC) is the most widely available connection type in this area.`} These are area-level figures, so check the exact address before ordering.`,
+      answer: `${districtCoverage ? `Ofcom postcode-level data shows ${districtCoverage.superfastPercent}% superfast and ${districtCoverage.gigabitPercent}% gigabit-capable coverage across ${prefix}. ` : ''}Our area model estimates an average download speed of ${postcodeArea.avgDownloadSpeed} Mbps in ${postcodeArea.town}. ${hasFttp ? `Full-fibre packages can offer up to ${Math.max(...availableProviders.flatMap((p) => p.speeds.map((s) => s.download)))} Mbps.` : `Superfast fibre (FTTC) is the most widely available connection type in this area.`} These are area-level figures, so check the exact address before ordering.`,
     },
     {
       question: `Who is the fastest broadband provider in ${prefix}?`,
@@ -284,6 +287,14 @@ export default async function PostcodeAreaPage({
       question: `How do I switch broadband in ${postcodeArea.town}?`,
       answer: `Switching broadband in ${postcodeArea.town} is straightforward. Under Ofcom's One Touch Switching rules, you simply sign up with your new provider. They contact your old provider and manage the transfer. Most switches complete within 10 to 15 working days with no loss of service.`,
     },
+    ...(localIntel
+      ? [
+          {
+            question: `Is full-fibre (FTTP) broadband available in ${postcodeArea.town}?`,
+            answer: localIntel.altnetParagraphs[0],
+          },
+        ]
+      : []),
   ]
 
   const webPageJsonLd = {
@@ -372,11 +383,11 @@ export default async function PostcodeAreaPage({
         up directly with your chosen provider.
       </p>
 
-      {isDartford && districtCoverage && (
-        <div className="mb-8 rounded-xl border border-sky-200 bg-sky-50 p-5" aria-label="DA1 broadband coverage summary">
-          <p className="font-semibold text-sky-950">DA1 coverage at a glance</p>
+      {districtCoverage && (
+        <div className="mb-8 rounded-xl border border-sky-200 bg-sky-50 p-5" aria-label={`${prefix} broadband coverage summary`}>
+          <p className="font-semibold text-sky-950">{prefix} coverage at a glance</p>
           <p className="mt-2 max-w-4xl text-sm leading-6 text-sky-900">
-            Ofcom&apos;s postcode-level fixed coverage data shows that {districtCoverage.gigabitPercent}% of premises sampled across DA1 are gigabit-capable and {districtCoverage.superfastPercent}% can receive at least 30 Mbps. The figures cover {districtCoverage.sampleSize.toLocaleString('en-GB')} postcodes and describe network reach, not a guaranteed speed at every home.
+            Ofcom&apos;s postcode-level fixed coverage data shows that {districtCoverage.gigabitPercent}% of premises sampled across {prefix} are gigabit-capable and {districtCoverage.superfastPercent}% can receive at least 30 Mbps. The figures cover {districtCoverage.sampleSize.toLocaleString('en-GB')} postcodes and describe network reach, not a guaranteed speed at every home.
           </p>
         </div>
       )}
@@ -527,6 +538,68 @@ export default async function PostcodeAreaPage({
         </>
       )}
 
+      {hasLocalIntel && localIntel && districtCoverage && (
+        <>
+          <section className="mt-10 max-w-4xl" aria-labelledby={`${prefix.toLowerCase()}-availability`}>
+            <h2 id={`${prefix.toLowerCase()}-availability`} className="text-2xl font-bold text-slate-900">
+              What broadband is available in {postcodeArea.town} and {prefix}?
+            </h2>
+            <p className="mt-4 leading-7 text-slate-700">
+              Broadband deals in {postcodeArea.town} include services delivered over Openreach, Virgin Media and other networks where they reach the property. A provider appearing on this page means it serves the wider {prefix} market, not that every package is orderable at every address.
+            </p>
+            <p className="mt-4 leading-7 text-slate-700">
+              The strongest local evidence is the Ofcom coverage snapshot. It records {districtCoverage.gigabitPercent}% gigabit-capable coverage, {districtCoverage.ultrafastPercent}% ultrafast coverage and {districtCoverage.superfastPercent}% superfast coverage across {prefix}. Gigabit-capable means the network can deliver a package with a download speed of at least 1 Gbps. Superfast means at least 30 Mbps. Those categories describe availability, while the speed you actually receive depends on the technology, package, wiring, router position and congestion.
+            </p>
+            <p className="mt-4 leading-7 text-slate-700">
+              {prefix} covers {postcodeArea.town} and reaches into {localIntel.neighbourhoods}. Availability can change between neighbouring streets and even between flats in the same development, so compare the shortlist here first, then use the chosen provider&apos;s address checker before paying or cancelling an existing service.
+            </p>
+          </section>
+
+          <section className="mt-10 max-w-4xl" aria-labelledby={`${prefix.toLowerCase()}-best-deal`}>
+            <h2 id={`${prefix.toLowerCase()}-best-deal`} className="text-2xl font-bold text-slate-900">
+              How to find the best broadband deal in {postcodeArea.town}
+            </h2>
+            <p className="mt-4 leading-7 text-slate-700">
+              Start with the total cost, not the headline monthly price. Multiply the monthly charge across the minimum term, add setup fees and account for any stated annual price changes. A package that begins a few pounds cheaper can cost more over 24 months. Also check the price after the minimum term so you know what happens if you do not switch or renegotiate promptly.
+            </p>
+            <ol className="mt-5 space-y-4 text-slate-700">
+              <li><strong>1. Check the exact address.</strong> {prefix}-wide figures are useful for planning, but the provider&apos;s checker decides which package can be ordered at your property.</li>
+              <li><strong>2. Pick a realistic speed.</strong> Around 30 to 70 Mbps can suit light use. A busy household may benefit from 100 to 300 Mbps. Gigabit service is most useful for many simultaneous users, large downloads or frequent cloud backups.</li>
+              <li><strong>3. Compare the full contract.</strong> Include setup charges, rewards, mid-contract increases, minimum term and the out-of-contract price.</li>
+              <li><strong>4. Look beyond download speed.</strong> Home workers and creators should compare upload speed. Gamers should also consider latency and use Ethernet where practical.</li>
+              <li><strong>5. Confirm switching details.</strong> Ofcom&apos;s One Touch Switch process lets most residential customers contact only the new provider, which then coordinates the move and supplies key timing and cost information.</li>
+            </ol>
+            <p className="mt-4 text-sm italic leading-6 text-slate-600">{localIntel.speedGuidanceNote}</p>
+          </section>
+
+          <section className="mt-10 max-w-4xl" aria-labelledby={`${prefix.toLowerCase()}-full-fibre`}>
+            <h2 id={`${prefix.toLowerCase()}-full-fibre`} className="text-2xl font-bold text-slate-900">
+              Full-fibre broadband in {postcodeArea.town}
+            </h2>
+            <p className="mt-4 leading-7 text-slate-700">
+              Full fibre, also called FTTP, carries the connection by fibre-optic cable all the way to the premises. It normally offers higher maximum speeds and more dependable performance than FTTC, where the final section uses copper. Never assume a {postcodeArea.town} address has FTTP solely because another property nearby can order it.
+            </p>
+            {localIntel.altnetParagraphs.map((paragraph) => (
+              <p key={paragraph.slice(0, 40)} className="mt-4 leading-7 text-slate-700">
+                {paragraph}
+              </p>
+            ))}
+          </section>
+
+          <section className="mt-10 max-w-4xl" aria-labelledby={`${prefix.toLowerCase()}-moving`}>
+            <h2 id={`${prefix.toLowerCase()}-moving`} className="text-2xl font-bold text-slate-900">
+              Moving home in {postcodeArea.town}: check before choosing a provider
+            </h2>
+            <p className="mt-4 leading-7 text-slate-700">
+              Run an address check before the move date and ask whether an engineer visit is needed. A property with an existing compatible line may activate more quickly than one requiring a new fibre installation. Tenants should also confirm any drilling or equipment placement with the landlord. Keep the existing service active until the new provider confirms the switching date unless the provider gives different instructions.
+            </p>
+            <p className="mt-4 leading-7 text-slate-700">
+              Residents receiving Universal Credit, Pension Credit or another qualifying benefit should check social tariffs before choosing a standard promotion. Social tariffs are designed for eligible households, generally have no exit fee and may offer a more stable long-term price. Eligibility and availability vary by provider, so use our <Link href="/guides/broadband-social-tariffs-uk" className="font-semibold text-sky-700 hover:underline">UK broadband social tariffs guide</Link> alongside the address check.
+            </p>
+          </section>
+        </>
+      )}
+
       {/* FAQ */}
       <h2 className="text-xl font-bold text-slate-900 mb-4">
         Broadband in {postcodeArea.town}: Frequently Asked Questions
@@ -564,6 +637,30 @@ export default async function PostcodeAreaPage({
               <li>
                 <a href="https://www.ofcom.org.uk/phones-and-broadband/switching-provider/simpler-broadband-switching-is-here" target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:underline">Ofcom: One Touch Switch</a>
                 <p className="mt-1 text-xs leading-relaxed text-slate-500">Regulatory guidance on the residential broadband switching process.</p>
+              </li>
+            </>
+          )}
+          {hasLocalIntel && localIntel && (
+            <>
+              {districtCoverage && (
+                <li>
+                  <a href={districtCoverageSourcePage} target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:underline">
+                    {districtCoverageSourceLabel}
+                  </a>
+                  <p className="mt-1 text-xs leading-relaxed text-slate-500">Source for the {prefix} gigabit, ultrafast, superfast and below-USO coverage figures, aggregated from postcode-level records dated {districtCoverageSourceDataDate}.</p>
+                </li>
+              )}
+              {localIntel.sources.map((source) => (
+                <li key={source.href}>
+                  <a href={source.href} target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:underline">
+                    {source.label}
+                  </a>
+                  <p className="mt-1 text-xs leading-relaxed text-slate-500">{source.note}</p>
+                </li>
+              ))}
+              <li>
+                <a href="https://www.openreach.com/fibre-checker" target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:underline">Openreach Full Fibre availability checker</a>
+                <p className="mt-1 text-xs leading-relaxed text-slate-500">Address-level checker for current and planned Openreach Full Fibre availability.</p>
               </li>
             </>
           )}
