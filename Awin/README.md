@@ -45,6 +45,20 @@ refresh — it's always safe to re-run.
 python3 scripts/awin_sync.py sync
 ```
 
+**New invitations.** Awin's API has no dedicated "invitations" feed (checked
+directly against the account — there's no `/invitations` endpoint). An
+advertiser inviting you to their programme shows up exactly like a manual
+application: a brand-new `Pending` (occasionally `Joined`) relationship.
+`sync` flags every such new-or-changed relationship as a **possible new
+invitation** and prints them separately, since the API can't tell the two
+apart — go confirm which one it actually is in the Awin dashboard's
+**Programmes > Invitations** tab.
+
+```
+python3 scripts/awin_sync.py invitations       # list what's flagged
+python3 scripts/awin_sync.py mark-reviewed --advertiser <slug>   # clear it
+```
+
 **`research --advertiser <slug> [--url <site>]`** — scrapes that advertiser's
 own website and asks Claude to write a fit assessment against
 BroadbandPicker's audience: how good a fit it is, a score out of 10, a
@@ -84,8 +98,11 @@ regenerations, same as before.
 
 ## A sensible weekly rhythm
 
-1. `python3 scripts/awin_sync.py sync` — see what changed.
-2. For anything newly Pending or newly Rejected with no `research.md` yet,
+1. `python3 scripts/awin_sync.py sync` — see what changed, and whether
+   anything looks like a new invitation.
+2. `python3 scripts/awin_sync.py invitations` — review anything flagged,
+   confirm in the Awin dashboard, then `mark-reviewed` it.
+3. For anything newly Pending or newly Rejected with no `research.md` yet,
    run `research --advertiser <slug> --url <their site>`.
-3. `python3 scripts/awin_sync.py briefing` — get the prioritised plan.
-4. `python3 scripts/build_master_tracker.py` — refresh the spreadsheet.
+4. `python3 scripts/awin_sync.py briefing` — get the prioritised plan.
+5. `python3 scripts/build_master_tracker.py` — refresh the spreadsheet.

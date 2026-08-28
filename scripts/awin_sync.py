@@ -13,6 +13,21 @@ Commands:
       and log any relationship changes to that advertiser's outreach-log.md.
       Also archives a full raw snapshot under Awin/_snapshots/.
 
+      The Awin API has no dedicated "invitations" endpoint (checked directly
+      against the live account — /invitations, /notifications and
+      relationship=invited all 404/400). An advertiser inviting you shows up
+      indistinguishably from a manual application, as a brand-new Pending
+      (occasionally Joined) relationship — so `sync` flags every such
+      transition as a "possible new invitation" and prints them separately,
+      for you to confirm by eye in the Awin dashboard's Programmes >
+      Invitations tab.
+
+  invitations
+      List every advertiser still flagged as a possible new invitation.
+
+  mark-reviewed --advertiser <slug>
+      Clear the possible-invitation flag once you've confirmed it in Awin.
+
   research --advertiser <slug> [--url <site-url>]
       Scrape the advertiser's own public website and ask Claude (via the
       claude CLI, --restricted so it only writes text) to draft a fit
@@ -233,7 +248,17 @@ def sync() -> None:
     date = _today()
     (SNAPSHOTS_DIR / f"{date}.json").write_text(json.dumps(all_programmes, indent=2))
 
+    # The Awin Publisher API has no dedicated "invitations" endpoint (checked
+    # directly against the live account: /invitations, /notifications and
+    # relationship=invited all 404/400). An advertiser inviting you lands as
+    # a brand-new Pending (occasionally Joined) relationship indistinguishable
+    # via the API from you having applied yourself through the Awin UI — so
+    # any such transition is flagged as a possible invitation to go confirm
+    # by eye in the Awin dashboard's Programmes > Invitations tab.
+    INVITE_WORTHY = {"Pending", "Joined"}
+
     new_count, changed_count = 0, 0
+    possible_invitations: list[str] = []
     for status, programmes in all_programmes.items():
         relationship = status.capitalize()
         for p in programmes:
@@ -254,19 +279,47 @@ def sync() -> None:
                 "website": website,
                 "last_synced": date,
             }
+
+            is_new = previous is None
+            relationship_changed = previous is not None and previous.get("relationship") != relationship
+            is_possible_invitation = (is_new or relationship_changed) and relationship in INVITE_WORTHY
+
+            if is_possible_invitation:
+                record["possible_invitation_flagged_on"] = date
+            elif previous and previous.get("possible_invitation_flagged_on"):
+                # Carry the flag forward until a human clears it, rather than
+                # silently dropping it on an unrelated re-sync.
+                record["possible_invitation_flagged_on"] = previous["possible_invitation_flagged_on"]
+
             programme_path.write_text(json.dumps(record, indent=2))
 
-            if previous is None:
-                append_log(slug, f"Discovered via Awin API sync — relationship: {relationship}.")
+            if is_new:
+                note = " Possible new invitation from the advertiser — check Awin's Invitations tab to confirm, since the API can't tell invitation apart from a manual application." if is_possible_invitation else ""
+                append_log(slug, f"Discovered via Awin API sync — relationship: {relationship}.{note}")
                 new_count += 1
-            elif previous.get("relationship") != relationship:
-                append_log(slug, f"Relationship changed: {previous.get('relationship')} -> {relationship}.")
+                if is_possible_invitation:
+                    possible_invitations.append(f"{name} (new, {relationship})")
+            elif relationship_changed:
+                note = " Possible new invitation — check Awin's Invitations tab." if is_possible_invitation else ""
+                append_log(slug, f"Relationship changed: {previous.get('relationship')} -> {relationship}.{note}")
                 changed_count += 1
+                if is_possible_invitation:
+                    possible_invitations.append(f"{name} ({previous.get('relationship')} -> {relationship})")
 
     total = sum(len(v) for v in all_programmes.values())
     print(f"Synced {total} programmes ({', '.join(f'{k}: {len(v)}' for k, v in all_programmes.items())}).")
     print(f"New advertiser folders: {new_count}. Relationship changes logged: {changed_count}.")
-    print(f"Snapshot: {SNAPSHOTS_DIR / f'{date}.json'}")
+    if possible_invitations:
+        print(f"\nPossible new invitations to review ({len(possible_invitations)}):")
+        for line in possible_invitations:
+            print(f"  - {line}")
+        print(
+            "  (The Awin API can't distinguish an advertiser invitation from a manual "
+            "application — confirm in the Awin dashboard's Programmes > Invitations tab.)"
+        )
+    else:
+        print("No possible new invitations detected (no new Pending/Joined programmes since last sync).")
+    print(f"\nSnapshot: {SNAPSHOTS_DIR / f'{date}.json'}")
     print(f"Advertiser folders: {ADVERTISERS_DIR}")
 
 
@@ -424,6 +477,45 @@ Advertiser data:
     print(f"Written to {out_path}")
 
 
+def list_invitations() -> None:
+    """Print every advertiser still flagged as a possible new invitation."""
+    if not ADVERTISERS_DIR.exists():
+        print("No advertiser folders yet. Run `python3 scripts/awin_sync.py sync` first.", file=sys.stderr)
+        sys.exit(1)
+    found = False
+    for d in sorted(ADVERTISERS_DIR.iterdir()):
+        programme_path = d / "programme.json"
+        if not programme_path.exists():
+            continue
+        data = json.loads(programme_path.read_text())
+        flagged = data.get("possible_invitation_flagged_on")
+        if flagged:
+            found = True
+            print(f"  [{d.name}] {data['advertiser']} — {data['relationship']} — flagged {flagged}")
+    if not found:
+        print("No possible new invitations currently flagged.")
+    else:
+        print(
+            "\nConfirm each one in the Awin dashboard's Programmes > Invitations tab, then clear it with:\n"
+            "  python3 scripts/awin_sync.py mark-reviewed --advertiser <slug>"
+        )
+
+
+def mark_reviewed(slug: str) -> None:
+    programme_path = advertiser_dir(slug) / "programme.json"
+    if not programme_path.exists():
+        print(f"No programme.json for '{slug}'.", file=sys.stderr)
+        sys.exit(1)
+    data = json.loads(programme_path.read_text())
+    if not data.get("possible_invitation_flagged_on"):
+        print(f"'{slug}' has no possible-invitation flag to clear.")
+        return
+    data.pop("possible_invitation_flagged_on")
+    programme_path.write_text(json.dumps(data, indent=2))
+    append_log(slug, "Possible-invitation flag cleared after manual review in the Awin dashboard.")
+    print(f"Cleared invitation flag for '{slug}'.")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = parser.add_subparsers(dest="command")
@@ -435,6 +527,11 @@ def main() -> None:
     p_research.add_argument("--url", help="Advertiser website to scrape (required first run, unless already stored)")
 
     sub.add_parser("briefing", help="Generate a prioritised next-actions briefing across all advertisers")
+
+    sub.add_parser("invitations", help="List advertisers currently flagged as possible new invitations")
+
+    p_reviewed = sub.add_parser("mark-reviewed", help="Clear the possible-invitation flag after manual review")
+    p_reviewed.add_argument("--advertiser", required=True, help="Advertiser slug (Awin/advertisers/<slug>)")
 
     p_check = sub.add_parser("check-programmes", help="[quick look] List programmes straight from the API")
     p_check.add_argument(
@@ -454,6 +551,10 @@ def main() -> None:
         research(args.advertiser, args.url)
     elif args.command == "briefing":
         briefing()
+    elif args.command == "invitations":
+        list_invitations()
+    elif args.command == "mark-reviewed":
+        mark_reviewed(args.advertiser)
     elif args.command == "check-programmes":
         check_programmes(args.relationship)
     elif args.command == "generate-link":
