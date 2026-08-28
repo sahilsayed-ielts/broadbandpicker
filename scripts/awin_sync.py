@@ -1,24 +1,49 @@
 #!/usr/bin/env python3
-"""Talk to the Awin Publisher API directly — no manual dashboard checking,
-no manually pasting affiliate links into data/providers.ts.
+"""Awin partnerships assistant for BroadbandPicker.
 
-Two things this does:
-  1. --check-programmes   List every advertiser programme and its
-                           relationship status (joined / pending / declined
-                           / not joined), so outreach progress is a report,
-                           not a memory.
-  2. --generate-link       Ask Awin for the correct, current tracking link
-                           for a specific advertiser + destination URL,
-                           instead of hand-typing one.
+Talks to the Awin Publisher API directly (no manual dashboard checking) and
+keeps an organised, self-updating record of every advertiser relationship
+under Awin/advertisers/ — one folder per advertiser, so nothing lives only
+in someone's memory or a spreadsheet cell.
 
-Requires an AWIN_API_TOKEN environment variable (a personal API token from
-the Awin platform: user menu -> API Credentials) and AWIN_PUBLISHER_ID
-(defaults to 2942019, the publisher ID already used elsewhere in this repo).
+Commands:
+  sync
+      Pull every joined/pending/suspended/rejected programme from the Awin
+      API, create or update Awin/advertisers/<slug>/programme.json for each,
+      and log any relationship changes to that advertiser's outreach-log.md.
+      Also archives a full raw snapshot under Awin/_snapshots/.
+
+  research --advertiser <slug> [--url <site-url>]
+      Scrape the advertiser's own public website and ask Claude (via the
+      claude CLI, --restricted so it only writes text) to draft a fit
+      assessment against BroadbandPicker's audience — mirroring the manual
+      research BroadbandPicker's team already does before reapplying or
+      launching a partnership, but done automatically and consistently.
+      Writes Awin/advertisers/<slug>/research.md.
+
+  briefing
+      Read every advertiser folder (status + research notes) and ask Claude
+      to draft a single prioritised "what to do next" action plan, written
+      to Awin/reports/latest-briefing.md.
+
+  check-programmes [--relationship ...]
+      Legacy quick-look: print programme status straight from the API
+      without touching the Awin/ folder. Useful for a fast manual check.
+
+  generate-link --advertiser-id <id> --url <destination>
+      Ask Awin for the correct, current tracking link for a specific
+      advertiser + destination URL, instead of hand-typing one.
+
+Requires AWIN_API_TOKEN (Awin platform -> user menu -> API Credentials) and
+AWIN_PUBLISHER_ID (defaults to 2942019) in the environment or .env.local.
+`research` and `briefing` also require the `claude` CLI on PATH.
 
 Usage:
-    python3 scripts/awin_sync.py --check-programmes
-    python3 scripts/awin_sync.py --check-programmes --relationship pending
-    python3 scripts/awin_sync.py --generate-link --advertiser-id 1234 --url https://www.bt.com/broadband
+    python3 scripts/awin_sync.py sync
+    python3 scripts/awin_sync.py research --advertiser zen-internet
+    python3 scripts/awin_sync.py briefing
+    python3 scripts/awin_sync.py check-programmes --relationship pending
+    python3 scripts/awin_sync.py generate-link --advertiser-id 1234 --url https://www.bt.com/broadband
 """
 
 from __future__ import annotations
@@ -26,12 +51,39 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
+import subprocess
 import sys
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Any
 
 import requests
 
 API_BASE = "https://api.awin.com"
 DEFAULT_PUBLISHER_ID = "2942019"
+
+ROOT = Path(__file__).resolve().parents[1]
+AWIN_DIR = ROOT / "Awin"
+ADVERTISERS_DIR = AWIN_DIR / "advertisers"
+SNAPSHOTS_DIR = AWIN_DIR / "_snapshots"
+REPORTS_DIR = AWIN_DIR / "reports"
+PROVIDERS_TS = ROOT / "data" / "providers.ts"
+
+GENUINE_STATUSES = ["joined", "pending", "suspended", "rejected"]
+
+# Advertiser name (lowercased) -> site destination, for programmes that
+# don't map onto a single data/providers.ts entry (e.g. a comparison tool
+# rather than one ISP). Everything else is auto-matched by name.
+SITE_OVERRIDES = {
+    "broadband genie": "/compare",
+}
+
+STOPWORDS = {
+    "broadband", "phone", "and", "home", "business", "b2c", "b2b", "ltd",
+    "network", "operators", "full", "fibre", "mobile", "service", "services",
+    "internet", "provider", "roi", "uk", "the", "communications",
+}
 
 
 def get_token() -> str:
@@ -55,7 +107,40 @@ def publisher_id() -> str:
     return os.environ.get("AWIN_PUBLISHER_ID", DEFAULT_PUBLISHER_ID)
 
 
-GENUINE_STATUSES = ["joined", "pending", "suspended", "rejected"]
+def slugify(name: str) -> str:
+    s = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
+    return s or "advertiser"
+
+
+def _normalize_tokens(name: str) -> set[str]:
+    s = re.sub(r"[^a-z0-9\s]", " ", name.lower())
+    return {t for t in s.split() if t and t not in STOPWORDS}
+
+
+def _load_site_providers() -> list[tuple[str, str]]:
+    """Return (slug, name) pairs straight from data/providers.ts."""
+    if not PROVIDERS_TS.exists():
+        return []
+    text = PROVIDERS_TS.read_text()
+    slugs = re.findall(r"slug:\s*'([a-z0-9-]+)'", text)
+    names = re.findall(r"name:\s*'([^']+)'", text)
+    return list(zip(slugs, names))
+
+
+def match_live_url(advertiser_name: str) -> str:
+    """Best-effort match from an Awin advertiser name to a live site page."""
+    key = advertiser_name.strip().lower()
+    if key in SITE_OVERRIDES:
+        return SITE_OVERRIDES[key]
+    target = _normalize_tokens(advertiser_name)
+    if not target:
+        return ""
+    best_slug, best_overlap = "", 0
+    for slug, name in _load_site_providers():
+        overlap = len(target & _normalize_tokens(name))
+        if overlap > best_overlap:
+            best_overlap, best_slug = overlap, slug
+    return f"/providers/{best_slug}" if best_overlap > 0 else ""
 
 
 def _fetch_relationship(pid: str, token: str, relationship: str) -> list[dict]:
@@ -112,27 +197,266 @@ def generate_link(advertiser_id: int, destination_url: str) -> None:
     print(json.dumps(resp.json(), indent=2))
 
 
+# ---------------------------------------------------------------------------
+# Organised folder tracking: Awin/advertisers/<slug>/
+# ---------------------------------------------------------------------------
+
+def _today() -> str:
+    return datetime.now(timezone.utc).date().isoformat()
+
+
+def advertiser_dir(slug: str) -> Path:
+    d = ADVERTISERS_DIR / slug
+    d.mkdir(parents=True, exist_ok=True)
+    return d
+
+
+def append_log(slug: str, line: str) -> None:
+    d = advertiser_dir(slug)
+    log = d / "outreach-log.md"
+    if not log.exists():
+        log.write_text(f"# {slug} — outreach log\n\n")
+    with log.open("a") as f:
+        f.write(f"- **{_today()}**: {line}\n")
+
+
+def sync() -> None:
+    token = get_token()
+    pid = publisher_id()
+    ADVERTISERS_DIR.mkdir(parents=True, exist_ok=True)
+    SNAPSHOTS_DIR.mkdir(parents=True, exist_ok=True)
+
+    all_programmes: dict[str, list[dict]] = {}
+    for status in GENUINE_STATUSES:
+        all_programmes[status] = _fetch_relationship(pid, token, status)
+
+    date = _today()
+    (SNAPSHOTS_DIR / f"{date}.json").write_text(json.dumps(all_programmes, indent=2))
+
+    new_count, changed_count = 0, 0
+    for status, programmes in all_programmes.items():
+        relationship = status.capitalize()
+        for p in programmes:
+            name = p.get("name") or "Unknown"
+            slug = slugify(name)
+            d = advertiser_dir(slug)
+            programme_path = d / "programme.json"
+            previous = json.loads(programme_path.read_text()) if programme_path.exists() else None
+            live_url = (previous or {}).get("live_url") or match_live_url(name)
+            website = (previous or {}).get("website", "")
+            record = {
+                "advertiser": name,
+                "slug": slug,
+                "awin_advertiser_id": p.get("id"),
+                "sector": p.get("primarySector") or "",
+                "relationship": relationship,
+                "live_url": live_url,
+                "website": website,
+                "last_synced": date,
+            }
+            programme_path.write_text(json.dumps(record, indent=2))
+
+            if previous is None:
+                append_log(slug, f"Discovered via Awin API sync — relationship: {relationship}.")
+                new_count += 1
+            elif previous.get("relationship") != relationship:
+                append_log(slug, f"Relationship changed: {previous.get('relationship')} -> {relationship}.")
+                changed_count += 1
+
+    total = sum(len(v) for v in all_programmes.values())
+    print(f"Synced {total} programmes ({', '.join(f'{k}: {len(v)}' for k, v in all_programmes.items())}).")
+    print(f"New advertiser folders: {new_count}. Relationship changes logged: {changed_count}.")
+    print(f"Snapshot: {SNAPSHOTS_DIR / f'{date}.json'}")
+    print(f"Advertiser folders: {ADVERTISERS_DIR}")
+
+
+# ---------------------------------------------------------------------------
+# AI-assisted research and briefing (shells out to the claude CLI)
+# ---------------------------------------------------------------------------
+
+def call_claude(prompt: str, timeout: int = 180) -> str:
+    """Run a single non-interactive Claude turn, text tools disabled.
+
+    --restricted removes Bash/file-editing tools for this sub-call — it
+    should only ever hand back written analysis, never touch the repo.
+    """
+    result = subprocess.run(
+        ["claude", "-p", prompt, "--output-format", "text", "--restricted"],
+        capture_output=True,
+        text=True,
+        timeout=timeout,
+    )
+    if result.returncode != 0:
+        raise RuntimeError(f"claude CLI failed (exit {result.returncode}): {result.stderr[:800]}")
+    return result.stdout.strip()
+
+
+def scrape_site_text(url: str, max_chars: int = 4000) -> dict[str, str]:
+    from lxml import html as lh
+
+    resp = requests.get(
+        url,
+        headers={"User-Agent": "Mozilla/5.0 (compatible; BroadbandPickerResearch/1.0)"},
+        timeout=15,
+    )
+    resp.raise_for_status()
+    doc = lh.fromstring(resp.text)
+
+    title_el = doc.xpath("//title/text()")
+    title = title_el[0].strip() if title_el else ""
+    desc_el = doc.xpath("//meta[@name='description']/@content")
+    description = desc_el[0].strip() if desc_el else ""
+
+    for bad in doc.xpath("//script") + doc.xpath("//style"):
+        bad.drop_tree()
+    body_text = re.sub(r"\s+", " ", " ".join(doc.xpath("//body//text()"))).strip()[:max_chars]
+
+    return {"title": title, "description": description, "body_excerpt": body_text}
+
+
+def research(slug: str, url: str | None) -> None:
+    d = advertiser_dir(slug)
+    programme_path = d / "programme.json"
+    if not programme_path.exists():
+        print(
+            f"No programme.json for '{slug}' yet. Run `python3 scripts/awin_sync.py sync` first, "
+            "or check the slug under Awin/advertisers/.",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+
+    programme = json.loads(programme_path.read_text())
+    site_url = url or programme.get("website") or ""
+    if not site_url:
+        print(f"No website known for '{slug}' yet. Pass --url https://...", file=sys.stderr)
+        sys.exit(1)
+
+    print(f"Scraping {site_url} ...")
+    scraped = scrape_site_text(site_url)
+
+    programme["website"] = site_url
+    programme_path.write_text(json.dumps(programme, indent=2))
+
+    prompt = f"""You are BroadbandPicker's Awin affiliate partnerships assistant. \
+BroadbandPicker.co.uk is a UK broadband comparison site — its core audience is UK residential \
+(and some small-business) broadband shoppers researching providers, deals, speeds and switching.
+
+Assess how well the Awin advertiser programme below fits that audience, using the scraped \
+website content as your evidence. Be honest and specific, not generic boilerplate — if the fit \
+is weak or narrow, say so and explain why, the way an experienced affiliate manager would.
+
+Advertiser: {programme['advertiser']}
+Awin relationship: {programme['relationship']}
+Awin sector: {programme.get('sector', 'unknown')}
+Website: {site_url}
+Page title: {scraped['title']}
+Meta description: {scraped['description']}
+Scraped page text (excerpt): {scraped['body_excerpt']}
+
+Write a concise fit assessment in markdown with these sections:
+## Audience fit
+## Fit score (out of 10) and why
+## Suggested placement / pitch angle
+## Risks or reasons to be cautious
+Keep it to around 250-400 words total."""
+
+    print("Asking Claude for a fit assessment (this can take up to a couple of minutes) ...")
+    assessment = call_claude(prompt)
+
+    research_path = d / "research.md"
+    research_path.write_text(
+        f"# {programme['advertiser']} — fit assessment\n\n"
+        f"_Generated {_today()} from {site_url}_\n\n"
+        f"{assessment}\n"
+    )
+    append_log(slug, f"Research refreshed from {site_url}.")
+    print(f"Written to {research_path}")
+
+
+def briefing() -> None:
+    if not ADVERTISERS_DIR.exists() or not any(ADVERTISERS_DIR.iterdir()):
+        print("No advertiser folders yet. Run `python3 scripts/awin_sync.py sync` first.", file=sys.stderr)
+        sys.exit(1)
+
+    entries: list[dict[str, Any]] = []
+    for d in sorted(ADVERTISERS_DIR.iterdir()):
+        programme_path = d / "programme.json"
+        if not programme_path.exists():
+            continue
+        programme = json.loads(programme_path.read_text())
+        research_path = d / "research.md"
+        if research_path.exists():
+            programme["research_excerpt"] = research_path.read_text()[:1500]
+        entries.append(programme)
+
+    prompt = f"""You are the Awin affiliate partnerships assistant for BroadbandPicker.co.uk, a UK \
+broadband comparison site earning affiliate revenue through the Awin network. Below is the current \
+status of every advertiser programme on the account, pulled live from the Awin API, plus any \
+research notes already on file.
+
+Write a prioritised action briefing in markdown with three sections:
+
+## P0 — Activate joined programmes
+For each Joined programme: the single most valuable next action to actually start earning from it \
+(e.g. verify the tracking link, feature it on a relevant page, check it's not already live and \
+under-promoted).
+
+## P1 — Follow up on pending applications
+Order these by how likely and how valuable a follow-up is. Say what evidence or angle to lead with.
+
+## P2 — Selective, evidence-led reapplications
+For Rejected/Suspended programmes: which ones are worth reapplying to, and what would need to be \
+true (traffic, content, compliance) before doing so. Do not recommend bulk reapplying.
+
+Be specific to each named advertiser — no generic filler. Reference the live_url field when \
+recommending where to feature a programme.
+
+Advertiser data:
+{json.dumps(entries, indent=2)}
+"""
+
+    print("Asking Claude to draft the briefing (this can take up to a couple of minutes) ...")
+    text = call_claude(prompt, timeout=240)
+
+    REPORTS_DIR.mkdir(parents=True, exist_ok=True)
+    out_path = REPORTS_DIR / "latest-briefing.md"
+    out_path.write_text(f"# Awin partnerships briefing\n\n_Generated {_today()}_\n\n{text}\n")
+    print(f"Written to {out_path}")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--check-programmes", action="store_true", help="List advertiser programmes and status")
-    parser.add_argument(
-        "--relationship",
-        default="any",
+    sub = parser.add_subparsers(dest="command")
+
+    sub.add_parser("sync", help="Pull live status from the Awin API into Awin/advertisers/")
+
+    p_research = sub.add_parser("research", help="Scrape an advertiser's site and draft an AI fit assessment")
+    p_research.add_argument("--advertiser", required=True, help="Advertiser slug (Awin/advertisers/<slug>)")
+    p_research.add_argument("--url", help="Advertiser website to scrape (required first run, unless already stored)")
+
+    sub.add_parser("briefing", help="Generate a prioritised next-actions briefing across all advertisers")
+
+    p_check = sub.add_parser("check-programmes", help="[quick look] List programmes straight from the API")
+    p_check.add_argument(
+        "--relationship", default="any",
         choices=["joined", "pending", "suspended", "rejected", "notjoined", "any"],
-        help="Filter programmes by relationship status. 'any' (default) covers "
-        "joined/pending/suspended/rejected together; 'notjoined' is separate "
-        "because it returns the whole ~21k Awin catalogue.",
     )
-    parser.add_argument("--generate-link", action="store_true", help="Generate a tracking link")
-    parser.add_argument("--advertiser-id", type=int, help="Awin advertiser ID (required with --generate-link)")
-    parser.add_argument("--url", help="Destination URL to wrap in a tracking link (required with --generate-link)")
+
+    p_link = sub.add_parser("generate-link", help="Generate a tracking link for an advertiser + destination URL")
+    p_link.add_argument("--advertiser-id", type=int, required=True)
+    p_link.add_argument("--url", required=True)
+
     args = parser.parse_args()
 
-    if args.check_programmes:
+    if args.command == "sync":
+        sync()
+    elif args.command == "research":
+        research(args.advertiser, args.url)
+    elif args.command == "briefing":
+        briefing()
+    elif args.command == "check-programmes":
         check_programmes(args.relationship)
-    elif args.generate_link:
-        if not args.advertiser_id or not args.url:
-            parser.error("--generate-link requires --advertiser-id and --url")
+    elif args.command == "generate-link":
         generate_link(args.advertiser_id, args.url)
     else:
         parser.print_help()

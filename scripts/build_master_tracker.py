@@ -29,6 +29,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import json
 import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
@@ -50,32 +51,48 @@ DEFAULT_STATUS = "Not started"
 
 AWIN_MANUAL_HEADERS = ("Status", "Owner", "Last Contacted", "Next Follow-up", "Decision / Feedback")
 
-# Awin work is deliberately separated from the product/content build queue.
-# Programme status was last verified through the Awin Publisher API on
-# 2026-08-23; the action order favours monetising joined programmes first,
-# then resolving pending applications, then selective evidence-led reapplications.
-AWIN_OUTREACH_PRIORITIES: list[dict[str, Any]] = [
-    {"band": "P0 Activate joined", "advertiser": "TalkTalk", "id": 3674, "relationship": "Joined", "url": "/providers/talktalk"},
-    {"band": "P0 Activate joined", "advertiser": "Zzoomm", "id": 40398, "relationship": "Joined", "url": "/providers/zzoomm"},
-    {"band": "P0 Activate joined", "advertiser": "Highland Broadband", "id": 99387, "relationship": "Joined", "url": "/providers/highland-broadband"},
-    {"band": "P0 Activate joined", "advertiser": "Broadband Genie", "id": "", "relationship": "Joined", "url": "/compare"},
-    {"band": "P1 Follow up pending", "advertiser": "Community Fibre", "id": 19595, "relationship": "Pending", "url": "/providers/community-fibre"},
-    {"band": "P1 Follow up pending", "advertiser": "Zen Internet", "id": 119927, "relationship": "Pending", "url": "/providers/zen"},
-    {"band": "P1 Follow up pending", "advertiser": "National Broadband", "id": 20858, "relationship": "Pending", "url": "/providers/national-broadband"},
-    {"band": "P1 Follow up pending", "advertiser": "Trooli", "id": 25528, "relationship": "Pending", "url": "/providers/trooli"},
-    {"band": "P1 Follow up pending", "advertiser": "Pine Media", "id": 27840, "relationship": "Pending", "url": "/providers/pine-media"},
-    {"band": "P1 Follow up pending", "advertiser": "Cuckoo", "id": 118743, "relationship": "Pending", "url": "/providers/cuckoo"},
-    {"band": "P1 Follow up pending", "advertiser": "Sky ROI", "id": "", "relationship": "Pending", "url": "/providers/sky"},
-    {"band": "P2 Reapply with evidence", "advertiser": "BT Consumer", "id": 3041, "relationship": "Rejected", "url": "/providers/bt"},
-    {"band": "P2 Reapply with evidence", "advertiser": "BT Business", "id": 3042, "relationship": "Rejected", "url": "/providers/bt"},
-    {"band": "P2 Reapply with evidence", "advertiser": "Virgin Media", "id": 6399, "relationship": "Rejected", "url": "/providers/virgin-media"},
-    {"band": "P2 Reapply with evidence", "advertiser": "EE", "id": 3516, "relationship": "Rejected", "url": "/providers/ee"},
-    {"band": "P2 Reapply with evidence", "advertiser": "Plusnet", "id": 2973, "relationship": "Rejected", "url": "/providers/plusnet"},
-    {"band": "P2 Reapply with evidence", "advertiser": "Vodafone", "id": 1257, "relationship": "Rejected", "url": "/providers/vodafone"},
-    {"band": "P2 Reapply with evidence", "advertiser": "Hyperoptic", "id": 5737, "relationship": "Rejected", "url": "/providers/hyperoptic"},
-    {"band": "P2 Reapply with evidence", "advertiser": "toob", "id": 117433, "relationship": "Rejected", "url": "/providers/toob"},
-    {"band": "P2 Reapply with evidence", "advertiser": "giffgaff", "id": 3599, "relationship": "Rejected", "url": "/providers/giffgaff"},
-]
+AWIN_ADVERTISERS_DIR = ROOT / "Awin" / "advertisers"
+
+# Priority band per relationship, in display order. Awin work is deliberately
+# separated from the product/content build queue: monetise joined programmes
+# first, then resolve pending applications, then make selective evidence-led
+# reapplications. "Prospect" (an inbound pitch, not an Awin application) sorts
+# last since it isn't an active partnership decision yet.
+AWIN_BAND_ORDER = {
+    "Joined": "P0 Activate joined",
+    "Pending": "P1 Follow up pending",
+    "Suspended": "P1 Follow up pending",
+    "Rejected": "P2 Reapply with evidence",
+    "Prospect": "P3 Under review",
+}
+
+
+def load_awin_advertisers() -> list[dict[str, Any]]:
+    """Read every Awin/advertisers/<slug>/programme.json — the live-synced
+    replacement for a hand-maintained priority list. Run
+    `python3 scripts/awin_sync.py sync` to refresh these from the Awin API."""
+    if not AWIN_ADVERTISERS_DIR.exists():
+        return []
+    programmes = []
+    for d in sorted(AWIN_ADVERTISERS_DIR.iterdir()):
+        programme_path = d / "programme.json"
+        if not programme_path.exists():
+            continue
+        try:
+            data = json.loads(programme_path.read_text())
+        except (json.JSONDecodeError, OSError):
+            continue
+        relationship = data.get("relationship", "Prospect")
+        programmes.append({
+            "band": AWIN_BAND_ORDER.get(relationship, "P3 Under review"),
+            "advertiser": data.get("advertiser", d.name),
+            "id": data.get("awin_advertiser_id") or "",
+            "relationship": relationship,
+            "url": data.get("live_url") or "",
+        })
+    band_rank = {band: i for i, band in enumerate(dict.fromkeys(AWIN_BAND_ORDER.values()))}
+    programmes.sort(key=lambda p: (band_rank.get(p["band"], 99), p["advertiser"]))
+    return programmes
 
 # ---------------------------------------------------------------------------
 # Feature / UX / content-strategy builds — curated from the growth playbook.
@@ -117,13 +134,15 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "description": (
             "Apply to best-fit provider programmes with tailored pitches, relevant live URLs, "
             "audience evidence, promotional method and compliance controls; log decisions and feedback. "
-            "Real status pulled from the Awin Publisher API 2026-08-23 (see "
-            "ops-awin-publisher-api-integration): joined -- TalkTalk, Broadband Genie, Zzoomm, "
-            "Highland Broadband. Pending -- Sky ROI, Community Fibre, National Broadband, Trooli, "
-            "Pine Media, Cuckoo, Zen Internet. Rejected -- BT (consumer + business), Vodafone, "
-            "Plusnet, EE, Virgin Media, Hyperoptic, toob, giffgaff. The 8 rejected mainstream "
-            "providers are the priority re-application targets; Zzoomm and Highland Broadband are "
-            "approved but not yet added as providers on the site at all."
+            "Status is no longer a hardcoded snapshot -- see ops-awin-partnerships-workspace: run "
+            "`python3 scripts/awin_sync.py sync` to pull current status from the Awin Publisher API "
+            "straight into Awin/advertisers/, which is what the Awin Outreach Priority sheet reads. "
+            "As of the last sync: joined -- TalkTalk, Broadband Genie, Zzoomm, Highland Broadband. "
+            "Pending -- Sky ROI, Community Fibre, National Broadband, Trooli, Pine Media, Cuckoo, "
+            "Zen Internet. Rejected -- BT (consumer + business), Vodafone, Plusnet, EE, Virgin Media, "
+            "Hyperoptic, toob, giffgaff. The 8 rejected mainstream providers are the priority "
+            "re-application targets; Zzoomm and Highland Broadband are approved but not yet added "
+            "as providers on the site at all."
         ),
         "priority_score": 60,
         "impact_score": 70,
@@ -2043,6 +2062,45 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-27/28 — 'the postcode pages share templates, so they should not all receive generic expanded copy'",
     },
     {
+        "item_id": "ops-awin-partnerships-workspace",
+        "type": "Tooling",
+        "pillar": "Monetisation",
+        "title": "Organised Awin/ folder workspace with AI-assisted research and briefing",
+        "description": (
+            "Replaced the hardcoded AWIN_OUTREACH_PRIORITIES list (19 advertisers, last "
+            "manually verified 2026-08-23) with a self-updating folder system: "
+            "Awin/advertisers/<slug>/ holds programme.json (live relationship, Awin ID, "
+            "sector, auto-matched live site URL), research.md (AI-drafted fit assessment) "
+            "and outreach-log.md (dated history of status changes and research refreshes). "
+            "Rewrote scripts/awin_sync.py with three new subcommands on top of the existing "
+            "Awin Publisher API integration: `sync` pulls joined/pending/suspended/rejected "
+            "from the live API, creates/updates each advertiser's programme.json, diff-logs "
+            "relationship changes, and archives a raw snapshot under Awin/_snapshots/; "
+            "`research --advertiser <slug> --url <site>` scrapes the advertiser's own website "
+            "and shells out to the claude CLI (`claude -p ... --restricted`, so the sub-call "
+            "can only write text, not touch the repo) to draft a sourced fit assessment -- "
+            "audience fit, score /10, pitch angle, risks -- the same judgment "
+            "Awin/review_world_businesses_for_sale.py used to do by hand for one advertiser; "
+            "`briefing` reads every advertiser folder and asks Claude for one prioritised "
+            "P0/P1/P2 action plan, written to Awin/reports/latest-briefing.md. Verified live "
+            "against the real Awin account: `sync` correctly discovered and auto-URL-matched "
+            "all 20 existing advertisers (4 joined, 7 pending, 9 rejected) with zero manual "
+            "corrections needed, and a `claude -p --restricted` round trip was confirmed "
+            "working end-to-end before shipping. build_master_tracker.py's Awin Outreach "
+            "Priority sheet now reads load_awin_advertisers() from these folders instead of "
+            "a static list, so it can never go stale between manual edits. The old standalone "
+            "Awin/review_world_businesses_for_sale.py was folded into "
+            "Awin/advertisers/world-businesses-for-sale/ (relationship: Prospect, since it's "
+            "an inbound pitch, not an Awin application) and removed."
+        ),
+        "priority_score": 42,
+        "impact_score": 48,
+        "effort": "Medium",
+        "target": "scripts/awin_sync.py, scripts/build_master_tracker.py, Awin/",
+        "dependencies": "ops-awin-publisher-api-integration",
+        "source": "User request 2026-08-28 — 'the script should be like my assistant ... use claude's intelligence'",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",
@@ -2326,24 +2384,29 @@ def build_workbook(
         "Last Contacted", "Next Follow-up", "Decision / Feedback",
     ]
     awin_rows = []
-    for rank, programme in enumerate(AWIN_OUTREACH_PRIORITIES, 1):
+    for rank, programme in enumerate(load_awin_advertisers(), 1):
         manual = awin_overrides.get(programme["advertiser"], {})
         relationship = programme["relationship"]
         if relationship == "Joined":
             action = "Verify the tracked deep link, feature the programme on relevant pages and reconcile GA4 outbound clicks against Awin transactions."
             timing = "Now: approved revenue opportunity"
             default = "In progress"
-        elif relationship == "Pending":
+        elif relationship in ("Pending", "Suspended"):
             action = "Check API status and send one tailored follow-up with the relevant live page, audience evidence and compliance controls."
             timing = "After a reasonable review interval"
             default = "Waiting on advertiser"
+        elif relationship == "Prospect":
+            action = "Not an active Awin application yet — decide whether to apply at all based on the fit assessment in Awin/advertisers/<slug>/research.md."
+            timing = "No timing pressure — inbound pitch, not a pending application"
+            default = "Under review"
         else:
             action = "Reapply selectively with stronger GSC traffic, GA4 commercial-click and content-quality evidence; record the rejection reason first."
             timing = "Gate on stronger evidence; do not bulk reapply"
             default = "Not started"
+        url = f"https://broadbandpicker.co.uk{programme['url']}" if programme["url"] else ""
         awin_rows.append([
             rank, programme["band"], programme["advertiser"], programme["id"], relationship,
-            action, f"https://broadbandpicker.co.uk{programme['url']}", timing,
+            action, url, timing,
             manual.get("Status") or default, manual.get("Owner") or "",
             manual.get("Last Contacted") or "", manual.get("Next Follow-up") or "",
             manual.get("Decision / Feedback") or "",

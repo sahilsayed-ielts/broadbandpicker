@@ -1,0 +1,37 @@
+{
+  "advertiser": "World Businesses for Sale",
+  "slug": "world-businesses-for-sale",
+  "awin_advertiser_id": null,
+  "sector": "Business marketplace",
+  "relationship": "Prospect",
+  "live_url": "",
+  "website": "https://www.worldbusinessesforsale.com",
+  "last_synced": null,
+  "commission": {
+    "structure": "Leads and conversions",
+    "rate": "Generous commission rates (exact rate card not disclosed in outreach message — request from contact before launch)",
+    "notes": "Also offers tenancy budgets and custom campaigns for larger partners."
+  },
+  "fast_facts": {
+    "cookie_window_standard": "30 days",
+    "cookie_window_creators": "60 days",
+    "average_order_value_gbp": 1500,
+    "conversion_potential": "Global buyer interest described as high-converting",
+    "validation_speed": "Fast validation",
+    "payment_reliability": "Reliable payments",
+    "affiliate_support": "Dedicated affiliate support"
+  },
+  "ideal_partner_profile": [
+    "Business, finance, travel & lifestyle influencers",
+    "Entrepreneurship bloggers and content creators",
+    "Investment / career-change vloggers and YouTubers",
+    "Business & finance media / editorial platforms",
+    "Voucher & cashback partners"
+  ],
+  "contact": {
+    "name": "Shah Chowdhury",
+    "email": "sales@worldbusinessesforsale.com",
+    "phone": "+44 0121 818 6200"
+  },
+  "notes": "Not an active Awin application — an inbound outreach pitch, reviewed for fit before deciding whether to apply at all. Relationship is 'Prospect', not one of the Awin API's genuine statuses."
+}
