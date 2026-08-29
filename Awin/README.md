@@ -135,6 +135,33 @@ only** — nothing is ever sent automatically. Writes `draft-reply.md`.
 python3 scripts/awin_sync.py draft-reply --advertiser connect-fibre --contact-name Remon
 ```
 
+**Once an advertiser accepts (or you accept theirs)** — send them a content
+questionnaire instead of manually chasing pricing, packages and USPs over
+email:
+
+```
+python3 scripts/awin_sync.py generate-onboarding-link --advertiser connect-fibre
+```
+
+This gives you a link to `https://broadbandpicker.co.uk/partners/onboarding/<token>`
+(valid 30 days, reuses an existing valid one if you already generated it).
+Commit and deploy `data/partner-onboarding-tokens.json` for the link to go
+live, then send it to your contact. It's a professional, site-branded
+questionnaire (packages & pricing, coverage, positioning/segments, trust
+evidence, exclusives, plus logo/T&Cs/rate-card uploads) matching the actual
+fields BroadbandPicker's content pipeline needs — mapped directly to the
+`Provider` schema and the comparison-page structure already in use. The link
+is `noindex` and excluded from the sitemap and robots.txt.
+
+Submissions email you the full structured response (as JSON, plus any
+uploaded files) and best-effort log to Supabase if configured. Bring a
+submission into the advertiser's tracked folder, where `research`,
+`recommend` and `draft-reply` will use it as context:
+
+```
+python3 scripts/awin_sync.py import-onboarding-response --advertiser connect-fibre --file ~/Downloads/onboarding-connect-fibre-2026-08-29.json
+```
+
 **`research --advertiser <slug> [--url <site>]`** — scrapes that advertiser's
 own website and asks Claude to write a fit assessment against
 BroadbandPicker's audience: how good a fit it is, a score out of 10, a
@@ -159,6 +186,17 @@ python3 scripts/awin_sync.py briefing
 **`check-programmes`** and **`generate-link`** are the original quick-look
 tools: print live status straight from the API without touching this folder,
 or generate a tracking link for a specific advertiser + URL.
+
+## One-time setup for the onboarding questionnaire
+
+The questionnaire works over email out of the box (it reuses the same Gmail
+SMTP already configured for the contact form) — nothing to set up there. If
+you want submissions also durably logged in Supabase (belt-and-braces, not
+required), run the new `partner_onboarding_responses` table once in the
+Supabase SQL editor: open `supabase/schema.sql`, copy the whole file
+(idempotent — safe even though the other tables already exist) and run it.
+If you skip this, submissions still arrive by email; only the optional
+Supabase copy is affected.
 
 ## How this feeds the master tracker
 

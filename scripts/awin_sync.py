@@ -66,6 +66,21 @@ Commands:
       -- nothing is sent automatically. Writes
       Awin/advertisers/<slug>/draft-reply.md.
 
+  generate-onboarding-link --advertiser <slug>
+      Create a tokenised link to /partners/onboarding/<token> on the live
+      site -- a content-planning questionnaire the advertiser fills in
+      themselves (packages, pricing, coverage, USPs, trust evidence,
+      exclusives, plus file uploads for logo/T&Cs/rate card). Reuses an
+      existing valid link if one was already generated. Writes to
+      data/partner-onboarding-tokens.json, which must be committed and
+      deployed before the link works.
+
+  import-onboarding-response --advertiser <slug> --file <path>
+      Ingest a submitted questionnaire response (saved from the email
+      notification's JSON attachment) into
+      Awin/advertisers/<slug>/onboarding-response.json, where it becomes
+      input for `research`, `recommend` and content planning.
+
   research --advertiser <slug> [--url <site-url>]
       Scrape the advertiser's own public website and ask Claude (via the
       claude CLI, --restricted so it only writes text) to draft a fit
@@ -106,9 +121,10 @@ import hashlib
 import json
 import os
 import re
+import secrets
 import subprocess
 import sys
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
@@ -124,6 +140,9 @@ SNAPSHOTS_DIR = AWIN_DIR / "_snapshots"
 REPORTS_DIR = AWIN_DIR / "reports"
 PLAYBOOK_PATH = AWIN_DIR / "playbooks" / "negotiation-playbook.md"
 PROVIDERS_TS = ROOT / "data" / "providers.ts"
+ONBOARDING_TOKENS_PATH = ROOT / "data" / "partner-onboarding-tokens.json"
+SITE_BASE_URL = "https://broadbandpicker.co.uk"
+ONBOARDING_TOKEN_VALIDITY_DAYS = 30
 
 GENUINE_STATUSES = ["joined", "pending", "suspended", "rejected"]
 
@@ -802,6 +821,76 @@ def mark_reviewed(slug: str) -> None:
     print(f"Cleared invitation flag for '{slug}'.")
 
 
+def generate_onboarding_link(slug: str) -> None:
+    """Create (or refresh) a content-onboarding link for an advertiser.
+
+    The token maps to data/partner-onboarding-tokens.json, which is a
+    committed data file like every other data/*.ts source in this repo --
+    generating a link here does nothing live until it's committed and
+    deployed, same as any other data change.
+    """
+    d = advertiser_dir(slug)
+    programme_path = d / "programme.json"
+    if not programme_path.exists():
+        print(f"No programme.json for '{slug}'. Run `sync` or `add-invitation` first.", file=sys.stderr)
+        sys.exit(1)
+    programme = json.loads(programme_path.read_text())
+
+    tokens_data = json.loads(ONBOARDING_TOKENS_PATH.read_text()) if ONBOARDING_TOKENS_PATH.exists() else {"generatedAt": _today(), "tokens": {}}
+
+    # Reuse an existing, still-valid token for this advertiser instead of
+    # minting a new one every time this is run.
+    for existing_token, entry in tokens_data.get("tokens", {}).items():
+        if entry.get("advertiserSlug") == slug and datetime.fromisoformat(entry["expiresAt"]) > datetime.now(timezone.utc):
+            url = f"{SITE_BASE_URL}/partners/onboarding/{existing_token}"
+            print(f"Existing valid link for '{slug}': {url}")
+            print(f"(expires {entry['expiresAt']})")
+            return
+
+    token = secrets.token_urlsafe(24)
+    now = datetime.now(timezone.utc)
+    expires = now + timedelta(days=ONBOARDING_TOKEN_VALIDITY_DAYS)
+    tokens_data.setdefault("tokens", {})[token] = {
+        "advertiserSlug": slug,
+        "advertiserName": programme["advertiser"],
+        "createdAt": now.date().isoformat(),
+        "expiresAt": expires.isoformat(),
+    }
+    tokens_data["generatedAt"] = _today()
+    ONBOARDING_TOKENS_PATH.write_text(json.dumps(tokens_data, indent=2))
+
+    url = f"{SITE_BASE_URL}/partners/onboarding/{token}"
+    append_log(slug, f"Onboarding link generated (expires {expires.date().isoformat()}).")
+    print(f"Onboarding link for {programme['advertiser']}: {url}")
+    print(f"Valid until {expires.date().isoformat()}.")
+    print(
+        "\nThis link will 404 until data/partner-onboarding-tokens.json is committed and deployed:\n"
+        "  git add data/partner-onboarding-tokens.json && git commit -m 'chore: add onboarding link' "
+        f"&& git push && vercel --prod --yes"
+    )
+
+
+def import_onboarding_response(slug: str, file_path: str) -> None:
+    """Ingest a submitted onboarding response (saved from the notification
+    email's JSON attachment) into the advertiser's tracked folder."""
+    d = advertiser_dir(slug)
+    src = Path(file_path)
+    if not src.exists():
+        print(f"File not found: {src}", file=sys.stderr)
+        sys.exit(1)
+    try:
+        submission = json.loads(src.read_text())
+    except json.JSONDecodeError as e:
+        print(f"'{src}' is not valid JSON: {e}", file=sys.stderr)
+        sys.exit(1)
+
+    out_path = d / "onboarding-response.json"
+    out_path.write_text(json.dumps(submission, indent=2))
+    append_log(slug, f"Onboarding questionnaire response imported from {src.name}.")
+    print(f"Imported onboarding response to {out_path}")
+    print("This is now available as content-planning input for research/recommend/draft-reply.")
+
+
 def _load_playbook() -> str:
     if PLAYBOOK_PATH.exists():
         return PLAYBOOK_PATH.read_text()
@@ -821,6 +910,7 @@ def _load_advertiser_context(slug: str) -> tuple[dict, dict[str, str]]:
         ("research", "research.md"),
         ("invitation_analysis", "invitation-analysis.md"),
         ("terms_assessment", "terms-assessment.md"),
+        ("onboarding_response", "onboarding-response.json"),
     ]:
         path = d / filename
         if path.exists():
@@ -1030,6 +1120,13 @@ def main() -> None:
     p_draft.add_argument("--advertiser", required=True, help="Advertiser slug (Awin/advertisers/<slug>)")
     p_draft.add_argument("--contact-name", help="Name of the person who sent the invitation, if known")
 
+    p_gen_onboard = sub.add_parser("generate-onboarding-link", help="Create a content-onboarding questionnaire link for an advertiser")
+    p_gen_onboard.add_argument("--advertiser", required=True, help="Advertiser slug (Awin/advertisers/<slug>)")
+
+    p_import_onboard = sub.add_parser("import-onboarding-response", help="Ingest a submitted onboarding questionnaire response")
+    p_import_onboard.add_argument("--advertiser", required=True, help="Advertiser slug (Awin/advertisers/<slug>)")
+    p_import_onboard.add_argument("--file", required=True, help="Path to the submission JSON (from the notification email)")
+
     p_check = sub.add_parser("check-programmes", help="[quick look] List programmes straight from the API")
     p_check.add_argument(
         "--relationship", default="any",
@@ -1062,6 +1159,10 @@ def main() -> None:
         draft_reply(args.advertiser, args.contact_name)
     elif args.command == "mark-reviewed":
         mark_reviewed(args.advertiser)
+    elif args.command == "generate-onboarding-link":
+        generate_onboarding_link(args.advertiser)
+    elif args.command == "import-onboarding-response":
+        import_onboarding_response(args.advertiser, args.file)
     elif args.command == "check-programmes":
         check_programmes(args.relationship)
     elif args.command == "generate-link":

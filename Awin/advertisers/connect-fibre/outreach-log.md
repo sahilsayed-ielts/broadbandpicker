@@ -11,3 +11,4 @@
 - **2026-08-29**: Terms & conditions assessed from 1 unique file(s), 1 duplicate(s) excluded.
 - **2026-08-29**: Final accept/decline recommendation generated.
 - **2026-08-29**: Draft reply to advertiser generated.
+- **2026-08-29**: Onboarding link generated (expires 2026-09-28).
