@@ -1,0 +1,550 @@
+{
+  "joined": [
+    {
+      "description": "The UK's leading value for money provider of fixed line broadband and voice telephony services to consumers and business users.",
+      "clickThroughUrl": "https://www.awin1.com/awclick.php?mid=3674&id=2942019",
+      "displayUrl": "http://www.talktalk.co.uk",
+      "logoUrl": "https://ui.awin.com/images/upload/merchant/profile/3674.png",
+      "id": 3674,
+      "name": "TalkTalk Phone and Broadband",
+      "currencyCode": "GBP",
+      "primaryRegion": {
+        "name": "United Kingdom",
+        "countryCode": "GB"
+      },
+      "status": "Active",
+      "primarySector": "Internet Service Provider",
+      "validDomains": [
+        {
+          "domain": "www.talktalk.co.uk"
+        },
+        {
+          "domain": "sales.talktalk.co.uk"
+        },
+        {
+          "domain": "*.talktalk.co.uk"
+        },
+        {
+          "domain": "talktalk.co.uk"
+        },
+        {
+          "domain": "int.talktalk.co.uk"
+        },
+        {
+          "domain": "int.checkout.talktalk.co.uk"
+        }
+      ]
+    },
+    {
+      "description": "First dedicated broadband comparison site in the UK",
+      "clickThroughUrl": "https://www.awin1.com/awclick.php?mid=12213&id=2942019",
+      "displayUrl": "https://www.broadbandgenie.co.uk/offers",
+      "logoUrl": "https://ui.awin.com/images/upload/merchant/profile/12213.png",
+      "id": 12213,
+      "name": "Broadband Genie",
+      "currencyCode": "GBP",
+      "primaryRegion": {
+        "name": "United Kingdom",
+        "countryCode": "GB"
+      },
+      "status": "Active",
+      "primarySector": "Mobile Broadband",
+      "validDomains": [
+        {
+          "domain": "*.broadbandgenie.co.uk"
+        },
+        {
+          "domain": "www.broadbandgenie.co.uk"
+        },
+        {
+          "domain": "broadbandgenie.co.uk"
+        }
+      ]
+    },
+    {
+      "description": "Zzoomm are a full fibre broadband network delivering rock-solid reliability and gigafast speeds directly to homes and businesses in the areas that we have built to. We currently offer broadband plans up to 2,300Mbps and pay commission on all products.",
+      "clickThroughUrl": "https://www.awin1.com/awclick.php?mid=40398&id=2942019",
+      "displayUrl": "https://zzoomm.com/",
+      "logoUrl": "https://ui.awin.com/images/upload/merchant/profile/40398.png",
+      "id": 40398,
+      "name": "Zzoomm",
+      "currencyCode": "GBP",
+      "primaryRegion": {
+        "name": "United Kingdom",
+        "countryCode": "GB"
+      },
+      "status": "Active",
+      "primarySector": "Internet Service Provider",
+      "validDomains": [
+        {
+          "domain": "zzoomm.com"
+        },
+        {
+          "domain": "*.zzoomm.com"
+        }
+      ]
+    },
+    {
+      "description": "Scotland's leading rural and semi-rural Full Fibre provider. Building the UK's fastest (10Gbps) Full Fibre Network in East Lothian, Fife, Stirlingshire and the Highlands.We offer 150, 500, 1,000 and 5,000Mbps products and pay commision on all products.",
+      "clickThroughUrl": "https://www.awin1.com/awclick.php?mid=99387&id=2942019",
+      "displayUrl": "https://highlandbroadband.com/",
+      "logoUrl": "https://ui.awin.com/images/upload/merchant/profile/99387.png",
+      "id": 99387,
+      "name": "Highland Broadband",
+      "currencyCode": "GBP",
+      "primaryRegion": {
+        "name": "United Kingdom",
+        "countryCode": "GB"
+      },
+      "status": "Active",
+      "primarySector": "Internet Service Provider",
+      "validDomains": [
+        {
+          "domain": "highlandbroadband.com"
+        },
+        {
+          "domain": "*.highlandbroadband.com"
+        }
+      ]
+    }
+  ],
+  "pending": [
+    {
+      "description": "Sky TV brings Irish customers the world\u2019s best loved shows and award-winning entertainment, including Sky Sports and Sky Cinema in full HD.",
+      "clickThroughUrl": "https://www.awin1.com/awclick.php?mid=12422&id=2942019",
+      "displayUrl": "https://www.sky.com/ireland",
+      "logoUrl": "https://ui.awin.com/images/upload/merchant/profile/12422.png",
+      "id": 12422,
+      "name": "Sky ROI",
+      "currencyCode": "GBP",
+      "primaryRegion": {
+        "name": "United Kingdom",
+        "countryCode": "GB"
+      },
+      "status": "Active",
+      "primarySector": "Internet Service Provider",
+      "validDomains": [
+        {
+          "domain": "*.sky.com"
+        }
+      ]
+    },
+    {
+      "description": "Community Fibre is London's fastest 100% full fibre broadband provider.",
+      "clickThroughUrl": "https://www.awin1.com/awclick.php?mid=19595&id=2942019",
+      "displayUrl": "https://www.communityfibre.co.uk/",
+      "logoUrl": "https://ui.awin.com/images/upload/merchant/profile/19595.png",
+      "id": 19595,
+      "name": "Community Fibre",
+      "currencyCode": "GBP",
+      "primaryRegion": {
+        "name": "United Kingdom",
+        "countryCode": "GB"
+      },
+      "status": "Active",
+      "primarySector": "Internet Service Provider",
+      "validDomains": [
+        {
+          "domain": "*.communityfibre.co.uk"
+        }
+      ]
+    },
+    {
+      "description": "We are experts in providing fast broadband over 4G to UK homes & businesses that can't get good landline broadband. Set-up takes just a few days & no landline is required. 99% of UK properties are already covered. If anyone can get you connected, it's us.",
+      "clickThroughUrl": "https://www.awin1.com/awclick.php?mid=20858&id=2942019",
+      "displayUrl": "https://www.4g-internet.co.uk",
+      "logoUrl": "https://ui.awin.com/images/upload/merchant/profile/20858.png",
+      "id": 20858,
+      "name": "National Broadband",
+      "currencyCode": "GBP",
+      "primaryRegion": {
+        "name": "United Kingdom",
+        "countryCode": "GB"
+      },
+      "status": "Active",
+      "primarySector": "Internet Service Provider",
+      "validDomains": [
+        {
+          "domain": "4g-internet.co.uk"
+        },
+        {
+          "domain": "*.4g-internet.co.uk"
+        },
+        {
+          "domain": "www.national-broadband.co.uk"
+        },
+        {
+          "domain": "*.national-broadband.co.uk"
+        },
+        {
+          "domain": "shops.myshopify.com"
+        }
+      ]
+    },
+    {
+      "description": "Trooli offer a full fibre broadband network delivering guaranteed, ultrafast and unrivalled speeds directly to homes and businesses in our network area. We offer 300, 500 and 900Mbps broadband products and pay commission on all products.",
+      "clickThroughUrl": "https://www.awin1.com/awclick.php?mid=25528&id=2942019",
+      "displayUrl": "https://www.trooli.com/",
+      "logoUrl": "https://ui.awin.com/images/upload/merchant/profile/25528.png",
+      "id": 25528,
+      "name": "Trooli Full Fibre Broadband",
+      "currencyCode": "GBP",
+      "primaryRegion": {
+        "name": "United Kingdom",
+        "countryCode": "GB"
+      },
+      "status": "Active",
+      "primarySector": "Internet Service Provider",
+      "validDomains": [
+        {
+          "domain": "www.trooli.com"
+        },
+        {
+          "domain": "*.trooli.com"
+        }
+      ]
+    },
+    {
+      "description": "Pine Media is a Sheffield-based internet service provider. We build and operate our own Full Fibre network across South Yorkshire, delivering Gigabit broadband.Our Full Fibre broadand is available to 52,000 premies across SY and increasing every day.",
+      "clickThroughUrl": "https://www.awin1.com/awclick.php?mid=27840&id=2942019",
+      "displayUrl": "https://www.pinemedia.net/",
+      "logoUrl": "https://ui.awin.com/images/upload/merchant/profile/27840.png",
+      "id": 27840,
+      "name": "Pine Media Broadband",
+      "currencyCode": "GBP",
+      "primaryRegion": {
+        "name": "United Kingdom",
+        "countryCode": "GB"
+      },
+      "status": "Active",
+      "primarySector": "Internet Service Provider",
+      "validDomains": [
+        {
+          "domain": "pinemedia.net"
+        },
+        {
+          "domain": "*.pinemedia.net"
+        }
+      ]
+    },
+    {
+      "description": "We\u2019re Cuckoo \u2013 the fast, fair, feel-good broadband provider. That means super speedy full fibre, honest prices and brilliant customer service!",
+      "clickThroughUrl": "https://www.awin1.com/awclick.php?mid=118743&id=2942019",
+      "displayUrl": "https://www.cuckoo.co/",
+      "logoUrl": "https://ui.awin.com/images/upload/merchant/profile/118743.png",
+      "id": 118743,
+      "name": "Cuckoo Broadband",
+      "currencyCode": "GBP",
+      "primaryRegion": {
+        "name": "United Kingdom",
+        "countryCode": "GB"
+      },
+      "status": "Active",
+      "primarySector": "Internet Service Provider",
+      "validDomains": [
+        {
+          "domain": "cuckoo.co"
+        },
+        {
+          "domain": "*.cuckoo.co"
+        }
+      ]
+    },
+    {
+      "description": "For 30 years, Zen Internet has been keeping homes across the UK connected. Our award-winning full fibre broadband, phone and digital services make life online simpler \u2013 with reliable connections,  UK-based support, and our unique Contract Price Promise.",
+      "clickThroughUrl": "https://www.awin1.com/awclick.php?mid=119927&id=2942019",
+      "displayUrl": "https://www.zen.co.uk/",
+      "logoUrl": "https://ui.awin.com/images/upload/merchant/profile/119927.png",
+      "id": 119927,
+      "name": "Zen Internet",
+      "currencyCode": "GBP",
+      "primaryRegion": {
+        "name": "United Kingdom",
+        "countryCode": "GB"
+      },
+      "status": "Active",
+      "primarySector": null,
+      "validDomains": [
+        {
+          "domain": "zen.co.uk"
+        },
+        {
+          "domain": "*.zen.co.uk"
+        },
+        {
+          "domain": "*.testing.zen.co.uk"
+        },
+        {
+          "domain": "testing.zen.co.uk"
+        }
+      ]
+    }
+  ],
+  "suspended": [],
+  "rejected": [
+    {
+      "description": "Vodafone is the worlds largest mobile phone network with a massive global brand and presence. In terms of coverage it is number 1 in the UK and has pioneered the development of 3G products and services.",
+      "clickThroughUrl": "https://www.awin1.com/awclick.php?mid=1257&id=2942019",
+      "displayUrl": "https://shop.vodafone.co.uk",
+      "logoUrl": "https://ui.awin.com/images/upload/merchant/profile/1257.png",
+      "id": 1257,
+      "name": "Vodafone Ltd",
+      "currencyCode": "GBP",
+      "primaryRegion": {
+        "name": "United Kingdom",
+        "countryCode": "GB"
+      },
+      "status": "Active",
+      "primarySector": "Network Operators",
+      "validDomains": [
+        {
+          "domain": "www.v-store.co.uk"
+        },
+        {
+          "domain": "shop.vodafone.co.uk"
+        },
+        {
+          "domain": "fls.uk.doubleclick.net"
+        },
+        {
+          "domain": "www.vodafone.co.uk"
+        },
+        {
+          "domain": "*.vodafone.co.uk"
+        },
+        {
+          "domain": "vodafone.co.uk"
+        },
+        {
+          "domain": "*.v.vodafone.com"
+        }
+      ]
+    },
+    {
+      "description": "Plusnet is a friendly, no-nonsense, award-winning communications provider. We were born back in 1997 with a simple belief - everyone deserves to pay a fair price and still get great customer service.",
+      "clickThroughUrl": "https://www.awin1.com/awclick.php?mid=2973&id=2942019",
+      "displayUrl": "https://www.plus.net/broadband/",
+      "logoUrl": "https://ui.awin.com/images/upload/merchant/profile/2973.png",
+      "id": 2973,
+      "name": "Plusnet Broadband",
+      "currencyCode": "GBP",
+      "primaryRegion": {
+        "name": "United Kingdom",
+        "countryCode": "GB"
+      },
+      "status": "Active",
+      "primarySector": "Internet Service Provider",
+      "validDomains": [
+        {
+          "domain": "www.plus.net"
+        },
+        {
+          "domain": "*.portal.plus.net"
+        },
+        {
+          "domain": "portal.plus.net"
+        },
+        {
+          "domain": "plus.net"
+        },
+        {
+          "domain": "*.plus.net"
+        }
+      ]
+    },
+    {
+      "description": "One of the world's leading providers of communications solutions. Through the programme, you can promote all of BT's broadband, TV or mobile products individually or as part of a number of great value packages and bundles.",
+      "clickThroughUrl": "https://www.awin1.com/awclick.php?mid=3041&id=2942019",
+      "displayUrl": "https://www.bt.com",
+      "logoUrl": "https://ui.awin.com/images/upload/merchant/profile/3041.png",
+      "id": 3041,
+      "name": "BT Broadband",
+      "currencyCode": "GBP",
+      "primaryRegion": {
+        "name": "United Kingdom",
+        "countryCode": "GB"
+      },
+      "status": "Active",
+      "primarySector": "Internet Service Provider",
+      "validDomains": [
+        {
+          "domain": "www.bt.com"
+        },
+        {
+          "domain": "*.bt.com"
+        },
+        {
+          "domain": "products.bt.com"
+        },
+        {
+          "domain": "bt.com"
+        }
+      ]
+    },
+    {
+      "description": "BT is one of the world\u2019s leading providers of communications solutions and services operating in more than 170 countries",
+      "clickThroughUrl": "https://www.awin1.com/awclick.php?mid=3042&id=2942019",
+      "displayUrl": "https://business.bt.com/packages/",
+      "logoUrl": "https://ui.awin.com/images/upload/merchant/profile/3042.png",
+      "id": 3042,
+      "name": "BT Business Broadband",
+      "currencyCode": "GBP",
+      "primaryRegion": {
+        "name": "United Kingdom",
+        "countryCode": "GB"
+      },
+      "status": "Active",
+      "primarySector": "B2B Telecommunications Services",
+      "validDomains": [
+        {
+          "domain": "*.business.bt.com"
+        },
+        {
+          "domain": "www.productsandservices.bt.com"
+        },
+        {
+          "domain": "business.bt.com"
+        }
+      ]
+    },
+    {
+      "description": "EE , the UK\u2019s most advanced digital communications company, is the first in Britain to offer superfast 4G mobile services alongside Fibre broadband.",
+      "clickThroughUrl": "https://www.awin1.com/awclick.php?mid=3516&id=2942019",
+      "displayUrl": "https://ee.co.uk/broadband",
+      "logoUrl": "https://ui.awin.com/images/upload/merchant/profile/3516.png",
+      "id": 3516,
+      "name": "EE Home Broadband",
+      "currencyCode": "GBP",
+      "primaryRegion": {
+        "name": "United Kingdom",
+        "countryCode": "GB"
+      },
+      "status": "Active",
+      "primarySector": "Internet Service Provider",
+      "validDomains": [
+        {
+          "domain": "myeeoffers.co.uk"
+        },
+        {
+          "domain": "*.broadband.ee.co.uk"
+        },
+        {
+          "domain": "fls.doubleclick.net"
+        },
+        {
+          "domain": "*.fls.doubleclick.net"
+        },
+        {
+          "domain": "*.ee.co.uk"
+        },
+        {
+          "domain": "broadband.ee.co.uk"
+        }
+      ]
+    },
+    {
+      "description": "giffgaff costs you miles less than other mobile networks. We are an online SIM only business and our standard rates are less than half those charged by the big networks. We promise to always keep things simple and to always do our best to be fair.",
+      "clickThroughUrl": "https://www.awin1.com/awclick.php?mid=3599&id=2942019",
+      "displayUrl": "https://www.giffgaff.com",
+      "logoUrl": "https://ui.awin.com/images/upload/merchant/profile/3599.png",
+      "id": 3599,
+      "name": "giffgaff",
+      "currencyCode": "GBP",
+      "primaryRegion": {
+        "name": "United Kingdom",
+        "countryCode": "GB"
+      },
+      "status": "Active",
+      "primarySector": "Network Operators",
+      "validDomains": [
+        {
+          "domain": "www.giffgaff.com"
+        },
+        {
+          "domain": "*.giffgaff.com"
+        }
+      ]
+    },
+    {
+      "description": "Hyperoptic is the UK\u2019s hyperfast broadband provider, bringing full fibre speeds to homes and businesses nationwide.",
+      "clickThroughUrl": "https://www.awin1.com/awclick.php?mid=5737&id=2942019",
+      "displayUrl": "https://hyperoptic.com/offer/affiliate-deal/",
+      "logoUrl": "https://ui.awin.com/images/upload/merchant/profile/5737.png",
+      "id": 5737,
+      "name": "Hyperoptic B2C",
+      "currencyCode": "GBP",
+      "primaryRegion": {
+        "name": "United Kingdom",
+        "countryCode": "GB"
+      },
+      "status": "Active",
+      "primarySector": "Internet Service Provider",
+      "validDomains": [
+        {
+          "domain": "*.hyperoptic.com"
+        },
+        {
+          "domain": "www.hyperoptic.com"
+        },
+        {
+          "domain": "hyperoptic.com"
+        }
+      ]
+    },
+    {
+      "description": "Virgin Media is the UK's number 1 provider of superfast broadband, TV with TiVo in stunning HD and home phone services. What\u2019s more, customer\u2019s don't need a dish because it all comes through our cables!",
+      "clickThroughUrl": "https://www.awin1.com/awclick.php?mid=6399&id=2942019",
+      "displayUrl": "https://www.virginmedia.com/",
+      "logoUrl": "https://ui.awin.com/images/upload/merchant/profile/6399.png",
+      "id": 6399,
+      "name": "Virgin Media",
+      "currencyCode": "GBP",
+      "primaryRegion": {
+        "name": "United Kingdom",
+        "countryCode": "GB"
+      },
+      "status": "Active",
+      "primarySector": "Internet Service Provider",
+      "validDomains": [
+        {
+          "domain": "*.store.virginmedia.com"
+        },
+        {
+          "domain": "store.virginmedia.com"
+        },
+        {
+          "domain": "*.virginmedia.com"
+        },
+        {
+          "domain": "www.virginmedia.com"
+        },
+        {
+          "domain": "virginmedia.com"
+        }
+      ]
+    },
+    {
+      "description": "toob is a next-generation internet provider offering ultra fast, ultra affordable full-fibre broadband to homes and businesses across England.",
+      "clickThroughUrl": "https://www.awin1.com/awclick.php?mid=117433&id=2942019",
+      "displayUrl": "https://www.toob.co.uk/home/residential-order/",
+      "logoUrl": "https://ui.awin.com/images/upload/merchant/profile/117433.png",
+      "id": 117433,
+      "name": "toob",
+      "currencyCode": "GBP",
+      "primaryRegion": {
+        "name": "United Kingdom",
+        "countryCode": "GB"
+      },
+      "status": "Active",
+      "primarySector": "Internet Service Provider",
+      "validDomains": [
+        {
+          "domain": "toob.co.uk"
+        },
+        {
+          "domain": "*.toob.co.uk"
+        }
+      ]
+    }
+  ]
+}
