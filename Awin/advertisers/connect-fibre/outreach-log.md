@@ -7,3 +7,7 @@
 - **2026-08-29**: Final accept/decline recommendation generated.
 - **2026-08-29**: Draft reply to advertiser generated.
 - **2026-08-29**: Draft reply to advertiser generated.
+- **2026-08-29**: 'terms-and-conditions (1).pdf' has identical content to 'Connect Fibre Terms.pdf' — treated as one document.
+- **2026-08-29**: Terms & conditions assessed from 1 unique file(s), 1 duplicate(s) excluded.
+- **2026-08-29**: Final accept/decline recommendation generated.
+- **2026-08-29**: Draft reply to advertiser generated.

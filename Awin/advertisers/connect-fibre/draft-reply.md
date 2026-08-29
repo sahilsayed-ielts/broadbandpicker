@@ -6,17 +6,14 @@ Subject: Re: Connect Fibre on Awin
 
 Hi Remon,
 
-Thanks for the invite. BroadbandPicker is genuinely interested. The price lock to 2028 fits us well, we already run a guide on broadband deals with no mid-contract price rise and Connect Fibre would sit naturally in there.
+Thanks for the invite. Connect Fibre looks like a good fit for us and we're genuinely interested.
 
-Before I build anything I need a few things in writing:
+We run deep-dive postcode pages across a lot of your footprint, Nottingham, Leicester and Coventry included, plus a guide on broadband deals with no mid-contract price rise that your fixed pricing fits straight into.
 
-- the commission rate and model, and whether it changes by product tier
-- how your de-duplication policy treats price comparison sites specifically, since that's our core setup
-- the validation and payment timeline
-- the full T&Cs, the copy I've seen looks cut off mid-clause
+Before we build anything I need a few things in writing. What's the commission per broadband sale, and does it vary by tier? How does your de-duplication policy treat price comparison sites against your own site and other partners? What's the validation and payment timeline, given installs take a while? And can you send over the full T&Cs.
 
-On the rate, your network is pretty regional so I'd rather not spread thin. If the numbers work I can give Connect Fibre a featured slot in that guide plus your live East Midlands town pages, for a rate at the upper end. Happy to start on a reviewed trial.
+If the rate works, I'd give Connect Fibre an exclusive featured slot in that price-rise guide for a trial period, reviewed after three months.
 
-Send those over and I'll take a look.
+Happy to get on a call once I've seen the numbers.
 
 Sahil

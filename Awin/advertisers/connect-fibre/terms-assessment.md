@@ -1,37 +1,44 @@
 # Connect Fibre — terms & conditions assessment
 
-_Generated 2026-08-29 from 1 file(s) in Awin/advertisers/connect-fibre/terms_
+_Generated 2026-08-29 from 1 unique file(s) in Awin/advertisers/connect-fibre/terms, 1 duplicate(s) excluded_
 
 ## Commission structure
-The T&Cs specify **what** is commissionable but never state a **rate**. "Broadband: Eligible for commission"; "Add-ons: Not eligible" — reinforced by "Payouts exclusively on Broadband deals. No Add-Ons." Model is effectively **per-sale/per-connection** on broadband contracts only. No tiers, no bonuses, no base rate disclosed anywhere in the document or the invitation. Commission base **excludes VAT, delivery, credit-card fees**. Commission is declined for an unusually long list of reasons, including "Credit check failed", "Not a new customer", "Conversion attributed to different channel", and "Conversion attributed to different partner".
+- **Model:** Per-sale (per broadband order/connection). *"Payouts exclusively on Broadband deals. No Add-Ons."* Add-ons explicitly *"Not eligible."*
+- **Rate:** **Not stated anywhere** in the terms or the invitation. No tiers, no flat amount, no percentage.
+- **Base:** Commission calculated excluding VAT, delivery, credit-card fees and service charges.
 
 ## Cookie window and validation
-- **Attribution window: 30 days** ("Cookie Window • 30 days").
-- **Transaction queries:** must be raised "within 2 months of the transaction date, or they will be rejected."
-- **Validation/payment timeframe: not stated.** No approval SLA or payment schedule — defaults to Awin's standard, which should be confirmed.
+- **Attribution:** *"Cookie Window – 30 days."*
+- **Query window:** *"Queries must be submitted within 2 months of the transaction date, or they will be rejected."*
+- **Validation/payment timeframe:** **Silent.** No stated lock/approval period, and no payment schedule. Given broadband installs, expect a long validation lag (install + cooling-off + credit check).
+- **Decline reasons:** ~19 listed, including *"Credit check failed," "Not a new customer," "Conversion attributed to different channel," "Conversion attributed to different partner,"* and an open-ended *"Other: Yes"* (with the "Other" detail field left blank).
 
 ## Promotional restrictions
-- **PPC/brand bidding:** "does not allow the use of Google Search ads (PPC) to promote our brand" — no bidding on brand, trademarks or variations; "Transactions coming from Google Search Ads through AWIN will be rejected." Brand name also barred from display URL, paid-search title/description, misspellings, and "brand + keyword" terms. Must add brand to negative keyword list. **Bing/Yahoo brand activity is permitted.**
-- **Voucher/cashback:** explicitly allowed partner types; but coupon codes must be Connect Fibre–issued ("Coupon code not allowed" is a decline reason).
-- **Email:** "Email affiliates" permitted, but email advertising is a **deduplication channel**.
-- **Creative:** only Connect Fibre–supplied assets; "Using Creative from external sources, emails, or altered versions is prohibited." Connect Fibre branding must be "less prominent than" the affiliate's own.
-- **Deduplication against:** PPC brand, generic PPC, email, display, direct partnerships, **price comparison sites**, in-house publisher programme, and other networks.
+- **Google PPC banned outright:** *"affiliates cannot bid on our brand name, trademarks, or any variations in Google Ads… Transactions coming from Google Search Ads through AWIN will be rejected."*
+- Bing/Yahoo/other engines allowed for paid search, but **no brand in display URL, title, description, misspellings, variations, or brand+keyword**; brand must be added to negative keywords.
+- **Deduplication against:** PPC brand, generic PPC, email advertising, display, **direct partnerships, price comparison sites, in-house publisher programme, and other affiliate networks.**
+- Cashback, voucher, loyalty, email, content and comparison partners all **permitted**.
+- Creative must be pulled live from the Awin interface — *"Hardcoding Creative is not permitted."* Connect Fibre branding must be **less prominent** than your own.
+- Copy rules: no excessive capitals, *"500Mb" not "500MB."*
+- Unsuitable-sites list bars *"scraping text or images from Connect Fibre or its affiliates' websites."*
 
 ## Exclusivity or minimum-performance clauses
-No exclusivity clause. No minimum traffic or sales threshold. Soft performance language only: "Affiliates must maintain service quality satisfactory to Connect Fibre," and termination "if their Site is deemed unsuitable, at Connect Fibre's sole discretion." Licence to use branding is "revocable."
+- **None.** No exclusivity, no minimum traffic, no minimum sales volume. *"Minimum order value not met"* appears as a decline reason but no threshold is given.
+- Soft catch-all: affiliates must *"maintain service quality satisfactory to Connect Fibre,"* which can *"terminate… immediately if their Site is deemed unsuitable, at Connect Fibre's sole discretion."*
 
 ## Does this match the invitation?
-- **"Superb pricing, fixed to 2028 (no hikes)"** — not referenced in the terms at all; a consumer marketing claim, not a contractual commitment, and not our concern except as ad copy we'd need Connect Fibre to stand behind.
-- **"Double conversion rates" / new funnel** — nothing in the terms confirms this; unverifiable.
-- **"Superb pricing" for us** — ironic given **no commission rate is disclosed anywhere.** We cannot evaluate the economics from this document.
+- **"Superb pricing, fixed to 2028 (no hikes)"** — a consumer claim; not referenced or warranted in the terms. Fine to repeat, but unverified.
+- **"Double conversion rates" / new order funnel** — no supporting data; nothing in the terms.
+- **"Happy to discuss your needs"** — terms repeatedly defer detail to *"your Account Manager,"* so commercial specifics genuinely sit outside this document.
+- **Biggest gap:** the invitation sells the programme but names **no commission rate**, and neither do the terms.
 
 ## Red flags
-1. **No commission rate** in the T&Cs or invitation.
-2. **Deduplication against "price comparison sites"** — BroadbandPicker's core model; our conversions could be overridden by Connect Fibre's other channels.
-3. Broad **sole-discretion** termination and revocable licence.
-4. **New-customers-only** plus "credit check failed" declines raise validation risk on broadband sign-ups.
-5. **No payment/approval timeframe.**
-6. Document is **truncated** mid-clause ("Affiliates grant Connect Fibre…") — full terms not reviewed.
+1. **No published commission rate** — cannot assess economics.
+2. **No stated validation or payment window** for a long-install product.
+3. **Dedup against price comparison sites + direct partnerships + in-house** — as a comparison/content site, your sales can be clawed to Connect Fibre's own PPC or PCP listings.
+4. Open-ended *"Other: Yes"* decline reason with no definition.
+5. Sole-discretion termination + vague *"satisfactory service quality."*
+6. Anti-scraping clause worth confirming doesn't catch normal price/spec tables.
 
 ## Recommendation
-**Accept-with-changes-requested.** The programme is a reasonable fit (content + comparison sites explicitly allowed, sane 30-day cookie, standard PPC rules). But before accepting, get in writing: (1) the **commission rate** and whether it is fixed or per-product; (2) how **price-comparison deduplication** applies to us specifically; (3) **validation and payment timelines**; (4) the **complete terms document**; and (5) substantiation for the "fixed to 2028" and "double conversion" claims if we're to repeat them.
+**Accept-with-changes-requested.** The structure is standard for UK telco affiliate programmes and the allowed-partner list fits BroadbandPicker. Before accepting, get in writing from Remon/the account manager: (a) the commission amount per broadband sale, (b) the validation and payment timeframe, (c) confirmation that comparison-site conversions aren't routinely deduped against their PCP/in-house activity, and (d) what *"Other"* covers. Google brand-PPC ban is irrelevant to an SEO/content site, so not a blocker.

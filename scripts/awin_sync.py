@@ -102,6 +102,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import re
@@ -592,7 +593,7 @@ Keep it to around 250-350 words."""
           f"`analyse-terms --advertiser {slug}`.")
 
 
-def _extract_text_from_file(path: Path, max_chars: int = 8000) -> str:
+def _extract_text_from_file(path: Path, max_chars: int = 40000) -> str:
     suffix = path.suffix.lower()
     if suffix in (".txt", ".md"):
         text = path.read_text(errors="ignore")
@@ -631,17 +632,37 @@ def analyse_terms(slug: str) -> None:
         sys.exit(1)
 
     print(f"Reading {len(files)} file(s) from {folder} ...")
-    combined = []
+    seen_hashes: dict[str, Path] = {}
+    unique_texts: list[tuple[Path, str]] = []
+    duplicates: list[tuple[Path, Path]] = []
     for f in files:
         text = _extract_text_from_file(f)
-        if text:
-            combined.append(f"--- {f.name} ---\n{text}")
-        else:
+        if not text:
             print(f"  (skipped {f.name}: unreadable or empty)")
-    if not combined:
+            continue
+        digest = hashlib.sha256(text.encode("utf-8")).hexdigest()
+        if digest in seen_hashes:
+            duplicates.append((f, seen_hashes[digest]))
+            print(f"  {f.name}: identical content to {seen_hashes[digest].name} (skipping as a duplicate)")
+            continue
+        seen_hashes[digest] = f
+        unique_texts.append((f, text))
+
+    if not unique_texts:
         print("Could not extract text from any file in the terms folder.", file=sys.stderr)
         sys.exit(1)
-    document_text = "\n\n".join(combined)[:12000]
+
+    if duplicates:
+        for dup, original in duplicates:
+            append_log(slug, f"'{dup.name}' has identical content to '{original.name}' — treated as one document.")
+
+    combined = [f"--- {f.name} ---\n{text}" for f, text in unique_texts]
+    document_text = "\n\n".join(combined)[:60000]
+    duplicate_note = (
+        f"\n\nNote: {len(duplicates)} uploaded file(s) were exact-content duplicates of another file "
+        "already included below and were excluded to avoid double-counting the same clauses."
+        if duplicates else ""
+    )
 
     invitation_message = programme.get("invitation_message") or "(none on file)"
 
@@ -651,7 +672,7 @@ advertiser's actual terms & conditions document before accepting their Awin prog
 Advertiser: {programme['advertiser']}
 Original invitation message: \"\"\"{invitation_message}\"\"\"
 
-Terms & conditions document text (extracted from {len(files)} file(s), may be truncated):
+Terms & conditions document text (extracted from {len(unique_texts)} unique file(s)):{duplicate_note}
 {document_text}
 
 Write a structured breakdown in markdown with these sections:
@@ -675,14 +696,20 @@ Be specific and quote the terms where useful. Keep it under 500 words."""
     print("Asking Claude to review the terms (this can take up to a couple of minutes) ...")
     assessment = call_claude(prompt, timeout=240)
 
+    dup_summary = f", {len(duplicates)} duplicate(s) excluded" if duplicates else ""
     out_path = d / "terms-assessment.md"
     out_path.write_text(
         f"# {programme['advertiser']} — terms & conditions assessment\n\n"
-        f"_Generated {_today()} from {len(files)} file(s) in {folder.relative_to(ROOT)}_\n\n"
+        f"_Generated {_today()} from {len(unique_texts)} unique file(s) in {folder.relative_to(ROOT)}"
+        f"{dup_summary}_\n\n"
         f"{assessment}\n"
     )
-    append_log(slug, f"Terms & conditions assessed from {len(files)} uploaded file(s).")
+    append_log(slug, f"Terms & conditions assessed from {len(unique_texts)} unique file(s){dup_summary}.")
     print(f"Written to {out_path}")
+    if duplicates:
+        print(f"Note: {len(duplicates)} file(s) were exact-content duplicates and were treated as one document:")
+        for dup, original in duplicates:
+            print(f"  '{dup.name}' == '{original.name}'")
 
 
 def briefing() -> None:
