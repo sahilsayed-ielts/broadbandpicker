@@ -55,15 +55,23 @@ AWIN_ADVERTISERS_DIR = ROOT / "Awin" / "advertisers"
 
 # Priority band per relationship, in display order. Awin work is deliberately
 # separated from the product/content build queue: monetise joined programmes
-# first, then resolve pending applications, then make selective evidence-led
+# first, respond to inbound invitations (high-intent, low-effort wins) next,
+# then resolve pending applications, then make selective evidence-led
 # reapplications. "Prospect" (an inbound pitch, not an Awin application) sorts
 # last since it isn't an active partnership decision yet.
+#
+# "Invited" == logged via `awin_sync.py add-invitation` from Awin's Activity
+# Stream, which has no API equivalent (an advertiser inviting you to their
+# programme, e.g. "X have invited you to join their programme", only shows
+# up in the dashboard UI -- confirmed no /activity, /invitations, /feed etc.
+# endpoint exists).
 AWIN_BAND_ORDER = {
     "Joined": "P0 Activate joined",
-    "Pending": "P1 Follow up pending",
-    "Suspended": "P1 Follow up pending",
-    "Rejected": "P2 Reapply with evidence",
-    "Prospect": "P3 Under review",
+    "Invited": "P1 Respond to invitation",
+    "Pending": "P2 Follow up pending",
+    "Suspended": "P2 Follow up pending",
+    "Rejected": "P3 Reapply with evidence",
+    "Prospect": "P4 Under review",
 }
 
 
@@ -84,7 +92,7 @@ def load_awin_advertisers() -> list[dict[str, Any]]:
             continue
         relationship = data.get("relationship", "Prospect")
         programmes.append({
-            "band": AWIN_BAND_ORDER.get(relationship, "P3 Under review"),
+            "band": AWIN_BAND_ORDER.get(relationship, "P4 Under review"),
             "advertiser": data.get("advertiser", d.name),
             "id": data.get("awin_advertiser_id") or "",
             "relationship": relationship,
@@ -2391,6 +2399,10 @@ def build_workbook(
             action = "Verify the tracked deep link, feature the programme on relevant pages and reconcile GA4 outbound clicks against Awin transactions."
             timing = "Now: approved revenue opportunity"
             default = "In progress"
+        elif relationship == "Invited":
+            action = "Advertiser invited us directly (Awin Activity Stream) — review the fit assessment, reply to accept/decline, and run `awin_sync.py mark-reviewed` once actioned."
+            timing = "Respond promptly: inbound, high-intent, low-effort to accept"
+            default = "Awaiting our response"
         elif relationship in ("Pending", "Suspended"):
             action = "Check API status and send one tailored follow-up with the relevant live page, audience evidence and compliance controls."
             timing = "After a reasonable review interval"
@@ -2429,7 +2441,7 @@ def build_workbook(
         for row in rows:
             opportunity = row[pos.get("Opportunity", 2)]
             page = row[pos.get("Page", 1)]
-            if opportunity == "Monitor" or page == "/postcode/da1":
+            if opportunity == "Monitor" or page in {"/postcode/da1", "/postcode/m1", "/postcode/ng1", "/postcode/rg1"}:
                 continue
             evidence = (
                 f"Clicks {row[pos['Clicks']]}; impressions {row[pos['Impressions']]}; "

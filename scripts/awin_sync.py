@@ -25,6 +25,13 @@ Commands:
   invitations
       List every advertiser still flagged as a possible new invitation.
 
+  add-invitation --name <advertiser> [--advertiser-id <id>] [--url <site>] [--message <text>]
+      Awin's Activity Stream ("X have invited you to join their programme")
+      has no API equivalent (checked: /activity, /activity-stream, /feed,
+      /events, /inbox all 404). Log one you saw in the dashboard by hand and
+      it's tracked the same way as everything else — the advertiser ID is
+      auto-resolved from the live catalogue if you don't have it to hand.
+
   mark-reviewed --advertiser <slug>
       Clear the possible-invitation flag once you've confirmed it in Awin.
 
@@ -233,6 +240,55 @@ def append_log(slug: str, line: str) -> None:
         log.write_text(f"# {slug} — outreach log\n\n")
     with log.open("a") as f:
         f.write(f"- **{_today()}**: {line}\n")
+
+
+def add_invitation(name: str, advertiser_id: int | None, url: str | None, message: str | None) -> None:
+    """Manually log an invitation seen in Awin's Activity Stream.
+
+    Awin's Activity Stream ("X have invited you to join their programme") has
+    no API equivalent -- confirmed by testing /activity, /activity-stream,
+    /feed, /events and /inbox, all 404. This is the deliberate manual
+    counterpart: paste in what you see in the dashboard and it's tracked the
+    same way as everything else in Awin/advertisers/.
+    """
+    slug = slugify(name)
+    d = advertiser_dir(slug)
+    programme_path = d / "programme.json"
+    previous = json.loads(programme_path.read_text()) if programme_path.exists() else None
+
+    resolved_id = advertiser_id
+    website = url or (previous or {}).get("website", "")
+    if resolved_id is None:
+        # Try to resolve the advertiser ID from the live notjoined catalogue
+        # so the folder carries a real Awin ID, not a placeholder.
+        try:
+            token = get_token()
+            pid = publisher_id()
+            catalogue = _fetch_relationship(pid, token, "notjoined")
+            match = next((p for p in catalogue if (p.get("name") or "").lower() == name.lower()), None)
+            if match:
+                resolved_id = match.get("id")
+                website = website or match.get("displayUrl", "")
+        except SystemExit:
+            pass
+
+    record = {
+        "advertiser": name,
+        "slug": slug,
+        "awin_advertiser_id": resolved_id,
+        "sector": (previous or {}).get("sector", ""),
+        "relationship": "Invited",
+        "live_url": (previous or {}).get("live_url") or match_live_url(name),
+        "website": website,
+        "last_synced": _today(),
+        "possible_invitation_flagged_on": _today(),
+        "invitation_message": message or (previous or {}).get("invitation_message", ""),
+    }
+    programme_path.write_text(json.dumps(record, indent=2))
+    append_log(slug, f"Invitation logged from Awin's Activity Stream (advertiser ID: {resolved_id or 'unresolved'}).")
+    print(f"Logged invitation from {name} -> {d}")
+    if resolved_id is None:
+        print("Could not auto-resolve an Awin advertiser ID for this name — pass --advertiser-id if you have it.")
 
 
 def sync() -> None:
@@ -530,6 +586,15 @@ def main() -> None:
 
     sub.add_parser("invitations", help="List advertisers currently flagged as possible new invitations")
 
+    p_add_invite = sub.add_parser(
+        "add-invitation",
+        help="Manually log an invitation seen in Awin's Activity Stream (no API equivalent exists)",
+    )
+    p_add_invite.add_argument("--name", required=True, help="Advertiser name, exactly as shown in Awin")
+    p_add_invite.add_argument("--advertiser-id", type=int, help="Awin advertiser ID, if known (auto-resolved if omitted)")
+    p_add_invite.add_argument("--url", help="Advertiser website")
+    p_add_invite.add_argument("--message", help="The invitation message text, for reference")
+
     p_reviewed = sub.add_parser("mark-reviewed", help="Clear the possible-invitation flag after manual review")
     p_reviewed.add_argument("--advertiser", required=True, help="Advertiser slug (Awin/advertisers/<slug>)")
 
@@ -553,6 +618,8 @@ def main() -> None:
         briefing()
     elif args.command == "invitations":
         list_invitations()
+    elif args.command == "add-invitation":
+        add_invitation(args.name, args.advertiser_id, args.url, args.message)
     elif args.command == "mark-reviewed":
         mark_reviewed(args.advertiser)
     elif args.command == "check-programmes":
