@@ -2,22 +2,21 @@
 
 _Generated 2026-08-29. Review and edit before sending — this is a draft, not an auto-send._
 
-Subject: Re: Connect Fibre on Awin — a few details before I join
+Subject: Re: Connect Fibre on Awin
 
 Hi Remon,
 
-Thanks for the invitation — Connect Fibre looks like a strong fit for BroadbandPicker, especially the price lock and full-fibre focus, so I'm genuinely interested.
+Thanks for the invite. BroadbandPicker is genuinely interested. The price lock to 2028 fits us well, we already run a guide on broadband deals with no mid-contract price rise and Connect Fibre would sit naturally in there.
 
-Before I accept and start building content, could you send a few specifics:
+Before I build anything I need a few things in writing:
 
-1. The commission rate and model — flat fee or percentage, and whether it varies by tier (residential vs Fibre2000 vs business).
-2. Your de-duplication policy in writing, specifically how it treats price-comparison-site referrals against your own site and other channels — this matters as comparison is our core model.
-3. Validation period and payment timeline.
-4. The complete programme T&Cs — the copy I have appears cut off.
+- the commission rate and model, and whether it changes by product tier
+- how your de-duplication policy treats price comparison sites specifically, since that's our core setup
+- the validation and payment timeline
+- the full T&Cs, the copy I've seen looks cut off mid-clause
 
-One ask: given our postcode-level pages cover your Midlands and East of England footprint well, I'd offer a dedicated review plus a featured comparison-table slot in exchange for a trial at an enhanced CPA, reviewed after three months.
+On the rate, your network is pretty regional so I'd rather not spread thin. If the numbers work I can give Connect Fibre a featured slot in that guide plus your live East Midlands town pages, for a rate at the upper end. Happy to start on a reviewed trial.
 
-Once I have those details I can move quickly.
+Send those over and I'll take a look.
 
-Thanks,
 Sahil

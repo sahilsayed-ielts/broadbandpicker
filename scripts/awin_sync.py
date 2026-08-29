@@ -849,6 +849,42 @@ Keep it under 300 words. Be decisive — this is a recommendation, not a list of
     print(f"Written to {out_path}")
 
 
+def _load_site_content_inventory() -> str:
+    """Real, current counts and samples of what's actually live on
+    BroadbandPicker -- so pitches reference genuine content, not assumptions.
+    """
+    postcodes_ts = ROOT / "data" / "postcodes.ts"
+    guides_ts = ROOT / "data" / "guides.ts"
+    comparisons_ts = ROOT / "data" / "provider-comparisons.ts"
+    coverage_json = ROOT / "data" / "postcode-district-coverage.json"
+
+    lines = []
+
+    if postcodes_ts.exists():
+        text = postcodes_ts.read_text()
+        towns = re.findall(r"prefix: '([A-Z0-9]+)', town: '([^']+)', city: '([^']+)', region: '([^']+)'", text)
+        lines.append(f"- {len(towns)} curated, deep-dive postcode/town pages (e.g. {', '.join(f'{t[1]} ({t[0]})' for t in towns[:6])}, and more).")
+        lines.append("  Full list of curated towns and regions: " + "; ".join(f"{t[1]} ({t[0]}, {t[3]})" for t in towns))
+
+    if coverage_json.exists():
+        data = json.loads(coverage_json.read_text())
+        lines.append(f"- Every one of the other {len(data.get('districts', {}))} UK postcode districts also has a live page with real Ofcom coverage data (gigabit/superfast/ultrafast %), even without the deep-dive treatment.")
+
+    if guides_ts.exists():
+        text = guides_ts.read_text()
+        titles = re.findall(r"title: '([^']+)'", text)
+        lines.append(f"- {len(titles)} editorial guides, including: {'; '.join(titles[:8])}.")
+
+    if comparisons_ts.exists():
+        text = comparisons_ts.read_text()
+        pairs = sorted(set(re.findall(r"'([a-z0-9-]+-vs-[a-z0-9-]+)'", text)))
+        lines.append(f"- {len(pairs)} head-to-head provider comparison pages (e.g. {', '.join(pairs[:5])}).")
+
+    lines.append("- Individual provider review pages, a live deals table, a postcode broadband checker tool and a speed test tool.")
+
+    return "\n".join(lines) if lines else "(No site inventory could be read.)"
+
+
 def draft_reply(slug: str, contact_name: str | None) -> None:
     programme, docs = _load_advertiser_context(slug)
     if not docs:
@@ -863,34 +899,59 @@ def draft_reply(slug: str, contact_name: str | None) -> None:
     docs_text = "\n\n".join(f"### {name}\n{content}" for name, content in docs.items())
     invitation_message = programme.get("invitation_message", "")
     who = contact_name or "them"
+    site_inventory = _load_site_content_inventory()
 
-    prompt = f"""You are drafting an email reply on behalf of Sahil, the owner of BroadbandPicker.co.uk \
-(a UK broadband comparison site), replying to an Awin affiliate programme invitation.
+    prompt = f"""You are Sahil, the owner of BroadbandPicker.co.uk, a UK broadband comparison site. \
+You're writing a real email reply to an Awin affiliate programme invitation. Write it yourself, as \
+a busy small-site owner would, not as an AI assistant drafting a template.
 
 Advertiser: {programme['advertiser']}
 Original invitation, verbatim: \"\"\"{invitation_message}\"\"\"
 
-Reference playbook for how to negotiate this (use its specific tactics -- don't just be politely vague):
+What BroadbandPicker actually has live right now (only reference things from this list -- do not \
+invent or assume content that isn't here):
+{site_inventory}
+
+Reference playbook for how to negotiate this (use its specific tactics, don't just be politely vague):
 {playbook}
 
 Everything gathered on this advertiser so far:
 {docs_text}
 
-Write a short, professional, friendly-but-direct email reply to {who}. It should:
+Write the email. It should:
 - Thank them for the invitation and say BroadbandPicker is genuinely interested.
-- Ask for the SPECIFIC missing information identified in the research above (e.g. commission rate, \
+- Mention ONE specific, true thing from the site inventory above that's actually relevant to this \
+advertiser's footprint or sector, as evidence this isn't a form reply. Only use what's really there.
+- Ask for the SPECIFIC missing information identified in the research above (commission rate, \
 de-duplication policy re: price comparison sites, validation/payment timeline, full T&Cs) -- name \
 each one plainly, don't be vague.
 - If the playbook and evidence suggest room to negotiate, make ONE concrete, reasonable ask (e.g. a \
 trial at a higher rate, or an exclusive placement in exchange for better terms) -- don't over-ask on \
-a brand-new relationship.
-- Close with a clear next step (e.g. "once I have these details I can move quickly").
-- Keep it to 120-180 words, plain English, no corporate jargon, signed "Sahil".
+a brand-new relationship, and only offer something the site inventory actually supports.
+- Close with a clear, low-key next step.
+- Sign off "Sahil".
 
-Output ONLY the email body (with a Subject: line first), nothing else -- no commentary, no markdown headers."""
+Style rules, followed strictly:
+- Sounds like a real person typed it quickly between other tasks: plain, direct, a little informal, \
+not polished corporate copy.
+- Never use an em dash (the "—" character) or a double hyphen ("--") anywhere. Use a comma, a full \
+stop, or "and" instead.
+- No AI-sounding stock phrases: avoid "I hope this email finds you well", "I wanted to reach out", \
+"leverage", "delve", "seamless", "robust", "excited to", "look forward to", "furthermore", "in terms of".
+- Avoid three-item lists and neatly parallel sentence structures repeated back to back -- real emails \
+are a bit uneven.
+- Short paragraphs, contractions where natural (I'm, don't, can't), no exclamation marks.
+- Length: 110-160 words.
+
+Output ONLY the email body, with a Subject: line first, nothing else. No commentary, no markdown \
+headers, no explanation of what you did."""
 
     print("Drafting a reply (this can take up to a couple of minutes) ...")
     draft = call_claude(prompt)
+    # Belt-and-braces: strip any em/en dashes the model still slips in.
+    draft = re.sub(r"\s*[—–]\s*", ", ", draft)
+    draft = re.sub(r"\s+--\s+", ", ", draft)
+    draft = re.sub(r",\s*,", ",", draft)
 
     out_path = advertiser_dir(slug) / "draft-reply.md"
     out_path.write_text(
