@@ -35,6 +35,22 @@ Commands:
   mark-reviewed --advertiser <slug>
       Clear the possible-invitation flag once you've confirmed it in Awin.
 
+  analyse-invitation --advertiser <slug>
+      Ask Claude to assess the logged invitation message itself: what's
+      actually being offered, what's standard vs. unusual, and what
+      questions to ask before accepting. Writes
+      Awin/advertisers/<slug>/invitation-analysis.md. Also creates
+      Awin/advertisers/<slug>/terms/ so you have somewhere to drop the
+      advertiser's actual terms & conditions once you have them.
+
+  analyse-terms --advertiser <slug>
+      Read every file dropped into Awin/advertisers/<slug>/terms/ (PDF,
+      DOCX, TXT or MD) and ask Claude for a structured breakdown: commission
+      structure, cookie window, payment/validation terms, promotional
+      restrictions, exclusivity clauses, and red flags — including whether
+      the terms actually match what the invitation promised. Writes
+      Awin/advertisers/<slug>/terms-assessment.md.
+
   research --advertiser <slug> [--url <site-url>]
       Scrape the advertiser's own public website and ask Claude (via the
       claude CLI, --restricted so it only writes text) to draft a fit
@@ -482,6 +498,177 @@ Keep it to around 250-400 words total."""
     print(f"Written to {research_path}")
 
 
+def terms_dir(slug: str) -> Path:
+    d = advertiser_dir(slug) / "terms"
+    d.mkdir(parents=True, exist_ok=True)
+    return d
+
+
+def analyse_invitation(slug: str) -> None:
+    d = advertiser_dir(slug)
+    programme_path = d / "programme.json"
+    if not programme_path.exists():
+        print(f"No programme.json for '{slug}'. Run `sync` or `add-invitation` first.", file=sys.stderr)
+        sys.exit(1)
+    programme = json.loads(programme_path.read_text())
+    message = programme.get("invitation_message") or ""
+    if not message:
+        print(
+            f"'{slug}' has no invitation_message on file — this only works for advertisers logged "
+            "via `add-invitation --message \"...\"`.",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+
+    research_path = d / "research.md"
+    research_excerpt = research_path.read_text()[:1500] if research_path.exists() else "(none yet — run `research` first for site-level context)"
+
+    terms_folder = terms_dir(slug)
+    readme = terms_folder / "README.md"
+    if not readme.exists():
+        readme.write_text(
+            f"# Drop {programme['advertiser']}'s terms & conditions here\n\n"
+            "Save whatever the advertiser sends you — PDF, DOCX, TXT or MD all work. Then run:\n\n"
+            f"    python3 scripts/awin_sync.py analyse-terms --advertiser {slug}\n\n"
+            "This file is just a placeholder; delete it once real terms are here if you like.\n"
+        )
+
+    prompt = f"""You are BroadbandPicker's Awin affiliate partnerships assistant. An advertiser has \
+invited BroadbandPicker (a UK broadband comparison site) to join their Awin affiliate programme \
+directly, via Awin's Activity Stream. Assess the invitation itself, not just the advertiser's website.
+
+Advertiser: {programme['advertiser']}
+Awin advertiser ID: {programme.get('awin_advertiser_id', 'unknown')}
+Awin relationship: {programme['relationship']}
+Website: {programme.get('website', 'unknown')}
+
+Invitation message, verbatim:
+\"\"\"{message}\"\"\"
+
+Existing site-fit research on file (may be brief):
+{research_excerpt}
+
+Write a concise assessment in markdown with these sections:
+## What's actually being offered
+Plain-English summary of the pitch, separating firm commitments from vague marketing language.
+## Standard vs. unusual
+Is anything in this pitch unusual for an Awin ISP programme (pricing claims, urgency language, \
+guarantees), compared to how affiliate invitations normally read?
+## Questions to ask before accepting
+Specific questions to send back — commission rate, cookie window, validation/payment terms, \
+promotional method restrictions, exclusivity, minimum traffic requirements.
+## Recommendation
+Accept, accept-with-questions-first, or decline — and why, given BroadbandPicker's audience.
+Keep it to around 250-350 words."""
+
+    print("Asking Claude to analyse the invitation (this can take up to a couple of minutes) ...")
+    analysis = call_claude(prompt)
+
+    out_path = d / "invitation-analysis.md"
+    out_path.write_text(
+        f"# {programme['advertiser']} — invitation analysis\n\n"
+        f"_Generated {_today()}_\n\n"
+        f"{analysis}\n"
+    )
+    append_log(slug, "Invitation message analysed by Claude.")
+    print(f"Written to {out_path}")
+    print(f"Terms folder ready at {terms_folder} — drop the advertiser's T&Cs there, then run "
+          f"`analyse-terms --advertiser {slug}`.")
+
+
+def _extract_text_from_file(path: Path, max_chars: int = 8000) -> str:
+    suffix = path.suffix.lower()
+    if suffix in (".txt", ".md"):
+        text = path.read_text(errors="ignore")
+    elif suffix == ".pdf":
+        import pdfplumber
+        parts = []
+        with pdfplumber.open(path) as pdf:
+            for page in pdf.pages:
+                parts.append(page.extract_text() or "")
+        text = "\n".join(parts)
+    elif suffix == ".docx":
+        import docx
+        doc = docx.Document(str(path))
+        text = "\n".join(p.text for p in doc.paragraphs)
+    else:
+        return ""
+    return re.sub(r"\s+", " ", text).strip()[:max_chars]
+
+
+def analyse_terms(slug: str) -> None:
+    d = advertiser_dir(slug)
+    programme_path = d / "programme.json"
+    if not programme_path.exists():
+        print(f"No programme.json for '{slug}'. Run `sync` or `add-invitation` first.", file=sys.stderr)
+        sys.exit(1)
+    programme = json.loads(programme_path.read_text())
+
+    folder = terms_dir(slug)
+    files = [f for f in sorted(folder.iterdir()) if f.is_file() and f.suffix.lower() in (".pdf", ".docx", ".txt", ".md") and f.name != "README.md"]
+    if not files:
+        print(
+            f"No terms files found in {folder}. Drop the advertiser's T&Cs there (PDF, DOCX, TXT or MD) "
+            "and run this again.",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+
+    print(f"Reading {len(files)} file(s) from {folder} ...")
+    combined = []
+    for f in files:
+        text = _extract_text_from_file(f)
+        if text:
+            combined.append(f"--- {f.name} ---\n{text}")
+        else:
+            print(f"  (skipped {f.name}: unreadable or empty)")
+    if not combined:
+        print("Could not extract text from any file in the terms folder.", file=sys.stderr)
+        sys.exit(1)
+    document_text = "\n\n".join(combined)[:12000]
+
+    invitation_message = programme.get("invitation_message") or "(none on file)"
+
+    prompt = f"""You are BroadbandPicker's Awin affiliate partnerships assistant, reviewing an \
+advertiser's actual terms & conditions document before accepting their Awin programme invitation.
+
+Advertiser: {programme['advertiser']}
+Original invitation message: \"\"\"{invitation_message}\"\"\"
+
+Terms & conditions document text (extracted from {len(files)} file(s), may be truncated):
+{document_text}
+
+Write a structured breakdown in markdown with these sections:
+## Commission structure
+Rate, model (per-sale/per-lead/per-connection), and any tiers.
+## Cookie window and validation
+Attribution window and how long before commission is confirmed/paid.
+## Promotional restrictions
+PPC/brand-bidding rules, voucher/cashback restrictions, email marketing rules, any channels banned.
+## Exclusivity or minimum-performance clauses
+Anything requiring exclusivity, minimum traffic, or minimum sales.
+## Does this match the invitation?
+Call out anything the invitation promised (e.g. specific pricing, "no hikes", conversion claims) \
+that the terms don't confirm, contradict, or leave vague.
+## Red flags
+Anything an experienced affiliate manager would flag before signing.
+## Recommendation
+Accept, accept-with-changes-requested, or decline, and why.
+Be specific and quote the terms where useful. Keep it under 500 words."""
+
+    print("Asking Claude to review the terms (this can take up to a couple of minutes) ...")
+    assessment = call_claude(prompt, timeout=240)
+
+    out_path = d / "terms-assessment.md"
+    out_path.write_text(
+        f"# {programme['advertiser']} — terms & conditions assessment\n\n"
+        f"_Generated {_today()} from {len(files)} file(s) in {folder.relative_to(ROOT)}_\n\n"
+        f"{assessment}\n"
+    )
+    append_log(slug, f"Terms & conditions assessed from {len(files)} uploaded file(s).")
+    print(f"Written to {out_path}")
+
+
 def briefing() -> None:
     if not ADVERTISERS_DIR.exists() or not any(ADVERTISERS_DIR.iterdir()):
         print("No advertiser folders yet. Run `python3 scripts/awin_sync.py sync` first.", file=sys.stderr)
@@ -598,6 +785,12 @@ def main() -> None:
     p_reviewed = sub.add_parser("mark-reviewed", help="Clear the possible-invitation flag after manual review")
     p_reviewed.add_argument("--advertiser", required=True, help="Advertiser slug (Awin/advertisers/<slug>)")
 
+    p_analyse_invite = sub.add_parser("analyse-invitation", help="AI-assess a logged invitation message; sets up a terms/ folder")
+    p_analyse_invite.add_argument("--advertiser", required=True, help="Advertiser slug (Awin/advertisers/<slug>)")
+
+    p_analyse_terms = sub.add_parser("analyse-terms", help="AI-assess T&Cs dropped into Awin/advertisers/<slug>/terms/")
+    p_analyse_terms.add_argument("--advertiser", required=True, help="Advertiser slug (Awin/advertisers/<slug>)")
+
     p_check = sub.add_parser("check-programmes", help="[quick look] List programmes straight from the API")
     p_check.add_argument(
         "--relationship", default="any",
@@ -620,6 +813,10 @@ def main() -> None:
         list_invitations()
     elif args.command == "add-invitation":
         add_invitation(args.name, args.advertiser_id, args.url, args.message)
+    elif args.command == "analyse-invitation":
+        analyse_invitation(args.advertiser)
+    elif args.command == "analyse-terms":
+        analyse_terms(args.advertiser)
     elif args.command == "mark-reviewed":
         mark_reviewed(args.advertiser)
     elif args.command == "check-programmes":
