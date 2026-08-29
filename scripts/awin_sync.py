@@ -51,6 +51,21 @@ Commands:
       the terms actually match what the invitation promised. Writes
       Awin/advertisers/<slug>/terms-assessment.md.
 
+  recommend --advertiser <slug>
+      Synthesise everything on file for an advertiser (research, invitation
+      analysis, terms assessment) against Awin/playbooks/negotiation-
+      playbook.md and give one direct verdict: accept as-is, accept with
+      changes requested, decline, or not enough information yet. Writes
+      Awin/advertisers/<slug>/recommendation.md.
+
+  draft-reply --advertiser <slug> [--contact-name <name>]
+      Draft an email reply to the advertiser's invitation, asking for
+      whatever's missing (commission, deduplication policy, payment terms)
+      and making one concrete, playbook-informed negotiating ask where
+      there's room to. This is a DRAFT for you to review and send yourself
+      -- nothing is sent automatically. Writes
+      Awin/advertisers/<slug>/draft-reply.md.
+
   research --advertiser <slug> [--url <site-url>]
       Scrape the advertiser's own public website and ask Claude (via the
       claude CLI, --restricted so it only writes text) to draft a fit
@@ -106,6 +121,7 @@ AWIN_DIR = ROOT / "Awin"
 ADVERTISERS_DIR = AWIN_DIR / "advertisers"
 SNAPSHOTS_DIR = AWIN_DIR / "_snapshots"
 REPORTS_DIR = AWIN_DIR / "reports"
+PLAYBOOK_PATH = AWIN_DIR / "playbooks" / "negotiation-playbook.md"
 PROVIDERS_TS = ROOT / "data" / "providers.ts"
 
 GENUINE_STATUSES = ["joined", "pending", "suspended", "rejected"]
@@ -759,6 +775,134 @@ def mark_reviewed(slug: str) -> None:
     print(f"Cleared invitation flag for '{slug}'.")
 
 
+def _load_playbook() -> str:
+    if PLAYBOOK_PATH.exists():
+        return PLAYBOOK_PATH.read_text()
+    return "(No negotiation playbook on file yet — reasoning from general knowledge only.)"
+
+
+def _load_advertiser_context(slug: str) -> tuple[dict, dict[str, str]]:
+    """Return (programme.json data, {doc_name: contents}) for whatever exists."""
+    d = advertiser_dir(slug)
+    programme_path = d / "programme.json"
+    if not programme_path.exists():
+        print(f"No programme.json for '{slug}'. Run `sync` or `add-invitation` first.", file=sys.stderr)
+        sys.exit(1)
+    programme = json.loads(programme_path.read_text())
+    docs = {}
+    for name, filename in [
+        ("research", "research.md"),
+        ("invitation_analysis", "invitation-analysis.md"),
+        ("terms_assessment", "terms-assessment.md"),
+    ]:
+        path = d / filename
+        if path.exists():
+            docs[name] = path.read_text()
+    return programme, docs
+
+
+def recommend(slug: str) -> None:
+    programme, docs = _load_advertiser_context(slug)
+    if not docs:
+        print(
+            f"No research, invitation-analysis or terms-assessment on file for '{slug}' yet — "
+            "run at least one of those first so there's something to reason from.",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+
+    playbook = _load_playbook()
+    docs_text = "\n\n".join(f"### {name}\n{content}" for name, content in docs.items())
+
+    prompt = f"""You are BroadbandPicker's Awin affiliate partnerships assistant, acting as an \
+experienced affiliate manager giving a final, direct recommendation. BroadbandPicker.co.uk is a UK \
+broadband comparison site.
+
+Advertiser: {programme['advertiser']}
+Relationship: {programme['relationship']}
+
+Reference playbook (commission benchmarks and negotiation norms — use this to judge whether terms \
+are good, average or poor, don't just describe them neutrally):
+{playbook}
+
+Everything gathered on this advertiser so far:
+{docs_text}
+
+Give ONE final expert recommendation in markdown:
+## Verdict
+One of: **Accept as-is** / **Accept with changes requested** / **Decline** / **Not enough information yet**.
+## Reasoning
+3-5 sentences, direct and specific, weighing audience fit against the commission/terms evidence \
+gathered. Say plainly if the deal looks weak, average, or strong against the benchmark rates.
+## If accepting or negotiating: exact next step
+The single most important thing to do next (e.g. "reply asking for X before agreeing to anything").
+## Walk-away condition
+What would make this not worth pursuing at all.
+Keep it under 300 words. Be decisive — this is a recommendation, not a list of options."""
+
+    print("Asking Claude for a final recommendation (this can take up to a couple of minutes) ...")
+    verdict = call_claude(prompt)
+
+    out_path = advertiser_dir(slug) / "recommendation.md"
+    out_path.write_text(f"# {programme['advertiser']} — recommendation\n\n_Generated {_today()}_\n\n{verdict}\n")
+    append_log(slug, "Final accept/decline recommendation generated.")
+    print(f"Written to {out_path}")
+
+
+def draft_reply(slug: str, contact_name: str | None) -> None:
+    programme, docs = _load_advertiser_context(slug)
+    if not docs:
+        print(
+            f"No research, invitation-analysis or terms-assessment on file for '{slug}' yet — "
+            "run at least one of those first.",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+
+    playbook = _load_playbook()
+    docs_text = "\n\n".join(f"### {name}\n{content}" for name, content in docs.items())
+    invitation_message = programme.get("invitation_message", "")
+    who = contact_name or "them"
+
+    prompt = f"""You are drafting an email reply on behalf of Sahil, the owner of BroadbandPicker.co.uk \
+(a UK broadband comparison site), replying to an Awin affiliate programme invitation.
+
+Advertiser: {programme['advertiser']}
+Original invitation, verbatim: \"\"\"{invitation_message}\"\"\"
+
+Reference playbook for how to negotiate this (use its specific tactics -- don't just be politely vague):
+{playbook}
+
+Everything gathered on this advertiser so far:
+{docs_text}
+
+Write a short, professional, friendly-but-direct email reply to {who}. It should:
+- Thank them for the invitation and say BroadbandPicker is genuinely interested.
+- Ask for the SPECIFIC missing information identified in the research above (e.g. commission rate, \
+de-duplication policy re: price comparison sites, validation/payment timeline, full T&Cs) -- name \
+each one plainly, don't be vague.
+- If the playbook and evidence suggest room to negotiate, make ONE concrete, reasonable ask (e.g. a \
+trial at a higher rate, or an exclusive placement in exchange for better terms) -- don't over-ask on \
+a brand-new relationship.
+- Close with a clear next step (e.g. "once I have these details I can move quickly").
+- Keep it to 120-180 words, plain English, no corporate jargon, signed "Sahil".
+
+Output ONLY the email body (with a Subject: line first), nothing else -- no commentary, no markdown headers."""
+
+    print("Drafting a reply (this can take up to a couple of minutes) ...")
+    draft = call_claude(prompt)
+
+    out_path = advertiser_dir(slug) / "draft-reply.md"
+    out_path.write_text(
+        f"# {programme['advertiser']} — draft reply\n\n"
+        f"_Generated {_today()}. Review and edit before sending — this is a draft, not an auto-send._\n\n"
+        f"{draft}\n"
+    )
+    append_log(slug, "Draft reply to advertiser generated.")
+    print(f"Written to {out_path}")
+    print("\nThis is a draft only — review it, then send it yourself.")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = parser.add_subparsers(dest="command")
@@ -791,6 +935,13 @@ def main() -> None:
     p_analyse_terms = sub.add_parser("analyse-terms", help="AI-assess T&Cs dropped into Awin/advertisers/<slug>/terms/")
     p_analyse_terms.add_argument("--advertiser", required=True, help="Advertiser slug (Awin/advertisers/<slug>)")
 
+    p_recommend = sub.add_parser("recommend", help="Final expert accept/decline recommendation from everything on file")
+    p_recommend.add_argument("--advertiser", required=True, help="Advertiser slug (Awin/advertisers/<slug>)")
+
+    p_draft = sub.add_parser("draft-reply", help="Draft a negotiation reply email to the advertiser")
+    p_draft.add_argument("--advertiser", required=True, help="Advertiser slug (Awin/advertisers/<slug>)")
+    p_draft.add_argument("--contact-name", help="Name of the person who sent the invitation, if known")
+
     p_check = sub.add_parser("check-programmes", help="[quick look] List programmes straight from the API")
     p_check.add_argument(
         "--relationship", default="any",
@@ -817,6 +968,10 @@ def main() -> None:
         analyse_invitation(args.advertiser)
     elif args.command == "analyse-terms":
         analyse_terms(args.advertiser)
+    elif args.command == "recommend":
+        recommend(args.advertiser)
+    elif args.command == "draft-reply":
+        draft_reply(args.advertiser, args.contact_name)
     elif args.command == "mark-reviewed":
         mark_reviewed(args.advertiser)
     elif args.command == "check-programmes":

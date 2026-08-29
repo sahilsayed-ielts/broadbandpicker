@@ -29,8 +29,17 @@ Awin/
       terms-assessment.md  AI breakdown of the uploaded T&Cs — commission,
                            cookie window, restrictions, red flags, and
                            whether they match what the invitation promised.
+      recommendation.md    Final accept/decline verdict, synthesised from
+                           everything above.
+      draft-reply.md        A drafted (never auto-sent) reply email —
+                           yours to review and send.
       outreach-log.md      Dated history: when it was first found, every time
                            its status changed, every time research was refreshed.
+  playbooks/
+    negotiation-playbook.md   Sourced reference on UK broadband CPA
+                              benchmarks and Awin's own negotiation/
+                              de-duplication rules — grounds every
+                              `recommend` and `draft-reply` call.
   _snapshots/
     YYYY-MM-DD.json         Full raw Awin API pull for that day, kept as an
                             audit trail.
@@ -104,6 +113,28 @@ promotional restrictions, exclusivity clauses, red flags, and — importantly
 python3 scripts/awin_sync.py analyse-terms --advertiser connect-fibre
 ```
 
+**`recommend --advertiser <slug>`** — synthesises everything on file for an
+advertiser (research, invitation analysis, terms assessment) against
+`Awin/playbooks/negotiation-playbook.md` — a small, sourced reference on real
+UK broadband CPA benchmarks (£50–£120 typical) and Awin's own negotiation and
+de-duplication rules — into one direct verdict: accept as-is, accept with
+changes requested, decline, or not enough information yet. Writes
+`recommendation.md`.
+
+```
+python3 scripts/awin_sync.py recommend --advertiser connect-fibre
+```
+
+**`draft-reply --advertiser <slug> [--contact-name <name>]`** — drafts an
+actual reply email to the advertiser, asking for whatever's missing and
+making one concrete, playbook-informed negotiating ask (e.g. a trial at a
+higher rate, or an exclusive placement in exchange). This is a **draft
+only** — nothing is ever sent automatically. Writes `draft-reply.md`.
+
+```
+python3 scripts/awin_sync.py draft-reply --advertiser connect-fibre --contact-name Remon
+```
+
 **`research --advertiser <slug> [--url <site>]`** — scrapes that advertiser's
 own website and asks Claude to write a fit assessment against
 BroadbandPicker's audience: how good a fit it is, a score out of 10, a
@@ -149,7 +180,9 @@ regenerations, same as before.
    confirm in the Awin dashboard, then `mark-reviewed` it.
 3. Check Awin's Activity Stream by eye (no API for it) — for anything real,
    `add-invitation` it, then `analyse-invitation`. Once the advertiser sends
-   real T&Cs, drop them in `terms/` and run `analyse-terms`.
+   real T&Cs, drop them in `terms/` and run `analyse-terms`. Then
+   `recommend` for a final verdict and `draft-reply` to get a reply ready
+   to send.
 4. For anything newly Pending or newly Rejected with no `research.md` yet,
    run `research --advertiser <slug> --url <their site>`.
 5. `python3 scripts/awin_sync.py briefing` — get the prioritised plan.
