@@ -104,6 +104,18 @@ Commands:
       Ask Awin for the correct, current tracking link for a specific
       advertiser + destination URL, instead of hand-typing one.
 
+  ga4-clicks [--days 30] [--credentials <path>]
+      Reports outbound_provider_click event counts from the GA4 Data API,
+      broken down by provider and cross-referenced against every advertiser
+      tracked in Awin/advertisers/ -- the same thing a GA4 Explore free-form
+      report (Event name / Provider slug / Event count, filtered to
+      outbound_provider_click) would show, without touching the GA4 UI.
+      Flags any Joined programme sitting at zero clicks. Add
+      --ensure-dimension once if GA4 doesn't yet have the 'Provider slug'
+      custom dimension registered (it creates it, then exits -- new
+      dimensions aren't retroactive, so re-run without the flag after new
+      clicks have come in).
+
 Requires AWIN_API_TOKEN (Awin platform -> user menu -> API Credentials) and
 AWIN_PUBLISHER_ID (defaults to 2942019) in the environment or .env.local.
 `research` and `briefing` also require the `claude` CLI on PATH.
@@ -125,7 +137,7 @@ import os
 import re
 import subprocess
 import sys
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
@@ -143,6 +155,9 @@ PLAYBOOK_PATH = AWIN_DIR / "playbooks" / "negotiation-playbook.md"
 PROVIDERS_TS = ROOT / "data" / "providers.ts"
 SITE_BASE_URL = "https://broadbandpicker.co.uk"
 
+GA4_PROPERTY_ID = "551202232"
+GA4_DEFAULT_CREDENTIALS = Path("/Users/sahilrafiqsayed/broadbandpicker-ga4-credentials.json")
+
 GENUINE_STATUSES = ["joined", "pending", "suspended", "rejected"]
 
 # Advertiser name (lowercased) -> site destination, for programmes that
@@ -157,6 +172,26 @@ STOPWORDS = {
     "network", "operators", "full", "fibre", "mobile", "service", "services",
     "internet", "provider", "roi", "uk", "the", "communications",
 }
+
+
+def _load_local_env() -> None:
+    """Load repo-local credentials without overwriting exported environment values."""
+    env_path = ROOT / ".env.local"
+    if not env_path.exists():
+        return
+    for raw_line in env_path.read_text(encoding="utf-8").splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        key = key.strip()
+        if not re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", key):
+            continue
+        value = value.strip().strip('"').strip("'")
+        os.environ.setdefault(key, value)
+
+
+_load_local_env()
 
 
 def get_token() -> str:
@@ -253,14 +288,44 @@ def check_programmes(relationship: str) -> None:
         print(f"{total} programme(s) not yet applied to across the whole Awin platform (not filtered to broadband).")
 
 
-def generate_link(advertiser_id: int, destination_url: str) -> None:
+def _tracking_ref(value: str, fallback: str = "unknown") -> str:
+    cleaned = re.sub(r"_+", "_", re.sub(r"[^a-z0-9._-]+", "_", value.lower())).strip("_.-")
+    cleaned = cleaned or fallback
+    if len(cleaned) <= 50:
+        return cleaned
+    digest = hashlib.sha256(cleaned.encode()).hexdigest()[:8]
+    return f"{cleaned[:41]}_{digest}"
+
+
+def generate_link(
+    advertiser_id: int,
+    destination_url: str,
+    placement: str,
+    source_page: str,
+    provider: str,
+    content_type: str,
+    label: str,
+    campaign: str,
+) -> None:
     token = get_token()
     pid = publisher_id()
     url = f"{API_BASE}/publishers/{pid}/linkbuilder/generate"
     resp = requests.post(
         url,
         headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"},
-        json={"advertiserId": advertiser_id, "destinationUrl": destination_url, "parameters": {}},
+        json={
+            "advertiserId": advertiser_id,
+            "destinationUrl": destination_url,
+            "parameters": {
+                "campaign": _tracking_ref(campaign, "onsite_affiliate"),
+                "clickref": _tracking_ref(placement, "affiliate_cta"),
+                "clickref2": _tracking_ref(source_page, "unknown_page"),
+                "clickref3": _tracking_ref(provider, "unknown_provider"),
+                "clickref4": _tracking_ref(content_type, "other"),
+                "clickref5": _tracking_ref(label, "get_deal"),
+                "clickref6": "tracking_v1",
+            },
+        },
         timeout=20,
     )
     if resp.status_code != 200:
@@ -268,6 +333,81 @@ def generate_link(advertiser_id: int, destination_url: str) -> None:
         sys.exit(1)
 
     print(json.dumps(resp.json(), indent=2))
+
+
+def sync_performance(days: int) -> None:
+    """Pull attributed Awin transactions and aggregate them by page and placement."""
+    token = get_token()
+    pid = publisher_id()
+    end = datetime.now(timezone.utc)
+    start = end - timedelta(days=max(1, days))
+    response = requests.get(
+        f"{API_BASE}/publishers/{pid}/transactions/",
+        headers={"Authorization": f"Bearer {token}"},
+        params={
+            "startDate": start.strftime("%Y-%m-%dT%H:%M:%S"),
+            "endDate": end.strftime("%Y-%m-%dT%H:%M:%S"),
+            "timezone": "UTC",
+        },
+        timeout=30,
+    )
+    if response.status_code != 200:
+        print(f"Awin API error {response.status_code}: {response.text[:500]}", file=sys.stderr)
+        sys.exit(1)
+
+    transactions = response.json()
+    REPORTS_DIR.mkdir(parents=True, exist_ok=True)
+    SNAPSHOTS_DIR.mkdir(parents=True, exist_ok=True)
+    snapshot_path = SNAPSHOTS_DIR / f"transactions-{_today()}.json"
+    snapshot_path.write_text(json.dumps(transactions, indent=2), encoding="utf-8")
+
+    grouped: dict[tuple[str, str, str], dict[str, Any]] = {}
+    for transaction in transactions:
+        page = str(transaction.get("clickRef2") or "unattributed")
+        placement = str(transaction.get("clickRef") or "unattributed")
+        provider = str(transaction.get("clickRef3") or transaction.get("advertiserName") or "unattributed")
+        key = (page, placement, provider)
+        row = grouped.setdefault(key, {
+            "source_page": page,
+            "placement": placement,
+            "provider": provider,
+            "transactions": 0,
+            "approved": 0,
+            "pending": 0,
+            "declined": 0,
+            "sale_amount": 0.0,
+            "commission": 0.0,
+        })
+        row["transactions"] += 1
+        status = str(transaction.get("commissionStatus") or "pending").lower()
+        if status in row:
+            row[status] += 1
+        sale = transaction.get("saleAmount") or {}
+        commission = transaction.get("commissionAmount") or {}
+        row["sale_amount"] += float(sale.get("amount") or 0)
+        row["commission"] += float(commission.get("amount") or 0)
+
+    rows = sorted(grouped.values(), key=lambda row: (row["commission"], row["transactions"]), reverse=True)
+    report = {
+        "generated_at": end.isoformat(),
+        "period_days": days,
+        "publisher_id": pid,
+        "tracking_taxonomy": {
+            "clickRef": "placement",
+            "clickRef2": "source page",
+            "clickRef3": "provider",
+            "clickRef4": "content type",
+            "clickRef5": "CTA label",
+            "clickRef6": "tracking schema version",
+        },
+        "note": "Join this conversion data to GA4 outbound_provider_click by page, placement and provider to calculate conversion rate and earnings per click.",
+        "rows": rows,
+    }
+    report_path = REPORTS_DIR / "affiliate-performance-latest.json"
+    report_path.write_text(json.dumps(report, indent=2), encoding="utf-8")
+    print(f"Pulled {len(transactions)} transaction(s).")
+    print(f"Snapshot: {snapshot_path}")
+    print(f"Performance report: {report_path}")
 
 
 # ---------------------------------------------------------------------------
@@ -836,6 +976,136 @@ BRAND_OPTIONS_PATH = ROOT / "data" / "partner-brand-options.json"
 ONBOARDING_ELIGIBLE_RELATIONSHIPS = {"Joined", "Invited"}
 
 
+def _ga4_token(credentials_path: Path, scope: str) -> str:
+    from google.oauth2 import service_account
+    from google.auth.transport.requests import Request
+
+    if not credentials_path.exists():
+        print(f"GA4 credentials not found at {credentials_path}.", file=sys.stderr)
+        sys.exit(1)
+    creds = service_account.Credentials.from_service_account_file(
+        str(credentials_path), scopes=[f"https://www.googleapis.com/auth/{scope}"]
+    )
+    creds.refresh(Request())
+    return creds.token
+
+
+def ga4_clicks(days: int, credentials_path: Path) -> None:
+    """Pull outbound_provider_click event counts straight from the GA4 Data
+    API, broken down by provider slug, and cross-reference against every
+    advertiser tracked in Awin/advertisers/ -- the same information a GA4
+    Explore free-form report would show, without needing the GA4 UI.
+
+    Requires the 'Provider slug' custom dimension (parameterName
+    provider_slug) to exist on the property; run with --ensure-dimension
+    once if the Sheets API-style 400 "not a valid dimension" error appears.
+    """
+    token = _ga4_token(credentials_path, "analytics.readonly")
+    payload = {
+        "dateRanges": [{"startDate": f"{days}daysAgo", "endDate": "today"}],
+        "dimensions": [{"name": "customEvent:provider_slug"}],
+        "metrics": [{"name": "eventCount"}],
+        "dimensionFilter": {
+            "filter": {
+                "fieldName": "eventName",
+                "stringFilter": {"matchType": "EXACT", "value": "outbound_provider_click"},
+            }
+        },
+        "orderBys": [{"metric": {"metricName": "eventCount"}, "desc": True}],
+        "limit": 200,
+    }
+    resp = requests.post(
+        f"https://analyticsdata.googleapis.com/v1beta/properties/{GA4_PROPERTY_ID}:runReport",
+        headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"},
+        json=payload, timeout=30,
+    )
+    if resp.status_code != 200:
+        print(f"GA4 Data API error {resp.status_code}: {resp.text[:500]}", file=sys.stderr)
+        if "not a valid dimension" in resp.text:
+            print(
+                "\nThe 'provider_slug' custom dimension doesn't exist on this GA4 property yet. "
+                "Create it once with:\n  python3 scripts/awin_sync.py ga4-clicks --ensure-dimension",
+                file=sys.stderr,
+            )
+        sys.exit(1)
+
+    rows = resp.json().get("rows", [])
+    clicks_by_slug: dict[str, int] = {}
+    for row in rows:
+        slug = row["dimensionValues"][0]["value"]
+        count = int(row["metricValues"][0]["value"])
+        clicks_by_slug[slug] = count
+
+    # Cross-reference against every tracked advertiser, not just ones with
+    # clicks, so a Joined programme sitting at zero is visible, not silent.
+    advertisers = []
+    if ADVERTISERS_DIR.exists():
+        for d in sorted(ADVERTISERS_DIR.iterdir()):
+            programme_path = d / "programme.json"
+            if not programme_path.exists():
+                continue
+            data = json.loads(programme_path.read_text())
+            live_url = data.get("live_url") or ""
+            slug = live_url.rsplit("/", 1)[-1] if live_url.startswith("/providers/") else data.get("slug", "")
+            advertisers.append({
+                "advertiser": data["advertiser"],
+                "relationship": data.get("relationship", ""),
+                "slug": slug,
+                "clicks": clicks_by_slug.pop(slug, 0),
+            })
+
+    print(f"Outbound provider clicks, last {days} day(s) (GA4 property {GA4_PROPERTY_ID}):\n")
+    band_order = {"Joined": 0, "Invited": 1, "Pending": 2, "Suspended": 2, "Rejected": 3, "Prospect": 4}
+    advertisers.sort(key=lambda a: (band_order.get(a["relationship"], 9), -a["clicks"]))
+    for a in advertisers:
+        flag = "  <-- Joined but zero clicks — verify the tracked link is actually live" if a["relationship"] == "Joined" and a["clicks"] == 0 else ""
+        print(f"  [{a['relationship']:<10}] {a['advertiser']:<35} clicks: {a['clicks']:<5}{flag}")
+
+    leftover = {k: v for k, v in clicks_by_slug.items() if k and k != "(not set)"}
+    if leftover:
+        print("\nClicks for slugs not matched to a tracked advertiser folder:")
+        for slug, count in sorted(leftover.items(), key=lambda kv: -kv[1]):
+            print(f"  {slug}: {count}")
+    if "(not set)" in clicks_by_slug:
+        print(
+            f"\nNote: {clicks_by_slug['(not set)']} click(s) show as '(not set)' — GA4 custom "
+            "dimensions aren't retroactive, so clicks recorded before the dimension was created "
+            "won't show a provider slug even though the event itself was captured."
+        )
+
+
+def ensure_ga4_dimension(credentials_path: Path) -> None:
+    """Create the 'Provider slug' custom dimension if it doesn't already
+    exist -- the one-time setup step the GA4 Explore instructions assume."""
+    token = _ga4_token(credentials_path, "analytics.edit")
+    existing = requests.get(
+        f"https://analyticsadmin.googleapis.com/v1beta/properties/{GA4_PROPERTY_ID}/customDimensions",
+        headers={"Authorization": f"Bearer {token}"}, timeout=30,
+    )
+    if existing.status_code == 200:
+        for dim in existing.json().get("customDimensions", []):
+            if dim.get("parameterName") == "provider_slug":
+                print("'provider_slug' custom dimension already exists — nothing to do.")
+                return
+
+    resp = requests.post(
+        f"https://analyticsadmin.googleapis.com/v1beta/properties/{GA4_PROPERTY_ID}/customDimensions",
+        headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"},
+        json={
+            "parameterName": "provider_slug",
+            "displayName": "Provider slug",
+            "description": "Broadband provider slug for outbound affiliate clicks and related events.",
+            "scope": "EVENT",
+        },
+        timeout=30,
+    )
+    if resp.status_code != 200:
+        print(f"GA4 Admin API error {resp.status_code}: {resp.text[:500]}", file=sys.stderr)
+        sys.exit(1)
+    print("Created 'provider_slug' custom dimension.")
+    print("Note: only events recorded from now on will populate it — GA4 doesn't backfill history.")
+
+
 def export_brand_options() -> list[str]:
     """Regenerate data/partner-brand-options.json from every advertiser
     folder currently Joined or Invited. This is what powers the "which
@@ -1140,6 +1410,29 @@ def main() -> None:
     p_link = sub.add_parser("generate-link", help="Generate a tracking link for an advertiser + destination URL")
     p_link.add_argument("--advertiser-id", type=int, required=True)
     p_link.add_argument("--url", required=True)
+    p_link.add_argument("--placement", default="affiliate_cta")
+    p_link.add_argument("--source-page", default="unknown_page")
+    p_link.add_argument("--provider", default="unknown_provider")
+    p_link.add_argument("--content-type", default="other")
+    p_link.add_argument("--label", default="get_deal")
+    p_link.add_argument("--campaign", default="onsite_affiliate")
+
+    p_performance = sub.add_parser(
+        "sync-performance",
+        help="Pull Awin transactions and report revenue by tracked page, placement and provider",
+    )
+    p_performance.add_argument("--days", type=int, default=30)
+
+    p_ga4 = sub.add_parser(
+        "ga4-clicks",
+        help="Report outbound_provider_click counts from GA4 by provider, for every tracked advertiser",
+    )
+    p_ga4.add_argument("--days", type=int, default=30, help="Lookback window (default 30 days)")
+    p_ga4.add_argument("--credentials", type=Path, default=GA4_DEFAULT_CREDENTIALS)
+    p_ga4.add_argument(
+        "--ensure-dimension", action="store_true",
+        help="Create the 'Provider slug' GA4 custom dimension if it doesn't exist yet, then exit",
+    )
 
     args = parser.parse_args()
 
@@ -1172,7 +1465,23 @@ def main() -> None:
     elif args.command == "check-programmes":
         check_programmes(args.relationship)
     elif args.command == "generate-link":
-        generate_link(args.advertiser_id, args.url)
+        generate_link(
+            args.advertiser_id,
+            args.url,
+            args.placement,
+            args.source_page,
+            args.provider,
+            args.content_type,
+            args.label,
+            args.campaign,
+        )
+    elif args.command == "sync-performance":
+        sync_performance(args.days)
+    elif args.command == "ga4-clicks":
+        if args.ensure_dimension:
+            ensure_ga4_dimension(args.credentials)
+        else:
+            ga4_clicks(args.days, args.credentials)
     else:
         parser.print_help()
 

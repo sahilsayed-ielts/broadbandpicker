@@ -205,6 +205,24 @@ python3 scripts/awin_sync.py briefing
 tools: print live status straight from the API without touching this folder,
 or generate a tracking link for a specific advertiser + URL.
 
+**`ga4-clicks [--days 30]`** — reports outbound-click counts straight from GA4
+for every tracked advertiser, without opening the GA4 UI at all. This is the
+same information a GA4 Explore free-form report (Event name / Provider slug /
+Event count, filtered to `outbound_provider_click`) would show — flags any
+Joined programme sitting at zero clicks.
+
+```
+python3 scripts/awin_sync.py ga4-clicks --days 90
+```
+
+One-time setup, already done: GA4 didn't have a "Provider slug" custom
+dimension registered, which is why the manual Explore steps (add the custom
+dimension) wouldn't have worked. Created it via the GA4 Admin API on
+2026-08-30 — if it's ever missing again (e.g. a fresh GA4 property), recreate
+it with `python3 scripts/awin_sync.py ga4-clicks --ensure-dimension`. New
+custom dimensions aren't retroactive — only clicks recorded after creation
+carry a provider slug.
+
 ## Setup for the onboarding questionnaire
 
 None needed. It runs entirely on the Gmail SMTP already configured for the

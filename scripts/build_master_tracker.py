@@ -2218,6 +2218,43 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-30 — Connect Fibre SEO/GEO content plan",
     },
     {
+        "item_id": "ops-ga4-provider-slug-dimension-and-click-report",
+        "type": "Tooling",
+        "pillar": "Analytics",
+        "title": "Fix missing GA4 custom dimension; add awin_sync.py ga4-clicks report",
+        "description": (
+            "User asked to build a GA4 Explore free-form report (Event name + custom dimension "
+            "Provider slug, Event count, filtered to outbound_provider_click) to see outbound "
+            "clicks per joined affiliate programme. GA4 Explorations have no public API for "
+            "creation, so a saved Exploration can't be built by script -- but the underlying "
+            "cause of why the manual steps wouldn't have worked was diagnosable and fixable: "
+            "the 'provider_slug' custom dimension referenced in the tracking code "
+            "(components/AffiliateCTA.tsx) had never been registered in GA4 Admin, so it "
+            "wasn't selectable as a dimension anywhere, in Explore or the API (confirmed via a "
+            "live GA4 Data API 400: 'Field customEvent:provider_slug is not a valid dimension'). "
+            "Created it via the GA4 Admin API (property 551202232) using the existing GA4 "
+            "service account, which already had Editor rights. Added `ga4-clicks [--days] "
+            "[--ensure-dimension]` to awin_sync.py: pulls the same event-count-by-provider "
+            "breakdown directly via the GA4 Data API and cross-references it against every "
+            "advertiser tracked in Awin/advertisers/, flagging any Joined programme sitting at "
+            "zero clicks -- available on demand without opening the GA4 UI at all. Noted "
+            "clearly that new custom dimensions are not retroactive: the 23 outbound clicks "
+            "already recorded show as '(not set)' and won't gain a provider slug "
+            "retroactively; only clicks from 2026-08-30 onward will be attributable."
+        ),
+        "priority_score": 30,
+        "impact_score": 34,
+        "effort": "Low",
+        "target": "scripts/awin_sync.py",
+        "dependencies": "Existing GA4 service account credentials",
+        "source": "User request 2026-08-30 — GA4 Explore report for every joined affiliate programme",
+        "verified_status": "Done",
+        "completion_notes": (
+            "Custom dimension created and verified live via a real runReport call. "
+            "ga4-clicks --days 90 run and cross-referenced against all 21 tracked advertisers."
+        ),
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",
