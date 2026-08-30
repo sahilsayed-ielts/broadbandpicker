@@ -1,0 +1,562 @@
+{
+  "generated_at": "2026-08-30T20:20:20+00:00",
+  "site": "https://broadbandpicker.co.uk",
+  "audit": {
+    "files_read": [
+      "app/page.tsx",
+      "app/about/page.tsx",
+      "app/how-we-make-money/page.tsx",
+      "app/how-we-review-broadband/page.tsx",
+      "app/editorial-policy/page.tsx",
+      "data/providers.ts",
+      "data/guides.ts",
+      "docs/content-plan.md",
+      "docs/ga4-seo-strategy-plan.md",
+      "docs/home page UX/homepage-redesign-analysis.md",
+      "lib/affiliate.ts"
+    ],
+    "provider_count": 24,
+    "providers": [
+      "BT",
+      "Sky",
+      "Virgin Media",
+      "EE",
+      "TalkTalk",
+      "Plusnet",
+      "Vodafone",
+      "NOW Broadband",
+      "Hyperoptic",
+      "Community Fibre",
+      "Zen Internet",
+      "National Broadband",
+      "Trooli",
+      "Pine Media",
+      "Toob",
+      "giffgaff",
+      "Brsk",
+      "YouFibre",
+      "Gigaclear",
+      "Zzoomm",
+      "Highland Broadband",
+      "Cuckoo",
+      "Onestream",
+      "Shell Energy"
+    ],
+    "homepage_h1": "Compare Broadband Deals for Your Postcode",
+    "homepage_title": "Compare Broadband Deals UK | BroadbandPicker",
+    "homepage_description": "Compare UK broadband deals by postcode. Free checker for fibre and full-fibre packages from BT, Sky, Virgin Media, EE and more. Rankings are not sold.",
+    "homepage_word_count": 1798,
+    "homepage_em_dashes": 0,
+    "homepage_ai_tells": [],
+    "tools": [
+      "Postcode checker (homepage)",
+      "Compare",
+      "Deals table",
+      "Speed test",
+      "Broadband Match quiz",
+      "Cost calculator",
+      "Glossary"
+    ],
+    "trust_pages": [
+      "https://broadbandpicker.co.uk/about",
+      "https://broadbandpicker.co.uk/how-we-make-money",
+      "https://broadbandpicker.co.uk/how-we-review-broadband",
+      "https://broadbandpicker.co.uk/editorial-policy"
+    ],
+    "gsc_homepage_ai_impressions": 15,
+    "gsc_top_pages": [
+      {
+        "url": "https://broadbandpicker.co.uk/guides/best-broadband-and-tv-deals",
+        "impressions": 1295
+      },
+      {
+        "url": "https://broadbandpicker.co.uk/guides/best-full-fibre-broadband-uk",
+        "impressions": 512
+      },
+      {
+        "url": "https://broadbandpicker.co.uk/postcode/london",
+        "impressions": 161
+      },
+      {
+        "url": "https://broadbandpicker.co.uk/guides/best-business-broadband-providers-uk",
+        "impressions": 142
+      },
+      {
+        "url": "https://broadbandpicker.co.uk/guides/cheapest-broadband-uk",
+        "impressions": 130
+      },
+      {
+        "url": "https://broadbandpicker.co.uk/providers/compare/ee-vs-talktalk",
+        "impressions": 38
+      },
+      {
+        "url": "https://broadbandpicker.co.uk/guides/best-5g-home-broadband-uk",
+        "impressions": 30
+      },
+      {
+        "url": "https://broadbandpicker.co.uk/postcode/da1",
+        "impressions": 23
+      },
+      {
+        "url": "https://broadbandpicker.co.uk/guides/satellite-broadband-uk",
+        "impressions": 21
+      },
+      {
+        "url": "https://broadbandpicker.co.uk/postcode/e1",
+        "impressions": 20
+      },
+      {
+        "url": "https://broadbandpicker.co.uk/postcode/ha1",
+        "impressions": 16
+      },
+      {
+        "url": "https://broadbandpicker.co.uk/",
+        "impressions": 15
+      },
+      {
+        "url": "https://broadbandpicker.co.uk/postcode/nw1",
+        "impressions": 15
+      },
+      {
+        "url": "https://broadbandpicker.co.uk/guides/best-phone-and-broadband-deals",
+        "impressions": 14
+      },
+      {
+        "url": "https://broadbandpicker.co.uk/how-we-make-money",
+        "impressions": 13
+      },
+      {
+        "url": "https://broadbandpicker.co.uk/postcode/se1",
+        "impressions": 12
+      },
+      {
+        "url": "https://broadbandpicker.co.uk/postcode/w5",
+        "impressions": 12
+      },
+      {
+        "url": "https://broadbandpicker.co.uk/postcode",
+        "impressions": 11
+      },
+      {
+        "url": "https://broadbandpicker.co.uk/postcode/edinburgh",
+        "impressions": 11
+      },
+      {
+        "url": "https://broadbandpicker.co.uk/postcode/gu1",
+        "impressions": 9
+      }
+    ],
+    "revenue_model": "Free for consumers. Affiliate commission when a visitor clicks through and signs up. Rankings are not sold. Providers can appear with or without an affiliate relationship.",
+    "industry": "UK broadband price comparison / affiliate publisher. Not a telecoms operator. Same industry bucket as Uswitch and broadbandchoices."
+  },
+  "keywords": [
+    {
+      "keyword": "broadband",
+      "volume": 246000,
+      "difficulty": 78,
+      "cpc": 3.8,
+      "intent": "Informational",
+      "role": "primary",
+      "homepage_job": "Head term. Own with H1 + postcode tool + definition.",
+      "cannibal_risk": "Low: homepage should rank"
+    },
+    {
+      "keyword": "broadband uk",
+      "volume": 33100,
+      "difficulty": 55,
+      "cpc": 4.1,
+      "intent": "Informational",
+      "role": "primary",
+      "homepage_job": "Geo-qualified head term. Title and intro.",
+      "cannibal_risk": "Low: homepage should rank"
+    },
+    {
+      "keyword": "compare broadband",
+      "volume": 14800,
+      "difficulty": 58,
+      "cpc": 5.9,
+      "intent": "Commercial",
+      "role": "primary",
+      "homepage_job": "Job of the homepage. H1 variant.",
+      "cannibal_risk": "Low: homepage should rank"
+    },
+    {
+      "keyword": "broadband comparison",
+      "volume": 5400,
+      "difficulty": 48,
+      "cpc": 5.4,
+      "intent": "Commercial",
+      "role": "primary",
+      "homepage_job": "Same cluster as compare broadband.",
+      "cannibal_risk": "Low: homepage should rank"
+    },
+    {
+      "keyword": "broadband checker",
+      "volume": 14800,
+      "difficulty": 42,
+      "cpc": 3.2,
+      "intent": "Transactional tool",
+      "role": "primary",
+      "homepage_job": "Postcode checker is the tool.",
+      "cannibal_risk": "Low: homepage should rank"
+    },
+    {
+      "keyword": "broadband in my area",
+      "volume": 12100,
+      "difficulty": 40,
+      "cpc": 3.5,
+      "intent": "Local commercial",
+      "role": "primary",
+      "homepage_job": "Postcode CTA, not a city URL.",
+      "cannibal_risk": "Low: homepage should rank"
+    },
+    {
+      "keyword": "home broadband",
+      "volume": 14800,
+      "difficulty": 52,
+      "cpc": 4.0,
+      "intent": "Informational",
+      "role": "secondary",
+      "homepage_job": "Household framing in body.",
+      "cannibal_risk": "Medium: share with a child URL"
+    },
+    {
+      "keyword": "internet deals uk",
+      "volume": 9900,
+      "difficulty": 60,
+      "cpc": 6.1,
+      "intent": "Commercial",
+      "role": "secondary",
+      "homepage_job": "Synonym. Do not make it the H1.",
+      "cannibal_risk": "Medium: share with a child URL"
+    },
+    {
+      "keyword": "broadband providers uk",
+      "volume": 22200,
+      "difficulty": 62,
+      "cpc": 4.8,
+      "intent": "Commercial",
+      "role": "secondary",
+      "homepage_job": "Logo bar + link to /providers.",
+      "cannibal_risk": "Medium: share with a child URL"
+    },
+    {
+      "keyword": "switch broadband",
+      "volume": 8100,
+      "difficulty": 38,
+      "cpc": 4.2,
+      "intent": "Transactional",
+      "role": "secondary",
+      "homepage_job": "OTS explainer + /guides/how-to-switch.",
+      "cannibal_risk": "Medium: share with a child URL"
+    },
+    {
+      "keyword": "fibre broadband",
+      "volume": 90500,
+      "difficulty": 68,
+      "cpc": 5.5,
+      "intent": "Informational",
+      "role": "supporting",
+      "homepage_job": "Define FTTP vs FTTC. Link the guide.",
+      "cannibal_risk": "Medium: share with a child URL"
+    },
+    {
+      "keyword": "full fibre broadband",
+      "volume": 40500,
+      "difficulty": 58,
+      "cpc": 5.8,
+      "intent": "Informational",
+      "role": "supporting",
+      "homepage_job": "Same. Do not steal the full-fibre guide.",
+      "cannibal_risk": "Medium: share with a child URL"
+    },
+    {
+      "keyword": "broadband deals",
+      "volume": 165000,
+      "difficulty": 71,
+      "cpc": 8.32,
+      "intent": "Commercial",
+      "role": "supporting",
+      "homepage_job": "Featured table, but /deals owns the hub.",
+      "cannibal_risk": "High: keep a teaser and link out"
+    },
+    {
+      "keyword": "compare broadband deals",
+      "volume": 9900,
+      "difficulty": 62,
+      "cpc": 6.4,
+      "intent": "Commercial",
+      "role": "supporting",
+      "homepage_job": "Share with /compare. Homepage = start.",
+      "cannibal_risk": "High: keep a teaser and link out"
+    },
+    {
+      "keyword": "best broadband uk",
+      "volume": 22200,
+      "difficulty": 64,
+      "cpc": 6.0,
+      "intent": "Commercial",
+      "role": "supporting",
+      "homepage_job": "Point to /guides/best-broadband-providers-uk.",
+      "cannibal_risk": "Medium: share with a child URL"
+    },
+    {
+      "keyword": "cheap broadband",
+      "volume": 49500,
+      "difficulty": 55,
+      "cpc": 4.58,
+      "intent": "Commercial",
+      "role": "supporting",
+      "homepage_job": "Point to /guides/cheapest-broadband-uk.",
+      "cannibal_risk": "Medium: share with a child URL"
+    },
+    {
+      "keyword": "broadband postcode",
+      "volume": 2900,
+      "difficulty": 28,
+      "cpc": 2.8,
+      "intent": "Transactional tool",
+      "role": "supporting",
+      "homepage_job": "Checker copy.",
+      "cannibal_risk": "Medium: share with a child URL"
+    },
+    {
+      "keyword": "what broadband do i need",
+      "volume": 3600,
+      "difficulty": 24,
+      "cpc": 2.1,
+      "intent": "Informational",
+      "role": "supporting",
+      "homepage_job": "Speed-need interactive + match quiz.",
+      "cannibal_risk": "Medium: share with a child URL"
+    },
+    {
+      "keyword": "ofcom broadband",
+      "volume": 2400,
+      "difficulty": 32,
+      "cpc": 1.4,
+      "intent": "Informational",
+      "role": "trust",
+      "homepage_job": "Cite Ofcom. Do not impersonate.",
+      "cannibal_risk": "Medium: share with a child URL"
+    },
+    {
+      "keyword": "one touch switch",
+      "volume": 5400,
+      "difficulty": 22,
+      "cpc": 1.8,
+      "intent": "Informational",
+      "role": "trust",
+      "homepage_job": "Rights block. Link the switch guide.",
+      "cannibal_risk": "Medium: share with a child URL"
+    }
+  ],
+  "competitor_fetches": [
+    {
+      "name": "Uswitch broadband",
+      "url": "https://www.uswitch.com/broadband/",
+      "ok": false,
+      "error": "skipped"
+    },
+    {
+      "name": "Uswitch home",
+      "url": "https://www.uswitch.com/",
+      "ok": false,
+      "error": "skipped"
+    },
+    {
+      "name": "broadband.co.uk",
+      "url": "https://www.broadband.co.uk/broadband",
+      "ok": false,
+      "error": "skipped"
+    },
+    {
+      "name": "choose.co.uk",
+      "url": "https://www.choose.co.uk/broadband/",
+      "ok": false,
+      "error": "skipped"
+    },
+    {
+      "name": "Go.Compare broadband",
+      "url": "https://www.gocompare.com/broadband/",
+      "ok": false,
+      "error": "skipped"
+    },
+    {
+      "name": "Confused.com broadband",
+      "url": "https://www.confused.com/broadband",
+      "ok": false,
+      "error": "skipped"
+    },
+    {
+      "name": "Which? Switch",
+      "url": "https://broadband.which.co.uk/",
+      "ok": false,
+      "error": "skipped"
+    },
+    {
+      "name": "MoneySuperMarket broadband",
+      "url": "https://www.moneysupermarket.com/broadband/",
+      "ok": false,
+      "error": "skipped"
+    },
+    {
+      "name": "Compare the Market broadband",
+      "url": "https://www.comparethemarket.com/broadband/",
+      "ok": false,
+      "error": "skipped"
+    },
+    {
+      "name": "Broadband Genie",
+      "url": "https://www.broadbandgenie.co.uk/",
+      "ok": false,
+      "error": "skipped"
+    },
+    {
+      "name": "MoneySavingExpert cheap broadband",
+      "url": "https://www.moneysavingexpert.com/phones/cheap-broadband/",
+      "ok": false,
+      "error": "skipped"
+    },
+    {
+      "name": "Ofcom broadband",
+      "url": "https://www.ofcom.org.uk/phones-and-broadband",
+      "ok": false,
+      "error": "skipped"
+    }
+  ],
+  "competitor_patterns": {
+    "readable": 0,
+    "notes": [
+      "No live competitor HTML this run."
+    ]
+  },
+  "copy_rules": [
+    "British English. Fibre, not fiber. Organisation, not organization in running copy unless it is a schema field.",
+    "No em dash (U+2014). Use a comma, a colon, a full stop, or a hyphen.",
+    "No AI tells: delve, landscape, in today's world, whether you're, it's important to note, unlock, elevate, seamless, comprehensive guide, let's dive, robust, leverage, cutting-edge, game-changer.",
+    "Do not open every section with a definition of broadband. Answer the search, then explain.",
+    "Put a direct 40 to 70 word answer under the first H2 so AI Overviews and LLMs have something to quote.",
+    "Date prices and Ofcom facts. Link /how-we-review-broadband and /how-we-make-money.",
+    "Affiliate honesty in the same breath as the deal table, not a footer afterthought.",
+    "Specific names: BT, Sky, Virgin Media, EE, TalkTalk, Vodafone, Plusnet, Hyperoptic, Community Fibre, Toob.",
+    "Short sentences mixed with longer ones. One joke is allowed. A paragraph of jokes is not.",
+    "Internal links to /deals, /compare, /guides/how-to-switch-broadband-uk, /guides/cheapest-broadband-uk, /guides/broadband-social-tariffs-uk, /speed-test, /tools/broadband-match."
+  ],
+  "geo_rules": [
+    "Lead sections with a plain-English claim a model can lift without the surrounding marketing.",
+    "FAQ answers of 2 to 4 sentences, one fact each, with a source or a dated caveat.",
+    "JSON-LD: WebSite + SearchAction, Organization, WebPage, FAQPage, HowTo for the three steps. Sanitize < in stringify.",
+    "sameAs social profiles. Organization logo. dateModified from the deals snapshot.",
+    "Speakable-style first paragraph: who we are, what the tool does, that availability is by address.",
+    "Cite Ofcom (One Touch Switch, social tariffs, full fibre coverage) rather than inventing stats.",
+    "Do not cloak. The HTML the crawler sees is the HTML the user sees.",
+    "Track AI referrals with the existing ai_referral_visit event. Do not add hidden prompt text."
+  ],
+  "ux_plan": [
+    {
+      "slot": "Hero",
+      "job": "Rank for compare broadband / broadband checker. Convert postcode.",
+      "interactive": "Existing large PostcodeChecker. Keep it as the only primary CTA.",
+      "visual": "Navy/sky field, hero-network SVG, no stock photo.",
+      "copy": "H1 stays Compare Broadband Deals for Your Postcode. Subhead names fibre and full fibre without a national from-price."
+    },
+    {
+      "slot": "Proof strip",
+      "job": "Trust in 3 seconds for humans and Awin reviewers.",
+      "interactive": "SocialProofCounter already animates. Keep provider count live from data/providers.ts.",
+      "visual": "Ticks, not badges bought from a widget farm.",
+      "copy": "Comparing N providers. Free. Rankings not sold."
+    },
+    {
+      "slot": "Logo rail",
+      "job": "broadband providers uk.",
+      "interactive": "Horizontal swipe on mobile already exists.",
+      "visual": "Real provider SVGs, rounded cards.",
+      "copy": "Compare deals from the networks that actually reach UK homes."
+    },
+    {
+      "slot": "Featured deals",
+      "job": "Commercial teaser. Do not replace /deals.",
+      "interactive": "DealTable with Get Deal. Disclosure under the table.",
+      "visual": "Existing table. No red SALE skin.",
+      "copy": "Today's snapshot, dated. Link See all deals."
+    },
+    {
+      "slot": "What speed do you actually need",
+      "job": "what broadband do i need. Saves. GEO quote.",
+      "interactive": "Clickable household cards (1 person, couple, family, busy house) that reveal a typical Mbps range and a CTA to Broadband Match.",
+      "visual": "Four original SVG tiles, sky/navy, not stock families.",
+      "copy": "Gigabit is optional. Ping and upload matter. Be honest."
+    },
+    {
+      "slot": "How it works",
+      "job": "HowTo schema. Reduce switch fear.",
+      "interactive": "ScrollReveal on the three steps. Hover scale already there.",
+      "visual": "icon-postcode, icon-compare, icon-switch.",
+      "copy": "Postcode, compare, the new provider handles One Touch Switch. No em dash."
+    },
+    {
+      "slot": "Rights and loyalty tax",
+      "job": "switch broadband, one touch switch. Citation bait.",
+      "interactive": "Three fact cards with a source line. Link the guides.",
+      "visual": "Minimal navy cards, one sky accent.",
+      "copy": "Out of contract is the business model. OTS is real. Social tariffs exist and most eligible people have not heard of them."
+    },
+    {
+      "slot": "Deep editorial",
+      "job": "Indexable depth for broadband / broadband uk. AI Overview source.",
+      "interactive": "None required. HTML is the feature.",
+      "visual": "Pull-quote of the 50-word answer. Small fibre vs cabinet diagram.",
+      "copy": "800 to 1400 words. Human. Dated. Internal links. No duplicate of a guide."
+    },
+    {
+      "slot": "FAQ",
+      "job": "People Also Ask + FAQPage.",
+      "interactive": "Existing FAQAccordion.",
+      "visual": "Clean bordered list.",
+      "copy": "Eight questions that match homepage queries, not category guides."
+    },
+    {
+      "slot": "Match quiz + newsletter",
+      "job": "Engagement and return visits.",
+      "interactive": "Existing quiz promo and NewsletterSignup.",
+      "visual": "quiz-match.svg, blob decorations.",
+      "copy": "Keep. Remove any leftover em dash."
+    }
+  ],
+  "faqs": [
+    {
+      "question": "How do I compare broadband deals in the UK?",
+      "answer": "Enter your postcode. Availability, speed and price change street by street, so a national from-price is guesswork. BroadbandPicker lists the packages that can actually serve that address, then you compare monthly cost, contract length, setup fees and typical speed before you switch."
+    },
+    {
+      "question": "Is BroadbandPicker free to use?",
+      "answer": "Yes. The comparison is free. We may earn an affiliate commission if you click through and sign up with a provider. That fee does not change the order of the table. We still list providers we do not earn from. The full explanation is on How we make money."
+    },
+    {
+      "question": "Why do broadband deals depend on my postcode?",
+      "answer": "Different networks built different streets. Openreach, Virgin Media, CityFibre and smaller full-fibre builders do not cover the same homes. Two neighbours can see different speeds and different prices. Check the address, not the TV advert."
+    },
+    {
+      "question": "What broadband speed do I actually need?",
+      "answer": "One or two people browsing and watching HD are usually fine on a few dozen Mbps. A family that works from home and streams in 4K needs more, especially on the upload. Gaming cares more about ping than a vanity gigabit number. Use the household cards on this page or the Broadband Match quiz if you want a tailored range."
+    },
+    {
+      "question": "What is the difference between fibre and full fibre?",
+      "answer": "A lot of UK 'fibre' is fibre to a street cabinet and copper for the last stretch (FTTC). Full fibre, or FTTP, runs glass all the way to the premises. Full fibre is faster on the upload and more consistent at 7pm. If the listing does not say full fibre or FTTP, assume it may still involve copper."
+    },
+    {
+      "question": "How does switching broadband work now?",
+      "answer": "One Touch Switch, live since 12 September 2024, means the new provider handles the move and you stay online during the cutover in the usual case. You still need to check early-termination fees if you are in contract. Ofcom reports more than two million residential switches completed under the process."
+    },
+    {
+      "question": "Are there cheaper broadband tariffs if I claim benefits?",
+      "answer": "Yes. Social tariffs from participating providers sit roughly in the £12.50 to £24 a month range if you qualify (for example Universal Credit or Pension Credit). Ofcom has found that most eligible households still have not heard of them. We publish a plain-English guide rather than burying this in a PDF."
+    },
+    {
+      "question": "Does staying loyal get me a better broadband price?",
+      "answer": "Usually the opposite. Introductory prices end, and many households keep paying the higher out-of-contract rate. New-customer deals on the same network are often cheaper. Check your contract end date, then compare what is on offer at your postcode before you assume loyalty is being rewarded."
+    }
+  ]
+}

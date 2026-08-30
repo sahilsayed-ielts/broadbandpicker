@@ -20,7 +20,8 @@
     "seo:weekly": "python3 scripts/generate_weekly_seo_intelligence.py",
     "deals:sync": "node scripts/provider-deal-agent.mjs",
     "deals:sync:dry": "node scripts/provider-deal-agent.mjs --dry-run",
-    "social:plan": "python3 scripts/plan_social_media_strategy.py"
+    "social:plan": "python3 scripts/plan_social_media_strategy.py",
+    "homepage:plan": "python3 scripts/plan_homepage_seo_geo.py"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.106.2",

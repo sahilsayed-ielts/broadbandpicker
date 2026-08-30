@@ -152,6 +152,26 @@ def icon_illustration(name: str, kind: str) -> str:
       <circle cx="60" cy="60" r="30" fill="url(#stepGrad)" />
       <path d="M48 60l8 8 16-18" stroke="{WHITE}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
     ''',
+        "speed": f'''
+      <circle cx="60" cy="60" r="52" fill="url(#stepGrad)" opacity="0.14" />
+      <path d="M32 78c0-16 12-34 28-34s28 18 28 34" stroke="url(#stepGrad)" stroke-width="8" fill="none" stroke-linecap="round" />
+      <circle cx="60" cy="78" r="6" fill="{NAVY}" />
+      <path d="M60 78 L78 52" stroke="{SKY}" stroke-width="5" stroke-linecap="round" />
+    ''',
+        "bill": f'''
+      <circle cx="60" cy="60" r="52" fill="url(#stepGrad)" opacity="0.14" />
+      <rect x="34" y="28" width="52" height="64" rx="6" fill="url(#stepGrad)" />
+      <rect x="42" y="40" width="36" height="5" rx="2" fill="{WHITE}" />
+      <rect x="42" y="52" width="24" height="5" rx="2" fill="{WHITE}" opacity="0.7" />
+      <rect x="42" y="64" width="28" height="5" rx="2" fill="{WHITE}" opacity="0.5" />
+    ''',
+        "ots": f'''
+      <circle cx="60" cy="60" r="52" fill="url(#stepGrad)" opacity="0.14" />
+      <rect x="30" y="44" width="28" height="32" rx="6" fill="{SKY_LIGHT}" />
+      <rect x="62" y="44" width="28" height="32" rx="6" fill="url(#stepGrad)" />
+      <path d="M50 60h20" stroke="{NAVY}" stroke-width="4" stroke-linecap="round" />
+      <path d="M64 52l8 8-8 8" stroke="{NAVY}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    ''',
     }[kind]
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
   <defs>
@@ -205,6 +225,9 @@ def main() -> None:
     write("blob-sky-green.svg", blob_decoration("blob-sky-green.svg", 3, SKY, GREEN))
     write("blob-green-sky.svg", blob_decoration("blob-green-sky.svg", 11, GREEN, SKY))
     write("quiz-match.svg", quiz_illustration())
+    write("icon-speed.svg", icon_illustration("speed", "speed"))
+    write("icon-bill.svg", icon_illustration("bill", "bill"))
+    write("icon-ots.svg", icon_illustration("ots", "ots"))
     print("Done.")
 
 

@@ -37,14 +37,14 @@ export default function NewsletterSignup({
       if (error) {
         setMessage(
           error.code === '23505'
-            ? "You're already subscribed — we'll be in touch with the best deals."
+            ? "You're already subscribed. We'll be in touch with the best deals."
             : 'Something went wrong. Please try again.'
         )
         setStatus('error')
       } else {
         setMessage(
           postcodeArea
-            ? `Done — we'll alert you when deals in ${postcodeTown ?? postcodeArea.toUpperCase()} improve.`
+            ? `Done. We'll alert you when deals in ${postcodeTown ?? postcodeArea.toUpperCase()} improve.`
             : "You're subscribed. We'll send you the best broadband deals."
         )
         setStatus('success')
@@ -123,7 +123,7 @@ export default function NewsletterSignup({
             Never miss a better deal
           </h2>
           <p className="text-slate-400 text-sm mb-6 max-w-lg mx-auto">
-            Broadband prices drop every week. We&apos;ll send you a roundup of the best new deals — free, once a week. No spam, cancel any time.
+            Broadband prices drop every week. We&apos;ll send you a roundup of the best new deals, free, once a week. No spam, cancel any time.
           </p>
 
           {status === 'success' ? (
@@ -167,7 +167,7 @@ export default function NewsletterSignup({
     <div className="bg-slate-800 rounded-xl px-6 py-8">
       <h3 className="text-white font-bold text-lg mb-1">Get deal alerts by email</h3>
       <p className="text-slate-300 text-sm mb-4">
-        We&apos;ll send you the best new broadband deals — no spam, unsubscribe any time.
+        We&apos;ll send you the best new broadband deals. No spam, unsubscribe any time.
       </p>
       {status === 'success' ? (
         <p className="text-green-400 font-medium text-sm">{message}</p>

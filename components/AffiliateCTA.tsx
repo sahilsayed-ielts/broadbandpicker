@@ -62,7 +62,7 @@ export default function AffiliateCTA({
       rel="noopener noreferrer sponsored"
       onClick={handleClick}
       className={`inline-block rounded-lg transition-colors ${sizeClass} ${variantClass} ${className}`}
-      aria-label={`Get deal from ${providerName} (affiliate link — we may earn a commission)`}
+      aria-label={`Get deal from ${providerName} (affiliate link: we may earn a commission)`}
     >
       {label ?? `Get Deal →`}
     </a>
