@@ -34,18 +34,6 @@ create table if not exists email_subscribers (
   source text
 );
 
--- Partner onboarding submissions (broadband providers who accepted, or whose
--- invitation we accepted, filling in the content-planning questionnaire)
-create table if not exists partner_onboarding_responses (
-  id uuid primary key default gen_random_uuid(),
-  advertiser_slug text not null,
-  advertiser_name text not null,
-  token text not null,
-  submission jsonb not null,
-  uploaded_file_names text[],
-  submitted_at timestamptz default now()
-);
-
 -- Indexes for common query patterns
 create index if not exists affiliate_clicks_provider_idx on affiliate_clicks(provider_slug);
 create index if not exists affiliate_clicks_clicked_at_idx on affiliate_clicks(clicked_at desc);
@@ -55,7 +43,6 @@ create index if not exists affiliate_clicks_source_idx on affiliate_clicks(sourc
 alter table postcode_areas enable row level security;
 alter table affiliate_clicks enable row level security;
 alter table email_subscribers enable row level security;
-alter table partner_onboarding_responses enable row level security;
 
 -- Public can read postcode areas
 create policy "postcode_areas_public_read" on postcode_areas
@@ -68,8 +55,3 @@ create policy "affiliate_clicks_server_insert" on affiliate_clicks
 -- Email subscribers: insert allowed from anon, read restricted
 create policy "email_subscribers_insert" on email_subscribers
   for insert with check (true);
-
--- Partner onboarding: server-side insert only (service role bypasses RLS),
--- same as affiliate_clicks -- this holds unpublished commercial submissions.
-create policy "partner_onboarding_responses_server_insert" on partner_onboarding_responses
-  for insert with check (false);

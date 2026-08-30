@@ -1,6 +1,5 @@
 import nodemailer from 'nodemailer'
 import { getPartnerOnboardingToken, isPartnerOnboardingTokenExpired } from '@/data/partnerOnboardingTokens'
-import { createServerClient } from '@/lib/supabase'
 
 export const dynamic = 'force-dynamic'
 
@@ -162,20 +161,6 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error('Partner onboarding: failed to send email', error)
     return Response.json({ error: 'Could not submit right now. Please try again later.' }, { status: 500 })
-  }
-
-  // Best-effort durable log — non-critical, never blocks the submission.
-  try {
-    const supabase = createServerClient()
-    await supabase.from('partner_onboarding_responses').insert({
-      advertiser_slug: entry.advertiserSlug,
-      advertiser_name: entry.advertiserName,
-      token,
-      submission,
-      uploaded_file_names: uploadedFileNames,
-    })
-  } catch (error) {
-    console.error('Partner onboarding: Supabase insert failed (non-critical)', error)
   }
 
   return Response.json({ ok: true })

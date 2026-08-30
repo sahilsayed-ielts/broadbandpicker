@@ -154,9 +154,9 @@ fields BroadbandPicker's content pipeline needs — mapped directly to the
 is `noindex` and excluded from the sitemap and robots.txt.
 
 Submissions email you the full structured response (as JSON, plus any
-uploaded files) and best-effort log to Supabase if configured. Bring a
-submission into the advertiser's tracked folder, where `research`,
-`recommend` and `draft-reply` will use it as context:
+uploaded files) — no database involved. Bring a submission into the
+advertiser's tracked folder, where `research`, `recommend` and `draft-reply`
+will use it as context:
 
 ```
 python3 scripts/awin_sync.py import-onboarding-response --advertiser connect-fibre --file ~/Downloads/onboarding-connect-fibre-2026-08-29.json
@@ -187,16 +187,12 @@ python3 scripts/awin_sync.py briefing
 tools: print live status straight from the API without touching this folder,
 or generate a tracking link for a specific advertiser + URL.
 
-## One-time setup for the onboarding questionnaire
+## Setup for the onboarding questionnaire
 
-The questionnaire works over email out of the box (it reuses the same Gmail
-SMTP already configured for the contact form) — nothing to set up there. If
-you want submissions also durably logged in Supabase (belt-and-braces, not
-required), run the new `partner_onboarding_responses` table once in the
-Supabase SQL editor: open `supabase/schema.sql`, copy the whole file
-(idempotent — safe even though the other tables already exist) and run it.
-If you skip this, submissions still arrive by email; only the optional
-Supabase copy is affected.
+None needed. It runs entirely on the Gmail SMTP already configured for the
+contact form — no database, no paid service, nothing to provision. Every
+submission arrives by email with the full structured response attached as
+JSON (plus any uploaded files), ready for `import-onboarding-response`.
 
 ## How this feeds the master tracker
 
