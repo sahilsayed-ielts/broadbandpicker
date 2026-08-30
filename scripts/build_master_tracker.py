@@ -2109,6 +2109,115 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "source": "User request 2026-08-28 — 'the script should be like my assistant ... use claude's intelligence'",
     },
     {
+        "item_id": "content-wifi7-broadband-explained-guide",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "New guide: Is Wi-Fi 7 broadband worth it?",
+        "description": (
+            "First cluster from the Connect Fibre SEO/GEO content plan "
+            "(Awin/advertisers/connect-fibre/seo-geo-content-plan.md). Real standing search "
+            "demand confirmed live -- BroadbandDeals.co.uk, CompareFibre and broadbandswitch.uk "
+            "already publish 'is Wi-Fi 7 worth it' / 'Wi-Fi 6 vs Wi-Fi 7' guides -- and "
+            "BroadbandPicker has no equivalent. Answer-first opening (when it's worth it: "
+            "15+ devices, gigabit+ plans, VR/competitive gaming; when it isn't: most households "
+            "on Wi-Fi 6 are fine) plus an FAQ block for AI Overview/GEO citation. Cite YouFibre "
+            "(Wi-Fi 7 standard across its range, already a live provider) as an example; mention "
+            "Connect Fibre neutrally without a tracked link until its Awin terms are confirmed. "
+            "No affiliate-link dependency -- can proceed immediately."
+        ),
+        "priority_score": 34,
+        "impact_score": 36,
+        "effort": "Low",
+        "target": "app/guides/[slug]/page.tsx, data/guides.ts (new slug)",
+        "dependencies": "None",
+        "source": "User request 2026-08-30 — Connect Fibre SEO/GEO content plan",
+    },
+    {
+        "item_id": "content-social-tariffs-guide-add-connect-fibre",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "Add Connect Fibre's social tariff to the UK social tariffs guide",
+        "description": (
+            "Connect Fibre offers a genuine social tariff (Wi-Fi 6, not the standard Wi-Fi 7) "
+            "for customers on financial support or Pension Credit, confirmed on their own site. "
+            "A factual addition to the existing broadband-social-tariffs-uk guide, not an "
+            "affiliate placement -- doesn't depend on Awin commission terms, low effort."
+        ),
+        "priority_score": 22,
+        "impact_score": 20,
+        "effort": "Low",
+        "target": "app/guides/[slug]/page.tsx (broadband-social-tariffs-uk), data/guides.ts",
+        "dependencies": "None",
+        "source": "User request 2026-08-30 — Connect Fibre SEO/GEO content plan",
+    },
+    {
+        "item_id": "content-postcode-s17-s8-sheffield-connect-fibre",
+        "type": "Page",
+        "pillar": "Content",
+        "title": "Build genuinely local S17 and S8 (Sheffield) postcode pages",
+        "description": (
+            "Connect Fibre's own coverage page names Dore/Totley/Bradway (postcode district "
+            "S17) and Beauchief/Greenhill/Lowedges/Norton/Woodseats (S8) as live coverage -- "
+            "verified against real UK postcode-district lookups. Both districts already have "
+            "real Ofcom coverage data in data/postcode-district-coverage.json (S17: 90.7% "
+            "gigabit-capable, 98.0% superfast; S8: 94.8%/99.6%) but aren't yet in the curated "
+            "deep-dive town list, so they render through the generic template today -- same "
+            "near-duplicate-content gap already fixed this session for M1/NG1/RG1/CT1/RM1. "
+            "Build the local-intel content (named neighbourhoods, honest 'well-served suburbs "
+            "plus a full-fibre challenger' framing given the already-high coverage) now; add "
+            "Connect Fibre to the page's provider list and deal table only once its Awin "
+            "commission and de-duplication terms are confirmed."
+        ),
+        "priority_score": 26,
+        "impact_score": 24,
+        "effort": "Medium",
+        "target": "data/postcodeLocalIntel.ts, app/postcode/[area]/page.tsx",
+        "dependencies": "None for the page; Connect Fibre's own listing is gated on Awin terms",
+        "source": "User request 2026-08-30 — Connect Fibre SEO/GEO content plan",
+    },
+    {
+        "item_id": "content-connect-fibre-comparison-pages",
+        "type": "Page",
+        "pillar": "Monetisation",
+        "title": "Connect Fibre vs BeFibre / vs Connexin comparison pages",
+        "description": (
+            "Live research found genuine regional rivals overlapping Connect Fibre's actual "
+            "footprint: BeFibre (Lincolnshire, Northamptonshire, Nottinghamshire, Staffordshire, "
+            "Warwickshire) and Connexin (Project Gigabit contract covering Nottinghamshire and "
+            "West Lincolnshire) -- real, specific pairings, not filler. BLOCKED until Connect "
+            "Fibre's Awin invitation is accepted with a confirmed commission rate and "
+            "de-duplication policy (see recommendation.md) -- publishing a comparison page with "
+            "a tracked affiliate link before that is exactly the premature-content-investment "
+            "risk already flagged."
+        ),
+        "priority_score": 20,
+        "impact_score": 26,
+        "effort": "Medium",
+        "target": "data/provider-comparisons.ts, app/providers/compare/[slug]/page.tsx",
+        "dependencies": "Awin commission/de-duplication terms confirmed with Connect Fibre",
+        "source": "User request 2026-08-30 — Connect Fibre SEO/GEO content plan",
+    },
+    {
+        "item_id": "content-connect-fibre-provider-page",
+        "type": "Page",
+        "pillar": "Monetisation",
+        "title": "Dedicated /providers/connect-fibre review page",
+        "description": (
+            "Standard Provider-schema build once approved: packages, Trustpilot (5.0/5, 2,477 "
+            "reviews, 88% five-star -- confirmed live, stronger than first assumed), Wi-Fi 7 "
+            "standard, symmetrical speeds, social tariff, 12/24-month contract choice. BLOCKED "
+            "on the same Awin terms confirmation as the comparison pages -- this is the main "
+            "commercial page and must not carry a tracked link before commission and "
+            "de-duplication are settled in writing."
+        ),
+        "priority_score": 18,
+        "impact_score": 30,
+        "effort": "Medium",
+        "target": "data/providers.ts, app/providers/[slug]/page.tsx",
+        "dependencies": "Awin commission/de-duplication terms confirmed with Connect Fibre",
+        "source": "User request 2026-08-30 — Connect Fibre SEO/GEO content plan",
+    },
+    {
         "item_id": "bet-decouple-content-from-code",
         "type": "Bigger bet",
         "pillar": "Content",
@@ -2441,7 +2550,7 @@ def build_workbook(
         for row in rows:
             opportunity = row[pos.get("Opportunity", 2)]
             page = row[pos.get("Page", 1)]
-            if opportunity == "Monitor" or page in {"/postcode/da1", "/postcode/m1", "/postcode/ng1", "/postcode/rg1"}:
+            if opportunity == "Monitor" or page in {"/postcode/da1", "/postcode/m1", "/postcode/ng1", "/postcode/rg1", "/postcode/ct1", "/postcode/rm1", "/postcode/bs1", "/providers/compare/ee-vs-talktalk", "/guides/broadband-deals-with-cashback"}:
                 continue
             evidence = (
                 f"Clicks {row[pos['Clicks']]}; impressions {row[pos['Impressions']]}; "

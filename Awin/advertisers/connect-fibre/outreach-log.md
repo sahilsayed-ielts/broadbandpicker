@@ -12,3 +12,5 @@
 - **2026-08-29**: Final accept/decline recommendation generated.
 - **2026-08-29**: Draft reply to advertiser generated.
 - **2026-08-29**: Onboarding link generated (expires 2026-09-28).
+- **2026-08-30**: Draft reply to advertiser generated.
+- **2026-08-30**: SEO/GEO content plan compiled (seo-geo-content-plan.md), incorporating live keyword/competitor research, Connect Fibre's own coverage page (corrected the earlier county-level footprint claim to real town/village-level data), and their Mini Brand Guidelines PDF (filed to marketing-materials/). research.md and draft-reply.md corrected to match. 5 tracked content items added to the master tracker.
