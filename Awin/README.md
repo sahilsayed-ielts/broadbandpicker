@@ -33,6 +33,10 @@ Awin/
                            everything above.
       draft-reply.md        A drafted (never auto-sent) reply email —
                            yours to review and send.
+      onboarding-response.json   The brand's own answers from
+                           /partners/onboarding, once imported.
+      marketing-materials/   Logo, brand guidelines and any other files the
+                           brand uploaded, once imported.
       outreach-log.md      Dated history: when it was first found, every time
                            its status changed, every time research was refreshed.
   playbooks/
@@ -135,32 +139,46 @@ only** — nothing is ever sent automatically. Writes `draft-reply.md`.
 python3 scripts/awin_sync.py draft-reply --advertiser connect-fibre --contact-name Remon
 ```
 
-**Once an advertiser accepts (or you accept theirs)** — send them a content
-questionnaire instead of manually chasing pricing, packages and USPs over
-email:
+**Once an advertiser accepts (or you accept theirs)** — send them the same
+one link every time, instead of manually chasing pricing, packages and USPs
+over email:
 
 ```
-python3 scripts/awin_sync.py generate-onboarding-link --advertiser connect-fibre
+https://broadbandpicker.co.uk/partners/onboarding
 ```
 
-This gives you a link to `https://broadbandpicker.co.uk/partners/onboarding/<token>`
-(valid 30 days, reuses an existing valid one if you already generated it).
-Commit and deploy `data/partner-onboarding-tokens.json` for the link to go
-live, then send it to your contact. It's a professional, site-branded
-questionnaire (packages & pricing, coverage, positioning/segments, trust
-evidence, exclusives, plus logo/T&Cs/rate-card uploads) matching the actual
-fields BroadbandPicker's content pipeline needs — mapped directly to the
-`Provider` schema and the comparison-page structure already in use. The link
-is `noindex` and excluded from the sitemap and robots.txt.
-
-Submissions email you the full structured response (as JSON, plus any
-uploaded files) — no database involved. Bring a submission into the
-advertiser's tracked folder, where `research`, `recommend` and `draft-reply`
-will use it as context:
+It's a single, permanent, site-branded 8-step questionnaire (your brand,
+packages & pricing, coverage, positioning/segments, trust evidence,
+exclusives, how you'd like to be promoted, and file uploads) that any brand
+can fill in — the first field is a "which brand is this for?" dropdown, so
+it isn't tied to one advertiser. The dropdown is populated automatically
+from `Awin/advertisers/*/programme.json` (anything Joined or Invited) every
+time you run `sync`, `add-invitation` or `mark-reviewed` — nothing to
+regenerate or send per advertiser. A brand not yet in the dropdown can pick
+"My brand isn't listed" and type their own name. The page is `noindex` and
+excluded from the sitemap and robots.txt.
 
 ```
-python3 scripts/awin_sync.py import-onboarding-response --advertiser connect-fibre --file ~/Downloads/onboarding-connect-fibre-2026-08-29.json
+python3 scripts/awin_sync.py export-brand-options   # manually refresh the dropdown if needed
 ```
+
+Submissions email you (sayedsahil.elt@gmail.com) a branded PDF report plus
+the full structured response as JSON, plus any uploaded logo/brand/content
+files — no database, no paid service, zero setup. Bring a submission into
+the advertiser's tracked folder, where `research`, `recommend` and
+`draft-reply` will use it as context, and file away any uploaded marketing
+materials at the same time:
+
+```
+python3 scripts/awin_sync.py import-onboarding-response \
+  --advertiser connect-fibre \
+  --file ~/Downloads/onboarding-connect-fibre-2026-08-30.json \
+  --materials-dir ~/Downloads/connect-fibre-attachments/
+```
+
+That saves the JSON into `Awin/advertisers/connect-fibre/onboarding-response.json`
+and copies every non-JSON attachment (logo, brand guidelines, rate card,
+etc.) into `Awin/advertisers/connect-fibre/marketing-materials/`.
 
 **`research --advertiser <slug> [--url <site>]`** — scrapes that advertiser's
 own website and asks Claude to write a fit assessment against

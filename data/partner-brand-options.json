@@ -1,0 +1,25 @@
+{
+  "generatedAt": "2026-08-30",
+  "brands": [
+    {
+      "slug": "broadband-genie",
+      "name": "Broadband Genie"
+    },
+    {
+      "slug": "connect-fibre",
+      "name": "Connect Fibre"
+    },
+    {
+      "slug": "highland-broadband",
+      "name": "Highland Broadband"
+    },
+    {
+      "slug": "talktalk-phone-and-broadband",
+      "name": "TalkTalk Phone and Broadband"
+    },
+    {
+      "slug": "zzoomm",
+      "name": "Zzoomm"
+    }
+  ]
+}

@@ -66,20 +66,22 @@ Commands:
       -- nothing is sent automatically. Writes
       Awin/advertisers/<slug>/draft-reply.md.
 
-  generate-onboarding-link --advertiser <slug>
-      Create a tokenised link to /partners/onboarding/<token> on the live
-      site -- a content-planning questionnaire the advertiser fills in
-      themselves (packages, pricing, coverage, USPs, trust evidence,
-      exclusives, plus file uploads for logo/T&Cs/rate card). Reuses an
-      existing valid link if one was already generated. Writes to
-      data/partner-onboarding-tokens.json, which must be committed and
-      deployed before the link works.
+  export-brand-options
+      Refresh data/partner-brand-options.json -- the "which brand are you?"
+      dropdown on the single, shared onboarding dashboard at
+      https://broadbandpicker.co.uk/partners/onboarding. Runs automatically
+      after `sync`, `add-invitation` and `mark-reviewed`, so a brand appears
+      in the dropdown as soon as it's Joined or Invited -- no separate link
+      to generate or send per advertiser; it's the same URL for everyone.
 
-  import-onboarding-response --advertiser <slug> --file <path>
+  import-onboarding-response --advertiser <slug> --file <path> [--materials-dir <dir>]
       Ingest a submitted questionnaire response (saved from the email
       notification's JSON attachment) into
       Awin/advertisers/<slug>/onboarding-response.json, where it becomes
-      input for `research`, `recommend` and content planning.
+      input for `research`, `recommend` and content planning. If the brand
+      also uploaded a logo/brand guidelines/marketing materials, save those
+      email attachments into a folder and pass --materials-dir to file them
+      into Awin/advertisers/<slug>/marketing-materials/.
 
   research --advertiser <slug> [--url <site-url>]
       Scrape the advertiser's own public website and ask Claude (via the
@@ -121,10 +123,9 @@ import hashlib
 import json
 import os
 import re
-import secrets
 import subprocess
 import sys
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -140,9 +141,7 @@ SNAPSHOTS_DIR = AWIN_DIR / "_snapshots"
 REPORTS_DIR = AWIN_DIR / "reports"
 PLAYBOOK_PATH = AWIN_DIR / "playbooks" / "negotiation-playbook.md"
 PROVIDERS_TS = ROOT / "data" / "providers.ts"
-ONBOARDING_TOKENS_PATH = ROOT / "data" / "partner-onboarding-tokens.json"
 SITE_BASE_URL = "https://broadbandpicker.co.uk"
-ONBOARDING_TOKEN_VALIDITY_DAYS = 30
 
 GENUINE_STATUSES = ["joined", "pending", "suspended", "rejected"]
 
@@ -341,6 +340,8 @@ def add_invitation(name: str, advertiser_id: int | None, url: str | None, messag
     print(f"Logged invitation from {name} -> {d}")
     if resolved_id is None:
         print("Could not auto-resolve an Awin advertiser ID for this name — pass --advertiser-id if you have it.")
+    export_brand_options()
+    print(f"'{name}' is now selectable on the onboarding dashboard: {ONBOARDING_URL}")
 
 
 def sync() -> None:
@@ -429,6 +430,10 @@ def sync() -> None:
         print("No possible new invitations detected (no new Pending/Joined programmes since last sync).")
     print(f"\nSnapshot: {SNAPSHOTS_DIR / f'{date}.json'}")
     print(f"Advertiser folders: {ADVERTISERS_DIR}")
+
+    brand_names = export_brand_options()
+    print(f"\nOnboarding dashboard brand list refreshed ({len(brand_names)} eligible): {', '.join(brand_names) or '(none yet)'}")
+    print(f"Dashboard link (same one for everyone): {ONBOARDING_URL}")
 
 
 # ---------------------------------------------------------------------------
@@ -819,60 +824,43 @@ def mark_reviewed(slug: str) -> None:
     programme_path.write_text(json.dumps(data, indent=2))
     append_log(slug, "Possible-invitation flag cleared after manual review in the Awin dashboard.")
     print(f"Cleared invitation flag for '{slug}'.")
+    export_brand_options()
+    if data.get("relationship") in ONBOARDING_ELIGIBLE_RELATIONSHIPS:
+        print(f"'{data['advertiser']}' is selectable on the onboarding dashboard: {ONBOARDING_URL}")
 
 
-def generate_onboarding_link(slug: str) -> None:
-    """Create (or refresh) a content-onboarding link for an advertiser.
+ONBOARDING_URL = f"{SITE_BASE_URL}/partners/onboarding"
+BRAND_OPTIONS_PATH = ROOT / "data" / "partner-brand-options.json"
+# Relationships worth showing in the onboarding dashboard's brand dropdown --
+# only advertisers we've actually accepted or been accepted by.
+ONBOARDING_ELIGIBLE_RELATIONSHIPS = {"Joined", "Invited"}
 
-    The token maps to data/partner-onboarding-tokens.json, which is a
-    committed data file like every other data/*.ts source in this repo --
-    generating a link here does nothing live until it's committed and
-    deployed, same as any other data change.
+
+def export_brand_options() -> list[str]:
+    """Regenerate data/partner-brand-options.json from every advertiser
+    folder currently Joined or Invited. This is what powers the "which
+    brand are you?" dropdown on the single, shared /partners/onboarding
+    page -- run automatically after sync/add-invitation/mark-reviewed so
+    the dropdown never needs a manual update.
     """
-    d = advertiser_dir(slug)
-    programme_path = d / "programme.json"
-    if not programme_path.exists():
-        print(f"No programme.json for '{slug}'. Run `sync` or `add-invitation` first.", file=sys.stderr)
-        sys.exit(1)
-    programme = json.loads(programme_path.read_text())
-
-    tokens_data = json.loads(ONBOARDING_TOKENS_PATH.read_text()) if ONBOARDING_TOKENS_PATH.exists() else {"generatedAt": _today(), "tokens": {}}
-
-    # Reuse an existing, still-valid token for this advertiser instead of
-    # minting a new one every time this is run.
-    for existing_token, entry in tokens_data.get("tokens", {}).items():
-        if entry.get("advertiserSlug") == slug and datetime.fromisoformat(entry["expiresAt"]) > datetime.now(timezone.utc):
-            url = f"{SITE_BASE_URL}/partners/onboarding/{existing_token}"
-            print(f"Existing valid link for '{slug}': {url}")
-            print(f"(expires {entry['expiresAt']})")
-            return
-
-    token = secrets.token_urlsafe(24)
-    now = datetime.now(timezone.utc)
-    expires = now + timedelta(days=ONBOARDING_TOKEN_VALIDITY_DAYS)
-    tokens_data.setdefault("tokens", {})[token] = {
-        "advertiserSlug": slug,
-        "advertiserName": programme["advertiser"],
-        "createdAt": now.date().isoformat(),
-        "expiresAt": expires.isoformat(),
-    }
-    tokens_data["generatedAt"] = _today()
-    ONBOARDING_TOKENS_PATH.write_text(json.dumps(tokens_data, indent=2))
-
-    url = f"{SITE_BASE_URL}/partners/onboarding/{token}"
-    append_log(slug, f"Onboarding link generated (expires {expires.date().isoformat()}).")
-    print(f"Onboarding link for {programme['advertiser']}: {url}")
-    print(f"Valid until {expires.date().isoformat()}.")
-    print(
-        "\nThis link will 404 until data/partner-onboarding-tokens.json is committed and deployed:\n"
-        "  git add data/partner-onboarding-tokens.json && git commit -m 'chore: add onboarding link' "
-        f"&& git push && vercel --prod --yes"
-    )
+    brands = []
+    if ADVERTISERS_DIR.exists():
+        for d in sorted(ADVERTISERS_DIR.iterdir()):
+            programme_path = d / "programme.json"
+            if not programme_path.exists():
+                continue
+            data = json.loads(programme_path.read_text())
+            if data.get("relationship") in ONBOARDING_ELIGIBLE_RELATIONSHIPS:
+                brands.append({"slug": data.get("slug", d.name), "name": data["advertiser"]})
+    brands.sort(key=lambda b: b["name"])
+    BRAND_OPTIONS_PATH.write_text(json.dumps({"generatedAt": _today(), "brands": brands}, indent=2))
+    return [b["name"] for b in brands]
 
 
-def import_onboarding_response(slug: str, file_path: str) -> None:
+def import_onboarding_response(slug: str, file_path: str, materials_dir: str | None) -> None:
     """Ingest a submitted onboarding response (saved from the notification
-    email's JSON attachment) into the advertiser's tracked folder."""
+    email's JSON attachment) into the advertiser's tracked folder, and file
+    away any marketing/brand materials the brand uploaded alongside it."""
     d = advertiser_dir(slug)
     src = Path(file_path)
     if not src.exists():
@@ -888,6 +876,22 @@ def import_onboarding_response(slug: str, file_path: str) -> None:
     out_path.write_text(json.dumps(submission, indent=2))
     append_log(slug, f"Onboarding questionnaire response imported from {src.name}.")
     print(f"Imported onboarding response to {out_path}")
+
+    if materials_dir:
+        src_dir = Path(materials_dir)
+        if not src_dir.is_dir():
+            print(f"'{materials_dir}' is not a directory, skipping materials import.", file=sys.stderr)
+        else:
+            dest_dir = d / "marketing-materials"
+            dest_dir.mkdir(parents=True, exist_ok=True)
+            copied = 0
+            for f in src_dir.iterdir():
+                if f.is_file() and f.suffix.lower() != ".json":
+                    (dest_dir / f.name).write_bytes(f.read_bytes())
+                    copied += 1
+            append_log(slug, f"{copied} marketing/brand material file(s) filed from {src_dir.name}.")
+            print(f"Copied {copied} file(s) into {dest_dir}")
+
     print("This is now available as content-planning input for research/recommend/draft-reply.")
 
 
@@ -1120,12 +1124,12 @@ def main() -> None:
     p_draft.add_argument("--advertiser", required=True, help="Advertiser slug (Awin/advertisers/<slug>)")
     p_draft.add_argument("--contact-name", help="Name of the person who sent the invitation, if known")
 
-    p_gen_onboard = sub.add_parser("generate-onboarding-link", help="Create a content-onboarding questionnaire link for an advertiser")
-    p_gen_onboard.add_argument("--advertiser", required=True, help="Advertiser slug (Awin/advertisers/<slug>)")
+    sub.add_parser("export-brand-options", help="Refresh the onboarding dashboard's brand dropdown from Awin/advertisers/")
 
     p_import_onboard = sub.add_parser("import-onboarding-response", help="Ingest a submitted onboarding questionnaire response")
     p_import_onboard.add_argument("--advertiser", required=True, help="Advertiser slug (Awin/advertisers/<slug>)")
     p_import_onboard.add_argument("--file", required=True, help="Path to the submission JSON (from the notification email)")
+    p_import_onboard.add_argument("--materials-dir", help="Folder of saved email attachments (logo, brand guidelines, etc.) to file into marketing-materials/")
 
     p_check = sub.add_parser("check-programmes", help="[quick look] List programmes straight from the API")
     p_check.add_argument(
@@ -1159,10 +1163,12 @@ def main() -> None:
         draft_reply(args.advertiser, args.contact_name)
     elif args.command == "mark-reviewed":
         mark_reviewed(args.advertiser)
-    elif args.command == "generate-onboarding-link":
-        generate_onboarding_link(args.advertiser)
+    elif args.command == "export-brand-options":
+        names = export_brand_options()
+        print(f"Onboarding dashboard brand list refreshed ({len(names)}): {', '.join(names) or '(none yet)'}")
+        print(f"Dashboard link (same one for everyone): {ONBOARDING_URL}")
     elif args.command == "import-onboarding-response":
-        import_onboarding_response(args.advertiser, args.file)
+        import_onboarding_response(args.advertiser, args.file, args.materials_dir)
     elif args.command == "check-programmes":
         check_programmes(args.relationship)
     elif args.command == "generate-link":

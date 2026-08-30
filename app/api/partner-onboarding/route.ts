@@ -1,5 +1,6 @@
 import nodemailer from 'nodemailer'
-import { getPartnerOnboardingToken, isPartnerOnboardingTokenExpired } from '@/data/partnerOnboardingTokens'
+import PDFDocument from 'pdfkit'
+import { getPartnerBrandOptions } from '@/data/partnerBrandOptions'
 
 export const dynamic = 'force-dynamic'
 
@@ -14,6 +15,29 @@ function badRequest(message: string) {
 function str(data: FormData, key: string): string {
   const value = data.get(key)
   return typeof value === 'string' ? value.trim() : ''
+}
+
+function slugify(name: string): string {
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'brand'
+}
+
+interface Submission {
+  advertiserSlug: string
+  advertiserName: string
+  submittedAt: string
+  contact: { name: string; email: string; role: string; companyWebsite: string }
+  packages: unknown[]
+  coverage: { areas: string; coveragePercent: string; checkerUrl: string }
+  positioning: { targetSegments: unknown[]; highlights: string; priceRisePolicy: string }
+  trust: { trustpilotUrl: string; trustpilotScore: string; serviceStats: string; awards: string }
+  deals: { exclusiveOffer: string; rewardOrCashback: string }
+  promotion: {
+    approvedChannels: unknown[]
+    disclosureRequirement: string
+    brandAssetRules: string
+    postingFrequencyNotes: string
+  }
+  additionalNotes: string
 }
 
 export async function POST(request: Request) {
@@ -33,10 +57,21 @@ export async function POST(request: Request) {
     return badRequest('Please try again.')
   }
 
-  const token = str(data, 'token')
-  const entry = token ? getPartnerOnboardingToken(token) : undefined
-  if (!entry || isPartnerOnboardingTokenExpired(entry)) {
-    return badRequest('This link has expired or is no longer valid.')
+  const brandSlugField = str(data, 'brandSlug')
+  const otherBrandName = str(data, 'otherBrandName')
+  if (!brandSlugField) return badRequest('Please select which brand this is for.')
+
+  let advertiserSlug = brandSlugField
+  let advertiserName = brandSlugField
+  if (brandSlugField === '__other__') {
+    if (!otherBrandName) return badRequest('Please enter your brand name.')
+    advertiserName = otherBrandName
+    advertiserSlug = slugify(otherBrandName)
+  } else {
+    const known = getPartnerBrandOptions().find((b) => b.slug === brandSlugField)
+    if (!known) return badRequest('Please select a valid brand.')
+    advertiserName = known.name
+    advertiserSlug = known.slug
   }
 
   const contactName = str(data, 'contactName')
@@ -46,22 +81,18 @@ export async function POST(request: Request) {
     return badRequest('Please enter a valid email address.')
   }
 
-  let packages: unknown[] = []
-  try {
-    packages = JSON.parse(str(data, 'packages') || '[]')
-  } catch {
-    packages = []
-  }
-  let targetSegments: unknown[] = []
-  try {
-    targetSegments = JSON.parse(str(data, 'targetSegments') || '[]')
-  } catch {
-    targetSegments = []
+  const parseJsonArray = (key: string): unknown[] => {
+    try {
+      const parsed = JSON.parse(str(data, key) || '[]')
+      return Array.isArray(parsed) ? parsed : []
+    } catch {
+      return []
+    }
   }
 
-  const submission = {
-    advertiserSlug: entry.advertiserSlug,
-    advertiserName: entry.advertiserName,
+  const submission: Submission = {
+    advertiserSlug,
+    advertiserName,
     submittedAt: new Date().toISOString(),
     contact: {
       name: contactName,
@@ -69,14 +100,14 @@ export async function POST(request: Request) {
       role: str(data, 'contactRole'),
       companyWebsite: str(data, 'companyWebsite'),
     },
-    packages,
+    packages: parseJsonArray('packages'),
     coverage: {
       areas: str(data, 'coverageAreas'),
       coveragePercent: str(data, 'coveragePercent'),
       checkerUrl: str(data, 'coverageCheckerUrl'),
     },
     positioning: {
-      targetSegments,
+      targetSegments: parseJsonArray('targetSegments'),
       highlights: str(data, 'highlights'),
       priceRisePolicy: str(data, 'priceRisePolicy'),
     },
@@ -90,23 +121,24 @@ export async function POST(request: Request) {
       exclusiveOffer: str(data, 'exclusiveOffer'),
       rewardOrCashback: str(data, 'rewardOrCashback'),
     },
+    promotion: {
+      approvedChannels: parseJsonArray('promoChannels'),
+      disclosureRequirement: str(data, 'disclosureRequirement'),
+      brandAssetRules: str(data, 'brandAssetRules'),
+      postingFrequencyNotes: str(data, 'postingFrequencyNotes'),
+    },
     additionalNotes: str(data, 'additionalNotes'),
   }
 
-  // Files are emailed as attachments rather than persisted to disk — this
-  // app has no durable file storage configured, and email is already the
-  // working notification channel for every other form on the site.
+  // Files are emailed as attachments rather than persisted anywhere -- no
+  // database, no file storage service, zero setup required.
   const attachments: { filename: string; content: Buffer; contentType?: string }[] = []
   const uploadedFileNames: string[] = []
 
   const logo = data.get('logo')
   if (logo instanceof File && logo.size > 0) {
     if (logo.size > MAX_FILE_BYTES) return badRequest('Logo file is too large (8MB max).')
-    attachments.push({
-      filename: logo.name,
-      content: Buffer.from(await logo.arrayBuffer()),
-      contentType: logo.type || undefined,
-    })
+    attachments.push({ filename: logo.name, content: Buffer.from(await logo.arrayBuffer()), contentType: logo.type || undefined })
     uploadedFileNames.push(logo.name)
   }
 
@@ -114,19 +146,27 @@ export async function POST(request: Request) {
   if (documents.length > MAX_DOCUMENTS) return badRequest(`Please upload at most ${MAX_DOCUMENTS} documents.`)
   for (const doc of documents) {
     if (doc.size > MAX_FILE_BYTES) return badRequest(`"${doc.name}" is too large (8MB max per file).`)
-    attachments.push({
-      filename: doc.name,
-      content: Buffer.from(await doc.arrayBuffer()),
-      contentType: doc.type || undefined,
-    })
+    attachments.push({ filename: doc.name, content: Buffer.from(await doc.arrayBuffer()), contentType: doc.type || undefined })
     uploadedFileNames.push(doc.name)
   }
 
   attachments.push({
-    filename: `onboarding-${entry.advertiserSlug}-${new Date().toISOString().slice(0, 10)}.json`,
+    filename: `onboarding-${advertiserSlug}-${new Date().toISOString().slice(0, 10)}.json`,
     content: Buffer.from(JSON.stringify(submission, null, 2)),
     contentType: 'application/json',
   })
+
+  let pdfBuffer: Buffer | null = null
+  try {
+    pdfBuffer = await buildReportPdf(submission)
+    attachments.push({
+      filename: `onboarding-report-${advertiserSlug}-${new Date().toISOString().slice(0, 10)}.pdf`,
+      content: pdfBuffer,
+      contentType: 'application/pdf',
+    })
+  } catch (error) {
+    console.error('Partner onboarding: PDF generation failed (continuing without it)', error)
+  }
 
   const smtpUser = process.env.CONTACT_SMTP_USER
   const smtpPass = process.env.CONTACT_SMTP_PASS
@@ -147,13 +187,13 @@ export async function POST(request: Request) {
       from: `"BroadbandPicker Partner Onboarding" <${smtpUser}>`,
       to: toEmail,
       replyTo: `"${contactName}" <${contactEmail}>`,
-      subject: `[Partner onboarding] ${entry.advertiserName} — content questionnaire submitted`,
-      text: `New partner onboarding submission from ${entry.advertiserName}.\n\nSee the attached JSON for the full structured response. A copy can be imported with:\n\npython3 scripts/awin_sync.py import-onboarding-response --advertiser ${entry.advertiserSlug} --file <saved-json-path>\n\nContact: ${contactName} <${contactEmail}>`,
+      subject: `[Partner onboarding] ${advertiserName} — content questionnaire submitted`,
+      text: `New partner onboarding submission from ${advertiserName}.\n\nA PDF report and the full structured JSON are attached. To bring it into the Awin tracking folder:\n\npython3 scripts/awin_sync.py import-onboarding-response --advertiser ${advertiserSlug} --file <saved-json-path> --materials-dir <folder-with-saved-attachments>\n\nContact: ${contactName} <${contactEmail}>`,
       html: `
-        <p>New partner onboarding submission from <strong>${escapeHtml(entry.advertiserName)}</strong>.</p>
+        <p>New partner onboarding submission from <strong>${escapeHtml(advertiserName)}</strong>.</p>
         <p><strong>Contact:</strong> ${escapeHtml(contactName)} &lt;${escapeHtml(contactEmail)}&gt;</p>
-        <p>Full structured answers are attached as JSON. To bring it into the Awin tracking folder:</p>
-        <pre>python3 scripts/awin_sync.py import-onboarding-response --advertiser ${escapeHtml(entry.advertiserSlug)} --file &lt;saved-json-path&gt;</pre>
+        <p>A PDF report is attached, plus the full structured answers as JSON. To bring it into the Awin tracking folder:</p>
+        <pre>python3 scripts/awin_sync.py import-onboarding-response --advertiser ${escapeHtml(advertiserSlug)} --file &lt;saved-json-path&gt; --materials-dir &lt;folder-with-saved-attachments&gt;</pre>
         <p>Uploaded files: ${uploadedFileNames.length ? escapeHtml(uploadedFileNames.join(', ')) : 'none'}</p>
       `,
       attachments,
@@ -172,4 +212,91 @@ function escapeHtml(value: string): string {
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
+}
+
+async function buildReportPdf(submission: Submission): Promise<Buffer> {
+  const doc = new PDFDocument({ margin: 50, size: 'A4' })
+  const chunks: Buffer[] = []
+  doc.on('data', (chunk: Buffer) => chunks.push(chunk))
+  const done = new Promise<Buffer>((resolve, reject) => {
+    doc.on('end', () => resolve(Buffer.concat(chunks)))
+    doc.on('error', reject)
+  })
+
+  const accent = '#0369a1'
+  const heading = '#0f172a'
+  const body = '#334155'
+
+  doc.fillColor(accent).fontSize(20).font('Helvetica-Bold').text('BroadbandPicker', { continued: false })
+  doc.fillColor(heading).fontSize(16).font('Helvetica-Bold').text(`Partner content questionnaire: ${submission.advertiserName}`)
+  doc.fillColor(body).fontSize(9).font('Helvetica').text(`Submitted ${new Date(submission.submittedAt).toLocaleString('en-GB')}`)
+  doc.moveDown(1)
+
+  const section = (title: string) => {
+    doc.moveDown(0.6)
+    doc.fillColor(accent).fontSize(13).font('Helvetica-Bold').text(title)
+    doc.moveTo(doc.x, doc.y + 2).lineTo(doc.page.width - doc.page.margins.right, doc.y + 2).strokeColor('#e2e8f0').stroke()
+    doc.moveDown(0.4)
+    doc.fillColor(body).fontSize(10).font('Helvetica')
+  }
+
+  const field = (label: string, value: string) => {
+    if (!value) return
+    doc.font('Helvetica-Bold').fillColor(heading).fontSize(10).text(label, { continued: false })
+    doc.font('Helvetica').fillColor(body).fontSize(10).text(value)
+    doc.moveDown(0.3)
+  }
+
+  section('Contact')
+  field('Name', submission.contact.name)
+  field('Email', submission.contact.email)
+  field('Role', submission.contact.role)
+  field('Company website', submission.contact.companyWebsite)
+
+  section('Packages & pricing')
+  const packages = submission.packages as Record<string, string>[]
+  if (packages.length) {
+    packages.forEach((p, i) => {
+      doc.font('Helvetica-Bold').fillColor(heading).fontSize(10).text(`Package ${i + 1}: ${p.packageName || 'Unnamed'}`)
+      doc.font('Helvetica').fillColor(body).fontSize(10).text(
+        `${p.technology || ''} — Download ${p.download || '?'} Mbps / Upload ${p.upload || '?'} Mbps — £${p.monthlyPrice || '?'}/mo — ${p.contractLength || '?'} month contract — Setup fee £${p.setupFee || '0'}`
+      )
+      doc.moveDown(0.3)
+    })
+  } else {
+    doc.text('Not provided.')
+  }
+
+  section('Coverage & footprint')
+  field('Areas covered', submission.coverage.areas)
+  field('Coverage %', submission.coverage.coveragePercent)
+  field('Coverage checker', submission.coverage.checkerUrl)
+
+  section('Positioning')
+  field('Best for', (submission.positioning.targetSegments as string[]).join(', '))
+  field('Highlights', submission.positioning.highlights)
+  field('Price-rise policy', submission.positioning.priceRisePolicy)
+
+  section('Trust & evidence')
+  field('Trustpilot', [submission.trust.trustpilotScore, submission.trust.trustpilotUrl].filter(Boolean).join(' — '))
+  field('Service stats', submission.trust.serviceStats)
+  field('Awards', submission.trust.awards)
+
+  section('Deals & exclusives')
+  field('Exclusive offer', submission.deals.exclusiveOffer)
+  field('Reward / cashback', submission.deals.rewardOrCashback)
+
+  section('How to promote them')
+  field('Approved channels', (submission.promotion.approvedChannels as string[]).join(', '))
+  field('Disclosure requirement', submission.promotion.disclosureRequirement)
+  field('Brand asset rules', submission.promotion.brandAssetRules)
+  field('Posting frequency notes', submission.promotion.postingFrequencyNotes)
+
+  if (submission.additionalNotes) {
+    section('Anything else')
+    doc.text(submission.additionalNotes)
+  }
+
+  doc.end()
+  return done
 }
