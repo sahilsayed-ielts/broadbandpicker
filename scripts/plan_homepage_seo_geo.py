@@ -299,7 +299,9 @@ def analyse_workspace() -> SiteAudit:
     audit.header_ai_tells = ai_tell_hits(header_chunk + nav + mobile)
     audit.footer_link_count = len(re.findall(r"href:\s*['\"]", footer_chunk))
     audit.footer_headings = unique(re.findall(r"heading:\s*'([^']+)'", layout))
-    audit.footer_has_social = "x.com/" in footer_chunk or "instagram.com" in footer_chunk
+    audit.footer_has_social = any(
+        host in footer_chunk for host in ("x.com/", "instagram.com", "linkedin.com")
+    )
     audit.footer_has_disclosure = "commission" in footer_chunk.lower()
     audit.footer_em_dashes = count_em_dashes(footer_chunk)
     audit.footer_ai_tells = ai_tell_hits(footer_chunk)
@@ -753,9 +755,9 @@ FOOTER_PLAN = [
     {
         "slot": "Disclosure + social",
         "job": "ASA/Awin plus sameAs targets.",
-        "interactive": "Existing social pills with hover scale. Back to top.",
-        "visual": "Keep pills. Do not add empty TikTok until the account exists.",
-        "copy": "Commission disclosure in one short paragraph. UK, not affiliated with any provider.",
+        "interactive": "Social pills with hover scale. Back to top.",
+        "visual": "X, Instagram and LinkedIn pills. Same rounded-full navy chip, sky hover. Do not add empty TikTok until the account exists.",
+        "copy": "Commission disclosure in one short paragraph. UK, not affiliated with any provider. LinkedIn: https://www.linkedin.com/company/broadband-picker/ (public company URL, no viewAsMember query).",
     },
 ]
 

@@ -511,9 +511,9 @@ def technical_actions(
             "priority": "P1",
             "category": "Schema",
             "action": "Add ContactPage + ContactPoint. Expand sameAs when LinkedIn and YouTube exist.",
-            "why": "Organization.sameAs is currently X and Instagram. Knowledge panels and LLM publisher resolution use sameAs. Do not add empty profiles.",
-            "where": "layout Organization graph, app/contact/page.tsx",
-            "status": status("ContactPage" not in read_text("app/contact/page.tsx")),
+            "why": "Knowledge panels and LLM publisher resolution use sameAs. Do not add empty profiles. LinkedIn company URL is live. Skip TikTok and YouTube until those accounts exist.",
+            "where": "layout Organization graph, app/contact/page.tsx, footer social pills",
+            "status": status("linkedin.com/company/broadband-picker" not in read_text("lib/siteSchema.ts")),
         },
         {
             "id": "T16",
@@ -785,7 +785,8 @@ instead of repeating a thinner Organization.
       "areaServed": {{ "@type": "Country", "name": "United Kingdom" }},
       "sameAs": [
         "https://x.com/broadbandPicker",
-        "https://www.instagram.com/broadbandpicker/"
+        "https://www.instagram.com/broadbandpicker/",
+        "https://www.linkedin.com/company/broadband-picker/"
       ],
       "publishingPrinciples": "https://broadbandpicker.co.uk/editorial-policy",
       "ethicsPolicy": "https://broadbandpicker.co.uk/how-we-review-broadband",

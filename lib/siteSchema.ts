@@ -44,7 +44,11 @@ export const siteOrganizationGraph = {
       },
       description: 'Independent UK broadband comparison. Rankings are not sold.',
       areaServed: { '@type': 'Country', name: 'United Kingdom' },
-      sameAs: ['https://x.com/broadbandPicker', 'https://www.instagram.com/broadbandpicker/'],
+      sameAs: [
+        'https://x.com/broadbandPicker',
+        'https://www.instagram.com/broadbandpicker/',
+        'https://www.linkedin.com/company/broadband-picker/',
+      ],
       publishingPrinciples: `${SITE_URL}/editorial-policy`,
       ethicsPolicy: `${SITE_URL}/how-we-review-broadband`,
       ownershipFundingInfo: `${SITE_URL}/how-we-make-money`,
