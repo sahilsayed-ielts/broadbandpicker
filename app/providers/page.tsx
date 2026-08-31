@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { providers, providerDatasetUpdatedDate } from '@/data/providers'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
 import ProviderLogo from '@/components/ProviderLogo'
+import { JsonLd } from '@/lib/jsonLd'
 
 export const metadata: Metadata = {
   title: 'UK Broadband Provider Reviews 2026',
@@ -94,14 +95,8 @@ export default function ProvidersPage() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(providersPageJsonLd) }}
-      />
+      <JsonLd data={itemListJsonLd} />
+      <JsonLd data={providersPageJsonLd} />
       <BreadcrumbNav
         items={[
           { name: 'Home', href: '/' },

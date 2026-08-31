@@ -1,9 +1,12 @@
 {
-  "generated_at": "2026-08-30T20:20:20+00:00",
+  "generated_at": "2026-08-31T00:22:46+00:00",
   "site": "https://broadbandpicker.co.uk",
   "audit": {
     "files_read": [
       "app/page.tsx",
+      "app/layout.tsx",
+      "components/MainNav.tsx",
+      "components/MobileNav.tsx",
       "app/about/page.tsx",
       "app/how-we-make-money/page.tsx",
       "app/how-we-review-broadband/page.tsx",
@@ -13,7 +16,9 @@
       "docs/content-plan.md",
       "docs/ga4-seo-strategy-plan.md",
       "docs/home page UX/homepage-redesign-analysis.md",
-      "lib/affiliate.ts"
+      "lib/affiliate.ts",
+      "components/ProviderLogo.tsx",
+      "components/HomepageLogoRail.tsx"
     ],
     "provider_count": 24,
     "providers": [
@@ -45,7 +50,7 @@
     "homepage_h1": "Compare Broadband Deals for Your Postcode",
     "homepage_title": "Compare Broadband Deals UK | BroadbandPicker",
     "homepage_description": "Compare UK broadband deals by postcode. Free checker for fibre and full-fibre packages from BT, Sky, Virgin Media, EE and more. Rankings are not sold.",
-    "homepage_word_count": 1798,
+    "homepage_word_count": 1716,
     "homepage_em_dashes": 0,
     "homepage_ai_tells": [],
     "tools": [
@@ -147,6 +152,46 @@
       }
     ],
     "revenue_model": "Free for consumers. Affiliate commission when a visitor clicks through and signs up. Rankings are not sold. Providers can appear with or without an affiliate relationship.",
+    "header_has_postcode": true,
+    "header_nav_labels": [
+      "Compare",
+      "Deals",
+      "Providers",
+      "In your area",
+      "Guides",
+      "Tools",
+      "All providers",
+      "Provider vs provider",
+      "Popular providers",
+      "Find your area",
+      "Popular areas"
+    ],
+    "header_em_dashes": 0,
+    "header_ai_tells": [],
+    "footer_link_count": 27,
+    "footer_headings": [
+      "Compare",
+      "Tools",
+      "In your area",
+      "Guides",
+      "Company",
+      "Legal"
+    ],
+    "footer_has_social": true,
+    "footer_has_disclosure": true,
+    "footer_em_dashes": 0,
+    "footer_ai_tells": [],
+    "logo_count": 24,
+    "logo_outliers": [
+      "brsk.svg intrinsic 240x80",
+      "community-fibre.svg intrinsic 214x57",
+      "cuckoo.svg intrinsic 240x72",
+      "ee.svg intrinsic 200x351",
+      "gigaclear.svg intrinsic 240x72",
+      "onestream.svg intrinsic 240x72",
+      "shell-energy.svg intrinsic 240x72"
+    ],
+    "logo_rail_equal_tiles": true,
     "industry": "UK broadband price comparison / affiliate publisher. Not a telecoms operator. Same industry bucket as Uswitch and broadbandchoices."
   },
   "keywords": [
@@ -470,10 +515,10 @@
     },
     {
       "slot": "Logo rail",
-      "job": "broadband providers uk.",
-      "interactive": "Horizontal swipe on mobile already exists.",
-      "visual": "Real provider SVGs, rounded cards.",
-      "copy": "Compare deals from the networks that actually reach UK homes."
+      "job": "broadband providers uk. Trust that we actually list the networks people search.",
+      "interactive": "Equal CSS grid. Each tile links to /providers/[slug]. Hover border. No horizontal swipe on desktop.",
+      "visual": "Identical tiles, same width and height. Logo sits in the tile with object-contain and padding so EE, Zen and wordmarks all render at one optical size. Intrinsic SVG width/height must never size the card. Navy/sky hover, paper cards, 1px slate hairline. Retired brands keep a tiny label that does not change the tile size.",
+      "copy": "Compare deals from Britain's biggest broadband providers. No em dash."
     },
     {
       "slot": "Featured deals",
@@ -523,6 +568,59 @@
       "interactive": "Existing quiz promo and NewsletterSignup.",
       "visual": "quiz-match.svg, blob decorations.",
       "copy": "Keep. Remove any leftover em dash."
+    }
+  ],
+  "header_plan": [
+    {
+      "slot": "Trust strip",
+      "job": "GEO/Awin: independent claim on every URL, including guides.",
+      "interactive": "None. Plain HTML links. Not sticky, so it does not steal hero height on mobile.",
+      "visual": "Navy bar, tiny type, sky link.",
+      "copy": "Independent UK broadband comparison. Rankings are not sold. How we make money."
+    },
+    {
+      "slot": "Sticky header",
+      "job": "Logo home, nav, postcode conversion for broadband checker / in my area.",
+      "interactive": "Existing PostcodeChecker. Hover dropdowns stay HTML so crawlers see the links.",
+      "visual": "White field, sky mark, 1px sky hairline. Logo plus a small tagline on xl screens.",
+      "copy": "Tagline: UK broadband comparison. Placeholder: Check your postcode."
+    },
+    {
+      "slot": "Nav labels",
+      "job": "Map head terms without stuffing. Compare, Deals, Providers, In your area, Guides, Tools.",
+      "interactive": "Dropdowns already exist. Keep real hrefs inside them.",
+      "visual": "Sky hover, no mega-menu animation libraries.",
+      "copy": "Rename Postcode to In your area so it matches broadband in my area. Keep Postcode in the checker itself."
+    }
+  ],
+  "footer_plan": [
+    {
+      "slot": "Brand + citeable blurb",
+      "job": "Organization snippet LLMs can quote on any page.",
+      "interactive": "None.",
+      "visual": "Logo at 36px, faint blob, navy field.",
+      "copy": "Same 50-word independent-comparison claim as the homepage pull-quote. No em dash."
+    },
+    {
+      "slot": "Footer postcode",
+      "job": "Second conversion for people who scrolled a guide.",
+      "interactive": "PostcodeChecker island.",
+      "visual": "Compact, not a second hero.",
+      "copy": "Check broadband in your area. Availability is by address."
+    },
+    {
+      "slot": "Link columns",
+      "job": "Internal links for compare / switch / cheap / social tariff / fibre.",
+      "interactive": "Existing details accordion on small screens, static on lg.",
+      "visual": "Six columns. Sky hover.",
+      "copy": "Add How to switch, Social tariffs, Full fibre, Cheapest broadband, Partnerships. Keep legal and trust pages."
+    },
+    {
+      "slot": "Disclosure + social",
+      "job": "ASA/Awin plus sameAs targets.",
+      "interactive": "Existing social pills with hover scale. Back to top.",
+      "visual": "Keep pills. Do not add empty TikTok until the account exists.",
+      "copy": "Commission disclosure in one short paragraph. UK, not affiliated with any provider."
     }
   ],
   "faqs": [

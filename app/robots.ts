@@ -1,23 +1,31 @@
 import type { MetadataRoute } from 'next'
 
+const allowAll = { allow: '/', disallow: ['/api/', '/partners/'] as string[] }
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
-      {
-        userAgent: '*',
-        allow: '/',
-        disallow: ['/api/', '/partners/'],
-      },
-      // AI crawlers — allow for AI Overview / citation potential
-      { userAgent: 'Googlebot', allow: '/' },
-      // OpenAI Search uses OAI-SearchBot; GPTBot governs training access instead.
+      { userAgent: '*', ...allowAll },
+      { userAgent: 'Googlebot', ...allowAll },
+      { userAgent: 'Google-Extended', allow: '/' },
+      { userAgent: 'Google-CloudVertexBot', allow: '/' },
       { userAgent: 'OAI-SearchBot', allow: '/' },
       { userAgent: 'GPTBot', allow: '/' },
+      { userAgent: 'ChatGPT-User', allow: '/' },
       { userAgent: 'ClaudeBot', allow: '/' },
       { userAgent: 'anthropic-ai', allow: '/' },
       { userAgent: 'PerplexityBot', allow: '/' },
-      { userAgent: 'Google-Extended', allow: '/' },
+      { userAgent: 'Perplexity-User', allow: '/' },
+      { userAgent: 'Bingbot', allow: '/' },
+      { userAgent: 'Applebot', allow: '/' },
+      { userAgent: 'DuckDuckBot', allow: '/' },
+      { userAgent: 'Amazonbot', allow: '/' },
+      { userAgent: 'meta-externalagent', allow: '/' },
     ],
-    sitemap: 'https://broadbandpicker.co.uk/sitemap.xml',
+    sitemap: [
+      'https://broadbandpicker.co.uk/sitemap.xml',
+      'https://broadbandpicker.co.uk/postcode/sitemap.xml',
+    ],
+    host: 'https://broadbandpicker.co.uk',
   }
 }

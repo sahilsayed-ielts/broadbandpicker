@@ -3,6 +3,8 @@ import Link from 'next/link'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
 import SpeedTest from '@/components/SpeedTest'
 import PostcodeContextBar from '@/components/PostcodeContextBar'
+import { JsonLd } from '@/lib/jsonLd'
+import { softwareApplicationJsonLd } from '@/lib/siteSchema'
 
 const PAGE_URL = 'https://broadbandpicker.co.uk/speed-test'
 const REVIEWED_DATE = '2026-08-23'
@@ -53,30 +55,16 @@ const faqs = [
   },
 ]
 
+const toolGraph = softwareApplicationJsonLd({
+  name: 'BroadbandPicker UK Broadband Speed Test',
+  url: PAGE_URL,
+  description: 'A browser-based test measuring broadband download speed, upload speed and ping.',
+  dateModified: REVIEWED_DATE,
+})
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
-    {
-      '@type': 'WebApplication',
-      '@id': `${PAGE_URL}#tool`,
-      name: 'BroadbandPicker UK Broadband Speed Test',
-      url: PAGE_URL,
-      applicationCategory: 'UtilitiesApplication',
-      operatingSystem: 'Any',
-      browserRequirements: 'Requires JavaScript and a modern web browser',
-      isAccessibleForFree: true,
-      description: 'A browser-based test measuring broadband download speed, upload speed and ping.',
-      provider: { '@type': 'Organization', name: 'BroadbandPicker', url: 'https://broadbandpicker.co.uk' },
-    },
-    {
-      '@type': 'WebPage',
-      '@id': `${PAGE_URL}#webpage`,
-      url: PAGE_URL,
-      name: 'Free Broadband Speed Test UK',
-      dateModified: REVIEWED_DATE,
-      mainEntity: { '@id': `${PAGE_URL}#tool` },
-      reviewedBy: { '@type': 'Organization', name: 'BroadbandPicker editorial team' },
-    },
+    ...toolGraph['@graph'],
     {
       '@type': 'FAQPage',
       mainEntity: faqs.map(({ question, answer }) => ({
@@ -99,10 +87,7 @@ const speedRows = [
 export default function SpeedTestPage() {
   return (
     <main className="bg-white">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
-      />
+      <JsonLd data={jsonLd} />
 
       <section className="bg-slate-950 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-14">

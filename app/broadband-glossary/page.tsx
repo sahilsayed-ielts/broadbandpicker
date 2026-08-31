@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
+import { JsonLd } from '@/lib/jsonLd'
 
 export const metadata: Metadata = {
   title: { absolute: 'Broadband Glossary: Every Term Explained | BroadbandPicker' },
@@ -420,13 +421,11 @@ export default function BroadbandGlossaryPage() {
     '@type': 'DefinedTermSet',
     name: 'UK Broadband Glossary',
     description:
-      'Definitions of broadband terms and technology used in the UK — from ADSL and FTTP to One Touch Switching and social tariffs.',
+      'Definitions of broadband terms and technology used in the UK, from ADSL and FTTP to One Touch Switching and social tariffs.',
     url: 'https://broadbandpicker.co.uk/broadband-glossary',
-    publisher: {
-      '@type': 'Organization',
-      name: 'BroadbandPicker',
-      url: 'https://broadbandpicker.co.uk',
-    },
+    inLanguage: 'en-GB',
+    isPartOf: { '@id': 'https://broadbandpicker.co.uk/#website' },
+    publisher: { '@id': 'https://broadbandpicker.co.uk/#organisation' },
     hasDefinedTerm: glossary.flatMap((s) =>
       s.terms.map((t) => ({
         '@type': 'DefinedTerm',
@@ -439,10 +438,7 @@ export default function BroadbandGlossaryPage() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
 
       <BreadcrumbNav
         items={[

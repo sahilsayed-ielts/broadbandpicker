@@ -113,7 +113,7 @@ export default function MobileNav() {
         <span className="sr-only">{open ? 'Close navigation menu' : 'Open navigation menu'}</span>
       </button>
 
-      {/* Backdrop — tapping anywhere outside the panel closes it. */}
+      {/* Backdrop: tapping anywhere outside the panel closes it. */}
       <div
         onClick={() => setOpen(false)}
         aria-hidden="true"
@@ -137,8 +137,8 @@ export default function MobileNav() {
             className="mb-4 transition-all duration-300 ease-out"
             style={{ transitionDelay: open ? '40ms' : '0ms', opacity: open ? 1 : 0, transform: open ? 'translateY(0)' : 'translateY(6px)' }}
           >
-            <p className="mb-2 px-1 text-sm font-semibold text-slate-900">Find deals in your area</p>
-            <PostcodeChecker placeholder="Your postcode" />
+            <p className="mb-2 px-1 text-sm font-semibold text-slate-900">Check broadband in your area</p>
+            <PostcodeChecker placeholder="Check your postcode" />
           </div>
 
           <div
@@ -169,7 +169,7 @@ export default function MobileNav() {
               </div>
             </AccordionSection>
 
-            <AccordionSection id={`${uid}-postcode`} title="Postcode" icon={ICONS.postcode} isOpen={expanded === 'postcode'} onToggle={() => toggleSection('postcode')}>
+            <AccordionSection id={`${uid}-postcode`} title="In your area" icon={ICONS.postcode} isOpen={expanded === 'postcode'} onToggle={() => toggleSection('postcode')}>
               <Link href="/postcode" className={sectionLinkClass}>Find your area</Link>
               <div className="grid grid-cols-2 gap-1 px-3 pt-1">
                 {POSTCODE_QUICK_LINKS.map((l) => (
@@ -207,6 +207,8 @@ export default function MobileNav() {
             <div className="grid grid-cols-2 gap-1">
               <Link href="/about" className="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-500 active:bg-slate-50">About</Link>
               <Link href="/contact" className="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-500 active:bg-slate-50">Contact</Link>
+              <Link href="/how-we-make-money" className="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-500 active:bg-slate-50">How we make money</Link>
+              <Link href="/how-we-review-broadband" className="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-500 active:bg-slate-50">How we review</Link>
             </div>
           </div>
         </nav>

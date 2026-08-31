@@ -8,6 +8,10 @@ import AffiliateCTA from '@/components/AffiliateCTA'
 import SpeedBadge from '@/components/SpeedBadge'
 import FAQAccordion from '@/components/FAQAccordion'
 import { buildProviderOfferJsonLd } from '@/lib/dealSchema'
+import { JsonLd } from '@/lib/jsonLd'
+import { articleJsonLd } from '@/lib/siteSchema'
+import CiteableAnswer from '@/components/CiteableAnswer'
+import SourcesList from '@/components/SourcesList'
 import PostcodeContextBar from '@/components/PostcodeContextBar'
 import ProviderAvailabilityBadge from '@/components/ProviderAvailabilityBadge'
 import RatingStars from '@/components/RatingStars'
@@ -68,6 +72,9 @@ export default async function ProviderPage({
     year: 'numeric',
   })
   const isRetired = Boolean(provider.retiredDate && provider.successorName && provider.successorUrl)
+  const trackingProviderSlug = provider.successorName
+    ? provider.successorName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+    : provider.slug
 
   const defaultFaqItems = [
     {
@@ -89,37 +96,23 @@ export default async function ProviderPage({
   ]
   const faqItems = provider.faqItems ?? defaultFaqItems
 
-  const articleJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
+  const articleStructuredData = articleJsonLd({
     headline: `${provider.name} Broadband Review 2026`,
     description: `Read our ${provider.name} broadband review, including pricing, speeds, coverage, and support trade-offs.`,
     url: `https://broadbandpicker.co.uk/providers/${provider.slug}`,
     datePublished: provider.reviewedDate,
     dateModified: provider.pricingVerifiedDate,
-    author: {
-      '@type': 'Organization',
-      name: 'BroadbandPicker',
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'BroadbandPicker',
-      url: 'https://broadbandpicker.co.uk',
-    },
     about: {
       '@type': 'Service',
       name: `${provider.name} Broadband`,
-      provider: {
-        '@type': 'Organization',
-        name: provider.name,
-      },
+      serviceType: 'Internet access',
+      areaServed: { '@type': 'Country', name: 'United Kingdom' },
+      provider: { '@type': 'Organization', name: provider.name },
     },
     citation: provider.reviewSources.map((source) =>
-      source.href.startsWith('http')
-        ? source.href
-        : `https://broadbandpicker.co.uk${source.href}`
+      source.href.startsWith('http') ? source.href : `https://broadbandpicker.co.uk${source.href}`
     ),
-  }
+  })
 
   const faqJsonLd = {
     '@context': 'https://schema.org',
@@ -145,20 +138,9 @@ export default async function ProviderPage({
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
-      {!isRetired && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(offerJsonLd) }}
-        />
-      )}
+      <JsonLd data={articleStructuredData} />
+      <JsonLd data={faqJsonLd} />
+      {!isRetired && <JsonLd data={offerJsonLd} />}
 
       <BreadcrumbNav
         items={[
@@ -192,6 +174,8 @@ export default async function ProviderPage({
         <AffiliateCTA
           href={provider.successorUrl ?? provider.affiliateUrl}
           providerName={provider.successorName ?? provider.name}
+          providerSlug={trackingProviderSlug}
+          placement="provider_hero"
           label={isRetired ? `See ${provider.successorName} deals →` : `See ${provider.name} deals →`}
           size="lg"
         />
@@ -215,11 +199,7 @@ export default async function ProviderPage({
         </div>
       )}
 
-      {provider.excerpt && (
-        <p className="mb-8 border-l-4 border-sky-500 pl-4 text-base leading-relaxed text-slate-700">
-          {provider.excerpt}
-        </p>
-      )}
+      {provider.excerpt && <CiteableAnswer>{provider.excerpt}</CiteableAnswer>}
 
       {provider.slug === 'talktalk' && (
         <p className="mb-8 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm leading-relaxed text-slate-700">
@@ -290,6 +270,8 @@ export default async function ProviderPage({
                   <AffiliateCTA
                     href={provider.successorUrl ?? provider.affiliateUrl}
                     providerName={provider.successorName ?? provider.name}
+                    providerSlug={trackingProviderSlug}
+                    placement="provider_package_table"
                     label={isRetired ? `Check ${provider.successorName}` : undefined}
                     size="sm"
                   />
@@ -458,6 +440,8 @@ export default async function ProviderPage({
           <AffiliateCTA
             href={provider.successorUrl ?? provider.affiliateUrl}
             providerName={provider.successorName ?? provider.name}
+            providerSlug={trackingProviderSlug}
+            placement="provider_bottom_cta"
             label={isRetired ? `Check ${provider.successorName} deals →` : undefined}
             size="lg"
           />
@@ -474,6 +458,11 @@ export default async function ProviderPage({
         We may earn a commission when you click an affiliate link. Prices and deals are subject to
         change. Always verify with {provider.successorName ?? provider.name} before signing up.
       </p>
+
+      <SourcesList
+        intro="Facts on this review come from the provider, our methodology, and the customer-sentiment sources listed here."
+        sources={provider.reviewSources}
+      />
     </div>
   )
 }

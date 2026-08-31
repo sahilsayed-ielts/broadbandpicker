@@ -7,7 +7,11 @@ import BreadcrumbNav from '@/components/BreadcrumbNav'
 import DealTable from '@/components/DealTable'
 import FAQAccordion from '@/components/FAQAccordion'
 import PostcodeContextBar from '@/components/PostcodeContextBar'
+import CashbackDealComparison from '@/components/CashbackDealComparison'
 import { withHeadingIds } from '@/lib/extractHeadings'
+import { JsonLd } from '@/lib/jsonLd'
+import { articleJsonLd } from '@/lib/siteSchema'
+import CiteableAnswer from '@/components/CiteableAnswer'
 
 export async function generateStaticParams() {
   return guides.map((g) => ({ slug: g.slug }))
@@ -830,7 +834,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         <h2>How to get an even cheaper deal</h2>
         <ul>
           <li><strong>Negotiate with your current provider.</strong> Call and ask if they can match a competitor&apos;s advertised price; retention teams often have unpublished offers not shown on the public website.</li>
-          <li><strong>Check for cashback or a reward card.</strong> Several providers, including BT and Plusnet, currently offer reward cards worth £80 to £140 on top of the headline price, but only if you actually claim them.</li>
+          <li><strong>Check for cashback or a reward card.</strong> Several providers currently attach rewards to selected offers, but only a successful claim lowers the real cost. Use our <Link href="/guides/broadband-deals-with-cashback">cashback broadband deals guide and comparison</Link> before treating a card as part of the saving.</li>
           <li><strong>Switch once you are out of contract.</strong> New-customer pricing is almost always better than what an existing, out-of-contract customer is quietly paying.</li>
           <li><strong>Check whether a local altnet has launched since you last looked.</strong> Community Fibre, toob, Trooli and Zzoomm have all expanded meaningfully in 2026; a postcode that had no altnet option a year ago may have one now.</li>
         </ul>
@@ -891,7 +895,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         <p>Every current under-£20 option on this site is an altnet running its own full-fibre network rather than a national Openreach reseller, with the exception of Onestream, which sells over Openreach and is genuinely available to around 94% of UK premises, making it the most realistic under-£20 option for anyone outside a smaller altnet&apos;s footprint. Community Fibre, toob, Gigaclear and Trooli are all limited to specific towns, cities or regions, so availability must be checked at the exact address rather than assumed from a postcode area alone.</p>
 
         <h2>When paying slightly more is worth it</h2>
-        <p>A deal at £21 to £25 a month can still be better value than one under £20 if it gives a meaningfully higher speed, no scheduled price rise, or a stronger complaints record. Sky, for example, starts from £23 a month but carries one of the best Ofcom complaints records of any major provider, a genuine trade-off worth weighing against a marginally cheaper altnet deal, especially for a household where several people stream, game or work from home on the same connection.</p>
+        <p>A deal at £21 to £25 a month can still be better value than one under £20 if it gives a meaningfully higher speed, no scheduled price rise, or a stronger complaints record. A reward can change the minimum-term total too, but our <Link href="/guides/broadband-deals-with-cashback">cashback broadband deals comparison</Link> shows why the calculation should also be run without it. A missed claim makes the card worth £0.</p>
 
         <h2>What to check before choosing a cheap deal</h2>
         <ul>
@@ -917,10 +921,26 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
   'broadband-deals-with-cashback': {
     body: (
       <>
-        <p>Broadband deals with <strong>cashback, gift cards, or switching rewards</strong> can be excellent value, but only if you compare the total contract cost properly. A package with a big headline reward is not automatically better than one with a lower monthly price and no claim friction.</p>
+        <p><strong>Broadband deals with cashback are worthwhile only when the reward makes an already suitable package cheaper over its full minimum term.</strong> On 29 August 2026, independently listed BT broadband rewards ranged from £80 to £140, but BT also charged £30 setup and scheduled £4-a-month rises. Subtract the reward only after adding every contracted charge and only if you can meet the claim terms.</p>
+        <p>We would choose a lower total contract cost over the largest gift card. Speed, address-level availability and contract flexibility still have to fit the household. A £140 card does not repair a slow connection, and a reward that expires before it is claimed has a value of £0.</p>
 
         <h2>How cashback broadband deals work</h2>
-        <p>Providers and affiliates often promote one-off incentives such as prepaid cards, shopping vouchers, or cashback after activation. These can improve the overall value of a deal, but the important number is the <strong>effective cost across the full minimum term</strong>, not the reward in isolation.</p>
+        <p>UK listings use “cashback” for several different incentives. Direct cashback is usually paid to a bank or cashback-site account. A reward card is a prepaid card with spending restrictions and an expiry date. A voucher works only with named retailers, while bill credit reduces future broadband bills. The cash value is not identical if you would not normally spend the voucher.</p>
+        <p>Most promotions apply to selected packages and new online customers. The purchase route matters. EE’s current terms say partner or affiliate purchases do not qualify for its direct reward-card offer, the transaction must finish in one session, and the first bill must be paid. This is why the order confirmation and promotion terms should be saved before leaving checkout.</p>
+
+        <h2>Cashback broadband deals checked in August 2026</h2>
+        <p>Reward values change quickly and availability depends on the address. Finder’s table, checked on 29 August 2026, listed provider rewards from £50 to £200 before its separate member reward. Its examples included Quickline at £200, EE at £165, Plusnet at £160, BT at £140 and Sky at £120. These are snapshots, not universal offers across every package or sales route.</p>
+        <div className="overflow-x-auto" role="region" aria-label="Examples of current broadband reward offers" tabIndex={0}>
+          <table className="w-full min-w-[42rem] text-sm border-collapse">
+            <thead><tr className="bg-slate-50">{['Example', 'Reward snapshot', 'Conditions to verify', 'Our reading'].map((heading) => <th key={heading} className="text-left px-4 py-3 border border-slate-200 font-semibold text-slate-700">{heading}</th>)}</tr></thead>
+            <tbody>
+              <tr><td className="border border-slate-200 px-4 py-3 font-semibold">BT broadband</td><td className="border border-slate-200 px-4 py-3">£80 to £140 by tier</td><td className="border border-slate-200 px-4 py-3">Eligible online order, £30 setup, claim and activation deadlines</td><td className="border border-slate-200 px-4 py-3">Strong reward, but scheduled rises remain part of the cost</td></tr>
+              <tr><td className="border border-slate-200 px-4 py-3 font-semibold">EE broadband</td><td className="border border-slate-200 px-4 py-3">Up to £165 in Finder’s snapshot</td><td className="border border-slate-200 px-4 py-3">Selected direct online orders, first bill paid, 90-day claim window after verification</td><td className="border border-slate-200 px-4 py-3">Read the purchase-route restriction before using another affiliate</td></tr>
+              <tr><td className="border border-slate-200 px-4 py-3 font-semibold">Quickline</td><td className="border border-slate-200 px-4 py-3">Up to £200 in Finder’s snapshot</td><td className="border border-slate-200 px-4 py-3">Selected plan, local network coverage and promotion terms</td><td className="border border-slate-200 px-4 py-3">Largest listed provider reward, not the same as broad availability</td></tr>
+              <tr><td className="border border-slate-200 px-4 py-3 font-semibold">Lower-price deal</td><td className="border border-slate-200 px-4 py-3">No reward required</td><td className="border border-slate-200 px-4 py-3">Full monthly schedule, setup and speed</td><td className="border border-slate-200 px-4 py-3">Can win if its total cost is lower without a claim</td></tr>
+            </tbody>
+          </table>
+        </div>
 
         <h2>How to judge the real value of an incentive</h2>
         <div className="overflow-x-auto">
@@ -950,32 +970,47 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         </div>
 
         <h2>A real example: BT's reward card and the setup fee it offsets</h2>
-        <p>BT applies a £30 upfront setup fee on its current range, offset by a reward card ranging from around £80 on entry tiers up to £140 on its fastest package. This only works out in the customer&apos;s favour if the card is actually claimed and used; treat the setup fee as a genuine £30 cost at the point of paying, not a number automatically cancelled out by a reward that requires separate action to redeem. NOW Broadband, similarly, commonly attaches a £70 to £75 voucher to its current deals, on top of a £5 advance fee that is credited back to the first bill rather than being a real net cost.</p>
+        <p>Broadband Genie’s BT table, updated 21 August 2026, showed Full Fibre 150 at £23.99 a month, rising to £27.99 in March 2027 and £31.99 in March 2028, with £30 setup and a £100 card. Over 24 months, the displayed monthly schedule plus setup totals £685.76. Subtracting a successfully claimed £100 card gives £585.76, or £24.41 a month. Without the card, the same service costs £28.57 a month.</p>
+        <p>The example explains why “£100 cashback” cannot be compared with the first monthly price alone. Ofcom requires contracted price rises to be displayed upfront in pounds and pence. Put each price period, setup charge and delivery fee into the total, then subtract only a reward you expect to receive and use.</p>
+
+        <h2>How to claim a broadband reward without missing it</h2>
+        <ol>
+          <li><strong>Save the offer:</strong> keep the checkout page, terms, order confirmation, reward amount and closing date.</li>
+          <li><strong>Check the route:</strong> confirm whether the promotion requires the provider site, comparison link or cashback site and whether other codes invalidate it.</li>
+          <li><strong>Set two reminders:</strong> one after activation and one well before the claim deadline. Search spam folders for the reward administrator’s message.</li>
+          <li><strong>Claim and activate:</strong> keep the claim confirmation and note the separate activation or spending expiry date.</li>
+          <li><strong>Escalate promptly:</strong> contact the named card or promotion administrator with the order reference and first bill if the stated delivery period passes.</li>
+        </ol>
+        <p>BT says eligible customers claim after service activation, receive the digital card within 30 working days and must activate it within three months, then spend it within 12 months. EE’s published reward terms use a different process: delivery can take up to 140 days after activation and verified customers then have 90 days to claim. Follow the terms attached to your exact order, not a generic timetable.</p>
 
         <h2>When cashback deals are genuinely worth it</h2>
-        <p>They make the most sense when the underlying broadband deal is already competitive and the reward simply improves the value further. They matter less when the monthly price is inflated, the contract is too long for your needs, or the reward is hard to redeem.</p>
+        <p>They make sense when the package is available at the address, meets the required speed, has an acceptable minimum term and remains cheaper after all scheduled rises. A prepaid Mastercard-style card is usually easier to value than a restricted shop voucher, but neither should be counted until eligibility and claim steps are clear.</p>
+        <p>Cashback may also be a useful tie-breaker between otherwise similar offers. Check any exit-fee credit separately because it may require a final bill from the old provider and may reimburse only the proven charge rather than provide unrestricted spending money.</p>
 
         <h2>Cashback vs lower monthly price</h2>
-        <p>Many buyers focus too much on the headline reward. In practice, a lower monthly bill over 12 to 24 months can beat a larger one-off gift card. Community Fibre, for example, is genuinely the cheapest full-fibre package covered on this site at £12.50 a month with no reward attached at all, and that lower ongoing price can beat a pricier deal with a large one-off card once the full contract term is added up. The best habit is to compare the full contract cost first, then treat cashback as a bonus rather than the main reason to choose a provider.</p>
+        <p>Use this formula: every monthly payment during the minimum term, plus setup, activation and delivery charges, minus guaranteed bill credit and a reward you expect to claim. Divide that result by the contract months for the effective monthly cost. Our <Link href="/tools/broadband-cost-calculator">broadband cost calculator</Link> also calculates cost per Mbps, while the comparison above is designed for checking two reward scenarios side by side.</p>
+        <p>Run the calculation twice, once with the reward and once without it. If a deal is poor value without the card, the claim process is carrying too much of the decision. Also compare <Link href="/guides/broadband-deals-with-no-setup-fee">broadband with no setup fee</Link> and <Link href="/guides/broadband-deals-with-no-mid-contract-price-rise">deals without a scheduled mid-contract rise</Link>, because avoiding a charge can beat receiving a delayed reward.</p>
 
         <h2>Common mistakes with broadband rewards</h2>
         <ul>
-          <li>Ignoring the total cost over the full contract</li>
-          <li>Missing a cashback claim deadline</li>
-          <li>Choosing a provider with a poor fit just because the reward looks big</li>
-          <li>Overvaluing a gift card you would not actually use</li>
+          <li>Comparing the reward with only the introductory monthly price rather than every scheduled payment.</li>
+          <li>Assuming “cashback” means cash when the offer is a restricted prepaid card or retailer voucher.</li>
+          <li>Missing a claim, activation or spending deadline after the broadband has gone live.</li>
+          <li>Breaking affiliate tracking by changing route, using an unlisted code, blocking cookies or completing the order in another session.</li>
+          <li>Choosing a slower, unavailable or inflexible package solely because its reward is larger.</li>
         </ul>
 
         <h2>The best rule of thumb</h2>
-        <p>If two broadband deals are otherwise close, cashback can be the tie-breaker. If one deal is already clearly cheaper or better suited to your home, the incentive should not talk you into the worse package.</p>
+        <p>Start with the address-specific speed and full contract cost. Keep the reward in the calculation only where the exact order confirmation states eligibility and the claim process is realistic for you. If the reward deal still wins when calculated both with and without the incentive, it is a much safer choice than an offer whose value disappears after one missed email.</p>
       </>
     ),
     faqs: [
-      { question: 'Are broadband cashback deals worth it?', answer: 'Yes, if the underlying broadband package is already competitive. Cashback works best as an extra value boost, not as a reason to ignore a weaker monthly price or unsuitable contract.' },
-      { question: 'Is cashback better than a lower broadband monthly price?', answer: 'Not always. A lower monthly price can easily beat a one-off reward over the full contract term. The right comparison is total contract value, not headline incentive size.' },
-      { question: 'What should I check before taking a cashback broadband deal?', answer: 'Check the full contract cost, setup fees, contract length, and whether the cashback requires a claim step or deadline. Also make sure the broadband package itself suits your household.' },
-      { question: 'Do gift card broadband deals count as good value?', answer: 'They can, especially if you would genuinely use the gift card. But they are not automatically better than a plain lower-cost deal with no redemption friction.' },
-      { question: 'How much is BT\'s broadband reward card worth?', answer: 'BT\'s current reward card ranges from around £80 on entry-level packages up to £140 on its fastest tier, offsetting a £30 upfront setup fee. It only benefits the customer if actually claimed and used, so treat the £30 as a real cost at the point of paying rather than a number cancelled out automatically.' },
+      { question: 'Are broadband cashback deals worth it?', answer: 'Broadband cashback deals are worth considering when the connection suits your address and the reward lowers the full minimum-term cost below comparable offers. Add every scheduled monthly payment and setup charge first, then subtract only a reward you can claim and use. Run the comparison without the reward too, because a missed deadline makes its effective value £0.' },
+      { question: 'Is cashback better than a lower broadband monthly price?', answer: 'A lower monthly price is better when its full contract total remains below the reward deal after setup charges and scheduled rises. Compare every payment across the minimum term, then subtract the usable reward. A £4 monthly difference over 24 months is £96, so it can cancel most of a £100 card before setup fees are considered.' },
+      { question: 'How do I claim cashback on a broadband deal?', answer: 'Save the promotion terms and order confirmation, then follow the route named for that exact offer after activation. BT says eligible customers claim through their BT account and receive a digital card within 30 working days. EE’s separate terms can allow up to 140 days before verified claim details arrive. Claim, activation and spending deadlines can all differ.' },
+      { question: 'Which broadband providers offer gift cards or rewards?', answer: 'Finder’s UK table checked on 29 August 2026 listed selected rewards from Quickline, EE, Plusnet, BT, Sky, TalkTalk, Gigaclear, NOW Broadband, Rebel and Airband. Values ranged from £50 to £200 before Finder’s separate member incentive. Offers vary by package, address and purchase route, so verify the provider terms and order confirmation before relying on any amount.' },
+      { question: 'How much is BT\'s broadband reward card worth?', answer: 'Broadband Genie listed BT broadband Reward Cards from £80 to £140 on 21 August 2026. The £100 Full Fibre 150 example also had £30 setup and scheduled £4 monthly rises in 2027 and 2028. BT says eligible customers must claim, activate within three months of receipt and spend the digital card balance within 12 months.' },
+      { question: 'Can I combine provider rewards with cashback websites?', answer: 'Do not assume rewards can be combined. EE’s published terms say its selected direct Reward Card promotion does not qualify on partner or affiliate purchases and cannot be combined with another voucher, discount or promotion code. Cashback-site and provider rules differ, so choose one tracked purchase route, save its terms and compare the net value before ordering.' },
     ],
   },
 
@@ -4175,33 +4210,69 @@ export default async function GuidePage({
 
   const topDeals = getTopDeals(3)
   const category = guideCategories.find((item) => item.slug === guide.category)
+  const sourceLinks = [
+    { label: 'BroadbandPicker review methodology', href: '/how-we-review-broadband' },
+    { label: 'BroadbandPicker editorial policy', href: '/editorial-policy' },
+    ...(guide.sources ?? []).map((source) => ({ ...source, external: true as const })),
+  ]
 
-  const articleJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    '@id': `https://broadbandpicker.co.uk/guides/${slug}#article`,
+  const articleStructuredData = articleJsonLd({
     headline: guide.title,
     description: guide.metaDescription,
+    url: `https://broadbandpicker.co.uk/guides/${slug}`,
     datePublished: guide.publishDate,
     dateModified: guide.updatedDate,
-    inLanguage: 'en-GB',
-    isAccessibleForFree: true,
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': `https://broadbandpicker.co.uk/guides/${slug}`,
-    },
-    author: {
-      '@type': 'Organization',
-      name: 'BroadbandPicker editorial team',
-      url: 'https://broadbandpicker.co.uk/about',
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'BroadbandPicker',
-      url: 'https://broadbandpicker.co.uk',
-    },
-    url: `https://broadbandpicker.co.uk/guides/${slug}`,
-  }
+    articleSection: category?.label,
+    citation: sourceLinks
+      .filter((source) => source.href.startsWith('http') || source.href.startsWith('/'))
+      .map((source) =>
+        source.href.startsWith('http') ? source.href : `https://broadbandpicker.co.uk${source.href}`
+      ),
+  })
+
+  const switchHowToJsonLd =
+    slug === 'how-to-switch-broadband-uk'
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'HowTo',
+          name: 'How to switch broadband in the UK',
+          description:
+            'Check your contract, compare an address-specific deal, order with the new provider, then let One Touch Switch handle the cutover.',
+          totalTime: 'P14D',
+          step: [
+            {
+              '@type': 'HowToStep',
+              position: 1,
+              name: 'Check your contract end date and exit charge',
+              text: 'Find the minimum term end date and any early termination fee before you order a new line.',
+            },
+            {
+              '@type': 'HowToStep',
+              position: 2,
+              name: 'Compare deals for your address',
+              text: 'Enter the postcode and compare total contract cost, typical speed and setup fees for packages that can serve that home.',
+            },
+            {
+              '@type': 'HowToStep',
+              position: 3,
+              name: 'Order with the new provider',
+              text: 'Give accurate account and address details so the new provider can start One Touch Switch.',
+            },
+            {
+              '@type': 'HowToStep',
+              position: 4,
+              name: 'Change over',
+              text: 'Connect the new router or attend the engineer visit. The old broadband should end after the new service starts.',
+            },
+            {
+              '@type': 'HowToStep',
+              position: 5,
+              name: 'Close the old account',
+              text: 'Check the final bill, any refund and equipment-return instructions.',
+            },
+          ],
+        }
+      : null
 
   const faqJsonLd = {
     '@context': 'https://schema.org',
@@ -4219,22 +4290,11 @@ export default async function GuidePage({
     year: 'numeric',
   })
 
-  const sourceLinks = [
-    { label: 'BroadbandPicker review methodology', href: '/how-we-review-broadband' },
-    { label: 'BroadbandPicker editorial policy', href: '/editorial-policy' },
-    ...(guide.sources ?? []).map((source) => ({ ...source, external: true as const })),
-  ]
-
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd).replace(/</g, '\\u003c') }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd).replace(/</g, '\\u003c') }}
-      />
+      <JsonLd data={articleStructuredData} />
+      <JsonLd data={faqJsonLd} />
+      {switchHowToJsonLd ? <JsonLd data={switchHowToJsonLd} /> : null}
 
       <BreadcrumbNav
         items={[
@@ -4264,6 +4324,28 @@ export default async function GuidePage({
       </div>
 
       <PostcodeContextBar />
+
+      <CiteableAnswer>{guide.excerpt}</CiteableAnswer>
+
+      {(slug === 'best-broadband-deals-uk' || slug === 'best-broadband-for-students') && (
+        <aside className="mb-8 rounded-xl border border-slate-200 bg-slate-50 p-5 text-sm leading-6 text-slate-700">
+          <p className="font-bold text-slate-900">Nottingham city-centre example</p>
+          <p className="mt-1">
+            Our <Link href="/postcode/ng1" className="font-semibold text-sky-700 hover:underline">NG1 broadband deals guide</Link>{' '}
+            shows how district coverage, building access, total contract cost and tenancy length change the shortlist for one local area.
+          </p>
+        </aside>
+      )}
+
+      {slug === 'broadband-speeds-explained' && (
+        <aside className="mb-8 rounded-xl border border-slate-200 bg-slate-50 p-5 text-sm leading-6 text-slate-700">
+          <p className="font-bold text-slate-900">Reading speed and coverage example</p>
+          <p className="mt-1">
+            The <Link href="/postcode/rg1" className="font-semibold text-sky-700 hover:underline">RG1 broadband deals guide</Link>{' '}
+            shows why a district coverage percentage, an address-specific speed estimate and the speed a household needs are three different facts.
+          </p>
+        </aside>
+      )}
 
       {guide.keyTakeaways && guide.keyTakeaways.length > 0 && (
         <section className="mb-10 rounded-xl border border-sky-200 bg-sky-50 p-6">
@@ -4304,6 +4386,8 @@ export default async function GuidePage({
           </ul>
         </nav>
       )}
+
+      {slug === 'broadband-deals-with-cashback' && <CashbackDealComparison />}
 
       <div className="prose prose-slate max-w-none mb-10 [&_h2]:text-xl [&_h2]:font-bold [&_h2]:text-slate-900 [&_h2]:mt-8 [&_h2]:mb-3 [&_h2]:scroll-mt-24 [&_h3]:text-lg [&_h3]:font-bold [&_h3]:text-slate-900 [&_h3]:mt-6 [&_h3]:mb-2 [&_p]:text-slate-700 [&_p]:leading-relaxed [&_p]:mb-4 [&_ul]:my-4 [&_ul]:pl-6 [&_ol]:my-4 [&_ol]:pl-6 [&_li]:text-slate-700 [&_li]:mb-2 [&_strong]:text-slate-900 [&_table]:my-6 [&_th]:font-semibold [&_th]:text-slate-700 [&_td]:text-slate-700">
         {taggedBody}

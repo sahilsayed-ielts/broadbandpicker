@@ -9,6 +9,7 @@ interface ProviderLogoProps {
   height?: number
   className?: string
   preload?: boolean
+  fillTile?: boolean
 }
 
 const providerTheme: Record<string, string> = {
@@ -22,23 +23,24 @@ export default function ProviderLogo({
   height = 40,
   className = '',
   preload = false,
+  fillTile = false,
 }: ProviderLogoProps) {
-  const themeClass = providerTheme[slug] ?? 'bg-white border-slate-100'
+  const themeClass = providerTheme[slug] ?? 'bg-white border-slate-200'
 
   return (
     <div
-      className={`flex items-center justify-center rounded border p-2 ${themeClass} ${className}`}
-      style={{ width, minHeight: height }}
+      className={`relative overflow-hidden rounded border ${themeClass} ${fillTile ? 'h-full w-full' : ''} ${className}`}
+      style={fillTile ? undefined : { width, height }}
       aria-label={`${name} logo`}
     >
       <Image
         src={`/logos/${slug}.svg`}
         alt={`${name} broadband`}
-        width={width - 16}
-        height={height - 8}
-        className="object-contain"
+        fill
+        unoptimized
+        sizes={fillTile ? '(max-width: 640px) 33vw, 140px' : `${width}px`}
+        className={`object-contain ${fillTile ? 'p-2.5' : 'p-1.5'}`}
         preload={preload}
-        onError={() => {}}
       />
     </div>
   )

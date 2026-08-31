@@ -142,6 +142,7 @@ export default function DealTable({ deals, showDisclosure = true, compact = fals
                     href={deal.provider.affiliateUrl}
                     providerName={deal.provider.name}
                     providerSlug={deal.provider.slug}
+                    placement="deal_table"
                     size="sm"
                   />
                 </td>

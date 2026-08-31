@@ -3,13 +3,16 @@ import Link from 'next/link'
 import PostcodeChecker from '@/components/PostcodeChecker'
 import ReturningVisitorBanner from '@/components/ReturningVisitorBanner'
 import DealTable from '@/components/DealTable'
-import ProviderLogo from '@/components/ProviderLogo'
 import NewsletterSignup from '@/components/NewsletterSignup'
+import HomepageLogoRail from '@/components/HomepageLogoRail'
 import SocialProofCounter from '@/components/SocialProofCounter'
 import ScrollReveal from '@/components/ScrollReveal'
 import FAQAccordion from '@/components/FAQAccordion'
 import HomepageSpeedNeed from '@/components/HomepageSpeedNeed'
 import { providers, getTopDeals, providerDatasetUpdatedDate } from '@/data/providers'
+import { JsonLd } from '@/lib/jsonLd'
+import { HOMEPAGE_UPDATED, organizationRef, websiteRef } from '@/lib/siteSchema'
+import { buildDealListJsonLd } from '@/lib/dealSchema'
 
 export const metadata: Metadata = {
   title: { absolute: 'Compare Broadband Deals UK | BroadbandPicker' },
@@ -26,45 +29,6 @@ export const metadata: Metadata = {
   },
 }
 
-const websiteJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  '@id': 'https://broadbandpicker.co.uk/#website',
-  name: 'BroadbandPicker',
-  alternateName: ['BroadbandPicker.co.uk', 'broadbandpicker.co.uk'],
-  url: 'https://broadbandpicker.co.uk/',
-  description: 'Compare broadband deals for your UK postcode',
-  publisher: { '@id': 'https://broadbandpicker.co.uk/#organisation' },
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: {
-      '@type': 'EntryPoint',
-      urlTemplate: 'https://broadbandpicker.co.uk/postcode/{search_term_string}',
-    },
-    'query-input': 'required name=search_term_string',
-  },
-}
-
-const organizationJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  '@id': 'https://broadbandpicker.co.uk/#organisation',
-  name: 'BroadbandPicker',
-  alternateName: 'BroadbandPicker.co.uk',
-  url: 'https://broadbandpicker.co.uk/',
-  logo: {
-    '@type': 'ImageObject',
-    url: 'https://broadbandpicker.co.uk/logo.png',
-    width: 1024,
-    height: 1024,
-  },
-  sameAs: [
-    'https://x.com/broadbandPicker',
-    'https://www.instagram.com/broadbandpicker/',
-  ],
-  description: 'UK broadband comparison service',
-}
-
 const homePageCommercialJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
@@ -72,9 +36,9 @@ const homePageCommercialJsonLd = {
   description:
     'BroadbandPicker homepage for UK broadband comparison, postcode checking, provider reviews, and deals discovery.',
   url: 'https://broadbandpicker.co.uk',
-  isPartOf: { '@id': 'https://broadbandpicker.co.uk/#website' },
-  about: { '@id': 'https://broadbandpicker.co.uk/#organisation' },
-  dateModified: providerDatasetUpdatedDate,
+  isPartOf: websiteRef,
+  about: organizationRef,
+  dateModified: HOMEPAGE_UPDATED > providerDatasetUpdatedDate ? HOMEPAGE_UPDATED : providerDatasetUpdatedDate,
   citation: [
     'https://broadbandpicker.co.uk/providers',
     'https://broadbandpicker.co.uk/compare',
@@ -181,28 +145,14 @@ export default function HomePage() {
     month: 'long',
     year: 'numeric',
   })
+  const featuredDealListJsonLd = buildDealListJsonLd(topDeals, "Today's best UK broadband deals")
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(homePageCommercialJsonLd).replace(/</g, '\\u003c') }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd).replace(/</g, '\\u003c') }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd).replace(/</g, '\\u003c') }}
-      />
+      <link rel="preload" href="/illustrations/hero-network.svg" as="image" />
+      <JsonLd data={homePageCommercialJsonLd} />
+      <JsonLd data={faqJsonLd} />
+      <JsonLd data={howToJsonLd} />
+      <JsonLd data={featuredDealListJsonLd} />
 
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-sky-950 to-slate-900 py-16 lg:py-24">
@@ -210,6 +160,7 @@ export default function HomePage() {
           src="/illustrations/hero-network.svg"
           alt=""
           aria-hidden="true"
+          fetchPriority="high"
           className="pointer-events-none absolute inset-y-0 right-0 hidden h-full w-[46%] object-cover object-left opacity-80 lg:block"
         />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -274,36 +225,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Provider logos bar */}
-      <section className="bg-white border-b border-slate-200 py-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-xs text-slate-500 mb-3 font-medium uppercase tracking-wide">
-            Compare deals from Britain&apos;s biggest broadband providers
-          </p>
-          <div className="-mx-4 overflow-x-auto px-4 pb-2 sm:mx-0 sm:px-0">
-            <div className="flex min-w-max items-center gap-3 sm:min-w-0 sm:flex-wrap sm:justify-center">
-              {providers.map((provider) => (
-                <ProviderLogo
-                  key={provider.slug}
-                  slug={provider.slug}
-                  name={provider.name}
-                  width={132}
-                  height={52}
-                  className="shrink-0 rounded-xl shadow-sm"
-                />
-              ))}
-            </div>
-          </div>
-          <p className="mt-2 text-center text-xs text-slate-500 sm:hidden">
-            Swipe to see all providers
-          </p>
-          <div className="sr-only">
-            {providers.map((provider) => (
-              <span key={`${provider.slug}-name`}>{provider.name}</span>
-            ))}
-          </div>
-        </div>
-      </section>
+      <HomepageLogoRail providers={providers} />
 
       {/* Featured deals */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

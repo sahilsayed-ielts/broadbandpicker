@@ -16,12 +16,16 @@
     "speed-test:build": "python3 scripts/audit_speed_test.py --build-and-deploy",
     "analytics:audit": "python3 scripts/audit_ga4_seo_measurement.py",
     "analytics:ai-config": "python3 scripts/configure_ga4_ai_tracking.py --credentials /Users/sahilrafiqsayed/broadbandpicker-ga4-credentials.json",
+    "analytics:affiliate-report": "python3 scripts/report_ga4_affiliate_clicks.py",
     "search-console:check": "python3 scripts/check_search_console_connection.py --credentials /Users/sahilrafiqsayed/broadbandpicker-ga4-credentials.json",
     "seo:weekly": "python3 scripts/generate_weekly_seo_intelligence.py",
     "deals:sync": "node scripts/provider-deal-agent.mjs",
     "deals:sync:dry": "node scripts/provider-deal-agent.mjs --dry-run",
+    "awin:sync": "python3 scripts/awin_sync.py sync",
+    "awin:performance": "python3 scripts/awin_sync.py sync-performance --days 30",
     "social:plan": "python3 scripts/plan_social_media_strategy.py",
-    "homepage:plan": "python3 scripts/plan_homepage_seo_geo.py"
+    "homepage:plan": "python3 scripts/plan_homepage_seo_geo.py",
+    "seo:diagnose": "python3 scripts/diagnose_site_seo_geo.py"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.106.2",

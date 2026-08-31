@@ -103,10 +103,10 @@ export default function MainNav() {
         </div>
       </div>
 
-      {/* Postcode */}
+      {/* In your area */}
       <div className="group relative">
         <button type="button" className={triggerClass}>
-          Postcode
+          In your area
           <Chevron />
         </button>
         <div className={`${dropdownPanel} w-72 rounded-xl border border-slate-200 bg-white p-4 shadow-lg`}>

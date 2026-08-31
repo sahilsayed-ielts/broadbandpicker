@@ -7,14 +7,18 @@ provider: "broadband", "compare broadband", "broadband UK", "broadband checker",
 on their own URLs so we do not cannibalise.
 
 The script:
-1. Reads this workspace (homepage, about, money, methodology, providers,
-   tools, GSC AI-overview exports, existing competitor scans).
+1. Reads this workspace (homepage, layout header/footer, about, money,
+   methodology, providers, tools, GSC AI-overview exports, competitor scans).
 2. Scrapes live UK comparison homepages for content shape, FAQ, schema,
-   postcode UX and citeable facts (not their prose).
+   header/nav, footer chrome, postcode UX and citeable facts (not their prose).
 3. Builds a homepage keyword set from first-party mapping + GSC + search
    demand estimates.
-4. Writes an SEO + GEO + UX brief: section order, copy rules (no AI tells,
-   no em dashes), interactive elements, illustration slots, JSON-LD.
+4. Writes an SEO + GEO + UX brief for the homepage, header and footer:
+   section order, copy rules (no AI tells, no em dashes), interactive
+   elements, illustration slots, JSON-LD, sitewide internal links.
+5. Diagnoses the overall site (every template, robots, sitemap, JSON-LD,
+   LLM crawlers) and writes a prioritised technical backlog for rankings,
+   AI Overviews and LLM citations.
 
 Usage:
     python3 scripts/plan_homepage_seo_geo.py
@@ -23,6 +27,8 @@ Usage:
 Output:
     docs/home page UX/homepage-seo-geo-plan.json
     docs/home page UX/homepage-seo-geo-plan.md
+    docs/site-technical-seo-geo-diagnosis.json
+    docs/site-technical-seo-geo-diagnosis.md
 """
 
 from __future__ import annotations
@@ -31,6 +37,7 @@ import argparse
 import csv
 import json
 import re
+import sys
 from dataclasses import asdict, dataclass, field
 from datetime import datetime, timezone
 from html.parser import HTMLParser
@@ -40,6 +47,9 @@ from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from diagnose_site_seo_geo import run_site_diagnosis  # noqa: E402
+
 OUT_DIR = ROOT / "docs" / "home page UX"
 SITE = "https://broadbandpicker.co.uk"
 USER_AGENT = (
@@ -155,6 +165,19 @@ class SiteAudit:
     gsc_homepage_ai_impressions: int | None = None
     gsc_top_pages: list[dict[str, Any]] = field(default_factory=list)
     revenue_model: str = ""
+    header_has_postcode: bool = False
+    header_nav_labels: list[str] = field(default_factory=list)
+    header_em_dashes: int = 0
+    header_ai_tells: list[str] = field(default_factory=list)
+    footer_link_count: int = 0
+    footer_headings: list[str] = field(default_factory=list)
+    footer_has_social: bool = False
+    footer_has_disclosure: bool = False
+    footer_em_dashes: int = 0
+    footer_ai_tells: list[str] = field(default_factory=list)
+    logo_count: int = 0
+    logo_outliers: list[str] = field(default_factory=list)
+    logo_rail_equal_tiles: bool = False
     industry: str = (
         "UK broadband price comparison / affiliate publisher. "
         "Not a telecoms operator. Same industry bucket as Uswitch and broadbandchoices."
@@ -191,6 +214,9 @@ def analyse_workspace() -> SiteAudit:
     audit = SiteAudit()
     files = {
         "app/page.tsx": read_text("app/page.tsx"),
+        "app/layout.tsx": read_text("app/layout.tsx"),
+        "components/MainNav.tsx": read_text("components/MainNav.tsx"),
+        "components/MobileNav.tsx": read_text("components/MobileNav.tsx"),
         "app/about/page.tsx": read_text("app/about/page.tsx"),
         "app/how-we-make-money/page.tsx": read_text("app/how-we-make-money/page.tsx"),
         "app/how-we-review-broadband/page.tsx": read_text("app/how-we-review-broadband/page.tsx"),
@@ -203,6 +229,8 @@ def analyse_workspace() -> SiteAudit:
             "docs/home page UX/homepage-redesign-analysis.md"
         ),
         "lib/affiliate.ts": read_text("lib/affiliate.ts"),
+        "components/ProviderLogo.tsx": read_text("components/ProviderLogo.tsx"),
+        "components/HomepageLogoRail.tsx": read_text("components/HomepageLogoRail.tsx"),
     }
     audit.files_read = [path for path, text in files.items() if text]
     home = files["app/page.tsx"]
@@ -243,7 +271,71 @@ def analyse_workspace() -> SiteAudit:
             "an affiliate relationship."
         )
     audit.gsc_homepage_ai_impressions, audit.gsc_top_pages = load_gsc_ai_pages()
+
+    layout = files.get("app/layout.tsx") or ""
+    nav = files.get("components/MainNav.tsx") or ""
+    mobile = files.get("components/MobileNav.tsx") or ""
+    trust_idx = layout.find("function TrustStrip")
+    header_idx = layout.find("function Header")
+    columns_idx = layout.find("const FOOTER_COLUMNS")
+    footer_fn = layout.find("function Footer")
+    layout_export = layout.find("export default function RootLayout")
+    header_start = trust_idx if trust_idx >= 0 else header_idx
+    header_end = columns_idx if columns_idx >= 0 else footer_fn
+    footer_start = columns_idx if columns_idx >= 0 else footer_fn
+    header_chunk = layout[max(header_start, 0) : header_end if header_end >= 0 else None]
+    footer_chunk = layout[max(footer_start, 0) : layout_export if layout_export >= 0 else None]
+    audit.header_has_postcode = (
+        "PostcodeChecker" in header_chunk
+        or "PostcodeChecker" in nav
+        or "PostcodeChecker" in mobile
+    )
+    wanted_nav = ["Compare", "Deals", "Providers", "In your area", "Guides", "Tools"]
+    chrome_nav = nav + "\n" + mobile
+    audit.header_nav_labels = [lab for lab in wanted_nav if lab in chrome_nav]
+    extra_labels = unique(re.findall(r">([A-Z][A-Za-z ]{2,24})</", nav))
+    audit.header_nav_labels = unique(audit.header_nav_labels + extra_labels)
+    audit.header_em_dashes = count_em_dashes(header_chunk + nav + mobile)
+    audit.header_ai_tells = ai_tell_hits(header_chunk + nav + mobile)
+    audit.footer_link_count = len(re.findall(r"href:\s*['\"]", footer_chunk))
+    audit.footer_headings = unique(re.findall(r"heading:\s*'([^']+)'", layout))
+    audit.footer_has_social = "x.com/" in footer_chunk or "instagram.com" in footer_chunk
+    audit.footer_has_disclosure = "commission" in footer_chunk.lower()
+    audit.footer_em_dashes = count_em_dashes(footer_chunk)
+    audit.footer_ai_tells = ai_tell_hits(footer_chunk)
+    logo_audit = audit_logo_svgs()
+    audit.logo_count = logo_audit["count"]
+    audit.logo_outliers = logo_audit["outliers"]
+    rail = files.get("components/HomepageLogoRail.tsx") or ""
+    logo_comp = files.get("components/ProviderLogo.tsx") or ""
+    audit.logo_rail_equal_tiles = "object-contain" in logo_comp and "grid" in rail
     return audit
+
+
+def audit_logo_svgs() -> dict[str, Any]:
+    folder = ROOT / "public" / "logos"
+    outliers: list[str] = []
+    count = 0
+    if not folder.is_dir():
+        return {"count": 0, "outliers": []}
+    for path in sorted(folder.glob("*.svg")):
+        count += 1
+        try:
+            text = path.read_text(encoding="utf-8", errors="replace")[:4000]
+        except OSError:
+            continue
+        width = re.search(r'\bwidth="([\d.]+)"', text)
+        height = re.search(r'\bheight="([\d.]+)"', text)
+        if not width or not height:
+            continue
+        try:
+            w = float(width.group(1))
+            h = float(height.group(1))
+        except ValueError:
+            continue
+        if w > 160 or h > 80:
+            outliers.append(f"{path.name} intrinsic {int(w)}x{int(h)}")
+    return {"count": count, "outliers": outliers}
 
 
 # ---------------------------------------------------------------------------
@@ -370,6 +462,13 @@ def http_get(url: str, timeout: int = 18) -> dict[str, Any]:
         "form_signal": False,
         "excerpt": "",
         "error": "",
+        "nav_labels": [],
+        "footer_labels": [],
+        "header_has_postcode": False,
+        "footer_has_social": False,
+        "footer_has_disclosure": False,
+        "schema_types": [],
+        "ldjson_blocks": 0,
     }
     try:
         request = Request(
@@ -413,7 +512,37 @@ def http_get(url: str, timeout: int = 18) -> dict[str, Any]:
     row["table_signal"] = "<table" in lower
     row["form_signal"] = "<form" in lower or "input" in lower
     row["excerpt"] = text[:900]
+    row["schema_types"] = unique(re.findall(r'"@type"\s*:\s*"([A-Z][A-Za-z0-9]{2,60})"', html))
+    row["ldjson_blocks"] = len(re.findall(r"application/ld\+json", html, flags=re.I))
+    chrome = extract_chrome(html)
+    row.update(chrome)
     return row
+
+
+def extract_chrome(html: str) -> dict[str, Any]:
+    header = re.search(r"<header[\s\S]{0,30000}</header>", html, flags=re.I)
+    footer = re.search(r"<footer[\s\S]{0,50000}</footer>", html, flags=re.I)
+    nav = re.search(r"<nav[\s\S]{0,25000}</nav>", html, flags=re.I)
+    header_html = header.group(0) if header else ""
+    footer_html = footer.group(0) if footer else ""
+    nav_html = nav.group(0) if nav else header_html
+
+    def link_labels(chunk: str) -> list[str]:
+        raw = re.findall(r"<a\b[^>]*>([\s\S]*?)</a>", chunk, flags=re.I)
+        labels = []
+        for item in raw:
+            label = strip_tags(item)
+            if 2 <= len(label) <= 42:
+                labels.append(label)
+        return unique(labels)[:18]
+
+    return {
+        "nav_labels": link_labels(nav_html)[:16],
+        "footer_labels": link_labels(footer_html)[:20],
+        "header_has_postcode": bool(re.search(r"postcode|check availability|enter your address", header_html, flags=re.I)),
+        "footer_has_social": bool(re.search(r"facebook|instagram|twitter|x\.com|linkedin|youtube", footer_html, flags=re.I)),
+        "footer_has_disclosure": bool(re.search(r"commission|affiliate|how we make money", footer_html, flags=re.I)),
+    }
 
 
 def scrape_competitors(skip: bool) -> list[dict[str, Any]]:
@@ -440,6 +569,12 @@ def competitor_patterns(fetches: list[dict[str, Any]]) -> dict[str, Any]:
         "with_faqpage": sum(1 for row in ok if row.get("faq_signal")),
         "h1_samples": [row["h1"][0] for row in ok if row.get("h1")][:8],
         "h2_samples": unique([h for row in ok for h in row.get("h2") or []])[:20],
+        "header_with_postcode": sum(1 for row in ok if row.get("header_has_postcode")),
+        "footer_with_social": sum(1 for row in ok if row.get("footer_has_social")),
+        "footer_with_disclosure": sum(1 for row in ok if row.get("footer_has_disclosure")),
+        "nav_label_samples": unique([lab for row in ok for lab in row.get("nav_labels") or []])[:24],
+        "footer_label_samples": unique([lab for row in ok for lab in row.get("footer_labels") or []])[:30],
+        "schema_type_samples": unique([t for row in ok for t in row.get("schema_types") or []])[:40],
         "observation": (
             "UK comparison homepages lead with a postcode checker, a short H1 about "
             "deals or comparison, a provider logo strip, and a thin editorial block. "
@@ -447,6 +582,14 @@ def competitor_patterns(fetches: list[dict[str, Any]]) -> dict[str, Any]:
             "low even when the rendered page is long. BroadbandPicker should keep the "
             "checker first, then out-write them with citeable, dated, human copy and "
             "interactive modules that still index as HTML."
+        ),
+        "chrome_observation": (
+            "Headers that convert keep a postcode field in the chrome, not only in the hero. "
+            "Nav labels are short commercial words (Compare, Deals, Broadband) with the long "
+            "tail buried in the footer sitemap. Footers on this vertical are often thin: few "
+            "social icons, weak disclosure, little citeable org copy. That is the gap. Sitewide "
+            "header/footer should carry the independent-comparison claim, the checker, and "
+            "money/trust URLs in HTML Google and GPTBot can read on every page."
         ),
     }
 
@@ -499,10 +642,15 @@ UX_PLAN = [
     },
     {
         "slot": "Logo rail",
-        "job": "broadband providers uk.",
-        "interactive": "Horizontal swipe on mobile already exists.",
-        "visual": "Real provider SVGs, rounded cards.",
-        "copy": "Compare deals from the networks that actually reach UK homes.",
+        "job": "broadband providers uk. Trust that we actually list the networks people search.",
+        "interactive": "Equal CSS grid. Each tile links to /providers/[slug]. Hover border. No horizontal swipe on desktop.",
+        "visual": (
+            "Identical tiles, same width and height. Logo sits in the tile with object-contain "
+            "and padding so EE, Zen and wordmarks all render at one optical size. Intrinsic SVG "
+            "width/height must never size the card. Navy/sky hover, paper cards, 1px slate hairline. "
+            "Retired brands keep a tiny label that does not change the tile size."
+        ),
+        "copy": "Compare deals from Britain's biggest broadband providers. No em dash.",
     },
     {
         "slot": "Featured deals",
@@ -552,6 +700,62 @@ UX_PLAN = [
         "interactive": "Existing quiz promo and NewsletterSignup.",
         "visual": "quiz-match.svg, blob decorations.",
         "copy": "Keep. Remove any leftover em dash.",
+    },
+]
+
+
+HEADER_PLAN = [
+    {
+        "slot": "Trust strip",
+        "job": "GEO/Awin: independent claim on every URL, including guides.",
+        "interactive": "None. Plain HTML links. Not sticky, so it does not steal hero height on mobile.",
+        "visual": "Navy bar, tiny type, sky link.",
+        "copy": "Independent UK broadband comparison. Rankings are not sold. How we make money.",
+    },
+    {
+        "slot": "Sticky header",
+        "job": "Logo home, nav, postcode conversion for broadband checker / in my area.",
+        "interactive": "Existing PostcodeChecker. Hover dropdowns stay HTML so crawlers see the links.",
+        "visual": "White field, sky mark, 1px sky hairline. Logo plus a small tagline on xl screens.",
+        "copy": "Tagline: UK broadband comparison. Placeholder: Check your postcode.",
+    },
+    {
+        "slot": "Nav labels",
+        "job": "Map head terms without stuffing. Compare, Deals, Providers, In your area, Guides, Tools.",
+        "interactive": "Dropdowns already exist. Keep real hrefs inside them.",
+        "visual": "Sky hover, no mega-menu animation libraries.",
+        "copy": "Rename Postcode to In your area so it matches broadband in my area. Keep Postcode in the checker itself.",
+    },
+]
+
+FOOTER_PLAN = [
+    {
+        "slot": "Brand + citeable blurb",
+        "job": "Organization snippet LLMs can quote on any page.",
+        "interactive": "None.",
+        "visual": "Logo at 36px, faint blob, navy field.",
+        "copy": "Same 50-word independent-comparison claim as the homepage pull-quote. No em dash.",
+    },
+    {
+        "slot": "Footer postcode",
+        "job": "Second conversion for people who scrolled a guide.",
+        "interactive": "PostcodeChecker island.",
+        "visual": "Compact, not a second hero.",
+        "copy": "Check broadband in your area. Availability is by address.",
+    },
+    {
+        "slot": "Link columns",
+        "job": "Internal links for compare / switch / cheap / social tariff / fibre.",
+        "interactive": "Existing details accordion on small screens, static on lg.",
+        "visual": "Six columns. Sky hover.",
+        "copy": "Add How to switch, Social tariffs, Full fibre, Cheapest broadband, Partnerships. Keep legal and trust pages.",
+    },
+    {
+        "slot": "Disclosure + social",
+        "job": "ASA/Awin plus sameAs targets.",
+        "interactive": "Existing social pills with hover scale. Back to top.",
+        "visual": "Keep pills. Do not add empty TikTok until the account exists.",
+        "copy": "Commission disclosure in one short paragraph. UK, not affiliated with any provider.",
     },
 ]
 
@@ -656,6 +860,27 @@ def markdown_plan(audit: SiteAudit, keywords: list[dict[str, Any]], fetches: lis
         else "No GSC AI-overview extract found in data/GSC."
     )
     tells = ", ".join(audit.homepage_ai_tells) if audit.homepage_ai_tells else "none detected in markup"
+
+    def slot_md(items: list[dict[str, str]]) -> str:
+        blocks = []
+        for item in items:
+            blocks.append(
+                "### "
+                + item["slot"]
+                + "\n\n- **Job:** "
+                + item["job"]
+                + "\n- **Interactive:** "
+                + item["interactive"]
+                + "\n- **Visual:** "
+                + item["visual"]
+                + "\n- **Copy:** "
+                + item["copy"]
+                + "\n"
+            )
+        return "\n".join(blocks)
+
+    header_md = slot_md(HEADER_PLAN)
+    footer_md = slot_md(FOOTER_PLAN)
     return f"""# Homepage SEO + GEO + UX plan
 
 Generated {datetime.now(timezone.utc).date().isoformat()}.
@@ -686,6 +911,17 @@ homepage: generic broadband queries, not city or category URLs.
 | Approx. words in TSX text | {audit.homepage_word_count} |
 | Em dashes in `app/page.tsx` | {audit.homepage_em_dashes} |
 | AI-tell patterns | {tells} |
+| Header postcode checker | {audit.header_has_postcode} |
+| Header nav labels | {', '.join(audit.header_nav_labels) or 'see MainNav'} |
+| Header em dashes | {audit.header_em_dashes} |
+| Footer columns | {', '.join(audit.footer_headings)} |
+| Footer hrefs | {audit.footer_link_count} |
+| Footer social | {audit.footer_has_social} |
+| Footer disclosure | {audit.footer_has_disclosure} |
+| Footer em dashes | {audit.footer_em_dashes} |
+| Logo SVGs | {audit.logo_count} |
+| Logo intrinsic outliers | {', '.join(audit.logo_outliers) or 'none'} |
+| Equal-tile logo rail | {audit.logo_rail_equal_tiles} |
 
 {gsc_line}
 
@@ -718,6 +954,16 @@ Postcode UX on {patterns.get('with_postcode', 0)} pages. FAQ mention on {pattern
 
 Sample H2s seen: {', '.join(patterns.get('h2_samples') or []) or 'none'}
 
+### Header and footer chrome on competitor pages
+
+Postcode in the header on {patterns.get('header_with_postcode', 0)} readable pages. Social in the footer on {patterns.get('footer_with_social', 0)}. Affiliate disclosure in the footer on {patterns.get('footer_with_disclosure', 0)}.
+
+{patterns.get('chrome_observation', '')}
+
+Nav labels seen: {', '.join(patterns.get('nav_label_samples') or []) or 'none'}
+
+Footer labels seen: {', '.join(patterns.get('footer_label_samples') or []) or 'none'}
+
 ## Copy rules (anti-AI, pro-citation)
 
 {chr(10).join(f'- {r}' for r in COPY_RULES)}
@@ -742,16 +988,34 @@ does something), so Google and GPTBot still see the answers.
 
 {ux_blocks}
 
+## Header plan (sitewide, same SEO/GEO logic)
+
+The header is on every URL. It should convert `broadband checker` / `broadband in my area` and tell crawlers this is an independent comparison publisher.
+
+{header_md}
+
+## Footer plan (sitewide sitemap + citeable org copy)
+
+{footer_md}
+
 ## FAQ to ship on the homepage
 
 {faq_md}
 
 ## Implementation notes for Next.js in this repo
 
+- Header and footer live in `app/layout.tsx` (Server Component). Dropdowns and the postcode field stay HTML-visible. Mobile drawer is a client island.
 - Homepage stays a Server Component in `app/page.tsx`. Interactive bits are client islands.
 - JSON-LD via a `<script type="application/ld+json">` with `JSON.stringify(...).replace(/</g, '\\\\u003c')` as in the Next.js JSON-LD guide.
 - New SVGs go through `scripts/generate_homepage_illustrations.py`, not stock.
 - Do not introduce a carousel library. The competitor visual scan found none in this vertical.
+
+## Sitewide technical diagnosis
+
+The same run writes `docs/site-technical-seo-geo-diagnosis.md`: schema, crawl,
+GEO and LLM-visibility work for the whole site, not just `/`. Schema alone
+does not buy position 1. It makes pages eligible for rich results and easier
+for AI Overviews and LLMs to quote.
 
 ## Success
 
@@ -762,7 +1026,9 @@ does something), so Google and GPTBot still see the answers.
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Plan BroadbandPicker homepage SEO, GEO and UX from the repo plus live scrapes.")
+    parser = argparse.ArgumentParser(
+        description="Plan BroadbandPicker homepage SEO, GEO and UX, then diagnose sitewide technical SEO/GEO."
+    )
     parser.add_argument("--skip-web", action="store_true")
     parser.add_argument("--output-dir", default=str(OUT_DIR))
     args = parser.parse_args()
@@ -783,16 +1049,32 @@ def main() -> int:
         "copy_rules": COPY_RULES,
         "geo_rules": GEO_RULES,
         "ux_plan": UX_PLAN,
+        "header_plan": HEADER_PLAN,
+        "footer_plan": FOOTER_PLAN,
         "faqs": HOMEPAGE_FAQS,
     }
     (out / "homepage-seo-geo-plan.json").write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     (out / "homepage-seo-geo-plan.md").write_text(markdown_plan(audit, keywords, fetches, patterns), encoding="utf-8")
     print(f"Providers: {audit.provider_count}")
     print(f"Homepage em dashes: {audit.homepage_em_dashes} · AI tells: {audit.homepage_ai_tells or 'none'}")
+    print(
+        f"Header postcode: {audit.header_has_postcode} · nav: {', '.join(audit.header_nav_labels) or 'n/a'} · "
+        f"em dashes: {audit.header_em_dashes}"
+    )
+    print(
+        f"Footer columns: {', '.join(audit.footer_headings) or 'n/a'} · links: {audit.footer_link_count} · "
+        f"social: {audit.footer_has_social} · disclosure: {audit.footer_has_disclosure} · "
+        f"em dashes: {audit.footer_em_dashes}"
+    )
     print(f"Keywords: {len(keywords)}")
     ok = sum(1 for row in fetches if row.get("ok"))
     print(f"Competitor fetches: {ok}/{len(fetches)}")
     print(f"Wrote { (out / 'homepage-seo-geo-plan.md').relative_to(ROOT) }")
+
+    diagnosis = run_site_diagnosis(skip_web=args.skip_web, competitor_fetches=fetches)
+    print(f"Site schema files: {diagnosis['schema_scan']['file_count']}")
+    print(f"P0 missing: {', '.join(diagnosis['p0_missing']) or 'none'}")
+    print(f"Wrote docs/site-technical-seo-geo-diagnosis.md")
     return 0
 
 

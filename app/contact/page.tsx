@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
 import ContactForm from '@/components/ContactForm'
+import { JsonLd } from '@/lib/jsonLd'
+import { organizationRef, SITE_URL } from '@/lib/siteSchema'
 
 export const metadata: Metadata = {
   title: 'Contact BroadbandPicker',
@@ -9,9 +11,38 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://broadbandpicker.co.uk/contact' },
 }
 
+const contactJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Contact BroadbandPicker',
+  url: `${SITE_URL}/contact`,
+  about: organizationRef,
+  mainEntity: {
+    '@type': 'Organization',
+    '@id': `${SITE_URL}/#organisation`,
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        contactType: 'customer support',
+        email: 'hello@broadbandpicker.co.uk',
+        areaServed: 'GB',
+        availableLanguage: 'English',
+      },
+      {
+        '@type': 'ContactPoint',
+        contactType: 'editorial',
+        email: 'editorial@broadbandpicker.co.uk',
+        areaServed: 'GB',
+        availableLanguage: 'English',
+      },
+    ],
+  },
+}
+
 export default function ContactPage() {
   return (
     <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <JsonLd data={contactJsonLd} />
       <BreadcrumbNav
         items={[
           { name: 'Home', href: '/' },

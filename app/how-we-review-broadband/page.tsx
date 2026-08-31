@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
+import { JsonLd } from '@/lib/jsonLd'
+import { organizationRef } from '@/lib/siteSchema'
 
 export const metadata: Metadata = {
   title: 'How We Review and Compare Broadband | Our Methodology',
@@ -22,11 +24,8 @@ const jsonLd = {
   description:
     'BroadbandPicker\'s full methodology for reviewing UK broadband providers, including data sources, scoring criteria, and update process.',
   url: 'https://broadbandpicker.co.uk/how-we-review-broadband',
-  publisher: {
-    '@type': 'Organization',
-    name: 'BroadbandPicker',
-    url: 'https://broadbandpicker.co.uk',
-  },
+  publisher: organizationRef,
+  about: organizationRef,
   dateModified: '2026-06-19',
 }
 
@@ -76,10 +75,7 @@ const criteria = [
 export default function HowWeReviewBroadbandPage() {
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
 
       <BreadcrumbNav
         items={[

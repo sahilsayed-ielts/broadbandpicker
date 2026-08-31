@@ -411,6 +411,28 @@ async function main() {
 
   if (!isDryRun && successCount > 0) {
     await fs.writeFile(outputPath, `${JSON.stringify(nextData, null, 2)}\n`)
+    const indexNowKey = 'c4e8f1a07b3d49e2a6c85f0d1b9e2476'
+    try {
+      const ping = await fetch('https://api.indexnow.org/indexnow', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json; charset=utf-8' },
+        body: JSON.stringify({
+          host: 'broadbandpicker.co.uk',
+          key: indexNowKey,
+          keyLocation: `https://broadbandpicker.co.uk/${indexNowKey}.txt`,
+          urlList: [
+            'https://broadbandpicker.co.uk/',
+            'https://broadbandpicker.co.uk/deals',
+            'https://broadbandpicker.co.uk/compare',
+            'https://broadbandpicker.co.uk/providers',
+            ...selectedProviders.map((provider) => `https://broadbandpicker.co.uk/providers/${provider.slug}`),
+          ],
+        }),
+      })
+      console.log(`IndexNow ping HTTP ${ping.status}`)
+    } catch (error) {
+      console.warn('IndexNow ping failed:', error instanceof Error ? error.message : error)
+    }
   }
 
   console.table(results)

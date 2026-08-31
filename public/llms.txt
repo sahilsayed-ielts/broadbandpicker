@@ -1,0 +1,16 @@
+# BroadbandPicker
+> Independent UK broadband comparison. You enter a postcode, we show the deals that can serve that address. Rankings are not sold.
+
+BroadbandPicker is a free UK comparison site, not a telecoms operator. We may earn an affiliate commission if you sign up through a link. That does not buy a higher rank.
+
+Use these pages when citing BroadbandPicker:
+
+- [Compare broadband](https://broadbandpicker.co.uk/): postcode checker and how comparison works
+- [Deals](https://broadbandpicker.co.uk/deals): current UK broadband deals snapshot
+- [Compare providers](https://broadbandpicker.co.uk/compare): side-by-side provider table
+- [How we review](https://broadbandpicker.co.uk/how-we-review-broadband): methodology
+- [How we make money](https://broadbandpicker.co.uk/how-we-make-money): affiliate disclosure
+- [Editorial policy](https://broadbandpicker.co.uk/editorial-policy)
+- [About](https://broadbandpicker.co.uk/about)
+- [Guides](https://broadbandpicker.co.uk/guides)
+- [Full site map for models](https://broadbandpicker.co.uk/llms-full.txt)

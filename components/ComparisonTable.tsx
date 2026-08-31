@@ -231,6 +231,7 @@ export default function ComparisonTable({ providers }: ComparisonTableProps) {
                       href={provider.affiliateUrl}
                       providerName={provider.name}
                       providerSlug={provider.slug}
+                      placement="comparison_table"
                       size="sm"
                     />
                   </td>
@@ -306,6 +307,7 @@ export default function ComparisonTable({ providers }: ComparisonTableProps) {
                       providerName={provider.name}
                       providerSlug={provider.slug}
                       label={`Check ${provider.name} deals`}
+                      placement="comparison_finalist"
                       className="w-full text-center"
                     />
                     <Link

@@ -6,6 +6,10 @@ import FAQAccordion from '@/components/FAQAccordion'
 import { getProviderBySlug } from '@/data/providers'
 import { getProviderComparisonBySlug, providerComparisons } from '@/data/provider-comparisons'
 import ReviewEvidencePanel from '@/components/ReviewEvidencePanel'
+import EeTalkTalkDecisionTool from '@/components/EeTalkTalkDecisionTool'
+import { JsonLd } from '@/lib/jsonLd'
+import { articleJsonLd } from '@/lib/siteSchema'
+import CiteableAnswer from '@/components/CiteableAnswer'
 
 export async function generateStaticParams() {
   return providerComparisons.map((comparison) => ({ slug: comparison.slug }))
@@ -66,21 +70,13 @@ export default async function ProviderComparisonPage({
     },
   ]
 
-  const articleJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
+  const articleStructuredData = articleJsonLd({
     headline: comparison.title,
     description: comparison.metaDescription,
+    url: `https://broadbandpicker.co.uk/providers/compare/${comparison.slug}`,
     datePublished: comparison.publishDate,
     dateModified: comparison.updatedDate,
-    author: { '@type': 'Organization', name: 'BroadbandPicker' },
-    publisher: {
-      '@type': 'Organization',
-      name: 'BroadbandPicker',
-      url: 'https://broadbandpicker.co.uk',
-    },
-    url: `https://broadbandpicker.co.uk/providers/compare/${comparison.slug}`,
-  }
+  })
 
   const faqJsonLd = {
     '@context': 'https://schema.org',
@@ -100,14 +96,8 @@ export default async function ProviderComparisonPage({
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
+      <JsonLd data={articleStructuredData} />
+      <JsonLd data={faqJsonLd} />
 
       <BreadcrumbNav
         items={[
@@ -119,7 +109,7 @@ export default async function ProviderComparisonPage({
       />
 
       <h1 className="text-3xl font-extrabold text-slate-900 mb-3">{comparison.title}</h1>
-      <p className="max-w-3xl text-slate-600 mb-4">{comparison.excerpt}</p>
+      <CiteableAnswer>{comparison.excerpt}</CiteableAnswer>
 
       <div className="flex flex-wrap items-center gap-4 border-b border-slate-200 pb-6 text-sm text-slate-500 mb-8">
         <span>Updated {new Date(comparison.updatedDate).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
@@ -199,7 +189,12 @@ export default async function ProviderComparisonPage({
 
       <section className="mb-10">
         <h2 className="text-xl font-bold text-slate-900 mb-4">At-a-Glance Comparison</h2>
-        <div className="overflow-x-auto rounded-xl border border-slate-200">
+        <div
+          className="overflow-x-auto rounded-xl border border-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-700 focus-visible:ring-offset-2"
+          role="region"
+          aria-label={`${providerA.name} and ${providerB.name} broadband facts. Scroll horizontally to view every column.`}
+          tabIndex={0}
+        >
           <table className="w-full min-w-[680px] text-sm">
             <thead className="border-b border-slate-200 bg-slate-50">
               <tr>
@@ -234,6 +229,8 @@ export default async function ProviderComparisonPage({
           </table>
         </div>
       </section>
+
+      {comparison.slug === 'ee-vs-talktalk' ? <EeTalkTalkDecisionTool /> : null}
 
       <section className="mb-10">
         <h2 className="text-xl font-bold text-slate-900 mb-4">Key Differences</h2>

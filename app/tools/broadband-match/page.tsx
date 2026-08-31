@@ -4,6 +4,8 @@ import BreadcrumbNav from '@/components/BreadcrumbNav'
 import BroadbandMatchQuiz from '@/components/BroadbandMatchQuiz'
 import PostcodeContextBar from '@/components/PostcodeContextBar'
 import { providers } from '@/data/providers'
+import { JsonLd } from '@/lib/jsonLd'
+import { softwareApplicationJsonLd } from '@/lib/siteSchema'
 
 const PAGE_URL = 'https://broadbandpicker.co.uk/tools/broadband-match'
 const REVIEWED_DATE = '2026-08-22'
@@ -70,30 +72,17 @@ const faqs = [
   },
 ]
 
+const toolGraph = softwareApplicationJsonLd({
+  name: 'BroadbandPicker Broadband Match',
+  url: PAGE_URL,
+  description:
+    'A 6-question tool that recommends personalised, ranked UK broadband providers based on household size, use case and budget.',
+  dateModified: REVIEWED_DATE,
+})
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
-    {
-      '@type': 'WebApplication',
-      '@id': `${PAGE_URL}#tool`,
-      name: 'BroadbandPicker Broadband Match',
-      url: PAGE_URL,
-      applicationCategory: 'UtilitiesApplication',
-      operatingSystem: 'Any',
-      browserRequirements: 'Requires JavaScript and a modern web browser',
-      isAccessibleForFree: true,
-      description: 'A 6-question tool that recommends personalised, ranked UK broadband providers based on household size, use case and budget.',
-      provider: { '@type': 'Organization', name: 'BroadbandPicker', url: 'https://broadbandpicker.co.uk' },
-    },
-    {
-      '@type': 'WebPage',
-      '@id': `${PAGE_URL}#webpage`,
-      url: PAGE_URL,
-      name: 'What Broadband Speed Do You Need?',
-      dateModified: REVIEWED_DATE,
-      mainEntity: { '@id': `${PAGE_URL}#tool` },
-      reviewedBy: { '@type': 'Organization', name: 'BroadbandPicker editorial team' },
-    },
+    ...toolGraph['@graph'],
     {
       '@type': 'FAQPage',
       mainEntity: faqs.map(({ question, answer }) => ({
@@ -108,10 +97,7 @@ const jsonLd = {
 export default function BroadbandMatchPage() {
   return (
     <main className="bg-white">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
-      />
+      <JsonLd data={jsonLd} />
 
       <section className="bg-slate-950 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16">

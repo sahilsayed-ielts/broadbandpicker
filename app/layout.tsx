@@ -11,6 +11,8 @@ import Logo from '@/components/Logo'
 import MainNav from '@/components/MainNav'
 import MobileNav from '@/components/MobileNav'
 import AiReferralTracker from '@/components/AiReferralTracker'
+import { JsonLd } from '@/lib/jsonLd'
+import { siteOrganizationGraph } from '@/lib/siteSchema'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -33,14 +35,25 @@ export const metadata: Metadata = {
     shortcut: '/broadbandpicker-favicon-96.png',
     apple: '/apple-icon.png',
   },
-  alternates: {
-    canonical: 'https://broadbandpicker.co.uk',
-    languages: { 'en-GB': 'https://broadbandpicker.co.uk' },
-  },
   openGraph: {
     siteName: 'BroadbandPicker',
     locale: 'en_GB',
     type: 'website',
+    images: [
+      {
+        url: '/logo.png',
+        width: 1024,
+        height: 1024,
+        alt: 'BroadbandPicker',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Compare Broadband Deals UK | BroadbandPicker',
+    description:
+      'Compare the best broadband deals in the UK. Find cheap fibre and full-fibre packages from BT, Sky, Virgin Media, EE and more. Free postcode checker.',
+    images: ['/logo.png'],
   },
   robots: {
     index: true,
@@ -55,29 +68,57 @@ export const metadata: Metadata = {
   },
 }
 
-function Header() {
+function TrustStrip() {
   return (
-    <header id="top" className="bg-white border-b border-slate-200 sticky top-0 z-30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 gap-4">
-          {/* Logo */}
-          <Link href="/" className="flex-shrink-0 transition-opacity hover:opacity-80" aria-label="BroadbandPicker home">
-            <Logo />
+    <div className="hidden border-b border-slate-800 bg-slate-900 text-sky-100 sm:block">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-1.5 sm:px-6 lg:px-8">
+        <p className="text-[11px] font-medium tracking-wide">
+          Independent UK broadband comparison. Rankings are not sold.
+        </p>
+        <div className="flex items-center gap-4 text-[11px] font-semibold">
+          <Link href="/how-we-make-money" className="text-sky-300 transition-colors hover:text-white">
+            How we make money
           </Link>
-
-          {/* Desktop nav */}
-          <MainNav />
-
-          {/* Header postcode checker */}
-          <div className="hidden lg:flex items-center gap-2 flex-1 max-w-xs">
-            <PostcodeChecker placeholder="Your postcode" />
-          </div>
-
-          {/* Mobile menu button */}
-          <MobileNav />
+          <Link href="/how-we-review-broadband" className="text-sky-300 transition-colors hover:text-white">
+            How we review
+          </Link>
         </div>
       </div>
-    </header>
+    </div>
+  )
+}
+
+function Header() {
+  return (
+    <div id="top">
+      <TrustStrip />
+      <header className="sticky top-0 z-30 border-b border-sky-100 bg-white/95 shadow-sm backdrop-blur">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex h-16 items-center justify-between gap-4">
+            <Link
+              href="/"
+              className="flex flex-shrink-0 items-center gap-2.5 transition-opacity hover:opacity-80"
+              aria-label="BroadbandPicker home"
+            >
+              <Logo />
+              <span className="hidden border-l border-slate-200 pl-2.5 text-[11px] font-medium leading-tight text-slate-500 xl:block">
+                UK broadband
+                <br />
+                comparison
+              </span>
+            </Link>
+
+            <MainNav />
+
+            <div className="hidden max-w-sm flex-1 items-center gap-2 lg:flex">
+              <PostcodeChecker placeholder="Check your postcode" />
+            </div>
+
+            <MobileNav />
+          </div>
+        </div>
+      </header>
+    </div>
   )
 }
 
@@ -99,9 +140,9 @@ const FOOTER_COLUMNS: { heading: string; links: { href: string; label: string; c
     ],
   },
   {
-    heading: 'Find Broadband',
+    heading: 'In your area',
     links: [
-      { href: '/postcode', label: 'By postcode' },
+      { href: '/postcode', label: 'Broadband by postcode' },
       { href: '/postcode/london', label: 'London' },
       { href: '/postcode/manchester', label: 'Manchester' },
     ],
@@ -110,7 +151,9 @@ const FOOTER_COLUMNS: { heading: string; links: { href: string; label: string; c
     heading: 'Guides',
     links: [
       { href: '/guides/how-to-switch-broadband-uk', label: 'How to switch' },
-      { href: '/guides/best-broadband-deals-uk', label: 'Best deals' },
+      { href: '/guides/broadband-social-tariffs-uk', label: 'Social tariffs' },
+      { href: '/guides/full-fibre-broadband-explained', label: 'Full fibre' },
+      { href: '/guides/cheapest-broadband-uk', label: 'Cheapest broadband' },
       { href: '/guides/broadband-speeds-explained', label: 'Speed guide' },
       { href: '/guides', label: 'All guides' },
     ],
@@ -124,6 +167,7 @@ const FOOTER_COLUMNS: { heading: string; links: { href: string; label: string; c
       { href: '/editorial-policy', label: 'Editorial policy' },
       { href: '/how-we-make-money', label: 'How we make money' },
       { href: '/how-we-review-broadband', label: 'How we review' },
+      { href: 'mailto:partnerships@broadbandpicker.co.uk', label: 'Partnerships' },
     ],
   },
   {
@@ -141,18 +185,24 @@ const FOOTER_COLUMNS: { heading: string; links: { href: string; label: string; c
 function Footer() {
   const year = new Date().getFullYear()
   return (
-    <footer className="bg-slate-900 text-slate-400 mt-auto">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Brand */}
-        <div className="mb-10 pb-10 border-b border-slate-800 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-          <div>
+    <footer className="relative mt-auto overflow-hidden bg-slate-900 text-slate-400">
+      <img
+        src="/illustrations/blob-green-sky.svg"
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-24 -top-24 w-[280px] opacity-30"
+      />
+      <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="mb-10 flex flex-col gap-8 border-b border-slate-800 pb-10 lg:flex-row lg:items-start lg:justify-between">
+          <div className="max-w-md">
             <Logo size={36} wordmarkClassName="text-white" />
-            <p className="text-sm text-slate-400 mt-3 max-w-sm">
-              Independent UK broadband comparison. We compare price, speed and contract terms
-              across every major provider so you can switch with confidence.
+            <p className="mt-4 text-sm leading-relaxed text-slate-300">
+              BroadbandPicker is a free UK comparison site. You enter a postcode, we show the
+              broadband deals that can actually serve that address, and you pick a package by
+              price, speed and contract. We may earn a commission if you sign up. That does not
+              buy a higher rank.
             </p>
-          </div>
-          <div className="flex flex-wrap items-center gap-3 self-start">
+            <div className="mt-5 flex flex-wrap items-center gap-3">
             <a
               href="https://x.com/broadbandPicker"
               target="_blank"
@@ -195,6 +245,12 @@ function Footer() {
               </svg>
               @broadbandpicker
             </a>
+            </div>
+          </div>
+          <div className="w-full max-w-sm">
+            <p className="mb-2 text-sm font-semibold text-white">Check broadband in your area</p>
+            <p className="mb-3 text-xs text-slate-500">Availability is by address, never by a national advert.</p>
+            <PostcodeChecker placeholder="Check your postcode" />
           </div>
         </div>
 
@@ -275,6 +331,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="min-h-full flex flex-col font-[family-name:var(--font-inter)]">
+        <JsonLd data={siteOrganizationGraph} />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
@@ -283,7 +340,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         {gaId && (
           <>
-            {/* Consent Mode v2 defaults — all optional storage denied until valid consent. */}
+            {/* Consent Mode v2 defaults: all optional storage denied until valid consent. */}
             <Script id="ga-consent-default" strategy="beforeInteractive">
               {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});`}
             </Script>

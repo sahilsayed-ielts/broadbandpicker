@@ -5,6 +5,7 @@ import ComparisonTable from '@/components/ComparisonTable'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
 import PostcodeChecker from '@/components/PostcodeChecker'
 import PostcodeContextBar from '@/components/PostcodeContextBar'
+import { JsonLd } from '@/lib/jsonLd'
 
 const BASE_URL = 'https://broadbandpicker.co.uk'
 const PAGE_URL = `${BASE_URL}/compare`
@@ -163,10 +164,7 @@ export default function ComparePage() {
 
   return (
     <main className="bg-white">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, '\\u003c') }}
-      />
+      <JsonLd data={structuredData} />
 
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <BreadcrumbNav

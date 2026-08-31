@@ -1,0 +1,601 @@
+{
+  "generated_at": "2026-08-31T00:22:46+00:00",
+  "site": "https://broadbandpicker.co.uk",
+  "signals": {
+    "layout_sets_homepage_canonical": false,
+    "layout_has_hreflang_homepage": false,
+    "layout_has_organization_jsonld": true,
+    "layout_has_twitter": true,
+    "layout_has_og_image": true,
+    "homepage_has_website_jsonld": false,
+    "homepage_has_organization_jsonld": false,
+    "about_has_jsonld": false,
+    "about_em_dashes": 6,
+    "has_person_schema": false,
+    "has_indexnow": true,
+    "has_llms_txt": true,
+    "has_ads_txt": true,
+    "has_llms_full": true,
+    "has_rss_feed": true,
+    "has_article_helper": true,
+    "has_software_application": true,
+    "has_switch_howto": true,
+    "has_postcode_place": true,
+    "has_about_page_schema": true,
+    "has_offer_catalog": true,
+    "has_logo_png": true,
+    "robots_has_oai_searchbot": true,
+    "robots_has_chatgpt_user": true,
+    "robots_has_bingbot": true,
+    "robots_has_applebot": true,
+    "sitemap_uses_now": false,
+    "product_offer_has_price_valid_until": true,
+    "product_offer_has_shipping": false,
+    "breadcrumb_sanitizes": false,
+    "guide_count": 46,
+    "provider_count": 24,
+    "ai_crawlers_in_robots": [
+      "Googlebot",
+      "Google-Extended",
+      "Google-CloudVertexBot",
+      "OAI-SearchBot",
+      "GPTBot",
+      "ChatGPT-User",
+      "ClaudeBot",
+      "anthropic-ai",
+      "PerplexityBot",
+      "Perplexity-User",
+      "Bingbot",
+      "Applebot",
+      "DuckDuckBot",
+      "Amazonbot",
+      "meta-externalagent"
+    ]
+  },
+  "schema_scan": {
+    "by_file": {
+      "app/page.tsx": [
+        "WebPage",
+        "FAQPage",
+        "Question",
+        "Answer",
+        "HowTo",
+        "HowToStep"
+      ],
+      "app/postcode/[area]/page.tsx": [
+        "WebPage",
+        "FAQPage",
+        "Question",
+        "Answer",
+        "AdministrativeArea",
+        "Country",
+        "Dataset",
+        "PropertyValue"
+      ],
+      "app/contact/page.tsx": [
+        "ContactPage",
+        "Organization",
+        "ContactPoint"
+      ],
+      "app/tools/broadband-match/page.tsx": [
+        "FAQPage",
+        "Question",
+        "Answer"
+      ],
+      "app/tools/broadband-cost-calculator/page.tsx": [
+        "FAQPage",
+        "Question",
+        "Answer"
+      ],
+      "app/broadband-glossary/page.tsx": [
+        "DefinedTermSet",
+        "DefinedTerm"
+      ],
+      "app/how-we-make-money/page.tsx": [
+        "WebPage"
+      ],
+      "app/providers/page.tsx": [
+        "ItemList",
+        "ListItem",
+        "CollectionPage"
+      ],
+      "app/providers/compare/page.tsx": [
+        "ItemList",
+        "ListItem"
+      ],
+      "app/providers/compare/[slug]/page.tsx": [
+        "FAQPage",
+        "Question",
+        "Answer"
+      ],
+      "app/providers/[slug]/page.tsx": [
+        "Service",
+        "Country",
+        "Organization",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ],
+      "app/deals/page.tsx": [
+        "CollectionPage"
+      ],
+      "app/about/page.tsx": [
+        "AboutPage"
+      ],
+      "app/guides/[slug]/page.tsx": [
+        "HowTo",
+        "HowToStep",
+        "FAQPage",
+        "Question",
+        "Answer"
+      ],
+      "app/editorial-policy/page.tsx": [
+        "WebPage"
+      ],
+      "app/compare/page.tsx": [
+        "ItemList",
+        "ListItem",
+        "CollectionPage",
+        "Organization",
+        "FAQPage",
+        "Question",
+        "Answer",
+        "BreadcrumbList"
+      ],
+      "app/how-we-review-broadband/page.tsx": [
+        "WebPage"
+      ],
+      "app/speed-test/page.tsx": [
+        "FAQPage",
+        "Question",
+        "Answer"
+      ],
+      "components/PrioritySeoPage.tsx": [
+        "FAQPage",
+        "Question",
+        "Answer",
+        "AdministrativeArea",
+        "Country"
+      ],
+      "components/BreadcrumbNav.tsx": [
+        "BreadcrumbList",
+        "ListItem"
+      ],
+      "lib/siteSchema.ts": [
+        "Organization",
+        "ImageObject",
+        "Country",
+        "ContactPoint",
+        "WebSite",
+        "SearchAction",
+        "Article",
+        "WebPage",
+        "Offer"
+      ],
+      "lib/dealSchema.ts": [
+        "ItemList",
+        "ListItem",
+        "Product",
+        "Brand",
+        "Offer",
+        "Organization",
+        "UnitPriceSpecification",
+        "QuantitativeValue",
+        "Country",
+        "OfferCatalog",
+        "Service"
+      ]
+    },
+    "all_types": [
+      "WebPage",
+      "FAQPage",
+      "Question",
+      "Answer",
+      "HowTo",
+      "HowToStep",
+      "AdministrativeArea",
+      "Country",
+      "Dataset",
+      "PropertyValue",
+      "ContactPage",
+      "Organization",
+      "ContactPoint",
+      "DefinedTermSet",
+      "DefinedTerm",
+      "ItemList",
+      "ListItem",
+      "CollectionPage",
+      "Service",
+      "AboutPage",
+      "BreadcrumbList",
+      "ImageObject",
+      "WebSite",
+      "SearchAction",
+      "Article",
+      "Offer",
+      "Product",
+      "Brand",
+      "UnitPriceSpecification",
+      "QuantitativeValue",
+      "OfferCatalog"
+    ],
+    "unsanitized_jsonld_files": [],
+    "file_count": 22
+  },
+  "live": {
+    "pages": [],
+    "tech": {}
+  },
+  "competitor_schema_types": [],
+  "templates": [
+    {
+      "template": "Root layout (every URL)",
+      "file": "app/layout.tsx",
+      "now": "No JSON-LD. MetadataBase, default title, robots, homepage canonical + hreflang.",
+      "ship": "WebSite + Organization as an @graph with stable @id values. Remove homepage-only canonical and hreflang from the layout.",
+      "types": [
+        "WebSite",
+        "Organization",
+        "SearchAction"
+      ]
+    },
+    {
+      "template": "Homepage /",
+      "file": "app/page.tsx",
+      "now": "WebSite, Organization, WebPage, FAQPage, HowTo. No ItemList on the featured table.",
+      "ship": "Keep FAQPage + HowTo + WebPage. Point publisher at layout @id. Add ItemList for the five featured deals. Keep the 40-70 word citeable answer in HTML.",
+      "types": [
+        "WebPage",
+        "FAQPage",
+        "HowTo",
+        "ItemList"
+      ]
+    },
+    {
+      "template": "Deals /deals",
+      "file": "app/deals/page.tsx + lib/dealSchema.ts",
+      "now": "CollectionPage + ItemList of Product/Offer. No priceValidUntil, no shippingDetails.",
+      "ship": "Keep CollectionPage + ItemList. Add priceValidUntil from the dataset date. Do not invent shipping or return policy. If GSC reports Merchant listing errors, drop Product and keep Offer inside ListItem.",
+      "types": [
+        "CollectionPage",
+        "ItemList",
+        "Offer",
+        "OfferCatalog"
+      ]
+    },
+    {
+      "template": "Compare /compare",
+      "file": "app/compare/page.tsx",
+      "now": "CollectionPage, ItemList, FAQPage, BreadcrumbList.",
+      "ship": "Keep. Link ItemList entries to /providers/[slug]. Add dateModified already present.",
+      "types": [
+        "CollectionPage",
+        "ItemList",
+        "FAQPage",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "template": "Provider /providers/[slug]",
+      "file": "app/providers/[slug]/page.tsx",
+      "now": "Article, FAQPage, Product/Offer, BreadcrumbList. Article has no image, no publisher.logo, no inLanguage.",
+      "ship": "Article + FAQPage + Service (the ISP) + Offer. Add image, publisher.logo, inLanguage en-GB, isAccessibleForFree, citation[], about. Service.areaServed = GB.",
+      "types": [
+        "Article",
+        "FAQPage",
+        "Service",
+        "Offer",
+        "Brand"
+      ]
+    },
+    {
+      "template": "Head-to-head /providers/compare/[slug]",
+      "file": "app/providers/compare/[slug]/page.tsx",
+      "now": "Article + FAQPage.",
+      "ship": "Article + FAQPage + ItemList for the comparison table. Optional HowTo for choosing between the two.",
+      "types": [
+        "Article",
+        "FAQPage",
+        "ItemList"
+      ]
+    },
+    {
+      "template": "Guide /guides/[slug]",
+      "file": "app/guides/[slug]/page.tsx",
+      "now": "Article + FAQPage. Missing image (required for Article rich results), citation, about, wordCount.",
+      "ship": "Article with image, publisher.logo, wordCount, articleSection, about, citation. FAQPage only when FAQs are on the page. HowTo on how-to-switch-broadband-uk.",
+      "types": [
+        "Article",
+        "FAQPage",
+        "HowTo",
+        "BreadcrumbList"
+      ]
+    },
+    {
+      "template": "Postcode /postcode/[area]",
+      "file": "app/postcode/[area]/page.tsx",
+      "now": "WebPage, FAQPage, ItemList of deals, BreadcrumbList.",
+      "ship": "WebPage + FAQPage + ItemList + Place or AdministrativeArea (containedInPlace UK). Optional Dataset for Ofcom-derived coverage percentages with variableMeasured.",
+      "types": [
+        "WebPage",
+        "FAQPage",
+        "ItemList",
+        "Place",
+        "Dataset"
+      ]
+    },
+    {
+      "template": "Tools (speed test, match, calculator)",
+      "file": "app/speed-test/page.tsx, app/tools/*",
+      "now": "WebApplication + WebPage + FAQPage.",
+      "ship": "SoftwareApplication (or keep WebApplication) with applicationCategory BrowserApplication, operatingSystem Any, offers price 0 GBP, isAccessibleForFree. FAQPage stays.",
+      "types": [
+        "SoftwareApplication",
+        "WebPage",
+        "FAQPage"
+      ]
+    },
+    {
+      "template": "Glossary",
+      "file": "app/broadband-glossary/page.tsx",
+      "now": "DefinedTermSet + DefinedTerm.",
+      "ship": "Keep. This is the right type. Add inLanguage and isPartOf the WebSite @id.",
+      "types": [
+        "DefinedTermSet",
+        "DefinedTerm"
+      ]
+    },
+    {
+      "template": "Research",
+      "file": "components/PrioritySeoPage.tsx + data/priority-pages.ts",
+      "now": "Article or Dataset + FAQPage via @graph. Quick-answer HTML already exists.",
+      "ship": "Dataset with variableMeasured, temporalCoverage, creator, license, citation on the satisfaction dashboard. Article on rankings. Keep the quick-answer block; that is the GEO pattern to copy onto other templates.",
+      "types": [
+        "Dataset",
+        "Article",
+        "FAQPage"
+      ]
+    },
+    {
+      "template": "About / money / methodology / editorial",
+      "file": "app/about/page.tsx and trust pages",
+      "now": "About has BreadcrumbList only. Trust pages have thin WebPage + Organization name, not the site @id.",
+      "ship": "AboutPage on /about. WebPage on the others, about the Organization @id. publishingPrinciples / ethicsPolicy / ownershipFundingInfo already have URLs: point Organization at them.",
+      "types": [
+        "AboutPage",
+        "WebPage",
+        "Organization"
+      ]
+    },
+    {
+      "template": "Contact",
+      "file": "app/contact/page.tsx",
+      "now": "BreadcrumbList only.",
+      "ship": "ContactPage + Organization.contactPoint (email, contactType customer support, areaServed GB, availableLanguage English).",
+      "types": [
+        "ContactPage",
+        "ContactPoint"
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "id": "T01",
+      "priority": "P0",
+      "category": "Crawl",
+      "action": "Stop the root layout from claiming the homepage canonical and en-GB hreflang.",
+      "why": "Child routes that do not set alternates can inherit a homepage canonical. That collapses rankings into `/`. Layout should only set metadataBase. Each page sets its own canonical.",
+      "where": "app/layout.tsx",
+      "status": "done"
+    },
+    {
+      "id": "T02",
+      "priority": "P0",
+      "category": "Schema",
+      "action": "Move WebSite + Organization JSON-LD into the root layout as a single @graph with stable @id values.",
+      "why": "Today the organisation entity only exists on `/`. Google, GPTBot and PerplexityBot need the same @id on every URL they quote. Include logo, sameAs, areaServed GB, publishingPrinciples, ethicsPolicy, ownershipFundingInfo, contactPoint.",
+      "where": "app/layout.tsx. Pages keep page-specific types and point publisher to https://broadbandpicker.co.uk/#organisation",
+      "status": "done"
+    },
+    {
+      "id": "T03",
+      "priority": "P0",
+      "category": "Schema",
+      "action": "Add a shared jsonLdScript() helper that stringifies and replaces < with \\u003c.",
+      "why": "Next.js JSON-LD guidance. Several templates (deals, providers, postcode, BreadcrumbNav, trust pages) skip the sanitiser. One helper stops XSS and keeps markup consistent.",
+      "where": "lib/jsonLd.ts then BreadcrumbNav, dealSchema callers, provider/postcode/trust pages",
+      "status": "done"
+    },
+    {
+      "id": "T04",
+      "priority": "P0",
+      "category": "GEO / LLM",
+      "action": "Publish /llms.txt and /llms-full.txt.",
+      "why": "LLM crawlers look for a machine-readable map of the publisher: who you are, that you are independent, key URLs (/, /deals, /compare, methodology, money, editorial), and a one-paragraph citeable description. Missing this is a free citation loss.",
+      "where": "public/llms.txt and public/llms-full.txt (or app/llms.txt/route.ts). Link them from /about and robots.txt.",
+      "status": "done"
+    },
+    {
+      "id": "T05",
+      "priority": "P0",
+      "category": "GEO",
+      "action": "Put a 40-70 word HTML answer under H2 on every money template, not only homepage and PrioritySeoPage.",
+      "why": "GSC AI-overview extract shows guides and some postcodes earning impressions; `/` has 15. Models quote visible HTML, not JSON-LD. Copy the PrioritySeoPage 'quick answer' pattern onto provider, guide, deals and postcode templates.",
+      "where": "app/providers/[slug]/page.tsx, app/guides/[slug]/page.tsx, app/deals/page.tsx, app/postcode/[area]/page.tsx",
+      "status": "done"
+    },
+    {
+      "id": "T06",
+      "priority": "P0",
+      "category": "Schema",
+      "action": "Complete Article JSON-LD so Google Article rich results can fire.",
+      "why": "Guides and provider reviews are Article without image or publisher.logo. Google's Article rich result requires headline, image, datePublished, dateModified, author, publisher.logo. That is also what Gemini and ChatGPT retrieve as 'a review'.",
+      "where": "app/guides/[slug]/page.tsx, app/providers/[slug]/page.tsx, app/providers/compare/[slug]/page.tsx. Use /logo.png (already 1024px).",
+      "status": "done"
+    },
+    {
+      "id": "T07",
+      "priority": "P0",
+      "category": "Schema",
+      "action": "Harden Offer JSON-LD: priceValidUntil, priceCurrency GBP, availability. Do not add fake AggregateRating.",
+      "why": "Product/Offer without priceValidUntil fails parts of the Rich Results Test. shippingDetails and return policy are for physical merchants; do not invent them. If GSC then flags Merchant listings, demote Product to Offer inside ItemList.",
+      "where": "lib/dealSchema.ts",
+      "status": "done"
+    },
+    {
+      "id": "T08",
+      "priority": "P0",
+      "category": "Crawl",
+      "action": "Split the sitemap and stop stamping lastModified: now on every URL.",
+      "why": "A single sitemap that marks every postcode and static page as modified today burns crawl budget and trains Google that dates are meaningless. Use real dataset/guide dates. Split sitemap-core.xml and sitemap-postcodes.xml under a sitemap index.",
+      "where": "app/sitemap.ts (or app/sitemap-core.xml/route.ts + app/sitemap-postcodes.xml/route.ts)",
+      "status": "done"
+    },
+    {
+      "id": "T09",
+      "priority": "P0",
+      "category": "E-E-A-T",
+      "action": "Add AboutPage JSON-LD, named byline, and Organization policy URLs.",
+      "why": "AI Overviews prefer sources with a clear publisher, a methodology page, and a money page. /about currently has no JSON-LD. Organization should declare publishingPrinciples=/editorial-policy, ethicsPolicy=/how-we-review-broadband, ownershipFundingInfo=/how-we-make-money.",
+      "where": "app/about/page.tsx, layout Organization graph",
+      "status": "done"
+    },
+    {
+      "id": "T10",
+      "priority": "P1",
+      "category": "GEO / LLM",
+      "action": "Allow the remaining retrieval crawlers in robots.ts.",
+      "why": "OAI-SearchBot, GPTBot, ClaudeBot, PerplexityBot and Google-Extended are already allowed. Add ChatGPT-User, Bingbot, Applebot, DuckDuckBot, Google-CloudVertexBot, Perplexity-User, Amazonbot, meta-externalagent. Do not block Google-Extended.",
+      "where": "app/robots.ts",
+      "status": "done"
+    },
+    {
+      "id": "T11",
+      "priority": "P1",
+      "category": "GEO",
+      "action": "Implement IndexNow on deal and provider updates.",
+      "why": "Bing, DuckDuckGo and some LLM indexes honour IndexNow. Ping when providerDatasetUpdatedDate changes. Cheap compared with waiting on sitemap recrawl.",
+      "where": "app/api/indexnow/route.ts + a hook in scripts that sync deals",
+      "status": "done"
+    },
+    {
+      "id": "T12",
+      "priority": "P1",
+      "category": "Schema",
+      "action": "Add HowTo JSON-LD to the switch guide (the query is how-to, the homepage HowTo is only a teaser).",
+      "why": "how to switch broadband is a primary GEO query. The dedicated guide should carry HowTo steps that match the visible HTML, plus FAQPage.",
+      "where": "app/guides/[slug]/page.tsx when slug is how-to-switch-broadband-uk",
+      "status": "done"
+    },
+    {
+      "id": "T13",
+      "priority": "P1",
+      "category": "Schema",
+      "action": "Add Place / AdministrativeArea on postcode pages, plus Dataset on coverage stats.",
+      "why": "broadband in [town] and AI answers about coverage need a geo entity, not only a WebPage title. Ofcom-derived percentages belong in Dataset (variableMeasured, citation Ofcom) so models can quote a number with a date.",
+      "where": "app/postcode/[area]/page.tsx",
+      "status": "done"
+    },
+    {
+      "id": "T14",
+      "priority": "P1",
+      "category": "Schema",
+      "action": "Upgrade tools from WebApplication-only to SoftwareApplication with price 0.",
+      "why": "Speed test, Broadband Match and the cost calculator are free software. SoftwareApplication with isAccessibleForFree and offers.price 0 is the type Google and LLMs expect for a tool.",
+      "where": "app/speed-test/page.tsx, app/tools/broadband-match/page.tsx, app/tools/broadband-cost-calculator/page.tsx",
+      "status": "done"
+    },
+    {
+      "id": "T15",
+      "priority": "P1",
+      "category": "Schema",
+      "action": "Add ContactPage + ContactPoint. Expand sameAs when LinkedIn and YouTube exist.",
+      "why": "Organization.sameAs is currently X and Instagram. Knowledge panels and LLM publisher resolution use sameAs. Do not add empty profiles.",
+      "where": "layout Organization graph, app/contact/page.tsx",
+      "status": "done"
+    },
+    {
+      "id": "T16",
+      "priority": "P1",
+      "category": "Metadata",
+      "action": "Set a default Open Graph image and twitter:card summary_large_image in the layout.",
+      "why": "Most templates have no twitter card and no og:image. ChatGPT, Slack, LinkedIn and iMessage unfurl empty. Use /logo.png or a 1200x630 branded comparison card.",
+      "where": "app/layout.tsx metadata.openGraph.images + metadata.twitter",
+      "status": "done"
+    },
+    {
+      "id": "T17",
+      "priority": "P1",
+      "category": "GEO",
+      "action": "Ship an RSS or Atom feed of guides and research, listed in llms.txt.",
+      "why": "Perplexity and some research crawlers still discover publishers via feeds. A /guides.xml of title, url, dateModified, first paragraph is enough.",
+      "where": "app/guides.xml/route.ts or app/feed.xml/route.ts",
+      "status": "done"
+    },
+    {
+      "id": "T18",
+      "priority": "P1",
+      "category": "E-E-A-T",
+      "action": "Add a Person author only when a named editor exists. Until then keep Organization author with url /about.",
+      "why": "Fake Person schema is worse than an organisation byline. When a named reviewer ships, give them /about#[slug], jobTitle, sameAs, and a visible byline that matches the JSON-LD.",
+      "where": "app/about/page.tsx, then Article.author",
+      "status": "partial"
+    },
+    {
+      "id": "T19",
+      "priority": "P1",
+      "category": "Content / GEO",
+      "action": "Visible sources block on every provider and postcode page, matching the guide template.",
+      "why": "Guides already list sources. Providers have citation in JSON-LD only on some pages. Models prefer a heading called Sources with Ofcom / provider / methodology links they can keep in the footnote.",
+      "where": "app/providers/[slug]/page.tsx, app/postcode/[area]/page.tsx",
+      "status": "done"
+    },
+    {
+      "id": "T20",
+      "priority": "P2",
+      "category": "Schema",
+      "action": "OfferCatalog on /deals and Service.areaServed GB on provider pages.",
+      "why": "Tells Google this is a UK comparison catalogue, not a random product grid. Low effort once the layout Organization @id exists.",
+      "where": "app/deals/page.tsx, app/providers/[slug]/page.tsx",
+      "status": "done"
+    },
+    {
+      "id": "T21",
+      "priority": "P2",
+      "category": "Performance",
+      "action": "Audit LCP on `/` and postcode pages (hero SVG, sticky header, fonts).",
+      "why": "Core Web Vitals remain a ranking factor. A sticky header plus a large hero SVG can delay LCP on mobile. Preload the hero, keep the trust strip out of the sticky header (already planned).",
+      "where": "app/page.tsx, app/layout.tsx, next.config.ts headers",
+      "status": "done"
+    },
+    {
+      "id": "T22",
+      "priority": "P2",
+      "category": "Crawl",
+      "action": "Add security and cache headers in next.config. Do not noindex editorial pages.",
+      "why": "Referrer-Policy, X-Content-Type-Options, and long-cache for /logos and /illustrations. Keep max-snippet -1 so AI Overviews can quote.",
+      "where": "next.config.ts headers()",
+      "status": "done"
+    },
+    {
+      "id": "T23",
+      "priority": "P2",
+      "category": "Measurement",
+      "action": "Track Rich Results and AI Overview pages in the weekly SEO job.",
+      "why": "You already export GSC Search Generative AI Features and ai_referral_visit. Add Enhancement reports (FAQ, Article, Product, Breadcrumb) so schema that fails is visible the week it ships.",
+      "where": "scripts/generate_weekly_seo_intelligence.py, GA4",
+      "status": "done"
+    },
+    {
+      "id": "T24",
+      "priority": "P2",
+      "category": "Schema",
+      "action": "Do not add Review, AggregateRating, SpeakableSpecification, or QAPage.",
+      "why": "No first-party review corpus with ratingCount. Speakable is Google News only. QAPage is for threaded Q&A. Fake ratings are a manual-action risk and would poison LLM trust.",
+      "where": "lib/dealSchema.ts (keep the current omit), all templates",
+      "status": "done"
+    }
+  ],
+  "p0_missing": [],
+  "disclaimer": "Schema and crawl work make citation and rich results possible. They do not by themselves rank position 1 for head terms."
+}

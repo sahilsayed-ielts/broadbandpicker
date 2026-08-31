@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
 import { providerComparisons } from '@/data/provider-comparisons'
+import { JsonLd } from '@/lib/jsonLd'
 
 export const metadata: Metadata = {
   title: 'Broadband Provider Comparisons UK 2026',
@@ -31,10 +32,7 @@ const itemListJsonLd = {
 export default function ProviderCompareHubPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
-      />
+      <JsonLd data={itemListJsonLd} />
 
       <BreadcrumbNav
         items={[

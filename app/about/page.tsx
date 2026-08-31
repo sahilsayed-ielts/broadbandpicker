@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { providers } from '@/data/providers'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
+import { JsonLd } from '@/lib/jsonLd'
+import { organizationRef, SITE_URL } from '@/lib/siteSchema'
 
 export const metadata: Metadata = {
   title: { absolute: 'About BroadbandPicker — How We Compare Broadband Deals' },
@@ -10,9 +12,21 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://broadbandpicker.co.uk/about' },
 }
 
+const aboutJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: 'About BroadbandPicker',
+  url: `${SITE_URL}/about`,
+  description:
+    'BroadbandPicker is an independent UK broadband comparison service. Rankings are not sold.',
+  about: organizationRef,
+  isPartOf: { '@id': `${SITE_URL}/#website` },
+}
+
 export default function AboutPage() {
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <JsonLd data={aboutJsonLd} />
       <BreadcrumbNav
         items={[
           { name: 'Home', href: '/' },

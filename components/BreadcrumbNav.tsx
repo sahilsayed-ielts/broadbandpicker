@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import type { BreadcrumbItem } from '@/types'
+import { JsonLd } from '@/lib/jsonLd'
 
 interface BreadcrumbNavProps {
   items: BreadcrumbItem[]
@@ -19,10 +20,7 @@ export default function BreadcrumbNav({ items }: BreadcrumbNavProps) {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
       <nav aria-label="Breadcrumb" className="text-sm text-slate-500 mb-6">
         <ol className="flex flex-wrap items-center gap-1">
           {items.map((item, i) => (

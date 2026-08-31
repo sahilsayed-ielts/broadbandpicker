@@ -1,8 +1,9 @@
 'use client'
 
 import { trackAffiliateClick } from '@/lib/affiliate'
-import { getStoredPostcode } from '@/lib/postcodeStorage'
 import { outboundHost, trackEvent } from '@/lib/analytics'
+import { buildAffiliateTrackingUrl } from '@/lib/awinTracking'
+import type { MouseEvent } from 'react'
 
 interface AffiliateCTAProps {
   href: string
@@ -12,6 +13,8 @@ interface AffiliateCTAProps {
   className?: string
   size?: 'sm' | 'md' | 'lg'
   variant?: 'primary' | 'outline'
+  placement?: string
+  campaign?: string
 }
 
 export default function AffiliateCTA({
@@ -22,6 +25,8 @@ export default function AffiliateCTA({
   className = '',
   size = 'md',
   variant = 'primary',
+  placement = 'affiliate_cta',
+  campaign = 'onsite_affiliate',
 }: AffiliateCTAProps) {
   const slug = providerSlug ?? href.replace('#awin-', '').replace(/^.*\/providers\//, '').split('?')[0]
 
@@ -36,20 +41,37 @@ export default function AffiliateCTA({
       ? 'bg-green-700 hover:bg-green-800 text-white font-semibold'
       : 'border-2 border-sky-700 text-sky-700 hover:bg-sky-50 font-semibold'
 
-  function handleClick() {
-    const storedPostcode = getStoredPostcode()
+  function handleClick(event: MouseEvent<HTMLAnchorElement>) {
     const sourcePage = typeof window !== 'undefined' ? window.location.pathname : '/'
+    const tracked = buildAffiliateTrackingUrl(href, {
+      sourceUrl: typeof window !== 'undefined' ? window.location.href : `https://broadbandpicker.co.uk${sourcePage}`,
+      providerSlug: slug,
+      placement,
+      label: label ?? 'Get Deal',
+      campaign,
+    })
+    // The destination is updated synchronously so new-tab and modified clicks retain Awin attribution.
+    event.currentTarget.href = tracked.href
     trackEvent('outbound_provider_click', {
       provider_slug: slug,
       source_page: sourcePage,
-      postcode_area: storedPostcode?.area.toUpperCase(),
-      outbound_host: outboundHost(href),
+      outbound_host: outboundHost(tracked.href),
       link_label: label ?? 'Get Deal',
+      affiliate_network: tracked.network,
+      affiliate_placement: tracked.clickRefs[0],
+      content_type: tracked.contentType,
+      awin_advertiser_id: tracked.advertiserId,
+      awin_campaign: tracked.campaign,
+      awin_clickref: tracked.clickRefs[0],
+      awin_clickref2: tracked.clickRefs[1],
+      awin_clickref3: tracked.clickRefs[2],
+      awin_clickref4: tracked.clickRefs[3],
+      awin_clickref5: tracked.clickRefs[4],
+      awin_clickref6: tracked.clickRefs[5],
     })
     trackAffiliateClick({
       providerSlug: slug,
       sourcePage,
-      postcodeArea: storedPostcode?.area.toUpperCase(),
     }).catch(() => {
       // Non-critical — swallow errors silently
     })

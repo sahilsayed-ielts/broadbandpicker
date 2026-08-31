@@ -346,7 +346,23 @@ def render_markdown(payload: dict) -> str:
         "- Google AI Overview clicks usually remain part of Google organic traffic. Use Search Console's generative-AI report when available for visibility-specific analysis.",
         "- GA4 custom dimensions can take 24-48 hours to populate after registration.",
         "",
+        "## Search appearance / rich results",
+        "",
     ]
+    appearance = payload.get("search_appearance") or []
+    if appearance:
+        lines += [
+            "| Appearance | Clicks | Impressions | CTR | Position |",
+            "|---|---:|---:|---:|---:|",
+        ]
+        for row in appearance:
+            lines.append(
+                f"| {row['appearance']} | {row['clicks']:.0f} | {row['impressions']:.0f} | "
+                f"{row['ctr']:.1%} | {row['position']:.1f} |"
+            )
+        lines.append("")
+    else:
+        lines += ["No Search Console searchAppearance rows this window.", ""]
     return "\n".join(lines)
 
 
@@ -422,6 +438,11 @@ def main() -> int:
     previous_page_rows = gsc_query(client, previous_start, previous_end, ["page"])
     query_rows = gsc_query(client, current_start, current_end, ["page", "query"])
     previous_query_rows = gsc_query(client, previous_start, previous_end, ["page", "query"])
+    try:
+        appearance_rows = gsc_query(client, current_start, current_end, ["searchAppearance"])
+    except Exception as exc:
+        print(f"searchAppearance query skipped: {exc}", file=sys.stderr)
+        appearance_rows = []
 
     organic_filter = {
         "filter": {
@@ -475,6 +496,16 @@ def main() -> int:
         },
         "next_five": [asdict(item) for item in opportunities[:5]],
         "opportunities": [asdict(item) for item in opportunities[: args.top]],
+        "search_appearance": [
+            {
+                "appearance": row.get("keys", ["unknown"])[0],
+                "clicks": float(row.get("clicks") or 0),
+                "impressions": float(row.get("impressions") or 0),
+                "ctr": float(row.get("ctr") or 0),
+                "position": float(row.get("position") or 0),
+            }
+            for row in appearance_rows
+        ],
     }
     args.json.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
     args.markdown.write_text(render_markdown(payload), encoding="utf-8")

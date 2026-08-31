@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
+import { JsonLd } from '@/lib/jsonLd'
+import { organizationRef } from '@/lib/siteSchema'
 
 export const metadata: Metadata = {
   title: { absolute: 'Editorial Policy | BroadbandPicker' },
@@ -22,21 +24,15 @@ const jsonLd = {
   description:
     'BroadbandPicker\'s editorial independence standards, content process, and commercial relationship policy.',
   url: 'https://broadbandpicker.co.uk/editorial-policy',
-  publisher: {
-    '@type': 'Organization',
-    name: 'BroadbandPicker',
-    url: 'https://broadbandpicker.co.uk',
-  },
+  publisher: organizationRef,
+  about: organizationRef,
   dateModified: '2026-06-19',
 }
 
 export default function EditorialPolicyPage() {
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
 
       <BreadcrumbNav
         items={[

@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
 import { priorityPages, type PriorityPageKey } from '@/data/priority-pages'
+import { JsonLd } from '@/lib/jsonLd'
+import { editorialAuthor, publisherOrganization } from '@/lib/siteSchema'
 
 const BASE = 'https://broadbandpicker.co.uk'
 
@@ -29,19 +31,29 @@ export default function PrioritySeoPage({ pageKey }: { pageKey: PriorityPageKey 
         description: page.metaDescription,
         url: `${BASE}${page.path}`,
         dateModified: page.updated,
-        author: { '@type': 'Organization', name: 'BroadbandPicker editorial team' },
-        publisher: { '@type': 'Organization', name: 'BroadbandPicker', url: BASE },
+        author: editorialAuthor,
+        publisher: publisherOrganization,
       },
       {
         '@type': 'FAQPage',
         mainEntity: page.faqs.map((faq) => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } })),
       },
+      ...(page.path.startsWith('/postcode/')
+        ? [
+            {
+              '@type': 'AdministrativeArea',
+              name: page.title,
+              containedInPlace: { '@type': 'Country', name: 'United Kingdom' },
+              url: `${BASE}${page.path}`,
+            },
+          ]
+        : []),
     ],
   }
 
   return (
     <main className="bg-white">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }} />
+      <JsonLd data={jsonLd} />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <BreadcrumbNav items={page.breadcrumbs} />
         <header className="max-w-3xl">
@@ -68,6 +80,78 @@ export default function PrioritySeoPage({ pageKey }: { pageKey: PriorityPageKey 
           <nav className="mt-6 rounded-xl border border-slate-200 bg-slate-50 p-5" aria-label="Related provider and research pages">
             <p className="font-bold text-slate-900">Check the evidence, then compare the shortlist</p>
             <p className="mt-2 text-sm text-slate-600"><Link href="/research/uk-broadband-customer-satisfaction" className="text-sky-700 underline">Customer satisfaction evidence dashboard</Link> · <Link href="/providers/plusnet" className="text-sky-700 underline">Plusnet review</Link> · <Link href="/providers/sky" className="text-sky-700 underline">Sky review</Link> · <Link href="/providers/virgin-media" className="text-sky-700 underline">Virgin Media review</Link></p>
+          </nav>
+        )}
+
+        {pageKey === 'manchester' && (
+          <nav className="mt-6 rounded-xl border border-slate-200 bg-slate-50 p-5" aria-label="Manchester postcode district guides">
+            <p className="font-bold text-slate-900">Manchester city-centre postcode guide</p>
+            <p className="mt-2 text-sm leading-6 text-slate-600">
+              M1 has a narrower district coverage picture than Manchester-wide statistics. See the{' '}
+              <Link href="/postcode/m1" className="font-semibold text-sky-700 underline">
+                M1 broadband deals and coverage guide
+              </Link>{' '}
+              for district figures, apartment-building checks and a household plan comparison.
+            </p>
+          </nav>
+        )}
+
+        {pageKey === 'london' && (
+          <nav className="mt-6 rounded-xl border border-slate-200 bg-slate-50 p-5" aria-label="London postcode district guides">
+            <p className="font-bold text-slate-900">Romford postcode district guide</p>
+            <p className="mt-2 text-sm leading-6 text-slate-600">
+              London-wide availability does not show what one property can order. Use the{' '}
+              <Link href="/postcode/rm1" className="font-semibold text-sky-700 underline">
+                RM1 broadband deals and coverage guide
+              </Link>{' '}
+              for district coverage, household speed choices and complete-address checks in Romford.
+            </p>
+          </nav>
+        )}
+
+        {pageKey === 'bristol' && (
+          <nav className="mt-6 rounded-xl border border-slate-200 bg-slate-50 p-5" aria-label="Bristol postcode district guide">
+            <p className="font-bold text-slate-900">Bristol city-centre postcode guide</p>
+            <p className="mt-2 text-sm leading-6 text-slate-600">
+              City-wide coverage can hide gaps between individual buildings. Use the{' '}
+              <Link href="/postcode/bs1" className="font-semibold text-sky-700 underline">
+                BS1 broadband deals and coverage guide
+              </Link>{' '}
+              for district evidence, flat-specific checks and complete-contract comparisons in central Bristol.
+            </p>
+          </nav>
+        )}
+
+        {pageKey === 'postcode' && (
+          <nav className="mt-6 rounded-xl border border-slate-200 bg-slate-50 p-5" aria-label="Featured postcode district guides">
+            <p className="font-bold text-slate-900">Detailed postcode district guide</p>
+            <p className="mt-2 text-sm leading-6 text-slate-600">
+              Comparing a city-centre district? Our{' '}
+              <Link href="/postcode/m1" className="font-semibold text-sky-700 underline">
+                M1 broadband guide
+              </Link>{' '}
+              separates Manchester district coverage from exact-address availability. For Romford, the{' '}
+              <Link href="/postcode/rm1" className="font-semibold text-sky-700 underline">
+                RM1 broadband deals guide
+              </Link>{' '}
+              compares local coverage, household speed needs and complete-contract cost. For Nottingham, use the{' '}
+              <Link href="/postcode/ng1" className="font-semibold text-sky-700 underline">
+                NG1 broadband deals guide
+              </Link>{' '}
+              for local coverage, renter checks and a household comparison. Our{' '}
+              <Link href="/postcode/rg1" className="font-semibold text-sky-700 underline">
+                RG1 and Reading broadband guide
+              </Link>{' '}
+              compares competing full-fibre networks, household speed needs and total contract cost. For Kent, the{' '}
+              <Link href="/postcode/ct1" className="font-semibold text-sky-700 underline">
+                CT1 and Canterbury broadband guide
+              </Link>{' '}
+              separates district coverage from complete-address availability. For Bristol city centre, the{' '}
+              <Link href="/postcode/bs1" className="font-semibold text-sky-700 underline">
+                BS1 broadband deals guide
+              </Link>{' '}
+              compares district coverage with address-level checks for flats and homes.
+            </p>
           </nav>
         )}
 

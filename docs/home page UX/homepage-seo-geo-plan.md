@@ -1,6 +1,6 @@
 # Homepage SEO + GEO + UX plan
 
-Generated 2026-08-30.
+Generated 2026-08-31.
 Site: https://broadbandpicker.co.uk
 
 This file is written by `scripts/plan_homepage_seo_geo.py`. It is a brief for the live
@@ -25,15 +25,29 @@ UK broadband price comparison / affiliate publisher. Not a telecoms operator. Sa
 | Title | Compare Broadband Deals UK | BroadbandPicker |
 | H1 | Compare Broadband Deals for Your Postcode |
 | Meta description | Compare UK broadband deals by postcode. Free checker for fibre and full-fibre packages from BT, Sky, Virgin Media, EE and more. Rankings are not sold. |
-| Approx. words in TSX text | 1798 |
+| Approx. words in TSX text | 1716 |
 | Em dashes in `app/page.tsx` | 0 |
 | AI-tell patterns | none detected in markup |
+| Header postcode checker | True |
+| Header nav labels | Compare, Deals, Providers, In your area, Guides, Tools, All providers, Provider vs provider, Popular providers, Find your area, Popular areas |
+| Header em dashes | 0 |
+| Footer columns | Compare, Tools, In your area, Guides, Company, Legal |
+| Footer hrefs | 27 |
+| Footer social | True |
+| Footer disclosure | True |
+| Footer em dashes | 0 |
+| Logo SVGs | 24 |
+| Logo intrinsic outliers | brsk.svg intrinsic 240x80, community-fibre.svg intrinsic 214x57, cuckoo.svg intrinsic 240x72, ee.svg intrinsic 200x351, gigaclear.svg intrinsic 240x72, onestream.svg intrinsic 240x72, shell-energy.svg intrinsic 240x72 |
+| Equal-tile logo rail | True |
 
 GSC Search Generative AI Features export: homepage has **15** impressions in that extract. Guides currently absorb more AI-overview impressions than `/`. The homepage needs citeable answers, not just a checker, if we want LLMs to quote it.
 
 Files read:
 
 - app/page.tsx
+- app/layout.tsx
+- components/MainNav.tsx
+- components/MobileNav.tsx
 - app/about/page.tsx
 - app/how-we-make-money/page.tsx
 - app/how-we-review-broadband/page.tsx
@@ -44,6 +58,8 @@ Files read:
 - docs/ga4-seo-strategy-plan.md
 - docs/home page UX/homepage-redesign-analysis.md
 - lib/affiliate.ts
+- components/ProviderLogo.tsx
+- components/HomepageLogoRail.tsx
 
 ## Homepage keyword cluster
 
@@ -100,6 +116,16 @@ Postcode UX on 0 pages. FAQ mention on 0. Schema on 0. FAQPage on 0.
 
 Sample H2s seen: none
 
+### Header and footer chrome on competitor pages
+
+Postcode in the header on 0 readable pages. Social in the footer on 0. Affiliate disclosure in the footer on 0.
+
+
+
+Nav labels seen: none
+
+Footer labels seen: none
+
 ## Copy rules (anti-AI, pro-citation)
 
 - British English. Fibre, not fiber. Organisation, not organization in running copy unless it is a schema field.
@@ -154,10 +180,10 @@ does something), so Google and GPTBot still see the answers.
 
 ### Logo rail
 
-- **Job:** broadband providers uk.
-- **Interactive:** Horizontal swipe on mobile already exists.
-- **Visual:** Real provider SVGs, rounded cards.
-- **Copy:** Compare deals from the networks that actually reach UK homes.
+- **Job:** broadband providers uk. Trust that we actually list the networks people search.
+- **Interactive:** Equal CSS grid. Each tile links to /providers/[slug]. Hover border. No horizontal swipe on desktop.
+- **Visual:** Identical tiles, same width and height. Logo sits in the tile with object-contain and padding so EE, Zen and wordmarks all render at one optical size. Intrinsic SVG width/height must never size the card. Navy/sky hover, paper cards, 1px slate hairline. Retired brands keep a tiny label that does not change the tile size.
+- **Copy:** Compare deals from Britain's biggest broadband providers. No em dash.
 
 ### Featured deals
 
@@ -209,6 +235,63 @@ does something), so Google and GPTBot still see the answers.
 - **Copy:** Keep. Remove any leftover em dash.
 
 
+## Header plan (sitewide, same SEO/GEO logic)
+
+The header is on every URL. It should convert `broadband checker` / `broadband in my area` and tell crawlers this is an independent comparison publisher.
+
+### Trust strip
+
+- **Job:** GEO/Awin: independent claim on every URL, including guides.
+- **Interactive:** None. Plain HTML links. Not sticky, so it does not steal hero height on mobile.
+- **Visual:** Navy bar, tiny type, sky link.
+- **Copy:** Independent UK broadband comparison. Rankings are not sold. How we make money.
+
+### Sticky header
+
+- **Job:** Logo home, nav, postcode conversion for broadband checker / in my area.
+- **Interactive:** Existing PostcodeChecker. Hover dropdowns stay HTML so crawlers see the links.
+- **Visual:** White field, sky mark, 1px sky hairline. Logo plus a small tagline on xl screens.
+- **Copy:** Tagline: UK broadband comparison. Placeholder: Check your postcode.
+
+### Nav labels
+
+- **Job:** Map head terms without stuffing. Compare, Deals, Providers, In your area, Guides, Tools.
+- **Interactive:** Dropdowns already exist. Keep real hrefs inside them.
+- **Visual:** Sky hover, no mega-menu animation libraries.
+- **Copy:** Rename Postcode to In your area so it matches broadband in my area. Keep Postcode in the checker itself.
+
+
+## Footer plan (sitewide sitemap + citeable org copy)
+
+### Brand + citeable blurb
+
+- **Job:** Organization snippet LLMs can quote on any page.
+- **Interactive:** None.
+- **Visual:** Logo at 36px, faint blob, navy field.
+- **Copy:** Same 50-word independent-comparison claim as the homepage pull-quote. No em dash.
+
+### Footer postcode
+
+- **Job:** Second conversion for people who scrolled a guide.
+- **Interactive:** PostcodeChecker island.
+- **Visual:** Compact, not a second hero.
+- **Copy:** Check broadband in your area. Availability is by address.
+
+### Link columns
+
+- **Job:** Internal links for compare / switch / cheap / social tariff / fibre.
+- **Interactive:** Existing details accordion on small screens, static on lg.
+- **Visual:** Six columns. Sky hover.
+- **Copy:** Add How to switch, Social tariffs, Full fibre, Cheapest broadband, Partnerships. Keep legal and trust pages.
+
+### Disclosure + social
+
+- **Job:** ASA/Awin plus sameAs targets.
+- **Interactive:** Existing social pills with hover scale. Back to top.
+- **Visual:** Keep pills. Do not add empty TikTok until the account exists.
+- **Copy:** Commission disclosure in one short paragraph. UK, not affiliated with any provider.
+
+
 ## FAQ to ship on the homepage
 
 **How do I compare broadband deals in the UK?**
@@ -246,10 +329,18 @@ Usually the opposite. Introductory prices end, and many households keep paying t
 
 ## Implementation notes for Next.js in this repo
 
+- Header and footer live in `app/layout.tsx` (Server Component). Dropdowns and the postcode field stay HTML-visible. Mobile drawer is a client island.
 - Homepage stays a Server Component in `app/page.tsx`. Interactive bits are client islands.
 - JSON-LD via a `<script type="application/ld+json">` with `JSON.stringify(...).replace(/</g, '\\u003c')` as in the Next.js JSON-LD guide.
 - New SVGs go through `scripts/generate_homepage_illustrations.py`, not stock.
 - Do not introduce a carousel library. The competitor visual scan found none in this vertical.
+
+## Sitewide technical diagnosis
+
+The same run writes `docs/site-technical-seo-geo-diagnosis.md`: schema, crawl,
+GEO and LLM-visibility work for the whole site, not just `/`. Schema alone
+does not buy position 1. It makes pages eligible for rich results and easier
+for AI Overviews and LLMs to quote.
 
 ## Success
 

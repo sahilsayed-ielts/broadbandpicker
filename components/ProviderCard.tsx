@@ -38,6 +38,8 @@ export default function ProviderCard({ provider }: ProviderCardProps) {
         <AffiliateCTA
           href={provider.affiliateUrl}
           providerName={provider.name}
+          providerSlug={provider.slug}
+          placement="provider_card"
           className="flex-1 text-center"
         />
         <Link

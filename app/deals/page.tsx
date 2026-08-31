@@ -5,7 +5,9 @@ import BreadcrumbNav from '@/components/BreadcrumbNav'
 import PostcodeChecker from '@/components/PostcodeChecker'
 import DealsClient from '@/components/DealsClient'
 import PostcodeContextBar from '@/components/PostcodeContextBar'
-import { buildDealListJsonLd } from '@/lib/dealSchema'
+import { buildDealListJsonLd, buildOfferCatalogJsonLd } from '@/lib/dealSchema'
+import { JsonLd } from '@/lib/jsonLd'
+import CiteableAnswer from '@/components/CiteableAnswer'
 
 export const metadata: Metadata = {
   title: 'Best Broadband Deals UK June 2026',
@@ -52,6 +54,7 @@ function getAllDeals() {
 export default function DealsPage() {
   const allDeals = getAllDeals()
   const dealListJsonLd = buildDealListJsonLd(allDeals.slice(0, 30), 'UK Broadband Deals')
+  const offerCatalogJsonLd = buildOfferCatalogJsonLd(allDeals.slice(0, 30), 'UK Broadband Deals')
   const verifiedDateLabel = new Date(providerDatasetUpdatedDate).toLocaleDateString('en-GB', {
     day: 'numeric',
     month: 'long',
@@ -77,14 +80,9 @@ export default function DealsPage() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(dealListJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(dealsPageJsonLd) }}
-      />
+      <JsonLd data={dealListJsonLd} />
+      <JsonLd data={offerCatalogJsonLd} />
+      <JsonLd data={dealsPageJsonLd} />
       <BreadcrumbNav
         items={[
           { name: 'Home', href: '/' },
@@ -95,6 +93,12 @@ export default function DealsPage() {
       <PostcodeContextBar />
 
       <h1 className="text-3xl font-extrabold text-slate-900 mb-2">All UK Broadband Deals</h1>
+      <CiteableAnswer>
+        This table is a UK snapshot of packages we track, sorted so you can shortlist by price,
+        speed or contract. Availability still depends on the address, so enter a postcode before
+        you treat any row as orderable. Prices on this page were verified {verifiedDateLabel}.
+        Rankings are not sold.
+      </CiteableAnswer>
       <p className="text-slate-600 mb-6 max-w-2xl">
         Browse every broadband package from every major UK provider. Filter by speed, price, or
         contract length.

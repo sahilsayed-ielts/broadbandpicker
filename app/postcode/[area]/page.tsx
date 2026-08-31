@@ -7,6 +7,9 @@ import {
   postcodeSourceNotes,
 } from '@/data/postcodes'
 import { providers, getTopDeals, providerDatasetUpdatedDate } from '@/data/providers'
+import { JsonLd } from '@/lib/jsonLd'
+import { organizationRef, SITE_URL } from '@/lib/siteSchema'
+import CiteableAnswer from '@/components/CiteableAnswer'
 import {
   getDistrictCoverage,
   districtCoverageSourceDataDate,
@@ -20,6 +23,11 @@ import AffiliateCTA from '@/components/AffiliateCTA'
 import NewsletterSignup from '@/components/NewsletterSignup'
 import RatingStars from '@/components/RatingStars'
 import DartfordBroadbandNeeds from '@/components/DartfordBroadbandNeeds'
+import M1BroadbandPlanComparison from '@/components/M1BroadbandPlanComparison'
+import NG1BroadbandComparison from '@/components/NG1BroadbandComparison'
+import RG1BroadbandComparison from '@/components/RG1BroadbandComparison'
+import CT1BroadbandComparison from '@/components/CT1BroadbandComparison'
+import RM1BroadbandComparison from '@/components/RM1BroadbandComparison'
 import { getPostcodeLocalIntel } from '@/data/postcodeLocalIntel'
 import { buildDealListJsonLd } from '@/lib/dealSchema'
 
@@ -59,6 +67,89 @@ export async function generateMetadata({
   }
 
   const prefix = postcodeArea.prefix.toUpperCase()
+  if (prefix === 'M1') {
+    const description = 'M1 broadband deals and coverage for Manchester city centre. Compare plans and see Ofcom-derived M1 gigabit and superfast availability before checking your exact address.'
+    return {
+      title: { absolute: 'M1 Broadband Deals and Coverage | Manchester City Centre' },
+      description,
+      alternates: { canonical },
+      openGraph: {
+        title: 'M1 Broadband Deals and Coverage | BroadbandPicker',
+        description,
+        url: canonical,
+      },
+    }
+  }
+
+  if (prefix === 'NG1') {
+    const description = 'Compare broadband deals in Nottingham and NG1 using district coverage, price and speed checks. See current networks, household options and exact-address limitations.'
+    return {
+      title: { absolute: 'Broadband Deals Nottingham and NG1 | Compare Options' },
+      description,
+      alternates: { canonical },
+      openGraph: {
+        title: 'Broadband Deals Nottingham and NG1 | BroadbandPicker',
+        description,
+        url: canonical,
+      },
+    }
+  }
+
+  if (prefix === 'RG1') {
+    const description = 'Compare broadband deals in Reading and RG1 using Ofcom-derived district coverage, total contract cost and exact-address checks for full-fibre networks.'
+    return {
+      title: { absolute: 'Broadband Deals in Reading and RG1 | Compare Options' },
+      description,
+      alternates: { canonical },
+      openGraph: {
+        title: 'Broadband Deals in Reading and RG1 | BroadbandPicker',
+        description,
+        url: canonical,
+      },
+    }
+  }
+
+  if (prefix === 'CT1') {
+    const description = 'Compare broadband deals in Canterbury and CT1 using Ofcom-derived district coverage, household speed needs and total contract cost before checking your exact address.'
+    return {
+      title: { absolute: 'Broadband Deals in Canterbury and CT1 | Compare Options' },
+      description,
+      alternates: { canonical },
+      openGraph: {
+        title: 'Broadband Deals in Canterbury and CT1 | BroadbandPicker',
+        description,
+        url: canonical,
+      },
+    }
+  }
+
+  if (prefix === 'RM1') {
+    const description = 'Compare broadband deals in Romford and RM1 using Ofcom-derived district coverage, total contract cost and exact-address checks across competing networks.'
+    return {
+      title: { absolute: 'Broadband Deals in Romford and RM1 | Compare Options' },
+      description,
+      alternates: { canonical },
+      openGraph: {
+        title: 'Broadband Deals in Romford and RM1 | BroadbandPicker',
+        description,
+        url: canonical,
+      },
+    }
+  }
+
+  if (prefix === 'BS1') {
+    const description = 'Compare broadband deals in Bristol and BS1 using Ofcom-derived city-centre coverage, total contract cost and exact-address checks for flats and homes.'
+    return {
+      title: { absolute: 'Broadband Deals Bristol and BS1 | Compare City-Centre Options' },
+      description,
+      alternates: { canonical },
+      openGraph: {
+        title: 'Broadband Deals Bristol and BS1 | BroadbandPicker',
+        description,
+        url: canonical,
+      },
+    }
+  }
 
   if (prefix === 'DA1') {
     const coverage = getDistrictCoverage(prefix)
@@ -107,6 +198,7 @@ export default async function PostcodeAreaPage({
     month: 'long',
     year: 'numeric',
   })
+  const pageReviewedDateLabel = ['M1', 'NG1', 'RG1', 'CT1', 'RM1', 'BS1'].includes(area.toUpperCase()) ? '30 August 2026' : postcodeReviewedDateLabel
 
   if (!postcodeArea) {
     const prefix = area.toUpperCase()
@@ -124,10 +216,7 @@ export default async function PostcodeAreaPage({
     const nationalDealListJsonLd = buildDealListJsonLd(nationalDeals, `Broadband deals available in ${prefix}`)
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(nationalDealListJsonLd) }}
-        />
+        <JsonLd data={nationalDealListJsonLd} />
         <BreadcrumbNav
           items={[
             { name: 'Home', href: '/' },
@@ -147,13 +236,13 @@ export default async function PostcodeAreaPage({
                 { label: 'Below USO (under 10Mbps)', value: coverage.belowUsoPercent },
               ].map(({ label, value }) => (
                 <div key={label} className="bg-white rounded-lg border border-sky-100 p-3 text-center">
-                  <div className="text-lg font-bold text-slate-900">{value !== null ? `${value}%` : '—'}</div>
+                  <div className="text-lg font-bold text-slate-900">{value !== null ? `${value}%` : 'Not available'}</div>
                   <div className="text-xs text-slate-500 mt-0.5">{label}</div>
                 </div>
               ))}
             </div>
             <p className="text-sky-800 text-xs mt-3">
-              This is area-level technology availability, not a live per-address check — the deals below are
+              This is area-level technology availability, not a live per-address check. The deals below are
               matched by network reach, not confirmed at your exact address. Click through to confirm before ordering.
             </p>
           </div>
@@ -164,7 +253,7 @@ export default async function PostcodeAreaPage({
             </svg>
             <div>
               <p className="font-semibold text-sky-900 text-sm">We&apos;re expanding our {prefix} coverage</p>
-              <p className="text-sky-800 text-sm mt-0.5">We don&apos;t have postcode-specific data for {prefix} yet. Below are the best broadband deals available across the UK — all of which serve this area through the Openreach network.</p>
+              <p className="text-sky-800 text-sm mt-0.5">We don&apos;t have postcode-specific data for {prefix} yet. Below are broadband deals available across the UK from providers using the Openreach network. Confirm service for your address before ordering.</p>
             </div>
           </div>
         )}
@@ -188,7 +277,7 @@ export default async function PostcodeAreaPage({
           <h2 className="text-xl font-bold text-slate-900 mb-3">Editorial and Source Notes</h2>
           <p className="mb-4 text-sm text-slate-600">
             {coverage
-              ? `Coverage figures above are area-level technology availability from Ofcom, not a live per-address check. Deal listings use the national provider dataset — verify address-level availability on the provider site before ordering.`
+              ? `Coverage figures above are area-level technology availability from Ofcom, not a live per-address check. Deal listings use the national provider dataset. Verify address-level availability on the provider site before ordering.`
               : `We do not yet hold postcode-area coverage data for ${prefix}, so this page falls back to the national provider dataset and asks users to verify address-level availability on the provider site before ordering.`}
           </p>
           <ul className="space-y-2 text-sm">
@@ -204,7 +293,7 @@ export default async function PostcodeAreaPage({
                 </a>
                 <p className="mt-1 text-xs leading-relaxed text-slate-500">
                   Aggregated from {coverage.sampleSize} individual postcodes in the {prefix} district under the
-                  Open Government Licence. Data reflects the {districtCoverageSourceDataDate} edition — coverage
+                  Open Government Licence. Data reflects the {districtCoverageSourceDataDate} edition. Coverage
                   changes over time, so treat this as directional rather than a live figure.
                 </p>
               </li>
@@ -238,6 +327,12 @@ export default async function PostcodeAreaPage({
   }
 
   const prefix = postcodeArea.prefix.toUpperCase()
+  const isM1 = prefix === 'M1'
+  const isNG1 = prefix === 'NG1'
+  const isRG1 = prefix === 'RG1'
+  const isCT1 = prefix === 'CT1'
+  const isRM1 = prefix === 'RM1'
+  const isBS1 = prefix === 'BS1'
   const districtCoverage = getDistrictCoverage(prefix)
   const isDartford = prefix === 'DA1'
   const localIntel = getPostcodeLocalIntel(prefix)
@@ -266,7 +361,7 @@ export default async function PostcodeAreaPage({
     setupFee: p.setupFee,
   }))
 
-  const faqItems = [
+  const standardFaqItems = [
     {
       question: `Which broadband providers are available in ${postcodeArea.town} (${prefix})?`,
       answer: `${postcodeArea.town} (${prefix}) has ${availableProviders.length} broadband providers available: ${availableProviders.map((p) => p.name).join(', ')}. Availability can vary by specific street or property, so use our postcode checker to confirm your address.`,
@@ -296,6 +391,142 @@ export default async function PostcodeAreaPage({
         ]
       : []),
   ]
+  const faqItems = isBS1
+    ? [
+        {
+          question: 'Which broadband providers are available in Bristol city centre and BS1?',
+          answer: 'BS1 residents can check retailers using Openreach, Virgin Media where its network reaches the property, and building-specific full-fibre operators. BT, Sky, EE, TalkTalk, Plusnet, Vodafone, NOW and Zen are useful starting points, but this is not an address guarantee. Enter the complete house or flat number because provider choice can differ between neighbouring Bristol city-centre buildings.',
+        },
+        {
+          question: 'What are the best broadband deals in Bristol?',
+          answer: 'There is no universal best Bristol broadband deal because the networks, speed estimates and promotions available change by address. For BS1, start with an orderable full-fibre or cable option if its total contract cost is close to part fibre. Compare all monthly payments, setup fees, stated price rises, rewards, upload speed, minimum speed guarantee and post-contract price before choosing.',
+        },
+        {
+          question: 'Can I get full-fibre broadband in BS1?',
+          answer: `Full fibre or another gigabit-capable connection is available at many BS1 properties, but not throughout the district. BroadbandPicker's aggregation of Ofcom July 2024 residential postcode records shows ${districtCoverage?.gigabitPercent}% gigabit-capable availability across ${districtCoverage?.sampleSize} sampled BS1 postcode units. Use the complete-address checker from Ofcom, Openreach and each suitable provider before treating a package as ready to order.`,
+        },
+        {
+          question: 'How fast is broadband in Bristol city centre?',
+          answer: `Ofcom-derived BS1 records show ${districtCoverage?.superfastPercent}% superfast, ${districtCoverage?.ultrafastPercent}% ultrafast and ${districtCoverage?.gigabitPercent}% gigabit-capable availability across ${districtCoverage?.sampleSize} sampled postcode units. These percentages measure network reach, not the speed received by one household. Compare each provider's personalised download estimate, minimum guaranteed speed and upload speed for the complete property.`,
+        },
+        {
+          question: 'How should renters compare broadband deals in a BS1 flat?',
+          answer: 'Enter the flat number, ask which networks already enter the building and check whether new cabling needs permission from the landlord or managing agent. Match the minimum term to the tenancy and read the home-moving and early termination rules. A cheaper 24-month Bristol deal may cost more overall if the tenancy ends after 12 months.',
+        },
+        {
+          question: 'How do I switch broadband provider in Bristol?',
+          answer: 'Choose an available package and contact the new provider. Ofcom says One Touch Switch lets most residential broadband customers ask the new provider to coordinate the move, including switches between different networks. The old provider should explain early termination charges and effects on bundled services. Confirm the activation date before cancelling anything outside the managed switch.',
+        },
+      ]
+    : isRM1
+    ? [
+        {
+          question: 'Which broadband providers are available in Romford and RM1?',
+          answer: 'RM1 residents can check BT, Sky, EE, TalkTalk, Plusnet, Vodafone, NOW and Virgin Media, plus alternative full-fibre providers that serve the complete property. This is a district shortlist, not an availability guarantee. Enter the house or flat number because Openreach, Virgin Media and independent networks do not reach identical Romford addresses.',
+        },
+        {
+          question: 'What is the cheapest broadband deal in Romford?',
+          answer: 'There is no single cheapest Romford broadband deal for every address. Compare packages that are actually orderable in RM1 by adding all monthly payments and setup fees across the minimum term, subtracting guaranteed rewards and including stated price changes. Then check the post-contract price. The lowest advertised opening payment can have a higher total cost.',
+        },
+        {
+          question: 'Can I get full-fibre broadband in Romford RM1?',
+          answer: `Full fibre is available at many RM1 properties, but not throughout the district. BroadbandPicker's aggregation of Ofcom July 2024 residential postcode records shows ${districtCoverage?.gigabitPercent}% gigabit-capable availability across ${districtCoverage?.sampleSize} sampled RM1 postcode units. This measures network reach, so use Ofcom, Openreach and provider address checkers before treating an FTTP package as orderable.`,
+        },
+        {
+          question: 'How fast is broadband in Romford?',
+          answer: `Ofcom-derived RM1 data records ${districtCoverage?.superfastPercent}% superfast, ${districtCoverage?.ultrafastPercent}% ultrafast and ${districtCoverage?.gigabitPercent}% gigabit-capable availability across ${districtCoverage?.sampleSize} sampled postcode units. These percentages are coverage categories, not measured household speeds. Compare each provider's personalised estimate, minimum guaranteed speed and upload speed for the complete address.`,
+        },
+        {
+          question: 'Who is the best internet provider in Romford?',
+          answer: 'Romford has no universal best internet provider because the available networks, prices and speed estimates change by property. We would start with an orderable full-fibre option where its total contract cost is close to part fibre, then compare customer service, minimum guaranteed speed, upload speed and contract terms. Keep a cheaper superfast option if it meets the household need.',
+        },
+        {
+          question: 'How do I switch broadband provider in Romford?',
+          answer: 'Choose an available package and contact the new provider. Ofcom says One Touch Switch lets most residential broadband customers ask the new provider to coordinate the change, including switches between different networks. Your old provider should explain early termination charges and other effects. Confirm the activation date before cancelling any service outside the managed switch.',
+        },
+      ]
+    : isCT1
+    ? [
+        {
+          question: 'Which broadband providers are available in Canterbury and CT1?',
+          answer: 'CT1 residents can check BT, Sky, EE, TalkTalk, Plusnet, Vodafone and NOW, plus any cable or alternative network serving the property. This is a Canterbury shortlist, not an address-level guarantee. Enter the complete postcode, house or flat number with each shortlisted provider because neighbouring properties can receive different networks and speed tiers.',
+        },
+        {
+          question: 'What is the cheapest broadband deal in Canterbury?',
+          answer: 'There is no single cheapest Canterbury broadband deal for every address. Compare packages that are actually orderable in CT1 by adding every monthly payment and setup fee across the minimum term, then subtracting guaranteed rewards. Include stated price rises and check the post-contract price. The lowest advertised monthly figure can have a higher total cost.',
+        },
+        {
+          question: 'Can I get full-fibre broadband in Canterbury CT1?',
+          answer: `Full fibre is available at many CT1 properties, but not throughout the district. BroadbandPicker's aggregation of Ofcom July 2024 residential postcode records shows ${districtCoverage?.gigabitPercent}% gigabit-capable availability across ${districtCoverage?.sampleSize} sampled CT1 postcode units. This is an area snapshot, so use Ofcom's checker and the provider's complete-address check before treating an FTTP package as orderable.`,
+        },
+        {
+          question: 'How fast is broadband in Canterbury?',
+          answer: `Ofcom-derived CT1 records show ${districtCoverage?.superfastPercent}% superfast, ${districtCoverage?.ultrafastPercent}% ultrafast and ${districtCoverage?.gigabitPercent}% gigabit-capable availability across ${districtCoverage?.sampleSize} sampled postcode units. These percentages measure network reach rather than actual household speed. Compare the personalised speed estimate and minimum guaranteed speed supplied for the complete address.`,
+        },
+        {
+          question: 'Is Virgin Media available in Canterbury?',
+          answer: 'Virgin Media may be available at some Canterbury properties, but a city-wide result does not prove coverage at one CT1 address. Check the complete property on Virgin Media and compare the result with Openreach-based and any alternative full-fibre options. Different networks can reach opposite sides of the same street or different buildings in one development.',
+        },
+        {
+          question: 'How do I switch broadband provider in Canterbury?',
+          answer: 'Choose an available package and contact the new provider. Ofcom says One Touch Switch lets most residential broadband customers ask the new provider to coordinate the change, including switches between different networks. Your old provider should explain early termination charges and other effects. Confirm the activation date before cancelling any service outside the managed switch.',
+        },
+      ]
+    : isRG1
+    ? [
+        {
+          question: 'Which broadband providers are available in Reading and RG1?',
+          answer: 'RG1 residents can check retailers using Openreach, CityFibre and Virgin Media, plus building-specific networks where present. BT, Sky, EE, TalkTalk, Plusnet, Vodafone, NOW and Zen are useful starting points, but the complete address decides what can be ordered. A provider serving Reading does not necessarily serve every RG1 street or flat.',
+        },
+        {
+          question: 'What is the cheapest broadband deal in Reading?',
+          answer: 'There is no universal cheapest Reading broadband deal because prices, promotions and network availability vary by address. Compare the total minimum-term cost of packages you can actually order, including setup fees, rewards and stated annual price rises. Then check the post-contract price. This gives a fairer answer than choosing the lowest advertised first-month payment.',
+        },
+        {
+          question: 'Can I get full-fibre broadband in Reading RG1?',
+          answer: `Full fibre is widely available in RG1, but an address check is still required. Ofcom-derived July 2024 records show ${districtCoverage?.gigabitPercent}% gigabit-capable availability across ${districtCoverage?.sampleSize} sampled RG1 postcode units. CityFibre separately said its wider Reading network was ready for service to more than 97,000 homes in May 2025. The populations and dates differ, so the figures should not be combined.`,
+        },
+        {
+          question: 'How fast is broadband in Reading town centre?',
+          answer: `Ofcom-derived RG1 data records ${districtCoverage?.superfastPercent}% superfast, ${districtCoverage?.ultrafastPercent}% ultrafast and ${districtCoverage?.gigabitPercent}% gigabit-capable availability across ${districtCoverage?.sampleSize} sampled postcode units. These percentages describe network reach, not measured household speed. Use each provider's address-specific estimate and minimum guaranteed speed to compare packages for one property.`,
+        },
+        {
+          question: 'Which full-fibre networks serve Reading?',
+          answer: 'Reading has overlapping full-fibre infrastructure from CityFibre and Openreach, while Virgin Media serves properties on its own network and some buildings may have another specialist operator. Retailers can use the same wholesale network, so compare both the provider and the underlying connection. Check the full address because the networks do not reach exactly the same premises.',
+        },
+        {
+          question: 'How should renters compare broadband in an RG1 flat?',
+          answer: 'Enter the full flat number, ask which networks already enter the building and check whether installation needs landlord or managing-agent approval. Match the minimum term to the tenancy, then compare early termination and home-moving rules. A 24-month package with a low monthly price can cost more if the tenancy ends after 12 months.',
+        },
+      ]
+    : isNG1
+    ? [
+        {
+          question: 'Which broadband providers are available in Nottingham city centre and NG1?',
+          answer: 'NG1 residents can check retailers using Openreach, including BT, Sky, EE, TalkTalk, Plusnet and Vodafone, plus Virgin Media and any building-specific network serving the property. A city-wide provider list is only a shortlist. Enter the complete address and flat number because network access can differ between neighbouring buildings and even between flats.',
+        },
+        {
+          question: 'What is the cheapest broadband deal in Nottingham?',
+          answer: 'There is no single cheapest broadband provider for every Nottingham address because availability and promotions change. For NG1, compare the total minimum-term cost of orderable packages, including monthly charges, setup fees, rewards and stated price rises. Check the post-contract price too. The lowest opening monthly payment is not necessarily the lowest overall cost.',
+        },
+        {
+          question: 'Can I get full-fibre broadband in Nottingham NG1?',
+          answer: `Full fibre is available at some NG1 properties, but not throughout the district. Ofcom-derived July 2024 data records ${districtCoverage?.gigabitPercent}% gigabit-capable availability across ${districtCoverage?.sampleSize} sampled NG1 postcode units. Openreach separately reported about 70% full-fibre coverage across Nottingham in August 2025. Check the complete address because those datasets cover different areas and neither guarantees an orderable package.`,
+        },
+        {
+          question: 'How fast is broadband in Nottingham city centre?',
+          answer: `Ofcom-derived NG1 data records ${districtCoverage?.superfastPercent}% superfast, ${districtCoverage?.ultrafastPercent}% ultrafast and ${districtCoverage?.gigabitPercent}% gigabit-capable availability across ${districtCoverage?.sampleSize} sampled postcode units. These are coverage categories, not measured household speeds. The provider's address check, personalised estimate and minimum guaranteed speed are more useful when choosing between packages for one property.`,
+        },
+        {
+          question: 'Are Nottinghamshire broadband deals the same as NG1 deals?',
+          answer: 'No. Nottinghamshire broadband deals cover a much larger county with urban and rural network conditions, while NG1 is a Nottingham city-centre district. County-wide or city-wide coverage cannot prove what one NG1 building can order. Use this page to form a shortlist, then check the complete property address with each suitable network before comparing contract cost.',
+        },
+        {
+          question: 'What broadband contract should a Nottingham student choose?',
+          answer: 'Match the minimum contract term to the tenancy and check early termination, home-moving and installation rules. A 24-month plan can be poor value for a one-year stay even if its monthly price is lower. In an NG1 flat, ask which networks already enter the building and whether the landlord must approve new cabling before ordering.',
+        },
+      ]
+    : standardFaqItems
 
   const webPageJsonLd = {
     '@context': 'https://schema.org',
@@ -335,21 +566,38 @@ export default async function PostcodeAreaPage({
     areaDeals,
     `Broadband deals in ${postcodeArea.town} (${prefix})`
   )
+  const placeJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'AdministrativeArea',
+    name: `${postcodeArea.town} (${prefix})`,
+    containedInPlace: { '@type': 'Country', name: 'United Kingdom' },
+    url: `${SITE_URL}/postcode/${area.toLowerCase()}`,
+  }
+  const coverageDatasetJsonLd = districtCoverage
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'Dataset',
+        name: `${prefix} broadband coverage`,
+        description: `Ofcom-derived coverage percentages for sampled ${prefix} postcode units.`,
+        url: `${SITE_URL}/postcode/${area.toLowerCase()}`,
+        creator: organizationRef,
+        temporalCoverage: districtCoverageSourceDataDate,
+        citation: districtCoverageSourcePage,
+        variableMeasured: [
+          { '@type': 'PropertyValue', name: 'Gigabit-capable availability', value: districtCoverage.gigabitPercent, unitText: 'PERCENT' },
+          { '@type': 'PropertyValue', name: 'Superfast availability', value: districtCoverage.superfastPercent, unitText: 'PERCENT' },
+          { '@type': 'PropertyValue', name: 'Ultrafast availability', value: districtCoverage.ultrafastPercent, unitText: 'PERCENT' },
+        ],
+      }
+    : null
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageWithCitationsJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(areaDealListJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
+      <JsonLd data={webPageWithCitationsJsonLd} />
+      <JsonLd data={areaDealListJsonLd} />
+      <JsonLd data={faqJsonLd} />
+      <JsonLd data={placeJsonLd} />
+      {coverageDatasetJsonLd ? <JsonLd data={coverageDatasetJsonLd} /> : null}
 
       <BreadcrumbNav
         items={[
@@ -359,18 +607,31 @@ export default async function PostcodeAreaPage({
       />
 
       <h1 className="text-3xl font-extrabold text-slate-900 mb-2">
-        Best Broadband Deals in {postcodeArea.town} ({prefix})
+        {isBS1 ? 'Broadband Deals in Bristol and BS1' : isM1 ? 'M1 Broadband Deals and Coverage in Manchester City Centre' : isNG1 ? 'Broadband Deals in Nottingham and NG1' : isRG1 ? 'Broadband Deals in Reading and RG1' : isCT1 ? 'Broadband Deals in Canterbury and CT1' : isRM1 ? 'Broadband Deals in Romford and RM1' : `Best Broadband Deals in ${postcodeArea.town} (${prefix})`}
       </h1>
 
       <div className="flex flex-wrap items-center gap-4 text-sm text-slate-500 mb-6 pb-6 border-b border-slate-200">
-        <span>Area model reviewed {postcodeReviewedDateLabel}</span>
+        <span>Area model reviewed {pageReviewedDateLabel}</span>
         <span>&middot;</span>
         <span>Prices verified {pricingVerifiedDateLabel}</span>
         <span>&middot;</span>
         <span>Reviewed by BroadbandPicker editorial team</span>
       </div>
 
-      <p className="text-slate-600 mb-6 max-w-3xl leading-relaxed">
+      <CiteableAnswer>
+        {isBS1 ? (
+          <>Broadband deals in Bristol&apos;s BS1 district include retailers using Openreach, Virgin Media where its network reaches the property, and selected building-specific networks. Ofcom-derived July 2024 records show <strong>{districtCoverage?.gigabitPercent}% gigabit-capable</strong> and <strong>{districtCoverage?.superfastPercent}% superfast</strong> availability across {districtCoverage?.sampleSize} sampled BS1 postcode units. Compare total contract cost, then check the complete address before ordering.</>
+        ) : isRM1 ? (
+          <>Broadband deals in Romford&apos;s RM1 district include retailers using Openreach, Virgin Media where its network reaches the property, and selected independent full-fibre options. Ofcom-derived July 2024 records show <strong>{districtCoverage?.gigabitPercent}% gigabit-capable</strong> and <strong>{districtCoverage?.superfastPercent}% superfast</strong> availability across {districtCoverage?.sampleSize} sampled RM1 postcode units. Compare total contract cost, then check the complete address before ordering.</>
+        ) : isM1 ? (
+          <>M1 broadband includes Openreach-based services, Virgin Media and building-specific full-fibre options, but no provider is available in every Manchester city-centre property. Ofcom-derived district data shows <strong>{districtCoverage?.gigabitPercent}% gigabit-capable</strong> and <strong>{districtCoverage?.superfastPercent}% superfast</strong> coverage across {districtCoverage?.sampleSize} sampled M1 postcode units. Compare plans here, then check your complete address before ordering.</>
+        ) : isNG1 ? (
+          <>Broadband deals in Nottingham&apos;s NG1 district include services using Openreach, Virgin Media and selected alternative full-fibre networks. Ofcom-derived postcode data records <strong>{districtCoverage?.gigabitPercent}% gigabit-capable</strong> and <strong>{districtCoverage?.superfastPercent}% superfast</strong> availability across {districtCoverage?.sampleSize} sampled NG1 postcode units. There is no universal cheapest or fastest choice for every building, so compare the total contract cost and check the complete address before ordering.</>
+        ) : isRG1 ? (
+          <>Broadband deals in Reading&apos;s RG1 district include retailers using Openreach and CityFibre, Virgin Media where its network reaches the property, and selected building-specific options. Ofcom-derived records show <strong>{districtCoverage?.gigabitPercent}% gigabit-capable</strong> and <strong>{districtCoverage?.superfastPercent}% superfast</strong> availability across {districtCoverage?.sampleSize} sampled RG1 postcode units. Compare total contract cost, then check the complete address before ordering.</>
+        ) : isCT1 ? (
+          <>Broadband deals in Canterbury&apos;s CT1 district include providers using Openreach and other networks where they reach the property. Ofcom-derived July 2024 records show <strong>{districtCoverage?.gigabitPercent}% gigabit-capable</strong> and <strong>{districtCoverage?.superfastPercent}% superfast</strong> availability across {districtCoverage?.sampleSize} sampled CT1 postcode units. Compare total contract cost and household speed needs, then check the complete address before ordering.</>
+        ) : <>
         We compared <strong>{availableProviders.length} broadband providers</strong> available in
         the {prefix} postcode area ({postcodeArea.town}, {postcodeArea.city},{' '}
         {postcodeArea.region}). Average download speeds here are{' '}
@@ -381,7 +642,8 @@ export default async function PostcodeAreaPage({
           : `Superfast fibre (FTTC) is the most widely available connection type in this area.`}{' '}
         Use the table below to compare deals, sort by price or speed, and click through to sign
         up directly with your chosen provider.
-      </p>
+        </>}
+      </CiteableAnswer>
 
       {districtCoverage && (
         <div className="mb-8 rounded-xl border border-sky-200 bg-sky-50 p-5" aria-label={`${prefix} broadband coverage summary`}>
@@ -391,6 +653,12 @@ export default async function PostcodeAreaPage({
           </p>
         </div>
       )}
+
+      {isM1 && <M1BroadbandPlanComparison />}
+      {isNG1 && <NG1BroadbandComparison />}
+      {isRG1 && <RG1BroadbandComparison />}
+      {isCT1 && <CT1BroadbandComparison />}
+      {isRM1 && <RM1BroadbandComparison />}
 
       {/* Area stats */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
@@ -469,6 +737,7 @@ export default async function PostcodeAreaPage({
                 href={p.affiliateUrl}
                 providerName={p.name}
                 providerSlug={p.slug}
+                placement="postcode_provider_card"
                 size="sm"
               />
               <Link href={`/providers/${p.slug}`} className="text-xs text-sky-600 hover:underline">
@@ -562,6 +831,26 @@ export default async function PostcodeAreaPage({
             <p className="mt-4 leading-7 text-slate-700">
               Start with the total cost, not the headline monthly price. Multiply the monthly charge across the minimum term, add setup fees and account for any stated annual price changes. A package that begins a few pounds cheaper can cost more over 24 months. Also check the price after the minimum term so you know what happens if you do not switch or renegotiate promptly.
             </p>
+            {isM1 && (
+              <p className="mt-4 leading-7 text-slate-700">
+                To find cheap broadband deals in Manchester M1, compare only packages confirmed for the complete address. Rank them by total minimum-term cost, then check the speed estimate, setup work and post-contract price. A low city-wide headline price is not useful if the network has not connected your building.
+              </p>
+            )}
+            {isNG1 && (
+              <p className="mt-4 leading-7 text-slate-700">
+                For the cheapest broadband in Nottingham, rank packages available at your exact NG1 address by total minimum-term cost. Include setup fees, rewards, scheduled price changes and the post-contract price. A city-wide advertised deal may use a network that has not reached your building, so availability comes before the headline discount.
+              </p>
+            )}
+            {isRG1 && (
+              <p className="mt-4 leading-7 text-slate-700">
+                For the cheapest broadband in Reading, compare only packages confirmed for the complete RG1 address. Rank them by total minimum-term cost, including setup fees, rewards and stated price changes, then check the post-contract price. Strong network competition does not make one advertised deal the cheapest at every property.
+              </p>
+            )}
+            {isRM1 && (
+              <p className="mt-4 leading-7 text-slate-700">
+                For cheap broadband deals in Romford, compare only packages confirmed for the complete RM1 address. Rank them by total minimum-term cost, including setup fees, rewards and stated price changes, then compare speed and customer service. A Romford-wide advertised price may use a network that has not reached your property.
+              </p>
+            )}
             <ol className="mt-5 space-y-4 text-slate-700">
               <li><strong>1. Check the exact address.</strong> {prefix}-wide figures are useful for planning, but the provider&apos;s checker decides which package can be ordered at your property.</li>
               <li><strong>2. Pick a realistic speed.</strong> Around 30 to 70 Mbps can suit light use. A busy household may benefit from 100 to 300 Mbps. Gigabit service is most useful for many simultaneous users, large downloads or frequent cloud backups.</li>
@@ -571,6 +860,62 @@ export default async function PostcodeAreaPage({
             </ol>
             <p className="mt-4 text-sm italic leading-6 text-slate-600">{localIntel.speedGuidanceNote}</p>
           </section>
+
+          {isM1 && (
+            <section className="mt-10 max-w-4xl" aria-labelledby="m1-wifi-building-checks">
+              <h2 id="m1-wifi-building-checks" className="text-2xl font-bold text-slate-900">
+                M1 Wi-Fi broadband and apartment-building checks
+              </h2>
+              <p className="mt-4 leading-7 text-slate-700">
+                An M1 WiFi broadband search usually mixes up two separate questions. The broadband package describes the fixed connection delivered to the property. Wi-Fi is the radio link from the router to your devices, so thick walls, metalwork, neighbouring networks and router placement can reduce performance inside a city-centre flat even when the incoming line is fast. Ask where the router and fibre termination point will be installed, especially in a long or multi-level property.
+              </p>
+              <p className="mt-4 leading-7 text-slate-700">
+                Before choosing an M1 internet plan, check the complete flat number and address with at least two providers on genuinely available networks. Compare the minimum guaranteed speed, upload speed, setup work, contract term and total minimum-term cost. If the provider supplies a hub near the entrance but your desk is several rooms away, budget for Ethernet or an appropriate mesh system rather than buying a faster line solely to fix a Wi-Fi coverage problem.
+              </p>
+            </section>
+          )}
+
+          {isNG1 && (
+            <section className="mt-10 max-w-4xl" aria-labelledby="ng1-students-flats">
+              <h2 id="ng1-students-flats" className="text-2xl font-bold text-slate-900">
+                Broadband for NG1 flats, renters and students
+              </h2>
+              <p className="mt-4 leading-7 text-slate-700">
+                NG1 includes the Lace Market, Hockley and dense city-centre housing where broadband can differ between flats in the same development. Enter the full flat number when checking. Ask the landlord or building manager which networks already enter the building, where the fibre termination point can be fitted and whether installation work needs permission. An existing socket does not prove that a specific package is active or transferable.
+              </p>
+              <p className="mt-4 leading-7 text-slate-700">
+                Students and short-term renters should compare the contract end date with the tenancy end date. A lower monthly price on a 24-month deal can cost more if an early termination charge applies. Check whether the provider offers a shorter contract, permits a home move, or has a monthly option. Our <Link href="/guides/best-broadband-for-students" className="font-semibold text-sky-700 hover:underline">student broadband guide</Link> explains the trade-offs without assuming one contract length suits every household.
+              </p>
+            </section>
+          )}
+
+          {isRG1 && (
+            <section className="mt-10 max-w-4xl" aria-labelledby="rg1-flats-home-working">
+              <h2 id="rg1-flats-home-working" className="text-2xl font-bold text-slate-900">
+                Broadband for RG1 flats, renters and home workers
+              </h2>
+              <p className="mt-4 leading-7 text-slate-700">
+                RG1 includes town-centre flats, converted buildings and newer developments around Reading station. Check the full flat number rather than the outward postcode alone. Ask the landlord or managing agent which networks already enter the building and whether a new fibre cable needs permission. Two neighbouring buildings can have different options even where area coverage is high.
+              </p>
+              <p className="mt-4 leading-7 text-slate-700">
+                Home workers should compare the provider&apos;s minimum guaranteed download speed, stated upload speed and fault support. Renters should also match the contract end date to the tenancy and check home-moving or early termination terms. A faster package will not fix weak Wi-Fi in a distant room, so consider router placement, Ethernet or a suitable mesh system separately.
+              </p>
+            </section>
+          )}
+
+          {isRM1 && (
+            <section className="mt-10 max-w-4xl" aria-labelledby="rm1-flats-home-working">
+              <h2 id="rm1-flats-home-working" className="text-2xl font-bold text-slate-900">
+                Broadband for RM1 flats, renters and home workers
+              </h2>
+              <p className="mt-4 leading-7 text-slate-700">
+                RM1 includes town-centre flats, converted properties and homes around Romford station. Enter the full flat or house number rather than relying on the outward postcode. Openreach says neighbouring addresses can receive different results because engineering, access routes and landlord permissions affect its build. Ask which networks already enter the building before booking installation.
+              </p>
+              <p className="mt-4 leading-7 text-slate-700">
+                Home workers should compare the minimum guaranteed download speed, stated upload speed and fault support. Renters should match the contract end date to the tenancy and check home-moving or early termination rules. A faster internet deal will not fix weak Wi-Fi in a distant room, so assess router placement, Ethernet and any mesh equipment separately.
+              </p>
+            </section>
+          )}
 
           <section className="mt-10 max-w-4xl" aria-labelledby={`${prefix.toLowerCase()}-full-fibre`}>
             <h2 id={`${prefix.toLowerCase()}-full-fibre`} className="text-2xl font-bold text-slate-900">
