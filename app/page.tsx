@@ -493,6 +493,12 @@ export default function HomePage() {
             Cheapest broadband UK
           </Link>
           <Link
+            href="/guides/best-broadband-and-tv-deals"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-sm font-medium transition-colors"
+          >
+            Best broadband and TV deals
+          </Link>
+          <Link
             href="/compare"
             className="inline-flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-sm font-medium transition-colors"
           >

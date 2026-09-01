@@ -8,6 +8,8 @@ import DealTable from '@/components/DealTable'
 import FAQAccordion from '@/components/FAQAccordion'
 import PostcodeContextBar from '@/components/PostcodeContextBar'
 import CashbackDealComparison from '@/components/CashbackDealComparison'
+import TvBundleComparisonTable from '@/components/TvBundleComparisonTable'
+import { tvBundleOptions } from '@/data/tvBroadbandBundles'
 import { withHeadingIds } from '@/lib/extractHeadings'
 import { JsonLd } from '@/lib/jsonLd'
 import { articleJsonLd } from '@/lib/siteSchema'
@@ -837,6 +839,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
           <li><strong>Check for cashback or a reward card.</strong> Several providers currently attach rewards to selected offers, but only a successful claim lowers the real cost. Use our <Link href="/guides/broadband-deals-with-cashback">cashback broadband deals guide and comparison</Link> before treating a card as part of the saving.</li>
           <li><strong>Switch once you are out of contract.</strong> New-customer pricing is almost always better than what an existing, out-of-contract customer is quietly paying.</li>
           <li><strong>Check whether a local altnet has launched since you last looked.</strong> Community Fibre, toob, Trooli and Zzoomm have all expanded meaningfully in 2026; a postcode that had no altnet option a year ago may have one now.</li>
+          <li><strong>Check if a TV bundle actually works out cheaper.</strong> If you already pay for streaming or pay-TV separately, a combined package can undercut buying broadband and entertainment apart. See our <Link href="/guides/best-broadband-and-tv-deals">broadband and TV deals comparison</Link>.</li>
         </ul>
 
         <h2>Watch out for scheduled price rises</h2>
@@ -4113,7 +4116,9 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
           the channels and services you would pay for separately, then compare that value with the
           bundle&apos;s full contract cost. A broadband-only offer plus separate streaming may be
           cheaper for light viewers, while a genuine bundle can suit homes already paying for live
-          sport, cinema or premium channels.
+          sport, cinema or premium channels. See our full{' '}
+          <Link href="/guides/best-broadband-and-tv-deals">broadband and TV deals comparison</Link>
+          {' '}for a year-round view, not just the Black Friday window.
         </p>
 
         <h2>What to check before ordering</h2>
@@ -4284,6 +4289,31 @@ export default async function GuidePage({
     })),
   }
 
+  const tvBundleProductJsonLd =
+    slug === 'best-broadband-and-tv-deals'
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'ItemList',
+          name: 'UK broadband and TV bundle packages compared',
+          itemListElement: tvBundleOptions.map((bundle, index) => ({
+            '@type': 'ListItem',
+            position: index + 1,
+            item: {
+              '@type': 'Product',
+              name: `${bundle.provider}: ${bundle.packageName}`,
+              brand: { '@type': 'Brand', name: bundle.provider },
+              offers: {
+                '@type': 'Offer',
+                priceCurrency: 'GBP',
+                price: bundle.monthlyPrice,
+                url: `https://broadbandpicker.co.uk${bundle.reviewHref}`,
+                availability: 'https://schema.org/InStock',
+              },
+            },
+          })),
+        }
+      : null
+
   const updatedDate = new Date(guide.updatedDate).toLocaleDateString('en-GB', {
     day: 'numeric',
     month: 'long',
@@ -4295,6 +4325,7 @@ export default async function GuidePage({
       <JsonLd data={articleStructuredData} />
       <JsonLd data={faqJsonLd} />
       {switchHowToJsonLd ? <JsonLd data={switchHowToJsonLd} /> : null}
+      {tvBundleProductJsonLd ? <JsonLd data={tvBundleProductJsonLd} /> : null}
 
       <BreadcrumbNav
         items={[
@@ -4388,6 +4419,7 @@ export default async function GuidePage({
       )}
 
       {slug === 'broadband-deals-with-cashback' && <CashbackDealComparison />}
+      {slug === 'best-broadband-and-tv-deals' && <TvBundleComparisonTable />}
 
       <div className="prose prose-slate max-w-none mb-10 [&_h2]:text-xl [&_h2]:font-bold [&_h2]:text-slate-900 [&_h2]:mt-8 [&_h2]:mb-3 [&_h2]:scroll-mt-24 [&_h3]:text-lg [&_h3]:font-bold [&_h3]:text-slate-900 [&_h3]:mt-6 [&_h3]:mb-2 [&_p]:text-slate-700 [&_p]:leading-relaxed [&_p]:mb-4 [&_ul]:my-4 [&_ul]:pl-6 [&_ol]:my-4 [&_ol]:pl-6 [&_li]:text-slate-700 [&_li]:mb-2 [&_strong]:text-slate-900 [&_table]:my-6 [&_th]:font-semibold [&_th]:text-slate-700 [&_td]:text-slate-700">
         {taggedBody}

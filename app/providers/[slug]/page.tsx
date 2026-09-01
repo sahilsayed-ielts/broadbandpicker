@@ -426,6 +426,24 @@ export default async function ProviderPage({
         </section>
       )}
 
+      {/* Related guide: broadband + TV bundles, for providers that sell one */}
+      {['sky', 'virgin-media', 'bt', 'ee'].includes(provider.slug) && (
+        <section className="mt-10">
+          <Link
+            href="/guides/best-broadband-and-tv-deals"
+            className="block rounded-xl border border-slate-200 bg-white p-5 hover:border-sky-300 hover:bg-sky-50 transition-colors"
+          >
+            <span className="font-semibold text-slate-900">
+              Want TV with your {provider.name} broadband?
+            </span>
+            <span className="block text-sm text-slate-600 mt-1">
+              Compare {provider.name}&apos;s broadband and TV bundles against Sky, Virgin Media and
+              EE with our interactive comparison tool &rarr;
+            </span>
+          </Link>
+        </section>
+      )}
+
       {/* CTA */}
       <div className="mt-10 p-6 bg-sky-50 border border-sky-200 rounded-xl flex flex-wrap items-center justify-between gap-4">
         <div>
