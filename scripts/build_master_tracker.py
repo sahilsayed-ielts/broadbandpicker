@@ -2122,11 +2122,12 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
             "15+ devices, gigabit+ plans, VR/competitive gaming; when it isn't: most households "
             "on Wi-Fi 6 are fine) plus an FAQ block for AI Overview/GEO citation. Cite YouFibre "
             "(Wi-Fi 7 standard across its range, already a live provider) as an example; mention "
-            "Connect Fibre neutrally without a tracked link until its Awin terms are confirmed. "
+            "Connect Fibre neutrally as a now-joined Awin programme, but do not add a tracked CTA "
+            "until its CPA and price-comparison de-duplication treatment are confirmed in writing. "
             "No affiliate-link dependency -- can proceed immediately."
         ),
-        "priority_score": 34,
-        "impact_score": 36,
+        "priority_score": 42,
+        "impact_score": 44,
         "effort": "Low",
         "target": "app/guides/[slug]/page.tsx, data/guides.ts (new slug)",
         "dependencies": "None",
@@ -2143,8 +2144,8 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
             "A factual addition to the existing broadband-social-tariffs-uk guide, not an "
             "affiliate placement -- doesn't depend on Awin commission terms, low effort."
         ),
-        "priority_score": 22,
-        "impact_score": 20,
+        "priority_score": 30,
+        "impact_score": 28,
         "effort": "Low",
         "target": "app/guides/[slug]/page.tsx (broadband-social-tariffs-uk), data/guides.ts",
         "dependencies": "None",
@@ -2165,11 +2166,12 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
             "near-duplicate-content gap already fixed this session for M1/NG1/RG1/CT1/RM1. "
             "Build the local-intel content (named neighbourhoods, honest 'well-served suburbs "
             "plus a full-fibre challenger' framing given the already-high coverage) now; add "
-            "Connect Fibre to the page's provider list and deal table only once its Awin "
-            "commission and de-duplication terms are confirmed."
+            "Connect Fibre to the page's provider list and deal table only once its Awin CPA "
+            "and price-comparison de-duplication treatment are confirmed. The programme is now "
+            "Joined, so this is a commercial-terms gate rather than an application-status gate."
         ),
-        "priority_score": 26,
-        "impact_score": 24,
+        "priority_score": 36,
+        "impact_score": 38,
         "effort": "Medium",
         "target": "data/postcodeLocalIntel.ts, app/postcode/[area]/page.tsx",
         "dependencies": "None for the page; Connect Fibre's own listing is gated on Awin terms",
@@ -2184,14 +2186,14 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
             "Live research found genuine regional rivals overlapping Connect Fibre's actual "
             "footprint: BeFibre (Lincolnshire, Northamptonshire, Nottinghamshire, Staffordshire, "
             "Warwickshire) and Connexin (Project Gigabit contract covering Nottinghamshire and "
-            "West Lincolnshire) -- real, specific pairings, not filler. BLOCKED until Connect "
-            "Fibre's Awin invitation is accepted with a confirmed commission rate and "
-            "de-duplication policy (see recommendation.md) -- publishing a comparison page with "
+            "West Lincolnshire) -- real, specific pairings, not filler. Connect Fibre joined "
+            "BroadbandPicker's Awin account on 30 August 2026. BLOCKED only until the commission "
+            "rate and price-comparison de-duplication treatment are confirmed in writing -- publishing a comparison page with "
             "a tracked affiliate link before that is exactly the premature-content-investment "
             "risk already flagged."
         ),
-        "priority_score": 20,
-        "impact_score": 26,
+        "priority_score": 38,
+        "impact_score": 46,
         "effort": "Medium",
         "target": "data/provider-comparisons.ts, app/providers/compare/[slug]/page.tsx",
         "dependencies": "Awin commission/de-duplication terms confirmed with Connect Fibre",
@@ -2205,13 +2207,14 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
         "description": (
             "Standard Provider-schema build once approved: packages, Trustpilot (5.0/5, 2,477 "
             "reviews, 88% five-star -- confirmed live, stronger than first assumed), Wi-Fi 7 "
-            "standard, symmetrical speeds, social tariff, 12/24-month contract choice. BLOCKED "
-            "on the same Awin terms confirmation as the comparison pages -- this is the main "
+            "standard, symmetrical speeds, social tariff, 12/24-month contract choice. Connect "
+            "Fibre joined BroadbandPicker's Awin account on 30 August 2026. BLOCKED on written "
+            "CPA and price-comparison de-duplication clarification -- this is the main "
             "commercial page and must not carry a tracked link before commission and "
             "de-duplication are settled in writing."
         ),
-        "priority_score": 18,
-        "impact_score": 30,
+        "priority_score": 48,
+        "impact_score": 64,
         "effort": "Medium",
         "target": "data/providers.ts, app/providers/[slug]/page.tsx",
         "dependencies": "Awin commission/de-duplication terms confirmed with Connect Fibre",
@@ -2253,6 +2256,105 @@ FEATURE_BUILDS: list[dict[str, Any]] = [
             "Custom dimension created and verified live via a real runReport call. "
             "ga4-clicks --days 90 run and cross-referenced against all 21 tracked advertisers."
         ),
+    },
+    {
+        "item_id": "ops-serp-geo-research-tooling",
+        "type": "Tooling",
+        "pillar": "SEO/GEO",
+        "title": "SerpApi-powered SEO/GEO opportunity research + GSC cross-check",
+        "description": (
+            "New scripts/analyze_serp_geo_opportunities.py runs a curated 35-query UK broadband "
+            "set (deals, switching, technical, affordability, comparisons, altnets, tools, local) "
+            "through the SerpApi Google engine (SERPAPI_API_KEY, free plan: 250 searches/month) "
+            "and checks organic top 10 + AI Overview presence for broadbandpicker.co.uk. "
+            "Cross-checked against real Google Search Console data (last 28 days) rather than "
+            "relying on the SERP snapshot alone. See docs/geo-serp-research/2026-09-01-strategy.md "
+            "for the full write-up. Headline finding: BroadbandPicker scored 0/35 in organic top "
+            "10 and 0/35 AI Overview citations on the tested queries, competing against uswitch, "
+            "MoneySuperMarket, MSE, Virgin Media and comparethemarket.com. But GSC shows the site "
+            "IS indexed (~2,300 pages) and gets real volume (85,159 impressions / 88 clicks, "
+            "0.1% CTR over 28 days) -- concentrated on 3-4 pages ranking so low (position 32-80) "
+            "that nobody clicks, while narrower comparison and postcode pages already rank on "
+            "page 1 (position 6-12). This reframes the brief from 'build more content' to 'fix "
+            "the pages already burning the impression budget, then double down on the page "
+            "format already proven to win.' Re-run monthly with --limit to control spend."
+        ),
+        "priority_score": 40,
+        "impact_score": 55,
+        "effort": "Low",
+        "target": "scripts/analyze_serp_geo_opportunities.py",
+        "dependencies": "SERPAPI_API_KEY (user-provided, free plan)",
+        "source": "User request 2026-09-01 — UK broadband LLM/search prompt research",
+        "verified_status": "Done",
+        "completion_notes": "35-query research run completed 2026-09-01, cross-checked against live GSC data, written up in docs/geo-serp-research/2026-09-01-strategy.md.",
+    },
+    {
+        "item_id": "content-fix-underperforming-high-impression-guides",
+        "type": "Content",
+        "pillar": "SEO/GEO",
+        "title": "Strengthen the 4 pages already burning ~40% of the site's impression budget",
+        "description": (
+            "Real GSC data (last 28 days): best-broadband-and-tv-deals (23,809 impressions, "
+            "position 63.0, 16 clicks), best-full-fibre-broadband-uk (7,174 impressions, "
+            "position 50.6, 3 clicks), best-business-broadband-providers-uk (2,963 impressions, "
+            "position 80.2, 1 click), and best-5g-home-broadband-uk (139 impressions across "
+            "5g-broadband query variants, position 39-68, 0 clicks). These four pages alone "
+            "account for roughly 40% of all site impressions but rank far too low to convert "
+            "into clicks -- the single highest-leverage fix available, since the demand and "
+            "Google's attention already exist. Strengthen each: deeper comparison tables, "
+            "fresher Ofcom/price data, stronger internal linking from the homepage and other "
+            "guides, FAQ schema if missing, and a realistic look at whether the title/meta "
+            "target is winnable head-on or needs a narrower angle alongside it."
+        ),
+        "priority_score": 58,
+        "impact_score": 62,
+        "effort": "Medium",
+        "target": "app/guides/[slug]/page.tsx (best-broadband-and-tv-deals, best-full-fibre-broadband-uk, best-5g-home-broadband-uk), app/guides/best-business-broadband-providers-uk/page.tsx, data/guides.ts",
+        "dependencies": "ops-serp-geo-research-tooling",
+        "source": "User request 2026-09-01 — UK broadband LLM/search prompt research",
+    },
+    {
+        "item_id": "content-expand-proven-comparison-postcode-pattern",
+        "type": "Page",
+        "pillar": "SEO/GEO",
+        "title": "Prioritise more provider comparisons and postcode pages over broad 'best of' guides",
+        "description": (
+            "Same GSC data shows the only page types currently ranking on page 1 against "
+            "uswitch/MSE/comparethemarket are narrow ones: /providers/compare/ee-vs-talktalk "
+            "(position 7.0), /guides/starlink-vs-fibre-broadband-uk (6.2), /postcode/nw1 (6.1), "
+            "/providers/cuckoo (10.4), /postcode/gu1 and /postcode/bn1 (11.8). This is real "
+            "evidence, not a guess, that BroadbandPicker can win narrower fights (two-provider "
+            "comparisons, single postcode districts) that it cannot win against head terms like "
+            "'cheap broadband deals UK'. Policy going forward: prioritise the comparison-page and "
+            "genuinely-local-postcode pipelines already running this session (e.g. the Connect "
+            "Fibre S17/S8 build, further provider-vs-provider pairs) over new broad best-of "
+            "guides, until the P0 fixes above are done."
+        ),
+        "priority_score": 36,
+        "impact_score": 40,
+        "effort": "Low",
+        "target": "data/provider-comparisons.ts, data/postcodeLocalIntel.ts",
+        "dependencies": "ops-serp-geo-research-tooling",
+        "source": "User request 2026-09-01 — UK broadband LLM/search prompt research",
+    },
+    {
+        "item_id": "content-altnet-explainer-guide",
+        "type": "Content",
+        "pillar": "Content",
+        "title": "New guide: What is an altnet broadband provider?",
+        "description": (
+            "Real query confirmed via SerpApi: has a live Google AI Overview, BroadbandPicker "
+            "has no dedicated explainer and no presence in the AI Overview. Definitional, "
+            "lower-competition query where a comparison site has a natural authority angle the "
+            "big aggregators don't specifically own -- a realistic AI-Overview-citation target, "
+            "unlike the broad head terms tested in the same research run."
+        ),
+        "priority_score": 24,
+        "impact_score": 22,
+        "effort": "Low",
+        "target": "app/guides/[slug]/page.tsx, data/guides.ts (new slug)",
+        "dependencies": "ops-serp-geo-research-tooling",
+        "source": "User request 2026-09-01 — UK broadband LLM/search prompt research",
     },
     {
         "item_id": "bet-decouple-content-from-code",
@@ -2562,10 +2664,13 @@ def build_workbook(
             timing = "Gate on stronger evidence; do not bulk reapply"
             default = "Not started"
         url = f"https://broadbandpicker.co.uk{programme['url']}" if programme["url"] else ""
+        manual_status = manual.get("Status")
+        if relationship == "Joined" and manual_status in {"Awaiting our response", "Waiting on advertiser"}:
+            manual_status = "In progress"
         awin_rows.append([
             rank, programme["band"], programme["advertiser"], programme["id"], relationship,
             action, url, timing,
-            manual.get("Status") or default, manual.get("Owner") or "",
+            manual_status or default, manual.get("Owner") or "",
             manual.get("Last Contacted") or "", manual.get("Next Follow-up") or "",
             manual.get("Decision / Feedback") or "",
         ])
@@ -2587,12 +2692,21 @@ def build_workbook(
         for row in rows:
             opportunity = row[pos.get("Opportunity", 2)]
             page = row[pos.get("Page", 1)]
-            if opportunity == "Monitor" or page in {"/postcode/da1", "/postcode/m1", "/postcode/ng1", "/postcode/rg1", "/postcode/ct1", "/postcode/rm1", "/postcode/bs1", "/providers/compare/ee-vs-talktalk", "/guides/broadband-deals-with-cashback"}:
+            priority_eligible = (
+                row[pos["Priority Eligible"]]
+                if "Priority Eligible" in pos else opportunity not in {"Monitor", "Post-publication monitoring"}
+            )
+            if opportunity == "Monitor" or not priority_eligible:
                 continue
+            freshness = ""
+            if "Last Content Update" in pos:
+                updated = row[pos["Last Content Update"]] or "unknown"
+                pipeline = row[pos["Current Pipeline Update"]] if "Current Pipeline Update" in pos else False
+                freshness = f"; last content update {updated}; current pipeline update {pipeline}"
             evidence = (
                 f"Clicks {row[pos['Clicks']]}; impressions {row[pos['Impressions']]}; "
                 f"CTR {row[pos['CTR']]}; position {row[pos['Position']]}; "
-                f"top queries: {row[pos['Top Queries']]}"
+                f"top queries: {row[pos['Top Queries']]}{freshness}"
             )
             content_rows.append([
                 0, "Existing-page SEO improvement", page, opportunity, "Weekly GSC/GA4 action queue",
@@ -2603,6 +2717,31 @@ def build_workbook(
         content_rows.append([0, "New evidence-led page", research["target"], research["title"],
                              "Master tracker", research["priority_score"], research["status"],
                              research["description"], "Build after higher-confidence thin-content and ranking opportunities."])
+    connect_fibre_ids = {
+        "content-connect-fibre-provider-page",
+        "content-wifi7-broadband-explained-guide",
+        "content-connect-fibre-comparison-pages",
+        "content-postcode-s17-s8-sheffield-connect-fibre",
+        "content-social-tariffs-guide-add-connect-fibre",
+    }
+    for item in all_items:
+        if item["item_id"] not in connect_fibre_ids or item["status"] == "Done":
+            continue
+        content_rows.append([
+            0,
+            "Connect Fibre affiliate content plan",
+            item.get("target", ""),
+            item["title"],
+            "Joined Awin programme 114602 + SEO/GEO content plan",
+            item["priority_score"],
+            item["status"],
+            item["description"],
+            "Proceed now" if item["item_id"] in {
+                "content-wifi7-broadband-explained-guide",
+                "content-postcode-s17-s8-sheffield-connect-fibre",
+                "content-social-tariffs-guide-add-connect-fibre",
+            } else "Confirm CPA and price-comparison de-duplication treatment before adding a tracked CTA.",
+        ])
     for rank, row in enumerate(content_rows, 1):
         row[0] = rank
     add_sheet(wb, "Page & Content Priority", content_headers, content_rows)
