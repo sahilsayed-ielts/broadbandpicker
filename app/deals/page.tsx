@@ -8,14 +8,17 @@ import PostcodeContextBar from '@/components/PostcodeContextBar'
 import { buildDealListJsonLd, buildOfferCatalogJsonLd } from '@/lib/dealSchema'
 import { JsonLd } from '@/lib/jsonLd'
 import CiteableAnswer from '@/components/CiteableAnswer'
+import { currentMonthYear } from '@/lib/dates'
+
+const MONTH_YEAR = currentMonthYear()
 
 export const metadata: Metadata = {
-  title: 'Best Broadband Deals UK June 2026',
+  title: `Best Broadband Deals UK ${MONTH_YEAR}`,
   description:
     'Compare all UK broadband deals. Filter by speed, price, and contract length. Find the cheapest broadband from BT, Sky, Virgin Media, EE and more.',
   alternates: { canonical: 'https://broadbandpicker.co.uk/deals' },
   openGraph: {
-    title: 'Best Broadband Deals UK June 2026 | BroadbandPicker',
+    title: `Best Broadband Deals UK ${MONTH_YEAR} | BroadbandPicker`,
     description: 'Compare all UK broadband deals — filter by speed, price and contract.',
     url: 'https://broadbandpicker.co.uk/deals',
   },

@@ -6,7 +6,9 @@ import FAQAccordion from '@/components/FAQAccordion'
 import { getProviderBySlug } from '@/data/providers'
 import { getProviderComparisonBySlug, providerComparisons } from '@/data/provider-comparisons'
 import ReviewEvidencePanel from '@/components/ReviewEvidencePanel'
+import AffiliateCTA from '@/components/AffiliateCTA'
 import EeTalkTalkDecisionTool from '@/components/EeTalkTalkDecisionTool'
+import OnThisPageNav from '@/components/OnThisPageNav'
 import { JsonLd } from '@/lib/jsonLd'
 import { articleJsonLd } from '@/lib/siteSchema'
 import CiteableAnswer from '@/components/CiteableAnswer'
@@ -122,6 +124,18 @@ export default async function ProviderComparisonPage({
         <p className="text-sm text-slate-700 leading-relaxed">{comparison.winner}</p>
       </section>
 
+      <OnThisPageNav
+        links={[
+          { href: '#comparison', label: 'At-a-glance comparison' },
+          { href: '#key-differences', label: 'Key differences' },
+          { href: '#how-we-think', label: 'How we think about this' },
+          { href: '#verdict', label: 'Final verdict' },
+          { href: '#faqs', label: 'FAQs' },
+          { href: '#sources', label: 'Sources' },
+        ]}
+        className="mb-10"
+      />
+
       <ReviewEvidencePanel
         providers={[providerA, providerB]}
         heading={`${providerA.name} vs ${providerB.name}: customer-review evidence`}
@@ -131,7 +145,9 @@ export default async function ProviderComparisonPage({
         {providers.map(({ provider, bestFor, maxSpeed, facts }) => (
           <section key={provider.slug} className="rounded-xl border border-slate-200 bg-white p-6">
             <h2 className="text-xl font-bold text-slate-900 mb-1">{provider.name}</h2>
-            <p className="text-sm text-slate-500 mb-4">Best for: {bestFor}</p>
+            <span className="mb-4 inline-block rounded-full bg-sky-100 px-2.5 py-1 text-xs font-semibold text-sky-800">
+              Best for: {bestFor}
+            </span>
             <div className="grid grid-cols-2 gap-3 text-sm">
               <div className="rounded-lg bg-slate-50 p-3">
                 <div className="text-xs text-slate-500 mb-1">From</div>
@@ -170,24 +186,25 @@ export default async function ProviderComparisonPage({
               ))}
             </ul>
             <div className="mt-5 flex flex-wrap gap-3">
+              <AffiliateCTA
+                href={provider.affiliateUrl}
+                providerName={provider.name}
+                providerSlug={provider.slug}
+                placement="comparison_provider_card"
+                size="md"
+              />
               <Link
                 href={`/providers/${provider.slug}`}
-                className="rounded-lg bg-sky-500 px-4 py-2.5 text-sm font-semibold text-white hover:bg-sky-600 transition-colors"
-              >
-                Read {provider.name} review
-              </Link>
-              <Link
-                href="/compare"
                 className="rounded-lg border border-slate-300 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors"
               >
-                Compare all providers
+                Read {provider.name} review
               </Link>
             </div>
           </section>
         ))}
       </div>
 
-      <section className="mb-10">
+      <section id="comparison" className="mb-10 scroll-mt-24">
         <h2 className="text-xl font-bold text-slate-900 mb-4">At-a-Glance Comparison</h2>
         <div
           className="overflow-x-auto rounded-xl border border-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-700 focus-visible:ring-offset-2"
@@ -232,7 +249,7 @@ export default async function ProviderComparisonPage({
 
       {comparison.slug === 'ee-vs-talktalk' ? <EeTalkTalkDecisionTool /> : null}
 
-      <section className="mb-10">
+      <section id="key-differences" className="mb-10 scroll-mt-24">
         <h2 className="text-xl font-bold text-slate-900 mb-4">Key Differences</h2>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {comparison.keyDifferences.map((difference) => (
@@ -244,7 +261,7 @@ export default async function ProviderComparisonPage({
         </div>
       </section>
 
-      <section className="mb-10 rounded-xl border border-slate-200 bg-white p-6">
+      <section id="how-we-think" className="mb-10 scroll-mt-24 rounded-xl border border-slate-200 bg-white p-6">
         <h2 className="text-xl font-bold text-slate-900 mb-3">How We Think About This Matchup</h2>
         <div className="space-y-4 text-sm text-slate-700 leading-relaxed">
           {comparison.intro.map((paragraph) => (
@@ -253,19 +270,40 @@ export default async function ProviderComparisonPage({
         </div>
       </section>
 
-      <section className="mb-10 rounded-xl border border-green-200 bg-green-50 p-6">
+      <section id="verdict" className="mb-10 scroll-mt-24 rounded-xl border border-green-200 bg-green-50 p-6">
         <h2 className="text-xl font-bold text-slate-900 mb-3">Final Verdict</h2>
         <div className="space-y-3 text-sm text-slate-700 leading-relaxed">
           {comparison.verdict.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}
         </div>
+        <div className="mt-5 flex flex-wrap gap-3">
+          <AffiliateCTA
+            href={providerA.affiliateUrl}
+            providerName={providerA.name}
+            providerSlug={providerA.slug}
+            placement="comparison_final_verdict"
+            label={`Check ${providerA.name} at my postcode`}
+            size="md"
+          />
+          <AffiliateCTA
+            href={providerB.affiliateUrl}
+            providerName={providerB.name}
+            providerSlug={providerB.slug}
+            placement="comparison_final_verdict"
+            label={`Check ${providerB.name} at my postcode`}
+            size="md"
+            variant="outline"
+          />
+        </div>
       </section>
 
-      <h2 className="text-xl font-bold text-slate-900 mb-4">Frequently Asked Questions</h2>
-      <FAQAccordion items={comparison.faqs} />
+      <div id="faqs" className="scroll-mt-24">
+        <h2 className="text-xl font-bold text-slate-900 mb-4">Frequently Asked Questions</h2>
+        <FAQAccordion items={comparison.faqs} />
+      </div>
 
-      <section className="mt-10 rounded-xl border border-slate-200 bg-white p-6">
+      <section id="sources" className="mt-10 scroll-mt-24 rounded-xl border border-slate-200 bg-white p-6">
         <h2 className="text-xl font-bold text-slate-900 mb-3">Editorial and Source Notes</h2>
         <p className="mb-4 text-sm text-slate-600">
           We review provider comparisons against the same published methodology used across our

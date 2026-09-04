@@ -5,6 +5,7 @@ import type { Provider } from '@/types'
 import AffiliateCTA from './AffiliateCTA'
 import SpeedBadge from './SpeedBadge'
 import ProviderLogo from './ProviderLogo'
+import SaveDealButton from './SaveDealButton'
 import { trackEvent } from '@/lib/analytics'
 
 interface DealRow {
@@ -138,13 +139,23 @@ export default function DealTable({ deals, showDisclosure = true, compact = fals
                   </td>
                 )}
                 <td className="px-4 py-4">
-                  <AffiliateCTA
-                    href={deal.provider.affiliateUrl}
-                    providerName={deal.provider.name}
-                    providerSlug={deal.provider.slug}
-                    placement="deal_table"
-                    size="sm"
-                  />
+                  <div className="flex items-center gap-1">
+                    <AffiliateCTA
+                      href={deal.provider.affiliateUrl}
+                      providerName={deal.provider.name}
+                      providerSlug={deal.provider.slug}
+                      placement="deal_table"
+                      size="sm"
+                    />
+                    <SaveDealButton
+                      providerSlug={deal.provider.slug}
+                      providerName={deal.provider.name}
+                      packageName={deal.packageName}
+                      monthlyPrice={deal.monthlyPrice}
+                      download={deal.download}
+                      contractLength={deal.contractLength}
+                    />
+                  </div>
                 </td>
               </tr>
             ))}

@@ -5,6 +5,7 @@ import ComparisonTable from '@/components/ComparisonTable'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
 import PostcodeChecker from '@/components/PostcodeChecker'
 import PostcodeContextBar from '@/components/PostcodeContextBar'
+import OnThisPageNav from '@/components/OnThisPageNav'
 import { JsonLd } from '@/lib/jsonLd'
 
 const BASE_URL = 'https://broadbandpicker.co.uk'
@@ -232,18 +233,17 @@ export default function ComparePage() {
           </div>
         </section>
 
-        <nav className="mt-8 rounded-xl border border-slate-200 bg-slate-50 p-5" aria-label="On this page">
-          <p className="font-bold text-slate-900">On this page</p>
-          <div className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-sm">
-            <a href="#comparison-tool" className="font-semibold text-sky-700 underline">Comparison tool</a>
-            <a href="#how-to-compare" className="font-semibold text-sky-700 underline">How to compare</a>
-            <a href="#speed-guide" className="font-semibold text-sky-700 underline">Speed guide</a>
-            <a href="#provider-types" className="font-semibold text-sky-700 underline">Provider types</a>
-            <a href="#switching" className="font-semibold text-sky-700 underline">Switching</a>
-            <a href="#faqs" className="font-semibold text-sky-700 underline">FAQs</a>
-            <a href="#sources" className="font-semibold text-sky-700 underline">Sources</a>
-          </div>
-        </nav>
+        <OnThisPageNav
+          links={[
+            { href: '#comparison-tool', label: 'Comparison tool' },
+            { href: '#how-to-compare', label: 'How to compare' },
+            { href: '#speed-guide', label: 'Speed guide' },
+            { href: '#provider-types', label: 'Provider types' },
+            { href: '#switching', label: 'Switching' },
+            { href: '#faqs', label: 'FAQs' },
+            { href: '#sources', label: 'Sources' },
+          ]}
+        />
 
         <section id="comparison-tool" className="scroll-mt-24 pt-10" aria-labelledby="comparison-heading">
           <h2 id="comparison-heading" className="text-3xl font-bold text-slate-900">

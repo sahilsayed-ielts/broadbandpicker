@@ -59,6 +59,12 @@ Example that kicked this off:
 
 ## Stage 1 — Route the gap to a template
 
+For the standard evidence-led workflow, first run `npm run priority:next` and use the exact URL in
+`docs/page-build-pipeline/canonical-next-priority.json`. The orchestration and selection rules are
+documented in `docs/page-build-priority-workflow.md`. When the selected URL matches the build,
+`build_keyword_mapping.py` carries its GSC/GA4 evidence and page-type UX/GEO requirements into the
+page packet automatically.
+
 `page_type` (or the `gap_slug` prefix) decides which `data/*.ts` file and
 which page template owns the new content. This mapping is fixed by the
 existing site architecture, not guessable per-page:
@@ -74,6 +80,29 @@ existing site architecture, not guessable per-page:
 
 **Automatable**: this is a pure lookup table — a script can route on prefix
 today with no judgement calls.
+
+## Stage 1a — Shared UX/functionality components: use these, don't reinvent them
+
+Every P0/P1 in a page packet's `orchestrated_ux_geo_requirements` (sourced from
+`docs/home page UX/page-type-ux-scan.json`, keyed by the same `page_type` as
+Stage 1's routing table) maps to a component that already exists. Building a
+bespoke equivalent instead of importing these is a defect, not a style choice —
+it re-creates the exact gap the requirement exists to close, in a
+slightly-different, untested way.
+
+| Requirement (as it appears in `recommendations[].feature`) | Component / helper | Applies to |
+|---|---|---|
+| Current month in title | `currentMonthYear()` from `lib/dates.ts` | `deals_hub`, `provider_deals`, any dated hub title |
+| Concise answer / verdict block up top | `<CiteableAnswer>` (`components/CiteableAnswer.tsx`) | every content page; check the template doesn't already have an equivalent "quick answer" section (`PrioritySeoPage` and `/compare` do) before adding a second one |
+| On-this-page jump links | `<OnThisPageNav links={[...]} />` (`components/OnThisPageNav.tsx`) — give each linked `<h2>`/`<section>` a matching `id` and `scroll-mt-24`; renders nothing under 3 links | any page with more than ~4 H2 sections (`guide`, `provider_vs`, `provider_review`, `research`) |
+| Filter controls / sort / deal count | `<DealsClient allDeals={...} />` (`components/DealsClient.tsx`, wraps `StickyFilterBar` + `DealTable`) | any new page listing more than a handful of deals — do not render a bare `<DealTable>` on a new deals-listing page, use `DealsClient` so filtering and sorting come for free |
+| Badges / chips (Best value, Fastest) | `DealTable` computes these automatically from the row set (cheapest/fastest/best-rated) — no extra work needed on a deals list. For a provider-vs page, this is **not** a single "Winner" badge (this site's `winner` copy is deliberately conditional, e.g. "no universal winner" — see the Guardrails section); use a `bestForA`/`bestForB`-driven "Best for: {x}" chip on each provider's snapshot card instead |
+| Save / shortlist a deal | `<SaveDealButton providerSlug=... packageName=... .../>` (`components/SaveDealButton.tsx`, backed by `lib/savedDeals.ts`, localStorage only) next to any Get Deal CTA in a deal list; the button already sits inside `DealTable`, so anything built on `DealsClient`/`DealTable` gets it automatically | any new deal-listing component |
+| Author / reviewed-by byline | Plain "Reviewed by BroadbandPicker editorial team" text with a real reviewed date is sufficient (matches `has_author_byline`); do not fabricate a named individual reviewer | `provider_review`, `provider_vs`, `guide`, `research` |
+| FAQPage schema + visible FAQ | `<FAQAccordion items={...} />` + a matching `FAQPage` JSON-LD block (see any existing template) | most content page types |
+
+**Automatable**: this table is static — a script can annotate a page packet
+with "use component X" the same way Stage 1 annotates it with a template path.
 
 ## Stage 2 — Prerequisite check (this is what nearly blocked today's page)
 
@@ -110,6 +139,12 @@ before compilation. It records the primary keyword, at least four mapped
 secondary queries, three or more current SERP competitors, People Also Ask
 questions, AI Overview observations, primary and neutral sources, proposed
 sections/internal links/schema and a ranking-evidence-based minimum depth.
+It also records observed SERP features, the intent-led content format, three
+title/meta candidates, an inbound/outbound internal-link plan, evidence-led
+schema eligibility and at least one information-gain asset that is genuinely
+useful beyond summarising ranking competitors. When the weekly SEO intelligence
+report contains the URL, its real GSC queries, impressions, CTR and position are
+the first-party optimisation brief.
 The script validates this file against the current slug and rendered page;
 missing research, thin mapping or insufficient secondary-query coverage stops
 deployment.
@@ -335,26 +370,35 @@ decide unattended.
 **Automatable in full** — this whole stage is deterministic pass/fail and
 should gate everything after it.
 
-### Mandatory experience and measurement gate for every future page
+### Intent-led experience and measurement gate for every future page
 
-No future page is content-only. Before Stage 6 can pass, it must include:
+No future page is allowed to be generic copy. Before Stage 6 can pass, it must include:
 
-1. **Interactive comparison functionality** tailored to the page intent, comparing at least two
-   meaningful options, scenarios, providers, prices, speeds, eligibility outcomes or actions,
-   alongside a useful crawlable explanation for search and answer engines.
+1. **A task-appropriate decision aid.** Build interactive comparison functionality only where it
+   materially improves the reader's task. A sourced local evidence block, static comparison table,
+   checklist or worked example is preferable when interaction would be decorative. Interactive
+   experiences retain a useful crawlable explanation for search and answer engines.
 2. **Responsive UX** verified at mobile, tablet and desktop widths. Controls remain touch-friendly,
    stacked content keeps its hierarchy and wide tables scroll inside a labelled region rather than
    causing page-level overflow.
 3. **Accessibility controls** using semantic HTML, keyboard operation, programmatic labels,
    visible focus, non-colour state cues, status announcements where appropriate and reduced-motion
    handling. The comparison journey must be completable without a mouse.
-4. **GA4 event tracking** through `trackEvent` in `src/lib/analytics.ts`, with at least three stable
-   snake_case events covering interaction start, comparison/decision completion and the main
-   conversion CTA. Parameters must not contain postcodes or other personal information.
+4. **GA4 event tracking** through the site's analytics helper. Interactive pages use at least three
+   stable snake_case events covering interaction start, completion and the main conversion CTA.
+   Static pages retain the meaningful commercial CTA event and do not invent low-value events.
+   Parameters must not contain postcodes or other personal information.
+5. **Affiliate attribution** through the shared `AffiliateCTA` component. Every commercial CTA
+   supplies a stable, descriptive `placement` value. The component adds Awin campaign and ClickRef
+   fields for placement, source page, provider, content type, CTA label and tracking-schema version,
+   and sends the same non-personal dimensions with `outbound_provider_click` in GA4. Never create
+   per-user ClickRefs, place postcodes in affiliate URLs or hand-edit an Awin tracking URL in a page.
+   Use `python3 scripts/awin_sync.py generate-link` for new advertiser links and
+   `npm run awin:performance` for the page/placement/provider conversion report.
 
-The research packet documents these under `interactive_comparison`, `responsive_requirements`,
-`accessibility_requirements` and `ga4_events`. The script rejects a page whose research packet
-omits any of these requirements.
+The research packet documents these under `interaction_decision`, optional
+`interactive_comparison`, `responsive_requirements`, `accessibility_requirements` and `ga4_events`.
+The script rejects a page whose research packet omits any applicable requirement.
 
 ## Stage 7 — Reconcile the keyword-mapping workbook
 
@@ -381,6 +425,15 @@ automatically after a successful Stage 6.**
 6. Regenerate both tracker workbooks, synchronise the existing Google Sheet, mark the exact route
    built/live only after production verification, apply completed-page formatting and prepare the
    next active priority. A production run without the Google Sheet ID is rejected.
+7. Add the verified URL to `docs/page-build-pipeline/post-publication-review-queue.json` with
+   evidence checks due 7, 28, 56 and 90 days after launch. Review GSC query coverage, impressions,
+   CTR and position alongside GA4 engagement, affiliate clicks and attributable AI/LLM referrals;
+   do not rewrite a successful page merely because a calendar reminder fired.
+8. Run `scripts/record_content_change.py` after production verification. It creates a dated GA4
+   Reporting Data Annotation, captures the page's pre-release GA4 and GSC baseline in
+   `docs/page-build-pipeline/content-change-measurement-log.json`, and links the change ID to the
+   post-publication review queue. Search Console has no native annotation API, so this dated ledger
+   is the canonical GSC change marker used for the 7, 28, 56 and 90-day comparisons.
 
 For the standard unattended priority-ordered run, use `npm run page:build`.
 The runner processes up to five pages, one at a time, and requires every
@@ -388,7 +441,9 @@ research and validation gate to pass. For each page it deploys to Vercel
 production, verifies the exact live URL, checkpoints the workbook and existing
 Google Sheet, then recalculates the next priority before continuing. It stops
 on the first blocked or failed page, so previously completed pages remain
-accurately recorded. Use `npm run page:build:all` only for an uncapped run. To
+accurately recorded. Every verified deployment also creates the GA4 annotation
+and GSC measurement baseline described above. Use `npm run page:build:all` only
+for an uncapped run. To
 choose another cap, invoke the Python command with `--build-all-priority
 --max-priority-pages <count>`; `0` means every remaining active page.
 
@@ -406,6 +461,14 @@ choose another cap, invoke the Python command with `--build-all-priority
   of the deploy** — isolate it and keep going.
 - **Always flag estimated stats (coverage %, disputed review scores)** in
   both the shipped copy and the handoff summary, with the source and date.
+- **A competitor-prevalence recommendation is a prompt to solve the underlying
+  problem, not a literal spec.** "Add a Winner badge" from the UX/GEO scan
+  became a per-provider "Best for: {x}" chip on `providers/compare/[slug]`
+  because the site's verdict copy is deliberately conditional ("no universal
+  winner" is a real, common outcome) — a forced single-winner badge would
+  have contradicted the page's own text. Check what the recommendation is
+  actually protecting (a visual scan cue, in that case) before implementing
+  it exactly as the competitor benchmark phrased it.
 
 ## Worked example: today's run, condensed
 

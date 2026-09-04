@@ -9,6 +9,7 @@ import SocialProofCounter from '@/components/SocialProofCounter'
 import ScrollReveal from '@/components/ScrollReveal'
 import FAQAccordion from '@/components/FAQAccordion'
 import HomepageSpeedNeed from '@/components/HomepageSpeedNeed'
+import CiteableAnswer from '@/components/CiteableAnswer'
 import { providers, getTopDeals, providerDatasetUpdatedDate } from '@/data/providers'
 import { JsonLd } from '@/lib/jsonLd'
 import { HOMEPAGE_UPDATED, organizationRef, websiteRef } from '@/lib/siteSchema'
@@ -226,6 +227,16 @@ export default function HomePage() {
       </section>
 
       <HomepageLogoRail providers={providers} />
+
+      {/* Quotable answer for AI Overviews and quick human scanning */}
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
+        <CiteableAnswer>
+          Enter your postcode, because broadband speed and price change street by street. We
+          compare {providers.length} UK providers on live price, speed and contract length for
+          that address, not a national &ldquo;from&rdquo; price. There is no single best deal;
+          the right one depends on what your household actually needs and what can reach your door.
+        </CiteableAnswer>
+      </section>
 
       {/* Featured deals */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

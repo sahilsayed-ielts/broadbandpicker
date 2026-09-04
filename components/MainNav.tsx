@@ -68,6 +68,7 @@ export default function MainNav() {
     <nav className="hidden lg:flex items-center gap-6 text-sm font-medium" aria-label="Main navigation">
       <Link href="/compare" className="text-slate-600 hover:text-sky-600 transition-colors">Compare</Link>
       <Link href="/deals" className="text-slate-600 hover:text-sky-600 transition-colors">Deals</Link>
+      <Link href="/saved-deals" className="text-slate-600 hover:text-sky-600 transition-colors">Saved</Link>
 
       {/* Providers */}
       <div className="group relative">

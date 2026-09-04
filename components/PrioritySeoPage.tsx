@@ -1,9 +1,11 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
+import OnThisPageNav from '@/components/OnThisPageNav'
 import { priorityPages, type PriorityPageKey } from '@/data/priority-pages'
 import { JsonLd } from '@/lib/jsonLd'
 import { editorialAuthor, publisherOrganization } from '@/lib/siteSchema'
+import { slugify } from '@/lib/extractHeadings'
 
 const BASE = 'https://broadbandpicker.co.uk'
 
@@ -21,6 +23,12 @@ export function priorityMetadata(key: PriorityPageKey): Metadata {
 export default function PrioritySeoPage({ pageKey }: { pageKey: PriorityPageKey }) {
   const page = priorityPages[pageKey]
   const reviewedDate = new Date(`${page.updated}T00:00:00Z`).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' })
+  const onThisPageLinks = [
+    ...(page.table ? [{ href: '#comparison', label: page.table.title }] : []),
+    ...page.sections.map((section) => ({ href: `#${slugify(section.heading)}`, label: section.heading })),
+    { href: '#faqs', label: 'FAQs' },
+    { href: '#sources', label: 'Sources' },
+  ]
   const jsonLd = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -72,6 +80,8 @@ export default function PrioritySeoPage({ pageKey }: { pageKey: PriorityPageKey 
           <p className="mt-3 leading-relaxed text-slate-700">{page.quickAnswer}</p>
         </section>
 
+        <OnThisPageNav links={onThisPageLinks} />
+
         {pageKey === 'satisfaction' && (
           <p className="mt-5 text-sm text-slate-600">For the current provider-by-provider conclusion, read our <Link href="/research/broadband-customer-service-rankings-uk" className="text-sky-700 underline">best customer service broadband provider ranking</Link>.</p>
         )}
@@ -96,15 +106,29 @@ export default function PrioritySeoPage({ pageKey }: { pageKey: PriorityPageKey 
           </nav>
         )}
 
+        {pageKey === 'sheffield' && (
+          <nav className="mt-6 rounded-xl border border-slate-200 bg-slate-50 p-5" aria-label="Sheffield postcode district and provider guides">
+            <p className="font-bold text-slate-900">Sheffield local checks</p>
+            <p className="mt-2 text-sm leading-6 text-slate-600">
+              Start with the <Link href="/postcode/s1" className="font-semibold text-sky-700 underline">S1 broadband deals and coverage guide</Link> for Sheffield city centre, or read our <Link href="/providers/pine-media" className="font-semibold text-sky-700 underline">Pine Media review</Link> before comparing the local network with services using Openreach, CityFibre or Virgin Media.
+            </p>
+          </nav>
+        )}
+
         {pageKey === 'london' && (
           <nav className="mt-6 rounded-xl border border-slate-200 bg-slate-50 p-5" aria-label="London postcode district guides">
-            <p className="font-bold text-slate-900">Romford postcode district guide</p>
+            <p className="font-bold text-slate-900">London postcode district guides</p>
             <p className="mt-2 text-sm leading-6 text-slate-600">
               London-wide availability does not show what one property can order. Use the{' '}
               <Link href="/postcode/rm1" className="font-semibold text-sky-700 underline">
                 RM1 broadband deals and coverage guide
               </Link>{' '}
               for district coverage, household speed choices and complete-address checks in Romford.
+              {' '}For north-west London, our{' '}
+              <Link href="/postcode/ha1" className="font-semibold text-sky-700 underline">
+                HA1 broadband deals and coverage guide
+              </Link>{' '}
+              compares Harrow district evidence with exact-address checks.
             </p>
           </nav>
         )}
@@ -150,13 +174,29 @@ export default function PrioritySeoPage({ pageKey }: { pageKey: PriorityPageKey 
               <Link href="/postcode/bs1" className="font-semibold text-sky-700 underline">
                 BS1 broadband deals guide
               </Link>{' '}
-              compares district coverage with address-level checks for flats and homes.
+              compares district coverage with address-level checks for flats and homes. For Newcastle city centre, the{' '}
+              <Link href="/postcode/ne1" className="font-semibold text-sky-700 underline">
+                NE1 broadband deals guide
+              </Link>{' '}
+              adds local coverage, flat checks and total-contract comparisons. For Brighton, the{' '}
+              <Link href="/postcode/bn1" className="font-semibold text-sky-700 underline">
+                BN1 broadband deals guide
+              </Link>{' '}
+              separates district coverage from complete-address availability for flats, students and homes. For Guildford, the{' '}
+              <Link href="/postcode/gu1" className="font-semibold text-sky-700 underline">
+                GU1 broadband deals guide
+              </Link>{' '}
+              covers district evidence, contract costs and address-limited multi-gigabit service. For Harrow, the{' '}
+              <Link href="/postcode/ha1" className="font-semibold text-sky-700 underline">
+                HA1 broadband deals guide
+              </Link>{' '}
+              adds district coverage, named local networks and complete-address checks.
             </p>
           </nav>
         )}
 
         {page.table && (
-          <section className="mt-12" aria-labelledby="comparison">
+          <section className="mt-12 scroll-mt-24" aria-labelledby="comparison">
             <h2 id="comparison" className="text-2xl font-bold text-slate-900">{page.table.title}</h2>
             <div className="overflow-x-auto border border-slate-200 rounded-xl mt-5">
               <table className="w-full text-sm">
@@ -169,7 +209,7 @@ export default function PrioritySeoPage({ pageKey }: { pageKey: PriorityPageKey 
 
         <div className="mt-12 space-y-10 text-slate-700 leading-relaxed">
           {page.sections.map(section => (
-            <section key={section.heading}>
+            <section key={section.heading} id={slugify(section.heading)} className="scroll-mt-24">
               <h2 className="text-2xl font-bold text-slate-900">{section.heading}</h2>
               {section.paragraphs.map(paragraph => <p key={paragraph} className="mt-3">{paragraph}</p>)}
               {section.bullets && <ul className="list-disc pl-6 mt-4 space-y-2">{section.bullets.map(item => <li key={item}>{item}</li>)}</ul>}
@@ -183,12 +223,12 @@ export default function PrioritySeoPage({ pageKey }: { pageKey: PriorityPageKey 
           <Link href="/compare" className="inline-block mt-5 bg-sky-500 hover:bg-sky-600 rounded-lg px-5 py-3 font-bold">Compare broadband options</Link>
         </section>
 
-        <section className="mt-12" aria-labelledby="faqs">
+        <section className="mt-12 scroll-mt-24" aria-labelledby="faqs">
           <h2 id="faqs" className="text-2xl font-bold text-slate-900">Frequently asked questions</h2>
           <div className="mt-5 divide-y divide-slate-200 border-y border-slate-200">{page.faqs.map(faq => <details key={faq.question} className="py-5 group"><summary className="font-bold text-slate-900 cursor-pointer list-none flex justify-between">{faq.question}<span aria-hidden="true">+</span></summary><p className="mt-3 leading-relaxed">{faq.answer}</p></details>)}</div>
         </section>
 
-        <section className="mt-12 border-t border-slate-200 pt-8 text-sm">
+        <section id="sources" className="mt-12 scroll-mt-24 border-t border-slate-200 pt-8 text-sm">
           <h2 className="text-lg font-bold text-slate-900">Sources and methodology</h2>
           <p className="mt-2 text-slate-600">We use official provider pages and primary UK regulatory or government sources. We do not copy competitor rankings. Provider claims are treated as claims and availability-dependent details are not presented as universal facts.</p>
           <ul className="list-disc pl-5 mt-4 space-y-2">{page.sources.map(source => <li key={source.href}><a href={source.href} rel="noopener noreferrer" className="text-sky-700 underline">{source.label}</a>{source.verified && <span className="text-slate-500"> · Verified {new Date(`${source.verified}T00:00:00Z`).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' })}</span>}</li>)}</ul>

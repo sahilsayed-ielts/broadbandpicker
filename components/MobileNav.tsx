@@ -205,6 +205,7 @@ export default function MobileNav() {
             style={{ transitionDelay: open ? '140ms' : '0ms', opacity: open ? 1 : 0, transform: open ? 'translateY(0)' : 'translateY(6px)' }}
           >
             <div className="grid grid-cols-2 gap-1">
+              <Link href="/saved-deals" className="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-500 active:bg-slate-50">Saved deals</Link>
               <Link href="/about" className="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-500 active:bg-slate-50">About</Link>
               <Link href="/contact" className="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-500 active:bg-slate-50">Contact</Link>
               <Link href="/how-we-make-money" className="flex min-h-11 items-center rounded-lg px-3 text-sm text-slate-500 active:bg-slate-50">How we make money</Link>
