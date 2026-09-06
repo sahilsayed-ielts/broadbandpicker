@@ -1,208 +1,652 @@
 {
-  "slug": "postcode/da1",
-  "primary_keyword": "broadband deals in dartford",
+  "slug": "providers/compare",
+  "primary_keyword": "broadband provider comparisons",
   "search_locale": "UK",
+  "keyword_decision": {
+    "chosen_primary": "broadband provider comparisons",
+    "why": "The page is a directory of provider-versus-provider guides. Live UK SERP research on 6 September 2026 shows 'compare broadband providers' and 'broadband provider comparison' are singular head terms owned by all-provider deal aggregators (MoneySavingExpert, Compare the Market, Which?, MoneySuperMarket, Uswitch), which is the transactional shortlisting intent already served by /compare. The plural collection noun 'broadband provider comparisons' matches the directory task, is not contested by those aggregators, and umbrellas the real Search Console queries for this URL, which are all pairwise 'X vs Y broadband' patterns.",
+    "rejected": [
+      {"keyword": "compare broadband providers", "reason": "All-provider deal-tool intent; owned by /compare and by national aggregators."},
+      {"keyword": "broadband provider comparison", "reason": "Same singular head-term intent as above; SERP is deal aggregators plus an AI Overview that ends by recommending Uswitch or MoneySuperMarket."},
+      {"keyword": "broadband providers compared head to head", "reason": "Not a real query; the SERP returned forums, a jobs page and unrelated results with no broadband comparison intent."},
+      {"keyword": "hyperoptic vs vodafone broadband", "reason": "A single noisy GSC row for one matchup we do not have a page for; picking it would misdefine the directory and cannibalise a future dedicated guide."},
+      {"keyword": "yes iwould", "reason": "Malformed GSC row, filtered by the pipeline noise check."}
+    ],
+    "keep_indexed": true,
+    "index_rationale": "The page is a genuine navigation and decision hub with 28 unique internal destinations, an answer-first explanation, a methodology section and an FAQ. It is a legitimate search landing page for the collective head-to-head intent and should stay index,follow with a self-referencing canonical."
+  },
+  "cannibalisation_strategy": {
+    "sibling_url": "https://broadbandpicker.co.uk/compare",
+    "sibling_primary": "compare broadband providers",
+    "boundary": "/compare is the all-provider shortlisting tool: an interactive ComparisonTable across every provider, a postcode checker, and market-wide how-to-compare content for readers who have not shortlisted. /providers/compare is the directory of head-to-head guides for readers who have already narrowed to two named providers and want a direct verdict.",
+    "controls": [
+      "Different primary keyword: 'broadband provider comparisons' (collection) versus 'compare broadband providers' (tool).",
+      "Different metaTitle and H1: 'Broadband Provider Comparisons: Every UK Head-to-Head' versus 'Compare Broadband Providers in the UK'.",
+      "No interactive all-provider ComparisonTable on /providers/compare; that component stays unique to /compare.",
+      "/providers/compare defers un-shortlisted readers to /compare in an explicit 'Which page should I use?' section and in the pair finder's unmatched result.",
+      "Reciprocal internal links use intent-specific anchors: /compare links here as 'Provider head-to-head comparisons'; this page links to /compare as 'all-provider comparison'.",
+      "Distinct schema focus: /providers/compare uses CollectionPage plus an ItemList of the 28 guides; /compare uses CollectionPage plus an ItemList of providers."
+    ]
+  },
+  "performance_brief": {
+    "source": "docs/weekly-seo-intelligence.json",
+    "clicks": 0.0,
+    "impressions": 41.0,
+    "ctr": 0.0,
+    "position": 12.75609756097561,
+    "category": "Quick ranking win",
+    "top_queries": [
+      "hyperoptic vs vodafone broadband",
+      "compare landline and broadband packages",
+      "vodafone vs talktalk broadband",
+      "virgin media vs sky vs vodafone comparison"
+    ]
+  },
   "secondary_keywords": [
     {
-      "keyword": "best broadband deals in Dartford",
-      "intent": "Local commercial comparison",
-      "page_slot": "title, introduction and deal table",
-      "coverage_note": "Answer with the shortlist, total-cost checks and address-level qualification."
+      "keyword": "compare broadband providers head to head",
+      "intent": "Navigational comparison",
+      "page_slot": "H1, 'Which page should I use?' section, directory intro",
+      "coverage_note": "The H1 says 'Every UK Head-to-Head' and the which-page section frames this as the head-to-head route, distinct from the all-provider tool."
     },
     {
-      "keyword": "broadband providers in Dartford",
-      "intent": "Local provider research",
-      "page_slot": "providers section and FAQ",
-      "coverage_note": "Name the major providers serving the wider DA1 market and explain network differences."
+      "keyword": "broadband provider vs provider",
+      "intent": "Navigational comparison",
+      "page_slot": "Directory group headings, pair finder, coverage map",
+      "coverage_note": "Every group heading and card is 'Provider A vs Provider B'; the pair finder is explicitly a provider-versus-provider picker."
     },
     {
-      "keyword": "full fibre broadband Dartford",
-      "intent": "Local technology research",
-      "page_slot": "coverage summary and full-fibre section",
-      "coverage_note": "Use Ofcom-derived DA1 gigabit availability and explain why the exact address still matters."
+      "keyword": "which is better bt or sky broadband",
+      "intent": "Comparison decision",
+      "page_slot": "FAQ 'Which is better, BT or Sky broadband?', directory card, pair finder result",
+      "coverage_note": "Answered in the FAQ with the Openreach parity point and the deciding factors, linking to the dedicated guide."
     },
     {
-      "keyword": "fastest broadband in Dartford",
-      "intent": "Local commercial research",
-      "page_slot": "provider cards, speed planner and FAQ",
-      "coverage_note": "Separate marketed package speed from area-level availability and measured performance."
+      "keyword": "compare two broadband providers",
+      "intent": "Navigational comparison",
+      "page_slot": "Pair finder ('Choose two providers'), coverage map, /compare deferral",
+      "coverage_note": "The pair finder resolves any two providers to a guide or the nearest one; the coverage map explains what to do when no single guide exists."
     },
     {
-      "keyword": "cheap broadband Dartford",
-      "intent": "Price-led local commercial",
-      "page_slot": "deal table and best-deal checklist",
-      "coverage_note": "Compare total contract cost, setup fees, price rises and out-of-contract pricing."
+      "keyword": "broadband head to head comparison",
+      "intent": "Navigational comparison",
+      "page_slot": "H1, byline ('head-to-head guides'), directory",
+      "coverage_note": "Repeated as the page's framing term throughout the header and directory."
     },
     {
-      "keyword": "DA1 broadband coverage",
-      "intent": "Local availability research",
-      "page_slot": "coverage summary and availability section",
-      "coverage_note": "Give the Ofcom-derived gigabit, ultrafast and superfast percentages with limitations."
+      "keyword": "hyperoptic vs vodafone broadband",
+      "intent": "Pairwise comparison, no dedicated page",
+      "page_slot": "Head-to-head coverage map",
+      "coverage_note": "Named directly in the coverage map as a common search without a dedicated guide, with the nearest guides (Hyperoptic vs Community Fibre, BT vs Hyperoptic) and the /compare fallback."
     }
   ],
   "serp_competitors": [
     {
-      "url": "https://www.broadbandchoice.co.uk/compare/broadband/dartford/",
-      "title": "Best Broadband Deals in Dartford | Providers & Speeds",
-      "observed_structure": "Address-led comparison, large deal inventory, sortable deal cards, local choosing guide and concise FAQs.",
-      "approx_word_count": 1200,
-      "content_gap_to_improve": "Provide clearer regulatory sourcing, DA1-specific percentages and a practical household speed recommendation.",
-      "useful_ux_patterns": "Immediate package comparison, visible total-cost explanation and saved-deal concept.",
-      "useful_ui_patterns": "Scannable deal cards with speed, contract, setup cost and monthly price.",
-      "interactive_or_functional_elements": "Postcode entry, filters, sorting and saved deals.",
-      "trust_signals": "Daily update claim, cost methodology and availability warning.",
-      "citation_patterns": "Limited visible primary-source citation in the scraped result."
+      "url": "https://www.choose.co.uk/broadband/guide/sky-vs-plusnet/",
+      "title": "Sky vs Plusnet Broadband (representative of Choose's 40-plus X-vs-Y guide library)",
+      "observed_structure": "Choose publishes a large set of individual provider-versus-provider guides at /broadband/guide/<a>-vs-<b>/ (BT vs Virgin Media, Sky vs Virgin Media, EE vs BT, Hyperoptic vs Sky, Community Fibre vs Hyperoptic and more). Each guide has a dated founder byline, a quick verdict box, an at-a-glance table, then Price, Packages, Speed, Router, Call plans, TV and Customer service sections with per-section winner lines. There is no directory or index page that collects these guides; they are reached only from search or in-guide cross-links.",
+      "approx_word_count": 2600,
+      "content_gap_to_improve": "No hub. A reader who wants 'the Sky vs Plusnet guide' can find it, but a reader who wants 'which provider comparisons exist' or 'the nearest guide to Hyperoptic vs Vodafone' has nowhere to go. No network-based grouping and no pair finder. Some pricing and Ofcom figures on individual guides are several months stale.",
+      "useful_ux_patterns": "Quick verdict before detail, at-a-glance table, per-section winner lines, dated author byline, question-shaped closing verdict.",
+      "useful_ui_patterns": "Two-column comparison tables, in-guide related-comparison links, category chips.",
+      "interactive_or_functional_elements": "Postcode availability checker and live deal widgets inside each guide. No pair picker, no directory filter.",
+      "trust_signals": "Named author with role and photo, last-updated date, independence statement, links to provider reviews and Ofcom.",
+      "citation_patterns": "Inline winner labels and Trustpilot and Ofcom figures, with limited claim-level source URLs."
     },
     {
-      "url": "https://homemove.com/broadband/dartford/",
-      "title": "Dartford Broadband | Compare by Postcode",
-      "observed_structure": "Local answer-first introduction, street-level examples, provider list, move-in framing and postcode comparison CTA.",
-      "approx_word_count": 900,
-      "content_gap_to_improve": "Replace anecdotal location examples with current DA1 regulator-derived coverage and a transparent comparison method.",
-      "useful_ux_patterns": "Explains early that availability changes street by street and directs the reader to an exact check.",
-      "useful_ui_patterns": "Short hero, clear comparison CTA and trust badges.",
-      "interactive_or_functional_elements": "Postcode-led comparison flow.",
-      "trust_signals": "Media references and an explicit local availability caveat.",
-      "citation_patterns": "Relies mainly on company statements rather than close primary-source citations."
+      "url": "https://fairinternetreport.com/compare/Hyperoptic-vs-Vodafone-Broadband",
+      "title": "Hyperoptic Broadband vs Vodafone Compared (FairInternetReport)",
+      "observed_structure": "FairInternetReport generates a comparison page for essentially every provider pair at /compare/<A>-vs-<B>-Broadband. It ranks in the Google UK organic results for 'hyperoptic vs vodafone broadband'. Pages lead with stat tiles (speed, price, satisfaction), a short data-driven summary, then side-by-side metric tables and a note on availability. The site treats each pairing as a first-class page rather than an editorial choice.",
+      "approx_word_count": 700,
+      "content_gap_to_improve": "Thin and templated, with no editorial verdict, no methodology visible on the page and no dated sources. Coverage is total but shallow, and there is no way to reach a broader shortlist or a postcode check. It proves the demand for a full pairwise coverage set but does not answer the decision well.",
+      "useful_ux_patterns": "Stat tiles above the fold, a one-line data summary, complete pairwise coverage so no matchup is a dead end.",
+      "useful_ui_patterns": "Metric comparison tables, provider logos, 'compare other providers' cross-links.",
+      "interactive_or_functional_elements": "Links to other pairings; no picker or postcode tool observed.",
+      "trust_signals": "Aggregated third-party speed and satisfaction data cited generically; no named author or review date on the comparison page.",
+      "citation_patterns": "General data attribution rather than claim-level citations."
     },
     {
-      "url": "https://broadbandin.co.uk/internet/eng/dartford/",
-      "title": "Dartford Broadband Deals: 100 Mbps to Gigabit",
-      "observed_structure": "Local market overview followed by a comparison engine with provider, speed, broadband type, price and contract filters.",
-      "approx_word_count": 1000,
-      "content_gap_to_improve": "Add verifiable Ofcom coverage figures, switching guidance and clearer evidence notes.",
-      "useful_ux_patterns": "Moves from a local summary into task-focused comparison controls.",
-      "useful_ui_patterns": "Filters reflect the actual decision criteria used by broadband shoppers.",
-      "interactive_or_functional_elements": "Provider, speed, type, price and contract filtering.",
-      "trust_signals": "Local framing and explicit comparison criteria.",
-      "citation_patterns": "Search result did not expose close citations for local claims."
-    },
-    {
-      "url": "https://www.moneysavingexpert.com/compare-broadband-deals/",
-      "title": "Compare Broadband Deals",
-      "observed_structure": "Postcode-first journey, address refinement, eligibility states and provider comparison with explanatory consumer guidance.",
-      "approx_word_count": 2000,
-      "content_gap_to_improve": "Offer a faster crawlable DA1 answer before asking the reader to enter a full address.",
-      "useful_ux_patterns": "Progressively refines postcode to address and explains when results are approximate.",
-      "useful_ui_patterns": "Strong form hierarchy, clear status messages and disabled states until sufficient information is supplied.",
-      "interactive_or_functional_elements": "Postcode and address lookup, filters and social-tariff inclusion.",
-      "trust_signals": "Comparison-scope disclosure and consumer-focused methodology.",
-      "citation_patterns": "Method and comparison scope are visible near the tool."
+      "url": "https://broadbandswitch.uk/",
+      "title": "BroadbandSwitch.uk (Compare Broadband Deals hub with head-to-head pages under Learn)",
+      "observed_structure": "Postcode-led deal comparison homepage ('Compare Broadband Deals', 'Enter your postcode to instantly search over 468 deals'). Head-to-head pages (BT vs Sky, Sky vs Virgin Media, Hyperoptic vs Community Fibre) sit under the 'Learn' navigation section, linked but not surfaced as a directory on the homepage. Deal cards show monthly price, setup fee, confirmed mid-contract rises, typical speeds, contract length and a Total Contract Value figure.",
+      "approx_word_count": 1800,
+      "content_gap_to_improve": "The head-to-head pages are buried under 'Learn' with no dedicated index, no grouping and no pair finder. Strong on named accountability and Ofcom citation, weaker on helping a reader navigate to the right matchup or handle a matchup that has no page.",
+      "useful_ux_patterns": "Named editor and reviewer with photos and a stated 90-day review cycle, a persistent 'Live · Updated' date, a worked Total Contract Value example, a clear privacy note that postcode data stays device-local.",
+      "useful_ui_patterns": "Deal cards with a Total Contract Value metric, expandable mega-menu navigation, numbered Ofcom reference list with publication dates.",
+      "interactive_or_functional_elements": "Postcode checker, filter and sort on deal results. No provider-pair picker.",
+      "trust_signals": "Dr Alex J. Martin-Smith (Lead Editor) and Adrian James (Reviewer) with LinkedIn links, 90-day review cycle, 'How we rank deals', methodology and affiliate-disclosure links, dated Ofcom references.",
+      "citation_patterns": "Direct Ofcom citations with publication dates, for example 'Ofcom, Pricing trends for communications services, 26 February 2026', linking to Ofcom URLs."
     }
   ],
   "ai_overview": {
     "checked": true,
-    "present": false,
-    "observation": "The UK web search snapshot for the exact local query did not expose an AI Overview. The page is therefore structured for direct citation without claiming that an overview currently appears.",
-    "cited_sources": []
+    "present": true,
+    "observation": "SerpApi Google UK on 6 September 2026. 'compare broadband providers' and 'broadband provider comparison' both returned an AI Overview built around network type (Openreach, Virgin Media, altnets), a 'top choices by priority' list, and a closing line to check availability with a comparison tool like Uswitch or MoneySuperMarket; it cited Compare the Market, Confused, MoneySuperMarket, Uswitch and YouTube. The pairwise query 'hyperoptic vs vodafone broadband' returned a focused head-to-head AI Overview citing reddit.com, broadbandswitch.uk, uswitch.com, choose.co.uk, broadbandchoices.co.uk and comparefibre.co.uk. 'broadband providers compared head to head' and 'virgin media vs sky vs vodafone comparison' returned collapsed AI Overviews requiring a follow-up token. BroadbandPicker was cited in none.",
+    "cited_sources": [
+      "comparethemarket.com",
+      "confused.com",
+      "moneysupermarket.com",
+      "uswitch.com",
+      "reddit.com",
+      "broadbandswitch.uk",
+      "choose.co.uk",
+      "broadbandchoices.co.uk",
+      "comparefibre.co.uk"
+    ]
+  },
+  "serp_features": {
+    "checked": true,
+    "snippets": true,
+    "people_also_ask": true,
+    "local_results": false,
+    "video": true,
+    "tools": true,
+    "comparison_tables": true,
+    "forums": true,
+    "ai_answers": true,
+    "format_implication": "Two distinct SERPs sit behind this page. The singular 'compare providers' head term is a deal-tool SERP owned by national aggregators plus an AI Overview, which is /compare territory. The pairwise 'X vs Y broadband' SERP is editorial guides plus Reddit plus an AI Overview, which is this directory's territory. The winning format for /providers/compare is a navigational hub: an answer-first explanation of what the directory does, question-shaped and matchup-shaped headings, a crawlable grouped list of every guide, and a way to handle a matchup that has no page."
   },
   "people_also_ask": [
-    "What is the average broadband speed in Dartford?",
-    "Can I get full fibre broadband in Dartford?",
-    "Which broadband providers are available in DA1?",
-    "What is the cheapest broadband deal in Dartford?",
-    "Can I get broadband in Dartford with no upfront cost?"
+    "Who is the best broadband supplier in the UK?",
+    "Which is better, BT or Sky broadband?",
+    "Is EE or Vodafone better for broadband?",
+    "Which broadband provider has the most complaints?",
+    "Which broadband provider has the least complaints?",
+    "Who is the most reliable broadband provider in the UK?",
+    "Is Hyperoptic better than Vodafone?",
+    "Is it worth switching from Virgin to Sky?"
   ],
-  "sources": [
+  "design_benchmarks": {
+    "uk_seo_leaders": [
+      {
+        "url": "https://www.choose.co.uk/broadband/guide/",
+        "title": "Choose.co.uk broadband guides and its 40-plus X-vs-Y comparison library",
+        "country": "United Kingdom",
+        "selection_basis": "Choose ranks on page one for most 'X vs Y broadband' queries and is cited by the AI Overview for head-to-head queries, so its comparison content is the UK reference set.",
+        "seo_geo_evidence": "Each comparison guide carries a dated founder byline, a quick verdict, an at-a-glance table and question-shaped headings, which is the pattern the head-to-head AI Overview draws from.",
+        "observed_layout": "Individual guides only: quick verdict, at-a-glance table, Price, Packages, Speed, Router, Call plans, TV, Customer service, closing verdict. The guides index is a reverse-chronological card list mixing comparisons with unrelated guides; there is no comparison-only directory.",
+        "ux_patterns": "Quick verdict first, at-a-glance table, per-section winners, dated byline, in-guide related-comparison links.",
+        "ui_patterns": "Two-column comparison tables, category chips, related-guide strip, author card.",
+        "transferable_pattern": "Give every card a one-line statement of the specific decision the guide settles, so the directory is scannable and each entry is quotable.",
+        "copying_risk": "Choose picks an overall winner and mixes stale figures with deal widgets. Adopt the scannable verdict framing, not a forced single winner or its numbers."
+      },
+      {
+        "url": "https://fairinternetreport.com/compare/Hyperoptic-vs-Vodafone-Broadband",
+        "title": "FairInternetReport programmatic provider-vs-provider comparison pages",
+        "country": "United Kingdom",
+        "selection_basis": "Ranks in the Google UK organic top three for 'hyperoptic vs vodafone broadband', a matchup with no dedicated editorial guide anywhere, showing demand for total pairwise coverage.",
+        "seo_geo_evidence": "Every provider pair has its own indexable URL at /compare/<A>-vs-<B>-Broadband, so no matchup search is a dead end.",
+        "observed_layout": "Stat tiles (speed, price, satisfaction), a short data summary, side-by-side metric tables, an availability note, and cross-links to other pairings.",
+        "ux_patterns": "Complete pairwise coverage, stat tiles above the fold, 'compare other providers' cross-links.",
+        "ui_patterns": "Metric comparison tables, provider logos, compact cross-link lists.",
+        "transferable_pattern": "Treat every plausible matchup as a first-class destination: where a dedicated guide does not exist, still give the reader a specific, useful next page rather than a 404 or a generic hub.",
+        "copying_risk": "The pages are thin, undated and have no editorial verdict or methodology. Adopt the coverage principle, not the templated shallowness."
+      },
+      {
+        "url": "https://broadbandswitch.uk/",
+        "title": "BroadbandSwitch.uk deal hub with head-to-head pages",
+        "country": "United Kingdom",
+        "selection_basis": "Cited by the AI Overview for the pairwise 'hyperoptic vs vodafone' query and strong on the trust and citation signals that correlate with GEO retrieval.",
+        "seo_geo_evidence": "Named editor and reviewer with a stated 90-day review cycle, a persistent 'Live · Updated' date, and numbered Ofcom references with publication dates on every page.",
+        "observed_layout": "Postcode-led deal homepage; head-to-head pages under 'Learn' with a geography-first quick answer, choose-if lists, a pricing table, a price-rise section, routers, social tariffs, FAQs and a numbered references block.",
+        "ux_patterns": "Trust bar under the heading, choose-if lists per provider, standalone FAQ, visible methodology and next-review date, device-local postcode note.",
+        "ui_patterns": "Deal cards with a Total Contract Value metric, expandable mega-menu, numbered dated reference list.",
+        "transferable_pattern": "Put an editorial review date and named editorial standard high on the page, and cite Ofcom at claim level with dates.",
+        "copying_risk": "Its head-to-head pages are buried under 'Learn' with no index or grouping. Take the trust presentation, not the hidden navigation."
+      }
+    ],
+    "international_innovators": [
+      {
+        "url": "https://www.canstar.com.au/internet/providers/",
+        "title": "Australian Internet Providers directory (Canstar)",
+        "country": "Australia",
+        "selection_basis": "A mature provider-directory design for the same reader task, chosen for its navigation and grouping rather than its UK SEO.",
+        "seo_geo_evidence": "Named expert bylines with backgrounds and LinkedIn links, a visible publication date and a 'Fact Checked' label, an in-page table of contents listing all 36 providers, and an ownership-classification table ('Australian owned internet providers 2026').",
+        "observed_layout": "H1 and intro, trust bar, an A-to-Z provider directory where each entry has a logo, a short history, three pros and three cons, and speed and contract detail, plus award sections and a 'Compare from a range of internet providers' logo strip and a 'Match me to a plan' button.",
+        "navigation_and_filtering": "In-page table of contents to every provider, breadcrumb trail, related sections (NBN plans, fastest plans), a filterable and sortable plan table defaulting to lowest cost.",
+        "card_and_table_patterns": "Per-provider pros and cons blocks, an ownership-classification table, award badges, a sortable plan table.",
+        "internal_link_architecture": "Directory links out to each provider page and to category hubs; a 'Latest Articles' strip; breadcrumb back to the Internet hub.",
+        "trust_and_citation_presentation": "Two named experts with roles, a dated 'Fact Checked' line, an award-methodology reference.",
+        "mobile_behaviour": "Responsive; filter sidebars and the plan table collapse; the table of contents remains usable.",
+        "ux_patterns": "In-page TOC to every entry, pros and cons in the directory itself, an ownership or classification table as a grouping device, a 'match me' shortcut for undecided readers.",
+        "ui_patterns": "Provider cards with pros and cons, classification table, award badges.",
+        "transferable_pattern": "Group the directory by a single structural fact that changes the decision (Canstar uses ownership; for UK broadband the equivalent is the network the provider sells over) and give each group a short note on why that grouping matters.",
+        "copying_risk": "Canstar monetises with sponsored placement and award licensing and shows aggregate star ratings. Keep the grouping idea; do not add a composite rating or reorder for commercial reasons."
+      },
+      {
+        "url": "https://broadbandnow.com/compare/att-vs-spectrum",
+        "title": "BroadbandNow provider-vs-provider comparison template (United States)",
+        "country": "United States",
+        "selection_basis": "A US site with a settled provider-versus-provider template and a 'Compare Providers' section, useful for how it lets a reader assemble a comparison.",
+        "seo_geo_evidence": "Clear H1 then sectioned H2s (Best Deals, Pros and Cons By Provider, Packages Compared, Extra Fees and Contracts, Customer Satisfaction, FAQ), review counts and average ratings, and a footer methodology link with an advertising-disclosure statement.",
+        "observed_layout": "H1, best deals, pros and cons by provider, packages compared, extra fees and contracts, customer satisfaction, FAQ, with a ZIP availability checker repeated at decision points. The site's /compare route is a lead-generation wizard ('Do you want internet service for your home or business?') rather than a hub.",
+        "navigation_and_filtering": "Hierarchical navigation by provider, connection type and coverage maps; ZIP checker as the main filter; provider-vs pages reached from provider hubs.",
+        "card_and_table_patterns": "Side-by-side plan cards with price, speed, connection type and modem detail; bulleted pros and cons per provider; a separate fees-and-contracts table.",
+        "internal_link_architecture": "Provider hubs link to their comparisons and to connection-type and coverage pages; comparisons cross-link to related pairings.",
+        "trust_and_citation_presentation": "Review counts and average ratings per provider, a footer methodology link, an advertising disclosure at the top.",
+        "mobile_behaviour": "Responsive; the ZIP checker and plan cards stack; the questionnaire flow is mobile-first.",
+        "ux_patterns": "A dedicated 'Extra Fees and Contracts' section separate from the price table, availability check repeated at decision points, pros and cons per provider.",
+        "ui_patterns": "Sectioned H2s, side-by-side plan cards, fees table.",
+        "transferable_pattern": "Let a reader assemble their own two-provider comparison from a picker, and when the exact pairing has no page, route them to the nearest useful page plus both provider reviews rather than a generic list.",
+        "copying_risk": "BroadbandNow's /compare is a contact-capture wizard and it shows a composite rating. Adopt the build-your-own-comparison idea without lead capture and without a composite score."
+      }
+    ],
+    "ai_cited_pages": [
+      {
+        "url": "https://www.choose.co.uk/broadband/guide/sky-vs-plusnet/",
+        "title": "Sky vs Plusnet Broadband (Choose)",
+        "country": "United Kingdom",
+        "selection_basis": "Named in the AI Overview references for pairwise 'X vs Sky' and 'X vs Plusnet' queries on 6 September 2026.",
+        "seo_geo_evidence": "The AI Overview mirrors Choose's at-a-glance framing and its 'no-frills versus more features' language.",
+        "observed_layout": "Quick verdict, at-a-glance table, Price, Packages, Speed, Router, Call plans, TV, Customer service, closing verdict.",
+        "ux_patterns": "Quick verdict, at-a-glance table, per-section winners.",
+        "ui_patterns": "Two-column tables, dated author byline.",
+        "transferable_pattern": "A tightly structured at-a-glance verdict is what the AI Overview lifts; give every directory card a one-line decision statement.",
+        "copying_risk": "Its figures can be stale; adopt structure not numbers.",
+        "citation_evidence": "SerpApi ai_overview.references listed choose.co.uk with the anchor 'Sky vs Plusnet Broadband: More Features or Better Value? - Choose' on 6 September 2026."
+      },
+      {
+        "url": "https://broadbandswitch.uk/hyperoptic-vs-community-fibre-broadband.html",
+        "title": "Hyperoptic vs Community Fibre 2026 (BroadbandSwitch.uk)",
+        "country": "United Kingdom",
+        "selection_basis": "Named in the AI Overview references for 'hyperoptic vs vodafone broadband' on 6 September 2026.",
+        "seo_geo_evidence": "Geography-first quick answer, choose-if lists and a numbered Ofcom reference block, which are strong GEO retrieval signals.",
+        "observed_layout": "Quick answer, stat tiles, network, speeds, who-wins lists, pricing table, price rises, routers, social tariffs, FAQs, numbered references.",
+        "ux_patterns": "Availability-first answer, choose-if lists, standalone FAQ, visible next-review date.",
+        "ui_patterns": "Stat tiles, labelled comparison table, numbered source list.",
+        "transferable_pattern": "Lead with the availability point for cross-network matchups, and cite Ofcom at claim level with dates.",
+        "copying_risk": "Some of its price-rise claims conflict with provider pages; verify independently.",
+        "citation_evidence": "SerpApi ai_overview.references listed broadbandswitch.uk for the pairwise altnet query on 6 September 2026."
+      }
+    ],
+    "citation_access_limitation": "The AI Overview also cites uswitch.com, comparefibre.co.uk, broadbandchoices.co.uk and YouTube. Direct fetches of Uswitch's and CompareFibre's specific cited pages and of choose.co.uk's comparison index returned 403 or 404 during this research, so their exact above-the-fold layouts are recorded from the SERP result, the AI Overview reference anchors and previously fetched sibling pages rather than a fresh full-page read."
+  },
+  "llm_visibility_observations": [
     {
-      "url": "https://checker.ofcom.org.uk/en-gb/broadband-coverage",
-      "source_type": "regulator",
-      "verified_date": "2026-08-25",
-      "claims_supported": "Ofcom provides postcode and address-level fixed broadband coverage checking and definitions."
+      "platform_or_method": "Google AI Overview via SerpApi (Google UK, en-GB), 6 September 2026",
+      "observation": "AI Overviews appeared for every tested query. The generic 'compare providers' overview is network-structured and ends by recommending an aggregator tool; the pairwise overview is a focused head-to-head. BroadbandPicker is cited in none, and the directory's own head-to-head guides are not surfaced.",
+      "limitations": "SerpApi returns one rendered snapshot; AI Overviews are personalised and volatile. Two queries returned collapsed overviews needing a follow-up token that was not expanded."
     },
     {
-      "url": "https://www.ofcom.org.uk/phones-and-broadband/switching-provider/simpler-broadband-switching-is-here",
-      "source_type": "regulator",
-      "verified_date": "2026-08-25",
-      "claims_supported": "One Touch Switch lets most residential customers contact the new provider to coordinate a broadband switch."
-    },
-    {
-      "url": "https://www.openreach.com/fibre-checker",
-      "source_type": "primary",
-      "verified_date": "2026-08-25",
-      "claims_supported": "Openreach offers address-level Full Fibre availability states including available now, soon and planned."
-    },
-    {
-      "url": "https://www.broadbandchoice.co.uk/compare/broadband/dartford/",
-      "source_type": "independent",
-      "verified_date": "2026-08-25",
-      "claims_supported": "Current Dartford SERP structure, deal attributes, FAQs and comparison functionality."
+      "platform_or_method": "GA4 ai_referral_visit event and Search Console for /providers/compare",
+      "observation": "GA4 records zero identifiable AI-assistant referral visits to this URL, and Search Console shows no AI-feature breakdown. The page has 41 impressions, 0 clicks and average position 12.76 over the latest 28 days.",
+      "limitations": "Many assistants strip the referrer, so ai_referral_visit is a floor. Search Console has no public API for AI Overview impressions, so LLM visibility is inferred, not measured."
     }
   ],
-  "recommended_min_words": 1200,
+  "layout_blueprint": [
+    {
+      "order": 1,
+      "section": "Answer-first quick answer and reviewed byline",
+      "reader_task": "Understand in under 90 words what this directory is, how it differs from the all-provider tool, and that address checks still matter",
+      "component_or_pattern": "Shared CiteableAnswer block plus a reviewed-date and editorial-team byline row",
+      "benchmark_sources": ["https://broadbandswitch.uk/", "https://www.canstar.com.au/internet/providers/"],
+      "mobile_behaviour": "Full-width card stacks above the fold; byline row wraps",
+      "accessibility_notes": "Section labelled by its heading; plain text; date is visible text not a colour cue",
+      "validation_terms": ["This directory lists every BroadbandPicker head-to-head broadband provider comparison", "Reviewed by BroadbandPicker editorial team"]
+    },
+    {
+      "order": 2,
+      "section": "Which page should I use?",
+      "reader_task": "Decide whether to stay here for a head-to-head or move to the all-provider comparison",
+      "component_or_pattern": "Two-card explainer, one linking to /compare",
+      "benchmark_sources": ["https://broadbandnow.com/compare/att-vs-spectrum"],
+      "mobile_behaviour": "Cards stack to one column",
+      "accessibility_notes": "Descriptive link anchor 'all-provider comparison'; headings in order",
+      "validation_terms": ["Which page should I use?", "conditional verdict"]
+    },
+    {
+      "order": 3,
+      "section": "Build your own comparison pair finder",
+      "reader_task": "Pick two providers and get the exact guide, or the nearest guide plus both reviews and /compare",
+      "component_or_pattern": "ProviderPairFinder client component, two labelled selects, aria-live result",
+      "benchmark_sources": ["https://www.canstar.com.au/internet/providers/", "https://broadbandnow.com/compare/att-vs-spectrum"],
+      "mobile_behaviour": "Selects stack to one column; result panel full width",
+      "accessibility_notes": "Labelled selects, keyboard operable, visible focus ring, aria-live polite result, role=alert on validation errors",
+      "validation_terms": ["Build your own comparison", "Choose two providers"]
+    },
+    {
+      "order": 4,
+      "section": "All comparisons grouped by network",
+      "reader_task": "Scan every head-to-head, understand why network grouping matters, and open the right one",
+      "component_or_pattern": "Server-rendered grouped list of all 28 comparisons with per-group notes; TrackedLink cards",
+      "benchmark_sources": ["https://www.canstar.com.au/internet/providers/", "https://www.choose.co.uk/broadband/guide/"],
+      "mobile_behaviour": "Cards move from two columns to one; group notes stay above each group",
+      "accessibility_notes": "Semantic ul/li; each card is a single link with visible focus; group headings are h3 under the section h2",
+      "validation_terms": ["All broadband provider comparisons by network", "Openreach retailer vs Openreach retailer"]
+    },
+    {
+      "order": 5,
+      "section": "Head-to-head coverage map",
+      "reader_task": "Find the nearest useful page when the exact matchup has no dedicated guide",
+      "component_or_pattern": "Static list of common uncovered matchups with the nearest guides and a /compare fallback",
+      "benchmark_sources": ["https://fairinternetreport.com/compare/Hyperoptic-vs-Vodafone-Broadband"],
+      "mobile_behaviour": "Each gap is a stacked card; links wrap",
+      "accessibility_notes": "Descriptive link anchors naming the destination comparison",
+      "validation_terms": ["Head-to-head coverage: matchup not listed?", "If your exact matchup is not covered"]
+    },
+    {
+      "order": 6,
+      "section": "How we compare providers, more links, FAQ and sources",
+      "reader_task": "Check the method and dates, move to reviews, deals, /compare, postcode or guides, and get answers to the common questions",
+      "component_or_pattern": "Methodology paragraph, internal-links block, native details FAQ matching FAQPage schema, dated Ofcom sources",
+      "benchmark_sources": ["https://broadbandswitch.uk/", "https://www.choose.co.uk/broadband/guide/sky-vs-plusnet/"],
+      "mobile_behaviour": "Link grid and source grid move to one column; FAQ is single-column disclosure",
+      "accessibility_notes": "Native details/summary FAQ operable by keyboard; source links open in a new tab with rel noopener; descriptive anchors",
+      "validation_terms": ["How we compare providers", "Broadband provider comparison FAQs"]
+    }
+  ],
+  "benchmark_synthesis": {
+    "adopted_patterns": [
+      {
+        "pattern": "Group the head-to-head directory by the network each provider sells over, with a short note per group on why it changes the decision",
+        "source_urls": ["https://www.canstar.com.au/internet/providers/"],
+        "user_need": "Readers do not know whether their two providers share a line or are on different networks, which is the fact that decides whether availability or price and service settles the comparison.",
+        "adaptation": "Canstar groups its directory by ownership; the UK broadband equivalent is the network. We sort all 28 comparisons into Openreach versus Openreach, Virgin Media versus Openreach, altnet versus altnet and altnet versus national, each with a one-line explanation.",
+        "implementation": "Server-rendered grouped list in app/providers/compare/page.tsx with a GROUP_NOTE for each group.",
+        "originality_guard": "Groups describe the network fact only; we do not label any group or matchup 'popular', 'best', 'cheapest' or 'fastest', and the order is fixed structural order, not a ranking.",
+        "validation_terms": ["All broadband provider comparisons by network", "Openreach retailer vs Openreach retailer"]
+      },
+      {
+        "pattern": "Put an editorial review date, a named editorial standard and a concise method statement high on a navigation page",
+        "source_urls": ["https://broadbandswitch.uk/", "https://www.choose.co.uk/broadband/guide/sky-vs-plusnet/"],
+        "user_need": "Readers and answer engines need to know the directory is maintained and how the underlying comparisons are made before trusting a verdict.",
+        "adaptation": "A reviewed-date and 'Reviewed by BroadbandPicker editorial team' byline directly under the answer, plus a 'How we compare providers' section that states the price, speed, contract and Ofcom-complaints method and the refusal to blend Ofcom data with Trustpilot.",
+        "implementation": "Byline row and the methodology section in app/providers/compare/page.tsx, linking to /how-we-review-broadband and /editorial-policy.",
+        "originality_guard": "The method statement is specific to how BroadbandPicker builds these comparisons; it does not reuse BroadbandSwitch or Choose wording.",
+        "validation_terms": ["How we compare providers", "Reviewed by BroadbandPicker editorial team"]
+      },
+      {
+        "pattern": "State the specific decision each comparison settles, as a scannable conditional rather than a single-winner badge",
+        "source_urls": ["https://www.choose.co.uk/broadband/guide/sky-vs-plusnet/", "https://broadbandnow.com/compare/att-vs-spectrum"],
+        "user_need": "A reader scanning a directory needs to know, per entry, what question that guide answers, so they open the right one.",
+        "adaptation": "Each group note and the 'Which page should I use?' section explain that every guide gives a conditional verdict and the key decision it settles for that pairing, and the cards show the pairing plus the sourced excerpt from the guide.",
+        "implementation": "GROUP_NOTE strings, the which-page cards, and comparison excerpts rendered on each TrackedLink card.",
+        "originality_guard": "We reuse each guide's own excerpt rather than writing new superlatives, and never assert a universal winner on the directory.",
+        "validation_terms": ["the key decision it settles", "conditional verdict"]
+      }
+    ],
+    "differentiated_pattern": {
+      "pattern": "A build-your-own two-provider comparison picker that resolves to the exact guide, or to the nearest guide plus both provider reviews and the all-provider comparison when no dedicated page exists",
+      "uncommon_in_uk_evidence": "None of the reviewed UK pages offers this. Choose, BroadbandSwitch and Uswitch present flat link lists or buried head-to-head pages; FairInternetReport has total pairwise coverage but no picker and no editorial fallback. The UK norm is a static list where an uncovered matchup is a dead end.",
+      "international_source_urls": ["https://www.canstar.com.au/internet/providers/", "https://broadbandnow.com/compare/att-vs-spectrum"],
+      "uk_adaptation": "Canstar's 'Match me to a plan' and BroadbandNow's provider-vs assembly are commercial funnels; ours is a non-commercial navigation aid. Two labelled selects resolve to /providers/compare/<a>-vs-<b> when it exists, otherwise to a nearest same-network guide plus both /providers/<slug> reviews plus /compare, with no lead capture and nothing sent anywhere.",
+      "implementation": "components/ProviderPairFinder.tsx client component, with a crawlable static fallback: the full grouped directory renders server-side regardless of the picker.",
+      "validation_terms": ["Build your own comparison", "Choose two providers"]
+    }
+  },
+  "sources": [
+    {
+      "url": "https://www.ofcom.org.uk/phones-and-broadband/service-quality/telecoms-and-pay-tv-complaints",
+      "source_type": "regulator",
+      "verified_date": "2026-09-06",
+      "claims_supported": [
+        "Ofcom publishes complaints per 100,000 customers for major broadband providers each quarter",
+        "Q1 2026 named rates used across the linked guides: Plusnet 4, Sky 5, industry average 6, TalkTalk 10"
+      ]
+    },
+    {
+      "url": "https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/connected-nations-update-spring-2026",
+      "source_type": "regulator",
+      "verified_date": "2026-09-06",
+      "claims_supported": [
+        "Full-fibre availability reached about 82% of UK homes and gigabit-capable about 89% as of January 2026",
+        "Openreach, Virgin Media and altnet networks have different footprints, so availability is address-specific"
+      ]
+    },
+    {
+      "url": "https://www.ofcom.org.uk/phones-and-broadband/bills-and-charges/ofcom-bans-mid-contract-price-rises-linked-to-inflation",
+      "source_type": "regulator",
+      "verified_date": "2026-09-06",
+      "claims_supported": [
+        "From 17 January 2025 new contracts must state price rises in pounds and pence at the point of sale",
+        "Inflation-linked percentage price-rise terms are banned in new contracts"
+      ]
+    },
+    {
+      "url": "https://www.uswitch.com/broadband/",
+      "source_type": "independent",
+      "verified_date": "2026-09-06",
+      "claims_supported": [
+        "Corroboration that the 'compare broadband providers' SERP is dominated by all-provider deal tools",
+        "Corroboration of provider network classifications"
+      ]
+    }
+  ],
+  "recommended_min_words": 900,
   "required_sections": [
-    "Answer-first DA1 introduction",
-    "Ofcom-derived DA1 coverage summary",
-    "Sortable deal comparison",
-    "Interactive household speed planner",
-    "Dartford provider availability explanation",
-    "Total contract cost checklist",
-    "Full-fibre explanation",
-    "Moving-home and social-tariff guidance",
-    "Direct-answer FAQs",
-    "Visible source notes"
+    "Answer-first quick answer (CiteableAnswer)",
+    "Reviewed date and editorial-team byline",
+    "Which page should I use? (distinction from /compare)",
+    "Build your own comparison pair finder",
+    "All broadband provider comparisons by network (crawlable grouped directory)",
+    "Head-to-head coverage map (matchup not listed)",
+    "How we compare providers methodology",
+    "Provider reviews, deals and supporting guides links",
+    "Broadband provider comparison FAQs (visible, matching FAQPage schema)",
+    "Sources and editorial standards with dates"
   ],
   "internal_links": [
     "/compare",
     "/providers",
+    "/deals",
+    "/postcode",
+    "/guides/best-broadband-providers-uk",
     "/guides/how-to-switch-broadband-uk",
-    "/guides/broadband-speeds-explained",
-    "/guides/broadband-social-tariffs-uk",
-    "/editorial-policy"
+    "/research/uk-broadband-customer-satisfaction",
+    "/guides/full-fibre-broadband-explained",
+    "/how-we-review-broadband",
+    "/editorial-policy",
+    "/how-we-make-money",
+    "every /providers/compare/<a>-vs-<b> guide (28 links)"
   ],
-  "schema_types": ["WebPage", "ItemList", "FAQPage", "BreadcrumbList"],
+  "schema_types": ["CollectionPage", "ItemList", "FAQPage", "BreadcrumbList"],
   "ux_ui_requirements": [
-    "Put local coverage and the sortable comparison above long-form guidance.",
-    "Show package speed, monthly price, contract and setup cost in scannable rows.",
-    "Use an answer-first coverage panel with an explicit address-level limitation.",
-    "Provide a three-choice household speed planner with a persistent recommendation.",
-    "Keep evidence notes visible and linked near the end of the page."
+    "Standalone 40 to 90 word citeable answer at the top via CiteableAnswer",
+    "One H1 aligned to 'broadband provider comparisons', then h2 sections and h3 group headings in document order",
+    "Extended OnThisPageNav with pair finder, which-page, directory, coverage, methodology, more, FAQ and sources anchors",
+    "Server-rendered grouped directory of all 28 comparisons so the list is fully crawlable without JavaScript",
+    "Accessible two-select provider-pair finder with an aria-live result and a role=alert validation message",
+    "No interactive all-provider comparison table on this page; that stays unique to /compare",
+    "Evidence-based group notes, no 'popular', 'best', 'cheapest' or 'fastest' labels on any matchup",
+    "Visible reviewed date and 'Reviewed by BroadbandPicker editorial team' byline in the header"
   ],
   "functional_requirements": [
-    "Retain deal sorting by price, speed and rating.",
-    "Add an interactive household-use selector that recommends a speed band.",
-    "Track selector use, completed recommendation and provider outbound clicks.",
-    "Keep every recommendation and coverage explanation present in crawlable HTML."
+    "ProviderPairFinder resolves a two-provider selection to the exact guide, or to the nearest same-network guide plus both provider reviews plus /compare",
+    "The full grouped directory renders server-side as the crawlable static fallback for the finder",
+    "FAQ uses native details/summary generated from the same faqs array as the FAQPage JSON-LD, so schema matches the visible FAQ",
+    "TrackedLink fires GA4 events on comparison-card, all-provider-CTA and postcode-link clicks as progressive enhancement only; the anchors work without JavaScript",
+    "No embedded postcode input on this page: availability is a tracked link out to the postcode tool, so the postcode-led journey stays with /compare and /postcode; no account and no personal data collected here"
   ],
+  "content_format": {
+    "id": "comparison_directory",
+    "rationale": "The packet format is comparison_directory. The reader has usually narrowed to two providers and needs to reach the right head-to-head fast, or to handle a matchup with no dedicated page. A crawlable grouped directory plus an accessible pair finder serves that navigation task better than a generic explainer or a deals table."
+  },
+  "information_gain": [
+    {
+      "asset": "A head-to-head coverage map that names the common UK matchup searches with no dedicated guide, explains why each is not a single page, and gives the nearest useful guides plus the all-provider fallback",
+      "evidence": "FairInternetReport ranks for 'hyperoptic vs vodafone broadband' precisely because no editorial site covers that pairing, and 'virgin media vs sky vs vodafone comparison' is a real GSC query for this URL that no single guide can answer. No UK comparison site tells a reader what to do when their exact matchup has no page; they hit a flat list or a 404.",
+      "implementation": "The 'Head-to-head coverage: matchup not listed?' section in app/providers/compare/page.tsx, listing Hyperoptic vs Vodafone, the Virgin Media vs Sky vs Vodafone three-way and Community Fibre vs Vodafone, each with a stated reason and the nearest guides.",
+      "validation_terms": ["Head-to-head coverage: matchup not listed?", "If your exact matchup is not covered", "Hyperoptic vs Vodafone broadband"]
+    }
+  ],
+  "ctr_candidates": [
+    {
+      "title": "Broadband Provider Comparisons: Every UK Head-to-Head Guide",
+      "meta_description": "Find the right head-to-head broadband provider comparison fast: every BroadbandPicker matchup grouped by network, plus a pair finder for matchups we do not yet cover.",
+      "rationale": "Leads with the exact primary keyword, then 'Every UK Head-to-Head' signals a complete directory and separates it from the all-provider tool. The description previews the network grouping and the pair finder as the reasons to click."
+    },
+    {
+      "title": "Compare Broadband Providers Head to Head: Every UK Matchup",
+      "meta_description": "Every BroadbandPicker provider-versus-provider comparison in one place, grouped by network, with a verdict on price, speed, contract and service for each pairing.",
+      "rationale": "Targets the 'head to head' modifier and 'every UK matchup', useful for readers who have two providers in mind and want the specific guide."
+    },
+    {
+      "title": "Broadband Provider vs Provider: The Full UK Comparison Directory",
+      "meta_description": "A directory of UK broadband head-to-head guides, grouped by network, with a provider pair finder and the nearest guide when your exact matchup is not covered.",
+      "rationale": "Uses the 'vs provider' phrasing and the word 'directory' to set navigation expectations distinct from the /compare deal tool."
+    }
+  ],
+  "selected_ctr_candidate": {
+    "title": "Broadband Provider Comparisons: Every UK Head-to-Head Guide",
+    "meta_description": "Find the right head-to-head broadband provider comparison fast: every BroadbandPicker matchup grouped by network, plus a pair finder for matchups we do not yet cover."
+  },
+  "internal_link_plan": {
+    "inbound": [
+      {
+        "url": "/compare",
+        "anchor": "Provider head-to-head comparisons",
+        "reason": "The all-provider tool already links here with this anchor; it sends readers who have finished shortlisting to the head-to-head directory."
+      },
+      {
+        "url": "/providers",
+        "anchor": "Compare providers head to head",
+        "reason": "The provider review hub should point readers who want a direct two-provider verdict to this directory rather than to the deal tool."
+      }
+    ],
+    "outbound": [
+      {
+        "url": "/compare",
+        "anchor": "all-provider comparison",
+        "reason": "Readers who have not shortlisted need the market-wide tool; this is the deliberate cannibalisation boundary."
+      },
+      {
+        "url": "/providers",
+        "anchor": "All UK broadband provider reviews",
+        "reason": "Readers who want depth on one provider before comparing need the review hub."
+      },
+      {
+        "url": "/guides/how-to-switch-broadband-uk",
+        "anchor": "How to switch broadband provider",
+        "reason": "The most common next action after choosing between two providers is switching."
+      },
+      {
+        "url": "/research/uk-broadband-customer-satisfaction",
+        "anchor": "UK broadband customer satisfaction and complaints",
+        "reason": "The complaints evidence the head-to-head verdicts rely on lives on this research page in full."
+      }
+    ]
+  },
+  "schema_eligibility": [
+    {
+      "type": "CollectionPage",
+      "eligible": true,
+      "visible_evidence": "A dated directory page with a named editorial author, a description matching the meta description, and a visible collection of comparison guides.",
+      "reason": "The page is a curated collection with a review date; CollectionPage with a dateModified and author is supported."
+    },
+    {
+      "type": "ItemList",
+      "eligible": true,
+      "visible_evidence": "All 28 comparison guides are rendered as server-side links in the grouped directory, matching the ItemList itemListElement URLs one to one.",
+      "reason": "Every list item resolves to a real, visible, crawlable link on the page."
+    },
+    {
+      "type": "FAQPage",
+      "eligible": true,
+      "visible_evidence": "Six visible native details and summary FAQ entries whose text is generated from the same faqs array used for the FAQPage mainEntity.",
+      "reason": "Schema and visible FAQ cannot diverge because both derive from one array."
+    },
+    {
+      "type": "BreadcrumbList",
+      "eligible": true,
+      "visible_evidence": "A visible breadcrumb nav: Home, Provider reviews, Compare providers.",
+      "reason": "Matches the rendered BreadcrumbNav."
+    },
+    {
+      "type": "Product",
+      "eligible": false,
+      "visible_evidence": "No package prices, offers, availability or seller relationship are presented on this navigation page.",
+      "reason": "Adding Product or Offer schema would describe purchasable offers the page does not show."
+    },
+    {
+      "type": "Review",
+      "eligible": false,
+      "visible_evidence": "No rating value or review body for any provider is presented on this page; ratings live on the individual guides and provider reviews.",
+      "reason": "Review or AggregateRating schema here would not match visible content."
+    }
+  ],
+  "interaction_decision": {
+    "required": true,
+    "rationale": "The reader task is navigation: reach the right one of 28 head-to-head guides, or handle a matchup with no page. A two-provider picker that resolves to the exact guide or the nearest one is a genuine decision aid for that task, and it directly addresses the real GSC queries for matchups we do not cover. It is not decorative because the alternative is scanning a 28-item list or hitting a dead end.",
+    "reader_task": "Get from 'I am deciding between provider A and provider B' to the most useful page in one step.",
+    "static_fallback": "The full grouped directory and the head-to-head coverage map render server-side and cover the same ground without the picker. The picker is progressive enhancement."
+  },
   "interactive_comparison": {
-    "user_task": "Choose a realistic speed band for a Dartford household before comparing packages.",
-    "choices_compared": "Everyday use, busy household, and gaming or heavy use.",
-    "crawlable_fallback": "Static paragraphs explain each speed band and the address-level availability limitation.",
-    "completion_state": "The selected need displays a speed range, decision advice and compare-deals link."
+    "user_task": "Choose two providers and get taken to their head-to-head guide, or to the nearest guide plus both provider reviews and the all-provider comparison.",
+    "choices_compared": "Any two of the UK broadband providers BroadbandPicker covers, across the 28 dedicated head-to-head guides and, where no guide exists, the nearest same-network guide.",
+    "crawlable_fallback": "The grouped directory of all 28 comparisons and the coverage map are static server-rendered content, so a crawler or answer engine sees every destination and the fallback logic without running the picker.",
+    "completion_state": "After selecting two providers and pressing Show comparison, an aria-live panel either names the matched guide with a link to open it, or shows a 'Not covered yet' state with the nearest guide, both provider reviews and the /compare link."
   },
   "responsive_requirements": [
-    "Mobile controls stack in one column without horizontal overflow.",
-    "Tablet controls use a three-column layout with touch targets at least 44 pixels high.",
-    "Desktop content remains readable at a constrained line length while deal data uses the available width."
+    "Mobile (under 640px): the pair-finder selects and the directory cards stack to one column; the OnThisPageNav links wrap; no horizontal page overflow.",
+    "Tablet (640 to 1024px): directory cards and the which-page explainer move to two columns; the pair finder shows the two selects with the 'vs' separator hidden.",
+    "Desktop (1024px and above): directory shows two columns per group; the pair finder shows first provider, vs, second provider on one row; jump links sit in a single horizontal wrap."
   ],
   "accessibility_requirements": [
-    "Household choices are semantic buttons operable by keyboard.",
-    "The selected choice is exposed with aria-pressed.",
-    "The recommendation uses aria-live for state feedback.",
-    "All controls have visible focus indicators.",
-    "The control group and coverage summary have programmatic labels.",
-    "The interaction avoids colour-only state communication and unnecessary animation."
+    "One H1, then h2 sections and h3 group headings in document order, each with an id matching the OnThisPageNav anchors.",
+    "Both pair-finder selects have visible associated labels; the control group is keyboard operable with a visible focus ring.",
+    "The pair-finder result panel is aria-live polite and aria-atomic so a screen reader announces the matched or unmatched outcome.",
+    "Validation errors in the pair finder use role=alert so they are announced immediately.",
+    "Every directory card is a single link with an accessible name of the form 'Provider A vs Provider B'; links use underline plus colour, not colour alone.",
+    "The FAQ uses native details and summary, fully operable by keyboard without a mouse.",
+    "Transitions respect motion-reduce; the reviewed date and byline are visible text, not colour-only cues."
   ],
   "ga4_events": [
     {
-      "name": "local_speed_need_selected",
-      "trigger": "A reader chooses a household-use option.",
-      "parameters": ["area_code", "household_need", "recommended_speed_band"],
-      "conversion_role": "diagnostic"
+      "name": "provider_filter_used",
+      "trigger": "First interaction with either provider select in the pair finder",
+      "parameters": {"control": "provider_pair_finder"},
+      "conversion_role": "interaction_start"
     },
     {
-      "name": "local_speed_plan_completed",
-      "trigger": "A reader follows the speed recommendation to compare deals.",
-      "parameters": ["area_code", "household_need", "recommended_speed_band"],
-      "conversion_role": "diagnostic"
+      "name": "provider_pair_selected",
+      "trigger": "A provider is chosen in either select, and again when Show comparison resolves a valid pair, with an outcome parameter of matched or unavailable",
+      "parameters": {"position": "provider_a_or_b", "provider_slug": "selected_provider", "matchup": "slug_a__slug_b", "outcome": "matched_or_unavailable"},
+      "conversion_role": "interaction_step"
     },
     {
-      "name": "outbound_provider_click",
-      "trigger": "A reader clicks a provider deal.",
-      "parameters": ["provider_slug", "source_page", "outbound_host", "link_label"],
-      "conversion_role": "key_event"
+      "name": "unavailable_matchup_shown",
+      "trigger": "Show comparison finds no dedicated guide for the selected pair",
+      "parameters": {"matchup": "slug_a__slug_b", "closest_slug": "nearest_or_none"},
+      "conversion_role": "interaction_complete"
+    },
+    {
+      "name": "comparison_card_clicked",
+      "trigger": "A comparison card in the grouped directory, or the Open comparison link in the pair-finder result, is clicked",
+      "parameters": {"comparison_slug": "target_slug", "group": "network_group", "source": "directory_or_pair_finder_result"},
+      "conversion_role": "navigation"
+    },
+    {
+      "name": "compare_all_providers_clicked",
+      "trigger": "An all-provider comparison link in the which-page box, the coverage section, the more-links block or the pair-finder unavailable result is clicked",
+      "parameters": {"location": "which_page_box_or_coverage_section_or_more_links_or_pair_finder_unavailable"},
+      "conversion_role": "secondary_cta"
+    },
+    {
+      "name": "postcode_check_started",
+      "trigger": "The Check availability by postcode link to the postcode tool is clicked",
+      "parameters": {"location": "more_links"},
+      "conversion_role": "secondary_cta"
     }
   ],
-  "research_summary": "DA1 already has first-page visibility but very low CTR. The improved page leads with the exact Dartford query, adds Ofcom-derived local coverage, qualifies street-level availability, retains deal sorting, adds a household speed decision tool and expands evidence-led local guidance.",
-  "depth_rationale": "The strongest local competitors combine roughly 900 to 1,200 words with postcode interaction and detailed deal attributes, while a national authority page is substantially deeper. A 1,200-word minimum is appropriate because the page must answer local coverage, provider, price, speed, switching and moving-home intent without padding."
+  "post_publication_review": {
+    "day_7": "Confirm Google has recrawled the new title and H1, check Search Console impressions for 'broadband provider comparisons', 'compare broadband providers head to head' and the pairwise queries, and confirm the new GA4 events (provider_filter_used, comparison_card_clicked, postcode_check_started) are recording. Confirm /compare has not lost impressions for 'compare broadband providers'.",
+    "day_28": "Compare CTR and average position against the pre-change baseline of 41 impressions, 0 clicks, position 12.76. Target a first non-zero CTR and a move toward page one. Check the query split between this page and /compare for any overlap.",
+    "day_56": "Review pair-finder completion, matched versus unmatched rate, comparison_card_clicked distribution by group, and whether any AI Overview now cites broadbandpicker.co.uk for a head-to-head query. Decide whether the most-requested unmatched matchup should become a dedicated guide.",
+    "day_90": "Refresh the coverage map and group notes if new comparison guides have shipped or provider networks have changed; otherwise update only the reviewed date and verified figures."
+  },
+  "implemented_recommended_actions": [
+    {
+      "priority": "P1",
+      "feature": "GEO: be quotable in the AI answer",
+      "disposition": "implemented",
+      "implementation": "Added a standalone CiteableAnswer that states in 72 words what the directory is, that it is grouped by network, when to use it versus the all-provider tool at /compare, and that availability, speed and price depend on the address so a postcode check comes first. Added six FAQ answers written as standalone 40 to 70 word passages that answer the observed People Also Ask questions (BT versus Sky, EE versus Vodafone, fewest complaints, what to do with no dedicated guide) with the Ofcom Q1 2026 figures and the Openreach parity point.",
+      "evidence": "SerpApi Google UK on 6 September 2026 found an AI Overview on every tested query for this page's intents, citing Choose, BroadbandSwitch, Uswitch, CompareFibre and aggregators, with BroadbandPicker cited in none. The previous page opened with a single generic sentence and had no FAQ, no methodology and no dated evidence.",
+      "validation_terms": [
+        "This directory lists every BroadbandPicker head-to-head broadband provider comparison",
+        "check your postcode before you choose"
+      ]
+    }
+  ],
+  "research_summary": "The live /providers/compare was a thin directory: an H1, one intro paragraph, a flat list of 28 comparison cards and a box linking to /compare. It ranks at average position 12.76 for 41 impressions and 0 clicks, for pairwise 'X vs Y broadband' queries plus noise. Live UK SERP research on 6 September 2026 (SerpApi Google UK for five intents, WebFetch of choose.co.uk sibling guides, broadbandswitch.uk, comparefibre.co.uk, uswitch.com/broadband/compare, canstar.com.au and broadbandnow.com, with several 403 and 404 blocks recorded) established that: the singular 'compare broadband providers' and 'broadband provider comparison' head terms are all-provider deal-tool intent owned by national aggregators and by /compare; the pairwise 'X vs Y broadband' intent is editorial guides plus Reddit plus AI Overviews and is this directory's territory; no UK site has a proper provider-versus-provider comparison directory, and none tells a reader what to do when their exact matchup has no page; FairInternetReport ranks on total pairwise coverage alone. The rebuild sets the primary keyword to 'broadband provider comparisons', keeps the page indexed, and adds an answer-first explanation, a which-page distinction from /compare, an accessible provider-pair finder, a network-grouped crawlable directory of all 28 guides, a head-to-head coverage map for uncovered matchups, a concise methodology, an internal-links block, a six-question FAQ with matching schema, and dated Ofcom sources.",
+  "depth_rationale": "The 900-word minimum is above the 800-word default floor for this page type because the reader task is navigation, not long-form reading, yet the page must carry an answer-first explanation, a genuine method statement, a coverage map and an FAQ to be citeable. The rendered page is far longer, near 3,900 visible words, because it server-renders the sourced excerpt from all 28 comparison guides for scannability and crawlability; that length is a function of covering every matchup, not padding, and the core explanatory copy is tight."
 }

@@ -40,7 +40,7 @@ import sys
 import time
 import urllib.parse
 import xml.etree.ElementTree as ET
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
@@ -68,6 +68,10 @@ DEFAULT_PRIORITY_BATCH_SIZE = 5
 PIPELINE_BRIEF = ROOT / "docs" / "page-build-pipeline-brief.md"
 PIPELINE_DIR = ROOT / "docs" / "page-build-pipeline"
 PAGE_RESEARCH_FILE = PIPELINE_DIR / "current-page-research.json"
+CANONICAL_PRIORITY_FILE = PIPELINE_DIR / "canonical-next-priority.json"
+PAGE_TYPE_UX_SCAN_FILE = ROOT / "docs" / "home page UX" / "page-type-ux-scan.json"
+WEEKLY_SEO_INTELLIGENCE_FILE = ROOT / "docs" / "weekly-seo-intelligence.json"
+POST_PUBLICATION_REVIEW_FILE = PIPELINE_DIR / "post-publication-review-queue.json"
 
 PAGE_ROUTES = {
     "providers/compare/": ("data/provider-comparisons.ts", "app/providers/compare/[slug]/page.tsx", "ProviderComparison"),
@@ -1004,11 +1008,104 @@ def update_google_sheet_from_workbook(wb: Workbook, spreadsheet_id: str) -> dict
 # 6. Gated page-build pipeline
 # ---------------------------------------------------------------------------
 
+# Existing GSC-tracked hub/index routes that are not a-vs-b comparison pages and
+# have no curated keyword row of their own. Matched exactly, before the prefix
+# table, so /providers/compare is never mis-routed to the provider template.
+HUB_ROUTE_OVERRIDES: dict[str, tuple[str, str, str]] = {
+    "providers/compare": (
+        "data/provider-comparisons.ts",
+        "app/providers/compare/page.tsx",
+        "ProviderComparison",
+    ),
+}
+
+
 def route_page_build(slug: str) -> tuple[str, str, str]:
+    if slug in HUB_ROUTE_OVERRIDES:
+        return HUB_ROUTE_OVERRIDES[slug]
     for prefix, target in PAGE_ROUTES.items():
         if slug.startswith(prefix):
             return target
     raise RuntimeError(f"No page-build route is configured for: {slug}")
+
+
+NOISE_QUERY_TOPICAL = ("broadband", "fibre", "internet", "wifi", "wi-fi", "isp", "openreach")
+NOISE_QUERY_COMPARISON = (" vs ", " v ", " versus ", " or ", "compare", "comparison", "better", "cheaper", "faster")
+
+
+def is_noisy_gsc_query(query: str) -> bool:
+    """Reject obviously malformed or off-topic Search Console rows before one can
+    seed a primary keyword. This never invents data; it only filters."""
+    q = f" {(query or '').strip().lower()} "
+    if len(q.strip()) < 6:
+        return True
+    if len(re.sub(r"[^a-z]", "", q)) < 4:
+        return True
+    if not any(term in q for term in NOISE_QUERY_TOPICAL) and not any(
+        term in q for term in NOISE_QUERY_COMPARISON
+    ):
+        return True
+    if re.fullmatch(r"\s*(yes|no|ok|okay|maybe|idk|i would|yes i would)\b[\s\w]{0,20}\s*", q):
+        return True
+    if re.search(r"\b(job|jobs|recruit|salary|vacancy|linkedin|instagram|tiktok)\b", q):
+        return True
+    return False
+
+
+def first_party_hub_keywords(mapped_path: str) -> tuple[list[dict[str, Any]], str, str]:
+    """Keyword rows for a GSC-tracked hub that has no curated mapping.
+
+    Preference order: (1) an explicit researched primary already recorded for this
+    exact slug in current-page-research.json; otherwise (2) non-noisy first-party
+    GSC queries offered as candidates only, forcing an explicit researched primary
+    decision before the build. Volume, difficulty and CPC are always None.
+    """
+    slug = mapped_path.strip("/")
+    if PAGE_RESEARCH_FILE.exists():
+        try:
+            research = json.loads(PAGE_RESEARCH_FILE.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            research = {}
+        if str(research.get("slug") or "").strip("/") == slug and str(
+            research.get("primary_keyword") or ""
+        ).strip():
+            rows = [{
+                "keyword": str(research["primary_keyword"]).strip(),
+                "volume": None, "difficulty": None, "cpc": None,
+                "intent": "Researched navigational comparison",
+                "role": "primary",
+                "recommended_slot": "title/h1/excerpt",
+                "source": "Researched primary-keyword decision (current-page-research.json)",
+            }]
+            for item in research.get("secondary_keywords") or []:
+                text = str(item.get("keyword") or "").strip()
+                if text:
+                    rows.append({
+                        "keyword": text, "volume": None, "difficulty": None, "cpc": None,
+                        "intent": str(item.get("intent") or "Comparison"),
+                        "role": "secondary",
+                        "recommended_slot": str(item.get("page_slot") or "body/faq"),
+                        "source": "Researched secondary-keyword decision",
+                    })
+            return rows, "researched", "Primary keyword taken from the reviewed research file."
+    brief = weekly_performance_brief(mapped_path)
+    candidates = [q for q in (brief or {}).get("top_queries", []) if not is_noisy_gsc_query(q)]
+    if candidates:
+        rows = [{
+            "keyword": q, "volume": None, "difficulty": None, "cpc": None,
+            "intent": "First-party GSC query (candidate)",
+            "role": "candidate",
+            "recommended_slot": "requires an explicit researched primary-keyword decision",
+            "source": "First-party GSC query evidence, docs/weekly-seo-intelligence.json (candidate, not a confirmed primary)",
+        } for q in candidates]
+        note = (
+            f"No curated keyword row and no researched primary yet for /{slug}. "
+            f"{len(candidates)} non-noisy GSC candidate queries attached. Decide an explicit "
+            "primary keyword in current-page-research.json (distinct from the /compare tool intent) "
+            "before building; the packet primary is provisional until then."
+        )
+        return rows, "gsc_candidates", note
+    return [], "none", ""
 
 
 def provider_slugs_from_gap(slug: str) -> list[str]:
@@ -1045,6 +1142,100 @@ def template_secondary_keywords(slug: str) -> list[dict[str, Any]]:
     } for phrase, intent, slot in stems]
 
 
+def classify_content_format(slug: str, page_type: str) -> dict[str, Any]:
+    """Choose the reader task before prescribing copy length or UI."""
+    if slug.startswith("postcode/"):
+        return {
+            "id": "local_availability_hub",
+            "primary_task": "Check local availability, coverage and relevant deals",
+            "default_decision_aid": "postcode-led availability CTA plus sourced local evidence",
+        }
+    if slug == "providers/compare":
+        return {
+            "id": "comparison_directory",
+            "primary_task": "Find and open the right provider head-to-head comparison, or move to the all-provider tool when no shortlist exists yet",
+            "default_decision_aid": "a crawlable matchup directory plus an accessible provider-pair finder that resolves to the nearest useful comparison",
+        }
+    if slug.startswith("providers/compare/"):
+        return {
+            "id": "provider_comparison",
+            "primary_task": "Choose between two named providers",
+            "default_decision_aid": "side-by-side comparison with a conditional verdict",
+        }
+    if slug.startswith("providers/"):
+        return {
+            "id": "provider_review",
+            "primary_task": "Assess a provider's plans, coverage, service and value",
+            "default_decision_aid": "plan table, evidence-led pros and cons, and availability CTA",
+        }
+    if slug.startswith("tools/") or page_type == "Interactive tool":
+        return {
+            "id": "interactive_tool",
+            "primary_task": "Complete the named calculation or diagnostic task",
+            "default_decision_aid": "working accessible tool with interpretable results",
+        }
+    if any(term in slug for term in ("deal", "cheap", "cashback", "setup-fee", "price")):
+        return {
+            "id": "commercial_deals_guide",
+            "primary_task": "Compare current costs, conditions and switching value",
+            "default_decision_aid": "total-cost examples, eligibility checks and deal CTA",
+        }
+    if any(term in slug for term in ("rights", "complaint", "ombudsman", "switch", "contract")):
+        return {
+            "id": "consumer_action_guide",
+            "primary_task": "Understand rights and complete a safe next action",
+            "default_decision_aid": "step-by-step checklist, exceptions and escalation route",
+        }
+    return {
+        "id": "editorial_explainer",
+        "primary_task": "Understand the topic and make an informed broadband decision",
+        "default_decision_aid": "answer-first summary, examples and a static decision table",
+    }
+
+
+def weekly_performance_brief(path: str) -> dict[str, Any] | None:
+    """Attach first-party GSC/GA4 evidence when the weekly report contains this URL."""
+    if not WEEKLY_SEO_INTELLIGENCE_FILE.exists():
+        return None
+    try:
+        report = json.loads(WEEKLY_SEO_INTELLIGENCE_FILE.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+    match = next(
+        (item for item in report.get("opportunities", []) if item.get("page") == path),
+        None,
+    )
+    if not match:
+        return None
+    keep = (
+        "clicks", "impressions", "ctr", "position", "impression_change_pct", "sessions",
+        "engagement_rate", "affiliate_clicks", "ai_referral_visits", "score", "category",
+        "recommended_action", "top_queries",
+    )
+    return {
+        "source": str(WEEKLY_SEO_INTELLIGENCE_FILE.relative_to(ROOT)),
+        "generated_at": report.get("generated_at"),
+        **{key: match.get(key) for key in keep},
+    }
+
+
+def enrich_page_packet(packet: dict[str, Any]) -> dict[str, Any]:
+    path = urllib.parse.urlparse(str(packet["url"])).path.rstrip("/") or "/"
+    packet["content_format"] = classify_content_format(
+        str(packet["slug"]), str(packet.get("page_type") or "")
+    )
+    packet["performance_brief"] = weekly_performance_brief(path)
+    packet["build_strategy"] = {
+        "serp_feature_classification": True,
+        "information_gain_required": True,
+        "ctr_candidates_required": 3,
+        "internal_link_plan_required": True,
+        "interaction_must_match_intent": True,
+        "review_days_after_launch": [7, 28, 56, 90],
+    }
+    return packet
+
+
 def next_page_packet(wb: Workbook, keywords: list[KeywordRow]) -> dict[str, Any]:
     ws = wb["Content Gap Roadmap"]
     headers = {str(cell.value): index + 1 for index, cell in enumerate(ws[1])}
@@ -1076,7 +1267,7 @@ def next_page_packet(wb: Workbook, keywords: list[KeywordRow]) -> dict[str, Any]
     detailed_keywords.extend(
         item for item in template_secondary_keywords(slug) if item["keyword"] not in known
     )
-    return {
+    return enrich_page_packet({
         "generated": RUN_DATE,
         "slug": slug,
         "url": url,
@@ -1090,7 +1281,7 @@ def next_page_packet(wb: Workbook, keywords: list[KeywordRow]) -> dict[str, Any]
         "provider_prerequisites": providers,
         "missing_provider_prerequisites": missing_providers,
         "brief": str(PIPELINE_BRIEF),
-    }
+    })
 
 
 def page_packet_for_url(url: str, keywords: list[KeywordRow]) -> dict[str, Any]:
@@ -1105,10 +1296,18 @@ def page_packet_for_url(url: str, keywords: list[KeywordRow]) -> dict[str, Any]:
         raise RuntimeError("--build-page-url must identify a page below the site root")
     data_file, template, interface = route_page_build(slug)
     mapped_path = f"/{slug}"
-    mapped = [row for row in keywords if row.get("mapped_url") == mapped_path]
+    # Explicit rebuilds must also accept a curated gap target. City pages live in
+    # the nested postcode sitemap, so the top-level crawl may leave their
+    # keyword row represented by ``gap_slug`` even when the route already
+    # exists. Treat both representations as the same selected URL.
+    mapped = [
+        row for row in keywords
+        if row.get("mapped_url") == mapped_path
+        or f"/{str(row.get('gap_slug') or '').lstrip('/')}" == mapped_path
+    ]
     mapped.sort(key=lambda row: (row["difficulty"], -row["volume"]))
     if not mapped and slug.startswith("postcode/"):
-        weekly_report = ROOT / "docs" / "weekly-seo-intelligence.json"
+        weekly_report = WEEKLY_SEO_INTELLIGENCE_FILE
         if weekly_report.exists():
             report = json.loads(weekly_report.read_text(encoding="utf-8"))
             opportunity = next(
@@ -1125,23 +1324,36 @@ def page_packet_for_url(url: str, keywords: list[KeywordRow]) -> dict[str, Any]:
                     "cluster": "Postcode & location",
                     "page_type": "Postcode prefix page",
                 } for query in opportunity["top_queries"]]
+    hub_note: str | None = None
+    hub_mode: str | None = None
     if not mapped:
-        raise RuntimeError(f"No curated keyword mapping exists for {mapped_path}")
+        hub_rows, hub_mode, hub_note = first_party_hub_keywords(mapped_path)
+        if hub_rows:
+            mapped = hub_rows
+    if not mapped:
+        raise RuntimeError(
+            f"No curated keyword mapping and no first-party GSC evidence for {mapped_path}. "
+            "Add a curated keyword row, or ensure the URL appears in docs/weekly-seo-intelligence.json."
+        )
     detailed_keywords = [{
-        "keyword": row["keyword"], "volume": row["volume"],
-        "difficulty": row["difficulty"], "cpc": row["cpc"],
-        "intent": row["intent"], "role": "primary" if index == 0 else "secondary",
-        "recommended_slot": "title/excerpt" if index == 0 else "body/faq",
-        "source": "Curated keyword dataset",
+        "keyword": row["keyword"],
+        "volume": row.get("volume"),
+        "difficulty": row.get("difficulty"),
+        "cpc": row.get("cpc"),
+        "intent": row["intent"],
+        "role": row.get("role") or ("primary" if index == 0 else "secondary"),
+        "recommended_slot": row.get("recommended_slot") or ("title/excerpt" if index == 0 else "body/faq"),
+        "source": row.get("source") or "Curated keyword dataset",
     } for index, row in enumerate(mapped)]
     providers = provider_slugs_from_gap(slug)
-    return {
+    is_hub = hub_note is not None or slug in HUB_ROUTE_OVERRIDES
+    packet: dict[str, Any] = {
         "generated": RUN_DATE,
         "slug": slug,
         "url": f"https://broadbandpicker.co.uk/{slug}",
         "title": slug.rsplit("/", 1)[-1].replace("-", " ").title(),
-        "cluster": mapped[0]["cluster"],
-        "page_type": mapped[0]["page_type"],
+        "cluster": "Provider vs comparison" if is_hub else mapped[0]["cluster"],
+        "page_type": "Comparison directory" if is_hub else mapped[0]["page_type"],
         "data_file": data_file,
         "template": template,
         "interface": interface,
@@ -1151,10 +1363,94 @@ def page_packet_for_url(url: str, keywords: list[KeywordRow]) -> dict[str, Any]:
         "brief": str(PIPELINE_BRIEF),
         "build_mode": "complete_existing_page",
     }
+    if hub_note:
+        packet["keyword_mapping_note"] = hub_note
+        packet["primary_keyword_mode"] = hub_mode
+    return enrich_page_packet(packet)
+
+
+def ux_page_type_for_packet(packet: dict[str, Any]) -> str:
+    """Use the same route taxonomy as analyze_page_type_ux.py."""
+    slug = str(packet.get("slug") or "").strip("/")
+    if not slug:
+        return "homepage"
+    if slug == "deals" or slug.startswith("deals/"):
+        return "deals_hub"
+    if slug == "providers/compare" or slug.startswith("providers/compare/"):
+        return "provider_vs"
+    if re.fullmatch(r"providers/[^/]+/deals", slug):
+        return "provider_deals"
+    if slug.startswith("providers/") and slug != "providers":
+        return "provider_review"
+    if slug == "providers" or slug == "compare":
+        return "compare"
+    if slug == "postcode" or slug.startswith("postcode/"):
+        return "postcode"
+    if slug == "guides" or slug == "broadband-glossary" or slug.startswith("guides/"):
+        return "guide"
+    if slug.startswith("research/"):
+        return "research"
+    if slug == "speed-test" or slug.startswith("tools/"):
+        return "tool"
+    if slug in {
+        "about", "how-we-make-money", "how-we-review-broadband", "editorial-policy",
+        "contact", "privacy-policy", "terms", "cookie-policy",
+    }:
+        return "trust"
+    return "other"
+
+
+def page_type_recommended_actions(packet: dict[str, Any]) -> list[dict[str, Any]]:
+    """Return the latest recommendations for every build, not just the canonical winner."""
+    try:
+        scan = json.loads(PAGE_TYPE_UX_SCAN_FILE.read_text(encoding="utf-8"))
+    except (FileNotFoundError, OSError, json.JSONDecodeError):
+        return []
+    kind = ux_page_type_for_packet(packet)
+    return [
+        item for item in scan.get("recommendations", [])
+        if item.get("page_type") == kind
+    ]
 
 
 def write_page_build_packet(packet: dict[str, Any]) -> tuple[Path, Path]:
     PIPELINE_DIR.mkdir(parents=True, exist_ok=True)
+    packet["benchmark_strategy"] = {
+        "uk_seo_leaders_required": 3,
+        "ai_cited_pages_required_when_ai_overview_present": 1,
+        "international_innovators_required": 2,
+        "purpose": (
+            "Synthesize same-topic UK search and GEO conventions with useful same-topic "
+            "international UX patterns, then implement an original BroadbandPicker layout."
+        ),
+        "constraints": [
+            "Do not copy wording, branding, visual identity or a distinctive page layout.",
+            "Do not infer that a UX pattern caused a ranking or AI citation.",
+            "Adapt international patterns to UK terminology, regulation, evidence and reader needs.",
+            "Use BroadbandPicker's existing design system and accessible components.",
+        ],
+    }
+    packet["orchestrated_ux_geo_requirements"] = page_type_recommended_actions(packet)
+    try:
+        decision = json.loads(CANONICAL_PRIORITY_FILE.read_text(encoding="utf-8"))
+        selected = decision.get("next_priority", {})
+        if selected.get("url", "").rstrip("/") == packet.get("url", "").rstrip("/"):
+            packet["priority_evidence"] = {
+                "selected_by": selected.get("source"),
+                "score": selected.get("score"),
+                "reason": selected.get("reason"),
+                "metrics": selected.get("metrics", {}),
+                "top_queries": selected.get("top_queries", []),
+            }
+            canonical_requirements = selected.get("ux_geo_requirements", [])
+            if canonical_requirements:
+                packet["orchestrated_ux_geo_requirements"] = canonical_requirements
+    except (FileNotFoundError, OSError, json.JSONDecodeError):
+        pass
+    packet["mandatory_recommended_actions"] = [
+        item for item in packet["orchestrated_ux_geo_requirements"]
+        if item.get("priority") in {"P0", "P1"}
+    ]
     packet_path = PIPELINE_DIR / "next-page.json"
     prompt_path = PIPELINE_DIR / "next-page-prompt.md"
     packet_path.write_text(json.dumps(packet, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
@@ -1162,6 +1458,24 @@ def write_page_build_packet(packet: dict[str, Any]) -> tuple[Path, Path]:
 
 Read `{PIPELINE_BRIEF.relative_to(ROOT)}` completely and follow it as the controlling specification.
 Read `{packet_path.relative_to(ROOT)}` for the exact page, detailed keyword mapping, template route and prerequisites.
+If `performance_brief` is present in the packet, treat its GSC queries, impressions, CTR and
+position as the first-party optimisation brief. Do not replace those observed queries with generic
+keyword-tool guesses. If it is absent, record that this is a new/no-data page and establish a
+baseline during the scheduled post-publication reviews.
+If `priority_evidence` and `orchestrated_ux_geo_requirements` are present, they came from the
+combined GSC, GA4, content-depth and page-type SERP/UX workflow. Treat every P0/P1 requirement as
+mandatory unless current live evidence proves it is already satisfied; record that validation in
+the research packet. P2 requirements are evidence-backed enhancements to implement when they help
+the reader's task. Do not discard these requirements during fresh page-level research.
+
+The packet also contains `mandatory_recommended_actions`, the build gate derived from those P0/P1
+requirements. Implement every action. For each one, add a matching entry to
+`implemented_recommended_actions` in the research JSON with `priority`, `feature`, `disposition`
+(`implemented` or `already_satisfied`), `implementation`, `evidence`, and `validation_terms`.
+`validation_terms` must be a non-empty list of stable visible words, labels or facts that the
+rendered-page validator can find in this page's `<main>`. An `already_satisfied` disposition still
+needs current page-specific evidence and visible validation terms. Never mark an action satisfied
+merely because a shared template or unrelated page contains something similar.
 
 ## 1. Keyword research and live SERP scraping (required every build, not optional)
 
@@ -1172,6 +1486,15 @@ The packet's keyword list is a starting point, not the finished research. Before
 - Check whether an AI Overview / AI answer currently appears for the primary keyword. If it does,
   read what it cites and from where — that tells you what a citable answer for this specific
   keyword looks like, more reliably than any general rule.
+- Build three separate same-topic benchmark sets: at least three UK organic leaders, every
+  accessible page cited by the observed AI Overview (at least one is required when an AI Overview
+  is present), and at least two strong non-UK pages. Select international pages for genuinely useful
+  UX, information architecture, tools or citation design that the UK set does not commonly use,
+  not merely because they rank in another country. Record the country and selection evidence.
+- Inspect rendered page structure and responsive behaviour where access permits, not just titles
+  and snippets. Compare section order, above-the-fold answer, navigation, tables/cards, decision
+  support, source presentation, mobile behaviour and accessibility. If access is blocked, record
+  the limitation and do not invent observations.
 - Identify at least four distinct secondary/supporting queries beyond the primary term. Use close
   variants, commercial modifiers, People Also Ask questions, entity attributes and comparison
   questions that a UK reader would plausibly search. Map every query to a specific title, intro,
@@ -1247,6 +1570,25 @@ Before running the build, write `{PAGE_RESEARCH_FILE.relative_to(ROOT)}` as vali
   `approx_word_count`, `content_gap_to_improve`, `useful_ux_patterns`, `useful_ui_patterns`,
   `interactive_or_functional_elements`, `trust_signals` and `citation_patterns`;
 - `ai_overview`: an object containing `checked`, `present`, `observation` and `cited_sources`;
+- `design_benchmarks`: an object with `uk_seo_leaders` (at least three), `ai_cited_pages`,
+  `international_innovators` (at least two) and `citation_access_limitation`. Every benchmark page
+  must contain `url`, `title`, `country`, `selection_basis`, `seo_geo_evidence`, `observed_layout`,
+  `ux_patterns`, `ui_patterns`, `transferable_pattern` and `copying_risk`. AI-cited pages must also
+  identify the cited claim or passage in `citation_evidence`. When no AI Overview is present,
+  `ai_cited_pages` may be empty; when one is present but its sources cannot be accessed, explain the
+  specific limitation rather than fabricating a source;
+- `llm_visibility_observations`: checks performed for the topic, with `platform_or_method`,
+  `observation` and `limitations`. Treat these as volatile observations, not ranking guarantees;
+- `layout_blueprint`: an ordered list of at least four page sections. Each needs `order`, `section`,
+  `reader_task`, `component_or_pattern`, `benchmark_sources`, `mobile_behaviour`,
+  `accessibility_notes` and `validation_terms`;
+- `benchmark_synthesis`: `adopted_patterns` (at least three) and one `differentiated_pattern`.
+  Each adopted pattern needs `pattern`, `source_urls`, `user_need`, `adaptation`, `implementation`,
+  `originality_guard` and `validation_terms`. The differentiated pattern must state what is uncommon
+  in the UK benchmark set, its international evidence, UK adaptation, implementation and visible
+  validation terms;
+- `serp_features`: an object recording whether snippets, PAA, local results, video, tools,
+  comparison tables, forums and AI answers were observed, plus the page-format implication;
 - `people_also_ask`: useful question strings discovered during research;
 - `sources`: at least three objects containing `url`, `source_type` (`primary`, `regulator`,
   `government`, `independent` or `reviews`), `verified_date` and `claims_supported`;
@@ -1254,14 +1596,30 @@ Before running the build, write `{PAGE_RESEARCH_FILE.relative_to(ROOT)}` as vali
   Guide or Provider page, 800 for a Comparison page, or 600 for an Interactive tool;
 - `required_sections`, `internal_links`, `schema_types`, `ux_ui_requirements`,
   `functional_requirements`, `research_summary` and `depth_rationale`.
+- `content_format`: the packet format ID plus a short rationale based on intent and the SERP;
+- `information_gain`: at least one original, useful asset this page adds beyond summarising the
+  ranking pages. Each item needs `asset`, `evidence`, `implementation` and `validation_terms`;
+- `ctr_candidates`: at least three distinct objects with `title`, `meta_description` and
+  `rationale`, plus `selected_ctr_candidate` containing the chosen title and description;
+- `internal_link_plan`: `inbound` and `outbound` arrays, each with at least two objects containing
+  `url`, `anchor` and `reason`. Use existing, topically relevant pages and descriptive anchors;
+- `schema_eligibility`: proposed schema objects containing `type`, `eligible`, `visible_evidence`
+  and `reason`. Never add schema for content or offers that are not visibly present and current;
+- `post_publication_review`: concrete checks for `day_7`, `day_28`, `day_56` and `day_90`, using
+  GSC impressions/CTR/position and GA4 engagement, affiliate clicks and AI/LLM referrals.
+- `implemented_recommended_actions`: one complete entry for every item in the packet's
+  `mandatory_recommended_actions`, using the exact `priority` and `feature`, plus `disposition`,
+  `implementation`, `evidence` and visible `validation_terms` as described above.
 
 The validator will reject a missing, thin or mismatched research file and will check that the
 rendered page covers the mapped secondary queries and the justified minimum depth.
 
 ## 6. Apply competitor UX, UI and functional learnings
 
-Use the strongest useful patterns found across the ranking pages, without copying their wording,
-branding or layout. Implement only patterns that improve this page's search intent and reader task,
+Use the strongest useful patterns found across the UK, AI-cited and international benchmark sets,
+without copying their wording, branding, visual identity or distinctive layout. Synthesize the
+patterns into the documented `layout_blueprint`; do not reproduce any one source page. Implement
+only patterns that improve this page's search intent and reader task,
 such as answer summaries, comparison/checklist tables, eligibility flows, cost examples, decision
 steps, jump navigation, warnings, source notes or an interactive control. Record every adopted
 pattern in `ux_ui_requirements` or `functional_requirements`, explain which observed user need it
@@ -1271,30 +1629,44 @@ Do not claim that a competitor pattern caused a ranking or AI citation. Treat ra
 and LLM visibility as evidence-informed targets, never guarantees. Do not clone a competitor page,
 add decorative UI without a task benefit, or invent data to populate a feature.
 
-## 7. Mandatory product, accessibility and measurement layer
+At least one implemented pattern must be a useful, evidence-backed idea found in the international
+set but uncommon across the reviewed UK pages. Adapt it to UK terminology, regulation, factual
+sources and expectations. Every adopted and differentiated pattern needs stable visible
+`validation_terms`; the rendered-page gate will reject a build when those terms are absent.
 
-Every future page must ship as a useful product experience, not editorial copy alone:
-- Add page-specific interactive comparison functionality that helps the reader compare at least
-  two meaningful choices, scenarios, providers, prices, speeds, eligibility outcomes or next
-  actions. It must work without an account and retain a crawlable static explanation.
+## 7. Intent-led product, accessibility and measurement layer
+
+Every future page must help the reader complete its primary task, but interactivity is not a
+ranking ornament. Use the packet's content format, the observed SERP and the reader task to decide:
+- If interaction materially improves the task, build a page-specific accessible control. It must
+  work without an account and retain a crawlable static explanation.
+- If a static table, checklist, worked example, local evidence block or answer is clearer, use
+  that instead. Do not add a quiz or calculator merely to satisfy the pipeline.
 - Make the complete journey responsive at mobile, tablet and desktop widths. Avoid horizontal
   page overflow; allow wide data tables to scroll inside a labelled region; keep controls usable
   on touch screens; and preserve task hierarchy when cards stack.
 - Use semantic HTML and keyboard-operable controls with visible focus states, programmatic labels,
   accessible names, useful instructions and live status feedback where state changes. Never rely
   on colour alone and respect reduced-motion preferences.
-- Track meaningful interaction and conversion steps through `trackEvent` from
-  `src/lib/analytics.ts`. Define stable snake_case GA4 event names and non-personal parameters. At
-  minimum track interaction start, comparison/decision completion and the primary conversion CTA.
-  Do not send postcodes, names, email addresses or other personal data to GA4.
+- Track meaningful interaction and conversion steps through `trackEvent` from the site's analytics
+  helper. Define stable snake_case GA4 event names and non-personal parameters. Interactive pages
+  must track interaction start, completion and the primary CTA. Static pages need the relevant
+  existing commercial CTA event and must not invent low-value events. Do not send postcodes,
+  names, email addresses or other personal data to GA4.
+- Route affiliate links through the shared `AffiliateCTA` component and give every CTA a stable,
+  descriptive `placement`. Its Awin ClickRef taxonomy and GA4 parameters must remain aligned so
+  page, placement and provider clicks can be joined to Awin transactions. Never create per-user
+  ClickRefs or put postcodes, names, emails or other personal data in affiliate tracking URLs.
 
 Add these mandatory fields to `{PAGE_RESEARCH_FILE.relative_to(ROOT)}`:
-- `interactive_comparison`: non-empty `user_task`, `choices_compared`, `crawlable_fallback` and
-  `completion_state` values;
+- `interaction_decision`: `required`, `rationale`, `reader_task` and `static_fallback`;
+- when `interaction_decision.required` is true, `interactive_comparison` must contain non-empty
+  `user_task`, `choices_compared`, `crawlable_fallback` and `completion_state` values;
 - `responsive_requirements`: at least three concrete checks covering mobile, tablet and desktop;
 - `accessibility_requirements`: at least five concrete keyboard, semantics, labels, focus,
   state-feedback or reduced-motion checks;
-- `ga4_events`: at least three objects with `name`, `trigger`, `parameters` and `conversion_role`.
+- `ga4_events`: complete objects with `name`, `trigger`, `parameters` and `conversion_role`; at
+  least three for interactive pages and at least one meaningful CTA event for static pages.
 
 The outer runner owns production release. A normal build must pass local validation, deploy with
 `vercel --prod --yes`, verify the live route is served by Vercel, regenerate both trackers,
@@ -1385,6 +1757,66 @@ def validate_page_research(packet: dict[str, Any]) -> dict[str, Any]:
     ai_overview = research.get("ai_overview") or {}
     if ai_overview.get("checked") is not True or "present" not in ai_overview or not ai_overview.get("observation"):
         raise RuntimeError("Page research must record the AI Overview check and observation")
+    benchmarks = research.get("design_benchmarks") or {}
+    benchmark_fields = (
+        "url", "title", "country", "selection_basis", "seo_geo_evidence",
+        "observed_layout", "ux_patterns", "ui_patterns", "transferable_pattern", "copying_risk",
+    )
+    uk_leaders = benchmarks.get("uk_seo_leaders") or []
+    if len(uk_leaders) < 3 or any(
+        not all(item.get(key) for key in benchmark_fields) for item in uk_leaders
+    ):
+        raise RuntimeError("Page research must document at least three complete same-topic UK SEO/GEO design benchmarks")
+    international = benchmarks.get("international_innovators") or []
+    if len(international) < 2 or any(
+        not all(item.get(key) for key in benchmark_fields) for item in international
+    ):
+        raise RuntimeError("Page research must document at least two complete same-topic international UX innovators")
+    if any(str(item.get("country") or "").strip().lower() in {"uk", "united kingdom", "great britain"} for item in international):
+        raise RuntimeError("International UX innovators must be outside the UK")
+    ai_cited_pages = benchmarks.get("ai_cited_pages") or []
+    if any(
+        not all(item.get(key) for key in benchmark_fields + ("citation_evidence",))
+        for item in ai_cited_pages
+    ):
+        raise RuntimeError("Every AI-cited design benchmark must contain complete layout and citation evidence")
+    if ai_overview.get("present") is True and not ai_cited_pages and not str(
+        benchmarks.get("citation_access_limitation") or ""
+    ).strip():
+        raise RuntimeError("An observed AI Overview requires at least one cited-page benchmark or a specific access limitation")
+    llm_observations = research.get("llm_visibility_observations") or []
+    if not llm_observations or any(
+        not all(item.get(key) for key in ("platform_or_method", "observation", "limitations"))
+        for item in llm_observations
+    ):
+        raise RuntimeError("Page research must record LLM visibility checks and their limitations")
+    blueprint = research.get("layout_blueprint") or []
+    blueprint_fields = (
+        "order", "section", "reader_task", "component_or_pattern", "benchmark_sources",
+        "mobile_behaviour", "accessibility_notes", "validation_terms",
+    )
+    if len(blueprint) < 4 or any(
+        not all(item.get(key) for key in blueprint_fields) for item in blueprint
+    ):
+        raise RuntimeError("Page research must define a complete ordered layout blueprint with at least four sections")
+    synthesis = research.get("benchmark_synthesis") or {}
+    adopted = synthesis.get("adopted_patterns") or []
+    adopted_fields = (
+        "pattern", "source_urls", "user_need", "adaptation", "implementation",
+        "originality_guard", "validation_terms",
+    )
+    if len(adopted) < 3 or any(not all(item.get(key) for key in adopted_fields) for item in adopted):
+        raise RuntimeError("Page research must synthesize at least three complete benchmark patterns")
+    differentiated = synthesis.get("differentiated_pattern") or {}
+    differentiated_fields = (
+        "pattern", "uncommon_in_uk_evidence", "international_source_urls", "uk_adaptation",
+        "implementation", "validation_terms",
+    )
+    if not all(differentiated.get(key) for key in differentiated_fields):
+        raise RuntimeError("Page research must define one complete international-to-UK differentiated pattern")
+    serp_features = research.get("serp_features") or {}
+    if not serp_features.get("checked") or not serp_features.get("format_implication"):
+        raise RuntimeError("Page research must classify observed SERP features and their format implication")
     sources = research.get("sources") or []
     source_types = {str(item.get("source_type") or "").lower() for item in sources}
     if len(sources) < 3 or not source_types.intersection({"primary", "regulator", "government"}) or not source_types.intersection({"independent", "regulator", "government"}):
@@ -1397,26 +1829,101 @@ def validate_page_research(packet: dict[str, Any]) -> dict[str, Any]:
     for key in ("required_sections", "internal_links", "schema_types", "ux_ui_requirements", "functional_requirements"):
         if not research.get(key):
             raise RuntimeError(f"Page research is missing {key}")
-    comparison = research.get("interactive_comparison") or {}
-    comparison_fields = ("user_task", "choices_compared", "crawlable_fallback", "completion_state")
-    if any(not comparison.get(key) for key in comparison_fields):
-        raise RuntimeError("Page research must define a complete interactive comparison experience")
+    content_format = research.get("content_format") or {}
+    if content_format.get("id") != packet.get("content_format", {}).get("id") or not content_format.get("rationale"):
+        raise RuntimeError("Page research must use and justify the packet's content format")
+    information_gain = research.get("information_gain") or []
+    gain_fields = ("asset", "evidence", "implementation", "validation_terms")
+    if not information_gain or any(not all(item.get(key) for key in gain_fields) for item in information_gain):
+        raise RuntimeError("Page research must define at least one complete information-gain asset")
+    ctr_candidates = research.get("ctr_candidates") or []
+    if len(ctr_candidates) < 3 or any(
+        not all(item.get(key) for key in ("title", "meta_description", "rationale"))
+        for item in ctr_candidates
+    ):
+        raise RuntimeError("Page research must define at least three complete CTR candidates")
+    if len({str(item["title"]).strip().lower() for item in ctr_candidates}) < 3:
+        raise RuntimeError("CTR candidate titles must be meaningfully distinct")
+    selected_ctr = research.get("selected_ctr_candidate") or {}
+    if not selected_ctr.get("title") or not selected_ctr.get("meta_description"):
+        raise RuntimeError("Page research must record the selected title and meta description")
+    link_plan = research.get("internal_link_plan") or {}
+    link_fields = ("url", "anchor", "reason")
+    for direction in ("inbound", "outbound"):
+        links = link_plan.get(direction) or []
+        if len(links) < 2 or any(not all(item.get(key) for key in link_fields) for item in links):
+            raise RuntimeError(f"Internal-link plan needs at least two complete {direction} links")
+    interaction = research.get("interaction_decision") or {}
+    if not all(key in interaction and interaction.get(key) is not None for key in (
+        "required", "rationale", "reader_task", "static_fallback"
+    )):
+        raise RuntimeError("Page research must make and justify an intent-led interaction decision")
+    if not isinstance(interaction.get("required"), bool):
+        raise RuntimeError("interaction_decision.required must be true or false")
+    if interaction["required"]:
+        comparison = research.get("interactive_comparison") or {}
+        comparison_fields = ("user_task", "choices_compared", "crawlable_fallback", "completion_state")
+        if any(not comparison.get(key) for key in comparison_fields):
+            raise RuntimeError("Interactive pages must define a complete comparison experience")
     if len(research.get("responsive_requirements") or []) < 3:
         raise RuntimeError("Page research must define mobile, tablet and desktop responsive checks")
     if len(research.get("accessibility_requirements") or []) < 5:
         raise RuntimeError("Page research must define at least five concrete accessibility checks")
     ga4_events = research.get("ga4_events") or []
     ga4_fields = ("name", "trigger", "parameters", "conversion_role")
-    if len(ga4_events) < 3 or any(not all(event.get(key) is not None for key in ga4_fields) for event in ga4_events):
-        raise RuntimeError("Page research must define at least three complete GA4 events")
+    minimum_events = 3 if interaction["required"] else 1
+    if len(ga4_events) < minimum_events or any(not all(event.get(key) is not None for key in ga4_fields) for event in ga4_events):
+        raise RuntimeError(f"Page research must define at least {minimum_events} complete GA4 events")
     for event in ga4_events:
         if not re.fullmatch(r"[a-z][a-z0-9]*(?:_[a-z0-9]+)*", str(event["name"])):
             raise RuntimeError(f"GA4 event name must use lowercase snake_case: {event['name']}")
         serialised_parameters = json.dumps(event["parameters"]).lower()
         if any(term in serialised_parameters for term in ("postcode", "email", "phone", "address")):
             raise RuntimeError(f"GA4 event parameters may not contain personal information: {event['name']}")
+    schema_eligibility = research.get("schema_eligibility") or []
+    schema_fields = ("type", "eligible", "visible_evidence", "reason")
+    if not schema_eligibility or any(
+        not all(key in item and item.get(key) is not None for key in schema_fields)
+        for item in schema_eligibility
+    ):
+        raise RuntimeError("Page research must record evidence-led schema eligibility")
+    review = research.get("post_publication_review") or {}
+    if any(not review.get(f"day_{day}") for day in (7, 28, 56, 90)):
+        raise RuntimeError("Page research must define day 7, 28, 56 and 90 performance reviews")
     if not research.get("research_summary") or not research.get("depth_rationale"):
         raise RuntimeError("Page research must explain its findings and depth rationale")
+
+    mandatory_actions = packet.get("mandatory_recommended_actions") or []
+    implemented_actions = research.get("implemented_recommended_actions") or []
+    action_fields = (
+        "priority", "feature", "disposition", "implementation", "evidence", "validation_terms",
+    )
+    if mandatory_actions and any(
+        not all(item.get(key) for key in action_fields) for item in implemented_actions
+    ):
+        raise RuntimeError("Every implemented recommended action must contain all required fields")
+    implemented_by_key = {
+        (str(item.get("priority")), str(item.get("feature"))): item
+        for item in implemented_actions
+    }
+    for required in mandatory_actions:
+        key = (str(required.get("priority")), str(required.get("feature")))
+        action = implemented_by_key.get(key)
+        if action is None:
+            raise RuntimeError(
+                f"Page research has not addressed mandatory recommended action {key[0]}: {key[1]}"
+            )
+        if action.get("disposition") not in {"implemented", "already_satisfied"}:
+            raise RuntimeError(
+                f"Mandatory recommended action has invalid disposition {key[0]}: {key[1]}"
+            )
+        terms = action.get("validation_terms")
+        if isinstance(terms, str):
+            terms = [terms]
+        if not isinstance(terms, list) or not terms or any(not str(term).strip() for term in terms):
+            raise RuntimeError(
+                f"Mandatory recommended action needs visible validation terms {key[0]}: {key[1]}"
+            )
     return research
 
 
@@ -1450,6 +1957,17 @@ def validate_page_build(packet: dict[str, Any], port: int = 4321) -> None:
             raise RuntimeError(f"Local route validation failed for {local_url}: {code}")
         primary = packet["keywords"][0]["keyword"] if packet["keywords"] else ""
         tree = html.fromstring(response.content)
+        selected_ctr = research["selected_ctr_candidate"]
+        rendered_title = " ".join(tree.xpath("//head/title/text()") or []).strip()
+        rendered_meta = " ".join(tree.xpath(
+            "//head/meta[translate(@name, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')='description']/@content"
+        ) or []).strip()
+        if str(selected_ctr["title"]).strip().lower() not in rendered_title.lower():
+            raise RuntimeError(
+                f"Rendered title does not use the selected CTR candidate: {rendered_title!r}"
+            )
+        if str(selected_ctr["meta_description"]).strip().lower() != rendered_meta.lower():
+            raise RuntimeError("Rendered meta description does not match the selected CTR candidate")
         # Validate the drafted page copy, excluding shared site chrome such as
         # the legacy footer which may contain punctuation outside this page's
         # editorial scope.
@@ -1481,6 +1999,48 @@ def validate_page_build(packet: dict[str, Any], port: int = 4321) -> None:
                 raise RuntimeError(f"Primary keyword is absent from rendered page: {primary}")
         if "—" in visible:
             raise RuntimeError("Rendered public copy contains an em dash")
+        gain_implemented = False
+        for item in research["information_gain"]:
+            terms = item.get("validation_terms") or []
+            if isinstance(terms, str):
+                terms = [terms]
+            if terms and all(str(term).lower() in visible.lower() for term in terms):
+                gain_implemented = True
+                break
+        if not gain_implemented:
+            raise RuntimeError("Rendered page does not contain a validated information-gain asset")
+        benchmark_patterns = list(research["benchmark_synthesis"]["adopted_patterns"])
+        benchmark_patterns.append(research["benchmark_synthesis"]["differentiated_pattern"])
+        for pattern in benchmark_patterns:
+            terms = pattern.get("validation_terms") or []
+            if isinstance(terms, str):
+                terms = [terms]
+            missing = [str(term) for term in terms if str(term).lower() not in visible.lower()]
+            if missing:
+                raise RuntimeError(
+                    f"Rendered page is missing benchmark-pattern validation terms for "
+                    f"{pattern.get('pattern')}: {missing}"
+                )
+        for action in research.get("implemented_recommended_actions") or []:
+            terms = action.get("validation_terms") or []
+            if isinstance(terms, str):
+                terms = [terms]
+            missing = [str(term) for term in terms if str(term).lower() not in visible.lower()]
+            if missing:
+                raise RuntimeError(
+                    "Rendered page is missing validation terms for recommended action "
+                    f"{action.get('priority')}: {action.get('feature')}: {missing}"
+                )
+        rendered_hrefs = {
+            urllib.parse.urlparse(str(value)).path.rstrip("/") or "/"
+            for value in tree.xpath("//main//a[@href]/@href")
+        }
+        planned_outbound = {
+            urllib.parse.urlparse(str(item["url"])).path.rstrip("/") or "/"
+            for item in research["internal_link_plan"]["outbound"]
+        }
+        if len(rendered_hrefs.intersection(planned_outbound)) < 2:
+            raise RuntimeError("Rendered page is missing at least two planned outbound internal links")
         secondary_covered = 0
         for item in research["secondary_keywords"]:
             tokens = keyword_tokens(str(item["keyword"]))
@@ -1523,6 +2083,53 @@ def deploy_page_to_vercel(packet: dict[str, Any]) -> None:
         raise RuntimeError(f"Production route returned HTTP {response.status_code}: {packet['url']}")
     if not response.headers.get("x-vercel-id") and "vercel" not in response.headers.get("server", "").lower():
         raise RuntimeError("Production route is live but Vercel headers were not detected")
+
+
+def schedule_post_publication_reviews(packet: dict[str, Any]) -> None:
+    """Persist the measurement loop only after production verification succeeds."""
+    launched = datetime.now(timezone.utc)
+    try:
+        existing = json.loads(POST_PUBLICATION_REVIEW_FILE.read_text(encoding="utf-8"))
+    except (FileNotFoundError, OSError, json.JSONDecodeError):
+        existing = {"updated_at": None, "reviews": []}
+    reviews = [
+        item for item in existing.get("reviews", [])
+        if item.get("slug") != packet["slug"]
+    ]
+    checks = {
+        "day_7": "Confirm indexing, impressions, query matching and analytics events",
+        "day_28": "Compare CTR and average position; test title/snippet only when evidence supports it",
+        "day_56": "Review engagement, affiliate clicks, internal links and missing query coverage",
+        "day_90": "Decide whether to consolidate, expand, refresh or leave unchanged",
+    }
+    research_reviews: dict[str, Any] = {}
+    try:
+        research_reviews = json.loads(PAGE_RESEARCH_FILE.read_text(encoding="utf-8")).get(
+            "post_publication_review", {}
+        )
+    except (OSError, json.JSONDecodeError):
+        pass
+    schedule = []
+    for day in (7, 28, 56, 90):
+        key = f"day_{day}"
+        schedule.append({
+            "day": day,
+            "due_date": (launched + timedelta(days=day)).date().isoformat(),
+            "status": "Pending",
+            "check": research_reviews.get(key) or checks[key],
+        })
+    reviews.append({
+        "slug": packet["slug"],
+        "url": packet["url"],
+        "launched_at": launched.isoformat(),
+        "performance_baseline": packet.get("performance_brief"),
+        "schedule": schedule,
+    })
+    payload = {"updated_at": launched.isoformat(), "reviews": reviews}
+    POST_PUBLICATION_REVIEW_FILE.parent.mkdir(parents=True, exist_ok=True)
+    POST_PUBLICATION_REVIEW_FILE.write_text(
+        json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -1667,6 +2274,22 @@ def main() -> None:
                 break
             deploy_page_to_vercel(current_packet)
             print(f"Vercel production validation passed: {current_packet['url']}")
+            schedule_post_publication_reviews(current_packet)
+            print(f"Scheduled post-publication reviews: {POST_PUBLICATION_REVIEW_FILE}")
+            change_type = (
+                "content_refresh"
+                if current_packet.get("build_mode") == "complete_existing_page"
+                else "new_page"
+            )
+            subprocess.run([
+                sys.executable, str(ROOT / "scripts" / "record_content_change.py"),
+                "--url", current_packet["url"],
+                "--title", current_packet["title"],
+                "--change-type", change_type,
+                "--source", "build_keyword_mapping.py",
+                "--deployment", "vercel-production",
+            ], cwd=ROOT, check=True)
+            print(f"Recorded GA4 annotation and GSC measurement baseline: {current_packet['url']}")
             completed_packets.append(current_packet)
 
             refreshed_urls = get_sitemap_urls(False)

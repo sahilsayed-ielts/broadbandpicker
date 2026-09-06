@@ -1,0 +1,1209 @@
+{
+  "updated_at": "2026-09-06T16:16:54.910401+00:00",
+  "changes": [
+    {
+      "change_id": "content-2026-09-04-da626da4",
+      "recorded_at": "2026-09-04T10:10:03.699256+00:00",
+      "change_date": "2026-09-04",
+      "url": "https://broadbandpicker.co.uk/postcode/sheffield",
+      "path": "/postcode/sheffield",
+      "title": "Broadband providers in Sheffield",
+      "change_type": "content_refresh",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15718342273",
+        "title": "Content refresh: /postcode/sheffield"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 0,
+          "impressions": 18,
+          "ctr": 0,
+          "position": 35.27777777777778
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-04-ad652356",
+      "recorded_at": "2026-09-04T14:34:04.906053+00:00",
+      "change_date": "2026-09-04",
+      "url": "https://broadbandpicker.co.uk/postcode/ha1",
+      "path": "/postcode/ha1",
+      "title": "Ha1",
+      "change_type": "content_refresh",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15719869706",
+        "title": "Content refresh: /postcode/ha1"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 1,
+          "impressions": 95,
+          "ctr": 0.010526315789473684,
+          "position": 9.642105263157895
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 1.0,
+          "engaged_sessions": 1.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-04-cbb58f0d",
+      "recorded_at": "2026-09-04T16:14:20.444765+00:00",
+      "change_date": "2026-09-04",
+      "url": "https://broadbandpicker.co.uk/postcode/se1",
+      "path": "/postcode/se1",
+      "title": "Se1",
+      "change_type": "content_refresh",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15720383148",
+        "title": "Content refresh: /postcode/se1"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 1,
+          "impressions": 92,
+          "ctr": 0.010869565217391304,
+          "position": 5.565217391304348
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 2.0,
+          "engaged_sessions": 2.0,
+          "key_events": 1.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-04-8c5026da",
+      "recorded_at": "2026-09-04T17:29:03.605576+00:00",
+      "change_date": "2026-09-04",
+      "url": "https://broadbandpicker.co.uk/postcode/sw1",
+      "path": "/postcode/sw1",
+      "title": "Sw1",
+      "change_type": "content_refresh",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15720641377",
+        "title": "Content refresh: /postcode/sw1"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 1,
+          "impressions": 40,
+          "ctr": 0.025,
+          "position": 6.725
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 2.0,
+          "engaged_sessions": 2.0,
+          "key_events": 4.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-04-ba282baf",
+      "recorded_at": "2026-09-04T18:21:51.684349+00:00",
+      "change_date": "2026-09-04",
+      "url": "https://broadbandpicker.co.uk/providers/compare/virgin-media-vs-vodafone",
+      "path": "/providers/compare/virgin-media-vs-vodafone",
+      "title": "Virgin Media Vs Vodafone",
+      "change_type": "content_refresh",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15720821933",
+        "title": "Content refresh: /providers/compare/virgin-media-vs-vodafone"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 1,
+          "impressions": 138,
+          "ctr": 0.007246376811594203,
+          "position": 7.630434782608695
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-04-e6043756",
+      "recorded_at": "2026-09-04T18:45:11.735630+00:00",
+      "change_date": "2026-09-04",
+      "url": "https://broadbandpicker.co.uk/postcode/e1",
+      "path": "/postcode/e1",
+      "title": "E1",
+      "change_type": "content_refresh",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15721030824",
+        "title": "Content refresh: /postcode/e1"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 2,
+          "impressions": 95,
+          "ctr": 0.021052631578947368,
+          "position": 4.589473684210526
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 2.0,
+          "engaged_sessions": 2.0,
+          "key_events": 4.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-04-996bbc0b",
+      "recorded_at": "2026-09-04T19:00:36.962731+00:00",
+      "change_date": "2026-09-04",
+      "url": "https://broadbandpicker.co.uk/postcode/ub1",
+      "path": "/postcode/ub1",
+      "title": "Ub1",
+      "change_type": "content_refresh",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15721115316",
+        "title": "Content refresh: /postcode/ub1"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 0,
+          "impressions": 79,
+          "ctr": 0,
+          "position": 8.088607594936708
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-04-32fea5e7",
+      "recorded_at": "2026-09-04T19:21:35.386895+00:00",
+      "change_date": "2026-09-04",
+      "url": "https://broadbandpicker.co.uk/postcode/en1",
+      "path": "/postcode/en1",
+      "title": "En1",
+      "change_type": "content_refresh",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15721175154",
+        "title": "Content refresh: /postcode/en1"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 0,
+          "impressions": 77,
+          "ctr": 0,
+          "position": 12.883116883116884
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-04-1c9b0de8",
+      "recorded_at": "2026-09-04T19:37:04.963082+00:00",
+      "change_date": "2026-09-04",
+      "url": "https://broadbandpicker.co.uk/postcode/nw1",
+      "path": "/postcode/nw1",
+      "title": "Nw1",
+      "change_type": "content_refresh",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15721259903",
+        "title": "Content refresh: /postcode/nw1"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 2,
+          "impressions": 73,
+          "ctr": 0.0273972602739726,
+          "position": 5.8493150684931505
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-04-282decba",
+      "recorded_at": "2026-09-04T19:51:20.482700+00:00",
+      "change_date": "2026-09-04",
+      "url": "https://broadbandpicker.co.uk/postcode/w5",
+      "path": "/postcode/w5",
+      "title": "W5",
+      "change_type": "content_refresh",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15721313429",
+        "title": "Content refresh: /postcode/w5"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 1,
+          "impressions": 62,
+          "ctr": 0.016129032258064516,
+          "position": 6.048387096774194
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-04-c0570959",
+      "recorded_at": "2026-09-04T20:11:24.724305+00:00",
+      "change_date": "2026-09-04",
+      "url": "https://broadbandpicker.co.uk/postcode/so14",
+      "path": "/postcode/so14",
+      "title": "So14",
+      "change_type": "content_refresh",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15721363466",
+        "title": "Content refresh: /postcode/so14"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 1,
+          "impressions": 194,
+          "ctr": 0.005154639175257732,
+          "position": 22.02577319587629
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-04-de7a91b4",
+      "recorded_at": "2026-09-04T20:33:30.076938+00:00",
+      "change_date": "2026-09-04",
+      "url": "https://broadbandpicker.co.uk/postcode/lu1",
+      "path": "/postcode/lu1",
+      "title": "Lu1",
+      "change_type": "content_refresh",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15721424336",
+        "title": "Content refresh: /postcode/lu1"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 0,
+          "impressions": 156,
+          "ctr": 0,
+          "position": 15.397435897435898
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-04-39fe9760",
+      "recorded_at": "2026-09-04T20:41:42.717907+00:00",
+      "change_date": "2026-09-04",
+      "url": "https://broadbandpicker.co.uk/postcode/l1",
+      "path": "/postcode/l1",
+      "title": "L1",
+      "change_type": "content_refresh",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15721404977",
+        "title": "Content refresh: /postcode/l1"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 0,
+          "impressions": 148,
+          "ctr": 0,
+          "position": 26.64864864864865
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-04-a46799e0",
+      "recorded_at": "2026-09-04T20:51:42.493994+00:00",
+      "change_date": "2026-09-04",
+      "url": "https://broadbandpicker.co.uk/postcode/ls2",
+      "path": "/postcode/ls2",
+      "title": "Ls2",
+      "change_type": "content_refresh",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15721481766",
+        "title": "Content refresh: /postcode/ls2"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 2,
+          "impressions": 109,
+          "ctr": 0.01834862385321101,
+          "position": 45.71559633027523
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 1.0,
+          "engaged_sessions": 1.0,
+          "key_events": 1.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-04-455dd706",
+      "recorded_at": "2026-09-04T20:59:50.252579+00:00",
+      "change_date": "2026-09-04",
+      "url": "https://broadbandpicker.co.uk/postcode/b1",
+      "path": "/postcode/b1",
+      "title": "B1",
+      "change_type": "content_refresh",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15721577177",
+        "title": "Content refresh: /postcode/b1"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 0,
+          "impressions": 58,
+          "ctr": 0,
+          "position": 34.96551724137931
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-04-b33fd7d3",
+      "recorded_at": "2026-09-04T21:09:24.852967+00:00",
+      "change_date": "2026-09-04",
+      "url": "https://broadbandpicker.co.uk/postcode/cv1",
+      "path": "/postcode/cv1",
+      "title": "Cv1",
+      "change_type": "content_refresh",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15721611114",
+        "title": "Content refresh: /postcode/cv1"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 0,
+          "impressions": 38,
+          "ctr": 0,
+          "position": 6.5
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-04-3595bcc2",
+      "recorded_at": "2026-09-04T21:35:49.607390+00:00",
+      "change_date": "2026-09-04",
+      "url": "https://broadbandpicker.co.uk/postcode/l8",
+      "path": "/postcode/l8",
+      "title": "L8",
+      "change_type": "content_refresh",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15721666227",
+        "title": "Content refresh: /postcode/l8"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 1,
+          "impressions": 39,
+          "ctr": 0.02564102564102564,
+          "position": 6.128205128205129
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-04-b089a0df",
+      "recorded_at": "2026-09-04T21:49:15.762894+00:00",
+      "change_date": "2026-09-04",
+      "url": "https://broadbandpicker.co.uk/postcode/g1",
+      "path": "/postcode/g1",
+      "title": "G1",
+      "change_type": "content_refresh",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15721615969",
+        "title": "Content refresh: /postcode/g1"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 0,
+          "impressions": 33,
+          "ctr": 0,
+          "position": 26.181818181818183
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-04-2cf52daa",
+      "recorded_at": "2026-09-04T21:58:19.204421+00:00",
+      "change_date": "2026-09-04",
+      "url": "https://broadbandpicker.co.uk/postcode/bs3",
+      "path": "/postcode/bs3",
+      "title": "Bs3",
+      "change_type": "content_refresh",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15721684915",
+        "title": "Content refresh: /postcode/bs3"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 2,
+          "impressions": 33,
+          "ctr": 0.06060606060606061,
+          "position": 6.787878787878788
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-04-627fdd8d",
+      "recorded_at": "2026-09-04T22:06:02.726159+00:00",
+      "change_date": "2026-09-04",
+      "url": "https://broadbandpicker.co.uk/postcode/ox1",
+      "path": "/postcode/ox1",
+      "title": "Ox1",
+      "change_type": "content_refresh",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15721697939",
+        "title": "Content refresh: /postcode/ox1"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 0,
+          "impressions": 21,
+          "ctr": 0,
+          "position": 9.238095238095237
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-04-e822ba1f",
+      "recorded_at": "2026-09-04T22:15:32.534124+00:00",
+      "change_date": "2026-09-04",
+      "url": "https://broadbandpicker.co.uk/postcode/ls1",
+      "path": "/postcode/ls1",
+      "title": "Ls1",
+      "change_type": "content_refresh",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15721760141",
+        "title": "Content refresh: /postcode/ls1"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 0,
+          "impressions": 18,
+          "ctr": 0,
+          "position": 23.27777777777778
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-04-0fbab8f1",
+      "recorded_at": "2026-09-04T23:14:36.938576+00:00",
+      "change_date": "2026-09-04",
+      "url": "https://broadbandpicker.co.uk/postcode/cf10",
+      "path": "/postcode/cf10",
+      "title": "Cf10",
+      "change_type": "content_refresh",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15721904203",
+        "title": "Content refresh: /postcode/cf10"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-06",
+            "end": "2026-09-02"
+          },
+          "clicks": 0,
+          "impressions": 16,
+          "ctr": 0,
+          "position": 31.1875
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-08",
+            "end": "2026-09-04"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-04-4dce2c06",
+      "recorded_at": "2026-09-04T23:23:15.698732+00:00",
+      "change_date": "2026-09-04",
+      "url": "https://broadbandpicker.co.uk/postcode/sg1",
+      "path": "/postcode/sg1",
+      "title": "Sg1",
+      "change_type": "content_refresh",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15721784669",
+        "title": "Content refresh: /postcode/sg1"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-06",
+            "end": "2026-09-02"
+          },
+          "clicks": 0,
+          "impressions": 35,
+          "ctr": 0,
+          "position": 9.857142857142858
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-08",
+            "end": "2026-09-04"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-04-6e5f59e4",
+      "recorded_at": "2026-09-04T23:33:12.461531+00:00",
+      "change_date": "2026-09-04",
+      "url": "https://broadbandpicker.co.uk/postcode/le1",
+      "path": "/postcode/le1",
+      "title": "Le1",
+      "change_type": "content_refresh",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15721933124",
+        "title": "Content refresh: /postcode/le1"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-06",
+            "end": "2026-09-02"
+          },
+          "clicks": 0,
+          "impressions": 9,
+          "ctr": 0,
+          "position": 69.55555555555556
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-08",
+            "end": "2026-09-04"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-06-815a6b7b",
+      "recorded_at": "2026-09-06T12:31:32.452800+00:00",
+      "change_date": "2026-09-06",
+      "url": "https://broadbandpicker.co.uk/research/uk-broadband-customer-satisfaction",
+      "path": "/research/uk-broadband-customer-satisfaction",
+      "title": "Uk Broadband Customer Satisfaction",
+      "change_type": "content_refresh",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15728157868",
+        "title": "Content refresh: /research/uk-broadband-customer-satisfactio"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "clicks": 0,
+          "impressions": 54,
+          "ctr": 0,
+          "position": 12.12962962962963
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-09",
+            "end": "2026-09-05"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-06-d47b586b",
+      "recorded_at": "2026-09-06T14:40:11.118847+00:00",
+      "change_date": "2026-09-06",
+      "url": "https://broadbandpicker.co.uk/providers/compare/plusnet-vs-sky",
+      "path": "/providers/compare/plusnet-vs-sky",
+      "title": "Plusnet Vs Sky",
+      "change_type": "content_refresh",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15728673918",
+        "title": "Content refresh: /providers/compare/plusnet-vs-sky"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "clicks": 0,
+          "impressions": 53,
+          "ctr": 0,
+          "position": 9.283018867924529
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-09",
+            "end": "2026-09-05"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-06-6eccbf77",
+      "recorded_at": "2026-09-06T15:03:32.610722+00:00",
+      "change_date": "2026-09-06",
+      "url": "https://broadbandpicker.co.uk/providers/compare/hyperoptic-vs-community-fibre",
+      "path": "/providers/compare/hyperoptic-vs-community-fibre",
+      "title": "Hyperoptic vs Community Fibre",
+      "change_type": "content_refresh",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15728682637",
+        "title": "Content refresh: /providers/compare/hyperoptic-vs-community-"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "clicks": 0,
+          "impressions": 48,
+          "ctr": 0,
+          "position": 7.395833333333333
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-09",
+            "end": "2026-09-05"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-06-e90f2838",
+      "recorded_at": "2026-09-06T16:16:54.910401+00:00",
+      "change_date": "2026-09-06",
+      "url": "https://broadbandpicker.co.uk/providers/compare",
+      "path": "/providers/compare",
+      "title": "Compare",
+      "change_type": "content_refresh",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15729007468",
+        "title": "Content refresh: /providers/compare"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "clicks": 0,
+          "impressions": 41,
+          "ctr": 0,
+          "position": 12.75609756097561
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-09",
+            "end": "2026-09-05"
+          },
+          "sessions": 6.0,
+          "engaged_sessions": 6.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    }
+  ]
+}

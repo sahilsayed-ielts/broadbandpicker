@@ -1,0 +1,1742 @@
+{
+  "updated_at": "2026-09-06T16:16:54.587543+00:00",
+  "reviews": [
+    {
+      "slug": "postcode/bs1",
+      "url": "https://broadbandpicker.co.uk/postcode/bs1",
+      "launched_at": "2026-08-30T19:09:54.690762+00:00",
+      "performance_baseline": {
+        "source": "docs/weekly-seo-intelligence.json",
+        "generated_at": "2026-08-25T21:02:40.387960+00:00",
+        "clicks": 1.0,
+        "impressions": 105.0,
+        "ctr": 0.009523809523809525,
+        "position": 21.933333333333334,
+        "impression_change_pct": -29.5,
+        "sessions": 0,
+        "engagement_rate": null,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0,
+        "score": 53.6,
+        "category": "Page-two opportunity",
+        "recommended_action": "Expand missing subtopics for the leading queries, improve topical internal links and validate intent alignment.",
+        "top_queries": [
+          "broadband deals bristol",
+          "broadband deals in bristol",
+          "best broadband deals bristol",
+          "best broadband deals in bristol"
+        ]
+      },
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-06",
+          "status": "Pending",
+          "check": "Confirm GSC indexing and impressions for broadband deals bristol, broadband deals in bristol and BS1 variants; compare CTR and average position with the 105-impression, 0.95% CTR, 21.93-position baseline. Check GA4 engaged sessions, affiliate_click volume and AI/LLM referrals; inspect mobile rendering and live deal accuracy."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-09-27",
+          "status": "Pending",
+          "check": "Review GSC query coverage, impressions, CTR and position by device; check whether the selected title improves CTR and whether BS1/full-fibre/flat queries appear. Compare GA4 engagement and affiliate clicks with page entrances, record AI/LLM referrals, and reverify district source links and current deal dates."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-10-25",
+          "status": "Pending",
+          "check": "Assess movement from the page-two baseline using query-level GSC trends, not one-day rank changes. Review scroll/engagement proxies, affiliate-click rate and AI/LLM referrals. Expand only if real queries reveal an unanswered Bristol network, cost or renter subtopic."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-11-28",
+          "status": "Pending",
+          "check": "Compare 90-day GSC impressions, CTR and average position against the first-party baseline and the selected CTR hypothesis. Review GA4 engaged sessions, affiliate clicks and AI/LLM referrals, recheck Ofcom/Openreach evidence and current prices, then retain, refresh or retest title copy based on measured outcomes."
+        }
+      ]
+    },
+    {
+      "slug": "postcode/ne1",
+      "url": "https://broadbandpicker.co.uk/postcode/ne1",
+      "launched_at": "2026-08-31T15:29:29.219060+00:00",
+      "performance_baseline": {
+        "source": "docs/weekly-seo-intelligence.json",
+        "generated_at": "2026-08-31T15:13:07.620267+00:00",
+        "clicks": 0.0,
+        "impressions": 83.0,
+        "ctr": 0.0,
+        "position": 23.97590361445783,
+        "impression_change_pct": -29.7,
+        "sessions": 0,
+        "engagement_rate": null,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0,
+        "score": 67.4,
+        "category": "Page-two opportunity",
+        "recommended_action": "Expand missing subtopics for the leading queries, improve topical internal links and validate intent alignment.",
+        "top_queries": [
+          "broadband deals newcastle",
+          "broadband deals in newcastle",
+          "broadband newcastle",
+          "broadband deals north tyneside",
+          "best broadband deals newcastle"
+        ]
+      },
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-07",
+          "status": "Pending",
+          "check": "Confirm indexing and GSC impressions for the five observed Newcastle queries; compare CTR and position with the 83-impression, 0% CTR, 23.98-position baseline. Check GA4 engagement, affiliate clicks and AI/LLM referrals."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-09-28",
+          "status": "Pending",
+          "check": "Review GSC query coverage, impressions, CTR and position by device; test whether the selected title improves CTR and whether NE1, full-fibre and flat queries appear. Review GA4 engagement, affiliate clicks and AI/LLM referrals."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-10-26",
+          "status": "Pending",
+          "check": "Assess movement from the page-two baseline using query-level GSC trends. Review engagement, affiliate-click rate and AI/LLM referrals; expand only where observed queries show a factual gap."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-11-29",
+          "status": "Pending",
+          "check": "Compare 90-day GSC impressions, CTR and position with the baseline. Review GA4 engagement, affiliate clicks and AI/LLM referrals, reverify coverage and pricing, then retain, refresh or retest the title based on evidence."
+        }
+      ]
+    },
+    {
+      "slug": "postcode/bn1",
+      "url": "https://broadbandpicker.co.uk/postcode/bn1",
+      "launched_at": "2026-08-31T16:02:00.914369+00:00",
+      "performance_baseline": {
+        "source": "docs/weekly-seo-intelligence.json",
+        "generated_at": "2026-08-31T15:33:30.841908+00:00",
+        "clicks": 1.0,
+        "impressions": 107.0,
+        "ctr": 0.009345794392523364,
+        "position": 11.598130841121495,
+        "impression_change_pct": 100.0,
+        "sessions": 0,
+        "engagement_rate": null,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0,
+        "score": 66.3,
+        "category": "Quick ranking win",
+        "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
+        "top_queries": [
+          "broadband deals in brighton",
+          "broadband deals brighton"
+        ]
+      },
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-07",
+          "status": "Pending",
+          "check": "Confirm indexing and GSC impressions for the two observed Brighton queries; compare CTR and position with the 107-impression, 0.93% CTR, 11.60-position baseline. Check GA4 engagement, affiliate clicks and AI/LLM referrals."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-09-28",
+          "status": "Pending",
+          "check": "Review GSC query coverage, impressions, CTR and position by device; test whether the selected title improves CTR and whether BN1, full-fibre and student queries appear. Review GA4 engagement, affiliate clicks and AI/LLM referrals."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-10-26",
+          "status": "Pending",
+          "check": "Assess movement from the page-two boundary using query-level GSC trends. Review engagement, affiliate-click rate and AI/LLM referrals; expand only where observed queries expose a factual gap."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-11-29",
+          "status": "Pending",
+          "check": "Compare 90-day GSC impressions, CTR and position with the baseline. Review GA4 engagement, affiliate clicks and AI/LLM referrals, reverify coverage and pricing, then retain, refresh or retest the title based on evidence."
+        }
+      ]
+    },
+    {
+      "slug": "postcode/gu1",
+      "url": "https://broadbandpicker.co.uk/postcode/gu1",
+      "launched_at": "2026-09-01T18:45:19.454756+00:00",
+      "performance_baseline": {
+        "source": "docs/weekly-seo-intelligence.json",
+        "generated_at": "2026-08-31T15:33:30.841908+00:00",
+        "clicks": 2.0,
+        "impressions": 91.0,
+        "ctr": 0.02197802197802198,
+        "position": 12.065934065934066,
+        "impression_change_pct": 100.0,
+        "sessions": 0,
+        "engagement_rate": null,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0,
+        "score": 65.7,
+        "category": "Quick ranking win",
+        "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
+        "top_queries": [
+          "broadband deals in guildford"
+        ]
+      },
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-08",
+          "status": "Pending",
+          "check": "Confirm indexing and GSC impressions for the observed Guildford query; compare CTR and position with the 91-impression, 2.20% CTR, 12.07-position baseline. Check GA4 engagement, affiliate clicks and AI/LLM referrals."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-09-29",
+          "status": "Pending",
+          "check": "Review GSC query coverage, impressions, CTR and position by device; test whether the selected title improves CTR and whether GU1, full-fibre and 8 Gbps queries appear. Review GA4 engagement, affiliate clicks and AI/LLM referrals."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-10-27",
+          "status": "Pending",
+          "check": "Assess movement from the page-two boundary using query-level GSC trends. Review engagement, affiliate-click rate and AI/LLM referrals; expand only where observed queries expose a factual gap."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-11-30",
+          "status": "Pending",
+          "check": "Compare 90-day GSC impressions, CTR and position with the baseline. Review GA4 engagement, affiliate clicks and AI/LLM referrals, reverify coverage, EE eligibility language and pricing, then retain, refresh or retest the title based on evidence."
+        }
+      ]
+    },
+    {
+      "slug": "postcode/sheffield",
+      "url": "https://broadbandpicker.co.uk/postcode/sheffield",
+      "launched_at": "2026-09-01T19:18:22.946404+00:00",
+      "performance_baseline": null,
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-08",
+          "status": "Pending",
+          "check": "Establish the no-data baseline: confirm indexing, GSC impressions, CTR, position and queries; record GA4 engagement, compare CTA clicks, affiliate clicks and AI/LLM referrals."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-09-29",
+          "status": "Pending",
+          "check": "Review GSC query coverage for the primary and mapped variants by device; compare CTR and position with day 7, plus GA4 engagement, affiliate clicks and AI/LLM referrals."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-10-27",
+          "status": "Pending",
+          "check": "Assess whether coverage, full-fibre, fastest, S1 and student queries appear; use GSC and GA4 evidence to fill only real gaps and review CTA and affiliate progression."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-11-30",
+          "status": "Pending",
+          "check": "Compare 90-day impressions, CTR and position with the new baseline, reverify provider/network facts, and retain or test metadata based on GSC, GA4 engagement, affiliate clicks and AI/LLM referrals."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-04-da626da4",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15718342273",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "postcode/ha1",
+      "url": "https://broadbandpicker.co.uk/postcode/ha1",
+      "launched_at": "2026-09-04T14:34:04.699944+00:00",
+      "performance_baseline": {
+        "source": "docs/weekly-seo-intelligence.json",
+        "generated_at": "2026-09-04T11:34:02.689346+00:00",
+        "clicks": 1.0,
+        "impressions": 95.0,
+        "ctr": 0.010526315789473684,
+        "position": 9.642105263157895,
+        "impression_change_pct": 265.4,
+        "sessions": 1.0,
+        "engagement_rate": 1.0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0,
+        "score": 70.7,
+        "category": "Quick ranking win",
+        "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
+        "top_queries": [
+          "broadband deals in harrow",
+          "ha1 4bh",
+          "ha1 3an",
+          "ha1",
+          "broadband"
+        ]
+      },
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-11",
+          "status": "Pending",
+          "check": "Confirm indexing and check impressions for broadband deals in Harrow, HA1 4BH and HA1 3AN; verify engagement and CTA events."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-02",
+          "status": "Pending",
+          "check": "Compare GSC impressions, CTR and position with the 95-impression, 1.05% CTR and 9.64-position baseline; review GA4 engagement, affiliate clicks and AI referrals."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-10-30",
+          "status": "Pending",
+          "check": "Inspect query coverage for Harrow deals, HA1 full fibre and exact-postcode searches; fill only evidence-backed gaps and review internal-link discovery."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-03",
+          "status": "Pending",
+          "check": "Recheck Ofcom, council and network facts, compare performance with baseline, and decide whether metadata or content needs another measured change."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-04-ad652356",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15719869706",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "postcode/se1",
+      "url": "https://broadbandpicker.co.uk/postcode/se1",
+      "launched_at": "2026-09-04T16:14:20.230416+00:00",
+      "performance_baseline": {
+        "source": "docs/weekly-seo-intelligence.json",
+        "generated_at": "2026-09-04T11:34:02.689346+00:00",
+        "clicks": 1.0,
+        "impressions": 92.0,
+        "ctr": 0.010869565217391304,
+        "position": 5.565217391304348,
+        "impression_change_pct": 100.0,
+        "sessions": 1.0,
+        "engagement_rate": 1.0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0,
+        "score": 70.6,
+        "category": "Quick ranking win",
+        "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
+        "top_queries": [
+          "se1 6rn",
+          "find the best broadband deals in southwark under £30 a month.",
+          "find the best broadband deals in southwark under £25 a month.",
+          "fibre broadband in southwark",
+          "compare prices"
+        ]
+      },
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-11",
+          "status": "Pending",
+          "check": "Confirm the URL is indexed with the new title/meta, GSC impressions continue for 'se1 6rn' and the Southwark commercial cluster, and outbound_provider_click/deal_sort_changed/deal_filter_changed events are firing in GA4."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-02",
+          "status": "Pending",
+          "check": "Compare CTR and average position against the pre-change baseline recorded at deploy time; only test a further title/snippet change if the evidence supports it."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-10-30",
+          "status": "Pending",
+          "check": "Review engagement rate, affiliate clicks, whether the two new internal links are driving measurable cross-navigation, and whether new GSC queries have appeared that the FAQ set should be extended to cover."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-03",
+          "status": "Pending",
+          "check": "Decide whether to consolidate, further expand (e.g. a dedicated Borough/Bankside vs Bermondsey/Elephant and Castle split if evidence justifies it), refresh the Ofcom dataset citation, or leave the page unchanged."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-04-cbb58f0d",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15720383148",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "postcode/sw1",
+      "url": "https://broadbandpicker.co.uk/postcode/sw1",
+      "launched_at": "2026-09-04T17:29:03.378057+00:00",
+      "performance_baseline": {
+        "source": "docs/weekly-seo-intelligence.json",
+        "generated_at": "2026-09-04T11:34:02.689346+00:00",
+        "clicks": 1.0,
+        "impressions": 40.0,
+        "ctr": 0.025,
+        "position": 6.725,
+        "impression_change_pct": 100.0,
+        "sessions": 1.0,
+        "engagement_rate": 1.0,
+        "affiliate_clicks": 4.0,
+        "ai_referral_visits": 0,
+        "score": 67.8,
+        "category": "Quick ranking win",
+        "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
+        "top_queries": [
+          "westminster internet providers",
+          "broadband in westminster"
+        ]
+      },
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-11",
+          "status": "Pending",
+          "check": "Confirm the URL is indexed with the new title/meta, GSC impressions continue for 'westminster internet providers' and the #1 organic ranking for 'cheap broadband sw1' is not disturbed, and outbound_provider_click/deal_sort_changed/deal_filter_changed events are firing in GA4."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-02",
+          "status": "Pending",
+          "check": "Compare CTR and average position against the pre-change baseline recorded at deploy time; only test a further title/snippet change if the evidence supports it."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-10-30",
+          "status": "Pending",
+          "check": "Review engagement rate, affiliate clicks, whether the two new internal links are driving measurable cross-navigation, and whether new GSC queries have appeared that the FAQ set should extend to cover."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-03",
+          "status": "Pending",
+          "check": "Decide whether to consolidate, further expand (e.g. dedicated sections for the highest-traffic SW1 outward codes if evidence justifies it), refresh the Ofcom dataset citation, or leave the page unchanged."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-04-8c5026da",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15720641377",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "providers/compare/virgin-media-vs-vodafone",
+      "url": "https://broadbandpicker.co.uk/providers/compare/virgin-media-vs-vodafone",
+      "launched_at": "2026-09-04T18:21:51.479360+00:00",
+      "performance_baseline": {
+        "source": "docs/weekly-seo-intelligence.json",
+        "generated_at": "2026-09-04T11:34:02.689346+00:00",
+        "clicks": 1.0,
+        "impressions": 138.0,
+        "ctr": 0.007246376811594203,
+        "position": 7.630434782608695,
+        "impression_change_pct": 100.0,
+        "sessions": 0,
+        "engagement_rate": null,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0,
+        "score": 67.0,
+        "category": "Quick ranking win",
+        "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
+        "top_queries": [
+          "is virgin media better than vodafone",
+          "vodafone vs virgin media",
+          "virgin vs vodafone broadband",
+          "yes",
+          "who has the best upgrades between virgin media and vodafone"
+        ]
+      },
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-11",
+          "status": "Pending",
+          "check": "Confirm the URL is re-indexed with the refreshed excerpt/verdict/FAQ, GSC impressions continue for the sampled queries, and outbound_provider_click is firing for both providers."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-02",
+          "status": "Pending",
+          "check": "Compare CTR and average position against the pre-change baseline recorded at deploy time."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-10-30",
+          "status": "Pending",
+          "check": "Review engagement rate and affiliate clicks per provider; check whether the new 'best upgrades' FAQ has picked up any matching GSC query."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-03",
+          "status": "Pending",
+          "check": "Decide whether the concrete-numbers approach measurably improved CTR/AI citation versus this page's prior number-free excerpt; if not, revisit the hypothesis rather than repeating it on other comparison pages by default."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-04-ba282baf",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15720821933",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "postcode/e1",
+      "url": "https://broadbandpicker.co.uk/postcode/e1",
+      "launched_at": "2026-09-04T18:45:11.490598+00:00",
+      "performance_baseline": {
+        "source": "docs/weekly-seo-intelligence.json",
+        "generated_at": "2026-09-04T11:34:02.689346+00:00",
+        "clicks": 2.0,
+        "impressions": 95.0,
+        "ctr": 0.021052631578947368,
+        "position": 4.589473684210526,
+        "impression_change_pct": 75.9,
+        "sessions": 0,
+        "engagement_rate": null,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0,
+        "score": 65.7,
+        "category": "Quick ranking win",
+        "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
+        "top_queries": [
+          "yes please",
+          "ee whitechapel",
+          "e1"
+        ]
+      },
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-11",
+          "status": "Pending",
+          "check": "Confirm the URL is indexed with the new title/meta, GSC impressions continue for 'e1' and 'ee whitechapel', the #3/#5 organic rankings are not disturbed, and outbound_provider_click/deal_sort_changed/deal_filter_changed events are firing in GA4."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-02",
+          "status": "Pending",
+          "check": "Compare CTR and average position against the pre-change baseline recorded at deploy time; only test a further title/snippet change if the evidence supports it."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-10-30",
+          "status": "Pending",
+          "check": "Review engagement rate, affiliate clicks, whether the two new internal links are driving measurable cross-navigation, and whether new GSC queries have appeared that the FAQ set should be extended to cover."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-03",
+          "status": "Pending",
+          "check": "Decide whether to consolidate, further expand, refresh the Ofcom dataset citation, or leave the page unchanged."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-04-e6043756",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15721030824",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "postcode/ub1",
+      "url": "https://broadbandpicker.co.uk/postcode/ub1",
+      "launched_at": "2026-09-04T19:00:36.718526+00:00",
+      "performance_baseline": {
+        "source": "docs/weekly-seo-intelligence.json",
+        "generated_at": "2026-09-04T11:34:02.689346+00:00",
+        "clicks": 0.0,
+        "impressions": 79.0,
+        "ctr": 0.0,
+        "position": 8.088607594936708,
+        "impression_change_pct": 100.0,
+        "sessions": 0,
+        "engagement_rate": null,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0,
+        "score": 65.1,
+        "category": "Quick ranking win",
+        "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
+        "top_queries": [
+          "broadband deals in southall",
+          "yes",
+          "and cheapest"
+        ]
+      },
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-11",
+          "status": "Pending",
+          "check": "Confirm the URL is indexed with the new title/meta, GSC impressions continue for 'broadband deals in southall' and 'broadband ub1', the #7/#3 organic rankings are not disturbed, and outbound_provider_click/deal_sort_changed/deal_filter_changed events are firing in GA4."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-02",
+          "status": "Pending",
+          "check": "Compare CTR and average position against the pre-change baseline recorded at deploy time; only test a further title/snippet change if the evidence supports it."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-10-30",
+          "status": "Pending",
+          "check": "Review engagement rate, affiliate clicks, whether the two new internal links are driving measurable cross-navigation, and whether new GSC queries have appeared that the FAQ set should be extended to cover."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-03",
+          "status": "Pending",
+          "check": "Decide whether to consolidate, further expand, refresh the Virgin Media/Ofcom dataset citations, or leave the page unchanged."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-04-996bbc0b",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15721115316",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "postcode/en1",
+      "url": "https://broadbandpicker.co.uk/postcode/en1",
+      "launched_at": "2026-09-04T19:21:35.156413+00:00",
+      "performance_baseline": {
+        "source": "docs/weekly-seo-intelligence.json",
+        "generated_at": "2026-09-04T11:34:02.689346+00:00",
+        "clicks": 0.0,
+        "impressions": 77.0,
+        "ctr": 0.0,
+        "position": 12.883116883116884,
+        "impression_change_pct": 100.0,
+        "sessions": 0,
+        "engagement_rate": null,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0,
+        "score": 65.0,
+        "category": "Quick ranking win",
+        "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
+        "top_queries": [
+          "broadband deals in enfield"
+        ]
+      },
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-11",
+          "status": "Pending",
+          "check": "Confirm the URL is indexed with the new title/meta, GSC impressions continue for 'broadband deals in enfield' and 'broadband en1', the #4 organic ranking is not disturbed, and outbound_provider_click/deal_sort_changed/deal_filter_changed events are firing in GA4."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-02",
+          "status": "Pending",
+          "check": "Compare CTR and average position against the pre-change baseline recorded at deploy time; only test a further title/snippet change if the evidence supports it."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-10-30",
+          "status": "Pending",
+          "check": "Review engagement rate, affiliate clicks, whether the two new internal links are driving measurable cross-navigation, and whether new GSC queries have appeared that the FAQ set should be extended to cover."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-03",
+          "status": "Pending",
+          "check": "Decide whether to consolidate, further expand, refresh the Openreach/Ofcom dataset citations, or leave the page unchanged."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-04-32fea5e7",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15721175154",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "postcode/nw1",
+      "url": "https://broadbandpicker.co.uk/postcode/nw1",
+      "launched_at": "2026-09-04T19:37:04.736360+00:00",
+      "performance_baseline": {
+        "source": "docs/weekly-seo-intelligence.json",
+        "generated_at": "2026-09-04T11:34:02.689346+00:00",
+        "clicks": 2.0,
+        "impressions": 73.0,
+        "ctr": 0.0273972602739726,
+        "position": 5.8493150684931505,
+        "impression_change_pct": 100.0,
+        "sessions": 0,
+        "engagement_rate": null,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0,
+        "score": 64.8,
+        "category": "Quick ranking win",
+        "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
+        "top_queries": [
+          "nw1 0bj"
+        ]
+      },
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-11",
+          "status": "Pending",
+          "check": "Confirm the URL is indexed with the new title/meta, GSC impressions continue for 'nw1 0bj' and new impressions appear for 'broadband deals in camden'/'broadband nw1', and outbound_provider_click/deal_sort_changed/deal_filter_changed events are firing in GA4."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-02",
+          "status": "Pending",
+          "check": "Compare CTR and average position against the pre-change baseline recorded at deploy time; check whether the page has begun appearing in the sampled top 10 for the broader camden/nw1 queries it did not rank for at build time."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-10-30",
+          "status": "Pending",
+          "check": "Review engagement rate, affiliate clicks, whether the two new internal links are driving measurable cross-navigation, and whether new GSC queries have appeared that the FAQ set should be extended to cover."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-03",
+          "status": "Pending",
+          "check": "Decide whether to consolidate, further expand, refresh the G.Network/Ofcom dataset citations (checking whether G.Network's post-restructuring status has changed further), or leave the page unchanged."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-04-1c9b0de8",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15721259903",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "postcode/w5",
+      "url": "https://broadbandpicker.co.uk/postcode/w5",
+      "launched_at": "2026-09-04T19:51:20.246349+00:00",
+      "performance_baseline": {
+        "source": "docs/weekly-seo-intelligence.json",
+        "generated_at": "2026-09-04T11:34:02.689346+00:00",
+        "clicks": 1.0,
+        "impressions": 62.0,
+        "ctr": 0.016129032258064516,
+        "position": 6.048387096774194,
+        "impression_change_pct": 6.9,
+        "sessions": 0,
+        "engagement_rate": null,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0,
+        "score": 64.2,
+        "category": "Quick ranking win",
+        "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
+        "top_queries": [
+          "w5 1lf"
+        ]
+      },
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-11",
+          "status": "Pending",
+          "check": "Confirm the URL is indexed with the new title/meta, GSC impressions continue for 'w5 1lf' and 'broadband w5', the #4 organic ranking is not disturbed, and outbound_provider_click/deal_sort_changed/deal_filter_changed events are firing in GA4."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-02",
+          "status": "Pending",
+          "check": "Compare CTR and average position against the pre-change baseline recorded at deploy time; only test a further title/snippet change if the evidence supports it."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-10-30",
+          "status": "Pending",
+          "check": "Review engagement rate, affiliate clicks, whether the two new internal links are driving measurable cross-navigation, and whether new GSC queries have appeared that the FAQ set should be extended to cover."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-03",
+          "status": "Pending",
+          "check": "Decide whether to consolidate, further expand, refresh the Vodafone/Community Fibre/Ofcom dataset citations, or leave the page unchanged."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-04-282decba",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15721313429",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "postcode/so14",
+      "url": "https://broadbandpicker.co.uk/postcode/so14",
+      "launched_at": "2026-09-04T20:11:12.359242+00:00",
+      "performance_baseline": {
+        "source": "docs/weekly-seo-intelligence.json",
+        "generated_at": "2026-09-04T11:34:02.689346+00:00",
+        "clicks": 1.0,
+        "impressions": 194.0,
+        "ctr": 0.005154639175257732,
+        "position": 22.02577319587629,
+        "impression_change_pct": 100.0,
+        "sessions": 0,
+        "engagement_rate": null,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0,
+        "score": 60.1,
+        "category": "Page-two opportunity",
+        "recommended_action": "Expand missing subtopics for the leading queries, improve topical internal links and validate intent alignment.",
+        "top_queries": [
+          "broadband deals southampton",
+          "broadband deals in southampton",
+          "broadband company southampton",
+          "internet providers southampton",
+          "fibre broadband southampton"
+        ]
+      },
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-11",
+          "status": "Pending",
+          "check": "Confirm the URL is indexed with the new title/meta, GSC impressions continue for the Southampton query cluster, and outbound_provider_click/deal_sort_changed/deal_filter_changed events are firing in GA4."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-02",
+          "status": "Pending",
+          "check": "Compare CTR and average position against the pre-change baseline recorded at deploy time; check whether the page has moved from page two (position ~22) toward page one."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-10-30",
+          "status": "Pending",
+          "check": "Review engagement rate, affiliate clicks, whether the new internal link is driving measurable cross-navigation, and whether new GSC queries have appeared that the FAQ set should be extended to cover."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-03",
+          "status": "Pending",
+          "check": "Decide whether to consolidate, further expand, refresh the toob/Openreach/Ofcom dataset citations, or leave the page unchanged."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-04-c0570959",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15721363466",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "postcode/lu1",
+      "url": "https://broadbandpicker.co.uk/postcode/lu1",
+      "launched_at": "2026-09-04T20:33:29.854374+00:00",
+      "performance_baseline": {
+        "source": "docs/weekly-seo-intelligence.json",
+        "generated_at": "2026-09-04T11:34:02.689346+00:00",
+        "clicks": 0.0,
+        "impressions": 156.0,
+        "ctr": 0.0,
+        "position": 15.397435897435898,
+        "impression_change_pct": 477.8,
+        "sessions": 0,
+        "engagement_rate": null,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0,
+        "score": 59.4,
+        "category": "Page-two opportunity",
+        "recommended_action": "Expand missing subtopics for the leading queries, improve topical internal links and validate intent alignment.",
+        "top_queries": [
+          "broadband deals in luton",
+          "broadband deals luton",
+          "broadband luton",
+          "internet providers luton",
+          "best internet provider luton"
+        ]
+      },
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-11",
+          "status": "Pending",
+          "check": "Confirm the URL is indexed with the new title/meta, GSC impressions begin appearing for the Luton query cluster, and outbound_provider_click/deal_sort_changed/deal_filter_changed events are firing in GA4."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-02",
+          "status": "Pending",
+          "check": "Compare CTR and average position against the pre-change baseline recorded at deploy time."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-10-30",
+          "status": "Pending",
+          "check": "Review engagement rate, affiliate clicks, whether the two new internal links are driving measurable cross-navigation, and whether new GSC queries have appeared that the FAQ set should be extended to cover."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-03",
+          "status": "Pending",
+          "check": "Decide whether to consolidate, further expand, refresh the CityFibre/Openreach/Ofcom dataset citations, or leave the page unchanged."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-04-de7a91b4",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15721424336",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "postcode/l1",
+      "url": "https://broadbandpicker.co.uk/postcode/l1",
+      "launched_at": "2026-09-04T20:41:42.492688+00:00",
+      "performance_baseline": {
+        "source": "docs/weekly-seo-intelligence.json",
+        "generated_at": "2026-09-04T11:34:02.689346+00:00",
+        "clicks": 0.0,
+        "impressions": 148.0,
+        "ctr": 0.0,
+        "position": 26.64864864864865,
+        "impression_change_pct": 100.0,
+        "sessions": 0,
+        "engagement_rate": null,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0,
+        "score": 59.2,
+        "category": "Page-two opportunity",
+        "recommended_action": "Expand missing subtopics for the leading queries, improve topical internal links and validate intent alignment.",
+        "top_queries": [
+          "broadband deals liverpool",
+          "broadband deals in liverpool",
+          "internet deals liverpool",
+          "broadband comparison liverpool",
+          "best broadband deals liverpool"
+        ]
+      },
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-11",
+          "status": "Pending",
+          "check": "Confirm the URL is indexed with the new title/meta, GSC impressions begin appearing for the Liverpool query cluster, and outbound_provider_click/deal_sort_changed/deal_filter_changed events are firing in GA4."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-02",
+          "status": "Pending",
+          "check": "Compare CTR and average position against the pre-change baseline recorded at deploy time."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-10-30",
+          "status": "Pending",
+          "check": "Review engagement rate, affiliate clicks, whether the two new internal links are driving measurable cross-navigation, and whether new GSC queries have appeared that the FAQ set should be extended to cover."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-03",
+          "status": "Pending",
+          "check": "Decide whether to consolidate, further expand, refresh the Netomnia/Ofcom dataset citations, or leave the page unchanged."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-04-39fe9760",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15721404977",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "postcode/ls2",
+      "url": "https://broadbandpicker.co.uk/postcode/ls2",
+      "launched_at": "2026-09-04T20:51:42.256999+00:00",
+      "performance_baseline": {
+        "source": "docs/weekly-seo-intelligence.json",
+        "generated_at": "2026-09-04T11:34:02.689346+00:00",
+        "clicks": 2.0,
+        "impressions": 109.0,
+        "ctr": 0.01834862385321101,
+        "position": 45.71559633027523,
+        "impression_change_pct": -21.0,
+        "sessions": 1.0,
+        "engagement_rate": 1.0,
+        "affiliate_clicks": 1.0,
+        "ai_referral_visits": 0,
+        "score": 59.2,
+        "category": "Monitor",
+        "recommended_action": "Monitor until the page accumulates enough demand or behavioural evidence for a confident intervention.",
+        "top_queries": [
+          "broadband deals leeds",
+          "broadband deals in leeds",
+          "best broadband deals leeds",
+          "cheap broadband deals leeds",
+          "broadband deals near leeds"
+        ]
+      },
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-11",
+          "status": "Pending",
+          "check": "Confirm the URL is indexed with the new title/meta, GSC impressions and the #3 ranking for 'broadband ls2' are not disturbed, and outbound_provider_click/deal_sort_changed/deal_filter_changed events are firing in GA4."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-02",
+          "status": "Pending",
+          "check": "Compare CTR and average position against the pre-change baseline recorded at deploy time; check whether the page's overall position (currently ~46) has improved for the broader 'broadband deals leeds' cluster."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-10-30",
+          "status": "Pending",
+          "check": "Review engagement rate, affiliate clicks, whether the two new internal links are driving measurable cross-navigation, and whether new GSC queries have appeared that the FAQ set should be extended to cover."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-03",
+          "status": "Pending",
+          "check": "Decide whether to consolidate, further expand, refresh the CCS Leeds/Stream Networks/Ofcom dataset citations, or leave the page unchanged."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-04-a46799e0",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15721481766",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "postcode/b1",
+      "url": "https://broadbandpicker.co.uk/postcode/b1",
+      "launched_at": "2026-09-04T20:59:50.028177+00:00",
+      "performance_baseline": {
+        "source": "docs/weekly-seo-intelligence.json",
+        "generated_at": "2026-09-04T11:34:02.689346+00:00",
+        "clicks": 0.0,
+        "impressions": 58.0,
+        "ctr": 0.0,
+        "position": 34.96551724137931,
+        "impression_change_pct": 61.1,
+        "sessions": 0,
+        "engagement_rate": null,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0,
+        "score": 48.0,
+        "category": "Monitor",
+        "recommended_action": "Monitor until the page accumulates enough demand or behavioural evidence for a confident intervention.",
+        "top_queries": [
+          "broadband deals in birmingham",
+          "broadband deals birmingham",
+          "best broadband deals birmingham",
+          "broadband comparison birmingham",
+          "cheap broadband deals birmingham"
+        ]
+      },
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-11",
+          "status": "Pending",
+          "check": "Confirm the URL is indexed with the new title/meta, GSC impressions and the #4 ranking for 'broadband b1' are not disturbed, and outbound_provider_click/deal_sort_changed/deal_filter_changed events are firing in GA4."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-02",
+          "status": "Pending",
+          "check": "Compare CTR and average position against the pre-change baseline recorded at deploy time; check whether the page's overall position (currently ~35) has improved for the broader 'broadband deals in birmingham' cluster."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-10-30",
+          "status": "Pending",
+          "check": "Review engagement rate, affiliate clicks, whether the two new internal links are driving measurable cross-navigation, and whether new GSC queries have appeared that the FAQ set should be extended to cover."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-03",
+          "status": "Pending",
+          "check": "Decide whether to consolidate, further expand, refresh the CityFibre-zone/Hyperoptic/Ofcom dataset citations, or leave the page unchanged."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-04-455dd706",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15721577177",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "postcode/cv1",
+      "url": "https://broadbandpicker.co.uk/postcode/cv1",
+      "launched_at": "2026-09-04T21:09:24.623314+00:00",
+      "performance_baseline": {
+        "source": "docs/weekly-seo-intelligence.json",
+        "generated_at": "2026-09-04T11:34:02.689346+00:00",
+        "clicks": 0.0,
+        "impressions": 38.0,
+        "ctr": 0.0,
+        "position": 6.5,
+        "impression_change_pct": 100.0,
+        "sessions": 0,
+        "engagement_rate": null,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0,
+        "score": 40.6,
+        "category": "Monitor",
+        "recommended_action": "Monitor until the page accumulates enough demand or behavioural evidence for a confident intervention.",
+        "top_queries": [
+          "broadband deals coventry",
+          "yes"
+        ]
+      },
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-11",
+          "status": "Pending",
+          "check": "Confirm the URL is indexed with the new title/meta, GSC impressions continue for 'broadband deals coventry', and outbound_provider_click/deal_sort_changed/deal_filter_changed events are firing in GA4."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-02",
+          "status": "Pending",
+          "check": "Compare CTR and average position against the pre-change baseline recorded at deploy time."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-10-30",
+          "status": "Pending",
+          "check": "Review engagement rate, affiliate clicks, whether the two new internal links are driving measurable cross-navigation, and whether new GSC queries have appeared that the FAQ set should be extended to cover."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-03",
+          "status": "Pending",
+          "check": "Decide whether to consolidate, further expand, refresh the Openreach/toob/Ofcom dataset citations, or leave the page unchanged."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-04-b33fd7d3",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15721611114",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "postcode/l8",
+      "url": "https://broadbandpicker.co.uk/postcode/l8",
+      "launched_at": "2026-09-04T21:35:49.386134+00:00",
+      "performance_baseline": {
+        "source": "docs/weekly-seo-intelligence.json",
+        "generated_at": "2026-09-04T11:34:02.689346+00:00",
+        "clicks": 1.0,
+        "impressions": 39.0,
+        "ctr": 0.02564102564102564,
+        "position": 6.128205128205129,
+        "impression_change_pct": 44.4,
+        "sessions": 0,
+        "engagement_rate": null,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0,
+        "score": 40.7,
+        "category": "Monitor",
+        "recommended_action": "Monitor until the page accumulates enough demand or behavioural evidence for a confident intervention.",
+        "top_queries": [
+          "l8 toxteth"
+        ]
+      },
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-11",
+          "status": "Pending",
+          "check": "Confirm the URL is indexed with the new title/meta, GSC impressions and the #1 ranking for 'l8 toxteth broadband' are not disturbed, and outbound_provider_click/deal_sort_changed/deal_filter_changed events are firing in GA4."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-02",
+          "status": "Pending",
+          "check": "Compare CTR and average position against the pre-change baseline recorded at deploy time."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-10-30",
+          "status": "Pending",
+          "check": "Review engagement rate, affiliate clicks, whether the two new internal links are driving measurable cross-navigation, and whether new GSC queries have appeared that the FAQ set should be extended to cover."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-03",
+          "status": "Pending",
+          "check": "Decide whether to consolidate, further expand, refresh the BroadbandSwitch.uk/Giant/Ofcom dataset citations, or leave the page unchanged."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-04-3595bcc2",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15721666227",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "postcode/g1",
+      "url": "https://broadbandpicker.co.uk/postcode/g1",
+      "launched_at": "2026-09-04T21:49:15.536470+00:00",
+      "performance_baseline": {
+        "source": "docs/weekly-seo-intelligence.json",
+        "generated_at": "2026-09-04T21:41:21.295748+00:00",
+        "clicks": 0.0,
+        "impressions": 33.0,
+        "ctr": 0.0,
+        "position": 26.181818181818183,
+        "impression_change_pct": 100.0,
+        "sessions": 0,
+        "engagement_rate": null,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0,
+        "score": 40.1,
+        "category": "Monitor",
+        "recommended_action": "Monitor until the page accumulates enough demand or behavioural evidence for a confident intervention.",
+        "top_queries": [
+          "broadband deals in glasgow",
+          "broadband deals glasgow",
+          "best broadband deals in glasgow",
+          "cheapest broadband deals glasgow",
+          "best broadband deals glasgow"
+        ]
+      },
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-11",
+          "status": "Pending",
+          "check": "Confirm the URL is indexed with the new title/meta, GSC impressions continue for the Glasgow query cluster, and outbound_provider_click/deal_sort_changed/deal_filter_changed events are firing in GA4."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-02",
+          "status": "Pending",
+          "check": "Compare CTR and average position against the pre-change baseline recorded at deploy time; check whether the page's overall position (currently ~26) has improved."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-10-30",
+          "status": "Pending",
+          "check": "Review engagement rate, affiliate clicks, whether the two new internal links are driving measurable cross-navigation, and whether new GSC queries have appeared that the FAQ set should be extended to cover."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-03",
+          "status": "Pending",
+          "check": "Decide whether to consolidate, further expand, refresh the ISPreview/Ofcom dataset citations, or leave the page unchanged."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-04-b089a0df",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15721615969",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "postcode/bs3",
+      "url": "https://broadbandpicker.co.uk/postcode/bs3",
+      "launched_at": "2026-09-04T21:58:18.970818+00:00",
+      "performance_baseline": {
+        "source": "docs/weekly-seo-intelligence.json",
+        "generated_at": "2026-09-04T21:41:21.295748+00:00",
+        "clicks": 2.0,
+        "impressions": 33.0,
+        "ctr": 0.06060606060606061,
+        "position": 6.787878787878788,
+        "impression_change_pct": 100.0,
+        "sessions": 0,
+        "engagement_rate": null,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0,
+        "score": 40.1,
+        "category": "Monitor",
+        "recommended_action": "Monitor until the page accumulates enough demand or behavioural evidence for a confident intervention.",
+        "top_queries": [
+          "yes please",
+          "for the cheapest",
+          "bs31 3et",
+          "bs3"
+        ]
+      },
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-11",
+          "status": "Pending",
+          "check": "Confirm the URL is indexed with the new title/meta, GSC impressions and the #1 ranking for 'broadband bs3' are not disturbed, and outbound_provider_click/deal_sort_changed/deal_filter_changed events are firing in GA4."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-02",
+          "status": "Pending",
+          "check": "Compare CTR and average position against the pre-change baseline recorded at deploy time."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-10-30",
+          "status": "Pending",
+          "check": "Review engagement rate, affiliate clicks, whether the two new internal links are driving measurable cross-navigation, and whether the BS31/BS3 disambiguation FAQ is reducing mismatched query traffic."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-03",
+          "status": "Pending",
+          "check": "Decide whether to consolidate, further expand, refresh the BroadbandSwitch.uk/Ofcom dataset citations, or leave the page unchanged."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-04-2cf52daa",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15721684915",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "postcode/ox1",
+      "url": "https://broadbandpicker.co.uk/postcode/ox1",
+      "launched_at": "2026-09-04T22:06:02.488068+00:00",
+      "performance_baseline": {
+        "source": "docs/weekly-seo-intelligence.json",
+        "generated_at": "2026-09-04T21:41:21.295748+00:00",
+        "clicks": 0.0,
+        "impressions": 21.0,
+        "ctr": 0.0,
+        "position": 9.238095238095237,
+        "impression_change_pct": 100.0,
+        "sessions": 0,
+        "engagement_rate": null,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0,
+        "score": 38.6,
+        "category": "Monitor",
+        "recommended_action": "Monitor until the page accumulates enough demand or behavioural evidence for a confident intervention.",
+        "top_queries": [
+          "best broadband deals oxford"
+        ]
+      },
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-11",
+          "status": "Pending",
+          "check": "Confirm the URL is indexed with the new title/meta, GSC impressions and the #1 ranking for 'best broadband deals oxford' are not disturbed, and outbound_provider_click/deal_sort_changed/deal_filter_changed events are firing in GA4."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-02",
+          "status": "Pending",
+          "check": "Compare CTR and average position against the pre-change baseline recorded at deploy time."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-10-30",
+          "status": "Pending",
+          "check": "Review engagement rate, affiliate clicks, whether the two new internal links are driving measurable cross-navigation, and whether new GSC queries have appeared that the FAQ set should be extended to cover."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-03",
+          "status": "Pending",
+          "check": "Decide whether to consolidate, further expand, refresh the Openreach/Ofcom dataset citations, or leave the page unchanged."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-04-627fdd8d",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15721697939",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "postcode/ls1",
+      "url": "https://broadbandpicker.co.uk/postcode/ls1",
+      "launched_at": "2026-09-04T22:15:32.331546+00:00",
+      "performance_baseline": {
+        "source": "docs/weekly-seo-intelligence.json",
+        "generated_at": "2026-09-04T21:41:21.295748+00:00",
+        "clicks": 0.0,
+        "impressions": 18.0,
+        "ctr": 0.0,
+        "position": 23.27777777777778,
+        "impression_change_pct": 100.0,
+        "sessions": 0,
+        "engagement_rate": null,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0,
+        "score": 38.1,
+        "category": "Monitor",
+        "recommended_action": "Monitor until the page accumulates enough demand or behavioural evidence for a confident intervention.",
+        "top_queries": [
+          "broadband deals in leeds",
+          "broadband deals leeds",
+          "best broadband deals leeds",
+          "broadband deals near leeds"
+        ]
+      },
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-11",
+          "status": "Pending",
+          "check": "Confirm the URL is indexed with the new title/meta, GSC impressions continue for the Leeds query cluster, and outbound_provider_click/deal_sort_changed/deal_filter_changed events are firing in GA4."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-02",
+          "status": "Pending",
+          "check": "Compare CTR and average position against the pre-change baseline recorded at deploy time; confirm LS1 and LS2 are not cannibalising each other's rankings."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-10-30",
+          "status": "Pending",
+          "check": "Review engagement rate, affiliate clicks, whether the two new internal links are driving measurable cross-navigation, and whether new GSC queries have appeared that the FAQ set should be extended to cover."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-03",
+          "status": "Pending",
+          "check": "Decide whether to consolidate, further expand, refresh the Giant/Ofcom dataset citations, or leave the page unchanged."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-04-e822ba1f",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15721760141",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "postcode/cf10",
+      "url": "https://broadbandpicker.co.uk/postcode/cf10",
+      "launched_at": "2026-09-04T23:14:36.689784+00:00",
+      "performance_baseline": {
+        "source": "docs/weekly-seo-intelligence.json",
+        "generated_at": "2026-09-04T22:56:08.115480+00:00",
+        "clicks": 0.0,
+        "impressions": 13.0,
+        "ctr": 0.0,
+        "position": 31.46153846153846,
+        "impression_change_pct": 100.0,
+        "sessions": 0,
+        "engagement_rate": null,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0,
+        "score": 37.1,
+        "category": "Monitor",
+        "recommended_action": "Monitor until the page accumulates enough demand or behavioural evidence for a confident intervention.",
+        "top_queries": [
+          "broadband deals cardiff",
+          "broadband deals in cardiff",
+          "best broadband deals cardiff"
+        ]
+      },
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-11",
+          "status": "Pending",
+          "check": "Confirm the URL is indexed with the new title/meta, GSC impressions continue for the Cardiff query cluster, and outbound_provider_click/deal_sort_changed/deal_filter_changed events are firing in GA4."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-02",
+          "status": "Pending",
+          "check": "Compare CTR and average position against the pre-change baseline recorded at deploy time."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-10-30",
+          "status": "Pending",
+          "check": "Review engagement rate, affiliate clicks, whether the two new internal links are driving measurable cross-navigation, and whether new GSC queries have appeared that the FAQ set should be extended to cover."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-03",
+          "status": "Pending",
+          "check": "Decide whether to consolidate, further expand, refresh the Business News Wales/Telecompaper/Ofcom dataset citations, or leave the page unchanged."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-04-0fbab8f1",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15721904203",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "postcode/sg1",
+      "url": "https://broadbandpicker.co.uk/postcode/sg1",
+      "launched_at": "2026-09-04T23:23:15.462026+00:00",
+      "performance_baseline": {
+        "source": "docs/weekly-seo-intelligence.json",
+        "generated_at": "2026-09-04T22:56:08.115480+00:00",
+        "clicks": 0.0,
+        "impressions": 9.0,
+        "ctr": 0.0,
+        "position": 10.11111111111111,
+        "impression_change_pct": 100.0,
+        "sessions": 0,
+        "engagement_rate": null,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0,
+        "score": 35.9,
+        "category": "Monitor",
+        "recommended_action": "Monitor until the page accumulates enough demand or behavioural evidence for a confident intervention.",
+        "top_queries": [
+          "broadband deals in stevenage"
+        ]
+      },
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-11",
+          "status": "Pending",
+          "check": "Confirm the URL is indexed with the new title/meta, GSC impressions continue for the Stevenage query cluster, and outbound_provider_click/deal_sort_changed/deal_filter_changed events are firing in GA4."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-02",
+          "status": "Pending",
+          "check": "Compare CTR and average position against the pre-change baseline recorded at deploy time."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-10-30",
+          "status": "Pending",
+          "check": "Review engagement rate, affiliate clicks, whether the two new internal links are driving measurable cross-navigation, and whether Openreach has resolved the reported installation pause (worth a content refresh either way)."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-03",
+          "status": "Pending",
+          "check": "Decide whether to consolidate, further update with any resolution of the Openreach ducting/installation issue, or leave the page unchanged."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-04-4dce2c06",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15721784669",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "postcode/le1",
+      "url": "https://broadbandpicker.co.uk/postcode/le1",
+      "launched_at": "2026-09-04T23:33:12.225451+00:00",
+      "performance_baseline": {
+        "source": "docs/weekly-seo-intelligence.json",
+        "generated_at": "2026-09-04T23:25:10.677688+00:00",
+        "clicks": 0.0,
+        "impressions": 9.0,
+        "ctr": 0.0,
+        "position": 69.55555555555556,
+        "impression_change_pct": 100.0,
+        "sessions": 0,
+        "engagement_rate": null,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0,
+        "score": 35.9,
+        "category": "Monitor",
+        "recommended_action": "Monitor until the page accumulates enough demand or behavioural evidence for a confident intervention.",
+        "top_queries": [
+          "broadband leicester",
+          "broadband provider leicester"
+        ]
+      },
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-11",
+          "status": "Pending",
+          "check": "Confirm the URL is indexed with the new title/meta, GSC impressions and the #2 ranking for 'broadband le1' are not disturbed, and outbound_provider_click/deal_sort_changed/deal_filter_changed events are firing in GA4."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-02",
+          "status": "Pending",
+          "check": "Compare CTR and average position against the pre-change baseline recorded at deploy time."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-10-30",
+          "status": "Pending",
+          "check": "Review engagement rate, affiliate clicks, whether the two new internal links are driving measurable cross-navigation, and whether new GSC queries have appeared that the FAQ set should be extended to cover."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-03",
+          "status": "Pending",
+          "check": "Decide whether to consolidate, further expand, refresh the Telecompaper/Ofcom dataset citations, or leave the page unchanged."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-04-6e5f59e4",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15721933124",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "research/uk-broadband-customer-satisfaction",
+      "url": "https://broadbandpicker.co.uk/research/uk-broadband-customer-satisfaction",
+      "launched_at": "2026-09-06T12:31:32.163101+00:00",
+      "performance_baseline": {
+        "source": "docs/weekly-seo-intelligence.json",
+        "generated_at": "2026-09-06T12:17:41.339619+00:00",
+        "clicks": 0.0,
+        "impressions": 54.0,
+        "ctr": 0.0,
+        "position": 12.12962962962963,
+        "impression_change_pct": 100.0,
+        "sessions": 0,
+        "engagement_rate": null,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0,
+        "score": 63.7,
+        "category": "Quick ranking win",
+        "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
+        "top_queries": [
+          "uk broadband providers customer satisfaction",
+          "do broadband review scores vary by region?",
+          "broadband customer satisfaction"
+        ]
+      },
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-13",
+          "status": "Pending",
+          "check": "Confirm indexing of the new title and H1, GSC impressions for 'uk broadband customer satisfaction' and 'uk broadband providers customer satisfaction', and that the live URL is still served by Vercel."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-04",
+          "status": "Pending",
+          "check": "Compare CTR and average position against the pre-change baseline of 54 impressions, 0 clicks, position 12.13. Test a title tweak only if CTR remains at 0% with rising impressions."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-11-01",
+          "status": "Pending",
+          "check": "Review engagement, internal-link clicks to the customer-service ranking and Plusnet review, and whether the regional-review query is still unmatched."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-05",
+          "status": "Pending",
+          "check": "Refresh if Ofcom has published Q2 2026 complaints (calendar date 26 October 2026) or a new Comparing Customer Service wave; otherwise leave the method unchanged."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-06-815a6b7b",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15728157868",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "providers/compare/plusnet-vs-sky",
+      "url": "https://broadbandpicker.co.uk/providers/compare/plusnet-vs-sky",
+      "launched_at": "2026-09-06T14:40:10.823932+00:00",
+      "performance_baseline": {
+        "source": "docs/weekly-seo-intelligence.json",
+        "generated_at": "2026-09-06T12:17:41.339619+00:00",
+        "clicks": 0.0,
+        "impressions": 53.0,
+        "ctr": 0.0,
+        "position": 9.283018867924529,
+        "impression_change_pct": 100.0,
+        "sessions": 0,
+        "engagement_rate": null,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0,
+        "score": 63.6,
+        "category": "Quick ranking win",
+        "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
+        "top_queries": [
+          "plusnet vs sky broadband",
+          "sky vs plusnet broadband",
+          "sky broadband vs plusnet",
+          "plusnet vs sky",
+          "plusnet or sky broadband"
+        ]
+      },
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-13",
+          "status": "Pending",
+          "check": "Confirm Google has recrawled the new title and H1, check GSC impressions for 'plusnet vs sky broadband', 'sky vs plusnet broadband' and 'plusnet or sky broadband', confirm the live URL is still served by Vercel, and confirm the new GA4 events (plusnet_sky_comparison_started, plusnet_sky_comparison_completed) are recording."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-04",
+          "status": "Pending",
+          "check": "Compare CTR and average position against the pre-change baseline of 53 impressions, 0 clicks, average position 9.28. The target is a first non-zero CTR. Only test a further title tweak if impressions have risen and CTR is still zero."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-11-01",
+          "status": "Pending",
+          "check": "Review engagement, decision-aid completion rate, internal-link clicks to the Plusnet and Sky reviews and the switching guide, outbound_provider_click by placement, and whether an AI Overview now cites broadbandpicker.co.uk for any Plusnet vs Sky query."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-05",
+          "status": "Pending",
+          "check": "Refresh the price table and price-rise dates if Plusnet or Sky has changed pricing, or if Ofcom has published Q2 2026 complaints data; otherwise leave the structure unchanged and only update verified figures and dates."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-06-d47b586b",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15728673918",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "providers/compare/hyperoptic-vs-community-fibre",
+      "url": "https://broadbandpicker.co.uk/providers/compare/hyperoptic-vs-community-fibre",
+      "launched_at": "2026-09-06T15:03:32.653132+00:00",
+      "performance_baseline": {
+        "source": "docs/weekly-seo-intelligence.json",
+        "generated_at": "2026-09-06T12:17:41.339619+00:00",
+        "clicks": 0.0,
+        "impressions": 48.0,
+        "ctr": 0.0,
+        "position": 7.395833333333333,
+        "impression_change_pct": 100.0,
+        "sessions": 0,
+        "engagement_rate": null,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0,
+        "score": 63.3,
+        "category": "Quick ranking win",
+        "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
+        "top_queries": [
+          "community fibre vs hyperoptic",
+          "hyperoptic vs community fibre",
+          "community fibre or hyperoptic"
+        ]
+      },
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-13",
+          "status": "Pending",
+          "check": "Confirm GSC has the refreshed title and that hyperoptic vs community fibre, community fibre vs hyperoptic and community fibre or hyperoptic still map to this URL. Check GA4 outbound_provider_click, hyperoptic_cf_comparison_started and hyperoptic_cf_comparison_completed fire without postcode or email parameters."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-04",
+          "status": "Pending",
+          "check": "Compare impressions, CTR and average position with the 48 / 0% / 7.40 baseline. Test a title or meta change only if CTR stays at 0% while impressions hold. Note any AI Overview citation change without treating it as a guaranteed outcome."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-11-01",
+          "status": "Pending",
+          "check": "Review engagement, affiliate clicks (still provider-site URLs while Awin Hyperoptic is declined and Community Fibre is pending), internal-link clicks to the two reviews, and query coverage for speed, cheaper and London modifiers."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-05",
+          "status": "Pending",
+          "check": "Re-check Hyperoptic homepage prices, Community Fibre Essential and April-rise figures, and Fair Fibre terms. Decide whether to keep, expand or leave the page on the 28-day cooldown."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-06-6eccbf77",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15728682637",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "providers/compare",
+      "url": "https://broadbandpicker.co.uk/providers/compare",
+      "launched_at": "2026-09-06T16:16:54.587543+00:00",
+      "performance_baseline": {
+        "source": "docs/weekly-seo-intelligence.json",
+        "generated_at": "2026-09-06T12:17:41.339619+00:00",
+        "clicks": 0.0,
+        "impressions": 41.0,
+        "ctr": 0.0,
+        "position": 12.75609756097561,
+        "impression_change_pct": 100.0,
+        "sessions": 0,
+        "engagement_rate": null,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0,
+        "score": 62.8,
+        "category": "Quick ranking win",
+        "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
+        "top_queries": [
+          "hyperoptic vs vodafone broadband",
+          "compare landline and broadband packages",
+          "yes iwould",
+          "vodafone vs talktalk broadband",
+          "virgin media vs sky vs vodafone comparison"
+        ]
+      },
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-13",
+          "status": "Pending",
+          "check": "Confirm Google has recrawled the new title and H1, check Search Console impressions for 'broadband provider comparisons', 'compare broadband providers head to head' and the pairwise queries, and confirm the new GA4 events (provider_filter_used, comparison_card_clicked, postcode_check_started) are recording. Confirm /compare has not lost impressions for 'compare broadband providers'."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-04",
+          "status": "Pending",
+          "check": "Compare CTR and average position against the pre-change baseline of 41 impressions, 0 clicks, position 12.76. Target a first non-zero CTR and a move toward page one. Check the query split between this page and /compare for any overlap."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-11-01",
+          "status": "Pending",
+          "check": "Review pair-finder completion, matched versus unmatched rate, comparison_card_clicked distribution by group, and whether any AI Overview now cites broadbandpicker.co.uk for a head-to-head query. Decide whether the most-requested unmatched matchup should become a dedicated guide."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-05",
+          "status": "Pending",
+          "check": "Refresh the coverage map and group notes if new comparison guides have shipped or provider networks have changed; otherwise update only the reviewed date and verified figures."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-06-e90f2838",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15729007468",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    }
+  ]
+}

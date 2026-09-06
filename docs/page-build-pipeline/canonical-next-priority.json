@@ -1,0 +1,310 @@
+{
+  "generated_at": "2026-09-06T16:30:00.332151+00:00",
+  "selection_policy": [
+    "Eligible GSC/GA4 opportunities with measurable demand, average position 1-30, and no current-pipeline suppression",
+    "High-impression pages ranking below position 30 stay in the strategic analytics queue but cannot displace a nearer-term rankable opportunity",
+    "Live content-depth and GEO audit refresh candidates",
+    "Keyword-mapped new-page gaps",
+    "Remaining master-tracker page builds",
+    "Pages released in the last 28 days are held for measurement before another rewrite",
+    "Page-type UX/GEO findings become mandatory build requirements, not a separate competing queue"
+  ],
+  "next_priority": {
+    "path": "/tools/broadband-cost-calculator",
+    "title": "/tools/broadband-cost-calculator",
+    "score": 56.0,
+    "source": "Weekly GSC/GA4 intelligence",
+    "source_rank": 1,
+    "reason": "Expand missing subtopics for the leading queries, improve topical internal links and validate intent alignment.",
+    "metrics": {
+      "clicks": 1.0,
+      "impressions": 60.0,
+      "ctr": 0.016666666666666666,
+      "position": 22.066666666666666,
+      "sessions": 0,
+      "ai_referral_visits": 0
+    },
+    "top_queries": [
+      "mid contract price rise calculator",
+      "average broadband cost uk",
+      "wifi costs per month uk",
+      "average broadband price uk",
+      "average cost of wifi per month uk"
+    ],
+    "url": "https://broadbandpicker.co.uk/tools/broadband-cost-calculator",
+    "page_type": "tool",
+    "ux_geo_requirements": [
+      {
+        "priority": "P2",
+        "feature": "GEO: be quotable in the AI answer",
+        "evidence": "0 of 8 sampled interactive tool queries show an AI Overview; BroadbandPicker is cited in 0. Domains that do get cited: n/a. AI referral visits to this type in GA4: 0."
+      }
+    ]
+  },
+  "shortlist": [
+    {
+      "path": "/tools/broadband-cost-calculator",
+      "title": "/tools/broadband-cost-calculator",
+      "score": 56.0,
+      "source": "Weekly GSC/GA4 intelligence",
+      "source_rank": 1,
+      "reason": "Expand missing subtopics for the leading queries, improve topical internal links and validate intent alignment.",
+      "metrics": {
+        "clicks": 1.0,
+        "impressions": 60.0,
+        "ctr": 0.016666666666666666,
+        "position": 22.066666666666666,
+        "sessions": 0,
+        "ai_referral_visits": 0
+      },
+      "top_queries": [
+        "mid contract price rise calculator",
+        "average broadband cost uk",
+        "wifi costs per month uk",
+        "average broadband price uk",
+        "average cost of wifi per month uk"
+      ],
+      "url": "https://broadbandpicker.co.uk/tools/broadband-cost-calculator",
+      "page_type": "tool",
+      "ux_geo_requirements": [
+        {
+          "priority": "P2",
+          "feature": "GEO: be quotable in the AI answer",
+          "evidence": "0 of 8 sampled interactive tool queries show an AI Overview; BroadbandPicker is cited in 0. Domains that do get cited: n/a. AI referral visits to this type in GA4: 0."
+        }
+      ]
+    },
+    {
+      "path": "/guides/best-broadband-and-tv-deals",
+      "title": "/guides/best-broadband-and-tv-deals",
+      "score": 100.0,
+      "source": "Live content-depth/GEO audit",
+      "source_rank": 2,
+      "reason": "Audited refresh opportunity",
+      "metrics": {
+        "word_count": 2457,
+        "mapped_volume": 12100,
+        "ai_feature_impressions": 1295,
+        "checked_date": "2026-09-01"
+      }
+    },
+    {
+      "path": "/guides/best-full-fibre-broadband-uk",
+      "title": "/guides/best-full-fibre-broadband-uk",
+      "score": 89.0,
+      "source": "Live content-depth/GEO audit",
+      "source_rank": 2,
+      "reason": "Audited refresh opportunity",
+      "metrics": {
+        "word_count": 1703,
+        "mapped_volume": 2900,
+        "ai_feature_impressions": 512,
+        "checked_date": "2026-08-24"
+      }
+    },
+    {
+      "path": "/guides/best-business-broadband-providers-uk",
+      "title": "/guides/best-business-broadband-providers-uk",
+      "score": 82.4,
+      "source": "Live content-depth/GEO audit",
+      "source_rank": 2,
+      "reason": "below 1200-word depth floor for a guide page",
+      "metrics": {
+        "word_count": 1080,
+        "mapped_volume": 2900,
+        "ai_feature_impressions": 142,
+        "checked_date": "2026-08-24"
+      }
+    },
+    {
+      "path": "/guides/best-5g-home-broadband-uk",
+      "title": "/guides/best-5g-home-broadband-uk",
+      "score": 71.0,
+      "source": "Live content-depth/GEO audit",
+      "source_rank": 2,
+      "reason": "below 1200-word depth floor for a guide page",
+      "metrics": {
+        "word_count": 1132,
+        "mapped_volume": 4400,
+        "ai_feature_impressions": 30,
+        "checked_date": "2026-08-24"
+      }
+    },
+    {
+      "path": "/guides/best-phone-and-broadband-deals",
+      "title": "/guides/best-phone-and-broadband-deals",
+      "score": 67.8,
+      "source": "Live content-depth/GEO audit",
+      "source_rank": 2,
+      "reason": "below 1200-word depth floor for a guide page",
+      "metrics": {
+        "word_count": 1000,
+        "mapped_volume": 29600,
+        "ai_feature_impressions": 14,
+        "checked_date": "2026-08-24"
+      }
+    },
+    {
+      "path": "/guides/cheapest-broadband-uk",
+      "title": "/guides/cheapest-broadband-uk",
+      "score": 66.0,
+      "source": "Live content-depth/GEO audit",
+      "source_rank": 2,
+      "reason": "Audited refresh opportunity",
+      "metrics": {
+        "word_count": 1465,
+        "mapped_volume": 19400,
+        "ai_feature_impressions": 130,
+        "checked_date": "2026-08-24"
+      }
+    },
+    {
+      "path": "/guides/satellite-broadband-uk",
+      "title": "/guides/satellite-broadband-uk",
+      "score": 53.2,
+      "source": "Live content-depth/GEO audit",
+      "source_rank": 2,
+      "reason": "below 1200-word depth floor for a guide page",
+      "metrics": {
+        "word_count": 1065,
+        "mapped_volume": 2400,
+        "ai_feature_impressions": 21,
+        "checked_date": "2026-08-24"
+      }
+    },
+    {
+      "path": "/guides/broadband-social-tariffs-uk",
+      "title": "/guides/broadband-social-tariffs-uk",
+      "score": 49.0,
+      "source": "Live content-depth/GEO audit",
+      "source_rank": 2,
+      "reason": "below 1200-word depth floor for a guide page",
+      "metrics": {
+        "word_count": 1198,
+        "mapped_volume": 2400,
+        "ai_feature_impressions": 0,
+        "checked_date": "2026-08-24"
+      }
+    },
+    {
+      "path": "/guides/best-broadband-for-working-from-home",
+      "title": "/guides/best-broadband-for-working-from-home",
+      "score": 45.2,
+      "source": "Live content-depth/GEO audit",
+      "source_rank": 2,
+      "reason": "below 1200-word depth floor for a guide page",
+      "metrics": {
+        "word_count": 1020,
+        "mapped_volume": 1900,
+        "ai_feature_impressions": 6,
+        "checked_date": "2026-08-24"
+      }
+    }
+  ],
+  "recently_updated_suppressed": [
+    {
+      "path": "/research/uk-broadband-customer-satisfaction",
+      "title": "/research/uk-broadband-customer-satisfaction",
+      "score": 63.7,
+      "source": "Weekly GSC/GA4 intelligence",
+      "source_rank": 1,
+      "reason": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
+      "metrics": {
+        "clicks": 0.0,
+        "impressions": 54.0,
+        "ctr": 0.0,
+        "position": 12.12962962962963,
+        "sessions": 0,
+        "ai_referral_visits": 0
+      },
+      "top_queries": [
+        "uk broadband providers customer satisfaction",
+        "do broadband review scores vary by region?",
+        "broadband customer satisfaction"
+      ],
+      "suppression_reason": "Updated 2026-09-06; inside 28-day measurement window"
+    },
+    {
+      "path": "/providers/compare/plusnet-vs-sky",
+      "title": "/providers/compare/plusnet-vs-sky",
+      "score": 63.6,
+      "source": "Weekly GSC/GA4 intelligence",
+      "source_rank": 1,
+      "reason": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
+      "metrics": {
+        "clicks": 0.0,
+        "impressions": 53.0,
+        "ctr": 0.0,
+        "position": 9.283018867924529,
+        "sessions": 0,
+        "ai_referral_visits": 0
+      },
+      "top_queries": [
+        "plusnet vs sky broadband",
+        "sky vs plusnet broadband",
+        "sky broadband vs plusnet",
+        "plusnet vs sky",
+        "plusnet or sky broadband"
+      ],
+      "suppression_reason": "Updated 2026-09-06; inside 28-day measurement window"
+    },
+    {
+      "path": "/providers/compare/hyperoptic-vs-community-fibre",
+      "title": "/providers/compare/hyperoptic-vs-community-fibre",
+      "score": 63.3,
+      "source": "Weekly GSC/GA4 intelligence",
+      "source_rank": 1,
+      "reason": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
+      "metrics": {
+        "clicks": 0.0,
+        "impressions": 48.0,
+        "ctr": 0.0,
+        "position": 7.395833333333333,
+        "sessions": 0,
+        "ai_referral_visits": 0
+      },
+      "top_queries": [
+        "community fibre vs hyperoptic",
+        "hyperoptic vs community fibre",
+        "community fibre or hyperoptic"
+      ],
+      "suppression_reason": "Updated 2026-09-06; inside 28-day measurement window"
+    },
+    {
+      "path": "/providers/compare",
+      "title": "/providers/compare",
+      "score": 62.8,
+      "source": "Weekly GSC/GA4 intelligence",
+      "source_rank": 1,
+      "reason": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
+      "metrics": {
+        "clicks": 0.0,
+        "impressions": 41.0,
+        "ctr": 0.0,
+        "position": 12.75609756097561,
+        "sessions": 0,
+        "ai_referral_visits": 0
+      },
+      "top_queries": [
+        "hyperoptic vs vodafone broadband",
+        "compare landline and broadband packages",
+        "yes iwould",
+        "vodafone vs talktalk broadband",
+        "virgin media vs sky vs vodafone comparison"
+      ],
+      "suppression_reason": "Updated 2026-09-06; inside 28-day measurement window"
+    },
+    {
+      "path": "/postcode/sheffield",
+      "title": "Broadband providers in Sheffield: coverage and best deals",
+      "score": 66.8,
+      "source": "Keyword-mapped new-page gap",
+      "source_rank": 3,
+      "reason": "Highest-scoring researched content gap not confirmed live.",
+      "metrics": {
+        "monthly_volume": 590
+      },
+      "suppression_reason": "Updated 2026-09-04; inside 28-day measurement window"
+    }
+  ]
+}

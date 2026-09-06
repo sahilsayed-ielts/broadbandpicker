@@ -1,27 +1,176 @@
 {
-  "generated": "2026-08-25",
-  "slug": "postcode/da1",
-  "url": "https://broadbandpicker.co.uk/postcode/da1",
-  "title": "Da1",
-  "cluster": "Postcode & location",
-  "page_type": "Postcode prefix page",
-  "data_file": "bespoke",
-  "template": "app/postcode/london/page.tsx",
-  "interface": "bespoke",
+  "generated": "2026-09-06",
+  "slug": "providers/compare",
+  "url": "https://broadbandpicker.co.uk/providers/compare",
+  "title": "Compare",
+  "cluster": "Provider vs comparison",
+  "page_type": "Comparison directory",
+  "data_file": "data/provider-comparisons.ts",
+  "template": "app/providers/compare/page.tsx",
+  "interface": "ProviderComparison",
   "keywords": [
     {
-      "keyword": "broadband deals in dartford",
+      "keyword": "broadband provider comparisons",
       "volume": null,
       "difficulty": null,
       "cpc": null,
-      "intent": "Local commercial",
+      "intent": "Researched navigational comparison",
       "role": "primary",
-      "recommended_slot": "title/excerpt",
-      "source": "Curated keyword dataset"
+      "recommended_slot": "title/h1/excerpt",
+      "source": "Researched primary-keyword decision (current-page-research.json)"
+    },
+    {
+      "keyword": "compare broadband providers head to head",
+      "volume": null,
+      "difficulty": null,
+      "cpc": null,
+      "intent": "Navigational comparison",
+      "role": "secondary",
+      "recommended_slot": "H1, 'Which page should I use?' section, directory intro",
+      "source": "Researched secondary-keyword decision"
+    },
+    {
+      "keyword": "broadband provider vs provider",
+      "volume": null,
+      "difficulty": null,
+      "cpc": null,
+      "intent": "Navigational comparison",
+      "role": "secondary",
+      "recommended_slot": "Directory group headings, pair finder, coverage map",
+      "source": "Researched secondary-keyword decision"
+    },
+    {
+      "keyword": "which is better bt or sky broadband",
+      "volume": null,
+      "difficulty": null,
+      "cpc": null,
+      "intent": "Comparison decision",
+      "role": "secondary",
+      "recommended_slot": "FAQ 'Which is better, BT or Sky broadband?', directory card, pair finder result",
+      "source": "Researched secondary-keyword decision"
+    },
+    {
+      "keyword": "compare two broadband providers",
+      "volume": null,
+      "difficulty": null,
+      "cpc": null,
+      "intent": "Navigational comparison",
+      "role": "secondary",
+      "recommended_slot": "Pair finder ('Choose two providers'), coverage map, /compare deferral",
+      "source": "Researched secondary-keyword decision"
+    },
+    {
+      "keyword": "broadband head to head comparison",
+      "volume": null,
+      "difficulty": null,
+      "cpc": null,
+      "intent": "Navigational comparison",
+      "role": "secondary",
+      "recommended_slot": "H1, byline ('head-to-head guides'), directory",
+      "source": "Researched secondary-keyword decision"
+    },
+    {
+      "keyword": "hyperoptic vs vodafone broadband",
+      "volume": null,
+      "difficulty": null,
+      "cpc": null,
+      "intent": "Pairwise comparison, no dedicated page",
+      "role": "secondary",
+      "recommended_slot": "Head-to-head coverage map",
+      "source": "Researched secondary-keyword decision"
     }
   ],
   "provider_prerequisites": [],
   "missing_provider_prerequisites": [],
   "brief": "/Users/sahilrafiqsayed/broadbandpicker/docs/page-build-pipeline-brief.md",
-  "build_mode": "complete_existing_page"
+  "build_mode": "complete_existing_page",
+  "keyword_mapping_note": "Primary keyword taken from the reviewed research file.",
+  "primary_keyword_mode": "researched",
+  "content_format": {
+    "id": "comparison_directory",
+    "primary_task": "Find and open the right provider head-to-head comparison, or move to the all-provider tool when no shortlist exists yet",
+    "default_decision_aid": "a crawlable matchup directory plus an accessible provider-pair finder that resolves to the nearest useful comparison"
+  },
+  "performance_brief": {
+    "source": "docs/weekly-seo-intelligence.json",
+    "generated_at": "2026-09-06T12:17:41.339619+00:00",
+    "clicks": 0.0,
+    "impressions": 41.0,
+    "ctr": 0.0,
+    "position": 12.75609756097561,
+    "impression_change_pct": 100.0,
+    "sessions": 0,
+    "engagement_rate": null,
+    "affiliate_clicks": 0,
+    "ai_referral_visits": 0,
+    "score": 62.8,
+    "category": "Quick ranking win",
+    "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
+    "top_queries": [
+      "hyperoptic vs vodafone broadband",
+      "compare landline and broadband packages",
+      "yes iwould",
+      "vodafone vs talktalk broadband",
+      "virgin media vs sky vs vodafone comparison"
+    ]
+  },
+  "build_strategy": {
+    "serp_feature_classification": true,
+    "information_gain_required": true,
+    "ctr_candidates_required": 3,
+    "internal_link_plan_required": true,
+    "interaction_must_match_intent": true,
+    "review_days_after_launch": [
+      7,
+      28,
+      56,
+      90
+    ]
+  },
+  "benchmark_strategy": {
+    "uk_seo_leaders_required": 3,
+    "ai_cited_pages_required_when_ai_overview_present": 1,
+    "international_innovators_required": 2,
+    "purpose": "Synthesize same-topic UK search and GEO conventions with useful same-topic international UX patterns, then implement an original BroadbandPicker layout.",
+    "constraints": [
+      "Do not copy wording, branding, visual identity or a distinctive page layout.",
+      "Do not infer that a UX pattern caused a ranking or AI citation.",
+      "Adapt international patterns to UK terminology, regulation, evidence and reader needs.",
+      "Use BroadbandPicker's existing design system and accessible components."
+    ]
+  },
+  "orchestrated_ux_geo_requirements": [
+    {
+      "priority": "P1",
+      "feature": "GEO: be quotable in the AI answer",
+      "evidence": "1 of 8 sampled provider review queries show an AI Overview; BroadbandPicker is cited in 0. Domains that do get cited: reddit.com, uswitch.com, www-staging.brsk.co.uk, youfibre.com. AI referral visits to this type in GA4: 0."
+    }
+  ],
+  "priority_evidence": {
+    "selected_by": "Weekly GSC/GA4 intelligence",
+    "score": 62.8,
+    "reason": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
+    "metrics": {
+      "clicks": 0.0,
+      "impressions": 41.0,
+      "ctr": 0.0,
+      "position": 12.75609756097561,
+      "sessions": 0,
+      "ai_referral_visits": 0
+    },
+    "top_queries": [
+      "hyperoptic vs vodafone broadband",
+      "compare landline and broadband packages",
+      "yes iwould",
+      "vodafone vs talktalk broadband",
+      "virgin media vs sky vs vodafone comparison"
+    ]
+  },
+  "mandatory_recommended_actions": [
+    {
+      "priority": "P1",
+      "feature": "GEO: be quotable in the AI answer",
+      "evidence": "1 of 8 sampled provider review queries show an AI Overview; BroadbandPicker is cited in 0. Domains that do get cited: reddit.com, uswitch.com, www-staging.brsk.co.uk, youfibre.com. AI referral visits to this type in GA4: 0."
+    }
+  ]
 }

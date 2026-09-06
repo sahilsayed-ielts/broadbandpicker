@@ -2,6 +2,24 @@
 
 Read `docs/page-build-pipeline-brief.md` completely and follow it as the controlling specification.
 Read `docs/page-build-pipeline/next-page.json` for the exact page, detailed keyword mapping, template route and prerequisites.
+If `performance_brief` is present in the packet, treat its GSC queries, impressions, CTR and
+position as the first-party optimisation brief. Do not replace those observed queries with generic
+keyword-tool guesses. If it is absent, record that this is a new/no-data page and establish a
+baseline during the scheduled post-publication reviews.
+If `priority_evidence` and `orchestrated_ux_geo_requirements` are present, they came from the
+combined GSC, GA4, content-depth and page-type SERP/UX workflow. Treat every P0/P1 requirement as
+mandatory unless current live evidence proves it is already satisfied; record that validation in
+the research packet. P2 requirements are evidence-backed enhancements to implement when they help
+the reader's task. Do not discard these requirements during fresh page-level research.
+
+The packet also contains `mandatory_recommended_actions`, the build gate derived from those P0/P1
+requirements. Implement every action. For each one, add a matching entry to
+`implemented_recommended_actions` in the research JSON with `priority`, `feature`, `disposition`
+(`implemented` or `already_satisfied`), `implementation`, `evidence`, and `validation_terms`.
+`validation_terms` must be a non-empty list of stable visible words, labels or facts that the
+rendered-page validator can find in this page's `<main>`. An `already_satisfied` disposition still
+needs current page-specific evidence and visible validation terms. Never mark an action satisfied
+merely because a shared template or unrelated page contains something similar.
 
 ## 1. Keyword research and live SERP scraping (required every build, not optional)
 
@@ -12,6 +30,15 @@ The packet's keyword list is a starting point, not the finished research. Before
 - Check whether an AI Overview / AI answer currently appears for the primary keyword. If it does,
   read what it cites and from where — that tells you what a citable answer for this specific
   keyword looks like, more reliably than any general rule.
+- Build three separate same-topic benchmark sets: at least three UK organic leaders, every
+  accessible page cited by the observed AI Overview (at least one is required when an AI Overview
+  is present), and at least two strong non-UK pages. Select international pages for genuinely useful
+  UX, information architecture, tools or citation design that the UK set does not commonly use,
+  not merely because they rank in another country. Record the country and selection evidence.
+- Inspect rendered page structure and responsive behaviour where access permits, not just titles
+  and snippets. Compare section order, above-the-fold answer, navigation, tables/cards, decision
+  support, source presentation, mobile behaviour and accessibility. If access is blocked, record
+  the limitation and do not invent observations.
 - Identify at least four distinct secondary/supporting queries beyond the primary term. Use close
   variants, commercial modifiers, People Also Ask questions, entity attributes and comparison
   questions that a UK reader would plausibly search. Map every query to a specific title, intro,
@@ -87,6 +114,25 @@ Before running the build, write `docs/page-build-pipeline/current-page-research.
   `approx_word_count`, `content_gap_to_improve`, `useful_ux_patterns`, `useful_ui_patterns`,
   `interactive_or_functional_elements`, `trust_signals` and `citation_patterns`;
 - `ai_overview`: an object containing `checked`, `present`, `observation` and `cited_sources`;
+- `design_benchmarks`: an object with `uk_seo_leaders` (at least three), `ai_cited_pages`,
+  `international_innovators` (at least two) and `citation_access_limitation`. Every benchmark page
+  must contain `url`, `title`, `country`, `selection_basis`, `seo_geo_evidence`, `observed_layout`,
+  `ux_patterns`, `ui_patterns`, `transferable_pattern` and `copying_risk`. AI-cited pages must also
+  identify the cited claim or passage in `citation_evidence`. When no AI Overview is present,
+  `ai_cited_pages` may be empty; when one is present but its sources cannot be accessed, explain the
+  specific limitation rather than fabricating a source;
+- `llm_visibility_observations`: checks performed for the topic, with `platform_or_method`,
+  `observation` and `limitations`. Treat these as volatile observations, not ranking guarantees;
+- `layout_blueprint`: an ordered list of at least four page sections. Each needs `order`, `section`,
+  `reader_task`, `component_or_pattern`, `benchmark_sources`, `mobile_behaviour`,
+  `accessibility_notes` and `validation_terms`;
+- `benchmark_synthesis`: `adopted_patterns` (at least three) and one `differentiated_pattern`.
+  Each adopted pattern needs `pattern`, `source_urls`, `user_need`, `adaptation`, `implementation`,
+  `originality_guard` and `validation_terms`. The differentiated pattern must state what is uncommon
+  in the UK benchmark set, its international evidence, UK adaptation, implementation and visible
+  validation terms;
+- `serp_features`: an object recording whether snippets, PAA, local results, video, tools,
+  comparison tables, forums and AI answers were observed, plus the page-format implication;
 - `people_also_ask`: useful question strings discovered during research;
 - `sources`: at least three objects containing `url`, `source_type` (`primary`, `regulator`,
   `government`, `independent` or `reviews`), `verified_date` and `claims_supported`;
@@ -94,14 +140,30 @@ Before running the build, write `docs/page-build-pipeline/current-page-research.
   Guide or Provider page, 800 for a Comparison page, or 600 for an Interactive tool;
 - `required_sections`, `internal_links`, `schema_types`, `ux_ui_requirements`,
   `functional_requirements`, `research_summary` and `depth_rationale`.
+- `content_format`: the packet format ID plus a short rationale based on intent and the SERP;
+- `information_gain`: at least one original, useful asset this page adds beyond summarising the
+  ranking pages. Each item needs `asset`, `evidence`, `implementation` and `validation_terms`;
+- `ctr_candidates`: at least three distinct objects with `title`, `meta_description` and
+  `rationale`, plus `selected_ctr_candidate` containing the chosen title and description;
+- `internal_link_plan`: `inbound` and `outbound` arrays, each with at least two objects containing
+  `url`, `anchor` and `reason`. Use existing, topically relevant pages and descriptive anchors;
+- `schema_eligibility`: proposed schema objects containing `type`, `eligible`, `visible_evidence`
+  and `reason`. Never add schema for content or offers that are not visibly present and current;
+- `post_publication_review`: concrete checks for `day_7`, `day_28`, `day_56` and `day_90`, using
+  GSC impressions/CTR/position and GA4 engagement, affiliate clicks and AI/LLM referrals.
+- `implemented_recommended_actions`: one complete entry for every item in the packet's
+  `mandatory_recommended_actions`, using the exact `priority` and `feature`, plus `disposition`,
+  `implementation`, `evidence` and visible `validation_terms` as described above.
 
 The validator will reject a missing, thin or mismatched research file and will check that the
 rendered page covers the mapped secondary queries and the justified minimum depth.
 
 ## 6. Apply competitor UX, UI and functional learnings
 
-Use the strongest useful patterns found across the ranking pages, without copying their wording,
-branding or layout. Implement only patterns that improve this page's search intent and reader task,
+Use the strongest useful patterns found across the UK, AI-cited and international benchmark sets,
+without copying their wording, branding, visual identity or distinctive layout. Synthesize the
+patterns into the documented `layout_blueprint`; do not reproduce any one source page. Implement
+only patterns that improve this page's search intent and reader task,
 such as answer summaries, comparison/checklist tables, eligibility flows, cost examples, decision
 steps, jump navigation, warnings, source notes or an interactive control. Record every adopted
 pattern in `ux_ui_requirements` or `functional_requirements`, explain which observed user need it
@@ -111,30 +173,44 @@ Do not claim that a competitor pattern caused a ranking or AI citation. Treat ra
 and LLM visibility as evidence-informed targets, never guarantees. Do not clone a competitor page,
 add decorative UI without a task benefit, or invent data to populate a feature.
 
-## 7. Mandatory product, accessibility and measurement layer
+At least one implemented pattern must be a useful, evidence-backed idea found in the international
+set but uncommon across the reviewed UK pages. Adapt it to UK terminology, regulation, factual
+sources and expectations. Every adopted and differentiated pattern needs stable visible
+`validation_terms`; the rendered-page gate will reject a build when those terms are absent.
 
-Every future page must ship as a useful product experience, not editorial copy alone:
-- Add page-specific interactive comparison functionality that helps the reader compare at least
-  two meaningful choices, scenarios, providers, prices, speeds, eligibility outcomes or next
-  actions. It must work without an account and retain a crawlable static explanation.
+## 7. Intent-led product, accessibility and measurement layer
+
+Every future page must help the reader complete its primary task, but interactivity is not a
+ranking ornament. Use the packet's content format, the observed SERP and the reader task to decide:
+- If interaction materially improves the task, build a page-specific accessible control. It must
+  work without an account and retain a crawlable static explanation.
+- If a static table, checklist, worked example, local evidence block or answer is clearer, use
+  that instead. Do not add a quiz or calculator merely to satisfy the pipeline.
 - Make the complete journey responsive at mobile, tablet and desktop widths. Avoid horizontal
   page overflow; allow wide data tables to scroll inside a labelled region; keep controls usable
   on touch screens; and preserve task hierarchy when cards stack.
 - Use semantic HTML and keyboard-operable controls with visible focus states, programmatic labels,
   accessible names, useful instructions and live status feedback where state changes. Never rely
   on colour alone and respect reduced-motion preferences.
-- Track meaningful interaction and conversion steps through `trackEvent` from
-  `src/lib/analytics.ts`. Define stable snake_case GA4 event names and non-personal parameters. At
-  minimum track interaction start, comparison/decision completion and the primary conversion CTA.
-  Do not send postcodes, names, email addresses or other personal data to GA4.
+- Track meaningful interaction and conversion steps through `trackEvent` from the site's analytics
+  helper. Define stable snake_case GA4 event names and non-personal parameters. Interactive pages
+  must track interaction start, completion and the primary CTA. Static pages need the relevant
+  existing commercial CTA event and must not invent low-value events. Do not send postcodes,
+  names, email addresses or other personal data to GA4.
+- Route affiliate links through the shared `AffiliateCTA` component and give every CTA a stable,
+  descriptive `placement`. Its Awin ClickRef taxonomy and GA4 parameters must remain aligned so
+  page, placement and provider clicks can be joined to Awin transactions. Never create per-user
+  ClickRefs or put postcodes, names, emails or other personal data in affiliate tracking URLs.
 
 Add these mandatory fields to `docs/page-build-pipeline/current-page-research.json`:
-- `interactive_comparison`: non-empty `user_task`, `choices_compared`, `crawlable_fallback` and
-  `completion_state` values;
+- `interaction_decision`: `required`, `rationale`, `reader_task` and `static_fallback`;
+- when `interaction_decision.required` is true, `interactive_comparison` must contain non-empty
+  `user_task`, `choices_compared`, `crawlable_fallback` and `completion_state` values;
 - `responsive_requirements`: at least three concrete checks covering mobile, tablet and desktop;
 - `accessibility_requirements`: at least five concrete keyboard, semantics, labels, focus,
   state-feedback or reduced-motion checks;
-- `ga4_events`: at least three objects with `name`, `trigger`, `parameters` and `conversion_role`.
+- `ga4_events`: complete objects with `name`, `trigger`, `parameters` and `conversion_role`; at
+  least three for interactive pages and at least one meaningful CTA event for static pages.
 
 The outer runner owns production release. A normal build must pass local validation, deploy with
 `vercel --prod --yes`, verify the live route is served by Vercel, regenerate both trackers,
