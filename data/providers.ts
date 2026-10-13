@@ -3444,7 +3444,8 @@ const baseProviders: Provider[] = [
     slug: 'onestream',
     name: 'Onestream',
     logo: '/logos/onestream.svg',
-    affiliateUrl: 'https://onestream.co.uk/',
+    affiliateUrl:
+      'https://www.awin1.com/cread.php?awinmid=23296&awinaffid=2942019&ued=https%3A%2F%2Fonestream.co.uk%2F&platform=pl',
     speeds: [
       { download: 35, upload: 9, type: 'FTTC' },
       { download: 67, upload: 18, type: 'FTTC' },
@@ -3584,6 +3585,11 @@ const baseProviders: Provider[] = [
         note: 'Customer-sentiment reference showing 4.3/5 from about 41,000 reviews on 2026-08-22; treated as an open-review signal, not a controlled service survey.',
       },
       {
+        label: 'Awin Onestream advertiser programme',
+        href: 'https://ui.awin.com/merchant-profile-terms/23296/affiliate',
+        note: 'BroadbandPicker holds a joined relationship with advertiser 23296. The deal buttons use a publisher-specific Awin link and placement-level ClickRefs, verified 2026-10-13.',
+      },
+      {
         label: 'BroadbandPicker review methodology',
         href: '/how-we-review-broadband',
         note: 'Explains how price, speed, coverage, customer experience and use-case fit are weighed across provider reviews.',
@@ -3594,7 +3600,7 @@ const baseProviders: Provider[] = [
         note: 'Sets out editorial independence, correction standards and handling of commercial relationships.',
       },
     ],
-    awinProgramId: null,
+    awinProgramId: '23296',
   },
   {
     slug: 'shell-energy',
