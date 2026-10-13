@@ -28,6 +28,7 @@ import NG1BroadbandComparison from '@/components/NG1BroadbandComparison'
 import RG1BroadbandComparison from '@/components/RG1BroadbandComparison'
 import CT1BroadbandComparison from '@/components/CT1BroadbandComparison'
 import RM1BroadbandComparison from '@/components/RM1BroadbandComparison'
+import CR0BroadbandComparison from '@/components/CR0BroadbandComparison'
 import { getPostcodeLocalIntel } from '@/data/postcodeLocalIntel'
 import { buildDealListJsonLd } from '@/lib/dealSchema'
 
@@ -67,6 +68,18 @@ export async function generateMetadata({
   }
 
   const prefix = postcodeArea.prefix.toUpperCase()
+  if (prefix === 'CR0') {
+    const coverage = getDistrictCoverage(prefix)
+    const description = coverage
+      ? `Compare broadband deals in Croydon and CR0. See ${coverage.gigabitPercent}% gigabit and ${coverage.superfastPercent}% superfast coverage from Ofcom-derived data, then check your address.`
+      : 'Compare broadband deals in Croydon and CR0 by price, speed, contract cost and exact-address availability.'
+    return {
+      title: { absolute: 'Broadband Deals in Croydon and CR0 | Compare Providers' },
+      description,
+      alternates: { canonical },
+      openGraph: { title: 'Broadband Deals in Croydon and CR0 | BroadbandPicker', description, url: canonical },
+    }
+  }
   if (prefix === 'HA1') {
     const description = 'Compare broadband deals in Harrow and HA1 using Ofcom-derived district coverage, local network evidence and exact-address checks for HA1 4BH, HA1 3AN and nearby streets.'
     return {
@@ -251,7 +264,9 @@ export default async function PostcodeAreaPage({
     month: 'long',
     year: 'numeric',
   })
-  const pageReviewedDateLabel = area.toUpperCase() === 'HA1'
+  const pageReviewedDateLabel = area.toUpperCase() === 'CR0'
+    ? '13 October 2026'
+    : area.toUpperCase() === 'HA1'
     ? '4 September 2026'
     : area.toUpperCase() === 'GU1'
     ? '1 September 2026'
@@ -392,6 +407,7 @@ export default async function PostcodeAreaPage({
   const isRG1 = prefix === 'RG1'
   const isCT1 = prefix === 'CT1'
   const isRM1 = prefix === 'RM1'
+  const isCR0 = prefix === 'CR0'
   const isBS1 = prefix === 'BS1'
   const isNE1 = prefix === 'NE1'
   const isGU1 = prefix === 'GU1'
@@ -589,6 +605,33 @@ export default async function PostcodeAreaPage({
           answer: 'Choose an available package and contact the new provider. Ofcom says One Touch Switch lets most residential broadband customers ask the new provider to coordinate the move, including switches between different networks. The old provider should explain early termination charges and effects on bundled services. Confirm the activation date before cancelling anything outside the managed switch.',
         },
       ]
+    : isCR0
+    ? [
+        {
+          question: 'Which broadband providers are available in Croydon and CR0?',
+          answer: 'CR0 residents can compare retailers using Openreach, including BT, Sky, EE, TalkTalk, Plusnet, Vodafone and NOW, alongside Virgin Media and Community Fibre where their separate networks reach the property. This is a district shortlist, not an availability guarantee. Enter the complete address because neighbouring Croydon homes can have different options.',
+        },
+        {
+          question: 'What are the best broadband deals in Croydon?',
+          answer: 'There is no single best Croydon broadband deal for every home. First remove packages that are not available at the complete address. Then compare total minimum-term cost, personalised speed estimate, minimum guaranteed speed, upload speed, setup fees, rewards, stated price rises and the price after the contract ends.',
+        },
+        {
+          question: 'Can I get full-fibre broadband in Croydon CR0?',
+          answer: `Many CR0 properties can get full fibre or another gigabit-capable service, but coverage is not universal. BroadbandPicker's aggregation of Ofcom July 2024 residential postcode records shows ${districtCoverage?.gigabitPercent}% gigabit-capable availability across ${districtCoverage?.sampleSize.toLocaleString('en-GB')} sampled CR0 postcode units. Check the complete address with Ofcom and each suitable network before ordering.`,
+        },
+        {
+          question: 'How fast is broadband in Croydon?',
+          answer: `Ofcom-derived CR0 records show ${districtCoverage?.superfastPercent}% superfast, ${districtCoverage?.ultrafastPercent}% ultrafast and ${districtCoverage?.gigabitPercent}% gigabit-capable availability across ${districtCoverage?.sampleSize.toLocaleString('en-GB')} sampled postcode units. These percentages describe network reach, not the speed received by one household. Use each provider's personalised estimate and minimum guaranteed speed for the complete property.`,
+        },
+        {
+          question: 'Who is the best internet provider in Croydon?',
+          answer: 'Croydon has no universal best provider because network availability, prices and speed estimates vary by property. For a busy household, start with orderable full-fibre or cable packages and compare total cost, upload speed, service terms and Wi-Fi needs. A lower-cost superfast package may be better value for lighter use.',
+        },
+        {
+          question: 'How do I switch broadband provider in Croydon?',
+          answer: 'Choose an available package and contact the new provider. Ofcom says One Touch Switch lets most residential broadband customers ask the new provider to coordinate the change, including many switches between different networks. Check early termination charges, bundled services and the confirmed activation date before cancelling anything outside the managed switch.',
+        },
+      ]
     : isRM1
     ? [
         {
@@ -778,7 +821,7 @@ export default async function PostcodeAreaPage({
       />
 
       <h1 className="text-3xl font-extrabold text-slate-900 mb-2">
-        {isHA1 ? 'Broadband Deals in Harrow and HA1' : isGU1 ? 'Broadband Deals in Guildford and GU1' : isBN1 ? 'Broadband Deals in Brighton and BN1' : isNE1 ? 'Broadband Deals in Newcastle and NE1' : isBS1 ? 'Broadband Deals in Bristol and BS1' : isM1 ? 'M1 Broadband Deals and Coverage in Manchester City Centre' : isNG1 ? 'Broadband Deals in Nottingham and NG1' : isRG1 ? 'Broadband Deals in Reading and RG1' : isCT1 ? 'Broadband Deals in Canterbury and CT1' : isRM1 ? 'Broadband Deals in Romford and RM1' : `Best Broadband Deals in ${postcodeArea.town} (${prefix})`}
+        {isCR0 ? 'Broadband Deals in Croydon and CR0' : isHA1 ? 'Broadband Deals in Harrow and HA1' : isGU1 ? 'Broadband Deals in Guildford and GU1' : isBN1 ? 'Broadband Deals in Brighton and BN1' : isNE1 ? 'Broadband Deals in Newcastle and NE1' : isBS1 ? 'Broadband Deals in Bristol and BS1' : isM1 ? 'M1 Broadband Deals and Coverage in Manchester City Centre' : isNG1 ? 'Broadband Deals in Nottingham and NG1' : isRG1 ? 'Broadband Deals in Reading and RG1' : isCT1 ? 'Broadband Deals in Canterbury and CT1' : isRM1 ? 'Broadband Deals in Romford and RM1' : `Best Broadband Deals in ${postcodeArea.town} (${prefix})`}
       </h1>
 
       <div className="flex flex-wrap items-center gap-4 text-sm text-slate-500 mb-6 pb-6 border-b border-slate-200">
@@ -790,7 +833,9 @@ export default async function PostcodeAreaPage({
       </div>
 
       <CiteableAnswer>
-        {isHA1 ? (
+        {isCR0 ? (
+          <>Broadband deals in Croydon&apos;s CR0 district include retailers using Openreach, Virgin Media and Community Fibre where their separate networks reach the property. BroadbandPicker&apos;s aggregation of Ofcom July 2024 residential postcode records shows <strong>{districtCoverage?.gigabitPercent}% gigabit-capable</strong> and <strong>{districtCoverage?.superfastPercent}% superfast</strong> availability across {districtCoverage?.sampleSize.toLocaleString('en-GB')} sampled CR0 postcode units. Compare the full contract cost, then check the complete address before ordering.</>
+        ) : isHA1 ? (
           <>Broadband deals in Harrow&apos;s HA1 district include Openreach retailers, Virgin Media and independent full-fibre networks where they reach the property. Ofcom-derived July 2024 records show <strong>{districtCoverage?.gigabitPercent}% gigabit-capable</strong> and <strong>{districtCoverage?.superfastPercent}% superfast</strong> availability across {districtCoverage?.sampleSize} sampled HA1 postcode units. Check the complete address, including the house or flat number, before comparing total contract cost.</>
         ) : isGU1 ? (
           <>Broadband deals in Guildford&apos;s GU1 district include retailers using Openreach, Virgin Media and alternative full-fibre networks where they reach the property. Ofcom-derived July 2024 records show <strong>{districtCoverage?.gigabitPercent}% gigabit-capable</strong> and <strong>{districtCoverage?.superfastPercent}% superfast</strong> availability across {districtCoverage?.sampleSize} sampled GU1 postcode units. Compare total contract cost, then check the complete address before ordering.</>
@@ -838,6 +883,7 @@ export default async function PostcodeAreaPage({
       {isRG1 && <RG1BroadbandComparison />}
       {isCT1 && <CT1BroadbandComparison />}
       {isRM1 && <RM1BroadbandComparison />}
+      {isCR0 && <CR0BroadbandComparison />}
 
       {/* Area stats */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
@@ -926,6 +972,35 @@ export default async function PostcodeAreaPage({
           </div>
         ))}
       </div>
+
+      {isCR0 && districtCoverage && (
+        <div className="space-y-10 mb-10">
+          <section className="max-w-4xl" aria-labelledby="cr0-coverage-explained">
+            <h2 id="cr0-coverage-explained" className="text-2xl font-bold text-slate-900">Full-fibre broadband coverage in Croydon CR0</h2>
+            <p className="mt-4 leading-7 text-slate-700">CR0 is a postcode district, not one uniform broadband network. In BroadbandPicker&apos;s aggregation of Ofcom&apos;s July 2024 residential postcode records, {districtCoverage.gigabitPercent}% of {districtCoverage.sampleSize.toLocaleString('en-GB')} sampled CR0 postcode units were gigabit-capable and {districtCoverage.superfastPercent}% could receive at least 30 Mbps. These figures describe network reach, not a guaranteed household speed.</p>
+            <p className="mt-4 leading-7 text-slate-700">Openreach-based providers share one physical network, while Virgin Media and Community Fibre operate separate networks. Their footprints do not perfectly overlap, so enter the house or flat number with each shortlisted provider before treating a deal as available.</p>
+          </section>
+          <section className="max-w-4xl" aria-labelledby="cr0-best-provider">
+            <h2 id="cr0-best-provider" className="text-2xl font-bold text-slate-900">How to choose the best internet provider in Croydon</h2>
+            <ol className="mt-5 grid gap-4 sm:grid-cols-2">
+              {[
+                ['Check the complete address', 'Use the house or flat number, not CR0 alone. Flats in the same building can also have different installation constraints.'],
+                ['Compare the full contract cost', 'Include monthly payments, setup fees, rewards, stated price changes and the post-contract price.'],
+                ['Match speed to real usage', 'Around 30–100 Mbps may suit lighter use; 100–300 Mbps is a useful starting range for a busy home.'],
+                ['Read the service details', 'Compare upload speed, minimum guaranteed speed, router provision, installation and exit rules.'],
+              ].map(([title, copy], index) => (
+                <li key={title} className="rounded-xl border border-slate-200 bg-white p-5"><p className="font-semibold text-slate-900"><span className="mr-2 text-sky-700">{index + 1}.</span>{title}</p><p className="mt-2 text-sm leading-6 text-slate-600">{copy}</p></li>
+              ))}
+            </ol>
+            <p className="mt-4 leading-7 text-slate-700">Eligible households should also compare <Link href="/guides/broadband-social-tariffs-uk" className="font-semibold text-sky-700 hover:underline">broadband social tariffs</Link>, subject to provider eligibility checks.</p>
+          </section>
+          <section className="max-w-4xl" aria-labelledby="cr0-flats-moving">
+            <h2 id="cr0-flats-moving" className="text-2xl font-bold text-slate-900">Broadband for Croydon flats, renters and home movers</h2>
+            <p className="mt-4 leading-7 text-slate-700">In a flat, ask which networks already enter the building and whether new cabling needs permission from the landlord or managing agent. Match the minimum term to the tenancy and keep the existing connection active until the new provider confirms the switch or installation date.</p>
+            <p className="mt-4 leading-7 text-slate-700">Ofcom&apos;s One Touch Switch process lets most residential customers ask the new provider to coordinate a broadband switch. Check any early termination charge and the effect on bundled services before switching.</p>
+          </section>
+        </div>
+      )}
 
       {isDartford && districtCoverage && (
         <>
@@ -1224,6 +1299,14 @@ export default async function PostcodeAreaPage({
                 <a href="https://www.ofcom.org.uk/phones-and-broadband/switching-provider/simpler-broadband-switching-is-here" target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:underline">Ofcom: One Touch Switch</a>
                 <p className="mt-1 text-xs leading-relaxed text-slate-500">Regulatory guidance on the residential broadband switching process.</p>
               </li>
+            </>
+          )}
+          {isCR0 && districtCoverage && (
+            <>
+              <li><a href={districtCoverageSourcePage} target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:underline">{districtCoverageSourceLabel}</a><p className="mt-1 text-xs leading-relaxed text-slate-500">Source for the CR0 coverage figures, aggregated from postcode-level records dated {districtCoverageSourceDataDate}.</p></li>
+              <li><a href="https://checker.ofcom.org.uk/en-gb/broadband-coverage" target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:underline">Ofcom broadband coverage checker</a><p className="mt-1 text-xs leading-relaxed text-slate-500">Independent address-level coverage and speed-estimate check.</p></li>
+              <li><a href="https://www.ofcom.org.uk/phones-and-broadband/switching-provider/simpler-broadband-switching-is-here" target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:underline">Ofcom: One Touch Switch</a><p className="mt-1 text-xs leading-relaxed text-slate-500">Official residential broadband switching guidance.</p></li>
+              <li><a href="https://www.croydon.gov.uk/housing/council-tenants-and-leaseholders/your-home/broadband" target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:underline">Croydon Council: broadband</a><p className="mt-1 text-xs leading-relaxed text-slate-500">Local authority information about broadband infrastructure for Croydon council homes.</p></li>
             </>
           )}
           {hasLocalIntel && localIntel && (
