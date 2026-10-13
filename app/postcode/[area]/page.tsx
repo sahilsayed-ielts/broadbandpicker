@@ -29,6 +29,7 @@ import RG1BroadbandComparison from '@/components/RG1BroadbandComparison'
 import CT1BroadbandComparison from '@/components/CT1BroadbandComparison'
 import RM1BroadbandComparison from '@/components/RM1BroadbandComparison'
 import CR0BroadbandComparison from '@/components/CR0BroadbandComparison'
+import N1BroadbandComparison from '@/components/N1BroadbandComparison'
 import { getPostcodeLocalIntel } from '@/data/postcodeLocalIntel'
 import { buildDealListJsonLd } from '@/lib/dealSchema'
 
@@ -78,6 +79,18 @@ export async function generateMetadata({
       description,
       alternates: { canonical },
       openGraph: { title: 'Broadband Deals in Croydon and CR0 | BroadbandPicker', description, url: canonical },
+    }
+  }
+  if (prefix === 'N1') {
+    const coverage = getDistrictCoverage(prefix)
+    const description = coverage
+      ? `Compare broadband deals in Islington and N1. See ${coverage.gigabitPercent}% gigabit and ${coverage.superfastPercent}% superfast coverage from Ofcom-derived data, then check your address.`
+      : 'Compare broadband deals in Islington and N1 by price, speed, contract cost and exact-address availability.'
+    return {
+      title: { absolute: 'Broadband Deals in Islington and N1 | Compare Providers' },
+      description,
+      alternates: { canonical },
+      openGraph: { title: 'Broadband Deals in Islington and N1 | BroadbandPicker', description, url: canonical },
     }
   }
   if (prefix === 'HA1') {
@@ -264,7 +277,7 @@ export default async function PostcodeAreaPage({
     month: 'long',
     year: 'numeric',
   })
-  const pageReviewedDateLabel = area.toUpperCase() === 'CR0'
+  const pageReviewedDateLabel = ['CR0', 'N1'].includes(area.toUpperCase())
     ? '13 October 2026'
     : area.toUpperCase() === 'HA1'
     ? '4 September 2026'
@@ -408,6 +421,7 @@ export default async function PostcodeAreaPage({
   const isCT1 = prefix === 'CT1'
   const isRM1 = prefix === 'RM1'
   const isCR0 = prefix === 'CR0'
+  const isN1 = prefix === 'N1'
   const isBS1 = prefix === 'BS1'
   const isNE1 = prefix === 'NE1'
   const isGU1 = prefix === 'GU1'
@@ -603,6 +617,33 @@ export default async function PostcodeAreaPage({
         {
           question: 'How do I switch broadband provider in Bristol?',
           answer: 'Choose an available package and contact the new provider. Ofcom says One Touch Switch lets most residential broadband customers ask the new provider to coordinate the move, including switches between different networks. The old provider should explain early termination charges and effects on bundled services. Confirm the activation date before cancelling anything outside the managed switch.',
+        },
+      ]
+    : isN1
+    ? [
+        {
+          question: 'Which broadband providers are available in Islington and N1?',
+          answer: 'N1 residents can compare retailers using Openreach, including BT, Sky, EE, TalkTalk, Plusnet, Vodafone and NOW, plus Virgin Media, Hyperoptic and Community Fibre where their separate networks reach the building. Islington Council also names G.Network in its council-homes programme, although it is not currently in BroadbandPicker\'s N1 comparison. Enter the complete flat or house number before ordering.',
+        },
+        {
+          question: 'Can I get full-fibre broadband in Islington N1?',
+          answer: `Many N1 properties can get full fibre or another gigabit-capable connection, but coverage is not universal. BroadbandPicker's aggregation of Ofcom July 2024 residential postcode records shows ${districtCoverage?.gigabitPercent}% gigabit-capable availability across ${districtCoverage?.sampleSize.toLocaleString('en-GB')} sampled N1 postcode units. Use the complete address with Ofcom and each suitable provider before treating a package as available.`,
+        },
+        {
+          question: 'How fast is broadband in N1?',
+          answer: `Ofcom-derived N1 records show ${districtCoverage?.superfastPercent}% superfast, ${districtCoverage?.ultrafastPercent}% ultrafast and ${districtCoverage?.gigabitPercent}% gigabit-capable availability across ${districtCoverage?.sampleSize.toLocaleString('en-GB')} sampled postcode units. These are coverage categories, not measured speeds for every household. Compare each provider's personalised estimate, minimum guaranteed speed and upload speed.`,
+        },
+        {
+          question: 'What are the best broadband deals in Islington?',
+          answer: 'There is no single best Islington deal because available networks, speed estimates and prices vary by property. Remove packages that cannot serve the complete address, then compare total minimum-term cost, stated price changes, setup fees, rewards, upload speed, minimum guaranteed speed and the post-contract price.',
+        },
+        {
+          question: 'Are Islington-wide broadband figures the same as N1 coverage?',
+          answer: 'No. The London Borough of Islington includes several postcode districts, while N1 also crosses into neighbouring borough areas. Borough programmes and N1 postcode statistics cover different properties and must not be treated as interchangeable. Use N1 data for district context and a complete-address check for the final decision.',
+        },
+        {
+          question: 'How should renters and flat residents compare broadband in N1?',
+          answer: 'Enter the flat number, ask which networks already enter the building and check whether the landlord or managing agent must approve new cabling. Match the minimum term to the tenancy and read home-moving and early termination rules. A cheaper 24-month deal may cost more overall if you move after one year.',
         },
       ]
     : isCR0
@@ -821,7 +862,7 @@ export default async function PostcodeAreaPage({
       />
 
       <h1 className="text-3xl font-extrabold text-slate-900 mb-2">
-        {isCR0 ? 'Broadband Deals in Croydon and CR0' : isHA1 ? 'Broadband Deals in Harrow and HA1' : isGU1 ? 'Broadband Deals in Guildford and GU1' : isBN1 ? 'Broadband Deals in Brighton and BN1' : isNE1 ? 'Broadband Deals in Newcastle and NE1' : isBS1 ? 'Broadband Deals in Bristol and BS1' : isM1 ? 'M1 Broadband Deals and Coverage in Manchester City Centre' : isNG1 ? 'Broadband Deals in Nottingham and NG1' : isRG1 ? 'Broadband Deals in Reading and RG1' : isCT1 ? 'Broadband Deals in Canterbury and CT1' : isRM1 ? 'Broadband Deals in Romford and RM1' : `Best Broadband Deals in ${postcodeArea.town} (${prefix})`}
+        {isN1 ? 'Broadband Deals in Islington and N1' : isCR0 ? 'Broadband Deals in Croydon and CR0' : isHA1 ? 'Broadband Deals in Harrow and HA1' : isGU1 ? 'Broadband Deals in Guildford and GU1' : isBN1 ? 'Broadband Deals in Brighton and BN1' : isNE1 ? 'Broadband Deals in Newcastle and NE1' : isBS1 ? 'Broadband Deals in Bristol and BS1' : isM1 ? 'M1 Broadband Deals and Coverage in Manchester City Centre' : isNG1 ? 'Broadband Deals in Nottingham and NG1' : isRG1 ? 'Broadband Deals in Reading and RG1' : isCT1 ? 'Broadband Deals in Canterbury and CT1' : isRM1 ? 'Broadband Deals in Romford and RM1' : `Best Broadband Deals in ${postcodeArea.town} (${prefix})`}
       </h1>
 
       <div className="flex flex-wrap items-center gap-4 text-sm text-slate-500 mb-6 pb-6 border-b border-slate-200">
@@ -833,7 +874,9 @@ export default async function PostcodeAreaPage({
       </div>
 
       <CiteableAnswer>
-        {isCR0 ? (
+        {isN1 ? (
+          <>Broadband deals in Islington&apos;s N1 district include retailers using Openreach, plus Virgin Media, Hyperoptic and Community Fibre where their separate networks reach the building. BroadbandPicker&apos;s aggregation of Ofcom July 2024 residential postcode records shows <strong>{districtCoverage?.gigabitPercent}% gigabit-capable</strong> and <strong>{districtCoverage?.superfastPercent}% superfast</strong> availability across {districtCoverage?.sampleSize.toLocaleString('en-GB')} sampled N1 postcode units. Compare total contract cost, then check the complete address before ordering.</>
+        ) : isCR0 ? (
           <>Broadband deals in Croydon&apos;s CR0 district include retailers using Openreach, Virgin Media and Community Fibre where their separate networks reach the property. BroadbandPicker&apos;s aggregation of Ofcom July 2024 residential postcode records shows <strong>{districtCoverage?.gigabitPercent}% gigabit-capable</strong> and <strong>{districtCoverage?.superfastPercent}% superfast</strong> availability across {districtCoverage?.sampleSize.toLocaleString('en-GB')} sampled CR0 postcode units. Compare the full contract cost, then check the complete address before ordering.</>
         ) : isHA1 ? (
           <>Broadband deals in Harrow&apos;s HA1 district include Openreach retailers, Virgin Media and independent full-fibre networks where they reach the property. Ofcom-derived July 2024 records show <strong>{districtCoverage?.gigabitPercent}% gigabit-capable</strong> and <strong>{districtCoverage?.superfastPercent}% superfast</strong> availability across {districtCoverage?.sampleSize} sampled HA1 postcode units. Check the complete address, including the house or flat number, before comparing total contract cost.</>
@@ -884,6 +927,7 @@ export default async function PostcodeAreaPage({
       {isCT1 && <CT1BroadbandComparison />}
       {isRM1 && <RM1BroadbandComparison />}
       {isCR0 && <CR0BroadbandComparison />}
+      {isN1 && <N1BroadbandComparison />}
 
       {/* Area stats */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
@@ -972,6 +1016,42 @@ export default async function PostcodeAreaPage({
           </div>
         ))}
       </div>
+
+      {isN1 && districtCoverage && (
+        <div className="space-y-10 mb-10">
+          <section className="max-w-4xl" aria-labelledby="n1-coverage-explained">
+            <h2 id="n1-coverage-explained" className="text-2xl font-bold text-slate-900">Full-fibre broadband coverage in Islington N1</h2>
+            <p className="mt-4 leading-7 text-slate-700">N1 covers areas including Angel, Barnsbury, Canonbury, Pentonville, De Beauvoir Town and parts of Hoxton, but it is not the same boundary as the London Borough of Islington. BroadbandPicker&apos;s aggregation of Ofcom&apos;s July 2024 residential postcode records shows {districtCoverage.gigabitPercent}% gigabit-capable and {districtCoverage.superfastPercent}% superfast availability across {districtCoverage.sampleSize.toLocaleString('en-GB')} sampled N1 postcode units.</p>
+            <p className="mt-4 leading-7 text-slate-700">Those figures describe network reach across the district, not a guaranteed speed or package at one address. Openreach-based providers share one physical network, while Virgin Media, Hyperoptic and Community Fibre use separate networks. A provider may serve one building and not the next, especially around flats and converted properties.</p>
+          </section>
+
+          <section className="max-w-4xl" aria-labelledby="n1-council-fibre">
+            <h2 id="n1-council-fibre" className="text-2xl font-bold text-slate-900">What Islington Council&apos;s full-fibre programme means for residents</h2>
+            <p className="mt-4 leading-7 text-slate-700">Islington Council says it has agreements with Openreach, Hyperoptic, Community Fibre and G.Network for council housing land and buildings, with a goal of connecting at least 90% of council homes. Installation is carried out estate by estate, and more than one provider may request access to a building.</p>
+            <p className="mt-4 leading-7 text-slate-700">That programme does not prove availability throughout N1. It applies to council housing, uses a different boundary from the postcode district and explicitly does not guarantee every home. Residents still need to check the full address and choose whether to subscribe after a network becomes live.</p>
+          </section>
+
+          <section className="max-w-4xl" aria-labelledby="n1-best-provider">
+            <h2 id="n1-best-provider" className="text-2xl font-bold text-slate-900">How to compare internet providers in N1</h2>
+            <ol className="mt-5 grid gap-4 sm:grid-cols-2">
+              {[
+                ['Confirm the complete address', 'Use the flat or house number with every suitable physical network. A postcode result alone is not enough.'],
+                ['Calculate the real contract cost', 'Include every monthly payment, setup fees, guaranteed rewards, stated price changes and the post-contract price.'],
+                ['Choose a useful speed', 'Around 30–100 Mbps can suit lighter use; 100–300 Mbps is a practical starting range for a busy shared home.'],
+                ['Check building and service details', 'Compare upload speed, minimum guarantee, installation permission, router provision, moving terms and exit charges.'],
+              ].map(([title, copy], index) => (
+                <li key={title} className="rounded-xl border border-slate-200 bg-white p-5"><p className="font-semibold text-slate-900"><span className="mr-2 text-sky-700">{index + 1}.</span>{title}</p><p className="mt-2 text-sm leading-6 text-slate-600">{copy}</p></li>
+              ))}
+            </ol>
+          </section>
+
+          <section className="max-w-4xl" aria-labelledby="n1-specific-addresses">
+            <h2 id="n1-specific-addresses" className="text-2xl font-bold text-slate-900">Checking a specific N1 postcode or flat</h2>
+            <p className="mt-4 leading-7 text-slate-700">Searches such as N1 7UR, N1 7SX, N1 3BE and N1 1PF refer to small groups of addresses. District-level coverage cannot confirm a particular building, and even a full postcode may contain flats with different installation status. Enter the complete address on Ofcom and provider checkers, then compare only packages that are genuinely orderable.</p>
+            <p className="mt-4 leading-7 text-slate-700">Renters should match the minimum term to the tenancy and confirm whether new cabling needs landlord or managing-agent approval. Eligible households should also compare <Link href="/guides/broadband-social-tariffs-uk" className="font-semibold text-sky-700 hover:underline">broadband social tariffs</Link> before choosing a standard promotion.</p>
+          </section>
+        </div>
+      )}
 
       {isCR0 && districtCoverage && (
         <div className="space-y-10 mb-10">
@@ -1307,6 +1387,14 @@ export default async function PostcodeAreaPage({
               <li><a href="https://checker.ofcom.org.uk/en-gb/broadband-coverage" target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:underline">Ofcom broadband coverage checker</a><p className="mt-1 text-xs leading-relaxed text-slate-500">Independent address-level coverage and speed-estimate check.</p></li>
               <li><a href="https://www.ofcom.org.uk/phones-and-broadband/switching-provider/simpler-broadband-switching-is-here" target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:underline">Ofcom: One Touch Switch</a><p className="mt-1 text-xs leading-relaxed text-slate-500">Official residential broadband switching guidance.</p></li>
               <li><a href="https://www.croydon.gov.uk/housing/council-tenants-and-leaseholders/your-home/broadband" target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:underline">Croydon Council: broadband</a><p className="mt-1 text-xs leading-relaxed text-slate-500">Local authority information about broadband infrastructure for Croydon council homes.</p></li>
+            </>
+          )}
+          {isN1 && districtCoverage && (
+            <>
+              <li><a href={districtCoverageSourcePage} target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:underline">{districtCoverageSourceLabel}</a><p className="mt-1 text-xs leading-relaxed text-slate-500">Source for the N1 gigabit, ultrafast and superfast coverage figures, aggregated from postcode-level records dated {districtCoverageSourceDataDate}.</p></li>
+              <li><a href="https://checker.ofcom.org.uk/en-gb/broadband-coverage" target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:underline">Ofcom broadband coverage checker</a><p className="mt-1 text-xs leading-relaxed text-slate-500">Independent complete-address coverage and speed-estimate check.</p></li>
+              <li><a href="https://www.islington.gov.uk/housing/repairs-and-estate-management/major-works-and-improvements/broadband" target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:underline">Islington Council: broadband</a><p className="mt-1 text-xs leading-relaxed text-slate-500">Official details of the council-housing full-fibre programme, named network partners, coverage goal and limitations.</p></li>
+              <li><a href="https://www.ofcom.org.uk/phones-and-broadband/switching-provider/simpler-broadband-switching-is-here" target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:underline">Ofcom: One Touch Switch</a><p className="mt-1 text-xs leading-relaxed text-slate-500">Official guidance on the residential broadband switching process.</p></li>
             </>
           )}
           {hasLocalIntel && localIntel && (
