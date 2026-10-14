@@ -4,7 +4,7 @@ import BreadcrumbNav from '@/components/BreadcrumbNav'
 import OnThisPageNav from '@/components/OnThisPageNav'
 import { priorityPages, type PriorityPageKey } from '@/data/priority-pages'
 import { JsonLd } from '@/lib/jsonLd'
-import { editorialAuthor, publisherOrganization } from '@/lib/siteSchema'
+import { editorialAuthor, LOGO_URL, publisherOrganization } from '@/lib/siteSchema'
 import { slugify } from '@/lib/extractHeadings'
 
 const BASE = 'https://broadbandpicker.co.uk'
@@ -36,6 +36,10 @@ export default function PrioritySeoPage({ pageKey }: { pageKey: PriorityPageKey 
         '@type': page.schemaType,
         '@id': `${BASE}${page.path}#main`,
         name: page.title,
+        // Article rich results need headline, image and datePublished.
+        ...(page.schemaType === 'Article'
+          ? { headline: page.title, image: LOGO_URL, datePublished: page.published ?? page.updated }
+          : {}),
         description: page.metaDescription,
         url: `${BASE}${page.path}`,
         dateModified: page.updated,

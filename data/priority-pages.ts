@@ -11,6 +11,8 @@ type Page = {
   dek: string
   quickAnswer: string
   updated: string
+  /** First published (earliest record in git history, or the first reviewed date if earlier). */
+  published?: string
   schemaType: 'Article' | 'CollectionPage' | 'Dataset'
   breadcrumbs: { name: string; href: string }[]
   table?: { title: string; headers: string[]; rows: string[][] }
@@ -28,7 +30,7 @@ export const priorityPages: Record<PriorityPageKey, Page> = {
     metaTitle: 'Best Business Broadband Providers UK 2026', metaDescription: 'Compare UK business broadband providers on real price, satisfaction and speed data: Vodafone Business for entry price, Zen for satisfaction, Virgin Media for speed. 2026 guide.',
     eyebrow: 'Business broadband comparison', dek: 'A practical shortlist for sole traders, small offices and growing companies, based on real price, satisfaction and speed data rather than headline claims alone.',
     quickAnswer: 'Vodafone Business currently has the most competitive entry-level full-fibre price, from around £20-22 a month excluding VAT. Zen Business leads on customer satisfaction, holding Which? Recommended Provider status since 2021 with 84% satisfaction and static IP included as standard. Virgin Media Business delivers the fastest raw speeds, averaging 442 Mbps, but only within its cable footprint, roughly half of UK premises. Sky Business has a consistently strong Ofcom complaints record. A leased line becomes worth its higher cost once an hour of downtime has a real, measurable cost to the business.',
-    updated: '2026-08-24', schemaType: 'Article', breadcrumbs: guideCrumbs('Business broadband providers', '/guides/best-business-broadband-providers-uk'),
+    updated: '2026-08-24', published: '2026-08-14', schemaType: 'Article', breadcrumbs: guideCrumbs('Business broadband providers', '/guides/best-business-broadband-providers-uk'),
     table: { title: 'Business broadband providers compared', headers: ['Provider', 'Strongest for', 'From (excl. VAT)', 'Static IP'], rows: [
       ['Vodafone Business', 'Lowest entry-level full-fibre price', '£20-22/mo, 36-month term', 'Extra charge'],
       ['Zen Business', 'Customer satisfaction: 84% in Which? surveys, Recommended since 2021', '£30/mo, 18-month term', 'Included as standard'],
@@ -87,7 +89,7 @@ export const priorityPages: Record<PriorityPageKey, Page> = {
     metaDescription: 'Compare UK phone and broadband packages ahead of the 31 January 2027 landline switch-off. Digital Voice, inclusive call plans and true contract costs explained.',
     eyebrow: 'Broadband and home phone guide', dek: 'Choose a bundle by call use, Digital Voice requirements and total contract cost, not by an "included line" headline, with the 31 January 2027 landline switch-off now locked in.',
     quickAnswer: 'The UK\'s old analogue landline network (PSTN) is being fully switched off by 31 January 2027, with the number of customers still on it falling from 5.2 million in July 2024 to 3.2 million in July 2025. Almost every new broadband line now comes with Digital Voice, a phone service that runs through the router rather than the copper network, so ask specifically what happens in a power cut and whether existing telecare or alarm equipment is compatible before switching or renewing.',
-    updated: '2026-08-24', schemaType: 'Article', breadcrumbs: guideCrumbs('Phone and broadband deals', '/guides/best-phone-and-broadband-deals'),
+    updated: '2026-08-24', published: '2026-08-14', schemaType: 'Article', breadcrumbs: guideCrumbs('Phone and broadband deals', '/guides/best-phone-and-broadband-deals'),
     table: { title: 'Choose the right phone bundle', headers: ['Household need', 'Plan feature', 'Check carefully'], rows: [
       ['Rare calls', 'Pay-as-you-go calls', 'Connection fee and per-minute charge'], ['Frequent UK calls', 'Anytime or evening/weekend allowance, e.g. TalkTalk Anytime Calls at £12/mo', 'Excluded numbers and fair-use terms'], ['Vulnerable user or telecare', 'Provider support and a resilience solution exceeding Ofcom\'s minimum', 'Power-cut operation and device compatibility'], ['International calls', 'Country-specific add-on', 'Mobile destinations and call setup fees'],
     ]},
@@ -138,6 +140,7 @@ export const priorityPages: Record<PriorityPageKey, Page> = {
     dek: 'Plusnet is our best customer service broadband provider starting point among the major UK providers Ofcom compares. It paired 91% overall satisfaction in Ofcom’s 2024 research with five complaints per 100,000 subscribers in Q4 2025, joint lowest with Virgin Media. Smaller providers require separate survey evidence because Ofcom does not publish directly comparable figures for every ISP.',
     quickAnswer: 'We would start with Plusnet if customer support is the deciding factor and its service is available at your address. Ofcom found 91% of Plusnet broadband customers satisfied overall in 2024, above the 85% sector average. Its five complaints per 100,000 subscribers in Q4 2025 were joint lowest with Virgin Media. Sky is the strongest major-provider alternative across the same evidence.',
     updated: '2026-08-23',
+    published: '2026-08-23',
     schemaType: 'Article',
     breadcrumbs: [{ name: 'Home', href: '/' }, { name: 'Research', href: '/research/uk-broadband-customer-satisfaction' }, { name: 'Customer service rankings', href: '/research/broadband-customer-service-rankings-uk' }],
     table: {
@@ -205,7 +208,7 @@ export const priorityPages: Record<PriorityPageKey, Page> = {
     metaDescription: 'Compare satellite broadband options in the UK, including real Starlink prices, equipment costs, latency, data policies and alternatives for rural homes and businesses.',
     eyebrow: 'Rural connectivity guide', dek: 'Satellite can reach places fixed networks cannot, but equipment, sky visibility and latency make it a considered choice rather than an automatic upgrade.',
     quickAnswer: 'Starlink is the dominant satellite broadband option for UK consumers, from £40 a month for a 100Mbps residential plan up to £80 for its fastest Max tier, plus a one-off dish and router kit from around £299 to £449. Satellite is most compelling where usable full fibre, fixed wireless and 4G/5G are unavailable. Check equipment ownership, installation, data policy, latency, power use and cancellation terms before committing.',
-    updated: '2026-08-24', schemaType: 'Article', breadcrumbs: guideCrumbs('Satellite broadband UK', '/guides/satellite-broadband-uk'),
+    updated: '2026-08-24', published: '2026-08-14', schemaType: 'Article', breadcrumbs: guideCrumbs('Satellite broadband UK', '/guides/satellite-broadband-uk'),
     table: { title: 'Starlink UK residential plans, August 2026', headers: ['Plan', 'Speed', 'Monthly price', 'Data'], rows: [
       ['Residential 100Mbps', 'Capped at 100Mbps', '£40/mo', 'Unlimited'],
       ['Residential 200Mbps', 'Capped at 200Mbps', '£60/mo', 'Unlimited'],
@@ -524,7 +527,7 @@ function providerDeal(slug: string, provider: string, bestFor: string, caution: 
     metaDescription: `Review current ${provider} broadband deal types, contract costs, speeds and key terms. Check live availability and pricing for your postcode.`,
     eyebrow: 'Provider deal guide', dek: `An independent guide to comparing ${provider} offers without relying on a stale headline price.`,
     quickAnswer: `${provider} is best considered for ${bestFor}. ${caution} Because offers differ by address and can change, this page explains how to judge the live deal shown by the provider rather than presenting one price as universally available.`,
-    updated: '2026-08-01', schemaType: 'Article', breadcrumbs: providerCrumbs(`${provider} deals`, path),
+    updated: '2026-08-01', published: '2026-08-01', schemaType: 'Article', breadcrumbs: providerCrumbs(`${provider} deals`, path),
     table: { title: `How to assess a ${provider} offer`, headers: ['Check', 'Why it matters', 'Evidence to save'], rows: [['Address result', 'Networks and speeds vary by property', 'Personalised speed estimate'], ['Minimum term', 'Determines commitment and total cost', 'Order summary and contract'], ['Price changes', 'Headline price may not stay fixed', 'Pounds-and-pence schedule'], ['After-contract price', 'Cost may rise when the term ends', 'End-of-discount notice'], ['Extras', 'Rewards and bundles can distort value', 'Eligibility and claim deadline']] },
     sections: [
       { heading: `Who should shortlist ${provider}?`, paragraphs: [`${provider} can be a strong option when its available speed, support model and bundle fit match the household. Compare it with at least one provider on a different network where possible, because network choice can matter as much as brand.`] },

@@ -12,6 +12,7 @@ import TvBundleComparisonTable from '@/components/TvBundleComparisonTable'
 import TvBundleDealCards from '@/components/TvBundleDealCards'
 import CommercialGuideLayout from '@/components/CommercialGuideLayout'
 import { getCommercialGuide } from '@/data/commercialGuides'
+import { providerSchemaImage } from '@/lib/schemaImages'
 import { tvBundleOptions } from '@/data/tvBroadbandBundles'
 import { withHeadingIds } from '@/lib/extractHeadings'
 import { JsonLd } from '@/lib/jsonLd'
@@ -4304,6 +4305,8 @@ export default async function GuidePage({
             item: {
               '@type': 'Product',
               name: `${bundle.provider}: ${bundle.packageName}`,
+              description: `${bundle.packageName}: ${bundle.broadbandSpeedMbps}Mbps broadband with TV on a ${bundle.contractMonths}-month contract. ${bundle.highlights.join('. ')}.`,
+              image: providerSchemaImage(bundle.providerSlug),
               brand: { '@type': 'Brand', name: bundle.provider },
               offers: {
                 '@type': 'Offer',

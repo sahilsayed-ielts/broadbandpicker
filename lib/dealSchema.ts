@@ -1,6 +1,7 @@
 import type { Provider } from '@/types'
 import { priceValidUntil, SITE_URL } from '@/lib/siteSchema'
 import { providerDatasetUpdatedDate } from '@/data/providers'
+import { providerSchemaImage } from '@/lib/schemaImages'
 
 interface DealForSchema {
   provider: Provider
@@ -29,6 +30,8 @@ export function buildDealListJsonLd(deals: DealForSchema[], listName: string) {
       item: {
         '@type': 'Product',
         name: deal.packageName,
+        description: `${deal.provider.name} ${deal.packageName}: ${deal.download}Mbps broadband on a ${deal.contractLength}-month contract from £${deal.monthlyPrice.toFixed(2)} a month.`,
+        image: providerSchemaImage(deal.provider.slug),
         brand: { '@type': 'Brand', name: deal.provider.name },
         url: `${SITE_URL}/providers/${deal.provider.slug}`,
         offers: {
@@ -62,6 +65,8 @@ export function buildProviderOfferJsonLd(provider: Provider) {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: `${provider.name} Broadband`,
+    description: `${provider.name} home broadband in the UK, from £${provider.monthlyPriceFrom.toFixed(2)} a month.`,
+    image: providerSchemaImage(provider.slug),
     brand: { '@type': 'Brand', name: provider.name },
     url: `${SITE_URL}/providers/${provider.slug}`,
     offers: {
