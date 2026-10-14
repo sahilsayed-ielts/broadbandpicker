@@ -2,13 +2,16 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { guideCategories, guides, getGuideBySlug } from '@/data/guides'
-import { providers, getTopDeals } from '@/data/providers'
+import { providers, getTopDeals, getProviderBySlug } from '@/data/providers'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
 import DealTable from '@/components/DealTable'
 import FAQAccordion from '@/components/FAQAccordion'
 import PostcodeContextBar from '@/components/PostcodeContextBar'
 import CashbackDealComparison from '@/components/CashbackDealComparison'
 import TvBundleComparisonTable from '@/components/TvBundleComparisonTable'
+import TvBundleDealCards from '@/components/TvBundleDealCards'
+import CommercialGuideLayout from '@/components/CommercialGuideLayout'
+import { getCommercialGuide } from '@/data/commercialGuides'
 import { tvBundleOptions } from '@/data/tvBroadbandBundles'
 import { withHeadingIds } from '@/lib/extractHeadings'
 import { JsonLd } from '@/lib/jsonLd'
@@ -391,10 +394,10 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         <h3>Best overall for TV: Sky</h3>
         <p>
           Sky is the clearest starting point if television is the main reason you want a bundle.
-          Its current UK deals combine Sky TV with full-fibre broadband, while the content mix can
+          Its current UK deals combine Sky TV with <abbr title="Full fibre (FTTP): a fibre-optic cable runs all the way into your home">full-fibre</abbr> broadband, while the content mix can
           include Sky channels and streaming services. Sky Stream delivers television over
           broadband without a satellite dish. Sky says Stream needs a recommended minimum speed of
-          25Mbps, rising to 30Mbps for UHD or an additional puck.
+          25<abbr title="Megabits per second: how fast data reaches your home">Mbps</abbr>, rising to 30Mbps for <abbr title="Ultra HD, also called 4K: four times the detail of standard HD">UHD</abbr> or an additional <abbr title="Sky's small streaming box for an extra TV">puck</abbr>.
         </p>
         <p>
           As one concrete example, at the time of writing Sky was advertising Sky Stream, Sky TV
@@ -543,7 +546,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
 
         <h2>Can you switch a broadband and TV bundle with One Touch Switch?</h2>
         <p>
-          One Touch Switch lets your new provider arrange the broadband switch, but Ofcom warns that
+          <abbr title="Ofcom's switching process: your new provider arranges the move and tells the old one">One Touch Switch</abbr> lets your new provider arrange the broadband switch, but Ofcom warns that
           you may still need to tell the old provider to cancel a linked TV service. This is
           particularly important when television uses separate equipment or contract terms. Check
           early termination charges, equipment-return instructions and each service&apos;s end date
@@ -4319,6 +4322,51 @@ export default async function GuidePage({
     month: 'long',
     year: 'numeric',
   })
+
+  const commercial = getCommercialGuide(slug)
+  if (commercial && slug === 'best-broadband-and-tv-deals') {
+    const tvProviderSlugs = Array.from(new Set(tvBundleOptions.map((bundle) => bundle.providerSlug)))
+    const affiliateUrls = Object.fromEntries(
+      tvProviderSlugs
+        .map((providerSlug) => [providerSlug, getProviderBySlug(providerSlug)?.affiliateUrl] as const)
+        .filter((entry): entry is readonly [string, string] => Boolean(entry[1])),
+    )
+    const renderedAt = new Date().toISOString()
+    const related = commercial.relatedSlugs
+      .map((relatedSlug) => getGuideBySlug(relatedSlug))
+      .filter((item): item is NonNullable<typeof item> => Boolean(item))
+
+    return (
+      <CommercialGuideLayout
+        guide={guide}
+        config={commercial}
+        categoryLabel={category?.label}
+        updatedDate={updatedDate}
+        toc={toc}
+        body={taggedBody}
+        faqs={content.faqs}
+        sourceLinks={sourceLinks}
+        related={related}
+        jsonLd={[articleStructuredData, faqJsonLd, tvBundleProductJsonLd].filter(
+          (data): data is NonNullable<typeof data> => Boolean(data),
+        )}
+        dealCount={tvBundleOptions.length}
+        providers={tvProviderSlugs.map((providerSlug) => ({
+          slug: providerSlug,
+          name: tvBundleOptions.find((bundle) => bundle.providerSlug === providerSlug)?.provider ?? providerSlug,
+        }))}
+        affiliateUrls={affiliateUrls}
+        renderedAt={renderedAt}
+        deals={
+          <TvBundleDealCards
+            affiliateUrls={affiliateUrls}
+            picks={commercial.cardPicks}
+            renderedAt={renderedAt}
+          />
+        }
+      />
+    )
+  }
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">

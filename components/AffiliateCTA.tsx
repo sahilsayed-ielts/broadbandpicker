@@ -15,6 +15,12 @@ interface AffiliateCTAProps {
   variant?: 'primary' | 'outline'
   placement?: string
   campaign?: string
+  /**
+   * Override the accessible name. Defaults to "Get deal from {providerName}
+   * (affiliate link: we may earn a commission)". Set this for partners that are
+   * not providers, e.g. a comparison site, so the label reads correctly.
+   */
+  ariaLabel?: string
 }
 
 export default function AffiliateCTA({
@@ -27,6 +33,7 @@ export default function AffiliateCTA({
   variant = 'primary',
   placement = 'affiliate_cta',
   campaign = 'onsite_affiliate',
+  ariaLabel,
 }: AffiliateCTAProps) {
   const slug = providerSlug ?? href.replace('#awin-', '').replace(/^.*\/providers\//, '').split('?')[0]
 
@@ -84,7 +91,7 @@ export default function AffiliateCTA({
       rel="noopener noreferrer sponsored"
       onClick={handleClick}
       className={`inline-block rounded-lg transition-colors ${sizeClass} ${variantClass} ${className}`}
-      aria-label={`Get deal from ${providerName} (affiliate link: we may earn a commission)`}
+      aria-label={ariaLabel ?? `Get deal from ${providerName} (affiliate link: we may earn a commission)`}
     >
       {label ?? `Get Deal →`}
     </a>

@@ -268,7 +268,7 @@ function Footer() {
           </div>
           <div className="w-full max-w-sm">
             <p className="mb-2 text-sm font-semibold text-white">Check broadband in your area</p>
-            <p className="mb-3 text-xs text-slate-500">Availability is by address, never by a national advert.</p>
+            <p className="mb-3 text-xs text-slate-400">Availability is by address, never by a national advert.</p>
             <PostcodeChecker placeholder="Check your postcode" />
           </div>
         </div>

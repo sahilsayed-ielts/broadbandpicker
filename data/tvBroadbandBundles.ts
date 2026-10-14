@@ -1,5 +1,29 @@
 export type TvBundleContentTag = 'sport' | 'movies' | 'kids' | 'general' | 'flexible'
 
+/**
+ * Machine-readable form of priceRiseNote, used to total a contract's cost.
+ * - steps: fixed new monthly prices from a given month (YYYY-MM)
+ * - annual-april: a flat monthly increase applied from each April bill
+ *   (rise takes effect 31 March)
+ * - unconfirmed: the provider has not published the in-contract change, so
+ *   totals exclude it and say so
+ */
+export type TvBundlePriceRise =
+  | { type: 'steps'; steps: { from: string; monthlyPrice: number }[] }
+  | { type: 'annual-april'; amount: number }
+  | { type: 'unconfirmed' }
+
+/**
+ * Mandatory one-off cost at signup. `fee: null` means the provider has not
+ * published one for this bundle, so totals exclude it and the card says so
+ * (DMCC Act drip-pricing: never imply a total that omits a known mandatory fee).
+ */
+export interface TvBundleSetupCost {
+  fee: number | null
+  note: string
+  checkedDate: string
+}
+
 export interface TvBundleOption {
   provider: string
   providerSlug: string
@@ -10,6 +34,8 @@ export interface TvBundleOption {
   contentTags: TvBundleContentTag[]
   highlights: string[]
   priceRiseNote: string
+  priceRise: TvBundlePriceRise
+  setup: TvBundleSetupCost
   reviewHref: string
 }
 
@@ -28,6 +54,12 @@ export const tvBundleOptions: TvBundleOption[] = [
     contentTags: ['general', 'movies'],
     highlights: ['No satellite dish needed', 'Netflix and streaming apps built in', 'Minimum 25Mbps recommended for Stream'],
     priceRiseNote: 'Check the current in-contract price change before ordering.',
+    priceRise: { type: 'unconfirmed' },
+    setup: {
+      fee: 0,
+      note: 'Sky\'s deal page says "No upfront fees". Its broadband terms add that £9.95 router delivery and a £10 activation fee may be required.',
+      checkedDate: '2026-10-14',
+    },
     reviewHref: '/providers/sky',
   },
   {
@@ -40,6 +72,12 @@ export const tvBundleOptions: TvBundleOption[] = [
     contentTags: ['general', 'movies', 'sport'],
     highlights: ['Full channel bundle with UHD available', 'Faster full-fibre tier included'],
     priceRiseNote: 'Check the current in-contract price change before ordering.',
+    priceRise: { type: 'unconfirmed' },
+    setup: {
+      fee: 0,
+      note: 'Sky\'s deal page says "No upfront fees". Its broadband terms add that £9.95 router delivery and a £10 activation fee may be required.',
+      checkedDate: '2026-10-14',
+    },
     reviewHref: '/providers/sky',
   },
   {
@@ -56,6 +94,18 @@ export const tvBundleOptions: TvBundleOption[] = [
       'Free UK landline and mobile calls',
     ],
     priceRiseNote: 'Two scheduled rises are already built into the contract: £81.49/mo from March 2027, £87.99/mo from April 2028.',
+    priceRise: {
+      type: 'steps',
+      steps: [
+        { from: '2027-03', monthlyPrice: 81.49 },
+        { from: '2028-04', monthlyPrice: 87.99 },
+      ],
+    },
+    setup: {
+      fee: 0,
+      note: 'Virgin Media says there are no mandatory setup fees on its bundles. Engineer installation costs from £30 on some packages.',
+      checkedDate: '2026-10-14',
+    },
     reviewHref: '/providers/virgin-media',
   },
   {
@@ -68,6 +118,12 @@ export const tvBundleOptions: TvBundleOption[] = [
     contentTags: ['general', 'movies'],
     highlights: ['Netflix included', 'Broadband from £22.99/mo plus the £22/mo Entertainment pack', 'Can change the TV pack without changing the broadband contract'],
     priceRiseNote: 'Scheduled rise each 31 March: broadband +£4/mo, TV +£2/mo.',
+    priceRise: { type: 'annual-april', amount: 6 },
+    setup: {
+      fee: null,
+      note: 'EE has not published a setup fee for this pack. Confirm it at checkout.',
+      checkedDate: '2026-10-14',
+    },
     reviewHref: '/providers/ee',
   },
   {
@@ -80,6 +136,12 @@ export const tvBundleOptions: TvBundleOption[] = [
     contentTags: ['sport'],
     highlights: ['Sky Sports via NOW plus TNT Sports', 'Broadband from £22.99/mo plus the £51/mo Big Sport pack'],
     priceRiseNote: 'Scheduled rise each 31 March: broadband +£4/mo, TV +£2/mo.',
+    priceRise: { type: 'annual-april', amount: 6 },
+    setup: {
+      fee: null,
+      note: 'EE has not published a setup fee for this pack. Confirm it at checkout.',
+      checkedDate: '2026-10-14',
+    },
     reviewHref: '/providers/ee',
   },
   {
@@ -92,6 +154,12 @@ export const tvBundleOptions: TvBundleOption[] = [
     contentTags: ['sport', 'movies', 'general'],
     highlights: ['The widest EE TV pack: Big Sport-level sport plus wider entertainment and Cinema', 'Broadband from £22.99/mo plus the £88/mo Full Works pack'],
     priceRiseNote: 'Scheduled rise each 31 March: broadband +£4/mo, TV +£2/mo.',
+    priceRise: { type: 'annual-april', amount: 6 },
+    setup: {
+      fee: null,
+      note: 'EE has not published a setup fee for this pack. Confirm it at checkout.',
+      checkedDate: '2026-10-14',
+    },
     reviewHref: '/providers/ee',
   },
 ]

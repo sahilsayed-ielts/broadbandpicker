@@ -39,19 +39,21 @@ export default function PostcodeChecker({
 
   const inputClass =
     size === 'large'
-      ? 'flex-1 px-5 py-4 text-lg rounded-l-xl border-2 border-r-0 border-sky-200 focus:border-sky-500 outline-none font-medium text-slate-900 placeholder:text-slate-400'
-      : 'flex-1 px-4 py-3 rounded-l-lg border-2 border-r-0 border-slate-200 focus:border-sky-500 outline-none text-slate-900 placeholder:text-slate-400'
+      ? 'min-h-12 w-full flex-1 px-5 py-4 text-base sm:text-lg sm:rounded-l-xl sm:rounded-r-none rounded-xl border-2 sm:border-r-0 border-sky-200 focus:border-sky-500 outline-none font-medium text-slate-900 placeholder:text-slate-400'
+      : 'min-h-12 w-full flex-1 px-4 py-3 text-base sm:rounded-l-lg sm:rounded-r-none rounded-lg border-2 sm:border-r-0 border-slate-200 focus:border-sky-500 outline-none text-slate-900 placeholder:text-slate-400'
 
   const btnClass =
     size === 'large'
-      ? 'px-7 py-4 text-lg bg-sky-700 hover:bg-sky-800 text-white font-bold rounded-r-xl transition-colors whitespace-nowrap'
-      : 'px-5 py-3 bg-sky-700 hover:bg-sky-800 text-white font-semibold rounded-r-lg transition-colors whitespace-nowrap'
+      ? 'min-h-12 w-full sm:w-auto px-7 py-4 text-base sm:text-lg bg-sky-700 hover:bg-sky-800 text-white font-bold sm:rounded-r-xl sm:rounded-l-none rounded-xl transition-colors whitespace-nowrap'
+      : 'min-h-12 w-full sm:w-auto px-5 py-3 text-base bg-sky-700 hover:bg-sky-800 text-white font-semibold sm:rounded-r-lg sm:rounded-l-none rounded-lg transition-colors whitespace-nowrap'
 
   return (
     <form onSubmit={handleSubmit} className="w-full">
-      <div className="flex w-full">
+      <div className="flex w-full flex-col gap-2 sm:flex-row sm:gap-0">
         <input
           type="text"
+          inputMode="text"
+          enterKeyHint="search"
           value={value}
           onChange={(e) => {
             setValue(e.target.value)
