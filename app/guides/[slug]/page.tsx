@@ -5,6 +5,7 @@ import { guideCategories, guides, getGuideBySlug } from '@/data/guides'
 import { providers, getTopDeals, getProviderBySlug } from '@/data/providers'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
 import DealTable from '@/components/DealTable'
+import NewsletterSignup from '@/components/NewsletterSignup'
 import FAQAccordion from '@/components/FAQAccordion'
 import PostcodeContextBar from '@/components/PostcodeContextBar'
 import CashbackDealComparison from '@/components/CashbackDealComparison'
@@ -148,10 +149,10 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
     faqs: [
       { question: 'Will I lose my broadband connection when I switch?', answer: 'A provider-led One Touch Switch should keep disruption short because the old service ends after the new one starts. Ofcom says any loss of service must not exceed one working day. A new full-fibre installation or network change may need engineering work, so confirm the activation plan and keep mobile backup available until the new connection has been tested.' },
       { question: 'Can I keep my landline number when switching broadband?', answer: 'Ask the new provider to transfer your landline number when you place the order and obtain confirmation before switch day. Number retention is normally possible when changing landline provider, but it is not guaranteed for every move or package. Broadband-only deals and providers without a compatible digital voice service may be unable to accept the existing number.' },
-      { question: 'Can I switch broadband if I am still in contract?', answer: 'Yes, but your old provider may charge an early termination fee. Ask for the exact amount for your proposed switch date because the calculation varies by contract and bundle. Add that fee and any setup costs to the new deal&apos;s full minimum-term price, then compare the result with the cost of staying before you order.' },
+      { question: 'Can I switch broadband if I am still in contract?', answer: 'Yes, but your old provider may charge an early termination fee. Ask for the exact amount for your proposed switch date because the calculation varies by contract and bundle. Add that fee and any setup costs to the new deal\'s full minimum-term price, then compare the result with the cost of staying before you order.' },
       { question: 'Do I need to cancel my old broadband before switching?', answer: 'No, not during a normal One Touch Switch. Order from the provider you are joining and it should notify the old provider and coordinate cancellation after the new service starts. Cancel separately only if you have deliberately chosen a self-managed overlap or are ending broadband without moving to another regulated fixed provider, and confirm the consequences first.' },
-      { question: 'How long does it take to switch broadband provider?', answer: 'About 10 working days is a reasonable planning estimate for a straightforward broadband transfer, but installation requirements and provider availability can change the date. Use the confirmed activation date supplied with your order. Ofcom&apos;s specific protection is that loss of service during a managed switch must not exceed one working day, rather than a universal ten-day completion guarantee.' },
-      { question: 'Can I get compensation if my broadband switch is delayed?', answer: 'Possibly. Ofcom&apos;s Automatic Compensation Scheme requires participating providers to pay £6.46 per calendar day when a new service starts late and £32.31 for a missed engineer appointment, at rates verified on 23 August 2026. Separate One Touch Switch rules also require compensation when switching problems leave you without service for more than one working day. Eligibility and exclusions apply.' },
+      { question: 'How long does it take to switch broadband provider?', answer: 'About 10 working days is a reasonable planning estimate for a straightforward broadband transfer, but installation requirements and provider availability can change the date. Use the confirmed activation date supplied with your order. Ofcom\'s specific protection is that loss of service during a managed switch must not exceed one working day, rather than a universal ten-day completion guarantee.' },
+      { question: 'Can I get compensation if my broadband switch is delayed?', answer: 'Possibly. Ofcom\'s Automatic Compensation Scheme requires participating providers to pay £6.46 per calendar day when a new service starts late and £32.31 for a missed engineer appointment, at rates verified on 23 August 2026. Separate One Touch Switch rules also require compensation when switching problems leave you without service for more than one working day. Eligibility and exclusions apply.' },
       { question: 'Is One Touch Switch still a temporary or pilot scheme?', answer: 'No. Ofcom closed its dedicated One Touch Switch enforcement programme on 11 June 2026, around three years after opening it, having found that most customers now switch successfully using the process and that more than 2 million had already done so. It is now the industry\'s permanent standard, though Ofcom can still take targeted action against any individual provider found to be obstructing it.' },
     ],
   },
@@ -309,7 +310,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         </ul>
 
         <h2>Broadband providers worth checking for price certainty</h2>
-        <p>"Altnet" is not a reliable shortcut for "no price rise." Hyperoptic and NOW Broadband are both sometimes wrongly assumed to be no-rise options, but both apply a real scheduled increase, so check the specific provider rather than the category.</p>
+        <p>"Altnet" is not a reliable shortcut for "no price rise." toob, Community Fibre, Hyperoptic and Zzoomm are all full-fibre altnets, and all four now apply a scheduled increase, so check the specific provider rather than the category. The policies below were checked on each provider&apos;s own website on 16 October 2026.</p>
         <div className="overflow-x-auto">
           <table className="w-full text-sm border-collapse">
             <thead>
@@ -321,12 +322,16 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
             </thead>
             <tbody>
               {[
-                ['Zen Internet', 'Genuinely no rise: a Contract Price Promise for the length of the term', 'Best for genuine price certainty, at a higher starting price'],
-                ['toob', 'Genuinely no rise on any current package', 'Southampton-area full fibre with real price certainty'],
-                ['Community Fibre', 'A real rise, but capped at £2 a month each April rather than open-ended', 'Cheapest full fibre on this site, with a small, predictable ceiling'],
-                ['Hyperoptic', 'A real scheduled rise of around £4 a month each April, not fixed-price', 'Still worth it for symmetrical speed, but budget for the rise'],
-                ['NOW Broadband', 'No rise in 2026, but £3 scheduled for April 2027 and April 2028', 'Cheap now, with the future rise at least dated and disclosed'],
-                ['Sky', 'A flat £3 rise in April 2026, but future years only say prices "may rise" with no fixed figure', 'Mainstream family option; budget for an undisclosed future rise'],
+                ['Zen Internet', 'No mid-contract price increases, stated on its broadband page', 'Price certainty from a well-reviewed national provider, at a higher starting price'],
+                ['YouFibre', 'No in-contract price rises on its 24-month fixed-price plans', 'Symmetrical full fibre from £22 a month where its network reaches'],
+                ['giffgaff', 'No mid-term price rises on its 24-month plans', 'Symmetrical full fibre from £25 a month on a big-brand name'],
+                ['Pine Media', 'No in-contract price rises; prices locked for the chosen contract', 'Sheffield full fibre from £22 a month'],
+                ['National Broadband', 'No mid-contract price hikes, stated on its homepage', '4G and 5G home broadband from £31.99 for addresses without good fixed lines'],
+                ['toob', 'A small rise: £2 a month each April on current 24-month plans', 'Still low over a full term, from £18 a month'],
+                ['Community Fibre', 'A real rise: £3 a month each April on current 24-month plans', 'London full fibre from £19 a month (24 months) or £12.50 (Essential 35, 12 months)'],
+                ['Hyperoptic', 'A real rise: £4 a month each April', 'Symmetrical speed from £19 a month, but budget for the rise'],
+                ['Zzoomm', 'Introductory price, then £4 a month more from month 13', 'Compare the full 24-month cost, not the first-year price'],
+                ['NOW Broadband', 'Its page says the price may change during the 24-month minimum term', 'Simple published prices from £23 a month; check the rise in the contract summary'],
               ].map(([provider, policy, fit]) => (
                 <tr key={provider} className="border-b border-slate-100 hover:bg-slate-50">
                   <td className="px-4 py-3 font-semibold text-slate-900">{provider}</td>
@@ -346,10 +351,10 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
       </>
     ),
     faqs: [
-      { question: 'Which broadband providers have no mid-contract price rise?', answer: 'Only Zen Internet and toob genuinely apply no scheduled rise at all among providers checked here. Hyperoptic and NOW Broadband are sometimes wrongly assumed to be no-rise altnets, but both apply a real scheduled increase. Always check the current contract wording before signing up.' },
+      { question: 'Which broadband providers have no mid-contract price rise?', answer: 'On 16 October 2026, Zen Internet, YouFibre, giffgaff, Pine Media and National Broadband each stated on their own websites that they apply no in-contract price rise. toob, Community Fibre, Hyperoptic and Zzoomm all apply a disclosed increase. Always check the contract summary before signing up, because policies can change.' },
       { question: 'Does no mid-contract price rise mean the deal is always cheaper overall?', answer: 'Not necessarily. Some fixed-price deals start a little higher than aggressive promotional deals. The benefit is predictability, not always the lowest initial monthly rate.' },
       { question: 'What changed with broadband price rises after January 2025?', answer: 'Newer rules require telecom providers to state in-contract price rises in pounds and pence rather than unclear inflation-linked formulas. That made contracts easier to compare, but it did not make every provider equally good on price certainty.' },
-      { question: 'Is Hyperoptic a no-price-rise broadband provider?', answer: 'No. Despite being an altnet, Hyperoptic applies a real scheduled rise of around £4 a month each April, disclosed upfront in pounds and pence. It is not a fixed-price deal, and the rise should be budgeted into the real contract cost.' },
+      { question: 'Is Hyperoptic a no-price-rise broadband provider?', answer: 'No. Despite being an altnet, Hyperoptic applies a real scheduled rise of £4 a month each April (for example, 150Mb goes from £19 to £23 in April 2027), disclosed upfront in pounds and pence. It is not a fixed-price deal, and the rise should be budgeted into the real contract cost.' },
     ],
   },
 
@@ -683,11 +688,11 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
     faqs: [
       { question: 'When is the UK landline being switched off?', answer: 'Openreach says providers must migrate customers from analogue PSTN phone lines by 31 January 2027. Your provider can move your individual service earlier and should contact you with the date and equipment instructions. The original December 2025 target was extended after concerns about telecare users and people who depend on a landline.' },
       { question: 'Will I lose my home phone after the landline switch-off?', answer: 'No. The old PSTN technology is closing, not home phone service itself. You can keep a digital landline, usually by connecting a compatible phone to your broadband router or an adapter. GOV.UK also says a landline-only option remains for people who do not want a general internet service, although the underlying connection will be digital.' },
-      { question: 'Will my existing phone work with Digital Voice?', answer: 'Many existing corded and cordless phones work when connected to the provider&apos;s router or adapter, but the exact handset and extension setup must be checked. Ask the provider before migration if the telephone is old, sits far from the router or uses several wall sockets. Test incoming and outgoing calls as soon as the new service activates.' },
+      { question: 'Will my existing phone work with Digital Voice?', answer: 'Many existing corded and cordless phones work when connected to the provider\'s router or adapter, but the exact handset and extension setup must be checked. Ask the provider before migration if the telephone is old, sits far from the router or uses several wall sockets. Test incoming and outgoing calls as soon as the new service activates.' },
       { question: 'Does Digital Voice work during a power cut?', answer: 'A standard digital phone service will not work when its broadband router loses power. If you depend on the landline and have no other way to contact emergency services, tell the provider. Ofcom requires an emergency-calling solution lasting at least one hour for eligible customers. Ask how its backup works, then keep it charged and test it.' },
       { question: 'What happens to a personal alarm during the digital voice switchover?', answer: 'A personal alarm may need an adapter or replacement before the phone line changes. Tell both the landline provider and the telecare supplier, giving the exact alarm model. Do not assume a dial tone proves compatibility. After installation, arrange an end-to-end test and confirm that the monitoring centre received the alarm signal and your address details correctly.' },
       { question: 'Is the PSTN switch-off the same as the copper phone line switch-off?', answer: 'The January 2027 deadline retires the PSTN voice service, but it does not mean every copper cable or part-copper broadband connection disappears that day. Some homes can continue receiving broadband over copper from the street cabinet while phone calls use VoIP. Full-fibre rollout and physical copper withdrawal are related programmes with different schedules.' },
-      { question: 'Do I have to pay to change to a digital phone line?', answer: 'You should not be charged simply for the provider-led migration of an existing phone service. Citizens Advice warns that an unexpected demand for payment or bank details may be a scam. Verify every message using contact details on your bill or the provider&apos;s official website. Optional call packages, new handsets or unrelated broadband upgrades can still have charges.' },
+      { question: 'Do I have to pay to change to a digital phone line?', answer: 'You should not be charged simply for the provider-led migration of an existing phone service. Citizens Advice warns that an unexpected demand for payment or bank details may be a scam. Verify every message using contact details on your bill or the provider\'s official website. Optional call packages, new handsets or unrelated broadband upgrades can still have charges.' },
     ],
   },
 
@@ -764,7 +769,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
       { question: 'How do I fix Wi-Fi dead spots at home?', answer: 'Test beside the router and in the dead spot with the same device. If the nearby result is good, move the router into the open, off the floor and away from thick walls, metal and water, then retest. Use an extender for one edge room, mesh for several rooms, or Ethernet and a wired access point for stubborn obstacles.' },
       { question: 'Why is my Wi-Fi bad in only one room?', answer: 'Wi-Fi can be bad in one room because distance, brick or concrete walls, metal, mirrors, water or an awkward floor blocks the signal after it leaves the router. A good speed beside the router confirms the broadband line may be fine. Reposition the router first, then place any extender or mesh node where it still receives a usable signal.' },
       { question: 'What should I do if Wi-Fi is not reaching upstairs?', answer: 'Place the router high and in the open, then test 2.4GHz because it usually reaches farther than 5GHz. If the floor still blocks service, put a mesh node between the router and upstairs area, not inside the dead spot. Powerline may help where the electrical wiring suits it; Ethernet backhaul to an upstairs access point is the most dependable option.' },
-      { question: 'Will a faster broadband package improve Wi-Fi signal at home?', answer: 'No. A faster package increases the potential speed reaching the router but does not increase the router&apos;s radio range. If Ethernet and nearby Wi-Fi are fast while one room is slow, spend on placement or coverage rather than line speed. If Ethernet is also below the provider&apos;s minimum guaranteed speed, report that broadband problem to the provider.' },
+      { question: 'Will a faster broadband package improve Wi-Fi signal at home?', answer: 'No. A faster package increases the potential speed reaching the router but does not increase the router\'s radio range. If Ethernet and nearby Wi-Fi are fast while one room is slow, spend on placement or coverage rather than line speed. If Ethernet is also below the provider\'s minimum guaranteed speed, report that broadband problem to the provider.' },
       { question: 'Is mesh Wi-Fi better than a range extender?', answer: 'Mesh Wi-Fi is usually better for several weak rooms because its nodes share one managed network and can support smoother roaming. A range extender costs less and may be enough for one nearby room. Both need a good link back to the router. Ethernet backhaul makes mesh more dependable where thick walls or floors weaken the wireless connection between nodes.' },
       { question: 'Where should I place a Wi-Fi extender or mesh node?', answer: 'Place it between the router and weak area, where the router signal is still stable. Do not put a wireless extender or mesh node deep inside the dead spot because it cannot repeat a connection it barely receives. Keep it in the open and away from large metal objects, water and dense obstacles, then retest the target room before fixing its final position.' },
     ],
@@ -1542,15 +1547,15 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
             <tbody>
               {[
                 ['Community Fibre', '£12.50/mo', '35 Mbps symmetrical full fibre', 'London, Surrey, Sussex only'],
-                ['toob', '£19.50/mo', '150 Mbps symmetrical full fibre', 'Parts of Hampshire, Dorset, Surrey, Sussex, Berkshire'],
+                ['toob', '£18.00/mo', '150 Mbps symmetrical full fibre', 'Parts of Hampshire, Dorset, Surrey, Sussex, Berkshire'],
+                ['Hyperoptic', '£19.00/mo', '150 Mbps symmetrical full fibre', 'London and other major UK cities, flats and blocks'],
                 ['Trooli', '£19.99/mo', '150 Mbps full fibre', 'Parts of South East England and Scotland'],
-                ['Zzoomm', 'From £20/mo', '200 Mbps symmetrical full fibre', 'Around 110 English market towns'],
-                ['Hyperoptic', '£21.50/mo', '50 Mbps (non-symmetrical entry tier)', 'London and other major UK cities, flats and blocks'],
                 ['Plusnet', '£21.99/mo', '74 Mbps full fibre', 'Nationwide, Openreach'],
+                ['Zzoomm', 'From £22/mo', '200 Mbps symmetrical full fibre (£26 from month 13)', 'Around 110 English market towns'],
                 ['EE', '£22.99/mo', '100 Mbps full fibre', 'Nationwide, Openreach'],
-                ['NOW Broadband', 'From £23/mo', '75 Mbps full fibre', 'Nationwide, Openreach'],
-                ['BT', '£23.99/mo', '150 Mbps full fibre', 'Nationwide, Openreach, widest coverage'],
-                ['Sky / Vodafone', 'From £25/mo', '150 Mbps full fibre', 'Nationwide, Openreach'],
+                ['NOW Broadband', 'From £23/mo', '80 Mbps full fibre', 'Nationwide, Openreach'],
+                ['Sky / Vodafone', 'From £23/mo', 'Full fibre (Sky £23 in our last check; Vodafone £24 on 16 Oct 2026)', 'Nationwide, Openreach'],
+                ['BT', '£28.99/mo', '36 Mbps part fibre (Full Fibre 300 from £30.99)', 'Nationwide, Openreach, widest coverage'],
               ].map(([provider, price, speed, coverage]) => (
                 <tr key={provider} className="border-b border-slate-100 hover:bg-slate-50">
                   <td className="px-4 py-3 font-semibold text-slate-900">{provider}</td>
@@ -1574,7 +1579,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         <p>Community Fibre&apos;s Essential 35 package, £12.50 a month for 35 Mbps symmetrical, is the lowest full-fibre price of any provider covered on this site, and it comes from a provider with one of the strongest customer-satisfaction records in the UK: around 4.7 out of 5 on Trustpilot and 92% customer satisfaction in Ofcom&apos;s 2025 data. The catch is coverage: this is a London-centred network with only recent, partial expansion into Surrey and Sussex, so it simply is not available to most UK addresses.</p>
 
         <h2>toob: the cheapest symmetrical full fibre, where it reaches</h2>
-        <p>toob&apos;s entry Home 150 package, £19.50 a month for 150 Mbps symmetrical, undercuts every national Openreach reseller on this page while including a WiFi 7 router and no mid-contract price rise. It began in Southampton, where BroadbandPicker&apos;s <Link href="/postcode/so14">SO14 broadband deals guide</Link> covers district-level Ofcom coverage and toob&apos;s own network story in more depth, and has since expanded to around 290,000 premises across 29 towns in Hampshire, Dorset, Surrey, Sussex and Berkshire. As with Community Fibre, this is a regional network, so check the exact address before assuming coverage. toob has also recently arrived in the West Midlands, partnered with CityFibre; BroadbandPicker&apos;s <Link href="/postcode/cv1">CV1 broadband deals guide</Link> covers what that means for Coventry specifically. toob confirmed a launch on CityFibre&apos;s network in Leicester in October 2024; BroadbandPicker&apos;s <Link href="/postcode/le1">LE1 broadband deals guide</Link> covers what that means locally.</p>
+        <p>toob&apos;s entry home150 package, £18 a month for 150 Mbps symmetrical on a 24-month contract (checked 16 October 2026), undercuts every national Openreach reseller on this page while including a WiFi 7 router; its price rises by just £2 a month each April. It began in Southampton, where BroadbandPicker&apos;s <Link href="/postcode/so14">SO14 broadband deals guide</Link> covers district-level Ofcom coverage and toob&apos;s own network story in more depth, and has since expanded to around 290,000 premises across 29 towns in Hampshire, Dorset, Surrey, Sussex and Berkshire. As with Community Fibre, this is a regional network, so check the exact address before assuming coverage. toob has also recently arrived in the West Midlands, partnered with CityFibre; BroadbandPicker&apos;s <Link href="/postcode/cv1">CV1 broadband deals guide</Link> covers what that means for Coventry specifically. toob confirmed a launch on CityFibre&apos;s network in Leicester in October 2024; BroadbandPicker&apos;s <Link href="/postcode/le1">LE1 broadband deals guide</Link> covers what that means locally.</p>
 
         <h2>NOW Broadband: not as cheap as its reputation suggests</h2>
         <p>NOW Broadband, part of the Sky group, is widely assumed to be the default cheapest option, and it was, historically. Its current entry-level Brilliant Broadband package runs on older, slower ADSL-style technology, and its more usable Full Fibre 75 package starts from £23 a month on a 24-month contract, not meaningfully cheaper than Plusnet or EE&apos;s full-fibre entry tiers. Its Trustpilot score sits around 1.2 out of 5 from over 14,000 reviews, with reviews commonly citing long activation waits and slow support. Check the actual current price before assuming NOW is automatically the cheapest option; it frequently is not.</p>
@@ -1650,9 +1655,10 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
             <tbody>
               {[
                 ['Community Fibre', '£12.50/mo', '12 or 24 months', 'London, Surrey, Sussex', 'The cheapest full-fibre deal on this site'],
+                ['toob', '£18.00/mo', '24 months', 'Southampton area, ~290,000 premises', '£2 a month rise each April'],
                 ['Onestream', '£18.50/mo', '12 or 24 months', '94% of UK premises', 'Widest availability of any under-£20 option'],
+                ['Hyperoptic', '£19.00/mo', '24 months', 'Selected buildings in London and other major cities', 'Symmetrical 150 Mbps; £4 rise each April'],
                 ['Gigaclear', '£19.00/mo', '18 months', 'Selected rural areas (2%)', 'Symmetrical rural full fibre'],
-                ['toob', '£19.50/mo', '18 or 24 months', 'Southampton area, ~290,000 premises', 'No mid-contract price rise'],
                 ['Trooli', '£19.99/mo', '24 months', 'Selected areas (1%)', 'Fast entry speed for the price'],
               ].map(([p, price, contract, coverage, best]) => (
                 <tr key={p} className="border-b border-slate-100 hover:bg-slate-50">
@@ -1691,7 +1697,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
       </>
     ),
     faqs: [
-      { question: 'Can you still get broadband under £20 in the UK?', answer: 'Yes, though the providers have changed. NOW Broadband and TalkTalk, long the default answer, now both start above £20 a month. The current genuine under-£20 segment is led by altnets: Community Fibre from £12.50, Onestream from £18.50 (94% of UK premises), Gigaclear from £19.00, toob from £19.50 and Trooli from £19.99.' },
+      { question: 'Can you still get broadband under £20 in the UK?', answer: 'Yes, though the providers have changed. NOW Broadband and TalkTalk, long the default answer, now both start above £20 a month. The current genuine under-£20 segment is led by altnets: Community Fibre from £12.50 (12 months), toob from £18, Onestream from £18.50 and Hyperoptic from £19 (checked 16 October 2026), plus Gigaclear and Trooli in our earlier check.' },
       { question: 'Which provider has the best broadband deal under £20?', answer: 'Community Fibre is the cheapest at £12.50 a month, though limited to London, Surrey and Sussex. Onestream, from £18.50 a month, has by far the widest availability of any current under-£20 option at around 94% of UK premises, making it the most realistic pick for most households.' },
       { question: 'Is broadband under £20 good enough for streaming?', answer: 'For a small household with light to moderate streaming, yes. For larger homes with several people online at once, check the specific speed tier rather than assuming an entry-level plan will be enough, since several under-£20 options offer meaningfully different speeds.' },
       { question: 'Should I choose a broadband deal under £20 or pay a little more?', answer: 'Choose under £20 if the needs are modest, the provider genuinely covers the address, and the contract is sensible. Pay a little more, for example around £23 for Sky, if it meaningfully improves the complaints record, speed or contract terms.' },
@@ -1701,7 +1707,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
   'broadband-deals-with-cashback': {
     body: (
       <>
-        <p><strong>Broadband deals with cashback are worthwhile only when the reward makes an already suitable package cheaper over its full minimum term.</strong> On 29 August 2026, independently listed BT broadband rewards ranged from £80 to £140, but BT also charged £30 setup and scheduled £4-a-month rises. Subtract the reward only after adding every contracted charge and only if you can meet the claim terms.</p>
+        <p><strong>Broadband deals with cashback are worthwhile only when the reward makes an already suitable package cheaper over its full minimum term.</strong> On 29 August 2026, independently listed BT broadband rewards ranged from £80 to £140, alongside £30 setup and scheduled £4-a-month rises. By 16 October 2026, BT&apos;s own deals page showed £0 activation and no reward card, which shows how quickly these offers change. Subtract the reward only after adding every contracted charge and only if you can meet the claim terms.</p>
         <p>We would choose a lower total contract cost over the largest gift card. Speed, address-level availability and contract flexibility still have to fit the household. A £140 card does not repair a slow connection, and a reward that expires before it is claimed has a value of £0.</p>
 
         <h2>How cashback broadband deals work</h2>
@@ -1714,7 +1720,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
           <table className="w-full min-w-[42rem] text-sm border-collapse">
             <thead><tr className="bg-slate-50">{['Example', 'Reward snapshot', 'Conditions to verify', 'Our reading'].map((heading) => <th key={heading} className="text-left px-4 py-3 border border-slate-200 font-semibold text-slate-700">{heading}</th>)}</tr></thead>
             <tbody>
-              <tr><td className="border border-slate-200 px-4 py-3 font-semibold">BT broadband</td><td className="border border-slate-200 px-4 py-3">£80 to £140 by tier</td><td className="border border-slate-200 px-4 py-3">Eligible online order, £30 setup, claim and activation deadlines</td><td className="border border-slate-200 px-4 py-3">Strong reward, but scheduled rises remain part of the cost</td></tr>
+              <tr><td className="border border-slate-200 px-4 py-3 font-semibold">BT broadband</td><td className="border border-slate-200 px-4 py-3">£80 to £140 by tier</td><td className="border border-slate-200 px-4 py-3">Listed in August 2026; not shown on BT&apos;s deals page on 16 October 2026</td><td className="border border-slate-200 px-4 py-3">Strong reward, but scheduled rises remain part of the cost</td></tr>
               <tr><td className="border border-slate-200 px-4 py-3 font-semibold">EE broadband</td><td className="border border-slate-200 px-4 py-3">Up to £165 in Finder’s snapshot</td><td className="border border-slate-200 px-4 py-3">Selected direct online orders, first bill paid, 90-day claim window after verification</td><td className="border border-slate-200 px-4 py-3">Read the purchase-route restriction before using another affiliate</td></tr>
               <tr><td className="border border-slate-200 px-4 py-3 font-semibold">Quickline</td><td className="border border-slate-200 px-4 py-3">Up to £200 in Finder’s snapshot</td><td className="border border-slate-200 px-4 py-3">Selected plan, local network coverage and promotion terms</td><td className="border border-slate-200 px-4 py-3">Largest listed provider reward, not the same as broad availability</td></tr>
               <tr><td className="border border-slate-200 px-4 py-3 font-semibold">Lower-price deal</td><td className="border border-slate-200 px-4 py-3">No reward required</td><td className="border border-slate-200 px-4 py-3">Full monthly schedule, setup and speed</td><td className="border border-slate-200 px-4 py-3">Can win if its total cost is lower without a claim</td></tr>
@@ -1750,7 +1756,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         </div>
 
         <h2>A real example: BT's reward card and the setup fee it offsets</h2>
-        <p>Broadband Genie’s BT table, updated 21 August 2026, showed Full Fibre 150 at £23.99 a month, rising to £27.99 in March 2027 and £31.99 in March 2028, with £30 setup and a £100 card. Over 24 months, the displayed monthly schedule plus setup totals £685.76. Subtracting a successfully claimed £100 card gives £585.76, or £24.41 a month. Without the card, the same service costs £28.57 a month.</p>
+        <p>Broadband Genie’s BT table, updated 21 August 2026, showed Full Fibre 150 at £23.99 a month, rising to £27.99 in March 2027 and £31.99 in March 2028, with £30 setup and a £100 card. Over 24 months, the displayed monthly schedule plus setup totals £685.76. Subtracting a successfully claimed £100 card gives £585.76, or £24.41 a month. Without the card, the same service costs £28.57 a month. BT has since changed its range: on 16 October 2026 its deals page showed £0 activation, no reward card and Full Fibre from £30.99, so use this as a worked method rather than a current price.</p>
         <p>The example explains why “£100 cashback” cannot be compared with the first monthly price alone. Ofcom requires contracted price rises to be displayed upfront in pounds and pence. Put each price period, setup charge and delivery fee into the total, then subtract only a reward you expect to receive and use.</p>
 
         <h2>How to claim a broadband reward without missing it</h2>
@@ -1789,7 +1795,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
       { question: 'Is cashback better than a lower broadband monthly price?', answer: 'A lower monthly price is better when its full contract total remains below the reward deal after setup charges and scheduled rises. Compare every payment across the minimum term, then subtract the usable reward. A £4 monthly difference over 24 months is £96, so it can cancel most of a £100 card before setup fees are considered.' },
       { question: 'How do I claim cashback on a broadband deal?', answer: 'Save the promotion terms and order confirmation, then follow the route named for that exact offer after activation. BT says eligible customers claim through their BT account and receive a digital card within 30 working days. EE’s separate terms can allow up to 140 days before verified claim details arrive. Claim, activation and spending deadlines can all differ.' },
       { question: 'Which broadband providers offer gift cards or rewards?', answer: 'Finder’s UK table checked on 29 August 2026 listed selected rewards from Quickline, EE, Plusnet, BT, Sky, TalkTalk, Gigaclear, NOW Broadband, Rebel and Airband. Values ranged from £50 to £200 before Finder’s separate member incentive. Offers vary by package, address and purchase route, so verify the provider terms and order confirmation before relying on any amount.' },
-      { question: 'How much is BT\'s broadband reward card worth?', answer: 'Broadband Genie listed BT broadband Reward Cards from £80 to £140 on 21 August 2026. The £100 Full Fibre 150 example also had £30 setup and scheduled £4 monthly rises in 2027 and 2028. BT says eligible customers must claim, activate within three months of receipt and spend the digital card balance within 12 months.' },
+      { question: 'How much is BT\'s broadband reward card worth?', answer: 'Broadband Genie listed BT broadband Reward Cards from £80 to £140 on 21 August 2026, but BT\'s own deals page showed no reward card on 16 October 2026. The £100 Full Fibre 150 example also had £30 setup and scheduled £4 monthly rises in 2027 and 2028. BT says eligible customers must claim, activate within three months of receipt and spend the digital card balance within 12 months.' },
       { question: 'Can I combine provider rewards with cashback websites?', answer: 'Do not assume rewards can be combined. EE’s published terms say its selected direct Reward Card promotion does not qualify on partner or affiliate purchases and cannot be combined with another voucher, discount or promotion code. Cashback-site and provider rules differ, so choose one tracked purchase route, save its terms and compare the net value before ordering.' },
     ],
   },
@@ -1817,7 +1823,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
                 ['Mainstream family option', 'Sky, EE', 'Lower-friction switching with recognisable brands, no setup cost on most current packages'],
                 ['Budget-led option', 'TalkTalk, Plusnet', 'Keeps upfront cost low while still using major fixed-line networks'],
                 ['Value full fibre option', 'Vodafone, Community Fibre, Hyperoptic', 'Useful when you want FTTP without a large activation bill'],
-                ['Genuinely charges a setup fee', 'BT (£30), Virgin Media (£35)', 'BT offsets its £30 fee with a reward card worth £80 to £140, but only if actually claimed; Virgin Media\'s £35 fee is not offset at all'],
+                ['Charges a setup fee on some plans', 'Gigaclear (£30 on 300Mbps), Cuckoo (£99 to £149), Virgin Media (£30 for an engineer)', 'Checked 16 October 2026; Virgin Media is free on QuickStart self-install, and BT now charges £0 online'],
               ].map(([type, examples, reason]) => (
                 <tr key={type} className="border-b border-slate-100 hover:bg-slate-50">
                   <td className="px-4 py-3 font-semibold text-slate-900">{type}</td>
@@ -1830,7 +1836,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         </div>
 
         <h2>Watch for a fee disguised as a credit</h2>
-        <p>Not every non-zero upfront charge is a real cost. NOW Broadband, for example, applies a £5 advance fee at sign-up, but credits it back to the first bill, so it functions as genuinely free setup as long as the credit is applied correctly. This is a real, different case from BT&apos;s £30 fee, which is only offset by a reward card that requires a separate claim step, or Virgin Media&apos;s £35 fee, which is not offset at all. Always check whether an "advance fee" is credited back automatically or requires an active claim before assuming it behaves like BT&apos;s reward card.</p>
+        <p>Not every non-zero upfront charge is a real cost. Some providers have used advance fees that are credited back to the first bill, or reward cards that offset a setup charge only if you claim them. Fees change often: on 16 October 2026, NOW showed £0 activation and £0 delivery, BT showed £0 activation online, and Virgin Media charged nothing for self-install but £30 for an engineer. Always check whether a fee is credited back automatically or needs an active claim.</p>
 
         <h2>When no setup fee is genuinely the better deal</h2>
         <p>A no-fee offer usually matters most when two packages are otherwise close in monthly price, or when you want to minimise the immediate cost of moving or switching. It is also useful for renters, students, and short-term households that are already wary of paying too much upfront.</p>
@@ -1852,9 +1858,9 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
       </>
     ),
     faqs: [
-      { question: 'Which broadband providers have no setup fee in the UK?', answer: 'Sky, EE, TalkTalk, Plusnet, Vodafone, Hyperoptic and Community Fibre all currently show no setup fee on their core offers. BT charges a genuine £30 fee, offset by a reward card only if claimed, and Virgin Media charges £35 with no offset. Always check the exact live package before ordering.' },
+      { question: 'Which broadband providers have no setup fee in the UK?', answer: 'On 16 October 2026, BT (online orders), NOW, Community Fibre, toob, Zzoomm, YouFibre, Pine Media and Connect Fibre showed no setup fee, and Virgin Media charged nothing for self-install. Gigaclear charged £30 on its 300Mbps plan and Cuckoo £99 to £149. Always check the exact live package before ordering.' },
       { question: 'Is no setup fee broadband always better value?', answer: 'Not always. A deal with a setup fee can still be better overall if the monthly price is lower or the package is a much better fit for your home.' },
-      { question: 'Does NOW Broadband charge a setup fee?', answer: 'It applies a £5 advance fee at sign-up, but credits it back to the first bill, so it functions as genuinely free setup as long as the credit is applied correctly, a different structure from BT\'s £30 fee, which requires actively claiming a reward card to offset.' },
+      { question: 'Does NOW Broadband charge a setup fee?', answer: 'Not on current deals. NOW\'s broadband page showed a £0 activation fee and £0 delivery fee on 16 October 2026.' },
       { question: 'Who benefits most from no-setup-fee broadband deals?', answer: 'Renters, movers, students, and budget-conscious households usually benefit most because they care more about keeping upfront costs low during the switch.' },
     ],
   },
@@ -1875,7 +1881,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         <p>Most broadband plans advertise download speed prominently and upload speed in small print, but for working from home upload speed is equally important. Video calls on Zoom, Teams or Google Meet require continuous upload bandwidth: a single HD video call typically needs 3 to 4 Mbps of stable upload, and that adds up quickly with multiple people on calls in the same household at once. A slow or inconsistent upload speed is what makes a caller look choppy or freeze to everyone else on the call.</p>
         <p>Full fibre (FTTP) packages commonly offer genuinely symmetrical speeds, upload matching download, a significant advantage over FTTC, where upload is typically only around 20% of the download figure.</p>
         <h2>Real current prices for home-working-suitable broadband</h2>
-        <p>Community Fibre offers genuinely symmetrical full fibre from £12.50 a month, the cheapest fully symmetrical option covered on this site, though coverage is limited to London, Surrey and Sussex. Hyperoptic, from £21.50 a month, offers symmetrical speeds on every tier except its cheapest entry plan, in selected apartment buildings and developments. Zen Internet, from £30 a month, includes a free static IP as standard on every plan along with a Contract Price Promise (no mid-contract price rise) and Which? Recommended Provider status with an 84% customer score, a genuinely strong pick for anyone who needs a fixed, predictable address for VPN configuration or remote access tools. BT, from £23.99 a month, remains the widest-coverage option at around 98% of UK premises for anyone outside an altnet&apos;s footprint.</p>
+        <p>Community Fibre offers genuinely symmetrical full fibre from £12.50 a month, the cheapest fully symmetrical option covered on this site, though coverage is limited to London, Surrey and Sussex. Hyperoptic, from £19 a month (checked 16 October 2026), offers symmetrical speeds, in selected apartment buildings and developments. Zen Internet, from £30 a month, includes a free static IP as standard on every plan along with a Contract Price Promise (no mid-contract price rise) and Which? Recommended Provider status with an 84% customer score, a genuinely strong pick for anyone who needs a fixed, predictable address for VPN configuration or remote access tools. BT, from £28.99 a month (checked 16 October 2026), remains the widest-coverage option at around 98% of UK premises for anyone outside an altnet&apos;s footprint.</p>
         <h2>When a business broadband line is worth considering</h2>
         <p>Freelancers, contractors and anyone running a small business from home should weigh a business-grade line against a standard residential package. Business broadband commonly includes a static IP as standard, a service-level agreement promising a faster fault-fix time, and sometimes an uncontended or prioritised connection that does not slow down as much during peak evening hours when nearby residential customers are also online. Vodafone Business starts from around £20 to £22 a month, a genuinely accessible entry point for a sole trader, while Zen Business and Sky Business both build in stronger support commitments for a modest premium over their residential equivalents. This is worth it specifically when downtime has a real cost, client calls cannot tolerate a dropped connection, or remote access to office systems needs a stable, known IP address; for most single home workers, a good residential full-fibre package is entirely sufficient.</p>
         <h2>Should you use Wi-Fi or a wired connection?</h2>
@@ -2000,7 +2006,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         <h2>Which broadband types suit streamers best</h2>
         <p><strong>Full fibre</strong> is the strongest option if available because it delivers more stable speeds and lower evening congestion risk than older copper-based or cable connections. Standard fibre (FTTC) can still be enough for many households if the speed tier is chosen sensibly. Gigabit broadband is usually unnecessary unless the home has several heavy users doing much more than streaming.</p>
         <h2>Best providers for streaming households</h2>
-        <p><strong>Sky</strong>, from £23 a month, is naturally relevant for households that also want Sky TV or Sky Sports bundled onto the same bill. <strong>Virgin Media</strong>, from £33 a month, stands out where its cable network is available: its Gig1 tier reaches up to 1,130 Mbps, genuinely the fastest widely available speed in the UK, well suited to a big entertainment-heavy household with several 4K streams running at once. <strong>Community Fibre</strong>, from £12.50 a month, and <strong>Hyperoptic</strong>, from £21.50 a month, can be excellent for city homes that want fast, genuinely symmetrical full fibre at strong value, though both have limited, city-specific coverage.</p>
+        <p><strong>Sky</strong>, from £23 a month, is naturally relevant for households that also want Sky TV or Sky Sports bundled onto the same bill. <strong>Virgin Media</strong>, from £23.99 a month (checked 16 October 2026), stands out where its cable network is available: its Gig1 tier reaches up to 1,130 Mbps, genuinely the fastest widely available speed in the UK, well suited to a big entertainment-heavy household with several 4K streams running at once. <strong>Community Fibre</strong>, from £12.50 a month, and <strong>Hyperoptic</strong>, from £19 a month, can be excellent for city homes that want fast, genuinely symmetrical full fibre at strong value, though both have limited, city-specific coverage.</p>
         <h2>How to choose the right streaming package</h2>
         <ul>
           <li>Count how many people stream at the same time, not just total household size</li>
@@ -2047,17 +2053,17 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
             <tbody>
               {[
                 ['Community Fibre', '£12.50/mo', '4.7 ★', 'N/A*', 'Cheapest full fibre, satisfaction'],
-                ['Toob', '£19.50/mo', '4.5 ★', 'N/A*', 'Symmetrical speed, no price rises'],
-                ['Hyperoptic', '£21.50/mo', '4.5 ★', 'N/A*', 'Symmetrical speed, social tariff'],
+                ['Toob', '£18.00/mo', '4.5 ★', 'N/A*', 'Symmetrical speed, small disclosed rises'],
+                ['Hyperoptic', '£19.00/mo', '4.5 ★', 'N/A*', 'Symmetrical speed, social tariff'],
                 ['Plusnet', '£21.99/mo', '2.0 ★', '4 per 100k', 'Best major-provider complaints record'],
                 ['Sky', '£23.00/mo', '2.7 ★', '5 per 100k', 'TV bundles, strong complaints record'],
                 ['NOW Broadband', '£23.00/mo', '1.2 ★', '11 per 100k (Q4 2025)†', 'Lowest price on the Openreach network'],
                 ['EE', '£22.99/mo', '1.3 ★', '6 per 100k', 'Mobile bundle, wide 5G-adjacent reach'],
-                ['BT', '£23.99/mo', '4.0 ★‡', '7 per 100k', 'Widest UK coverage, 98% of homes'],
+                ['BT', '£28.99/mo', '4.0 ★‡', '7 per 100k', 'Widest UK coverage, 98% of homes'],
                 ['Zen Internet', '£30.00/mo', '4.4 ★', 'N/A*', 'Home workers, free static IP'],
                 ['Vodafone', '£25.00/mo', '1.3 ★', '8 per 100k', '2026 value and speed awards'],
                 ['TalkTalk', '£25.00/mo', '1.5 ★', '10 per 100k', 'Cheapest big-name full fibre'],
-                ['Virgin Media', '£33.00/mo', '1.4 ★', '6 per 100k', 'Fastest widely available speeds'],
+                ['Virgin Media', '£23.99/mo', '1.4 ★', '6 per 100k', 'Fastest widely available speeds'],
               ].map(([p, price, tp, complaints, best]) => (
                 <tr key={p} className="border-b border-slate-100 hover:bg-slate-50">
                   <td className="px-4 py-3 font-semibold text-slate-900">{p}</td>
@@ -2079,7 +2085,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         <p>Community Fibre holds a 4.7 Trustpilot score from roughly 91,000 reviews and starts from £12.50 a month, the cheapest full-fibre package covered on this site; coverage has expanded beyond London into parts of Surrey and Sussex. Toob, serving Southampton and a growing footprint of around 290,000 premises across 29 towns and cities, holds a 4.5 Trustpilot score and includes a Wi-Fi 7 router as standard. Both are altnets building their own full-fibre networks rather than reselling Openreach infrastructure, and both are too small for Ofcom&apos;s quarterly complaints threshold.</p>
 
         <h2>Best budget option on a national network — NOW Broadband</h2>
-        <p>NOW Broadband, owned by Sky, is the cheapest widely available broadband on the Openreach network, from £23 a month on a 24-month contract, a £5 advance fee credited back to the first bill. It is a genuine exception to the usual pattern on this list: unlike most providers, where a low Trustpilot score sits alongside a decent Ofcom record, NOW scores poorly on both, around 1.2 out of 5 on Trustpilot and 11 complaints per 100,000 customers in Ofcom&apos;s most recent report covering it, noticeably worse than its own parent brand Sky.</p>
+        <p>NOW Broadband, owned by Sky, is the cheapest widely available broadband on the Openreach network, from £23 a month on a 24-month contract with no activation fee (checked 16 October 2026). It is a genuine exception to the usual pattern on this list: unlike most providers, where a low Trustpilot score sits alongside a decent Ofcom record, NOW scores poorly on both, around 1.2 out of 5 on Trustpilot and 11 complaints per 100,000 customers in Ofcom&apos;s most recent report covering it, noticeably worse than its own parent brand Sky.</p>
 
         <h2>Sky vs NOW: same network, different support quality</h2>
         <p>Sky and NOW Broadband run on the identical Openreach network and share a parent company, yet their independently measured service records diverge sharply. Sky recorded just 5 complaints per 100,000 customers in Ofcom&apos;s Q1 2026 report, among the best of any major provider; NOW&apos;s most recent figure was more than double that. Because the underlying line quality is the same, the difference reflects support and account-handling quality specifically, a genuinely useful data point when the choice is simply between a brand&apos;s full-price and budget tier.</p>
@@ -2091,7 +2097,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         <p>Hyperoptic and Community Fibre both offer genuinely symmetrical full-fibre packages, meaning upload speed matches download speed, useful for video calls, cloud backups and uploading large files. Hyperoptic also runs a real social tariff at two price points, £15 and £20 a month, with no fixed contract. Both have limited, though growing, geographic footprints, so check the exact speed, current price and terms available at a specific address before assuming national availability.</p>
 
         <h2>Best for coverage — BT</h2>
-        <p>BT covers around 98% of UK premises, the widest reach of any provider on this list, delivered via the Openreach network it also wholesales to most rival ISPs. It starts from £23.99 a month on a 24-month contract with a £30 setup fee offset by a reward card. BT has two active Trustpilot pages showing very different scores, 4.0 on bt.com and around 1.5 on the older btbroadband.com; Ofcom&apos;s Q1 2026 data, 7 complaints per 100,000, is the more neutral cross-check, placing BT just above the industry average.</p>
+        <p>BT covers around 98% of UK premises, the widest reach of any provider on this list, delivered via the Openreach network it also wholesales to most rival ISPs. It starts from £28.99 a month (Full Fibre from £30.99) on a 24-month contract, with no activation fee on online orders (checked 16 October 2026). BT has two active Trustpilot pages showing very different scores, 4.0 on bt.com and around 1.5 on the older btbroadband.com; Ofcom&apos;s Q1 2026 data, 7 complaints per 100,000, is the more neutral cross-check, placing BT just above the industry average.</p>
       </>
     ),
     faqs: [
@@ -2146,7 +2152,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         <p className="text-xs text-slate-500 mt-2">*Virgin Media and TalkTalk both moved to a higher rise for contracts signed after a cutover date in late 2025 (Virgin Media: £3.50 for contracts from January-September 2025, £4 from October 2025 onward; TalkTalk: £3 for contracts from August 2024 to mid-November 2025, £4 for contracts from 16 November 2025). Vodafone similarly rose by £3.00 for older contracts and £3.50 for contracts from 12 November 2025 onward. †NOW Broadband applied no rise in April 2026, but current contracts disclose a scheduled £3 rise for April 2027 and a further £3 for April 2028.</p>
 
         <h2>Two real corrections worth knowing about "no-rise" providers</h2>
-        <p>Hyperoptic and Community Fibre are sometimes assumed to be part of the no-rise altnet group, but neither is: Hyperoptic applies a scheduled rise of around £4 a month each April on its fixed-term contracts, and Community Fibre applies a capped £2 a month rise each April, both disclosed upfront in pounds and pence. Only toob and Zen Internet, among the providers checked here, applied genuinely no scheduled rise in April 2026, and Zen backs this with an explicit Contract Price Promise rather than just an absence of an announced increase.</p>
+        <p>Hyperoptic and Community Fibre are sometimes assumed to be part of the no-rise altnet group, but neither is: Hyperoptic applies a scheduled rise of around £4 a month each April on its fixed-term contracts, and Community Fibre applies a rise each April (£3 a month on contracts sold in October 2026), both disclosed upfront in pounds and pence. Only toob and Zen Internet, among the providers checked here, applied genuinely no scheduled rise in April 2026, and Zen backs this with an explicit Contract Price Promise rather than just an absence of an announced increase. Note that toob&apos;s new 24-month contracts, checked on 16 October 2026, now include a £2 a month rise each April from 2027.</p>
 
         <h2>Your rights when broadband prices go up mid-contract</h2>
         <p>Since January 2025, Ofcom requires all new broadband contracts to state any mid-contract price rises as a fixed pound amount rather than a CPI-linked percentage. This means if a contract was signed after January 2025 and the provider raises prices by more than the amount stated in the contract, there is a right to exit without an early termination charge.</p>
@@ -2162,7 +2168,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         </ul>
 
         <h2>Which broadband providers genuinely had no price rise in 2026?</h2>
-        <p>Only toob and Zen Internet applied no scheduled rise at all in April 2026 among the providers checked here, and NOW Broadband also had no rise this specific year, though it now discloses scheduled rises for April 2027 and April 2028 on new contracts. Altnets in particular have used price stability as a competitive differentiator, but "altnet" alone is not a reliable predictor: Hyperoptic and Community Fibre, both altnets, do apply a scheduled annual rise.</p>
+        <p>Only toob and Zen Internet applied no scheduled rise at all in April 2026 among the providers checked here, and NOW Broadband also had no rise this specific year. New contracts are different: toob now adds £2 a month each April from 2027, and NOW says prices may change during its 24-month term (checked 16 October 2026). Altnets in particular have used price stability as a competitive differentiator, but "altnet" alone is not a reliable predictor: Hyperoptic and Community Fibre, both altnets, do apply a scheduled annual rise.</p>
 
         <h2>What changed with broadband pricing rules in 2025?</h2>
         <p>From January 2025, Ofcom banned the practice of linking mid-contract broadband price rises to inflation (CPI or RPI). For all new contracts signed from that date, any price rise during the contract term must be stated as a fixed pound amount at the point of sale. This gives more predictability, since the rise is known before signing up, unlike the previous CPI+3.9% system, which made the true long-term cost of a contract impossible to calculate in advance.</p>
@@ -2170,7 +2176,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
     ),
     faqs: [
       { question: 'Can I leave my broadband contract because of a price rise?', answer: 'Yes, in most cases, if the contract was signed after January 2025 and the provider raises prices by more than stated in the contract. Act within 30 days of receiving the price rise notification, contact the provider in writing and cite the price rise as the reason for leaving.' },
-      { question: 'Which broadband providers did not raise prices in 2026?', answer: 'toob and Zen Internet applied no scheduled rise at all in April 2026. NOW Broadband also had no rise this specific year, though it now discloses scheduled £3 rises for April 2027 and April 2028. Hyperoptic and Community Fibre are sometimes wrongly assumed to be no-rise altnets, but both applied a real scheduled increase in April 2026.' },
+      { question: 'Which broadband providers did not raise prices in 2026?', answer: 'toob and Zen Internet applied no scheduled rise at all in April 2026, and NOW Broadband also had no rise that year. On new contracts checked on 16 October 2026, toob adds £2 a month each April from 2027. Hyperoptic and Community Fibre are sometimes wrongly assumed to be no-rise altnets, but both applied a real scheduled increase in April 2026.' },
       { question: 'How much did BT raise broadband prices in 2026?', answer: 'BT raised broadband prices by £4 a month in April 2026, adding £48 to the annual cost. EE and Plusnet, both part of the BT Group, also raised prices by £4 a month at the same time.' },
       { question: 'How much did TalkTalk raise broadband prices in 2026?', answer: 'TalkTalk raised its standard mid-contract rise from £3 to £4 a month for contracts signed from 16 November 2025 onward, applied from April 2026. Customers who joined between August 2024 and mid-November 2025 continue on the earlier £3 rise; those who joined before August 2024 remain on the older CPI-linked system.' },
       { question: 'What is the new Ofcom rule about broadband price rises?', answer: 'From January 2025, Ofcom banned inflation-linked mid-contract price rises. New broadband contracts must now state any in-contract price rise as a fixed pound amount, for example "prices may rise by up to £4 a month." This replaced the old CPI+3.9% system, which made the total cost unpredictable at the point of signing up.' },
@@ -2255,13 +2261,13 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
             </thead>
             <tbody>
               {[
-                ['BT', 'FTTP (full fibre)', 'No', '£23.99/mo'],
+                ['BT', 'FTTP (full fibre)', 'No', '£30.99/mo'],
                 ['Sky', 'FTTP (full fibre)', 'No', '£23.00/mo'],
                 ['EE', 'FTTP (full fibre)', 'No', '£22.99/mo'],
-                ['Virgin Media', 'Cable', 'No — never needed one', '£33.00/mo'],
+                ['Virgin Media', 'Cable', 'No — never needed one', '£23.99/mo'],
                 ['Vodafone', 'FTTP (full fibre)', 'No', '£25.00/mo'],
                 ['TalkTalk', 'FTTP (full fibre)', 'No', '£25.00/mo'],
-                ['Hyperoptic', 'FTTP (full fibre)', 'No — never needed one', '£21.50/mo'],
+                ['Hyperoptic', 'FTTP (full fibre)', 'No — never needed one', '£19.00/mo'],
                 ['Community Fibre', 'FTTP (full fibre)', 'No — never needed one', '£12.50/mo'],
                 ['Three (5G)', '5G home broadband', 'No — no line at all', 'From £29/mo'],
               ].map(([p, tech, needed, from]) => (
@@ -2427,14 +2433,14 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
             </thead>
             <tbody>
               {[
-                ['BT', '£23.99/mo', '1.5/5', 'Third-worst, Q1 2026 (7/100k)', 'Widest coverage, 98% of UK homes'],
+                ['BT', '£30.99/mo', '1.5/5', 'Third-worst, Q1 2026 (7/100k)', 'Widest coverage, 98% of UK homes'],
                 ['Sky', '£25/mo', '~1.2-1.3/5', 'Below average, Q4 2025 (5/100k)', 'Family TV bundles, familiar brand'],
                 ['EE', '£22.99/mo', '1.3/5', 'Worst-three, Q4 2025 (~10/100k)', 'Speed, reliability and 4G/5G backup'],
                 ['Vodafone', '£25/mo', '1.3/5', 'Second-worst, Q1 2026 (8/100k)', '2026 award-winning value and speed survey scores'],
                 ['Plusnet', '£21.99/mo', '2.0/5', 'Best of any major provider, Q1 2026 (4/100k)', 'Budget price with the strongest complaints record'],
                 ['Community Fibre', '£12.50/mo', '4.7/5', '92% Ofcom satisfaction, 2025 data', 'London value and symmetrical speed'],
-                ['Hyperoptic', '£21.50/mo', '4.5/5', 'Not in worst-ranked providers', 'Symmetrical speed in apartment blocks'],
-                ['toob', '£19.50/mo', '4.5/5', 'Not in worst-ranked providers', 'South East England value, no price rise'],
+                ['Hyperoptic', '£19.00/mo', '4.5/5', 'Not in worst-ranked providers', 'Symmetrical speed in apartment blocks'],
+                ['toob', '£18.00/mo', '4.5/5', 'Not in worst-ranked providers', 'South East England value, small disclosed rises'],
                 ['Zen Internet', '£30/mo', '4.4/5', 'Not in worst-ranked providers', 'Static IP included, no price rise'],
               ].map(([provider, price, tp, ofcom, best]) => (
                 <tr key={provider} className="border-b border-slate-100 hover:bg-slate-50">
@@ -2466,7 +2472,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         <p>They sit alongside, not instead of, the complaints picture above: Ofcom&apos;s Q1 2026 report named Vodafone the second most complained-about broadband provider in the UK. Both things can be true at once. A broad customer survey capturing perceived value and speed, and a count of formal complaints when something goes wrong, measure genuinely different aspects of a provider&apos;s service. Vodafone appears to deliver strong day-to-day value and performance for most customers, while its complaint-handling record lags when problems do occur.</p>
 
         <h2>National providers: BT, Sky, EE and Vodafone</h2>
-        <p><strong>BT</strong> remains the widest-reaching option, covering around 98% of UK homes over the Openreach network, useful anywhere a smaller altnet has not built. Its Full Fibre range starts at £23.99 a month, with a flat £4 a month price rise every March built into every current contract.</p>
+        <p><strong>BT</strong> remains the widest-reaching option, covering around 98% of UK homes over the Openreach network, useful anywhere a smaller altnet has not built. Its Full Fibre range starts at £30.99 a month for Full Fibre 300 (checked 16 October 2026), with a flat £4 a month price rise every March built into every current contract.</p>
         <p><strong>Sky</strong> is the strongest pick for a household that also wants a TV bundle, with Sky Stream delivering television over the same broadband connection. Sky&apos;s Ofcom complaints record, 5 per 100,000 in Q4 2025, was comfortably below the industry average at the time.</p>
         <p><strong>EE</strong> offers a genuinely distinctive feature: automatic 4G or 5G mobile backup if the fixed line drops, and it was named National Broadband Provider of the Year at the 2026 Uswitch Telecoms Awards for speed and reliability. Its Ofcom complaints position was weaker, in the worst-three bracket in Q4 2025.</p>
         <p><strong>Vodafone</strong> is the strongest 2026-award performer on price, speed and reliability survey data, and bundles an Apple TV 4K device on its Xtra plans, but carries the second-worst Ofcom complaints position of any major UK provider as of Q1 2026.</p>
@@ -5674,9 +5680,9 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
     faqs: [
       { question: 'What is an eSIM?', answer: 'An eSIM is a rewritable SIM built into a compatible phone, tablet or watch. Instead of inserting a plastic card, you download a secure mobile-network profile through an app, QR code, activation link or supported device transfer. It performs the same authentication job as a physical SIM and can provide calls, texts and data on an eligible plan.' },
       { question: 'Does an eSIM give better signal than a physical SIM?', answer: 'No. On the same phone, network and tariff, an eSIM does not inherently improve mobile signal, speed or coverage. It changes how the network profile is installed, not the radio connection. Coverage still depends on the operator, local masts, congestion, radio bands, building materials and handset. Compare networks for your location rather than choosing a SIM format for stronger reception.' },
-      { question: 'How do I know whether my phone supports eSIM?', answer: 'Look in the phone settings for Add eSIM or Add SIM, or dial *#06# and check whether an EID appears. Then confirm the exact regional handset model and plan on the chosen network&apos;s compatibility page. An eSIM-capable phone can still be unsuitable if it is locked to another network or the provider does not support that device or tariff.' },
+      { question: 'How do I know whether my phone supports eSIM?', answer: 'Look in the phone settings for Add eSIM or Add SIM, or dial *#06# and check whether an EID appears. Then confirm the exact regional handset model and plan on the chosen network\'s compatibility page. An eSIM-capable phone can still be unsuitable if it is locked to another network or the provider does not support that device or tariff.' },
       { question: 'Can I keep my number when I change to eSIM?', answer: 'Yes, in normal cases. Converting a physical SIM to an eSIM with the same provider should move the existing number to the replacement profile. If you change UK network, give the new provider a PAC to port the number. Keep the old line active until the transfer completes, then test incoming calls, outgoing calls, texts and mobile data before deleting the old profile.' },
-      { question: 'Which UK mobile networks offer eSIM?', answer: 'EE, O2, Three and Vodafone all publish eSIM support, and several virtual networks offer it too. Eligibility still varies by device, plan, customer type and product: phone, smartwatch, pay monthly and pay-as-you-go support may not match. Check the provider&apos;s official eSIM page and your exact handset at checkout rather than relying on a permanent network list.' },
+      { question: 'Which UK mobile networks offer eSIM?', answer: 'EE, O2, Three and Vodafone all publish eSIM support, and several virtual networks offer it too. Eligibility still varies by device, plan, customer type and product: phone, smartwatch, pay monthly and pay-as-you-go support may not match. Check the provider\'s official eSIM page and your exact handset at checkout rather than relying on a permanent network list.' },
       { question: 'Can I use an eSIM and a physical SIM at the same time?', answer: 'Many dual-SIM phones can run an eSIM and a physical SIM together, but the number of profiles stored and lines active depends on the model. You can usually label the lines and choose separate defaults for calls, texts and mobile data. This is useful for work and personal numbers or for retaining a UK number while a travel eSIM supplies data.' },
       { question: 'What happens if I delete my eSIM?', answer: 'Deleting an eSIM removes its network profile from that device but does not necessarily cancel the mobile contract. You may need the provider to issue a replacement profile or QR code before the line works again. Contact the network through its official account or support route, complete its identity checks, and do not assume the original QR code can be reused.' },
     ],
@@ -5837,7 +5843,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
       { question: 'Which streaming service is best in the UK?', answer: 'Netflix is the best all-round choice for most UK households thanks to its catalogue size and volume of original shows, now £7.99 a month on its cheapest ad-supported tier after the September 2026 price rise. Disney+ is best for families, Amazon Prime Video is best value if you already pay for Prime, and Discovery+ is the cheapest standalone paid option at £3.99 a month.' },
       { question: 'How do UK streaming services compare on price?', answer: 'Streaming services compared on their cheapest ad-supported tier currently run from £3.99 a month (Discovery+ Basic) up to £9.99 a month (NOW Entertainment Membership), with Disney+ and Paramount+ at £4.99, Netflix at £7.99 and Amazon Prime Video and Apple TV+ both at £8.99. BBC iPlayer, ITVX, Channel 4 and My5 remain free, though a TV Licence is separately required for live television and iPlayer.' },
       { question: 'What is the cheapest streaming service in the UK?', answer: 'Discovery+ Basic is currently the cheapest standalone paid streaming service in the UK at £3.99 a month. Disney+ and Paramount+ follow closely at £4.99 a month each on their ad-supported tiers. The genuinely free options, BBC iPlayer, ITVX, Channel 4 and My5, cost nothing, but a TV Licence is still required for live television and BBC iPlayer.' },
-      { question: 'How many streaming services do I need?', answer: 'Ofcom&apos;s Media Nations 2026 report found 70% of UK households have at least one paid streaming subscription, a figure that has largely plateaued since 2022. Most households do not need more than one broad service, such as Netflix or Prime Video, plus one specialist service matching a genuine interest, rather than holding every major subscription at once.' },
+      { question: 'How many streaming services do I need?', answer: 'Ofcom\'s Media Nations 2026 report found 70% of UK households have at least one paid streaming subscription, a figure that has largely plateaued since 2022. Most households do not need more than one broad service, such as Netflix or Prime Video, plus one specialist service matching a genuine interest, rather than holding every major subscription at once.' },
       { question: 'Can I bundle streaming services with my broadband?', answer: 'Yes, in some cases. Sky includes Netflix Standard with adverts in Sky Signature and gives Paramount+ free to Sky Cinema customers, while some EE and O2 mobile plans have included limited-time Disney+ access. Check our broadband and mobile bundle discounts guide and broadband comparison tool to see what your current or prospective provider actually includes before paying for a service separately.' },
       { question: 'Is it worth subscribing to every streaming service?', answer: 'Usually not. Subscribing to all five major paid services, Netflix, Amazon Prime Video, Disney+, Discovery+ and Paramount+, at their cheapest tiers currently costs £30.95 a month combined. Most households get better value rotating one or two services that match what they actually watch rather than paying for all five permanently.' },
     ],
@@ -6222,6 +6228,10 @@ export default async function GuidePage({
           ))}
         </ul>
       </section>
+
+      <div className="mt-10">
+        <NewsletterSignup variant="guide" source="guide-end" />
+      </div>
 
       {/* Related guides */}
       <div className="mt-10">

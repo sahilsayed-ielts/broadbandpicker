@@ -10,6 +10,10 @@
     {
       "path": "/api/newsletter/send",
       "schedule": "0 9 * * 2"
+    },
+    {
+      "path": "/api/alerts/daily",
+      "schedule": "0 7 * * *"
     }
   ]
 }

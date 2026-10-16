@@ -127,6 +127,29 @@ export default async function ProviderPage({
   }
 
   const offerJsonLd = buildProviderOfferJsonLd(provider)
+  const packageRows = provider.packages
+    ? [...provider.packages]
+        .sort((a, b) => a.download - b.download || a.monthlyPrice - b.monthlyPrice)
+        .map((p) => ({
+          label: `${provider.name} ${p.packageName}`,
+          download: p.download,
+          upload: p.upload,
+          type: p.type,
+          minGuaranteedMbps: p.minGuaranteedMbps,
+          monthlyPrice: p.monthlyPrice as number | undefined,
+          contractLength: p.contractLength as number | undefined,
+          firstRise: p.priceRises?.[0],
+        }))
+    : provider.speeds.map((sp) => ({
+        label: `${provider.name} ${sp.download}Mbps`,
+        download: sp.download,
+        upload: sp.upload,
+        type: sp.type,
+        minGuaranteedMbps: undefined as number | undefined,
+        monthlyPrice: undefined as number | undefined,
+        contractLength: undefined as number | undefined,
+        firstRise: undefined as { from: string; monthlyPrice: number } | undefined,
+      }))
 
   const relatedComparisons = providerComparisons
     .filter((c) => c.providerA === provider.slug || c.providerB === provider.slug)
@@ -243,14 +266,18 @@ export default async function ProviderPage({
               <th className="text-left px-4 py-3 font-semibold text-slate-700">Download</th>
               <th className="text-left px-4 py-3 font-semibold text-slate-700">Upload</th>
               <th className="text-left px-4 py-3 font-semibold text-slate-700">Type</th>
+              {provider.packages && <th className="text-left px-4 py-3 font-semibold text-slate-700">Monthly price</th>}
               <th className="px-4 py-3"></th>
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-100">
-            {provider.speeds.map((s, i) => (
+            {packageRows.map((s, i) => (
               <tr key={i} className="bg-white hover:bg-slate-50 transition-colors">
                 <td className="px-4 py-4 font-medium text-slate-900">
-                  {provider.name} {s.download}Mbps
+                  {s.label}
+                  {s.minGuaranteedMbps ? (
+                    <div className="mt-0.5 text-xs font-normal text-slate-500">{s.minGuaranteedMbps} Mbps guaranteed</div>
+                  ) : null}
                 </td>
                 <td className="px-4 py-4">
                   <div className="font-semibold text-slate-900">{s.download} Mbps</div>
@@ -262,6 +289,15 @@ export default async function ProviderPage({
                     {s.type}
                   </span>
                 </td>
+                {provider.packages && (
+                  <td className="px-4 py-4">
+                    <div className="font-semibold text-slate-900">£{s.monthlyPrice?.toFixed(2)}</div>
+                    <div className="text-xs text-slate-500">
+                      {s.contractLength}-month contract
+                      {s.firstRise ? `, £${s.firstRise.monthlyPrice.toFixed(2)} from ${new Date(`${s.firstRise.from}T12:00:00Z`).toLocaleDateString('en-GB', { month: 'short', year: 'numeric' })}` : ''}
+                    </div>
+                  </td>
+                )}
                 <td className="px-4 py-4">
                   <AffiliateCTA
                     href={provider.successorUrl ?? provider.affiliateUrl}

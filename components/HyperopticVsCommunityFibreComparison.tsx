@@ -32,7 +32,7 @@ const costRows = [
 
 const hyperopticPros = [
   'Available in 64 UK towns and cities, so it can be in play outside London',
-  '150 Mb from £19 a month and 500 Mb from £17 a month on 24-month terms, checked on the Hyperoptic homepage on 6 September 2026',
+  '150 Mb from £19 a month and 500 Mb from £20 a month on 24-month terms, checked on the Hyperoptic homepage on 16 October 2026',
   'Rolling monthly 1 Gb offer at £29 a month until 5 October 2026, plus a 30-day decide window on new service',
   'Fair Fibre social tariff from £13 a month for 150 Mb if you receive a qualifying benefit at an eligible location',
   'Typical peak wired one-device speeds published as 159/157 Mb on 150 Mb, 527/523 Mb on 500 Mb and 900/900 Mb on 1 Gb',
@@ -225,7 +225,7 @@ export default function HyperopticVsCommunityFibreComparison({
             <dl className="mt-4 space-y-2 text-sm">
               <div className="flex justify-between gap-4 border-b border-slate-100 pb-2">
                 <dt className="text-slate-500">Intro monthly price</dt>
-                <dd className="font-medium text-slate-900">£19 like-for-like; £17.10 on the 10% sale to 16 Sep 2026</dd>
+                <dd className="font-medium text-slate-900">£19 on 24-month terms (checked 16 Oct 2026)</dd>
               </div>
               <div className="flex justify-between gap-4 border-b border-slate-100 pb-2">
                 <dt className="text-slate-500">Disclosed April rise</dt>
@@ -255,8 +255,8 @@ export default function HyperopticVsCommunityFibreComparison({
           </article>
         </div>
         <p className="mt-3 text-xs leading-relaxed text-slate-500">
-          Hyperoptic also advertised 500 Mb from £17 a month on 24-month terms on the same day, which
-          is cheaper than its own 150 Mb from £19. Community Fibre Essential 35 Mbps from £12.50 a
+          Hyperoptic also advertised 500 Mb from £20 a month on 24-month terms on 16 October 2026,
+          only £1 more than its 150 Mb plan. Community Fibre Essential 35 Mbps from £12.50 a
           month is a different, slower product and is not mixed into this 150 Mbps card.
         </p>
       </section>
@@ -299,10 +299,8 @@ export default function HyperopticVsCommunityFibreComparison({
           </table>
         </div>
         <p className="mt-3 text-xs leading-relaxed text-slate-500">
-          Community Fibre’s own packages page also showed a 10% flash sale at £17.10 a month until
-          16 September 2026, which would cut the same 24-month path to about £476. Independent
-          September 2026 listings have shown 24-month 150 Mbps Community Fibre from around £15.
-          Confirm the live checkout price. Setup is included as £0 for Community Fibre and as
+          Prices checked on both providers&apos; own sites on 16 October 2026. Confirm the live
+          checkout price for your building. Setup is included as £0 for Community Fibre and as
           unknown for Hyperoptic, because the homepage promo cards did not state an activation fee
           while some independent tables still do.
         </p>

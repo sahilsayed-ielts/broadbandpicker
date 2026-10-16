@@ -3,6 +3,8 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import AffiliateCTA from '@/components/AffiliateCTA'
+import ShareBar from '@/components/ShareBar'
+import { matchCode } from '@/lib/shareCodes'
 import type { Provider } from '@/types'
 import {
   topMatches,
@@ -135,13 +137,14 @@ export default function BroadbandMatchQuiz({ providers }: BroadbandMatchQuizProp
                   <div>
                     <h3 className="text-lg font-bold text-white">{result.provider.name}</h3>
                     <p className="text-xs text-slate-400">
-                      {result.matchedSpeed.download} Mbps &middot; {result.matchedSpeed.type}
+                      {result.matchedPackageName ? `${result.matchedPackageName} · ` : ''}{result.matchedSpeed.download} Mbps &middot; {result.matchedSpeed.type}
                     </p>
                   </div>
                 </div>
                 <div className="text-right">
-                  <div className="text-xl font-black text-white tabular-nums">£{result.provider.monthlyPriceFrom.toFixed(2)}</div>
-                  <div className="text-xs text-slate-400">per month</div>
+                  {!result.priceIsExact && <div className="text-xs text-slate-400">from</div>}
+                  <div className="text-xl font-black text-white tabular-nums">£{result.matchedPrice.toFixed(2)}</div>
+                  <div className="text-xs text-slate-400">{result.priceIsExact ? 'per month' : 'entry package'}</div>
                 </div>
               </div>
               <ul className="mt-4 space-y-1.5">
@@ -171,6 +174,21 @@ export default function BroadbandMatchQuiz({ providers }: BroadbandMatchQuizProp
             </div>
           ))}
         </div>
+
+        {results.length > 0 && (
+          <div className="mt-6 rounded-xl border border-slate-700 p-4">
+            <ShareBar
+              url={`/tools/broadband-match/result/${matchCode({ slugs: results.map((r) => r.provider.slug), minSpeed: minSpeed.download })}`}
+              title="Our Broadband Match shortlist"
+              text={`Broadband Match picked ${results.map((r) => r.provider.name).join(', ')} for our household (around ${minSpeed.download} Mbps):`}
+              contentType="broadband_match_result"
+              itemId={results.map((r) => r.provider.slug).join(',')}
+              placement="broadband_match_results"
+              tone="dark"
+              label="Share my matches"
+            />
+          </div>
+        )}
 
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <button onClick={restart} className="text-slate-400 hover:text-white text-sm font-medium transition-colors">

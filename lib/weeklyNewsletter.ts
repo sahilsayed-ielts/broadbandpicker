@@ -2,6 +2,7 @@ import { guides } from '@/data/guides'
 import { providers, providerDatasetUpdatedDate } from '@/data/providers'
 import { currentMonthYear, formatUkDate, isoWeekKey } from '@/lib/dates'
 import { brandedEmailHtml, escapeHtml } from '@/lib/mail'
+import { latestMonth, monthLabel, priceIndex } from '@/lib/priceIndex'
 import { SITE_URL } from '@/lib/siteSchema'
 
 export type WeeklyProviderRow = {
@@ -25,6 +26,13 @@ export type WeeklyLink = {
   detail?: string
 }
 
+export type WeeklyPriceChange = {
+  name: string
+  slug: string
+  from: number
+  to: number
+}
+
 export type WeeklyIssue = {
   weekKey: string
   monthYear: string
@@ -38,10 +46,28 @@ export type WeeklyIssue = {
   tools: WeeklyLink[]
   checklist: string[]
   datasetDate: string
+  priceChanges: WeeklyPriceChange[]
+  indexMedian: number | null
+  indexMonth: string
+  previousIndexMonth: string | null
+}
+
+/** Entry-price changes between the last two index months (scripts/build_price_index.py). */
+function priceChangesFromIndex(): { changes: WeeklyPriceChange[]; previous: string | null } {
+  const months = priceIndex.months
+  if (months.length < 2) return { changes: [], previous: null }
+  const prev = months[months.length - 2]
+  const latest = months[months.length - 1]
+  const changes = Object.entries(latest.prices)
+    .filter(([slug, price]) => slug in prev.prices && Math.abs(prev.prices[slug] - price) >= 0.005)
+    .map(([slug, price]) => ({ name: priceIndex.names[slug] ?? slug, slug, from: prev.prices[slug], to: price }))
+    .sort((a, b) => (a.to - a.from) - (b.to - b.from))
+  return { changes, previous: prev.month }
 }
 
 export function buildWeeklyIssue(date = new Date()): WeeklyIssue {
   const monthYear = currentMonthYear()
+  const index = priceChangesFromIndex()
   const weekKey = isoWeekKey(date)
   const active = providers.filter((provider) => !provider.retiredDate)
   const rows = [...active]
@@ -91,6 +117,7 @@ export function buildWeeklyIssue(date = new Date()): WeeklyIssue {
       { name: 'Speed test', href: '/tools/speed-test', detail: 'Measure download, upload and ping' },
       { name: 'Broadband Match', href: '/tools/broadband-match', detail: 'Rank packages for your household' },
       { name: 'Cost calculator', href: '/tools/broadband-cost-calculator', detail: 'True monthly cost, not the headline' },
+      { name: 'Contract end reminder', href: '/tools/contract-end-reminder', detail: 'A nudge 30 days before your deal ends' },
     ],
     checklist: [
       'Subject names BroadbandPicker and the month',
@@ -102,6 +129,10 @@ export function buildWeeklyIssue(date = new Date()): WeeklyIssue {
       'From is noreply@broadbandpicker.co.uk, never a personal Gmail',
     ],
     datasetDate: providerDatasetUpdatedDate,
+    priceChanges: index.changes,
+    indexMedian: latestMonth().basket.median,
+    indexMonth: latestMonth().month,
+    previousIndexMonth: index.previous,
   }
 }
 
@@ -141,8 +172,18 @@ export function weeklyIssueEmailHtml(issue: WeeklyIssue, unsubscribeUrl?: string
     .map((item) => `<p style="margin:0 0 8px;"><a href="${SITE_URL}${item.href}" style="color:#0284c7;font-weight:700;">${escapeHtml(item.name)}</a> · <span style="color:#64748b;font-size:13px;">${escapeHtml(item.detail || '')}</span></p>`)
     .join('')
 
+  const priceChangeHtml = issue.priceChanges.length > 0
+    ? `<table role="presentation" width="100%" cellspacing="0" cellpadding="0">${issue.priceChanges.map((c) => `<tr>
+        <td style="padding:8px 0;border-bottom:1px solid #e2e8f0;"><a href="${SITE_URL}/providers/${c.slug}" style="color:#0f172a;font-weight:700;text-decoration:none;">${escapeHtml(c.name)}</a></td>
+        <td style="padding:8px 0;border-bottom:1px solid #e2e8f0;text-align:right;white-space:nowrap;"><span style="color:#94a3b8;">${gbp(c.from)}</span> → <strong style="color:${c.to < c.from ? '#15803d' : '#b45309'};">${gbp(c.to)}</strong></td>
+      </tr>`).join('')}</table>`
+    : `<p style="margin:0;color:#475569;">No provider entry-price changes recorded since ${escapeHtml(issue.previousIndexMonth ? monthLabel(issue.previousIndexMonth) : 'our last check')}.</p>`
+
   const bodyHtml = `
     <p style="margin:0 0 16px;">${escapeHtml(issue.lede)}</p>
+    <h2 style="margin:24px 0 8px;font-size:16px;color:#0f172a;">Price changes</h2>
+    ${priceChangeHtml}
+    <p style="margin:8px 0 0;font-size:13px;color:#64748b;">Median entry price across tracked providers: ${issue.indexMedian !== null ? gbp(issue.indexMedian) : '–'} a month (${escapeHtml(monthLabel(issue.indexMonth))}). <a href="${SITE_URL}/research/broadband-price-index" style="color:#0284c7;">See the price index</a></p>
     <p style="margin:0 0 16px;"><a href="${SITE_URL}/compare" style="display:inline-block;background:#0ea5e9;color:#ffffff;text-decoration:none;font-weight:700;padding:12px 18px;border-radius:10px;">Check deals at your postcode</a></p>
     <h2 style="margin:24px 0 8px;font-size:16px;color:#0f172a;">From-prices to check this week</h2>
     <table role="presentation" width="100%" cellspacing="0" cellpadding="0">${providerRows}</table>
@@ -171,6 +212,12 @@ export function weeklyIssueEmailText(issue: WeeklyIssue, unsubscribeUrl?: string
     issue.lede,
     '',
     `Check deals at your postcode: ${SITE_URL}/compare`,
+    '',
+    'Price changes',
+    ...(issue.priceChanges.length > 0
+      ? issue.priceChanges.map((c) => `- ${c.name}: ${gbp(c.from)} -> ${gbp(c.to)} a month`)
+      : [`No provider entry-price changes recorded since ${issue.previousIndexMonth ? monthLabel(issue.previousIndexMonth) : 'our last check'}.`]),
+    `Price index: ${SITE_URL}/research/broadband-price-index`,
     '',
     'From-prices to check this week',
     ...issue.providers.map(

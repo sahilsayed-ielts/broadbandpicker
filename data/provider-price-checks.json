@@ -1,0 +1,823 @@
+{
+  "method": "Each package price, speed, contract length and setup fee read from the provider’s own website (rendered in a browser, national prices, new customers).",
+  "providers": {
+    "bt": {
+      "checkedAt": "2026-10-16",
+      "sourceUrl": "https://www.bt.com/broadband/deals",
+      "sourceLabel": "BT broadband deals page",
+      "setupFee": 0,
+      "setupNote": "£0 activation is an online exclusive.",
+      "notes": [
+        "Prices rise by £4 on 31 March 2027 and again on 31 March 2028, as stated on BT's page.",
+        "Upload for Fibre Essential stated as 8–9 Mbps; 9 Mbps recorded."
+      ],
+      "packages": [
+        {
+          "packageName": "Fibre Essential",
+          "download": 36,
+          "upload": 9,
+          "type": "FTTC",
+          "monthlyPrice": 28.99,
+          "contractLength": 24,
+          "minGuaranteedMbps": 32,
+          "priceRises": [
+            {
+              "from": "2027-03-31",
+              "monthlyPrice": 32.989999999999995
+            },
+            {
+              "from": "2028-03-31",
+              "monthlyPrice": 36.989999999999995
+            }
+          ]
+        },
+        {
+          "packageName": "Fibre 1",
+          "download": 50,
+          "upload": 10,
+          "type": "FTTC",
+          "monthlyPrice": 28.99,
+          "contractLength": 24,
+          "minGuaranteedMbps": 25,
+          "priceRises": [
+            {
+              "from": "2027-03-31",
+              "monthlyPrice": 32.989999999999995
+            },
+            {
+              "from": "2028-03-31",
+              "monthlyPrice": 36.989999999999995
+            }
+          ]
+        },
+        {
+          "packageName": "Fibre 2",
+          "download": 74,
+          "upload": 20,
+          "type": "FTTC",
+          "monthlyPrice": 30.99,
+          "contractLength": 24,
+          "minGuaranteedMbps": 34,
+          "priceRises": [
+            {
+              "from": "2027-03-31",
+              "monthlyPrice": 34.989999999999995
+            },
+            {
+              "from": "2028-03-31",
+              "monthlyPrice": 38.989999999999995
+            }
+          ]
+        },
+        {
+          "packageName": "Full Fibre 300",
+          "download": 300,
+          "upload": 49,
+          "type": "FTTP",
+          "monthlyPrice": 30.99,
+          "contractLength": 24,
+          "minGuaranteedMbps": 150,
+          "priceRises": [
+            {
+              "from": "2027-03-31",
+              "monthlyPrice": 34.989999999999995
+            },
+            {
+              "from": "2028-03-31",
+              "monthlyPrice": 38.989999999999995
+            }
+          ]
+        },
+        {
+          "packageName": "Full Fibre 500",
+          "download": 500,
+          "upload": 73,
+          "type": "FTTP",
+          "monthlyPrice": 33.99,
+          "contractLength": 24,
+          "minGuaranteedMbps": 425,
+          "priceRises": [
+            {
+              "from": "2027-03-31",
+              "monthlyPrice": 37.99
+            },
+            {
+              "from": "2028-03-31",
+              "monthlyPrice": 41.99
+            }
+          ]
+        },
+        {
+          "packageName": "Full Fibre 900",
+          "download": 900,
+          "upload": 110,
+          "type": "FTTP",
+          "monthlyPrice": 35.99,
+          "contractLength": 24,
+          "minGuaranteedMbps": 700,
+          "priceRises": [
+            {
+              "from": "2027-03-31",
+              "monthlyPrice": 39.99
+            },
+            {
+              "from": "2028-03-31",
+              "monthlyPrice": 43.99
+            }
+          ]
+        }
+      ]
+    },
+    "hyperoptic": {
+      "checkedAt": "2026-10-16",
+      "sourceUrl": "https://www.hyperoptic.com/",
+      "sourceLabel": "Hyperoptic homepage offers and small print",
+      "setupFee": 0,
+      "notes": [
+        "Speeds are Hyperoptic's stated average peak-time wired speeds.",
+        "1Gb: first 3 months free (offer ends 3 November), then £26; £26 recorded.",
+        "Hyperoptic says prices vary by location. Setup fee not restated; £0 from our earlier check."
+      ],
+      "packages": [
+        {
+          "packageName": "150Mb",
+          "download": 159,
+          "upload": 157,
+          "type": "FTTP",
+          "monthlyPrice": 19,
+          "contractLength": 24,
+          "priceRises": [
+            {
+              "from": "2027-04-01",
+              "monthlyPrice": 23
+            },
+            {
+              "from": "2028-04-01",
+              "monthlyPrice": 27
+            }
+          ]
+        },
+        {
+          "packageName": "500Mb",
+          "download": 527,
+          "upload": 523,
+          "type": "FTTP",
+          "monthlyPrice": 20,
+          "contractLength": 24,
+          "priceRises": [
+            {
+              "from": "2027-04-01",
+              "monthlyPrice": 24
+            },
+            {
+              "from": "2028-04-01",
+              "monthlyPrice": 28
+            }
+          ]
+        },
+        {
+          "packageName": "1Gb",
+          "download": 900,
+          "upload": 900,
+          "type": "FTTP",
+          "monthlyPrice": 26,
+          "contractLength": 24,
+          "priceRises": [
+            {
+              "from": "2027-04-01",
+              "monthlyPrice": 30
+            },
+            {
+              "from": "2028-04-01",
+              "monthlyPrice": 34
+            }
+          ]
+        }
+      ]
+    },
+    "community-fibre": {
+      "checkedAt": "2026-10-16",
+      "sourceUrl": "https://www.communityfibre.co.uk/",
+      "sourceLabel": "Community Fibre packages (24-month and 12-month tabs)",
+      "setupFee": 0,
+      "notes": [
+        "Average download and upload speeds are equal, as stated.",
+        "At contract end the price rises by £4, then £3 each April.",
+        "Essential 35 (35 Mbps, 12 months, £12.50) shows no April rise on the page."
+      ],
+      "packages": [
+        {
+          "packageName": "Full Fibre 150",
+          "download": 150,
+          "upload": 150,
+          "type": "FTTP",
+          "monthlyPrice": 19,
+          "contractLength": 24,
+          "priceRises": [
+            {
+              "from": "2027-04-01",
+              "monthlyPrice": 22
+            },
+            {
+              "from": "2028-04-01",
+              "monthlyPrice": 25
+            }
+          ]
+        },
+        {
+          "packageName": "Full Fibre 500",
+          "download": 500,
+          "upload": 500,
+          "type": "FTTP",
+          "monthlyPrice": 21,
+          "contractLength": 24,
+          "priceRises": [
+            {
+              "from": "2027-04-01",
+              "monthlyPrice": 24
+            },
+            {
+              "from": "2028-04-01",
+              "monthlyPrice": 27
+            }
+          ]
+        },
+        {
+          "packageName": "Full Fibre 1 Gbps",
+          "download": 1000,
+          "upload": 1000,
+          "type": "FTTP",
+          "monthlyPrice": 25,
+          "contractLength": 24,
+          "priceRises": [
+            {
+              "from": "2027-04-01",
+              "monthlyPrice": 28
+            },
+            {
+              "from": "2028-04-01",
+              "monthlyPrice": 31
+            }
+          ]
+        },
+        {
+          "packageName": "Full Fibre 2.5 Gbps",
+          "download": 2300,
+          "upload": 2300,
+          "type": "FTTP",
+          "monthlyPrice": 29,
+          "contractLength": 24,
+          "priceRises": [
+            {
+              "from": "2027-04-01",
+              "monthlyPrice": 32
+            },
+            {
+              "from": "2028-04-01",
+              "monthlyPrice": 35
+            }
+          ]
+        },
+        {
+          "packageName": "Full Fibre 5 Gbps",
+          "download": 5000,
+          "upload": 5000,
+          "type": "FTTP",
+          "monthlyPrice": 43,
+          "contractLength": 24,
+          "priceRises": [
+            {
+              "from": "2027-04-01",
+              "monthlyPrice": 46
+            },
+            {
+              "from": "2028-04-01",
+              "monthlyPrice": 49
+            }
+          ]
+        },
+        {
+          "packageName": "Essential 35",
+          "download": 35,
+          "upload": 35,
+          "type": "FTTP",
+          "monthlyPrice": 12.5,
+          "contractLength": 12
+        },
+        {
+          "packageName": "Full Fibre 150 (12 months)",
+          "download": 150,
+          "upload": 150,
+          "type": "FTTP",
+          "monthlyPrice": 25,
+          "contractLength": 12,
+          "priceRises": [
+            {
+              "from": "2027-04-01",
+              "monthlyPrice": 28
+            }
+          ]
+        },
+        {
+          "packageName": "Full Fibre 500 (12 months)",
+          "download": 500,
+          "upload": 500,
+          "type": "FTTP",
+          "monthlyPrice": 28,
+          "contractLength": 12,
+          "priceRises": [
+            {
+              "from": "2027-04-01",
+              "monthlyPrice": 31
+            }
+          ]
+        },
+        {
+          "packageName": "Full Fibre 1 Gbps (12 months)",
+          "download": 1000,
+          "upload": 1000,
+          "type": "FTTP",
+          "monthlyPrice": 30,
+          "contractLength": 12,
+          "priceRises": [
+            {
+              "from": "2027-04-01",
+              "monthlyPrice": 33
+            }
+          ]
+        }
+      ]
+    },
+    "toob": {
+      "checkedAt": "2026-10-16",
+      "sourceUrl": "https://www.toob.co.uk/",
+      "sourceLabel": "toob packages (24-month tab)",
+      "setupFee": 0,
+      "setupNote": "No upfront costs, free installation.",
+      "notes": [
+        "Upload equals download, as stated."
+      ],
+      "packages": [
+        {
+          "packageName": "home150",
+          "download": 150,
+          "upload": 150,
+          "type": "FTTP",
+          "monthlyPrice": 18,
+          "contractLength": 24,
+          "priceRises": [
+            {
+              "from": "2027-04-01",
+              "monthlyPrice": 20
+            },
+            {
+              "from": "2028-04-01",
+              "monthlyPrice": 22
+            }
+          ]
+        },
+        {
+          "packageName": "home900",
+          "download": 900,
+          "upload": 900,
+          "type": "FTTP",
+          "monthlyPrice": 23,
+          "contractLength": 24,
+          "priceRises": [
+            {
+              "from": "2027-04-01",
+              "monthlyPrice": 25
+            },
+            {
+              "from": "2028-04-01",
+              "monthlyPrice": 27
+            }
+          ]
+        },
+        {
+          "packageName": "home2300",
+          "download": 2300,
+          "upload": 2300,
+          "type": "FTTP",
+          "monthlyPrice": 29,
+          "contractLength": 24,
+          "priceRises": [
+            {
+              "from": "2027-04-01",
+              "monthlyPrice": 31
+            },
+            {
+              "from": "2028-04-01",
+              "monthlyPrice": 33
+            }
+          ]
+        }
+      ]
+    },
+    "zzoomm": {
+      "checkedAt": "2026-10-16",
+      "sourceUrl": "https://www.zzoomm.com/",
+      "sourceLabel": "Zzoomm packages (24-month tab)",
+      "setupFee": 0,
+      "setupNote": "No installation or set-up fees.",
+      "notes": [
+        "Each price rises by £4 from month 13, as stated."
+      ],
+      "packages": [
+        {
+          "packageName": "Full Fibre 200",
+          "download": 200,
+          "upload": 200,
+          "type": "FTTP",
+          "monthlyPrice": 22,
+          "contractLength": 24,
+          "priceSteps": [
+            {
+              "afterMonth": 12,
+              "monthlyPrice": 26
+            }
+          ]
+        },
+        {
+          "packageName": "Full Fibre 500",
+          "download": 500,
+          "upload": 500,
+          "type": "FTTP",
+          "monthlyPrice": 24,
+          "contractLength": 24,
+          "priceSteps": [
+            {
+              "afterMonth": 12,
+              "monthlyPrice": 28
+            }
+          ]
+        },
+        {
+          "packageName": "Full Fibre 1000",
+          "download": 1000,
+          "upload": 1000,
+          "type": "FTTP",
+          "monthlyPrice": 26,
+          "contractLength": 24,
+          "priceSteps": [
+            {
+              "afterMonth": 12,
+              "monthlyPrice": 30
+            }
+          ]
+        },
+        {
+          "packageName": "Full Fibre 2300",
+          "download": 2300,
+          "upload": 2300,
+          "type": "FTTP",
+          "monthlyPrice": 35,
+          "contractLength": 24,
+          "priceSteps": [
+            {
+              "afterMonth": 12,
+              "monthlyPrice": 39
+            }
+          ]
+        }
+      ]
+    },
+    "highland-broadband": {
+      "checkedAt": "2026-10-16",
+      "sourceUrl": "https://highlandbroadband.com/broadband/packages-pricing/",
+      "sourceLabel": "Highland Broadband packages and pricing",
+      "setupFee": 0,
+      "notes": [
+        "Prices increase by £4 each April from 2027, as stated.",
+        "Setup fee not stated on the page; £0 from our earlier check."
+      ],
+      "packages": [
+        {
+          "packageName": "Essential 150",
+          "download": 150,
+          "upload": 150,
+          "type": "FTTP",
+          "monthlyPrice": 24.99,
+          "contractLength": 24,
+          "priceRises": [
+            {
+              "from": "2027-04-01",
+              "monthlyPrice": 28.99
+            },
+            {
+              "from": "2028-04-01",
+              "monthlyPrice": 32.989999999999995
+            }
+          ]
+        },
+        {
+          "packageName": "Everyday 500",
+          "download": 500,
+          "upload": 500,
+          "type": "FTTP",
+          "monthlyPrice": 29.99,
+          "contractLength": 24,
+          "priceRises": [
+            {
+              "from": "2027-04-01",
+              "monthlyPrice": 33.989999999999995
+            },
+            {
+              "from": "2028-04-01",
+              "monthlyPrice": 37.989999999999995
+            }
+          ]
+        },
+        {
+          "packageName": "Family 1000",
+          "download": 1000,
+          "upload": 1000,
+          "type": "FTTP",
+          "monthlyPrice": 34.99,
+          "contractLength": 24,
+          "priceRises": [
+            {
+              "from": "2027-04-01",
+              "monthlyPrice": 38.99
+            },
+            {
+              "from": "2028-04-01",
+              "monthlyPrice": 42.99
+            }
+          ]
+        },
+        {
+          "packageName": "Ultimate 5000",
+          "download": 5000,
+          "upload": 5000,
+          "type": "FTTP",
+          "monthlyPrice": 39.99,
+          "contractLength": 24,
+          "priceRises": [
+            {
+              "from": "2027-04-01",
+              "monthlyPrice": 43.99
+            },
+            {
+              "from": "2028-04-01",
+              "monthlyPrice": 47.99
+            }
+          ]
+        }
+      ]
+    },
+    "connect-fibre": {
+      "checkedAt": "2026-10-16",
+      "sourceUrl": "https://www.connectfibre.co.uk/price-book",
+      "sourceLabel": "Connect Fibre price book (updated 8 January 2026)",
+      "setupFee": 0,
+      "setupNote": "Free standard installation.",
+      "notes": [
+        "24-month prices from the price book; homepage confirms 'From £24.99/month. Fixed for 24 months'.",
+        "Upload speeds not restated; symmetric per our earlier review."
+      ],
+      "packages": [
+        {
+          "packageName": "Fibre250",
+          "download": 250,
+          "upload": 250,
+          "type": "FTTP",
+          "monthlyPrice": 24.99,
+          "contractLength": 24
+        },
+        {
+          "packageName": "Fibre1000",
+          "download": 1000,
+          "upload": 1000,
+          "type": "FTTP",
+          "monthlyPrice": 29.99,
+          "contractLength": 24
+        },
+        {
+          "packageName": "Fibre2000",
+          "download": 2000,
+          "upload": 2000,
+          "type": "FTTP",
+          "monthlyPrice": 34.99,
+          "contractLength": 24
+        },
+        {
+          "packageName": "Fibre5000",
+          "download": 5000,
+          "upload": 5000,
+          "type": "FTTP",
+          "monthlyPrice": 44.99,
+          "contractLength": 24
+        }
+      ]
+    },
+    "pine-media": {
+      "checkedAt": "2026-10-16",
+      "sourceUrl": "https://pinemedia.net/",
+      "sourceLabel": "Pine Media plans (24-month tab)",
+      "setupFee": 0,
+      "setupNote": "No upfront costs on 24-month plans.",
+      "notes": [
+        "No in-contract price rises, as stated. Same speed up and down."
+      ],
+      "packages": [
+        {
+          "packageName": "GIG 100",
+          "download": 100,
+          "upload": 100,
+          "type": "FTTP",
+          "monthlyPrice": 22,
+          "contractLength": 24
+        },
+        {
+          "packageName": "GIG 160",
+          "download": 160,
+          "upload": 160,
+          "type": "FTTP",
+          "monthlyPrice": 23,
+          "contractLength": 24
+        },
+        {
+          "packageName": "GIG 550",
+          "download": 550,
+          "upload": 550,
+          "type": "FTTP",
+          "monthlyPrice": 27,
+          "contractLength": 24
+        },
+        {
+          "packageName": "GIG 1000",
+          "download": 900,
+          "upload": 900,
+          "type": "FTTP",
+          "monthlyPrice": 30,
+          "contractLength": 24
+        },
+        {
+          "packageName": "GIG 2000",
+          "download": 2000,
+          "upload": 2000,
+          "type": "FTTP",
+          "monthlyPrice": 34,
+          "contractLength": 24
+        }
+      ]
+    },
+    "giffgaff": {
+      "checkedAt": "2026-10-16",
+      "sourceUrl": "https://www.giffgaff.com/broadband",
+      "sourceLabel": "giffgaff broadband plans (24-month tab)",
+      "setupFee": 0,
+      "notes": [
+        "No mid-term price rises and symmetrical speeds, as stated. Setup fee not restated; £0 from our earlier check."
+      ],
+      "packages": [
+        {
+          "packageName": "Fast 200",
+          "download": 200,
+          "upload": 200,
+          "type": "FTTP",
+          "monthlyPrice": 25,
+          "contractLength": 24
+        },
+        {
+          "packageName": "Faster 500",
+          "download": 500,
+          "upload": 500,
+          "type": "FTTP",
+          "monthlyPrice": 28,
+          "contractLength": 24
+        },
+        {
+          "packageName": "Fastest 900",
+          "download": 900,
+          "upload": 900,
+          "type": "FTTP",
+          "monthlyPrice": 32,
+          "contractLength": 24
+        }
+      ]
+    },
+    "now-broadband": {
+      "checkedAt": "2026-10-16",
+      "sourceUrl": "https://www.nowtv.com/broadband",
+      "sourceLabel": "NOW Broadband plans",
+      "setupFee": 0,
+      "setupNote": "£0 activation and £0 delivery.",
+      "notes": [
+        "Estimated speeds as stated by NOW. 'Price may change during 24-month minimum term.'"
+      ],
+      "packages": [
+        {
+          "packageName": "Full Fibre 75",
+          "download": 80,
+          "upload": 16,
+          "type": "FTTP",
+          "monthlyPrice": 23,
+          "contractLength": 24
+        },
+        {
+          "packageName": "Full Fibre 100",
+          "download": 100,
+          "upload": 18,
+          "type": "FTTP",
+          "monthlyPrice": 25,
+          "contractLength": 24
+        },
+        {
+          "packageName": "Full Fibre 300",
+          "download": 300,
+          "upload": 40,
+          "type": "FTTP",
+          "monthlyPrice": 28,
+          "contractLength": 24
+        }
+      ]
+    },
+    "youfibre": {
+      "checkedAt": "2026-10-16",
+      "sourceUrl": "https://www.youfibre.com/",
+      "sourceLabel": "YouFibre plans (24 Months Fixed Price tab, the default)",
+      "setupFee": 0,
+      "setupNote": "Free install and no set-up fees.",
+      "notes": [
+        "Average wired upload and download speeds, as stated.",
+        "No in-contract price rises. You 200, You 1000 and You 8000 are marked as limited-time deals (was £24.99, £29.99 and £99.99)."
+      ],
+      "packages": [
+        {
+          "packageName": "You 200",
+          "download": 200,
+          "upload": 200,
+          "type": "FTTP",
+          "monthlyPrice": 22,
+          "contractLength": 24
+        },
+        {
+          "packageName": "You 1000",
+          "download": 900,
+          "upload": 900,
+          "type": "FTTP",
+          "monthlyPrice": 24,
+          "contractLength": 24
+        },
+        {
+          "packageName": "You 2000",
+          "download": 1800,
+          "upload": 1800,
+          "type": "FTTP",
+          "monthlyPrice": 34.99,
+          "contractLength": 24
+        },
+        {
+          "packageName": "You 8000",
+          "download": 7000,
+          "upload": 7000,
+          "type": "FTTP",
+          "monthlyPrice": 50,
+          "contractLength": 24
+        }
+      ]
+    },
+    "virgin-media": {
+      "checkedAt": "2026-10-16",
+      "sourceUrl": "https://www.virginmedia.com/broadband",
+      "sourceLabel": "Virgin Media broadband deals page",
+      "setupFee": 0,
+      "entryPrice": 23.99,
+      "entryDownload": 132,
+      "packages": [],
+      "setupNote": "No setup fee with QuickStart self-install; £30 if you choose an engineer.",
+      "notes": [
+        "M125 (average 132 Mbps) from £23.99 a month for new customers.",
+        "Other speeds are listed only as 'from' prices and the contract length is shown at checkout, so they are not recorded as separate deals."
+      ]
+    },
+    "onestream": {
+      "checkedAt": "2026-10-16",
+      "sourceUrl": "https://onestream.co.uk/",
+      "sourceLabel": "Onestream homepage",
+      "setupFee": 4.95,
+      "entryPrice": 18.5,
+      "entryDownload": 35,
+      "packages": [],
+      "notes": [
+        "40 Mbps package (35 Mbps download, 9 Mbps upload) at £18.50 a month.",
+        "Onestream's published price guide lists standard charges (£29.95–£59.95), not sign-up deals, so it is not used for deal prices. Setup fee not restated; earlier figure kept."
+      ]
+    },
+    "cuckoo": {
+      "checkedAt": "2026-10-16",
+      "sourceUrl": "https://cuckoo.co/legal/price-list",
+      "sourceLabel": "Cuckoo price list (standard monthly charges)",
+      "setupFee": 99,
+      "entryPrice": 29.95,
+      "entryDownload": 17,
+      "packages": [],
+      "setupNote": "Activation £99 for part-fibre (SoGEA), £149 for full fibre.",
+      "notes": [
+        "Standard price list; sign-up offers need a postcode on Cuckoo's site and may be lower."
+      ]
+    }
+  }
+}

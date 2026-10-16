@@ -1,4 +1,5 @@
 import type { Provider } from '@/types'
+import { packageForSpeed } from '@/lib/deals'
 import { getPostcodeArea } from '@/data/postcodes'
 import { getDistrictCoverage } from '@/data/postcodeDistrictCoverage'
 import { extractPostcodeArea } from '@/lib/postcode'
@@ -20,6 +21,11 @@ export interface QuizAnswers {
 export interface MatchResult {
   provider: Provider
   matchedSpeed: { download: number; upload: number; type: string }
+  /** Price of the matched package when its price is checked, otherwise the provider's entry price. */
+  matchedPrice: number
+  /** True when matchedPrice is the matched package's own price, not a "from" price. */
+  priceIsExact: boolean
+  matchedPackageName?: string
   score: number
   withinBudget: boolean
   reasons: string[]
@@ -92,8 +98,13 @@ export function matchProviders(answers: QuizAnswers, providers: Provider[]): Mat
   const { download: minDownload, upload: minUpload } = computeMinimumSpeed(answers)
 
   const results: MatchResult[] = providers.map((provider) => {
-    const matchedSpeed = bestMatchedSpeed(provider, minDownload, minUpload)
-    const withinBudget = provider.monthlyPriceFrom <= answers.budget
+    const pkg = packageForSpeed(provider, minDownload)
+    const matchedSpeed = pkg
+      ? { download: pkg.download, upload: pkg.upload, type: pkg.type }
+      : bestMatchedSpeed(provider, minDownload, minUpload)
+    const matchedPrice = pkg?.monthlyPrice ?? provider.monthlyPriceFrom
+    const priceIsExact = Boolean(pkg)
+    const withinBudget = matchedPrice <= answers.budget
     const availability = localAvailabilitySignal(provider, answers.postcode)
 
     const speedMeetsNeed = matchedSpeed.download >= minDownload && matchedSpeed.upload >= minUpload
@@ -101,7 +112,7 @@ export function matchProviders(answers: QuizAnswers, providers: Provider[]): Mat
       ? Math.max(0, 1 - (matchedSpeed.download - minDownload) / 600) // mild penalty for wild over-provisioning
       : 0.3 // real penalty if it can't actually meet the need
 
-    const priceScore = withinBudget ? Math.max(0, 1 - provider.monthlyPriceFrom / Math.max(answers.budget, 1)) : 0
+    const priceScore = withinBudget ? Math.max(0, 1 - matchedPrice / Math.max(answers.budget, 1)) : 0
     const trustScore = provider.trustpilotScore / 5
     const contractScore =
       answers.contractPreference === 'flexible'
@@ -128,18 +139,19 @@ export function matchProviders(answers: QuizAnswers, providers: Provider[]): Mat
         `Fastest package is ${matchedSpeed.download} Mbps — below the ${minDownload} Mbps we'd usually suggest for your household, so treat this as a budget-first pick.`
       )
     }
-    if (withinBudget) {
-      reasons.push(`From £${provider.monthlyPriceFrom.toFixed(2)}/month, within your £${answers.budget}/month budget.`)
-    } else {
-      reasons.push(`From £${provider.monthlyPriceFrom.toFixed(2)}/month — above your £${answers.budget}/month budget.`)
-    }
+    const priceLabel = priceIsExact
+      ? `${pkg!.packageName} is £${matchedPrice.toFixed(2)}/month`
+      : `From £${matchedPrice.toFixed(2)}/month for the entry package`
+    reasons.push(withinBudget
+      ? `${priceLabel}, within your £${answers.budget}/month budget.`
+      : `${priceLabel}, above your £${answers.budget}/month budget.`)
     if (answers.contractPreference === 'flexible' && Math.min(...provider.contractLengths) <= 12) {
       reasons.push(`Shortest contract is ${Math.min(...provider.contractLengths)} months, matching your preference for flexibility.`)
     }
     reasons.push(`Trustpilot score ${provider.trustpilotScore.toFixed(1)}/5.`)
     if (availability.note) reasons.push(availability.note)
 
-    return { provider, matchedSpeed, score: Math.round(score * 10) / 10, withinBudget, reasons }
+    return { provider, matchedSpeed, matchedPrice, priceIsExact, matchedPackageName: pkg?.packageName, score: Math.round(score * 10) / 10, withinBudget, reasons }
   })
 
   return results.sort((a, b) => b.score - a.score)

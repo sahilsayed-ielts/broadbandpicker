@@ -7,7 +7,7 @@ import { CONSENT_TEXT } from '@/lib/newsletterCopy'
 import { NEWSLETTER_PUBLIC } from '@/lib/newsletterPublic'
 
 interface NewsletterSignupProps {
-  variant?: 'footer' | 'inline' | 'postcode' | 'page'
+  variant?: 'footer' | 'inline' | 'postcode' | 'page' | 'guide'
   source?: string
   postcodeArea?: string
   postcodeTown?: string
@@ -33,6 +33,7 @@ export default function NewsletterSignup({
 
   const showPostcodeField = variant === 'page' || variant === 'inline' || variant === 'footer'
   const lockPostcode = variant === 'postcode'
+  const isGuide = variant === 'guide'
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -114,17 +115,21 @@ export default function NewsletterSignup({
     </label>
   )
 
-  if (variant === 'postcode') {
+  if (variant === 'postcode' || variant === 'guide') {
     return (
       <div className="bg-sky-50 border border-sky-200 rounded-xl p-5">
         <div className="flex items-center gap-2 mb-1">
           <svg className="w-4 h-4 text-sky-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
           </svg>
-          <span className="font-semibold text-slate-900 text-sm">Get deal alerts for {areaLabel}</span>
+          <span className="font-semibold text-slate-900 text-sm">
+            {isGuide ? 'Price drops and the best new deals, every Tuesday' : `Get deal alerts for ${areaLabel}`}
+          </span>
         </div>
         <p className="text-xs text-slate-600 mb-3">
-          Optional weekly emails when we publish cheaper or faster packages that can serve this postcode area. Confirm in your inbox first.
+          {isGuide
+            ? 'One short email a week: provider price changes, the cheapest deals we are tracking and new guides. Confirm in your inbox first. Unsubscribe any time.'
+            : 'One short email every Tuesday: provider price changes and the cheapest deals we are tracking. We keep your postcode area so we can add local updates. Confirm in your inbox first.'}
         </p>
         {status === 'success' ? (
           <p className="text-green-700 font-medium text-sm">{message}</p>

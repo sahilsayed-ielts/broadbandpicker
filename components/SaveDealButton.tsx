@@ -1,8 +1,12 @@
 'use client'
 
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { dealId, isDealSaved, toggleSavedDeal } from '@/lib/savedDeals'
 import { trackEvent } from '@/lib/analytics'
+import { NEWSLETTER_PUBLIC } from '@/lib/newsletterPublic'
+
+const TOAST_EVENT = 'bbp:save-toast'
 
 interface SaveDealButtonProps {
   providerSlug: string
@@ -23,10 +27,20 @@ export default function SaveDealButton({
 }: SaveDealButtonProps) {
   const id = dealId(providerSlug, packageName)
   const [saved, setSaved] = useState(false)
+  const [toast, setToast] = useState(false)
 
   // Read after mount only: localStorage state must not affect SSR/CSR markup.
   useEffect(() => {
     setSaved(isDealSaved(id))
+  }, [id])
+
+  // Only the most recent save shows its toast.
+  useEffect(() => {
+    const hide = (e: Event) => {
+      if ((e as CustomEvent<string>).detail !== id) setToast(false)
+    }
+    window.addEventListener(TOAST_EVENT, hide)
+    return () => window.removeEventListener(TOAST_EVENT, hide)
   }, [id])
 
   function handleClick() {
@@ -34,10 +48,16 @@ export default function SaveDealButton({
       id, providerSlug, providerName, packageName, monthlyPrice, download, contractLength,
     })
     setSaved(nowSaved)
+    setToast(nowSaved)
+    if (nowSaved) {
+      window.dispatchEvent(new CustomEvent(TOAST_EVENT, { detail: id }))
+      window.setTimeout(() => setToast(false), 6000)
+    }
     trackEvent(nowSaved ? 'deal_saved' : 'deal_unsaved', { provider_slug: providerSlug, package_name: packageName })
   }
 
   return (
+    <>
     <button
       type="button"
       onClick={handleClick}
@@ -63,5 +83,22 @@ export default function SaveDealButton({
         />
       </svg>
     </button>
+    {toast && (
+      <div
+        role="status"
+        className="fixed inset-x-0 bottom-4 z-50 mx-auto flex w-[calc(100%-2rem)] max-w-md items-center justify-between gap-3 rounded-xl bg-slate-900 px-4 py-3 text-sm text-white shadow-lg"
+        style={{ marginBottom: 'env(safe-area-inset-bottom, 0px)' }}
+      >
+        <span>Saved {providerName}.</span>
+        <Link
+          href={NEWSLETTER_PUBLIC ? '/saved-deals#price-alerts' : '/saved-deals'}
+          onClick={() => trackEvent('saved_deal_toast_click', { provider_slug: providerSlug })}
+          className="font-semibold text-sky-300 hover:underline"
+        >
+          {NEWSLETTER_PUBLIC ? 'Email me if it gets cheaper' : 'See saved deals'}
+        </Link>
+      </div>
+    )}
+    </>
   )
 }

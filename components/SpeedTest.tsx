@@ -3,6 +3,9 @@
 import { useCallback, useEffect, useState } from 'react'
 import Link from 'next/link'
 import { trackEvent } from '@/lib/analytics'
+import ShareBar from '@/components/ShareBar'
+import { speedCode } from '@/lib/shareCodes'
+import { speedColor, speedLabel } from '@/lib/speedResult'
 import { roundMbps, runProfessionalSpeedTest } from '@/lib/speedTestMeasure'
 import {
   queryGeoPermission,
@@ -25,23 +28,6 @@ const MAX_MBPS = 1000
 
 function arcFill(mbps: number) {
   return GAUGE * Math.min(mbps / MAX_MBPS, 1)
-}
-
-function speedColor(mbps: number) {
-  if (mbps < 20) return '#ef4444'
-  if (mbps < 50) return '#f97316'
-  if (mbps < 100) return '#eab308'
-  if (mbps < 300) return '#22c55e'
-  return '#0ea5e9'
-}
-
-function speedLabel(mbps: number) {
-  if (mbps < 10) return 'Very slow'
-  if (mbps < 30) return 'Basic'
-  if (mbps < 100) return 'Standard'
-  if (mbps < 300) return 'Fast'
-  if (mbps < 600) return 'Superfast'
-  return 'Gigabit'
 }
 
 function recommendation(download: number, upload: number, ping: number, loaded: number | null) {
@@ -453,6 +439,18 @@ export default function SpeedTest() {
             >
               What speed do I need?
             </Link>
+          </div>
+          <div className="rounded-xl border border-slate-700 p-4">
+            <ShareBar
+              url={`/tools/speed-test/result/${speedCode({ download, upload, ping })}`}
+              title={`My broadband speed: ${download} Mbps`}
+              text={`My broadband just tested at ${download} Mbps down, ${upload} Mbps up. How does yours compare?`}
+              contentType="speed_test_result"
+              itemId={speedLabel(download).toLowerCase()}
+              placement="speed_test_results"
+              tone="dark"
+              label="Share my result"
+            />
           </div>
           <p className="text-center text-xs text-slate-500">
             Headline download is the 90th percentile after discarding TCP slow start. This is the path to our London server, not an Ofcom-accredited line test. Availability varies by address. We may earn commission if you buy after clicking through.

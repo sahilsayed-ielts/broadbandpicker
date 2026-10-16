@@ -2,6 +2,7 @@ import Link from 'next/link'
 import type { ReactNode } from 'react'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
 import FAQAccordion from '@/components/FAQAccordion'
+import NewsletterSignup from '@/components/NewsletterSignup'
 import Logo from '@/components/Logo'
 import GuideHeroBanner from '@/components/GuideHeroBanner'
 import PostcodeContextBar from '@/components/PostcodeContextBar'
@@ -270,6 +271,10 @@ export default function CommercialGuideLayout({
               ))}
             </ul>
           </section>
+
+          <div className="mt-10">
+            <NewsletterSignup variant="guide" source="commercial-guide-end" />
+          </div>
 
           {related.length > 0 && (
             <section className="mt-10">

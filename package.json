@@ -40,7 +40,9 @@
     "seo:diagnose": "python3 scripts/diagnose_site_seo_geo.py",
     "seo:trending": "python3 scripts/analyze_geo_growth_strategy.py --trending --run-serp --skip-tracker",
     "alerts:analyze": "/usr/bin/python3 scripts/analyze_affiliate_email_alerts.py",
-    "alerts:weekly": "/usr/bin/python3 scripts/analyze_weekly_newsletters.py"
+    "alerts:weekly": "/usr/bin/python3 scripts/analyze_weekly_newsletters.py",
+    "index:build": "python3 scripts/build_price_index.py",
+    "test:alerts": "node scripts/test_alerts.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.106.2",

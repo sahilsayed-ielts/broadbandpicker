@@ -46,7 +46,7 @@ export const providerComparisons: ProviderComparison[] = [
       providerB: { fromPrice: '£23.00/mo', maxSpeed: '900 Mbps', coverage: '95%', trustpilot: '2.7', contract: '24 months', setupFee: '£0 (currently advertised)' },
     },
     intro: [
-      'BT and Sky both sell broadband over the Openreach network, so line quality and top available speed at a given address are largely the same regardless of which is chosen. As of August 2026, their entry prices have converged to within a pound of each other, £23.99 for BT against £23.00 for Sky, both on standard 24-month contracts, a genuine change from the larger price gap and different contract lengths this comparison showed in the past.',
+      'BT and Sky both sell broadband over the Openreach network, so line quality and top available speed at a given address are largely the same regardless of which is chosen. BT now starts from £28.99 a month (checked 16 October 2026) against Sky\'s £23.00 in our last check, both on standard 24-month contracts, so Sky is currently the cheaper entry point.',
       'With pricing this close, the real differences are Ofcom\'s independently regulated complaints data, total coverage, and how each provider structures its future price rises, not the headline monthly figure.',
     ],
     verdict: [
@@ -57,7 +57,7 @@ export const providerComparisons: ProviderComparison[] = [
       {
         label: 'Pricing',
         detail:
-          'Now nearly identical: BT from £23.99 a month, Sky from £23.00, both on 24-month contracts. This is a real change from the larger gap and different contract lengths seen previously.',
+          'BT starts from £28.99 a month (part-fibre) and £30.99 for Full Fibre 300, checked on 16 October 2026; Sky started from £23.00 in our last check. Both use 24-month contracts, so compare the exact package at your address.',
       },
       {
         label: 'Ofcom complaints',
@@ -94,7 +94,7 @@ export const providerComparisons: ProviderComparison[] = [
       {
         question: 'Which is cheaper, BT or Sky broadband?',
         answer:
-          'As of August 2026, they are nearly identical: Sky from £23.00 a month, BT from £23.99, both on 24-month contracts. This is a real change from the past, when Sky was meaningfully cheaper and offered a shorter contract.',
+          'Sky, on current figures: from £23.00 a month in our last check, against BT\'s £28.99 (part-fibre) or £30.99 (Full Fibre 300) on 16 October 2026, both on 24-month contracts.',
       },
       {
         question: 'Which has a better complaints record, BT or Sky?',
@@ -155,7 +155,7 @@ export const providerComparisons: ProviderComparison[] = [
       {
         label: 'Pricing',
         detail:
-          'BT starts from £23.99 a month on a 24-month contract; Virgin Media starts from £33.00 on an 18-month contract, reflecting its faster entry-level cable speeds rather than a like-for-like comparison.',
+          'BT starts from £28.99 a month on a 24-month contract; Virgin Media starts from £23.99 for M125 (132 Mbps average), both checked on 16 October 2026. Virgin shows its contract length at checkout, so confirm it before comparing total cost.',
       },
       {
         label: 'Top speed',
@@ -320,7 +320,7 @@ export const providerComparisons: ProviderComparison[] = [
       providerB: { fromPrice: '£23.99/mo', maxSpeed: '900 Mbps', coverage: '98%', trustpilot: '4.0 / 1.5 (two pages)', contract: '24 months', setupFee: '£30 (reward card offsets)' },
     },
     intro: [
-      'EE and BT are both owned by BT Group and sell broadband over the same Openreach network, so line quality and top available speed at a given address are largely identical regardless of which is chosen. EE starts from £22.99 a month, a pound cheaper than BT\'s £23.99, and includes a genuinely distinctive feature BT does not offer: automatic 4G or 5G mobile backup if the fixed line drops.',
+      'EE and BT are both owned by BT Group and sell broadband over the same Openreach network, so line quality and top available speed at a given address are largely identical regardless of which is chosen. EE started from £22.99 a month in our last check, below BT\'s £28.99 on 16 October 2026, and includes a genuinely distinctive feature BT does not offer: automatic 4G or 5G mobile backup if the fixed line drops.',
       'The complaints picture has also converged. Ofcom\'s Q1 2026 report recorded EE at 6 per 100,000 customers, exactly the industry average, a real improvement from a worst-three position in Q4 2025, against BT\'s 7, just above average.',
     ],
     verdict: [
@@ -331,7 +331,7 @@ export const providerComparisons: ProviderComparison[] = [
       {
         label: 'Pricing',
         detail:
-          'EE starts from £22.99 a month, a pound cheaper than BT\'s £23.99, both on 24-month contracts.',
+          'EE started from £22.99 a month in our last check; BT starts from £28.99 (16 October 2026). Both use 24-month contracts.',
       },
       {
         label: 'Mobile backup',
@@ -363,7 +363,7 @@ export const providerComparisons: ProviderComparison[] = [
       {
         question: 'Which is cheaper, EE or BT broadband?',
         answer:
-          'EE, by around £1 a month: it starts from £22.99 against BT\'s £23.99, both on 24-month contracts over the same Openreach network.',
+          'EE, on current figures: from £22.99 a month in our last check against BT\'s £28.99 on 16 October 2026, both on 24-month contracts over the same Openreach network.',
       },
       {
         question: 'Are EE and BT the same company?',
@@ -475,13 +475,13 @@ export const providerComparisons: ProviderComparison[] = [
     metaDescription:
       'Compare Virgin Media vs Vodafone broadband on speed, network type, pricing, setup fees, coverage, and which provider offers better value in 2026.',
     excerpt:
-      'Virgin Media broadband starts from £33 a month for speeds up to 1,130 Mbps on its own cable network; Vodafone starts from £25 a month for speeds up to 910 Mbps, mostly over Openreach fibre. Virgin Media usually wins on top-end speed and network independence from Openreach; Vodafone usually wins on price and mobile-bundle value. Check postcode availability before choosing either.',
+      'Virgin Media broadband starts from £23.99 a month on its own cable network; Vodafone advertises full fibre from £24 a month on a 24-month plan (both checked 16 October 2026). Virgin Media usually wins on network independence from Openreach; Vodafone on mobile-bundle value. Entry prices are now close, so compare the exact speed you need. Check postcode availability before choosing either.',
     publishDate: '2026-06-21',
     updatedDate: '2026-09-04',
     bestForA: 'Higher-speed homes in Virgin-covered areas',
     bestForB: 'Sharper pricing and mobile bundle-led value',
     winner:
-      'Start with Virgin Media if your address can get its cable network and your household genuinely uses speeds above 500 Mbps: its top package runs to 1,130 Mbps against Vodafone\'s 910 Mbps ceiling, though Virgin adds a £35 setup fee Vodafone does not charge. Start with Vodafone if price and an 18-versus-24-month contract trade-off do not bother you, or if bundling Vodafone mobile improves the deal further.',
+      'Start with Virgin Media if your address can get its cable network and your household genuinely uses speeds above 500 Mbps: its top package runs to 1,130 Mbps against Vodafone\'s 910 Mbps ceiling. Virgin charges no setup fee on self-install, or £30 for an engineer. Start with Vodafone if bundling Vodafone mobile improves the deal.',
     intro: [
       'This is a classic speed-versus-value comparison. Virgin Media’s case is built around its cable footprint and stronger widely-available speed tiers. Vodafone’s case is built around value, simpler FTTP economics, and mobile bundling.',
       'Because they operate on different network strengths, the right answer changes quickly depending on postcode and what your household actually needs.',
@@ -572,7 +572,7 @@ export const providerComparisons: ProviderComparison[] = [
     },
     intro: [
       'Sky sells broadband over the Openreach network, reaching around 95% of UK premises; Virgin Media runs its own separate cable network, reaching only around 52%. Because the networks do not overlap, the real first question is which one is available at the address, not which brand is generally "better."',
-      'Price and speed pull in different directions here: Sky starts from £23 a month against Virgin Media\'s £33, but Virgin Media\'s Gig1 tier reaches up to 1,130 Mbps, genuinely the fastest widely available speed in the UK, against Sky\'s 900 Mbps flagship.',
+      'Price and speed pull in different directions here: Sky started from £23 a month in our last check and Virgin Media from £23.99 (16 October 2026), so entry prices are close, but Virgin Media\'s Gig1 tier reaches up to 1,130 Mbps, genuinely the fastest widely available speed in the UK, against Sky\'s 900 Mbps flagship.',
     ],
     verdict: [
       'Choose Sky if a lower price and wider availability matter more, or if Sky TV or Sky Sports bundling is wanted on the same bill.',
@@ -582,7 +582,7 @@ export const providerComparisons: ProviderComparison[] = [
       {
         label: 'Pricing',
         detail:
-          'Sky starts from £23 a month, meaningfully cheaper than Virgin Media\'s £33, though Virgin Media\'s entry speed is also considerably higher.',
+          'Entry prices are now close: Sky from £23 a month in our last check, Virgin Media from £23.99 for M125 (132 Mbps average) on 16 October 2026, and Virgin\'s entry speed is higher.',
       },
       {
         label: 'Top speed',
@@ -609,7 +609,7 @@ export const providerComparisons: ProviderComparison[] = [
       {
         question: 'Which is better, Sky or Virgin Media broadband?',
         answer:
-          'Sky is the cheaper, more widely available option, from £23 a month against Virgin Media\'s £33. Virgin Media wins decisively on top-end speed, up to 1,130 Mbps, where its cable network reaches the property.',
+          'Sky is the more widely available option, and entry prices are now close: Sky from £23 a month in our last check against Virgin Media\'s £23.99 (16 October 2026). Virgin Media wins decisively on top-end speed, up to 1,130 Mbps, where its cable network reaches the property.',
       },
       {
         question: 'Is Virgin Media faster than Sky broadband?',
@@ -674,7 +674,7 @@ export const providerComparisons: ProviderComparison[] = [
     },
     intro: [
       'Hyperoptic and Community Fibre both run their own full-fibre networks rather than reselling Openreach, so the first filter is the building, not the brand. Hyperoptic’s homepage on 6 September 2026 listed 64 UK towns and cities, and Reuters reported 2 million homes passed on 24 July 2026. Community Fibre remains a London-centred network with partial expansion into Surrey and Sussex, around 1.4 million homes and 450,000 customers as of May 2026 according to ISPreview.',
-      'On like-for-like 150 Mbps 24-month terms, Hyperoptic advertised 150 Mb from £19 a month with a £4 rise every April. Community Fibre’s matching £19 intro with a £3 April rise costs £522 over 24 months against Hyperoptic’s £544. Community Fibre also still publishes Essential 35 Mbps from £12.50 a month with no benefits test. Hyperoptic’s own 500 Mb promo from £17 a month is cheaper than its 150 Mb plan, so check the live 500 Mb price before assuming 150 Mb is the value pick.',
+      'On like-for-like 150 Mbps 24-month terms, Hyperoptic advertised 150 Mb from £19 a month with a £4 rise every April. Community Fibre’s matching £19 intro with a £3 April rise costs £522 over 24 months against Hyperoptic’s £544. Community Fibre also still publishes Essential 35 Mbps from £12.50 a month with no benefits test. Hyperoptic’s 500 Mb plan, at £20 a month on 16 October 2026, costs only £1 more than 150 Mb, so check the live 500 Mb price before assuming 150 Mb is the value pick.',
       'We do not treat Trustpilot, Ofcom satisfaction and complaints as one score. Hyperoptic showed 4.5 on Trustpilot as of 8 April 2026 and was named a Which? Great Value Provider in March 2026. Community Fibre’s Trustpilot score is around 4.7, and Ofcom’s 2025 satisfaction figure was 92% against an 84% average. Hyperoptic does not have a named-table Ofcom complaints rate in the Q1 2026 release we use for the majors, so we do not invent one.',
     ],
     verdict: [
@@ -690,7 +690,7 @@ export const providerComparisons: ProviderComparison[] = [
       {
         label: 'Price and 24-month cost',
         detail:
-          'On a like-for-like 150 Mbps 24-month intro of £19, Community Fibre totals £522 once its £3 April rise is included, against Hyperoptic’s £544 with a £4 April rise. Community Fibre Essential starts at £12.50. Hyperoptic also advertised 500 Mb from £17 a month on 6 September 2026.',
+          'On a like-for-like 150 Mbps 24-month intro of £19, Community Fibre totals £522 once its £3 April rise is included, against Hyperoptic’s £544 with a £4 April rise. Community Fibre Essential starts at £12.50. Hyperoptic advertised 500 Mb from £20 a month on 16 October 2026.',
       },
       {
         label: 'Top speed',
@@ -722,7 +722,7 @@ export const providerComparisons: ProviderComparison[] = [
       {
         question: 'Is Community Fibre cheaper than Hyperoptic?',
         answer:
-          'In London, usually yes on a like-for-like 24-month 150 Mbps path. Using prices checked on 6 September 2026, a £19 intro with Community Fibre’s £3 April rise totals £522 over 24 months, against Hyperoptic’s £544 with a £4 April rise. Essential 35 Mbps from £12.50 is cheaper still. Hyperoptic’s 500 Mb promo from £17 can undercut its own 150 Mb plan, so confirm live checkout prices at your building.',
+          'In London, usually yes on a like-for-like 24-month 150 Mbps path. Using prices checked on 6 September 2026, a £19 intro with Community Fibre’s £3 April rise totals £522 over 24 months, against Hyperoptic’s £544 with a £4 April rise. Essential 35 Mbps from £12.50 is cheaper still. Hyperoptic’s 500 Mb plan was only £1 more than 150 Mb on 16 October 2026, so confirm live checkout prices at your building.',
       },
       {
         question: 'Which is faster, Hyperoptic or Community Fibre?',
@@ -785,7 +785,7 @@ export const providerComparisons: ProviderComparison[] = [
     metaDescription:
       'BT vs Vodafone broadband compared on real current price, coverage and Ofcom complaints for August 2026. BT is now the cheaper option, not Vodafone, and has a slightly better complaints record.',
     excerpt:
-      'BT is often assumed to be the pricier, premium option against Vodafone. As of August 2026, BT actually starts cheaper, from £23.99 against Vodafone\'s £25, and holds a marginally better Ofcom complaints record too.',
+      'BT is often assumed to be the pricier, premium option against Vodafone. On 16 October 2026 that held: BT starts from £28.99 against Vodafone\'s full fibre from £24, though BT holds a marginally better Ofcom complaints record.',
     publishDate: '2026-06-21',
     updatedDate: '2026-08-25',
     bestForA: 'A genuinely lower starting price and the widest UK coverage',
@@ -797,7 +797,7 @@ export const providerComparisons: ProviderComparison[] = [
       providerB: { fromPrice: '£25.00/mo', maxSpeed: '910 Mbps', coverage: '94%', trustpilot: '1.3', contract: '24 months', setupFee: '£0' },
     },
     intro: [
-      'BT and Vodafone both sell broadband over the Openreach network, so line quality and top available speed at a given address are largely the same regardless of which is chosen. As of August 2026, BT starts from £23.99 a month against Vodafone\'s £25, a reversal of the older assumption that Vodafone was the cheaper, value-led option against BT.',
+      'BT and Vodafone both sell broadband over the Openreach network, so line quality and top available speed at a given address are largely the same regardless of which is chosen. Checked on 16 October 2026, BT starts from £28.99 a month (Full Fibre from £30.99) while Vodafone advertises full fibre from £24, so Vodafone is currently the cheaper entry point.',
       'Vodafone\'s real advantage is for existing Vodafone mobile customers, who can access a genuine bundle discount, and its 2026 award recognition for value and speed from independent bodies including Expert Reviews and Uswitch.',
     ],
     verdict: [
@@ -808,7 +808,7 @@ export const providerComparisons: ProviderComparison[] = [
       {
         label: 'Pricing',
         detail:
-          'BT now starts from £23.99 a month, cheaper than Vodafone\'s £25.00, a reversal of the older assumption that Vodafone was the value pick.',
+          'Vodafone advertises full fibre from £24 a month; BT starts from £28.99 (both checked 16 October 2026), so Vodafone is the cheaper entry point.',
       },
       {
         label: 'Coverage',
@@ -835,7 +835,7 @@ export const providerComparisons: ProviderComparison[] = [
       {
         question: 'Which is cheaper, BT or Vodafone broadband?',
         answer:
-          'BT, as of August 2026: it starts from £23.99 a month against Vodafone\'s £25, a reversal of the older assumption that Vodafone was the cheaper option.',
+          'Vodafone, as of 16 October 2026: full fibre from £24 a month against BT\'s £28.99 part-fibre entry price or £30.99 for Full Fibre 300.',
       },
       {
         question: 'Should I choose BT or Vodafone for full fibre?',
@@ -956,7 +956,7 @@ export const providerComparisons: ProviderComparison[] = [
     metaDescription:
       'BT vs TalkTalk broadband compared on real current price, Ofcom complaints and contract terms for August 2026. TalkTalk is no longer the clearly cheaper option; it is now GBP1 more than BT.',
     excerpt:
-      'TalkTalk built its reputation on being the cheap option against BT. That is no longer true: TalkTalk now starts from £25 a month, a pound more than BT, while also carrying the worst Ofcom complaints record of any major UK provider.',
+      'TalkTalk built its reputation on being the cheap option against BT, and on 16 October 2026 it still was: full fibre from £25 a month against BT\'s £28.99. TalkTalk does, however, carry the worst Ofcom complaints record of any major UK provider.',
     publishDate: '2026-06-21',
     updatedDate: '2026-08-25',
     bestForA: 'Widest UK coverage and a far better Ofcom complaints record',
@@ -968,7 +968,7 @@ export const providerComparisons: ProviderComparison[] = [
       providerB: { fromPrice: '£25.00/mo', maxSpeed: '900 Mbps', coverage: '96%', trustpilot: '1.5', contract: '24 months', setupFee: '£0' },
     },
     intro: [
-      'BT vs TalkTalk used to be a straightforward premium-vs-budget choice, but the pricing has genuinely converged: as of August 2026, TalkTalk starts from £25 a month against BT\'s £23.99, meaning BT is now the marginally cheaper of the two, not TalkTalk. Both sell broadband over the Openreach network, so the practical difference between them comes down to price, complaints record and contract structure rather than the physical line.',
+      'BT vs TalkTalk used to be a straightforward premium-vs-budget choice, but the pricing has genuinely converged: on 16 October 2026, TalkTalk advertised full fibre from £25 a month against BT\'s £28.99, so TalkTalk is again the cheaper entry point. Both sell broadband over the Openreach network, so the practical difference between them comes down to price, complaints record and contract structure rather than the physical line.',
       'TalkTalk also carries two scheduled price rises built into every current contract, in April 2027 and April 2028, both disclosed upfront. BT applies one flat £4 a month rise each March. Add these to the headline price when comparing the real two-year cost of either provider.',
     ],
     verdict: [
@@ -979,7 +979,7 @@ export const providerComparisons: ProviderComparison[] = [
       {
         label: 'Pricing',
         detail:
-          'BT now starts from £23.99 a month, TalkTalk from £25.00, a reversal of TalkTalk\'s old budget positioning against BT.',
+          'TalkTalk advertises full fibre from £25 a month; BT starts from £28.99 (both checked 16 October 2026), so TalkTalk is the cheaper entry point.',
       },
       {
         label: 'Ofcom complaints',
@@ -1006,7 +1006,7 @@ export const providerComparisons: ProviderComparison[] = [
       {
         question: 'Which is cheaper, BT or TalkTalk broadband?',
         answer:
-          'BT, as of August 2026: it starts from £23.99 a month against TalkTalk\'s £25.00, a reversal of TalkTalk\'s older budget positioning against BT.',
+          'TalkTalk, as of 16 October 2026: full fibre from £25 a month against BT\'s £28.99 entry price.',
       },
       {
         question: 'Which has a better complaints record, BT or TalkTalk?',
@@ -1206,7 +1206,7 @@ export const providerComparisons: ProviderComparison[] = [
     metaDescription:
       'Plusnet vs BT broadband compared on real current price and Ofcom complaints for August 2026. Plusnet is cheaper and has the best complaints record of any major UK provider; BT has the widest coverage.',
     excerpt:
-      'Plusnet, part of the BT Group, is genuinely cheaper than BT itself, from £21.99 against £23.99, and holds the best Ofcom complaints record of any major UK provider. BT remains ahead only on raw coverage breadth.',
+      'Plusnet, part of the BT Group, was cheaper than BT itself in our last check, from £21.99 against BT\'s current £28.99 (16 October 2026), and holds the best Ofcom complaints record of any major UK provider. BT remains ahead only on raw coverage breadth.',
     publishDate: '2026-06-21',
     updatedDate: '2026-08-25',
     bestForA: 'The best Ofcom complaints record of any major UK provider, at a lower price',
@@ -1218,7 +1218,7 @@ export const providerComparisons: ProviderComparison[] = [
       providerB: { fromPrice: '£23.99/mo', maxSpeed: '900 Mbps', coverage: '98%', trustpilot: '4.0 / 1.5 (two pages)', contract: '24 months', setupFee: '£30 (reward card offsets)' },
     },
     intro: [
-      'Plusnet is owned by BT Group and sells broadband over the same Openreach network as BT itself, so line quality and top available speed at a given address are largely identical. Plusnet starts from £21.99 a month, genuinely cheaper than BT\'s £23.99, and with no setup fee against BT\'s £30.',
+      'Plusnet is owned by BT Group and sells broadband over the same Openreach network as BT itself, so line quality and top available speed at a given address are largely identical. Plusnet started from £21.99 a month in our September check, below BT\'s £28.99 on 16 October 2026; BT currently charges no activation fee on online orders.',
       'The more striking difference is complaints record: Ofcom\'s Q1 2026 report placed Plusnet at 4 complaints per 100,000 customers, the lowest figure of any major UK provider that quarter, against BT\'s 7.',
     ],
     verdict: [
@@ -1229,7 +1229,7 @@ export const providerComparisons: ProviderComparison[] = [
       {
         label: 'Pricing',
         detail:
-          'Plusnet starts from £21.99 a month with no setup fee, cheaper than BT\'s £23.99 plus a £30 setup fee (offset by a reward card only if claimed).',
+          'Plusnet started from £21.99 a month in our September check, cheaper than BT\'s £28.99 on 16 October 2026. BT currently charges no activation fee online.',
       },
       {
         label: 'Ofcom complaints',
@@ -1251,7 +1251,7 @@ export const providerComparisons: ProviderComparison[] = [
       {
         question: 'Which is cheaper, Plusnet or BT broadband?',
         answer:
-          'Plusnet, from £21.99 a month with no setup fee, against BT\'s £23.99 plus a £30 setup fee offset only by a reward card if claimed.',
+          'Plusnet, from £21.99 a month in our September check, against BT\'s £28.99 with no activation fee online (checked 16 October 2026).',
       },
       {
         question: 'Which has a better complaints record, Plusnet or BT?',
@@ -1504,7 +1504,7 @@ export const providerComparisons: ProviderComparison[] = [
     metaDescription:
       'BT vs Plusnet broadband compared on real price, speed guarantees and Ofcom complaints data verified on 20 September 2026. Plusnet is cheaper; BT has the stronger speed floor.',
     excerpt:
-      'BT vs Plusnet broadband both run on the same Openreach network, but Plusnet starts cheaper at £21.99 a month against BT\'s £23.99, and Ofcom\'s Q1 2026 data ranked Plusnet the best of any major UK provider for complaints, the opposite of what their Trustpilot scores alone suggest. BT counters with a stronger minimum-speed guarantee and TV, phone and Wi-Fi mesh bundles Plusnet does not offer.',
+      'BT vs Plusnet broadband both run on the same Openreach network, but Plusnet started cheaper at £21.99 a month in our September check against BT\'s £28.99 now (16 October 2026), and Ofcom\'s Q1 2026 data ranked Plusnet the best of any major UK provider for complaints, the opposite of what their Trustpilot scores alone suggest. BT counters with a stronger minimum-speed guarantee and TV, phone and Wi-Fi mesh bundles Plusnet does not offer.',
     publishDate: '2026-08-15',
     updatedDate: '2026-09-20',
     bestForA: 'Households that want TV, phone and Wi-Fi mesh bundles plus a stronger minimum-speed guarantee',
@@ -1512,7 +1512,7 @@ export const providerComparisons: ProviderComparison[] = [
     winner:
       'There is no universal winner. Plusnet is cheaper on every equivalent speed tier and currently has the best Ofcom complaints record of any major UK provider, despite a lower Trustpilot score. BT costs more but adds a stronger minimum-speed guarantee on its fastest tier, TV and phone bundles, and Wi-Fi mesh add-ons Plusnet does not sell. Check the total contract cost and the exact speeds offered at your address before choosing.',
     intro: [
-      'BT and Plusnet both sell broadband over the Openreach network, so line quality and the top speed available at a given address are largely the same regardless of which is chosen. Plusnet, part of BT Group, is consistently the cheaper of the two by roughly £2 a month across equivalent full-fibre tiers, verified on 20 September 2026.',
+      'BT and Plusnet both sell broadband over the Openreach network, so line quality and the top speed available at a given address are largely the same regardless of which is chosen. Plusnet, part of BT Group, was the cheaper of the two in our 20 September 2026 check. BT\'s prices have since changed (from £28.99 a month on 16 October 2026), so compare live prices for the same speed.',
       'Ofcom advises shoppers to compare service quality as well as price. That matters here specifically because BT and Plusnet\'s public review scores point in the opposite direction to Ofcom\'s own complaints data: BT has the higher Trustpilot score, but Plusnet has the better regulator-verified complaints record.',
     ],
     verdict: [
@@ -1523,7 +1523,7 @@ export const providerComparisons: ProviderComparison[] = [
       {
         label: 'Price and setup fee',
         detail:
-          'Verified on 20 September 2026, Plusnet starts at £21.99 a month (Full Fibre 74) with no activation fee on BroadbandPicker\'s own dated review, while Plus.net\'s own site currently states a £9.99 one-off activation fee; check the live order summary for the fee that applies to your order. BT starts at £23.99 a month (Full Fibre 150) with a £30 upfront setup fee, offset by reward cards worth up to £140 if claimed. Compare the full 24-month cost, not just the first monthly payment.',
+          'Verified on 20 September 2026, Plusnet starts at £21.99 a month (Full Fibre 74) with no activation fee on BroadbandPicker\'s own dated review, while Plus.net\'s own site currently states a £9.99 one-off activation fee; check the live order summary for the fee that applies to your order. BT, checked on 16 October 2026, starts at £28.99 a month (part-fibre) or £30.99 for Full Fibre 300, with no activation fee on online orders. Compare the full 24-month cost, not just the first monthly payment.',
       },
       {
         label: 'Minimum speed guarantee',
@@ -1545,7 +1545,7 @@ export const providerComparisons: ProviderComparison[] = [
       {
         question: 'Which is cheaper, BT or Plusnet broadband?',
         answer:
-          'Plusnet is cheaper on every equivalent full-fibre tier, verified on 20 September 2026: from £21.99 a month against BT\'s £23.99 for a comparable entry tier, a gap of roughly £2 to £3 a month that continues across the higher tiers. Compare the total 24-month cost, including each provider\'s setup fee and scheduled annual price rise, before deciding which is genuinely cheaper for your household.',
+          'Plusnet was cheaper on every equivalent full-fibre tier in our 20 September 2026 check, from £21.99 a month. BT has since changed its range (Full Fibre 300 from £30.99 on 16 October 2026), so compare the same speed on both sites. Compare the total 24-month cost, including each provider\'s setup fee and scheduled annual price rise, before deciding which is genuinely cheaper for your household.',
       },
       {
         question: 'Is BT or Plusnet broadband faster?',
@@ -1565,7 +1565,7 @@ export const providerComparisons: ProviderComparison[] = [
       {
         question: 'Do BT and Plusnet broadband have setup fees?',
         answer:
-          'BT currently charges a £30 upfront setup fee, though reward cards worth up to £140 can offset it if claimed. Plusnet\'s own site currently states a £9.99 one-off activation fee. Check the live order summary at checkout, since setup fees and reward-card offers change and can vary by promotion.',
+          'BT currently charges no activation fee on online orders (checked 16 October 2026). Plusnet\'s own site stated a £9.99 one-off activation fee in our September check. Check the live order summary at checkout, since setup fees and reward-card offers change and can vary by promotion.',
       },
       {
         question: 'Which is better, BT or Plusnet broadband?',
@@ -2224,7 +2224,7 @@ export const providerComparisons: ProviderComparison[] = [
     bestForA: 'The lowest entry price and a capped, disclosed annual price rise',
     bestForB: 'A longer-established brand with a wider footprint across major UK cities beyond London',
     winner:
-      'Community Fibre is the stronger pick where both are available: a lower entry price, a capped £2 a month annual rise against Hyperoptic\'s roughly £4 flat increase, and a higher current Trustpilot score. Hyperoptic remains the better choice for major UK cities outside London where Community Fibre does not build.',
+      'Community Fibre is the stronger pick where both are available: a lower entry price, a £3 a month April rise against Hyperoptic\'s £4, and a higher current Trustpilot score. Hyperoptic remains the better choice for major UK cities outside London where Community Fibre does not build.',
     intro: [
       'Community Fibre and Hyperoptic are both full-fibre altnets that specialise in wiring flats and apartment blocks with symmetrical broadband, rather than reselling Openreach\'s copper-to-cabinet network, and both have significant overlap in London specifically, where they frequently compete for the same building.',
       'Outside London, the comparison changes: Hyperoptic has built into other major UK cities that Community Fibre has not reached, while Community Fibre\'s expansion beyond London has so far been limited to parts of Surrey and Sussex. Which one is even available at a specific address often decides this comparison before price or reviews do.',
@@ -2237,7 +2237,7 @@ export const providerComparisons: ProviderComparison[] = [
       {
         label: 'Price rise policy',
         detail:
-          'Community Fibre applies a fixed £2 a month rise each April on its 24-month tiers, disclosed as a cash amount. Hyperoptic\'s fixed-term contracts commonly include an annual increase of around £4 a month. Over a 24-month contract, this is a meaningful, compounding difference in total cost.',
+          'Community Fibre applies a £3 a month rise each April on its current 24-month tiers, and Hyperoptic £4 (both checked 16 October 2026), each shown as a cash amount. Over a 24-month contract the £1 gap adds up, so compare the full-term cost.',
       },
       {
         label: 'Trustpilot score',
@@ -2259,7 +2259,7 @@ export const providerComparisons: ProviderComparison[] = [
       {
         question: 'Is Community Fibre or Hyperoptic cheaper?',
         answer:
-          'Community Fibre\'s entry symmetrical tier is typically slightly cheaper than Hyperoptic\'s comparable tier, and its scheduled annual price rise is smaller, around £2 a month against Hyperoptic\'s roughly £4. Over a full 24-month contract this compounds into a meaningful difference, so compare the full-term cost, not just the entry price.',
+          'Community Fibre\'s entry symmetrical tier is typically slightly cheaper than Hyperoptic\'s comparable tier, and its scheduled annual price rise is smaller, £3 a month against Hyperoptic\'s £4 (checked 16 October 2026). Over a full 24-month contract this compounds into a meaningful difference, so compare the full-term cost, not just the entry price.',
       },
       {
         question: 'Can I get both Community Fibre and Hyperoptic at my address?',
@@ -2274,7 +2274,7 @@ export const providerComparisons: ProviderComparison[] = [
       {
         question: 'Do Community Fibre and Hyperoptic raise prices during the contract?',
         answer:
-          'Yes, both do, but by different amounts. Community Fibre applies a fixed £2 a month rise each April on its 24-month tiers. Hyperoptic\'s fixed-term contracts commonly include a larger annual increase of around £4 a month. Factor the scheduled rise into the total contract cost for either provider before comparing headline prices.',
+          'Yes, both do, but by different amounts. Community Fibre applies a £3 a month rise each April on its current 24-month tiers; Hyperoptic applies £4 (checked 16 October 2026). Factor the scheduled rise into the total contract cost for either provider before comparing headline prices.',
       },
     ],
     sources: [
@@ -2296,7 +2296,7 @@ export const providerComparisons: ProviderComparison[] = [
     slug: 'trooli-vs-zzoomm',
     providerA: 'trooli',
     providerB: 'zzoomm',
-    title: 'Trooli vs Zzoomm: Two Multi-Region Full-Fibre Altnets With No Price Rise',
+    title: 'Trooli vs Zzoomm: Two Multi-Region Full-Fibre Altnets Compared',
     metaTitle: 'Trooli vs Zzoomm Broadband 2026 | Coverage and Price Compared',
     metaDescription:
       'Trooli and Zzoomm are both regional full-fibre altnets with a no-price-rise policy, but they build in almost entirely different places. Compare coverage, speed and price.',
@@ -2335,7 +2335,7 @@ export const providerComparisons: ProviderComparison[] = [
       {
         label: 'Entry price',
         detail:
-          'Trooli\'s entry tier, 150 Mbps, starts from £19.99 a month, slightly undercutting Zzoomm\'s entry 200 Mbps tier at £20 on a 24-month term. The two are close enough at entry level that coverage, not price, should usually be the deciding factor.',
+          'Trooli\'s entry tier, 150 Mbps, starts from £19.99 a month, close to Zzoomm\'s entry 200 Mbps tier at £22 for the first 12 months of a 24-month term (checked 16 October 2026). The two are close enough at entry level that coverage, not price, should usually be the deciding factor.',
       },
     ],
     faqs: [
@@ -2347,7 +2347,7 @@ export const providerComparisons: ProviderComparison[] = [
       {
         question: 'Is Trooli or Zzoomm cheaper?',
         answer:
-          'Entry prices are close: Trooli\'s 150 Mbps tier starts from £19.99 a month, Zzoomm\'s 200 Mbps tier from £20 on a 24-month term. Neither has a scheduled mid-contract price rise on its current range, so the entry price is a reasonable proxy for the full contract cost with either provider.',
+          'Entry prices are close: Trooli\'s 150 Mbps tier started from £19.99 a month in our last check; Zzoomm\'s 200 Mbps tier is £22 for 12 months, then £26 from month 13 of a 24-month term (checked 16 October 2026). Because Zzoomm\'s price steps up partway through, compare the full contract cost with either provider.',
       },
       {
         question: 'Which has faster upload speeds, Trooli or Zzoomm?',
@@ -2357,7 +2357,7 @@ export const providerComparisons: ProviderComparison[] = [
       {
         question: 'Do Trooli and Zzoomm raise prices mid-contract?',
         answer:
-          'Neither currently applies a scheduled mid-contract price rise on its core published range, a genuine point of difference from national providers such as TalkTalk. Always confirm the current terms for the specific plan being ordered, since policies can change.',
+          'Zzoomm\'s current 24-month prices rise by £4 from month 13 (checked 16 October 2026), shown upfront on each package. Check Trooli\'s current terms for the plan you order, as we could not re-check them on that date. Always confirm the current terms for the specific plan being ordered, since policies can change.',
       },
     ],
     sources: [
@@ -2418,7 +2418,7 @@ export const providerComparisons: ProviderComparison[] = [
       {
         label: 'Price and contract',
         detail:
-          'National Broadband\'s 5G plan starts around £34.99 to £39.99 a month on a 12, 18 or 24-month contract, with no mid-contract price rise. Highland Broadband starts from £29.99 a month on a 24-month-only contract, with a scheduled £4 a month rise each April from 2027.',
+          'National Broadband\'s 5G plan starts around £34.99 to £39.99 a month on a 12, 18 or 24-month contract, with no mid-contract price rise. Highland Broadband starts from £24.99 a month for Essential 150 on a 24-month contract (checked 16 October 2026), with a scheduled £4 a month rise each April from 2027.',
       },
     ],
     faqs: [
@@ -2440,7 +2440,7 @@ export const providerComparisons: ProviderComparison[] = [
       {
         question: 'Which is cheaper, National Broadband or Highland Broadband?',
         answer:
-          'Highland Broadband\'s entry price, from £29.99 a month, is lower than National Broadband\'s 5G entry price of around £34.99 to £39.99, but Highland Broadband includes a scheduled £4 a month price rise each April from 2027, while National Broadband states no mid-contract rise. Compare the full contract-term cost, not just the entry price, and remember these are fundamentally different services, not just different prices for the same thing.',
+          'Highland Broadband\'s entry price, from £24.99 a month (checked 16 October 2026), is lower than National Broadband\'s 5G entry price of around £34.99 to £39.99, but Highland Broadband includes a scheduled £4 a month price rise each April from 2027, while National Broadband states no mid-contract rise. Compare the full contract-term cost, not just the entry price, and remember these are fundamentally different services, not just different prices for the same thing.',
       },
     ],
     sources: [
@@ -2522,7 +2522,7 @@ export const providerComparisons: ProviderComparison[] = [
       {
         question: 'Is BT or Hyperoptic cheaper?',
         answer:
-          'Hyperoptic\'s entry symmetrical tier is typically cheaper than BT\'s comparable Full Fibre 150 plan, while also offering considerably more upload speed. BT\'s reward card system can offset some of this gap if actually claimed, but Hyperoptic generally remains the better-value option where both are available.',
+          'Hyperoptic\'s 150Mb plan, at £19 a month, is well below BT\'s cheapest full-fibre plan, Full Fibre 300 at £30.99 (both checked 16 October 2026), and offers far more upload speed. Where both are available, Hyperoptic is usually the better value.',
       },
       {
         question: 'Which has better customer service, BT or Hyperoptic?',
@@ -2640,7 +2640,7 @@ export const providerComparisons: ProviderComparison[] = [
     slug: 'toob-vs-giffgaff',
     providerA: 'toob',
     providerB: 'giffgaff',
-    title: 'toob vs giffgaff: Two Challenger Broadband Brands With No Price Rise',
+    title: 'toob vs giffgaff: Two Challenger Broadband Brands Compared',
     metaTitle: 'toob vs giffgaff Broadband 2026 | Coverage, Price and Network Compared',
     metaDescription:
       'toob and giffgaff are both newer challenger broadband brands with a no-price-rise promise, but they run on completely different networks. Compare coverage, price and speed.',
@@ -2653,7 +2653,7 @@ export const providerComparisons: ProviderComparison[] = [
     winner:
       'Neither is a universal default; they solve different problems. toob suits a South East England address within its specific, if expanding, footprint. giffgaff suits anyone wanting maximum contract flexibility, given its unusual 1-month rolling option, wherever Nexfibre has actually built.',
     intro: [
-      'toob and giffgaff both position themselves against the traditional big-name broadband providers: both promise no mid-contract price rise, both are newer to the broadband market than BT, Sky or TalkTalk, and both have built a strong early Trustpilot or brand reputation.',
+      'toob and giffgaff both position themselves against the traditional big-name broadband providers: giffgaff promises no mid-term price rise and toob discloses small April rises upfront, both are newer to the broadband market than BT, Sky or TalkTalk, and both have built a strong early Trustpilot or brand reputation.',
       'The underlying networks are entirely different, however. toob builds and operates its own physical full-fibre infrastructure across a specific set of South East England towns. giffgaff, a long-established mobile brand new to broadband since September 2025, resells Nexfibre, the wholesale full-fibre network built through a Virgin Media O2 partnership, giving it a different, generally wider potential footprint, subject to Nexfibre\'s own build progress.',
     ],
     verdict: [
@@ -2679,7 +2679,7 @@ export const providerComparisons: ProviderComparison[] = [
       {
         label: 'Entry price',
         detail:
-          'toob\'s entry tier starts from £19.50 a month for 150 Mbps symmetrical. giffgaff\'s entry tier starts from £25 a month for 200 Mbps symmetrical, though giffgaff has run promotional pricing as low as £5 a month for an initial period.',
+          'toob\'s entry tier starts from £18 a month for 150 Mbps symmetrical (checked 16 October 2026). giffgaff\'s entry tier starts from £25 a month for 200 Mbps symmetrical, though giffgaff has run promotional pricing as low as £5 a month for an initial period.',
       },
     ],
     faqs: [
@@ -2691,7 +2691,7 @@ export const providerComparisons: ProviderComparison[] = [
       {
         question: 'Is toob or giffgaff cheaper?',
         answer:
-          'toob\'s standard entry price, £19.50 a month for 150 Mbps symmetrical, is lower than giffgaff\'s standard £25 a month for 200 Mbps symmetrical, though giffgaff has run a promotional rate as low as £5 a month for an initial period. Compare the live current offer for the specific address before deciding on price alone.',
+          'toob\'s entry price, £18 a month for 150 Mbps symmetrical on 16 October 2026, is lower than giffgaff\'s standard £25 a month for 200 Mbps symmetrical, though giffgaff has run a promotional rate as low as £5 a month for an initial period. Compare the live current offer for the specific address before deciding on price alone.',
       },
       {
         question: 'Which has a longer track record, toob or giffgaff?',
@@ -2701,7 +2701,7 @@ export const providerComparisons: ProviderComparison[] = [
       {
         question: 'Do toob and giffgaff raise their prices mid-contract?',
         answer:
-          'Neither currently applies a scheduled mid-contract price rise on its core range, a genuine point of difference from national providers such as BT, EE, Vodafone and Plusnet, which now apply a flat annual increase under Ofcom\'s current rules.',
+          'giffgaff states no mid-term price rises. toob\'s current 24-month prices rise by £2 a month each April, smaller than the £3 to £4 national providers such as BT, EE, Vodafone and Plusnet now add (checked 16 October 2026).',
       },
     ],
     sources: [

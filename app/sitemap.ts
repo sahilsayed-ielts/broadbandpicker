@@ -36,6 +36,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/tools/speed-test`, lastModified: laterDate('2026-09-16', HOMEPAGE_UPDATED), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE_URL}/tools/broadband-cost-calculator`, lastModified: laterDate('2026-08-23', HOMEPAGE_UPDATED), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE_URL}/tools/broadband-match`, lastModified: laterDate('2026-08-23', HOMEPAGE_UPDATED), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${SITE_URL}/tools/contract-end-reminder`, lastModified: '2026-10-16', changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${SITE_URL}/research/broadband-price-index`, lastModified: '2026-10-16', changeFrequency: 'monthly', priority: 0.7 },
     { url: `${SITE_URL}/about`, lastModified: TRUST_MODIFIED, changeFrequency: 'monthly', priority: 0.4 },
     { url: `${SITE_URL}/contact`, lastModified: TRUST_MODIFIED, changeFrequency: 'monthly', priority: 0.3 },
     { url: `${SITE_URL}/privacy-policy`, lastModified: '2026-09-20', changeFrequency: 'monthly', priority: 0.2 },

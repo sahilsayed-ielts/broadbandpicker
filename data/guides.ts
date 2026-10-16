@@ -140,14 +140,14 @@ export const guides: GuideMetadata[] = [
     slug: 'broadband-deals-with-no-mid-contract-price-rise',
     title: 'Broadband Deals With No Mid-Contract Price Rise UK 2026',
     metaTitle: 'Broadband Deals With No Mid-Contract Price Rise | BroadbandPicker',
-    metaDescription: 'Looking for broadband without surprise annual increases? Only Zen Internet and toob genuinely apply no scheduled rise; Hyperoptic and NOW Broadband are wrongly assumed to be no-rise options.',
+    metaDescription: 'Which UK broadband has no mid-contract price rise? Zen, YouFibre, giffgaff, Pine Media and National Broadband, checked on 16 October 2026. toob, Hyperoptic and Community Fibre now add a rise.',
     publishDate: '2026-06-21',
-    updatedDate: '2026-08-25',
-    excerpt: 'Being an altnet does not mean no price rise: Hyperoptic and NOW Broadband are both sometimes wrongly assumed to be no-rise options, but both apply a real scheduled increase. Only Zen Internet and toob genuinely have none.',
+    updatedDate: '2026-10-16',
+    excerpt: 'Being an altnet does not mean no price rise: toob, Community Fibre, Hyperoptic and Zzoomm all now apply a scheduled increase. Zen Internet, YouFibre, giffgaff, Pine Media and National Broadband state no in-contract rise on their own sites.',
     readingTime: 9,
     category: 'deals-and-pricing',
     keyTakeaways: [
-      'Only Zen Internet and toob genuinely apply no scheduled price rise at all; Hyperoptic (~£4/mo each April) and NOW Broadband (£3 scheduled for 2027 and 2028) are both sometimes wrongly assumed to be no-rise options.',
+      'On 16 October 2026, Zen Internet, YouFibre, giffgaff, Pine Media and National Broadband stated no in-contract price rise; toob (£2 each April), Community Fibre (£3), Hyperoptic (£4) and Zzoomm (£4 from month 13) all apply one.',
       'A fixed-price promise only applies for the period and charges stated in the contract, so read the price-change wording before joining.',
       'Compare the total minimum-term cost rather than assuming a deal with no annual rise is automatically cheapest.',
       'Check setup fees, post-contract pricing and address-level availability alongside the advertised monthly price.',
@@ -268,7 +268,7 @@ export const guides: GuideMetadata[] = [
     category: 'deals-and-pricing',
     keyTakeaways: [
       'Current UK listings checked on 29 August 2026 showed selected provider rewards from £50 to £200, but values vary by package, address and purchase route.',
-      'BT Reward Cards were independently listed at £80 to £140, alongside £30 setup and scheduled price rises that must remain in the contract-cost calculation.',
+      'BT currently charges no activation fee on online orders (checked 16 October 2026); scheduled March price rises must still stay in the contract-cost calculation.',
       'Treat cashback as a reduction in full minimum-term cost only after checking eligibility, claim, activation and spending deadlines.',
       'Compare every offer with and without the reward. A lower monthly price can beat a larger card when the full term is added up.',
     ],
@@ -288,15 +288,15 @@ export const guides: GuideMetadata[] = [
     slug: 'broadband-deals-with-no-setup-fee',
     title: 'Broadband Deals With No Setup Fee UK 2026',
     metaTitle: 'Broadband Deals With No Setup Fee UK 2026 | BroadbandPicker',
-    metaDescription: 'Compare the best broadband deals with no setup fee in the UK. BT actually charges GBP30 (not free as often assumed), and NOW Broadband\'s GBP5 fee is credited back. Real current examples compared.',
+    metaDescription: 'Compare UK broadband deals with no setup fee, checked on 16 October 2026: BT, NOW, Community Fibre, toob, Zzoomm and YouFibre charge £0 to start, while Gigaclear and Cuckoo still charge activation on some plans.',
     publishDate: '2026-06-21',
-    updatedDate: '2026-08-25',
-    excerpt: 'A no-setup-fee broadband deal can lower your upfront cost, but not every provider advertised as fee-free actually is. BT genuinely charges GBP30, and NOW Broadband\'s GBP5 "advance fee" is credited back rather than a real cost.',
+    updatedDate: '2026-10-16',
+    excerpt: 'A no-setup-fee deal lowers your upfront cost, but fees change often. On 16 October 2026, BT (online), NOW, Community Fibre, toob, Zzoomm and YouFibre charged £0 to start; Gigaclear charged £30 on its 300Mbps plan and Cuckoo £99 to £149.',
     readingTime: 8,
     category: 'deals-and-pricing',
     keyTakeaways: [
-      'BT charges a genuine £30 setup fee, offset only by a reward card that must be actively claimed; Virgin Media\'s £35 fee has no offset at all.',
-      'NOW Broadband\'s £5 advance fee is credited back to the first bill, so it functions as genuinely free setup, a different structure from BT\'s reward card.',
+      'On 16 October 2026, BT charged no activation fee on online orders, and Virgin Media charged no setup fee on QuickStart self-install (£30 if you choose an engineer).',
+      'NOW Broadband showed a £0 activation fee and £0 delivery fee on 16 October 2026, so its setup is genuinely free on current deals.',
       'Sky, EE, TalkTalk, Plusnet, Vodafone, Hyperoptic and Community Fibre all currently charge no setup fee at all.',
     ],
     sources: [
@@ -554,7 +554,7 @@ export const guides: GuideMetadata[] = [
     category: 'switching-and-rights',
     keyTakeaways: [
       'TalkTalk raised its standard mid-contract rise from £3 to £4 a month for contracts signed from 16 November 2025, the same level as BT, EE and Plusnet.',
-      'Hyperoptic and Community Fibre are sometimes assumed to be no-rise altnets, but both apply a real scheduled increase, around £4 and a capped £2 a month respectively.',
+      'Hyperoptic and Community Fibre are sometimes assumed to be no-rise altnets, but both apply a real scheduled increase, £4 and £3 a month each April respectively (checked 16 October 2026).',
       'A clearly disclosed annual increase does not normally create an automatic right to leave without a fee; contracts signed after 17 January 2025 should show any rise in pounds and pence rather than an inflation-linked formula.',
     ],
     sources: [
@@ -732,7 +732,7 @@ export const guides: GuideMetadata[] = [
     category: 'use-cases-and-lifestyle',
     keyTakeaways: [
       'Ping matters more than download speed for online gaming; a 50 Mbps connection at 10ms will outperform a 500 Mbps connection at 60ms.',
-      'Community Fibre now offers genuinely symmetrical speeds up to 3,000 Mbps from £12.50 a month, the cheapest full-fibre package covered on this site.',
+      'Community Fibre now offers genuinely symmetrical speeds up to 5 Gbps, with Essential 35 from £12.50 a month on a 12-month contract, the cheapest full-fibre package covered on this site.',
       'Zen Internet includes a free static IP address as standard, a genuine advantage specifically for anyone hosting a private game server rather than just playing online.',
     ],
     sources: [

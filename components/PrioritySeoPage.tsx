@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
+import NewsletterSignup from '@/components/NewsletterSignup'
 import OnThisPageNav from '@/components/OnThisPageNav'
 import PageHeroBanner from '@/components/PageHeroBanner'
 import { priorityPages, type PriorityPageKey } from '@/data/priority-pages'
@@ -506,6 +507,10 @@ export default function PrioritySeoPage({ pageKey }: { pageKey: PriorityPageKey 
           <p className="text-slate-300 mt-3">Broadband availability, prices and speeds vary by postcode. Compare the live choices before deciding.</p>
           <Link href="/compare" className="inline-block mt-5 bg-sky-500 hover:bg-sky-600 rounded-lg px-5 py-3 font-bold">Compare broadband options</Link>
         </section>
+
+        <div className="mt-12">
+          <NewsletterSignup variant="guide" source="priority-page-end" />
+        </div>
 
         <section className="mt-12 scroll-mt-24" aria-labelledby="faqs">
           <h2 id="faqs" className="text-2xl font-bold text-slate-900">Frequently asked questions</h2>

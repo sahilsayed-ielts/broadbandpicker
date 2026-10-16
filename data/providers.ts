@@ -1,8 +1,10 @@
 import liveDealData from './provider-live-deals.json'
-import type { Provider, ProviderLiveDealsFile, ProviderLiveOffer } from '@/types'
+import priceCheckData from './provider-price-checks.json'
+import type { Provider, ProviderLiveDealsFile, ProviderLiveOffer, ProviderPriceChecksFile } from '@/types'
 
 const fallbackProviderReviewedDate = '2026-06-21'
 const providerLiveDeals = liveDealData as ProviderLiveDealsFile
+const providerPriceChecks = priceCheckData as ProviderPriceChecksFile
 
 export const providerDatasetUpdatedDate =
   providerLiveDeals.generatedAt ?? fallbackProviderReviewedDate
@@ -92,6 +94,57 @@ function applyLiveDealOverlay(base: Provider): Provider {
   }
 }
 
+/**
+ * Hand-checked package prices (data/provider-price-checks.json) win over the
+ * figures typed into this file and over the automated live-deal snapshot.
+ * Every package carries its own real price, so nothing downstream has to
+ * estimate a price for a faster tier.
+ */
+function applyPriceCheck(base: Provider): Provider {
+  const check = providerPriceChecks.providers[base.slug]
+  if (!check) return base
+  if (check.packages.length === 0) {
+    if (check.entryPrice === undefined) return base
+    // Entry-price-only check: move the checked speed to the front so the
+    // single entry deal pairs the checked price with the right package.
+    const entry = base.speeds.find((sp) => sp.download === check.entryDownload)
+    return {
+      ...base,
+      speeds: entry ? [entry, ...base.speeds.filter((sp) => sp !== entry)] : base.speeds,
+      monthlyPriceFrom: check.entryPrice,
+      setupFee: check.setupFee,
+      pricingVerifiedDate: check.checkedAt,
+      priceCheckNotes: check.notes,
+      reviewSources: [
+        { label: check.sourceLabel, href: check.sourceUrl, note: `Entry price and setup fee checked on ${check.checkedAt}. Other package prices need a postcode on the provider's site.` },
+        ...base.reviewSources.slice(1),
+      ],
+    }
+  }
+  const packages = [...check.packages].sort((a, b) => a.monthlyPrice - b.monthlyPrice || a.download - b.download)
+  const speeds = [...packages]
+    .sort((a, b) => a.download - b.download || a.monthlyPrice - b.monthlyPrice)
+    .map(({ download, upload, type }) => ({ download, upload, type }))
+  return {
+    ...base,
+    speeds,
+    packages,
+    monthlyPriceFrom: packages[0].monthlyPrice,
+    contractLengths: [...new Set(packages.map((p) => p.contractLength))].sort((a, b) => a - b),
+    setupFee: check.setupFee,
+    pricingVerifiedDate: check.checkedAt,
+    priceCheckNotes: check.notes,
+    reviewSources: [
+      {
+        label: check.sourceLabel,
+        href: check.sourceUrl,
+        note: `Every package price, speed, contract length and setup fee checked on ${check.checkedAt}.${check.setupNote ? ` ${check.setupNote}` : ''}`,
+      },
+      ...base.reviewSources.slice(1),
+    ],
+  }
+}
+
 const baseProviders: Provider[] = [
   {
     slug: 'bt',
@@ -117,7 +170,7 @@ const baseProviders: Provider[] = [
     ],
     pros: [
       'Widest realistic coverage of any UK provider, useful where other options are limited',
-      'Reward cards worth up to £140 offset the £30 upfront setup cost if claimed',
+      'No activation fee when you order online (checked 16 October 2026)',
       'Full Fibre 900\'s Stay Fast Guarantee pays out automatically if speed drops below a set minimum',
       'Ofcom complaints data has improved year on year, from eighth to seventh per 100,000 customers',
     ],
@@ -128,13 +181,13 @@ const baseProviders: Provider[] = [
       'Reward card value must be actively claimed, or the net cost is higher than it first appears',
     ],
     excerpt:
-      'BT is the UK\'s largest broadband provider, reaching around 98% of homes over the Openreach network it also wholesales to most rival ISPs. Full Fibre packages run from £23.99 to £31.99 a month, all on 24-month contracts with a scheduled £4 a month rise every March. Ofcom\'s Q1 2026 complaints data ranked BT third-worst in the UK, though improving; two separate BT Trustpilot pages show a 4.0 and a 1.5 out of 5, a genuine split worth understanding before trusting either number alone.',
+      'BT is the UK\'s largest broadband provider, reaching around 98% of homes over the Openreach network it also wholesales to most rival ISPs. Full Fibre packages run from £30.99 to £35.99 a month and part-fibre from £28.99, all on 24-month contracts with a scheduled £4 a month rise every March. Ofcom\'s Q1 2026 complaints data ranked BT third-worst in the UK, though improving; two separate BT Trustpilot pages show a 4.0 and a 1.5 out of 5, a genuine split worth understanding before trusting either number alone.',
     contentSections: [
       {
-        heading: 'BT Broadband Deals in August 2026',
+        heading: 'BT Broadband Deals in October 2026',
         paragraphs: [
-          'BT\'s current Full Fibre range runs from Full Fibre 150 at £23.99 a month, through Full Fibre 300 at £25.99 and Full Fibre 500 at £27.99, up to Full Fibre 900 at £31.99. A part-fibre Fibre 2 package, averaging 67 Mbps, is also available at £24.99 for addresses full fibre has not yet reached. Every package carries a £30 upfront setup fee.',
-          'BT offsets that setup fee with a reward card, ranging from around £80 on the entry tiers up to £140 on Full Fibre 900. This only works out in the customer\'s favour if the card is actually claimed and used; treat the setup fee as a real £30 cost at the point of paying, not a number cancelled out automatically by a reward that requires separate action to redeem.',
+          'BT\'s current Full Fibre range, checked on 16 October 2026, runs from Full Fibre 300 at £30.99 a month, through Full Fibre 500 at £33.99, up to Full Fibre 900 at £35.99. For addresses full fibre has not reached, part-fibre Fibre Essential (36 Mbps) and Fibre 1 (50 Mbps) cost £28.99 and Fibre 2 (74 Mbps) £30.99. Every package is on a 24-month contract.',
+          'BT currently charges no activation fee on online orders, which it labels an online exclusive. Each package also states a minimum guaranteed speed, from 150 Mbps on Full Fibre 300 to 700 Mbps on Full Fibre 900, which matters more than the headline figure if your connection underperforms.',
           'Every package is sold on a 24-month contract, with no shorter or rolling option currently published. A £4 a month price rise applies every March, disclosed upfront on the price page rather than hidden in the terms, so the real two-year cost of any BT plan is higher than the first month\'s headline figure.',
         ],
       },
@@ -415,17 +468,17 @@ const baseProviders: Provider[] = [
     cons: [
       'Exceptionally low Trustpilot score, among the worst of any major UK provider',
       'Cable network coverage is limited to around 52% of UK premises, entirely separate from the Openreach footprint',
-      'A £35 setup fee applies, and switching to Virgin Media never qualifies for Ofcom\'s One Touch Switch',
+      'No setup fee with QuickStart self-install; £30 if you choose an engineer installation',
       'Customers on older, pre-2025 contracts have faced considerably larger inflation-linked rises than new customers now see',
     ],
     excerpt:
-      'Virgin Media runs its own cable network, entirely separate from Openreach, reaching around 52% of UK premises with the fastest widely available speeds in the country, up to 1,130 Mbps. Prices start from £33 a month on an 18-month contract, with a £35 setup fee. Its Trustpilot score is exceptionally low, around 1.4 out of 5, yet Ofcom\'s own complaints data has consistently placed it at or below the industry average, a genuine gap between the two sources worth understanding before ruling Virgin Media out.',
+      'Virgin Media runs its own cable network, entirely separate from Openreach, reaching around 52% of UK premises with the fastest widely available speeds in the country, up to 1,130 Mbps. Prices start from £23.99 a month for M125, with no setup fee on self-install (checked 16 October 2026). Its Trustpilot score is exceptionally low, around 1.4 out of 5, yet Ofcom\'s own complaints data has consistently placed it at or below the industry average, a genuine gap between the two sources worth understanding before ruling Virgin Media out.',
     contentSections: [
       {
-        heading: 'Virgin Media Broadband Deals in August 2026',
+        heading: 'Virgin Media Broadband Deals in October 2026',
         paragraphs: [
-          'Virgin Media\'s current range runs from M125 at around £33 a month for 132 Mbps, through M250 at around £37 for 264 Mbps and M500 at around £43 for 516 Mbps, up to Gig1 at around £62 for 1,130 Mbps. Every package includes the Hub 5X router and unlimited data, on an 18-month contract, the shortest standard fixed term of any major national provider covered on this site.',
-          'A £35 setup fee applies across the range. Virgin Media periodically runs promotional pricing, including reduced entry rates on M250 at points during 2026, so the live price at checkout can differ meaningfully from the standard list price; always confirm the current offer for the specific address.',
+          'Virgin Media\'s broadband page, checked on 16 October 2026, lists M125 (average 132 Mbps) from £23.99 a month, M250 (264 Mbps) from £28.99, M350 (362 Mbps) from £25.99, M500 (516 Mbps) from £27.99 and Gigabit from £29.99. These are from-prices for new customers; the minimum contract length is shown in the basket, so confirm it before ordering.',
+          'There is no setup fee if you use the QuickStart self-install pack, or £30 if you choose an engineer. Virgin Media regularly runs promotional pricing, including reduced entry rates on M250 at points during 2026, so the live price at checkout can differ meaningfully from the standard list price; always confirm the current offer for the specific address.',
           'Because Virgin Media\'s cable network is entirely separate from Openreach, its speeds and pricing sit somewhat apart from the rest of the market, worth comparing on their own terms rather than assuming direct equivalence with an Openreach-based provider\'s tier of the same name.',
         ],
       },
@@ -1176,10 +1229,10 @@ const baseProviders: Provider[] = [
     highlights: [
       'Owned by Sky, running on the same Openreach network, but a noticeably weaker customer service record than its parent brand',
       'No longer a budget or flexible-contract option: every current package is a standard 24-month term from £23 a month',
-      'A £5 advance fee is credited back to the first bill, so it is not a genuine extra cost if the credit is applied correctly',
+      'No activation fee and no delivery fee on current deals (checked 16 October 2026)',
     ],
     pros: [
-      'Full Fibre 100 undercuts Sky\'s own equivalent full-fibre tier by around £1 a month',
+      'Three clear full-fibre tiers from 80 Mbps to 300 Mbps, all priced on the public page without a postcode',
       'Voucher credits worth £70-£75 are commonly available at sign-up',
       'Runs on the wide-reaching Openreach network, like its parent brand Sky',
     ],
@@ -1190,12 +1243,12 @@ const baseProviders: Provider[] = [
       'Customer service, especially around cancellation and the auto-renewal process, is the most consistently cited weakness',
     ],
     excerpt:
-      'NOW Broadband is owned by Sky and runs on the same Openreach network, with prices from £23 a month for Full Fibre 100, up to £26 for Full Fibre 300, all on 24-month contracts. A £5 advance fee is credited back to the first bill. Unlike Sky, where a low Trustpilot score sits alongside a strong Ofcom complaints record, NOW Broadband scores poorly on both: around 1.2 out of 5 on Trustpilot and 11 complaints per 100,000 customers in Ofcom\'s Q4 2025 data, above the industry average of 8.',
+      'NOW Broadband is owned by Sky and runs on the same Openreach network, with prices from £23 a month for Full Fibre 75, £25 for Full Fibre 100 and £28 for Full Fibre 300, all on 24-month contracts with no activation fee (checked 16 October 2026). Unlike Sky, where a low Trustpilot score sits alongside a strong Ofcom complaints record, NOW Broadband scores poorly on both: around 1.2 out of 5 on Trustpilot and 11 complaints per 100,000 customers in Ofcom\'s Q4 2025 data, above the industry average of 8.',
     contentSections: [
       {
-        heading: 'NOW Broadband Deals in August 2026',
+        heading: 'NOW Broadband Deals in October 2026',
         paragraphs: [
-          'NOW\'s current range runs from Superfast at £24 a month for an average 67 Mbps, Full Fibre 75 also at £24, Full Fibre 100 at £23 (the cheapest tier despite being faster than Superfast), up to Full Fibre 300 at £26. A £5 advance fee applies at sign-up but is credited back to the first bill, so it is not a genuine net cost if the credit is applied as promised.',
+          'NOW\'s current range, checked on 16 October 2026, is Full Fibre 75 (an estimated 80 Mbps down, 16 Mbps up) at £23 a month, Full Fibre 100 (100 Mbps down, 18 Mbps up) at £25, and Full Fibre 300 (300 Mbps down, 40 Mbps up) at £28. There is no activation or delivery fee, and NOW says prices may change during the 24-month minimum term.',
           'Every package is sold on a 24-month contract, with no shorter or rolling option currently available. Voucher credits worth £70 to £75 are commonly attached to NOW\'s current deals, worth factoring into the real cost when comparing against a rival\'s headline monthly price.',
           'NOW is a genuinely simpler, no-frills product than its parent brand Sky: there is no equivalent TV bundle range, and the pitch is a lower headline price on the same underlying Openreach network rather than any additional service.',
         ],
@@ -1204,7 +1257,7 @@ const baseProviders: Provider[] = [
         heading: 'NOW Broadband Is No Longer a Budget, Flexible-Contract Option',
         paragraphs: [
           'NOW Broadband built its early reputation on shorter, more flexible 12-month contracts at a genuinely low price, a real point of difference from most major providers. That is no longer the case: every current package is sold on a standard 24-month term, the same length BT, Sky and most other national providers use.',
-          'The pricing gap has also narrowed. Full Fibre 100 at £23 a month undercuts Sky\'s own equivalent full-fibre tier by only around £1, not the large gap NOW\'s reputation as a genuinely cheap budget brand might suggest. Anyone choosing NOW specifically for its old reputation should re-check the current contract length and price against Sky and other Openreach-based rivals before assuming it is still the clearly cheaper or more flexible option.',
+          'The pricing gap with other Openreach-based brands is smaller than NOW\'s budget reputation suggests. Anyone choosing NOW specifically for its old reputation should re-check the current contract length and price against Sky and other Openreach-based rivals before assuming it is still the clearly cheaper or more flexible option.',
           'This matters because a household that specifically wants a shorter commitment, rather than just a lower price, will not find that on NOW\'s current range and should look at a genuinely rolling or 12-month contract from a different, smaller provider instead.',
         ],
       },
@@ -1226,8 +1279,8 @@ const baseProviders: Provider[] = [
       {
         heading: 'Is NOW Broadband Worth It?',
         paragraphs: [
-          'NOW\'s real advantage is a slightly lower headline price than its parent brand Sky on the same Openreach network, plus commonly available voucher credits at sign-up. The £5 advance fee is not a genuine extra cost as long as the credit is correctly applied to the first bill.',
-          'It is not the budget or flexible-contract option it once was: contracts are now a standard 24 months, and the price gap against Sky has narrowed to around £1 a month on the equivalent tier. Its customer service record is genuinely weaker than Sky\'s on both an independent, self-selected review platform and Ofcom\'s regulated complaints data, not just one or the other.',
+          'NOW\'s real advantage is simple, published pricing on the same Openreach network as its parent brand Sky, with no activation or delivery fee on current deals, plus voucher credits that are often available at sign-up.',
+          'It is not the budget or flexible-contract option it once was: contracts are now a standard 24 months, and its prices sit close to other Openreach-based brands rather than clearly below them. Its customer service record is genuinely weaker than Sky\'s on both an independent, self-selected review platform and Ofcom\'s regulated complaints data, not just one or the other.',
           'Our take: NOW suits a household that specifically wants the lowest possible headline price on the Openreach network and does not expect to need much customer support, rather than anyone drawn to its older reputation for flexible, shorter contracts, which no longer applies.',
         ],
       },
@@ -1243,7 +1296,7 @@ const baseProviders: Provider[] = [
       },
       {
         question: 'Is NOW Broadband cheaper than Sky?',
-        answer: 'Only slightly. NOW\'s Full Fibre 100 at £23 a month undercuts Sky\'s equivalent full-fibre tier by around £1, a much smaller gap than NOW\'s budget reputation might suggest, given both now run on the same network with the same 24-month contract length. NOW\'s price-rise structure is actually more predictable than Sky\'s, with scheduled £3 rises dated for April 2027 and April 2028 rather than Sky\'s open-ended contract wording.',
+        answer: 'Not by much. NOW\'s full-fibre prices start at £23 a month (checked 16 October 2026), close to other brands on the same Openreach network with the same 24-month contract length, so compare the exact tier before assuming NOW is cheaper. NOW\'s price-rise structure is actually more predictable than Sky\'s, with scheduled £3 rises dated for April 2027 and April 2028 rather than Sky\'s open-ended contract wording.',
       },
       {
         question: 'Does NOW Broadband raise its prices during the contract?',
@@ -1320,12 +1373,12 @@ const baseProviders: Provider[] = [
       'Installation requires the building to be wired, which needs landlord or freeholder permission in rented properties',
     ],
     excerpt:
-      'Hyperoptic is a full-fibre altnet concentrated in London and a number of other major UK cities, with symmetrical speeds from 159 Mbps to 1,000 Mbps, from £21.50 a month, plus a genuine no-contract social tariff at £15 or £20 a month. Its Trustpilot score, around 4.5 out of 5 from over 52,000 reviews, is among the best of any UK ISP. The main limitation is coverage: this is a building-by-building network, not available on demand everywhere.',
+      'Hyperoptic is a full-fibre altnet concentrated in London and a number of other major UK cities, with symmetrical speeds from 150 Mbps to 1 Gbps, from £19 a month on a 24-month package (checked 16 October 2026), plus a genuine no-contract social tariff at £15 or £20 a month. Its Trustpilot score, around 4.5 out of 5 from over 52,000 reviews, is among the best of any UK ISP. The main limitation is coverage: this is a building-by-building network, not available on demand everywhere.',
     contentSections: [
       {
-        heading: 'Hyperoptic Broadband Deals in August 2026',
+        heading: 'Hyperoptic Broadband Deals in October 2026',
         paragraphs: [
-          'Hyperoptic\'s entry tier, a non-symmetrical 50 Mbps plan (57 Mbps down, 5 Mbps up), starts from around £21.50 to £28.50 a month depending on contract length. The core symmetrical range starts at 150 Mbps (around £22.99 to £29), moves to 500 Mbps (around £27 to £33), and tops out at 1 Gbps from around £26, with pricing varying by contract length and current promotion.',
+          'Hyperoptic\'s 24-month packages, checked on 16 October 2026, are 150Mb from £19 a month, 500Mb from £20 and 1Gb at £26 (with the first three months free until 3 November). Each rises by £4 in April 2027 and again in April 2028. Hyperoptic quotes average peak-time wired speeds of 159/157 Mbps, 527/523 Mbps and 900/900 Mbps, and says prices vary by location.',
           'A genuine social tariff is available outside the standard range: Essential 50 at £15 a month and Essential 150 at £20 a month, both for households on qualifying means-tested benefits, and both with no fixed contract, a real, no-catch offer rather than a marketing-only mention.',
           'No setup fee applies across the range. As with any provider, confirm the live price and promotion for the specific address and building at checkout, since Hyperoptic\'s pricing can vary by location.',
         ],
@@ -1456,13 +1509,13 @@ const baseProviders: Provider[] = [
     coveragePercent: 6,
     highlights: [
       'One of the highest Trustpilot scores of any UK ISP, around 4.7 out of 5 from roughly 91,000 reviews',
-      'A fixed £2 a month annual price rise cap, disclosed in pounds and pence rather than tied to inflation',
+      'Price rises stated in pounds and pence on the package page: £3 a month each April on current contracts',
       'Coverage has expanded from London-only into parts of Surrey and Sussex',
     ],
     pros: [
       'Consistently among the best-reviewed ISPs in the UK on both Trustpilot and Ofcom satisfaction data',
       'Symmetrical full-fibre speeds at every tier, from 150 Mbps up to 3,000 Mbps',
-      'A £2 a month annual rise, lower than the £3 to £4 most national providers now charge',
+      'No setup fee and free installation on every package (checked 16 October 2026)',
       'No setup fee across the range',
     ],
     cons: [
@@ -1471,14 +1524,14 @@ const baseProviders: Provider[] = [
       'Router range can struggle in larger flats or houses, per recurring review feedback',
     ],
     excerpt:
-      'Community Fibre is a London-based full-fibre altnet with one of the strongest customer-satisfaction records of any UK broadband provider: around 4.7 out of 5 on Trustpilot from roughly 91,000 reviews, and 92% customer satisfaction in Ofcom\'s 2025 data, 8 points above the industry average. Symmetrical plans range from 150 Mbps to 3,000 Mbps, from £12.50 a month, with a capped £2 a month annual price rise rather than an open-ended increase. Coverage remains London-focused, with recent expansion into parts of Surrey and Sussex.',
+      'Community Fibre is a London-based full-fibre altnet with one of the strongest customer-satisfaction records of any UK broadband provider: around 4.7 out of 5 on Trustpilot from roughly 91,000 reviews, and 92% customer satisfaction in Ofcom\'s 2025 data, 8 points above the industry average. Symmetrical plans range from 35 Mbps (£12.50 a month on 12 months) to 5 Gbps, with 24-month plans from £19 and a £3 a month rise each April stated in pounds and pence (checked 16 October 2026). Coverage remains London-focused, with recent expansion into parts of Surrey and Sussex.',
     contentSections: [
       {
-        heading: 'Community Fibre Broadband Deals in August 2026',
+        heading: 'Community Fibre Broadband Deals in October 2026',
         paragraphs: [
-          'Community Fibre\'s range runs from Essential 35, a 12-month, 35 Mbps symmetrical plan from around £12.50 a month, up to a Hyperfast 3 Gig tier at roughly £55 a month. Mid-range options include a 150 Mbps plan around £20 and a 500 Mbps plan around £25, both on 24-month contracts. Exact current prices vary by promotion and postcode, so treat these as a guide and confirm the live figure at checkout for your address.',
-          'The 24-month tiers carry a fixed £2 a month price rise each April, disclosed as a cash amount rather than tied to inflation, which independent trackers describe as the lowest scheduled rise of any major UK provider. The Essential 35 tier is reported as exempt from this rise entirely, so check which policy applies to the specific plan being compared.',
-          'Out-of-contract pricing is also capped, at up to £4 above the introductory rate rather than the much larger jumps, sometimes £15 or more, seen once a promotional period ends with some rivals. Anyone on a means-tested social tariff is reported to be exempt from both the annual rise and the out-of-contract increase.',
+          'Community Fibre\'s 24-month range, checked on 16 October 2026, runs from 150 Mbps at £19 a month, through 500 Mbps at £21, 1 Gbps at £25 and 2.5 Gbps (2.3 Gbps average) at £29, up to 5 Gbps at £43. On 12-month contracts, Essential 35 (35 Mbps) costs £12.50 and 150 Mbps £25. Every package is symmetrical, with no setup fee.',
+          'Current contracts carry a £3 a month price rise each April, shown on each package as a cash amount (for example, 150 Mbps goes from £19 to £22 in April 2027 and £25 in April 2028). The Essential 35 package shows no April rise on the page, so check which policy applies to the plan being compared.',
+          'Out-of-contract pricing is also capped: Community Fibre says the price rises by £4 at the end of the contract and £3 each April after that, rather than the much larger jumps, sometimes £15 or more, seen once a promotional period ends with some rivals. Anyone on a means-tested social tariff is reported to be exempt from both the annual rise and the out-of-contract increase.',
         ],
       },
       {
@@ -1500,8 +1553,8 @@ const baseProviders: Provider[] = [
       {
         heading: 'Price Rises and Contract Terms',
         paragraphs: [
-          'Community Fibre\'s headline differentiator is its price rise policy: a fixed £2 a month increase each April on 24-month contracts, disclosed upfront in pounds and pence. Since Ofcom banned inflation-linked, percentage-based price rise terms in all new broadband contracts from 17 January 2025, every provider now has to disclose a cash-figure rise like this one rather than a vaguer CPI-plus-percentage formula; the real difference between providers today is how large that flat figure is.',
-          'Most national providers, including BT, EE, Vodafone, Plusnet and TalkTalk, have settled on a rise of around £3 to £4 a month under the new rules. Community Fibre\'s £2 is smaller than that, which is a genuine, if modest, saving over a 24-month contract rather than a difference in the mechanism itself.',
+          'Community Fibre discloses its price rises upfront: £3 a month each April on current contracts, shown in pounds and pence on every package. Since Ofcom banned inflation-linked, percentage-based price rise terms in all new broadband contracts from 17 January 2025, every provider now has to disclose a cash-figure rise like this one rather than a vaguer CPI-plus-percentage formula; the real difference between providers today is how large that flat figure is.',
+          'Most national providers have settled on a rise of around £3 to £4 a month under the new rules. Community Fibre\'s current £3 sits at the lower end of that range, so the real saving comes from its lower starting prices rather than a smaller rise.',
           'The 12-month Essential 35 tier is reported to be exempt from the scheduled rise entirely, and social tariff customers are reported to be exempt from both the annual rise and the capped out-of-contract increase. Confirm the exact terms for the specific plan and tariff being ordered, since policies can differ by tier.',
         ],
       },
@@ -1549,7 +1602,7 @@ const baseProviders: Provider[] = [
       },
       {
         question: 'Does Community Fibre increase its prices?',
-        answer: 'Community Fibre\'s 24-month contracts carry a fixed £2 a month price rise each April, disclosed as a cash amount rather than linked to inflation, described by independent trackers as the lowest scheduled rise of any major UK provider. Its 12-month Essential tier is reported to be exempt from this rise.',
+        answer: 'Yes. Community Fibre\'s current contracts carry a £3 a month price rise each April, shown as a cash amount on every package (checked 16 October 2026). Its 12-month Essential 35 package shows no April rise.',
       },
       {
         question: 'What speed do I need from Community Fibre?',
@@ -2054,7 +2107,7 @@ const baseProviders: Provider[] = [
       'Pine Media is a hyperlocal full-fibre provider building and operating its own network across Sheffield, alongside a separate Openreach-based product line for addresses outside its own build. Symmetrical GIG plans run from 100 Mbps to 2,000 Mbps, from £22 a month, with a price-lock guarantee, a 30-day satisfaction guarantee and no upfront setup cost. Coverage is genuinely local, so this is only relevant to Sheffield addresses.',
     contentSections: [
       {
-        heading: 'Pine Media Broadband Deals in August 2026',
+        heading: 'Pine Media Broadband Deals in October 2026',
         paragraphs: [
           'Pine Media\'s own-network GIG series runs five tiers: GIG 100 at £22 a month, GIG 160 at £23, GIG 550 at £27, a roughly 900 Mbps tier at £30, and a 2,000 Mbps tier at £34. Every plan is symmetrical, meaning upload matches download at every tier, and includes an eero 6+ mesh router at no extra cost.',
           'A separate GLO series runs over the Openreach network for addresses Pine Media\'s own fibre has not reached, with lower, non-symmetrical upload speeds typical of standard Openreach FTTP products. Checking which series actually applies at a specific address matters more here than with most providers, since the two have meaningfully different speed profiles at a similar headline price.',
@@ -2180,7 +2233,7 @@ const baseProviders: Provider[] = [
     trustpilotScore: 4.5,
     coveragePercent: 1,
     highlights: [
-      'Symmetrical full-fibre from £19.50 a month, with no mid-contract price rises',
+      'Symmetrical full fibre from £18 a month, with price rises stated in pounds and pence upfront',
       'Coverage has expanded well beyond Southampton, to around 290,000 premises across 29 towns and cities',
       'A Linksys Pinnacle WiFi 7 router included as standard on every plan',
     ],
@@ -2196,13 +2249,13 @@ const baseProviders: Provider[] = [
       'Only two contract lengths are offered, with no shorter or rolling monthly option',
     ],
     excerpt:
-      'toob is a full-fibre altnet that began in Southampton and has since expanded across Hampshire, Dorset, Surrey, Sussex and Berkshire, reaching around 290,000 premises across 29 towns and cities. Symmetrical plans run from 150 Mbps to 900 Mbps, from £19.50 a month, with no mid-contract price rise and a WiFi 7 router included as standard. Coverage remains genuinely regional, so checking the exact address matters more than the brand\'s strong reviews.',
+      'toob is a full-fibre altnet that began in Southampton and has since expanded across Hampshire, Dorset, Surrey, Sussex and Berkshire, reaching around 290,000 premises across 29 towns and cities. Symmetrical plans run from 150 Mbps to 2,300 Mbps, from £18 a month on a 24-month contract (checked 16 October 2026), with no upfront costs and a WiFi 7 router included as standard. Coverage remains genuinely regional, so checking the exact address matters more than the brand\'s strong reviews.',
     contentSections: [
       {
-        heading: 'toob Broadband Deals in August 2026',
+        heading: 'toob Broadband Deals in October 2026',
         paragraphs: [
-          'toob\'s range runs three symmetrical tiers: Home 150 at around £19.50 a month on an 18-month contract, and higher tiers up to Home 900 at around £25 a month. Every plan includes a Linksys Pinnacle WiFi 7 router at no extra cost, hardware ahead of what most national providers include as standard.',
-          'toob states its published range carries no mid-contract price rise, a genuine point of difference from BT, EE, Vodafone and Plusnet, all of which now apply a flat annual increase following Ofcom\'s ban on inflation-linked rise terms. Confirm the current live price and contract length for the specific address at checkout, since promotions vary.',
+          'toob\'s 24-month range, checked on 16 October 2026, runs three symmetrical tiers: home150 at £18 a month, home900 at £23 and home2300 at £29, with no upfront costs and free installation. Every plan includes a Linksys Pinnacle WiFi 7 router at no extra cost, hardware ahead of what most national providers include as standard.',
+          'toob\'s current 24-month prices rise by £2 a month each April, stated upfront in pounds and pence, a smaller step than BT, EE, Vodafone and Plusnet now apply. Confirm the current live price and contract length for the specific address at checkout, since promotions vary.',
           'No setup fee applies across the range, removing one of the more variable upfront costs seen with some full-fibre altnets.',
         ],
       },
@@ -2223,10 +2276,10 @@ const baseProviders: Provider[] = [
         ],
       },
       {
-        heading: 'Contract Terms and No Mid-Contract Rise',
+        heading: 'Contract Terms and Price Rises',
         paragraphs: [
-          'toob offers 18 and 24-month contracts, with no shorter or rolling monthly option currently published. The no-mid-contract-rise policy applies across the range, disclosed upfront rather than added later, matching the approach used by several other full-fibre altnets covered on this site, including Zzoomm and Community Fibre.',
-          'Over the length of an 18 or 24-month contract, this can be worth more than it first appears against a rival with a flat annual increase of £3 to £4 a month, since toob\'s price should hold for the entire term rather than stepping up partway through.',
+          'toob currently offers 24-month, 12-month and monthly options. Its 24-month prices now carry scheduled rises stated in pounds and pence on the package page: home150 goes from £18 to £20 in April 2027 and £22 in April 2028, with the same £2 steps on home900 and home2300.',
+          'A £2 annual step is smaller than the £3 to £4 a month most national providers now add each year, so toob still works out cheaper over a full 24-month contract at a comparable speed. The figure is disclosed upfront rather than added later.',
           'As with any fixed-term contract, confirm the early-termination charge before switching, particularly given toob\'s regional footprint means a house move could easily land outside its coverage area.',
         ],
       },
@@ -2249,7 +2302,7 @@ const baseProviders: Provider[] = [
       {
         heading: 'Is toob Broadband Any Good?',
         paragraphs: [
-          'Where it is available, toob is a genuinely strong option: symmetrical full fibre from £19.50 a month, no scheduled price rise, a WiFi 7 router included free, and a consistently positive review record from a meaningful sample size.',
+          'Where it is available, toob is a genuinely strong option: symmetrical full fibre from £18 a month, small rises disclosed upfront, a WiFi 7 router included free, and a consistently positive review record from a meaningful sample size.',
           'It remains a regional network, not a national one, and its expansion beyond Southampton into Hampshire, Dorset, Surrey, Sussex and Berkshire, while real, still covers a small fraction of UK addresses overall.',
           'Our take: worth strong consideration for anyone in toob\'s South East England footprint, particularly given the combination of low price, no rise policy and modern router hardware; check the specific address first, since coverage remains the deciding factor.',
         ],
@@ -2258,7 +2311,7 @@ const baseProviders: Provider[] = [
     faqItems: [
       {
         question: 'Is toob broadband any good?',
-        answer: 'toob holds a strong Trustpilot rating, around 4.5 out of 5 from over 7,000 reviews, with symmetrical full-fibre speeds, no mid-contract price rise and a WiFi 7 router included as standard. Its main limitation is coverage, which remains regional, spanning Hampshire, Dorset, Surrey, Sussex and Berkshire rather than the whole UK.',
+        answer: 'toob holds a strong Trustpilot rating, around 4.5 out of 5 from over 7,000 reviews, with symmetrical full-fibre speeds, small price rises disclosed upfront and a WiFi 7 router included as standard. Its main limitation is coverage, which remains regional, spanning Hampshire, Dorset, Surrey, Sussex and Berkshire rather than the whole UK.',
       },
       {
         question: 'Is toob only available in Southampton?',
@@ -2266,7 +2319,7 @@ const baseProviders: Provider[] = [
       },
       {
         question: 'Does toob increase its prices mid-contract?',
-        answer: 'toob states that its current published range carries no mid-contract price rise, a genuine point of difference from national providers such as BT, EE, Vodafone and Plusnet, which now apply a flat annual increase of £3 to £4 a month following Ofcom\'s rules on disclosed price rises.',
+        answer: 'Yes, on current 24-month contracts. toob\'s package page shows a £2 a month rise in April 2027 and another in April 2028 (checked 16 October 2026), smaller than the £3 to £4 a year most national providers now add.',
       },
       {
         question: 'What router does toob include?',
@@ -2345,10 +2398,10 @@ const baseProviders: Provider[] = [
       'giffgaff, long known as a mobile-only network, launched broadband in September 2025, running on Nexfibre, Virgin Media O2\'s full-fibre wholesale network, rather than Openreach or its own infrastructure. Every plan is symmetrical, from 200 Mbps to 900 Mbps, from £25 a month, with no mid-contract price rise and a choice of 24-month or 1-month rolling contracts. As a genuinely new product, broadband-specific customer service evidence is still limited.',
     contentSections: [
       {
-        heading: 'giffgaff Broadband Deals in August 2026',
+        heading: 'giffgaff Broadband Deals in October 2026',
         paragraphs: [
           'giffgaff\'s range offers three symmetrical tiers: 200 Mbps at £25 a month, 500 Mbps at £28, and 900 Mbps at £32, each available on a 24-month contract or a more expensive 1-month rolling option for anyone who wants no fixed commitment at all.',
-          'giffgaff has run a promotional offer pricing broadband at £5 a month for the first six months of a 24-month contract, due to end on 28 August 2026. Given how close that date is, confirm the live offer at checkout rather than assuming the £5 introductory rate still applies.',
+          'giffgaff ran a £5-a-month introductory offer until 28 August 2026. On 16 October 2026 its broadband page instead offered your old provider\'s exit fee back as account credit, up to £300, paid from month three.',
           'No setup fee applies to any current package, and giffgaff states its plans carry no mid-contract price rise, consistent with the "no sneaky price rises" positioning it uses in its own marketing.',
         ],
       },
@@ -2651,12 +2704,12 @@ const baseProviders: Provider[] = [
       'A separate, lower-scoring youfibre.co.uk Trustpilot profile exists alongside the main youfibre.com page',
     ],
     excerpt:
-      'YouFibre is a full-fibre altnet built on the Netomnia network, covering around 10% of UK premises across more than 150 towns after absorbing the Brsk brand in March 2026. Prices run from £20 a month for You 200 up to £50 for You 8000, all symmetrical and with no mid-contract price rises, on either a 24-month or rolling monthly contract. Its Trustpilot score is a strong 4.6 out of 5, though the Brsk migration caused genuine billing and login problems for some customers, and its parent group is currently mid-acquisition into the Virgin Media O2 orbit, pending regulatory approval.',
+      'YouFibre is a full-fibre altnet built on the Netomnia network, covering around 10% of UK premises across more than 150 towns after absorbing the Brsk brand in March 2026. Prices run from £22 a month for You 200 up to £50 for You 8000 on 24-month plans (checked 16 October 2026), all symmetrical and with no in-contract price rises, on either a 24-month or rolling monthly contract. Its Trustpilot score is a strong 4.6 out of 5, though the Brsk migration caused genuine billing and login problems for some customers, and its parent group is currently mid-acquisition into the Virgin Media O2 orbit, pending regulatory approval.',
     contentSections: [
       {
-        heading: 'YouFibre Broadband Deals in August 2026',
+        heading: 'YouFibre Broadband Deals in October 2026',
         paragraphs: [
-          'YouFibre\'s current 24-month range runs from You 200 at £20 a month, through You 1000 at £25 and You 2000 at £30, up to You 8000 at £50, all with genuinely symmetrical upload and download speeds. A rolling monthly option is also available at a higher price, from £33.99 for You 150 up to £129.99 for You 8000, requiring 30 days\' notice to cancel rather than a fixed minimum term.',
+          'YouFibre\'s 24-month range, checked on 16 October 2026, runs from You 200 (200 Mbps) at £22 a month, through You 1000 (900 Mbps average) at £24 and You 2000 (1,800 Mbps) at £34.99, up to You 8000 (7,000 Mbps) at £50, all with genuinely symmetrical upload and download speeds. A rolling monthly option is also available at a higher price, from £33.99 for You 150 up to £129.99 for You 8000, requiring 30 days\' notice to cancel rather than a fixed minimum term.',
           'No setup fee applies on any package, and a Wi-Fi 7 router is included as standard, a genuinely newer specification than most national providers currently offer even on their flagship tiers.',
           'YouFibre\'s central pricing promise is that the monthly price stays fixed for the whole contract term, with no scheduled mid-contract increase of the kind BT, Sky, EE and Vodafone all now apply as a flat pounds-and-pence rise. This remains a genuine, real point of difference rather than a marketing claim, and applies equally to the rolling monthly option.',
         ],
@@ -2969,14 +3022,14 @@ const baseProviders: Provider[] = [
       'Home phone and mesh WiFi are separate paid add-ons, not included as standard',
     ],
     excerpt:
-      'Zzoomm is a full-fibre altnet that merged with FullFibre in February 2026, taking its combined network to around 600,000 premises across roughly 110 English market towns. Every plan is symmetrical, running from 200 Mbps to 2,300 Mbps, priced from £20 a month on a 24-month term with no scheduled in-contract rise. Coverage is genuinely postcode-specific, so run its own checker before ruling a national provider out at your address.',
+      'Zzoomm is a full-fibre altnet that merged with FullFibre in February 2026, taking its combined network to around 600,000 premises across roughly 110 English market towns. Every plan is symmetrical, running from 200 Mbps to 2,300 Mbps, priced from £22 a month on a 24-month term, rising by £4 from month 13 (checked 16 October 2026). Coverage is genuinely postcode-specific, so run its own checker before ruling a national provider out at your address.',
     contentSections: [
       {
-        heading: 'Zzoomm Broadband Deals in August 2026',
+        heading: 'Zzoomm Broadband Deals in October 2026',
         paragraphs: [
-          'Zzoomm sells the same four symmetrical speeds under three different commitment lengths. The 24-month term is the cheapest way in: £20 a month for 200 Mbps, £23 for 500 Mbps, £25 for 1,000 Mbps and £35 for 2,300 Mbps, each rising to a higher standard rate after the first 12 months. The 12-month term skips that step-up but starts higher, at £24, £27, £29 and £39 respectively. FlexiMonth, its rolling monthly option, costs the most of the three, from £32 up to £70, in exchange for no fixed term at all.',
-          'The gap between the 24-month and FlexiMonth prices on the entry tier is £12 a month, or roughly £288 over two years, which is a meaningful amount to pay for the freedom to leave whenever you like. Anyone reasonably confident they will stay at the same address for at least a year should default to the 24-month price and treat FlexiMonth as a genuine short-term option, not the default choice.',
-          'None of these figures include the optional extras. A home phone line adds £10 a month, and each mesh WiFi extender adds a further £5 a month. Add both to a 1,000 Mbps 24-month plan and the real monthly cost is £40, not the £25 headline figure, so build any add-ons into the comparison before deciding Zzoomm is the cheaper option against a rival with phone or mesh bundled in.',
+          'Zzoomm sells the same four symmetrical speeds under three different commitment lengths. The 24-month term is the cheapest way in: on 16 October 2026 it was £22 a month for 200 Mbps, £24 for 500 Mbps, £26 for 1,000 Mbps and £35 for 2,300 Mbps, each rising by £4 a month from month 13. In our earlier check, the 12-month term skipped that step-up but started higher, at £24, £27, £29 and £39, and FlexiMonth, its rolling monthly option, cost the most, from £32 up to £70; confirm those on Zzoomm\'s site, as we re-checked only the 24-month prices.',
+          'FlexiMonth costs noticeably more than the 24-month price on every tier, which adds up over two years, so it is a real cost for the freedom to leave whenever you like. Anyone reasonably confident they will stay at the same address for at least a year should default to the 24-month price and treat FlexiMonth as a genuine short-term option, not the default choice.',
+          'None of these figures include the optional extras. A home phone line adds £10 a month, and each mesh WiFi extender adds a further £5 a month. Add both to a 1,000 Mbps 24-month plan and the real monthly cost is £41, not the £26 headline figure, so build any add-ons into the comparison before deciding Zzoomm is the cheaper option against a rival with phone or mesh bundled in.',
         ],
       },
       {
@@ -3006,7 +3059,7 @@ const baseProviders: Provider[] = [
       {
         heading: 'Contract Length and the No-Price-Rise Policy',
         paragraphs: [
-          'Zzoomm\'s published range currently carries no scheduled mid-contract price increase. That is a genuine point of difference: since Ofcom banned inflation-linked, percentage-based rise terms from all new contracts in January 2025, most national providers, including BT, EE, Vodafone, Plusnet and TalkTalk, now apply a disclosed flat rise of around £3 to £4 a month instead. Zzoomm charges no scheduled rise at all, rather than a smaller flat one, which is easier to budget around and worth weighing against a slightly cheaper headline price elsewhere that comes with a scheduled rise.',
+          'Zzoomm\'s 24-month prices step up by £4 a month from month 13, a change shown on each package rather than added later (checked 16 October 2026). Most national providers, including BT, EE, Vodafone, Plusnet and TalkTalk, instead add a flat £3 to £4 a month each spring. Either way, compare the full 24-month cost rather than the first-year price.',
           'The trade-off for the 24-month term\'s lower headline price is a step up after 12 months, from the intro rate to Zzoomm\'s standard rate for that speed. That step is disclosed upfront in the price table, not hidden in the terms, so it should never come as a surprise if the contract summary is read before signing.',
           'FlexiMonth removes both the step-up and the fixed term, at the cost of a meaningfully higher starting price. It suits genuinely short stays, such as a fixed-length tenancy, more than it suits anyone planning to stay put, where the 24-month term is almost always the better value once the full two years are compared side by side.',
         ],
@@ -3047,7 +3100,7 @@ const baseProviders: Provider[] = [
       },
       {
         question: 'Does Zzoomm increase its prices mid-contract?',
-        answer: 'Zzoomm\'s current published range carries no scheduled mid-contract price increase, unlike most national providers, which now apply a flat rise of around £3 to £4 a month under Ofcom\'s rules on disclosed pounds-and-pence increases. The 24-month term does step up from its introductory rate to a higher standard rate after the first 12 months, but that step is disclosed in the price table rather than added later.',
+        answer: 'Yes, in one disclosed step. On 16 October 2026, Zzoomm\'s 24-month prices rose by £4 a month from month 13 (for example, 200 Mbps from £22 to £26), shown in the price table rather than added later. Most national providers instead add a flat £3 to £4 a month each spring.',
       },
       {
         question: 'What speed do I need from Zzoomm?',
@@ -3124,12 +3177,12 @@ const baseProviders: Provider[] = [
       'Easily confused by name with Highland Community Broadband, an unrelated wireless ISP that is closing in April 2026',
     ],
     excerpt:
-      'Highland Broadband is a full-fibre altnet building its own network across rural Scotland, backed by £50 million in funding confirmed in August 2025. Symmetrical plans run from 150 Mbps to 5,000 Mbps, priced from £29.99 a month on a 24-month contract, with a genuine social tariff for households on means-tested benefits. It is not the same company as Highland Community Broadband, a separate wireless ISP that is closing in April 2026, so check the address carefully before assuming either one applies.',
+      'Highland Broadband is a full-fibre altnet building its own network across rural Scotland, backed by £50 million in funding confirmed in August 2025. Symmetrical plans run from 150 Mbps to 5,000 Mbps, priced from £24.99 a month on a 24-month contract (checked 16 October 2026), with a genuine social tariff for households on means-tested benefits. It is not the same company as Highland Community Broadband, a separate wireless ISP that is closing in April 2026, so check the address carefully before assuming either one applies.',
     contentSections: [
       {
-        heading: 'Highland Broadband Deals in August 2026',
+        heading: 'Highland Broadband Deals in October 2026',
         paragraphs: [
-          'Highland Broadband sells four symmetrical speeds, all on a 24-month contract. Essential 150 starts at £29.99 a month, rising to £39.99 after the introductory period. Everyday 500 starts at £34.99, rising to £54.99. Family 1000 and Ultimate 5000 are both running an August 2026 offer at £34.99 and £49.99 respectively, against standard prices of £79.99 and £99.99, which is a considerably steeper jump once the offer period ends than on the two entry tiers.',
+          'Highland Broadband sells four symmetrical speeds, all on a 24-month contract. On 16 October 2026, Essential 150 cost £24.99 a month (standard price £39.99), Everyday 500 £29.99 (standard £54.99), Family 1000 £34.99 (standard £79.99) and Ultimate 5000 £39.99 (standard £99.99). The gap to the standard price is largest on the two fastest tiers, so check what you would pay once any offer period ends.',
           'Family 1000 and Ultimate 5000 both include Advanced Cyber Security and Dynamic Parental Controls at no extra cost, and Ultimate 5000 adds a Whole Home WiFi Guarantee, promising a minimum of 30 Mbps in every room, a feature Highland Broadband separately prices at £10 a month when bought as an add-on to the two cheaper plans.',
           'A means-tested social tariff, Essential 100 at £23.99 a month, sits outside the main range for households receiving qualifying benefits. It is worth checking eligibility directly with Highland Broadband, since social tariffs are commonly under-claimed simply because customers do not know to ask.',
         ],
@@ -3283,9 +3336,9 @@ const baseProviders: Provider[] = [
       'Connect Fibre is a full-fibre altnet building its own symmetrical FTTP network across small towns and villages in Cambridgeshire, Derbyshire, Essex, Nottinghamshire, north-east Staffordshire and two Sheffield suburb clusters. Residential plans run from 250 Mbps to 2,000 Mbps, priced from about £25 a month on a 24-month contract with free standard installation and a Wi-Fi 7 router. It markets no mid-contract price rises and offers an Essentials social tariff at £20 a month for eligible benefit recipients. Coverage is narrow, so a postcode check with Connect Fibre is essential before assuming it applies.',
     contentSections: [
       {
-        heading: 'Connect Fibre Deals in September 2026',
+        heading: 'Connect Fibre Deals in October 2026',
         paragraphs: [
-          'Connect Fibre\'s residential range is built around four symmetrical full-fibre tiers on a 24-month contract. Its published price book, effective 8 January 2026, and independent listings checked in September 2026 place the 24-month prices at around £25 a month for 250 Mbps, £29 for 500 Mbps, £29 for 1,000 Mbps and about £39 to £45 a month for the 2,000 Mbps Fibre2000 tier. The two fastest tiers are the ones where dated sources disagree most, so confirm the current figure for Fibre2000 directly before comparing it against a rival.',
+          'Connect Fibre\'s residential range is built around four symmetrical full-fibre tiers on a 24-month contract. Its published price book (updated 8 January 2026, checked on 16 October 2026) lists 24-month prices of £24.99 a month for Fibre250, £29.99 for Fibre1000, £34.99 for Fibre2000 and £44.99 for Fibre5000, and the homepage confirms prices are fixed for 24 months. Twelve-month terms cost more.',
           'A 12-month contract is available on the main tiers at a higher monthly price, and a legacy Basic 50 plan is sold on rolling one and three-month terms that can be cancelled at any time. Standard installation is free, with non-standard installs quoted separately, and there is no upfront setup fee on the standard range.',
           'A phone line is not included on the base packages. Connect Fibre sells it as an optional add-on for roughly £10 to £15 a month, so a household that still needs a landline should add that cost when comparing Connect Fibre against a provider that bundles calls.',
         ],
@@ -3348,7 +3401,7 @@ const baseProviders: Provider[] = [
       {
         question: 'How much does Connect Fibre cost?',
         answer:
-          'On a 24-month contract, dated sources in September 2026 place Connect Fibre at around £25 a month for 250 Mbps, £29 for 500 and 1,000 Mbps, and about £39 to £45 a month for the 2,000 Mbps Fibre2000 tier. Standard installation is free and there is no setup fee on the standard range. An Essentials social tariff is £20 a month for eligible benefit recipients.',
+          'On a 24-month contract, Connect Fibre\'s price book lists £24.99 a month for 250 Mbps, £29.99 for 1,000 Mbps, £34.99 for 2,000 Mbps and £44.99 for 5,000 Mbps (checked 16 October 2026). Standard installation is free and there is no setup fee on the standard range. An Essentials social tariff is £20 a month for eligible benefit recipients.',
       },
       {
         question: 'Does Connect Fibre increase prices during the contract?',
@@ -3956,25 +4009,36 @@ const baseProviders: Provider[] = [
   },
 ]
 
-export const providers: Provider[] = baseProviders.map(applyLiveDealOverlay)
+export const providers: Provider[] = baseProviders.map(applyLiveDealOverlay).map(applyPriceCheck)
 
 export function getProviderBySlug(slug: string): Provider | undefined {
   return providers.find((p) => p.slug === slug)
 }
 
+/** The provider's cheapest real package (checked price), or its typed entry package. */
+export function entryPackage(p: Provider) {
+  const pkg = p.packages?.[0]
+  return pkg
+    ? { packageName: `${p.name} ${pkg.packageName}`, download: pkg.download, upload: pkg.upload, type: pkg.type, monthlyPrice: pkg.monthlyPrice, contractLength: pkg.contractLength }
+    : { packageName: `${p.name} Broadband`, download: p.speeds[0].download, upload: p.speeds[0].upload, type: p.speeds[0].type, monthlyPrice: p.monthlyPriceFrom, contractLength: p.contractLengths[0] }
+}
+
 export function getTopDeals(count = 5) {
   return providers
     .filter((p) => !p.retiredDate)
-    .map((p) => ({
-      provider: p,
-      monthlyPrice: p.monthlyPriceFrom,
-      download: p.speeds[0].download,
-      upload: p.speeds[0].upload,
-      type: p.speeds[0].type,
-      contractLength: p.contractLengths[0],
-      setupFee: p.setupFee,
-      packageName: `${p.name} Broadband`,
-    }))
+    .map((p) => {
+      const entry = entryPackage(p)
+      return {
+        provider: p,
+        monthlyPrice: entry.monthlyPrice,
+        download: entry.download,
+        upload: entry.upload,
+        type: entry.type,
+        contractLength: entry.contractLength,
+        setupFee: p.setupFee,
+        packageName: entry.packageName,
+      }
+    })
     .sort((a, b) => a.monthlyPrice - b.monthlyPrice)
     .slice(0, count)
 }

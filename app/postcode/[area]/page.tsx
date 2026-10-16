@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import {
   getPostcodeArea,
@@ -6,7 +7,7 @@ import {
   postcodeDatasetUpdatedDate,
   postcodeSourceNotes,
 } from '@/data/postcodes'
-import { providers, getTopDeals, providerDatasetUpdatedDate } from '@/data/providers'
+import { providers, getTopDeals, entryPackage, providerDatasetUpdatedDate } from '@/data/providers'
 import { JsonLd } from '@/lib/jsonLd'
 import { organizationRef, SITE_URL } from '@/lib/siteSchema'
 import CiteableAnswer from '@/components/CiteableAnswer'
@@ -19,8 +20,8 @@ import {
 import BreadcrumbNav from '@/components/BreadcrumbNav'
 import DealsClient from '@/components/DealsClient'
 import FAQAccordion from '@/components/FAQAccordion'
-import AffiliateCTA from '@/components/AffiliateCTA'
 import NewsletterSignup from '@/components/NewsletterSignup'
+import AffiliateCTA from '@/components/AffiliateCTA'
 import RatingStars from '@/components/RatingStars'
 import DartfordBroadbandNeeds from '@/components/DartfordBroadbandNeeds'
 import M1BroadbandPlanComparison from '@/components/M1BroadbandPlanComparison'
@@ -32,6 +33,8 @@ import CR0BroadbandComparison from '@/components/CR0BroadbandComparison'
 import N1BroadbandComparison from '@/components/N1BroadbandComparison'
 import { getPostcodeLocalIntel } from '@/data/postcodeLocalIntel'
 import { buildDealListJsonLd } from '@/lib/dealSchema'
+import PageHeroBanner from '@/components/PageHeroBanner'
+import { DEFAULT_GUIDE_CTAS, hubHero } from '@/lib/pageHero'
 
 export async function generateStaticParams() {
   return getAllPostcodePrefixes().map((prefix) => ({ area: prefix }))
@@ -67,6 +70,7 @@ export async function generateMetadata({
       },
     }
   }
+
 
   const prefix = postcodeArea.prefix.toUpperCase()
   if (prefix === 'CR0') {
@@ -230,6 +234,279 @@ export async function generateMetadata({
     }
   }
 
+  if (prefix === 'SW1') {
+    const description = 'Compare broadband deals in Westminster and SW1, covering Belgravia, Pimlico, Victoria and Whitehall, using Ofcom sub-district coverage for SW1A to SW1Y, named physical networks and affordable-broadband options.'
+    return {
+      title: { absolute: 'Broadband Deals in Westminster and SW1 | Compare Options' },
+      description,
+      alternates: { canonical },
+      openGraph: {
+        title: 'Broadband Deals in Westminster and SW1 | BroadbandPicker',
+        description,
+        url: canonical,
+      },
+    }
+  }
+  if (prefix === 'EN1') {
+    const description = "Compare broadband deals in Enfield and EN1 using Ofcom-derived district coverage, Openreach's confirmed flat and apartment full-fibre upgrade, named physical networks and exact-address checks."
+    return {
+      title: { absolute: 'Broadband Deals in Enfield and EN1 | Compare Options' },
+      description,
+      alternates: { canonical },
+      openGraph: {
+        title: 'Broadband Deals in Enfield and EN1 | BroadbandPicker',
+        description,
+        url: canonical,
+      },
+    }
+  }
+  if (prefix === 'LE1') {
+    const description = "Compare broadband deals in Leicester and LE1 using Ofcom-derived district coverage, toob's confirmed launch on CityFibre's network, plus exact-address checks."
+    return {
+      title: { absolute: 'Broadband Deals in Leicester and LE1 | Compare Options' },
+      description,
+      alternates: { canonical },
+      openGraph: {
+        title: 'Broadband Deals in Leicester and LE1 | BroadbandPicker',
+        description,
+        url: canonical,
+      },
+    }
+  }
+  if (prefix === 'SG1') {
+    const description = "Compare broadband deals in Stevenage and SG1 using Ofcom-derived district coverage and a genuine, dated drop in Openreach full-fibre availability, plus exact-address checks."
+    return {
+      title: { absolute: 'Broadband Deals in Stevenage and SG1 | Compare Options' },
+      description,
+      alternates: { canonical },
+      openGraph: {
+        title: 'Broadband Deals in Stevenage and SG1 | BroadbandPicker',
+        description,
+        url: canonical,
+      },
+    }
+  }
+  if (prefix === 'CF10') {
+    const description = "Compare broadband deals in Cardiff and CF10 using Ofcom-derived district coverage, Cardiff's hypercity network and Ffeibr's Transport for Wales fibre extension, plus exact-address checks."
+    return {
+      title: { absolute: 'Broadband Deals in Cardiff and CF10 | Compare Options' },
+      description,
+      alternates: { canonical },
+      openGraph: {
+        title: 'Broadband Deals in Cardiff and CF10 | BroadbandPicker',
+        description,
+        url: canonical,
+      },
+    }
+  }
+  if (prefix === 'LS1') {
+    const description = "Compare broadband deals in Leeds city centre and LS1 using Ofcom-derived district coverage, named local full-fibre networks and a real LS1-vs-LS2 comparison, plus exact-address checks."
+    return {
+      title: { absolute: 'Broadband Deals in Leeds City Centre and LS1 | Compare Options' },
+      description,
+      alternates: { canonical },
+      openGraph: {
+        title: 'Broadband Deals in Leeds City Centre and LS1 | BroadbandPicker',
+        description,
+        url: canonical,
+      },
+    }
+  }
+  if (prefix === 'OX1') {
+    const description = "Compare broadband deals in Oxford and OX1 using Ofcom-derived district coverage, Openreach's confirmed full-fibre rollout and low-uptake finding, plus exact-address checks."
+    return {
+      title: { absolute: 'Broadband Deals in Oxford and OX1 | Compare Options' },
+      description,
+      alternates: { canonical },
+      openGraph: {
+        title: 'Broadband Deals in Oxford and OX1 | BroadbandPicker',
+        description,
+        url: canonical,
+      },
+    }
+  }
+  if (prefix === 'BS3') {
+    const description = "Compare broadband deals in Bedminster and BS3 using Ofcom-derived district coverage, CityFibre's partial coverage via Vodafone and TalkTalk, plus exact-address checks."
+    return {
+      title: { absolute: 'Broadband Deals in Bedminster and BS3 | Compare Options' },
+      description,
+      alternates: { canonical },
+      openGraph: {
+        title: 'Broadband Deals in Bedminster and BS3 | BroadbandPicker',
+        description,
+        url: canonical,
+      },
+    }
+  }
+  if (prefix === 'G1') {
+    const description = "Compare broadband deals in Glasgow and G1 using Ofcom-derived district coverage, CityFibre's citywide investment and named physical networks, plus exact-address checks."
+    return {
+      title: { absolute: 'Broadband Deals in Glasgow and G1 | Compare Options' },
+      description,
+      alternates: { canonical },
+      openGraph: {
+        title: 'Broadband Deals in Glasgow and G1 | BroadbandPicker',
+        description,
+        url: canonical,
+      },
+    }
+  }
+  if (prefix === 'L8') {
+    const description = "Compare broadband deals in Toxteth and L8 using Ofcom-derived district coverage, named local full-fibre networks including Giant's LCR Connect, plus exact-address checks."
+    return {
+      title: { absolute: 'Broadband Deals in Toxteth and L8 | Compare Options' },
+      description,
+      alternates: { canonical },
+      openGraph: {
+        title: 'Broadband Deals in Toxteth and L8 | BroadbandPicker',
+        description,
+        url: canonical,
+      },
+    }
+  }
+  if (prefix === 'CV1') {
+    const description = "Compare broadband deals in Coventry and CV1 using Ofcom-derived district coverage, Openreach's confirmed full-fibre eligibility figures, named physical networks and exact-address checks."
+    return {
+      title: { absolute: 'Broadband Deals in Coventry and CV1 | Compare Options' },
+      description,
+      alternates: { canonical },
+      openGraph: {
+        title: 'Broadband Deals in Coventry and CV1 | BroadbandPicker',
+        description,
+        url: canonical,
+      },
+    }
+  }
+  if (prefix === 'B1') {
+    const description = "Compare broadband deals in Birmingham and B1 using Ofcom-derived district coverage, named physical networks including Hyperoptic's city-centre apartment presence, plus exact-address checks."
+    return {
+      title: { absolute: 'Broadband Deals in Birmingham and B1 | Compare Options' },
+      description,
+      alternates: { canonical },
+      openGraph: {
+        title: 'Broadband Deals in Birmingham and B1 | BroadbandPicker',
+        description,
+        url: canonical,
+      },
+    }
+  }
+  if (prefix === 'LS2') {
+    const description = "Compare broadband deals in Leeds and LS2 using Ofcom-derived district coverage, named local full-fibre networks including CCS Leeds and Stream Networks, plus exact-address checks."
+    return {
+      title: { absolute: 'Broadband Deals in Leeds and LS2 | Compare Options' },
+      description,
+      alternates: { canonical },
+      openGraph: {
+        title: 'Broadband Deals in Leeds and LS2 | BroadbandPicker',
+        description,
+        url: canonical,
+      },
+    }
+  }
+  if (prefix === 'L1') {
+    const description = "Compare broadband deals in Liverpool and L1 using Ofcom-derived district coverage, Netomnia/YouFibre's confirmed rollout and named physical networks, plus exact-address checks."
+    return {
+      title: { absolute: 'Broadband Deals in Liverpool and L1 | Compare Options' },
+      description,
+      alternates: { canonical },
+      openGraph: {
+        title: 'Broadband Deals in Liverpool and L1 | BroadbandPicker',
+        description,
+        url: canonical,
+      },
+    }
+  }
+  if (prefix === 'LU1') {
+    const description = "Compare broadband deals in Luton and LU1 using Ofcom-derived district coverage, CityFibre's confirmed rollout and Openreach's low-uptake findings, named physical networks and exact-address checks."
+    return {
+      title: { absolute: 'Broadband Deals in Luton and LU1 | Compare Options' },
+      description,
+      alternates: { canonical },
+      openGraph: {
+        title: 'Broadband Deals in Luton and LU1 | BroadbandPicker',
+        description,
+        url: canonical,
+      },
+    }
+  }
+  if (prefix === 'SO14') {
+    const description = "Compare broadband deals in Southampton and SO14 using Ofcom-derived district coverage, toob's own full-fibre network and Openreach's confirmed city upgrade, named physical networks and exact-address checks."
+    return {
+      title: { absolute: 'Broadband Deals in Southampton and SO14 | Compare Options' },
+      description,
+      alternates: { canonical },
+      openGraph: {
+        title: 'Broadband Deals in Southampton and SO14 | BroadbandPicker',
+        description,
+        url: canonical,
+      },
+    }
+  }
+  if (prefix === 'W5') {
+    const description = "Compare broadband deals in Ealing and W5 using Ofcom-derived district coverage, Vodafone's confirmed full-fibre expansion on Community Fibre's network, named physical networks and exact-address checks."
+    return {
+      title: { absolute: 'Broadband Deals in Ealing and W5 | Compare Options' },
+      description,
+      alternates: { canonical },
+      openGraph: {
+        title: 'Broadband Deals in Ealing and W5 | BroadbandPicker',
+        description,
+        url: canonical,
+      },
+    }
+  }
+  if (prefix === 'NW1') {
+    const description = "Compare broadband deals in Camden and NW1 using Ofcom-derived district coverage, G.Network's 2026 administration and restructuring, named physical networks and exact-address checks."
+    return {
+      title: { absolute: 'Broadband Deals in Camden and NW1 | Compare Options' },
+      description,
+      alternates: { canonical },
+      openGraph: {
+        title: 'Broadband Deals in Camden and NW1 | BroadbandPicker',
+        description,
+        url: canonical,
+      },
+    }
+  }
+  if (prefix === 'UB1') {
+    const description = 'Compare broadband deals in Southall and UB1 using Ofcom-derived district coverage, Virgin Media\'s confirmed gigabit rollout, named physical networks and exact-address checks.'
+    return {
+      title: { absolute: 'Broadband Deals in Southall and UB1 | Compare Options' },
+      description,
+      alternates: { canonical },
+      openGraph: {
+        title: 'Broadband Deals in Southall and UB1 | BroadbandPicker',
+        description,
+        url: canonical,
+      },
+    }
+  }
+  if (prefix === 'E1') {
+    const description = 'Compare broadband deals in Whitechapel and E1, covering Spitalfields, Aldgate, Stepney and Wapping, using Ofcom-derived district coverage, named physical networks including EE and exact-address checks.'
+    return {
+      title: { absolute: 'Broadband Deals in Whitechapel and E1 | Compare Options' },
+      description,
+      alternates: { canonical },
+      openGraph: {
+        title: 'Broadband Deals in Whitechapel and E1 | BroadbandPicker',
+        description,
+        url: canonical,
+      },
+    }
+  }
+  if (prefix === 'SE1') {
+    const description = 'Compare broadband deals in Southwark and SE1, covering Borough, Bankside, London Bridge and Bermondsey, using Ofcom-derived district coverage, named physical networks and exact-address checks for SE1 6RN and nearby streets.'
+    return {
+      title: { absolute: 'Broadband Deals in Southwark and SE1 | Compare Options' },
+      description,
+      alternates: { canonical },
+      openGraph: {
+        title: 'Broadband Deals in Southwark and SE1 | BroadbandPicker',
+        description,
+        url: canonical,
+      },
+    }
+  }
   if (prefix === 'DA1') {
     const coverage = getDistrictCoverage(prefix)
     const description = coverage
@@ -242,6 +519,22 @@ export async function generateMetadata({
       alternates: { canonical },
       openGraph: {
         title: 'Broadband Deals in Dartford (DA1) | BroadbandPicker',
+        description,
+        url: canonical,
+      },
+    }
+  }
+  if (prefix === 'CR0') {
+    const coverage = getDistrictCoverage(prefix)
+    const description = coverage
+      ? `Compare broadband deals in Croydon and CR0. See ${coverage.gigabitPercent}% gigabit and ${coverage.superfastPercent}% superfast coverage from Ofcom-derived data, then check your address.`
+      : 'Compare broadband deals in Croydon and CR0 by price, speed, contract cost and exact-address availability.'
+    return {
+      title: { absolute: 'Broadband Deals in Croydon and CR0 | Compare Providers' },
+      description,
+      alternates: { canonical },
+      openGraph: {
+        title: 'Broadband Deals in Croydon and CR0 | BroadbandPicker',
         description,
         url: canonical,
       },
@@ -279,7 +572,9 @@ export default async function PostcodeAreaPage({
   })
   const pageReviewedDateLabel = ['CR0', 'N1'].includes(area.toUpperCase())
     ? '13 October 2026'
-    : area.toUpperCase() === 'HA1'
+    : ['CF10', 'SG1', 'LE1'].includes(area.toUpperCase())
+    ? '5 September 2026'
+    : ['HA1', 'SE1', 'SW1', 'E1', 'UB1', 'EN1', 'NW1', 'W5', 'SO14', 'LU1', 'L1', 'LS2', 'B1', 'CV1', 'L8', 'G1', 'BS3', 'OX1', 'LS1'].includes(area.toUpperCase())
     ? '4 September 2026'
     : area.toUpperCase() === 'GU1'
     ? '1 September 2026'
@@ -292,7 +587,7 @@ export default async function PostcodeAreaPage({
     const coverage = getDistrictCoverage(prefix)
     const nationalDeals = getTopDeals(12).map((d) => ({
       provider: d.provider,
-      packageName: `${d.provider.name} Broadband`,
+      packageName: d.packageName,
       download: d.download,
       upload: d.upload,
       type: d.type,
@@ -426,6 +721,46 @@ export default async function PostcodeAreaPage({
   const isNE1 = prefix === 'NE1'
   const isGU1 = prefix === 'GU1'
   const isHA1 = prefix === 'HA1'
+  const isSE1 = prefix === 'SE1'
+  const isE1 = prefix === 'E1'
+  const isUB1 = prefix === 'UB1'
+  const isEN1 = prefix === 'EN1'
+  const isNW1 = prefix === 'NW1'
+  const isW5 = prefix === 'W5'
+  const isSO14 = prefix === 'SO14'
+  const isLU1 = prefix === 'LU1'
+  const isL1 = prefix === 'L1'
+  const isLS2 = prefix === 'LS2'
+  const isB1 = prefix === 'B1'
+  const isCV1 = prefix === 'CV1'
+  const isL8 = prefix === 'L8'
+  const isG1 = prefix === 'G1'
+  const isBS3 = prefix === 'BS3'
+  const isOX1 = prefix === 'OX1'
+  const isLS1 = prefix === 'LS1'
+  const isCF10 = prefix === 'CF10'
+  const isSG1 = prefix === 'SG1'
+  const isLE1 = prefix === 'LE1'
+  const isSW1 = prefix === 'SW1'
+  // SW1 has no single Ofcom district figure -- it is genuinely eight separate
+  // outward codes (SW1A/E/H/P/V/W/X/Y). Aggregated here (sample-size weighted)
+  // from data/postcode-district-coverage.json rather than relying on the
+  // generic single-district districtCoverage lookup, which returns undefined
+  // for the bare "SW1" the site models for pricing/provider purposes.
+  const sw1SubDistricts = [
+    { code: 'SW1A', sampleSize: 65, gigabitPercent: 36.4 },
+    { code: 'SW1E', sampleSize: 46, gigabitPercent: 72.9 },
+    { code: 'SW1H', sampleSize: 48, gigabitPercent: 92.0 },
+    { code: 'SW1P', sampleSize: 387, gigabitPercent: 84.4 },
+    { code: 'SW1V', sampleSize: 504, gigabitPercent: 86.0 },
+    { code: 'SW1W', sampleSize: 272, gigabitPercent: 76.3 },
+    { code: 'SW1X', sampleSize: 317, gigabitPercent: 82.1 },
+    { code: 'SW1Y', sampleSize: 71, gigabitPercent: 89.5 },
+  ]
+  const sw1TotalSample = sw1SubDistricts.reduce((sum, d) => sum + d.sampleSize, 0)
+  const sw1WeightedGigabitPercent = Math.round(
+    (sw1SubDistricts.reduce((sum, d) => sum + d.gigabitPercent * d.sampleSize, 0) / sw1TotalSample) * 10
+  ) / 10
   const districtCoverage = getDistrictCoverage(prefix)
   const isDartford = prefix === 'DA1'
   const localIntel = getPostcodeLocalIntel(prefix)
@@ -445,12 +780,7 @@ export default async function PostcodeAreaPage({
 
   const areaDeals = availableProviders.map((p) => ({
     provider: p,
-    packageName: `${p.name} Broadband`,
-    download: p.speeds[0].download,
-    upload: p.speeds[0].upload,
-    type: p.speeds[0].type,
-    monthlyPrice: p.monthlyPriceFrom,
-    contractLength: p.contractLengths[0],
+    ...entryPackage(p),
     setupFee: p.setupFee,
   }))
 
@@ -484,7 +814,574 @@ export default async function PostcodeAreaPage({
         ]
       : []),
   ]
-  const faqItems = isHA1
+  const faqItems = isLE1
+    ? [
+        {
+          question: 'Which broadband providers are available in Leicester and LE1?',
+          answer: 'LE1 households can check BT, Sky, EE, TalkTalk, Plusnet, Vodafone and NOW over Openreach, plus Virgin Media on its own cable network. This is a district shortlist, not an availability promise. toob confirmed on 15 October 2024 that it had launched services to tens of thousands of homes in Leicester using CityFibre\'s network, though toob is not currently in BroadbandPicker\'s LE1 provider comparison. Enter the complete house or flat number with each suitable network before comparing orderable packages.',
+        },
+        {
+          question: 'Which broadband provider is best in Leicester?',
+          answer: `There is no single best provider for every LE1 address; compare the total minimum-term cost and confirmed speed of packages available at your property rather than a generic ranking. The cheapest option here currently starts from £${postcodeArea.cheapestMonthly.toFixed(2)}/month${cheapestProvider ? ` with ${cheapestProvider.name}` : ''}.`,
+        },
+        {
+          question: 'Is toob available in Leicester?',
+          answer: 'Yes, in parts of the city. toob confirmed on 15 October 2024 that it had launched full-fibre services to tens of thousands of homes in Leicester, alongside Luton and Cambridge, using CityFibre\'s network. toob is not currently in BroadbandPicker\'s LE1 provider comparison, so check its own coverage tool directly for a specific address.',
+        },
+        {
+          question: 'How fast is broadband in Leicester and LE1?',
+          answer: `Ofcom-derived LE1 records show ${districtCoverage?.superfastPercent}% superfast, ${districtCoverage?.ultrafastPercent}% ultrafast and ${districtCoverage?.gigabitPercent}% gigabit-capable availability across ${districtCoverage?.sampleSize} sampled postcode units, based on July 2024 data. These percentages measure network reach, not the speed received by one household. Compare each provider's personalised estimate and minimum guaranteed download speed for the complete address.`,
+        },
+        {
+          question: 'Are Leicester-wide broadband statistics the same as LE1 figures?',
+          answer: 'They can differ. One competitor site cites Ofcom\'s Connected Nations 2025 report with different average speed bands by category to BroadbandPicker\'s own July 2024 aggregation used on this page. Different editions of the same regulator dataset can show different figures for the same area. Use the complete address check with your chosen provider rather than relying on any single reported average.',
+        },
+        {
+          question: 'How should I choose the best broadband deal in Leicester?',
+          answer: 'Start with packages confirmed for the complete address, then compare total minimum-term cost rather than the opening monthly price alone. Include setup charges, scheduled price changes and the post-contract price. We would favour an affordable full-fibre plan where it is genuinely orderable, checking toob\'s own coverage tool separately since it is not in our comparison table, while keeping a lower-speed option if it meets the household need at materially lower cost.',
+        },
+      ]
+    : isSG1
+    ? [
+        {
+          question: 'Which broadband providers are available in Stevenage and SG1?',
+          answer: 'SG1 households can check BT, Sky, EE, TalkTalk, Plusnet, Vodafone and NOW over Openreach, plus Virgin Media on its own cable network. This is a district shortlist, not an availability promise. Given the reported pause in some Openreach full-fibre installations locally, always confirm the current live status for the complete address before ordering.',
+        },
+        {
+          question: 'What is the cheapest broadband deal in Stevenage?',
+          answer: `There is no single cheapest SG1 deal for every address; compare the total minimum-term cost of packages confirmed for your property rather than the first advertised price. The cheapest option here currently starts from £${postcodeArea.cheapestMonthly.toFixed(2)}/month${cheapestProvider ? ` with ${cheapestProvider.name}` : ''}.`,
+        },
+        {
+          question: 'Why has full fibre availability seemingly disappeared in parts of Stevenage?',
+          answer: 'This is a genuine, reported issue rather than a display error. Independent industry monitoring found that Openreach\'s full-fibre coverage across the Stevenage council area dropped from 62.66% to 52.61% by 6 February 2026, a fall of just over 10 percentage points, after Openreach paused installations in areas with difficult ducting. Stevenage was identified as a particularly affected town partly because large parts of it were built in the 1960s and 1970s with direct-buried copper lead-ins to individual homes, rather than the ducting modern fibre installation typically needs. If a full-fibre option you expected is not currently orderable at your address, this is the likely reason, and coverage may be restored once Openreach resolves the access issue.',
+        },
+        {
+          question: 'How fast is broadband in Stevenage and SG1?',
+          answer: `Ofcom-derived SG1 records show ${districtCoverage?.superfastPercent}% superfast, ${districtCoverage?.ultrafastPercent}% ultrafast and ${districtCoverage?.gigabitPercent}% gigabit-capable availability across ${districtCoverage?.sampleSize.toLocaleString('en-GB')} sampled postcode units, based on July 2024 records taken before the reported Openreach installation pause. These percentages measure network reach, not the speed received by one household. Compare each provider's personalised estimate and minimum guaranteed download speed for the complete address.`,
+        },
+        {
+          question: 'Are Stevenage-wide broadband statistics the same as SG1 figures?',
+          answer: 'They can differ. One independent guide, dated May 2026 and sourced from ThinkBroadband Labs, reports town-wide Stevenage figures of 94.68% gigabit-capable and 62.27% full fibre (FTTP) across 40,981 premises, a different date and dataset to BroadbandPicker\'s July 2024 SG1-specific Ofcom figures. Use the figures on this page for the SG1 district itself, then check the complete address before treating any package as orderable.',
+        },
+        {
+          question: 'How should I choose the best broadband deal in Stevenage?',
+          answer: 'Start with packages confirmed for the complete address, then compare total minimum-term cost rather than the opening monthly price alone. Include setup charges, scheduled price changes and the post-contract price. Given the reported local pause in some full-fibre installations, confirm the order is genuinely live before cancelling any existing service, and keep a reliable lower-speed option available if full fibre is not currently orderable at the address.',
+        },
+      ]
+    : isCF10
+    ? [
+        {
+          question: 'Which broadband providers are available in Cardiff and CF10?',
+          answer: 'CF10 households can check BT, Sky, EE, TalkTalk, Plusnet, Vodafone and NOW over Openreach, plus Virgin Media on its own cable network. This is a district shortlist, not an availability promise. Ogi, a named Welsh full-fibre altnet, is also reported active in parts of Cardiff, and separate business-focused full-fibre infrastructure (Cardiff\'s hypercity network and Ffeibr\'s Transport for Wales fibre extension) serves the city centre, though none of these is currently in BroadbandPicker\'s CF10 residential provider comparison. Enter the complete house or flat number with each suitable network before comparing orderable packages.',
+        },
+        {
+          question: 'What is the cheapest broadband deal in Cardiff?',
+          answer: `There is no single cheapest CF10 deal for every address; compare the total minimum-term cost of packages confirmed for your property rather than the first advertised price. The cheapest option here currently starts from £${postcodeArea.cheapestMonthly.toFixed(2)}/month${cheapestProvider ? ` with ${cheapestProvider.name}` : ''}.`,
+        },
+        {
+          question: 'What is Cardiff\'s hypercity network?',
+          answer: 'Cardiff\'s "hypercity network" is a full-fibre system built through a collaboration between Cardiff Council, the Welsh Government and infrastructure provider Elevate, confirmed on 16 January 2026, offering gigabit and up to 10 Gbps dedicated speeds to businesses across large parts of the city centre. Separately, Welsh operator Ffeibr confirmed on 2 April 2026 that it was extending fibre along the Core Valley Lines, developed with Transport for Wales, into Cardiff city centre and down to Cardiff Bay. Both are primarily business-focused infrastructure rather than residential broadband, and neither is currently in BroadbandPicker\'s CF10 comparison.',
+        },
+        {
+          question: 'How fast is broadband in Cardiff and CF10?',
+          answer: `Ofcom-derived CF10 records show ${districtCoverage?.superfastPercent}% superfast, ${districtCoverage?.ultrafastPercent}% ultrafast and ${districtCoverage?.gigabitPercent}% gigabit-capable availability across ${districtCoverage?.sampleSize} sampled postcode units. These percentages measure network reach, not the speed received by one household. Compare each provider's personalised estimate and minimum guaranteed download speed for the complete address.`,
+        },
+        {
+          question: 'Are Wales-wide broadband statistics the same as CF10 figures?',
+          answer: 'No. A Wales-wide figure reported as of June 2026 states more than half of those in Wales who can get Openreach full fibre have upgraded, a different geography and metric to a CF10 coverage percentage. Use this page\'s CF10-specific Ofcom figures for the district itself, then check the complete address before treating any package as orderable.',
+        },
+        {
+          question: 'How should I choose the best broadband deal in Cardiff?',
+          answer: 'Start with packages confirmed for the complete address, then compare total minimum-term cost rather than the opening monthly price alone. Include setup charges, scheduled price changes and the post-contract price. We would favour an affordable full-fibre plan where it is genuinely orderable, checking Ogi\'s own coverage tool separately since it is not in our comparison table, while keeping a lower-speed option if it meets the household need at materially lower cost.',
+        },
+      ]
+    : isLS1
+    ? [
+        {
+          question: 'Which broadband providers are available in Leeds city centre and LS1?',
+          answer: 'LS1 households can check BT, Sky, EE, TalkTalk, Plusnet, Vodafone and NOW over Openreach, plus Virgin Media on its own cable network. This is a district shortlist, not an availability promise. Giant, a named ISP, states that LS1 has CityFibre coverage alongside Openreach full fibre, both offering symmetric speeds up to 1 Gbps in inner Leeds postcodes, though CityFibre is not currently in BroadbandPicker\'s LS1 provider comparison. Enter the complete house or flat number with each suitable network before comparing orderable packages.',
+        },
+        {
+          question: 'What is the cheapest broadband deal in Leeds city centre?',
+          answer: `There is no single cheapest deal near Leeds city centre that suits every LS1 address; compare the total minimum-term cost of packages confirmed for your property rather than the first advertised price. The cheapest option here currently starts from £${postcodeArea.cheapestMonthly.toFixed(2)}/month${cheapestProvider ? ` with ${cheapestProvider.name}` : ''}.`,
+        },
+        {
+          question: 'Is LS1 the same as LS2 for broadband coverage?',
+          answer: 'No, and the difference is genuinely significant. Ofcom-derived records show LS1 at 63.2% gigabit-capable and 66.7% superfast, meaningfully lower than neighbouring LS2 at 79.3% gigabit-capable and 87.8% superfast. Both are real Leeds city-centre districts, but they should not be treated as interchangeable when comparing coverage or choosing a provider. Always check the complete address in the correct postcode district.',
+        },
+        {
+          question: 'How fast is broadband in Leeds city centre and LS1?',
+          answer: `Ofcom-derived LS1 records show ${districtCoverage?.superfastPercent}% superfast, ${districtCoverage?.ultrafastPercent}% ultrafast and ${districtCoverage?.gigabitPercent}% gigabit-capable availability across ${districtCoverage?.sampleSize} sampled postcode units, a smaller sample size and lower coverage than several neighbouring Leeds postcode districts. These percentages measure network reach, not the speed received by one household. Compare each provider's personalised estimate and minimum guaranteed download speed for the complete address.`,
+        },
+        {
+          question: 'Are Leeds-wide broadband statistics the same as LS1 figures?',
+          answer: 'No. City-wide Leeds figures, including CityFibre\'s Gigafast agreement with Vodafone confirmed back in August 2020 across multiple UK cities, describe a much larger area and an older milestone than the LS1 postcode district\'s current Ofcom figures. Use this page\'s LS1-specific data for the district itself, then check the complete address before treating any package as orderable.',
+        },
+        {
+          question: 'How should I choose the best broadband deal in Leeds city centre?',
+          answer: 'Start with packages confirmed for the complete address, then compare total minimum-term cost rather than the opening monthly price alone. Include setup charges, scheduled price changes and the post-contract price. We would favour an affordable full-fibre plan where it is genuinely orderable, checking CityFibre-based options via a retailer or Giant\'s own coverage tool separately since neither is in our comparison table, while keeping a lower-speed option if it meets the household need at materially lower cost.',
+        },
+      ]
+    : isOX1
+    ? [
+        {
+          question: 'Which broadband providers are available in Oxford and OX1?',
+          answer: 'OX1 households can check BT, Sky, EE, TalkTalk, Plusnet, Vodafone, NOW and Zen Internet over Openreach, plus Virgin Media on its own cable network. This is a district shortlist, not an availability promise. YouFibre, Gigaclear and Hyperoptic are also reported active in parts of Oxford through their own separate networks, though none is currently in BroadbandPicker\'s OX1 provider comparison. Enter the complete house or flat number with each suitable network before comparing orderable packages.',
+        },
+        {
+          question: 'What is the cheapest broadband deal in Oxford?',
+          answer: `There is no single cheapest OX1 deal for every address; compare the total minimum-term cost of packages confirmed for your property rather than the first advertised price. The cheapest option here currently starts from £${postcodeArea.cheapestMonthly.toFixed(2)}/month${cheapestProvider ? ` with ${cheapestProvider.name}` : ''}.`,
+        },
+        {
+          question: 'Is full fibre available across Oxford, and should I switch?',
+          answer: 'Yes, though many eligible homes have not switched yet. Openreach confirmed on 14 October 2025 that its full-fibre network had reached more than 23,000 Oxford homes, backed by a £6.9 million investment, yet fewer than 15% of eligible properties had actually upgraded, since an upgrade is not automatic and a resident must place an order. Check whether full fibre is orderable at your specific address before assuming you already have it.',
+        },
+        {
+          question: 'How fast is broadband in Oxford and OX1?',
+          answer: `Ofcom-derived OX1 records show ${districtCoverage?.superfastPercent}% superfast, ${districtCoverage?.ultrafastPercent}% ultrafast and ${districtCoverage?.gigabitPercent}% gigabit-capable availability across ${districtCoverage?.sampleSize} sampled postcode units. These percentages measure network reach, not the speed received by one household, and coverage in Oxford is reported to be less comprehensive than some comparable UK cities. Compare each provider's personalised estimate and minimum guaranteed download speed for the complete address.`,
+        },
+        {
+          question: 'Are Oxford-wide broadband statistics the same as OX1 figures?',
+          answer: 'No. City-wide figures, such as Openreach\'s 23,000-home full-fibre count or a reported roughly 50% full-fibre availability across all of Oxford, describe a much larger area than the OX1 postcode district and can come from a different date or methodology. Use this page\'s OX1-specific Ofcom figures for the district itself, then check the complete address before treating any package as orderable.',
+        },
+        {
+          question: 'How should I choose the best broadband deal in Oxford?',
+          answer: 'Start with packages confirmed for the complete address, then compare total minimum-term cost rather than the opening monthly price alone. Include setup charges, scheduled price changes and the post-contract price. We would favour an affordable full-fibre plan where it is genuinely orderable, checking YouFibre\'s, Gigaclear\'s or Hyperoptic\'s own coverage tools separately since none is in our comparison table, while keeping a lower-speed option if it meets the household need at materially lower cost.',
+        },
+      ]
+    : isBS3
+    ? [
+        {
+          question: 'Which broadband providers are available in Bedminster and BS3?',
+          answer: 'Yes please, start with BT, Sky, EE, TalkTalk, Plusnet, Vodafone and NOW over Openreach, plus Virgin Media on its own cable network. CityFibre also has partial coverage in parts of Bedminster, sold through Vodafone, TalkTalk, Zen Internet and other retailers, though CityFibre itself is not currently in BroadbandPicker\'s BS3 provider comparison. Enter the complete house or flat number with each suitable network before comparing orderable packages.',
+        },
+        {
+          question: 'What is the cheapest broadband deal in Bedminster?',
+          answer: `There is no single cheapest BS3 deal for every address; compare the total minimum-term cost of packages confirmed for your property rather than the first advertised price. The cheapest option here currently starts from £${postcodeArea.cheapestMonthly.toFixed(2)}/month${cheapestProvider ? ` with ${cheapestProvider.name}` : ''}.`,
+        },
+        {
+          question: 'Is BS31 the same as BS3?',
+          answer: 'No. BS31 (which covers Keynsham, including addresses like BS31 3ET) is a separate, genuinely different postcode district from BS3 (Bedminster), even though the codes look similar. BroadbandPicker\'s own Ofcom-derived data for BS31 (90.8% gigabit-capable across 640 sampled units) is different from BS3\'s figures below. If you are checking an address in Keynsham, use the BS31 postcode district rather than this Bedminster page.',
+        },
+        {
+          question: 'How fast is broadband in Bedminster and BS3?',
+          answer: `Ofcom-derived BS3 records show ${districtCoverage?.superfastPercent}% superfast, ${districtCoverage?.ultrafastPercent}% ultrafast and ${districtCoverage?.gigabitPercent}% gigabit-capable availability across ${districtCoverage?.sampleSize} sampled postcode units. These percentages measure network reach, not the speed received by one household. Compare each provider's personalised estimate and minimum guaranteed download speed for the complete address.`,
+        },
+        {
+          question: 'Are Bristol-wide broadband statistics the same as BS3 figures?',
+          answer: 'No. One independent guide reports Bristol South constituency-level figures around 88% full fibre and 98% gigabit coverage, a different geography and likely different methodology to Ofcom\'s BS3 postcode-district data. Use this page\'s BS3-specific Ofcom figures for the district itself, then check the complete address before treating any package as orderable.',
+        },
+        {
+          question: 'How should I choose the best broadband deal in Bedminster?',
+          answer: 'Start with packages confirmed for the complete address, then compare total minimum-term cost rather than the opening monthly price alone. Include setup charges, scheduled price changes and the post-contract price. We would favour an affordable full-fibre plan where it is genuinely orderable, checking whether CityFibre reaches the specific street given its partial Bedminster coverage, while keeping a lower-speed option if it meets the household need at materially lower cost.',
+        },
+      ]
+    : isG1
+    ? [
+        {
+          question: 'Which broadband providers are available in Glasgow and G1?',
+          answer: 'G1 households can check BT, Sky, EE, TalkTalk, Plusnet, Vodafone and NOW over Openreach, plus Virgin Media on its own cable network. This is a district shortlist, not an availability promise. CityFibre is also building a separate full-fibre network across Glasgow, though it is not currently in BroadbandPicker\'s G1 provider comparison. Enter the complete house or flat number with each suitable network before comparing orderable packages.',
+        },
+        {
+          question: 'What is the cheapest broadband deal in Glasgow?',
+          answer: `There is no single cheapest G1 deal for every address; compare the total minimum-term cost of packages confirmed for your property rather than the first advertised price. The cheapest option here currently starts from £${postcodeArea.cheapestMonthly.toFixed(2)}/month${cheapestProvider ? ` with ${cheapestProvider.name}` : ''}.`,
+        },
+        {
+          question: 'Is CityFibre available across all of Glasgow?',
+          answer: 'Not everywhere. CityFibre has committed around £270 million to its Glasgow rollout, but an independent report dated 21 May 2025 found that private, unadopted roads in some Glasgow-area streets have delayed connections, since these roads require separate legal access agreements that can be difficult and costly to negotiate. This friction was reported in specific outer streets rather than G1 city centre itself, but it shows that a citywide investment figure does not guarantee every street, including in G1, is connected on the original timeline. Check the complete address before assuming any network is orderable.',
+        },
+        {
+          question: 'How fast is broadband in Glasgow and G1?',
+          answer: `Ofcom-derived G1 records show ${districtCoverage?.superfastPercent}% superfast, ${districtCoverage?.ultrafastPercent}% ultrafast and ${districtCoverage?.gigabitPercent}% gigabit-capable availability across ${districtCoverage?.sampleSize} sampled postcode units. These percentages measure network reach, not the speed received by one household. Compare each provider's personalised estimate and minimum guaranteed download speed for the complete address.`,
+        },
+        {
+          question: 'Are Glasgow-wide broadband statistics the same as G1 figures?',
+          answer: 'No. City-wide investment figures, such as CityFibre\'s reported £270 million Glasgow rollout, describe a much larger area and a different kind of commitment than a coverage percentage for one postcode district. Use this page\'s G1-specific Ofcom figures for the district itself, then check the complete address before treating any package as orderable.',
+        },
+        {
+          question: 'How should I choose the best broadband deal in Glasgow?',
+          answer: 'Start with packages confirmed for the complete address, then compare total minimum-term cost rather than the opening monthly price alone. Include setup charges, scheduled price changes and the post-contract price. We would favour an affordable full-fibre plan where it is genuinely orderable, checking CityFibre\'s own coverage tool separately given the reported rollout delays in some areas, while keeping a lower-speed option if it meets the household need at materially lower cost.',
+        },
+      ]
+    : isL8
+    ? [
+        {
+          question: 'Which broadband providers are available in Toxteth and L8?',
+          answer: 'L8 households can check BT, Sky, EE, TalkTalk, Plusnet, Vodafone and NOW over Openreach. Virgin Media is not listed as available in this district. Giant, a Liverpool-founded ISP, separately states that its LCR Connect symmetric network is largely ready to light on L8 sub-exchanges, alongside CityFibre, Hyperoptic and other named local altnets reported active in parts of Liverpool, though none of these are currently in BroadbandPicker\'s L8 provider comparison. Enter the complete house or flat number with each suitable network before comparing orderable packages.',
+        },
+        {
+          question: 'What is the cheapest broadband deal in Toxteth?',
+          answer: `There is no single cheapest L8 deal for every address; compare the total minimum-term cost of packages confirmed for your property rather than the first advertised price. The cheapest option here currently starts from £${postcodeArea.cheapestMonthly.toFixed(2)}/month${cheapestProvider ? ` with ${cheapestProvider.name}` : ''}.`,
+        },
+        {
+          question: 'Does Toxteth\'s older housing affect broadband speed?',
+          answer: 'It can. One independent guide, updated 28 April 2026, specifically flags that L8 Toxteth and parts of neighbouring Dingle have older Victorian housing stock with variable internal wiring, and recommends checking before assuming gigabit-class speeds are achievable throughout a property, even where the street itself is gigabit-capable. This is a genuinely useful, address-level caution rather than a reason to rule out full fibre altogether.',
+        },
+        {
+          question: 'How fast is broadband in Toxteth and L8?',
+          answer: `Ofcom-derived L8 records show ${districtCoverage?.superfastPercent}% superfast, ${districtCoverage?.ultrafastPercent}% ultrafast and ${districtCoverage?.gigabitPercent}% gigabit-capable availability across ${districtCoverage?.sampleSize} sampled postcode units. These percentages measure network reach, not the speed received by one household, and internal wiring in older properties can still limit the speed actually achieved. Compare each provider's personalised estimate and minimum guaranteed download speed for the complete address.`,
+        },
+        {
+          question: 'Are Liverpool-wide broadband statistics the same as L8 figures?',
+          answer: 'No. Wider Liverpool-wide figures describe a much larger area than the L8 postcode district, covering newer city-centre developments as well as older housing stock like much of Toxteth, and can come from a different date or methodology. Use this page\'s L8-specific Ofcom figures for the district itself, then check the complete address before treating any package as orderable.',
+        },
+        {
+          question: 'How should I choose the best broadband deal in Toxteth?',
+          answer: 'Start with packages confirmed for the complete address, then compare total minimum-term cost rather than the opening monthly price alone. Include setup charges, scheduled price changes and the post-contract price. We would favour an affordable full-fibre plan where it is genuinely orderable, checking Giant\'s or another named local altnet\'s own coverage tool separately since none is in our comparison table, while keeping a lower-speed option if it meets the household need at materially lower cost.',
+        },
+      ]
+    : isCV1
+    ? [
+        {
+          question: 'Which broadband providers are available in Coventry and CV1?',
+          answer: 'CV1 households can check BT, Sky, EE, TalkTalk, Plusnet, Vodafone and NOW over Openreach, plus Virgin Media on its own cable network. Yes, these internet providers form a district shortlist, not an availability promise. toob, a full-fibre altnet partnered with CityFibre, has also recently arrived in the West Midlands with some Coventry areas taking orders and others still in build, though it is not currently in BroadbandPicker\'s CV1 provider comparison. Enter the complete house or flat number with each suitable network before comparing orderable packages.',
+        },
+        {
+          question: 'What is the cheapest broadband deal in Coventry?',
+          answer: `There is no single cheapest CV1 deal for every address; compare the total minimum-term cost of packages confirmed for your property rather than the first advertised price. The cheapest option here currently starts from £${postcodeArea.cheapestMonthly.toFixed(2)}/month${cheapestProvider ? ` with ${cheapestProvider.name}` : ''}.`,
+        },
+        {
+          question: 'Is full fibre available across Coventry?',
+          answer: 'Yes, in large part. Openreach confirmed on 7 March 2025 that more than 125,000 homes and businesses across Coventry were eligible for full fibre, covering around 80% of properties city-wide, with an explicit reminder from its Midlands Regional Director that upgrades do not happen automatically and a resident must place an order. Ofcom-derived July 2024 records separately show a lower, district-specific figure for CV1 itself. Check the complete address before treating any package as orderable.',
+        },
+        {
+          question: 'How fast is broadband in Coventry and CV1?',
+          answer: `Ofcom-derived CV1 records show ${districtCoverage?.superfastPercent}% superfast, ${districtCoverage?.ultrafastPercent}% ultrafast and ${districtCoverage?.gigabitPercent}% gigabit-capable availability across ${districtCoverage?.sampleSize} sampled postcode units. These percentages measure network reach, not the speed received by one household. Compare each provider's personalised estimate and minimum guaranteed download speed for the complete address.`,
+        },
+        {
+          question: 'Are Coventry-wide broadband statistics the same as CV1 figures?',
+          answer: 'No. City-wide figures, such as a comparison site\'s reported 97% full-fibre and 82% Virgin Media availability across all of Coventry, describe a much larger area than the CV1 postcode district and can use a different methodology to Ofcom\'s district-level data. Use this page\'s CV1-specific Ofcom figures for the district itself, then check the complete address before treating any package as orderable.',
+        },
+        {
+          question: 'How should I choose the best broadband deal in Coventry?',
+          answer: 'Start with packages confirmed for the complete address, then compare total minimum-term cost rather than the opening monthly price alone. Include setup charges, scheduled price changes and the post-contract price. We would favour an affordable full-fibre plan where it is genuinely orderable, checking toob\'s own coverage tool separately since it is not in our comparison table, while keeping a lower-speed option if it meets the household need at materially lower cost.',
+        },
+      ]
+    : isB1
+    ? [
+        {
+          question: 'Which broadband providers are available in Birmingham and B1?',
+          answer: 'B1 households can check BT, Sky, EE, TalkTalk, Plusnet, Vodafone, NOW and Zen Internet over Openreach, plus Virgin Media on its own cable network. This is a district shortlist, not an availability promise. Hyperoptic also has a significant presence in apartment buildings around New Street and other city-centre developments in B1, though it is not currently in BroadbandPicker\'s B1 provider comparison. Enter the complete house or flat number with each suitable network before comparing orderable packages.',
+        },
+        {
+          question: 'What is the cheapest broadband deal in Birmingham?',
+          answer: `There is no single cheapest B1 deal for every address; compare the total minimum-term cost of packages confirmed for your property rather than the first advertised price. The cheapest option here currently starts from £${postcodeArea.cheapestMonthly.toFixed(2)}/month${cheapestProvider ? ` with ${cheapestProvider.name}` : ''}.`,
+        },
+        {
+          question: 'Is CityFibre available in Birmingham city centre?',
+          answer: 'Not directly in most of B1. CityFibre\'s Birmingham footprint is concentrated in specific outer zones around Gravelly Hill, Erdington (B23), Acocks Green (B27) and Tyseley (B25), where Vodafone Pro II, Sky, TalkTalk, Zen Internet and other named retailers sell over its network at up to 2.2 Gbps. Birmingham city centre itself is served mainly by Openreach full fibre, Virgin Media and Hyperoptic in specific apartment buildings, not primarily CityFibre. Check the complete address before assuming any one network reaches your specific B1 property.',
+        },
+        {
+          question: 'How fast is broadband in Birmingham and B1?',
+          answer: `Ofcom-derived B1 records show ${districtCoverage?.superfastPercent}% superfast, ${districtCoverage?.ultrafastPercent}% ultrafast and ${districtCoverage?.gigabitPercent}% gigabit-capable availability across ${districtCoverage?.sampleSize} sampled postcode units. These percentages measure network reach, not the speed received by one household. Compare each provider's personalised estimate and minimum guaranteed download speed for the complete address.`,
+        },
+        {
+          question: 'Are Birmingham-wide broadband statistics the same as B1 figures?',
+          answer: 'No. City-wide figures, such as a reported 86% of Birmingham premises able to order full fibre as of September 2025, describe a much larger area than the B1 postcode district and can come from a different date or methodology. Use this page\'s B1-specific Ofcom figures for the district itself, then check the complete address before treating any package as orderable.',
+        },
+        {
+          question: 'How should I choose the best broadband deal in Birmingham?',
+          answer: 'Start with packages confirmed for the complete address, then compare total minimum-term cost rather than the opening monthly price alone. Include setup charges, scheduled price changes and the post-contract price. We would favour an affordable full-fibre plan where it is genuinely orderable, checking Hyperoptic\'s own building-level coverage separately if the property is a city-centre apartment, while keeping a lower-speed option if it meets the household need at materially lower cost.',
+        },
+      ]
+    : isLS2
+    ? [
+        {
+          question: 'Which broadband providers are available in Leeds and LS2?',
+          answer: 'LS2 households can check BT, Sky, EE, TalkTalk, Plusnet, Vodafone and NOW over Openreach, plus Virgin Media on its own cable network. This is a district shortlist, not an availability promise. Two named local full-fibre altnets, CCS Leeds and Stream Networks, also operate their own separate networks in parts of Leeds, including LS2 by CCS Leeds\' own coverage list, though neither is currently in BroadbandPicker\'s LS2 provider comparison. Enter the complete house or flat number with each suitable network before comparing orderable packages.',
+        },
+        {
+          question: 'What is the cheapest broadband deal in Leeds?',
+          answer: `There is no single cheap broadband deal that fits every address near you in Leeds; compare the total minimum-term cost of packages confirmed for your property rather than the first advertised price. The cheapest option here currently starts from £${postcodeArea.cheapestMonthly.toFixed(2)}/month${cheapestProvider ? ` with ${cheapestProvider.name}` : ''}.`,
+        },
+        {
+          question: 'Are there local full-fibre networks specific to Leeds?',
+          answer: 'Yes. CCS Leeds states it has built its own full-fibre network reaching LS1, LS2, LS7, LS9, LS10, LS11, LS12, LS14 and LS15, with services launching across the city from April, though it does not give a specific year for that launch. Stream Networks separately states its gigabit-capable network extends to more than 700 postcodes across Leeds and surrounding areas. Neither network gives a dated coverage percentage, and neither is currently in BroadbandPicker\'s LS2 provider comparison, so check availability directly with each before assuming coverage.',
+        },
+        {
+          question: 'How fast is broadband in Leeds and LS2?',
+          answer: `Ofcom-derived LS2 records show ${districtCoverage?.superfastPercent}% superfast, ${districtCoverage?.ultrafastPercent}% ultrafast and ${districtCoverage?.gigabitPercent}% gigabit-capable availability across ${districtCoverage?.sampleSize} sampled postcode units. These percentages measure network reach, not the speed received by one household. Compare each provider's personalised estimate and minimum guaranteed download speed for the complete address.`,
+        },
+        {
+          question: 'Are Leeds-wide broadband statistics the same as LS2 figures?',
+          answer: 'No. City-wide figures, such as an undated claim of 87% FTTP rollout reported by one comparison site, describe a much larger area than the LS2 postcode district and can come from a different date or methodology. Use this page\'s LS2-specific Ofcom figures for the district itself, then check the complete address before treating any package as orderable.',
+        },
+        {
+          question: 'How should I choose the best broadband deal in Leeds?',
+          answer: 'Start with packages confirmed for the complete address, then compare total minimum-term cost rather than the opening monthly price alone. Include setup charges, scheduled price changes and the post-contract price. We would favour an affordable full-fibre plan where it is genuinely orderable, checking CCS Leeds\' and Stream Networks\' own coverage tools separately since neither is in our comparison table, while keeping a lower-speed option if it meets the household need at materially lower cost.',
+        },
+      ]
+    : isL1
+    ? [
+        {
+          question: 'Which broadband providers are available in Liverpool and L1?',
+          answer: 'L1 households can check BT, Sky, EE, TalkTalk, Plusnet, Vodafone and NOW over Openreach, plus Virgin Media on its own cable network. These internet providers form a district shortlist, not an availability promise. Netomnia, trading as YouFibre, also operates a separate full-fibre network across parts of Liverpool, though it is not currently in BroadbandPicker\'s L1 provider comparison. Enter the complete house or flat number with each suitable network before comparing orderable packages.',
+        },
+        {
+          question: 'What is the cheapest broadband deal in Liverpool?',
+          answer: `There is no single cheapest L1 deal for every address; compare the total minimum-term cost of packages confirmed for your property rather than the first advertised price. The cheapest option here currently starts from £${postcodeArea.cheapestMonthly.toFixed(2)}/month${cheapestProvider ? ` with ${cheapestProvider.name}` : ''}.`,
+        },
+        {
+          question: 'Is full fibre expanding in Liverpool?',
+          answer: 'Yes. Netomnia confirmed on 11 February 2025 that its YouFibre network had passed 110,000 Liverpool premises, with an additional 80,000 planned to bring the total to 190,000 by 2026, alongside ongoing work in Sefton Park, Stoneycroft and Aintree. This is a city-wide figure covering specific neighbourhoods, not confirmation for every L1 address, and YouFibre availability changes street by street rather than area by area. Check the complete address before treating any package as orderable.',
+        },
+        {
+          question: 'How fast is broadband in Liverpool and L1?',
+          answer: `Ofcom-derived L1 records show ${districtCoverage?.superfastPercent}% superfast, ${districtCoverage?.ultrafastPercent}% ultrafast and ${districtCoverage?.gigabitPercent}% gigabit-capable availability across ${districtCoverage?.sampleSize} sampled postcode units. These percentages measure network reach, not the speed received by one household. Compare each provider's personalised estimate and minimum guaranteed download speed for the complete address.`,
+        },
+        {
+          question: 'Are Liverpool-wide broadband statistics the same as L1 figures?',
+          answer: 'No. Wider Liverpool-wide figures, such as a comparison site\'s reported 76% full-fibre access across the whole city, describe a much larger area than the L1 postcode district and can come from a different date or methodology. Use this page\'s L1-specific Ofcom figures for the district itself, then check the complete address before treating any package as orderable.',
+        },
+        {
+          question: 'How should I choose the best broadband deal in Liverpool?',
+          answer: 'Start with packages confirmed for the complete address, then compare total minimum-term cost rather than the opening monthly price alone. Include setup charges, scheduled price changes and the post-contract price. We would favour an affordable full-fibre plan where it is genuinely orderable, checking YouFibre\'s own postcode lookup separately since its coverage varies street by street, while keeping a lower-speed option if it meets the household need at materially lower cost.',
+        },
+      ]
+    : isLU1
+    ? [
+        {
+          question: 'Which broadband providers are available in Luton and LU1?',
+          answer: 'LU1 households can check BT, Sky, EE, TalkTalk, Plusnet, Vodafone and NOW over Openreach, plus Virgin Media on its own cable network. These internet providers form a district shortlist, not an availability promise. CityFibre also operates a separate full-fibre network across Luton, sold through Vodafone, TalkTalk and smaller retailers including IDNet, Cuckoo and Zen, some of which are not currently in BroadbandPicker\'s LU1 provider comparison. Enter the complete house or flat number with each suitable network before comparing orderable packages.',
+        },
+        {
+          question: 'What is the cheapest broadband deal in Luton?',
+          answer: `There is no single cheapest LU1 deal for every address; compare the total minimum-term cost of packages confirmed for your property rather than the first advertised price. The cheapest option here currently starts from £${postcodeArea.cheapestMonthly.toFixed(2)}/month${cheapestProvider ? ` with ${cheapestProvider.name}` : ''}.`,
+        },
+        {
+          question: 'Is full fibre available in Luton, and should I switch?',
+          answer: 'Yes, but many eligible homes have not switched yet. CityFibre confirmed on 29 May 2024 that more than 35,000 Luton premises were ready for service on its full-fibre network, offering speeds up to 2.5 Gbps. Openreach separately reported on 14 April 2025 that 60,000 Luton homes and businesses could upgrade to full fibre, yet fewer than one in five had actually done so, since an upgrade is not automatic and a resident must place an order with a provider. Check whether full fibre is available and orderable at your specific address before assuming you already have it.',
+        },
+        {
+          question: 'How fast is broadband in Luton and LU1?',
+          answer: `Ofcom-derived LU1 records show ${districtCoverage?.superfastPercent}% superfast, ${districtCoverage?.ultrafastPercent}% ultrafast and ${districtCoverage?.gigabitPercent}% gigabit-capable availability across ${districtCoverage?.sampleSize} sampled postcode units. These percentages measure network reach, not the speed received by one household. Compare each provider's personalised estimate and minimum guaranteed download speed for the complete address.`,
+        },
+        {
+          question: 'Are Luton-wide broadband statistics the same as LU1 figures?',
+          answer: 'No. Borough-wide figures, such as ThinkBroadband\'s dataset covering all 90,702 Luton premises, describe a much larger area than the LU1 postcode district and can come from a different date or methodology. Use this page\'s LU1-specific Ofcom figures for the district itself, then check the complete address before treating any package as orderable.',
+        },
+        {
+          question: 'How should I choose the best broadband deal in Luton?',
+          answer: 'Start with packages confirmed for the complete address, then compare total minimum-term cost rather than the opening monthly price alone. Include setup charges, scheduled price changes and the post-contract price. We would favour an affordable full-fibre plan where it is genuinely orderable, including CityFibre-based options sold through Vodafone or TalkTalk where they reach the property, while keeping a lower-speed option if it meets the household need at materially lower cost.',
+        },
+      ]
+    : isSO14
+    ? [
+        {
+          question: 'Which broadband providers are available in Southampton and SO14?',
+          answer: 'SO14 households can check BT, Sky, EE, TalkTalk, Plusnet, Vodafone and NOW over Openreach, plus Virgin Media and toob on their own separate full-fibre networks. These internet providers form a district shortlist, not an availability promise. toob, a Southampton-founded broadband company, built the city as the first stop on its own full-fibre network and now serves over 125,000 customers UK-wide. Enter the complete house or flat number with each suitable network before comparing orderable packages.',
+        },
+        {
+          question: 'What is the cheapest broadband deal in Southampton?',
+          answer: `There is no single cheapest SO14 deal for every address; compare the total minimum-term cost of packages confirmed for your property rather than the first advertised price. The cheapest option here currently starts from £${postcodeArea.cheapestMonthly.toFixed(2)}/month${cheapestProvider ? ` with ${cheapestProvider.name}` : ''}.`,
+        },
+        {
+          question: 'Is full fibre expanding in Southampton?',
+          answer: 'Yes. Openreach confirmed on 3 November 2025 that more than 10,000 Southampton properties could already access full fibre broadband over its network, with thousands more due to be upgraded as engineering work continues across the city, though it did not give a precise figure for that next phase. toob, a separate full-fibre operator, chose Southampton as the first city for its own self-built network and now serves over 125,000 customers UK-wide. Check the complete address before treating any package as orderable.',
+        },
+        {
+          question: 'How fast is broadband in Southampton and SO14?',
+          answer: `Ofcom-derived SO14 records show ${districtCoverage?.superfastPercent}% superfast, ${districtCoverage?.ultrafastPercent}% ultrafast and ${districtCoverage?.gigabitPercent}% gigabit-capable availability across ${districtCoverage?.sampleSize} sampled postcode units. These percentages measure network reach, not the speed received by one household. Compare each provider's personalised estimate and minimum guaranteed download speed for the complete address.`,
+        },
+        {
+          question: 'Are Southampton-wide broadband statistics the same as SO14 figures?',
+          answer: 'No. Broader Southampton-wide figures, such as Openreach\'s 10,000-property full-fibre count and toob\'s national customer total, describe a much larger area or customer base than the SO14 postcode district and can come from a different date or methodology. Use this page\'s SO14-specific Ofcom figures for the district itself, then check the complete address before treating any package as orderable.',
+        },
+        {
+          question: 'How should I choose the best broadband deal in Southampton?',
+          answer: 'Start with packages confirmed for the complete address, then compare total minimum-term cost rather than the opening monthly price alone. Include setup charges, scheduled price changes and the post-contract price. We would favour an affordable full-fibre plan where it is genuinely orderable, including toob\'s own network or Openreach-based options where they reach the property, while keeping a lower-speed option if it meets the household need at materially lower cost.',
+        },
+      ]
+    : isW5
+    ? [
+        {
+          question: 'Which broadband providers are available in Ealing and W5?',
+          answer: 'W5 households can check BT, Sky, EE, TalkTalk, Plusnet, Vodafone and NOW over Openreach, plus Virgin Media and Community Fibre on their own separate networks. This is a district shortlist, not an availability promise. Hey!Broadband, a separate full-fibre operator, is also reported active in parts of Ealing but is not currently in BroadbandPicker\'s W5 provider comparison. Enter the complete house or flat number with each suitable network before comparing orderable packages.',
+        },
+        {
+          question: 'What is the cheapest broadband deal in Ealing?',
+          answer: `There is no single cheapest W5 deal for every address; compare the total minimum-term cost of packages confirmed for your property rather than the first advertised price. The cheapest option here currently starts from £${postcodeArea.cheapestMonthly.toFixed(2)}/month${cheapestProvider ? ` with ${cheapestProvider.name}` : ''}.`,
+        },
+        {
+          question: 'Is full fibre expanding in Ealing?',
+          answer: 'Yes, borough-wide. Vodafone confirmed on 2 September 2025 that it could now provide full fibre broadband, running on Community Fibre\'s network, to 37,000 homes across the London Borough of Ealing, with speeds of up to 2.2 Gbps advertised. This is a borough-wide figure, not W5-specific, and Community Fibre is already one of the networks BroadbandPicker compares in W5. Check the complete address before treating any package as orderable.',
+        },
+        {
+          question: 'How fast is broadband in Ealing and W5?',
+          answer: `Ofcom-derived W5 records show ${districtCoverage?.superfastPercent}% superfast, ${districtCoverage?.ultrafastPercent}% ultrafast and ${districtCoverage?.gigabitPercent}% gigabit-capable availability across ${districtCoverage?.sampleSize} sampled postcode units. These percentages measure network reach, not the speed received by one household. Compare each provider's personalised estimate and minimum guaranteed download speed for the complete address.`,
+        },
+        {
+          question: 'Are Ealing-wide broadband statistics the same as W5 figures?',
+          answer: 'No. Broader London Borough of Ealing statistics, such as Vodafone\'s 37,000-home full-fibre figure and average download speed increases reported across the whole borough, describe a much larger area than the W5 postcode district and can come from a different date or methodology. Use this page\'s W5-specific Ofcom figures for the district itself, then check the complete address before treating any package as orderable.',
+        },
+        {
+          question: 'How should I choose the best broadband deal in Ealing?',
+          answer: 'Start with packages confirmed for the complete address, then compare total minimum-term cost rather than the opening monthly price alone. Include setup charges, scheduled price changes and the post-contract price. We would favour an affordable full-fibre plan where it is genuinely orderable, including Vodafone\'s Community Fibre-based service where it reaches the property, while keeping a lower-speed option if it meets the household need at materially lower cost.',
+        },
+      ]
+    : isNW1
+    ? [
+        {
+          question: 'Which broadband providers are available in Camden and NW1?',
+          answer: 'NW1 households can check BT, Sky, EE, TalkTalk, Plusnet, Vodafone and NOW over Openreach, plus Virgin Media, Hyperoptic and Community Fibre on their own separate full-fibre networks. This is a district shortlist, not an availability promise. G.Network also has infrastructure across parts of central London including Camden, but it is not currently in BroadbandPicker\'s NW1 provider comparison following its 2026 administration and restructuring (see below). Enter the complete house or flat number with each suitable network before comparing orderable packages.',
+        },
+        {
+          question: 'What is the cheapest broadband deal in Camden?',
+          answer: `There is no single cheapest NW1 deal for every address; compare the total minimum-term cost of packages confirmed for your property rather than the first advertised price. The cheapest option here currently starts from £${postcodeArea.cheapestMonthly.toFixed(2)}/month${cheapestProvider ? ` with ${cheapestProvider.name}` : ''}.`,
+        },
+        {
+          question: 'Is G.Network still a reliable broadband option in Camden and NW1?',
+          answer: 'G.Network, a full-fibre altnet with infrastructure passing over 420,000 premises across central London, was put into administration in January 2026 after its then-owner, distressed-asset specialist FitzWalter Capital, ran into financial difficulty. Around 106 staff, close to half the workforce, were made redundant during the process. G.Network exited administration debt-free on 25 March 2026 following a restructuring, with co-founder David Sangster returning as chief executive. BroadbandPicker does not currently include G.Network in its NW1 provider comparison; check directly with G.Network for current coverage and contract terms at your address before signing up.',
+        },
+        {
+          question: 'How fast is broadband in Camden and NW1?',
+          answer: `Ofcom-derived NW1 records show ${districtCoverage?.superfastPercent}% superfast, ${districtCoverage?.ultrafastPercent}% ultrafast and ${districtCoverage?.gigabitPercent}% gigabit-capable availability across ${districtCoverage?.sampleSize.toLocaleString('en-GB')} sampled postcode units. These percentages measure network reach, not the speed received by one household. Compare each provider's personalised estimate and minimum guaranteed download speed for the complete address.`,
+        },
+        {
+          question: 'Are Camden-wide broadband statistics the same as NW1 figures?',
+          answer: 'No. Broader London Borough of Camden statistics, reported around 95% ultrafast coverage as of 2025, describe a much larger area than the NW1 postcode district and can come from a different date or methodology. Use this page\'s NW1-specific Ofcom figures for the district itself, then check the complete address before treating any package as orderable.',
+        },
+        {
+          question: 'How should I choose the best broadband deal in Camden?',
+          answer: 'Start with packages confirmed for the complete address, then compare total minimum-term cost rather than the opening monthly price alone. Include setup charges, scheduled price changes and the post-contract price. We would favour an affordable full-fibre plan from an established network where it is genuinely orderable, and would treat any G.Network offer with the same address-level and contract-term checks given its recent administration.',
+        },
+      ]
+    : isEN1
+    ? [
+        {
+          question: 'Which broadband providers are available in Enfield and EN1?',
+          answer: 'EN1 households can check BT, Sky, EE, TalkTalk, Plusnet, Vodafone and NOW over Openreach, plus Virgin Media on its own network. This is a district shortlist, not an availability promise. Community Fibre and Hyperoptic are also reported active in parts of the wider Enfield area through their own separate networks, though not yet in BroadbandPicker\'s EN1 provider comparison. Enter the complete house or flat number with each suitable network before comparing orderable packages.',
+        },
+        {
+          question: 'What is the cheapest broadband deal in Enfield?',
+          answer: `There is no single cheapest EN1 deal for every address; compare the total minimum-term cost of packages confirmed for your property rather than the first advertised price. The cheapest option here currently starts from £${postcodeArea.cheapestMonthly.toFixed(2)}/month${cheapestProvider ? ` with ${cheapestProvider.name}` : ''}.`,
+        },
+        {
+          question: 'Is full fibre coming to Enfield flats and apartments?',
+          answer: 'Yes. Openreach announced on 24 March 2026 that it had agreed to upgrade more than 1,500 flats and apartments across over 50 buildings in Enfield to full fibre initially, with thousands more planned. Openreach was clear that the upgrade is not automatic: once available, a resident still has to contact a broadband provider and place an order to get connected.',
+        },
+        {
+          question: 'How fast is broadband in Enfield and EN1?',
+          answer: `Ofcom-derived EN1 records show ${districtCoverage?.superfastPercent}% superfast, ${districtCoverage?.ultrafastPercent}% ultrafast and ${districtCoverage?.gigabitPercent}% gigabit-capable availability across ${districtCoverage?.sampleSize} sampled postcode units. These percentages measure network reach, not the speed received by one household. Compare each provider's personalised estimate and minimum guaranteed download speed for the complete address.`,
+        },
+        {
+          question: 'Are Enfield-wide broadband statistics the same as EN1 figures?',
+          answer: 'No. Broader London Borough of Enfield statistics, which some sites quote around 94% ultrafast coverage, describe a much larger area than the EN1 postcode district and can come from a different date or methodology. Use this page\'s EN1-specific Ofcom figures for the district itself, then check the complete address before treating any package as orderable.',
+        },
+        {
+          question: 'How should I choose the best broadband deal in Enfield?',
+          answer: 'Start with packages confirmed for the complete address, then compare total minimum-term cost rather than the opening monthly price alone. Include setup charges, scheduled price changes and the post-contract price. We would favour an affordable full-fibre plan where it is genuinely orderable, especially in flats and apartments covered by Openreach\'s 2026 upgrade, while keeping a lower-speed option if it meets the household need at materially lower cost.',
+        },
+      ]
+    : isUB1
+    ? [
+        {
+          question: 'Which broadband providers are available in Southall and UB1?',
+          answer: 'UB1 households can check BT, Sky, EE, TalkTalk, Plusnet, Vodafone and NOW over Openreach, plus Virgin Media on its own network. This is a district shortlist, not an availability promise. A separate wholesale full-fibre network from FW Networks also serves parts of Southall through smaller retail providers not currently in BroadbandPicker\'s comparison. Enter the complete house or flat number with each suitable network before comparing orderable packages.',
+        },
+        {
+          question: 'What is the cheapest broadband deal in Southall?',
+          answer: `There is no single cheapest UB1 deal for every address; compare the total minimum-term cost of packages confirmed for your property rather than the first advertised price. The cheapest option here currently starts from £${postcodeArea.cheapestMonthly.toFixed(2)}/month${cheapestProvider ? ` with ${cheapestProvider.name}` : ''}.`,
+        },
+        {
+          question: 'Is gigabit broadband available in Southall?',
+          answer: `Yes, in large part. Virgin Media confirmed in February 2023 that more than 20,000 additional Southall homes had connected to its gigabit network, offering speeds it described as several times the local average. BroadbandPicker's aggregation of Ofcom July 2024 residential postcode records separately shows ${districtCoverage?.gigabitPercent}% gigabit-capable availability across ${districtCoverage?.sampleSize} sampled UB1 postcode units. Check the complete address before treating any package as orderable.`,
+        },
+        {
+          question: 'How fast is broadband in Southall and UB1?',
+          answer: `Ofcom-derived UB1 records show ${districtCoverage?.superfastPercent}% superfast, ${districtCoverage?.ultrafastPercent}% ultrafast and ${districtCoverage?.gigabitPercent}% gigabit-capable availability across ${districtCoverage?.sampleSize} sampled postcode units. These percentages measure network reach, not the speed received by one household. Compare each provider's personalised estimate and minimum guaranteed download speed for the complete address.`,
+        },
+        {
+          question: 'Does Virgin Media cover all of Southall?',
+          answer: 'No. Virgin Media\'s February 2023 announcement covered more than 20,000 additional Southall homes, a large expansion but not every property in UB1. A city-wide or town-wide rollout announcement does not confirm coverage at one specific address. Check the complete house or flat number on Virgin Media\'s own checker before treating the service as available.',
+        },
+        {
+          question: 'How should I choose the best broadband deal in Southall?',
+          answer: 'Start with packages confirmed for the complete address, then compare total minimum-term cost rather than the opening monthly price alone. Include setup charges, scheduled price changes and the post-contract price. We would favour an affordable full-fibre or gigabit-cable plan where it is genuinely orderable, keeping a lower-speed option if it meets the household need at a materially lower total cost.',
+        },
+      ]
+    : isE1
+    ? [
+        {
+          question: 'Which broadband providers are available in Whitechapel and E1?',
+          answer: 'E1 households can check BT, Sky, EE, TalkTalk, Plusnet, Vodafone and NOW over Openreach, Virgin Media on its own network, and Hyperoptic or Community Fibre where their separate full-fibre networks reach the building. This is a district shortlist, not an availability promise. Enter the complete house or flat number with each suitable network before comparing orderable packages.',
+        },
+        {
+          question: 'Is EE broadband available in Whitechapel?',
+          answer: 'Yes, please check the complete address first: EE sells broadband over the Openreach network, which reaches most of E1, so EE is a realistic option across Whitechapel, Spitalfields and Aldgate in principle. Availability, personalised speed estimate and whether full fibre or part-fibre serves that specific property still depend on the exact house or flat number, not the E1 district as a whole.',
+        },
+        {
+          question: 'Can I get full-fibre broadband in E1?',
+          answer: `Full fibre or another gigabit-capable service is available at many E1 properties, but not throughout the district. BroadbandPicker's aggregation of Ofcom July 2024 residential postcode records shows ${districtCoverage?.gigabitPercent}% gigabit-capable availability across ${districtCoverage?.sampleSize.toLocaleString('en-GB')} sampled E1 postcode units. Hyperoptic's own coverage pages list Whitechapel among the Tower Hamlets areas its full-fibre network reaches. Check the complete address before treating any package as orderable.`,
+        },
+        {
+          question: 'How fast is broadband in Whitechapel and E1?',
+          answer: `Ofcom-derived E1 records show ${districtCoverage?.superfastPercent}% superfast, ${districtCoverage?.ultrafastPercent}% ultrafast and ${districtCoverage?.gigabitPercent}% gigabit-capable availability across ${districtCoverage?.sampleSize.toLocaleString('en-GB')} sampled postcode units, lower than several other central London districts. These percentages measure network reach, not the speed received by one household. Compare each provider's personalised estimate for the complete address.`,
+        },
+        {
+          question: 'What broadband is available at an E1 flat or converted building?',
+          answer: 'E1 has a large share of converted Victorian buildings and newer blocks around Whitechapel and Aldgate, where one network can reach some flats in a building and not others. Ask which networks already enter the building, whether new cabling needs landlord permission, and compare the personalised speed estimate for the specific flat rather than assuming a neighbour\'s result applies to you.',
+        },
+        {
+          question: 'Which part of London is E1?',
+          answer: 'E1 is a central-east London postcode district covering Whitechapel, Spitalfields, Aldgate, Stepney and part of Wapping. It sits within the London Borough of Tower Hamlets, though the postcode district and the local-authority boundary are not identical, so a Tower Hamlets-wide statistic and an E1 statistic can differ.',
+        },
+      ]
+    : isSW1
+    ? [
+        {
+          question: 'Which broadband and internet providers are available in Westminster and SW1?',
+          answer: 'SW1 households can check BT, Sky, EE, TalkTalk, Vodafone, NOW, Zen Internet and Virgin Media over Openreach and Virgin Media’s own network, plus Hyperoptic or Community Fibre where their separate full-fibre networks reach the building. This is a district shortlist, not an availability promise. Enter the complete house or flat number with each suitable network before comparing orderable packages.',
+        },
+        {
+          question: 'What is the cheapest broadband deal in SW1?',
+          answer: `SW1 is one of the few districts where BroadbandPicker already ranks first for the exact 'cheap broadband SW1' search, so compare the total minimum-term cost of packages confirmed for your address rather than the first advertised price. The cheapest option here currently starts from £${postcodeArea.cheapestMonthly.toFixed(2)}/month${cheapestProvider ? ` with ${cheapestProvider.name}` : ''}, before any setup fee or scheduled price rise.`,
+        },
+        {
+          question: 'Can I get full-fibre broadband in SW1?',
+          answer: `Full fibre availability varies sharply within SW1 itself. BroadbandPicker's aggregation of Ofcom July 2024 records across the district's eight real outward codes (SW1A, SW1E, SW1H, SW1P, SW1V, SW1W, SW1X and SW1Y, 1,710 sampled units) shows a ${sw1WeightedGigabitPercent}% weighted average gigabit-capable rate, ranging from 36.4% in SW1A to 92% in SW1H. Hyperoptic also lists Belgravia and Pimlico among its Westminster full-fibre areas. Check the complete address before treating any package as orderable.`,
+        },
+        {
+          question: 'How fast is broadband across SW1’s different districts?',
+          answer: `SW1 is not one uniform coverage area. Ofcom-derived records show gigabit-capable availability from 36.4% in SW1A (Whitehall and St James's Park) up to 92% in SW1H (Victoria and Westminster), with SW1P, SW1V, SW1W, SW1X and SW1Y in between. These percentages measure network reach, not the speed received by one household, so compare each provider's personalised estimate for the complete address.`,
+        },
+        {
+          question: 'Are there cheaper broadband tariffs in Westminster?',
+          answer: 'Yes. Westminster City Council signposts government-backed social tariffs, cheaper broadband and phone packages for residents claiming Universal Credit, Pension Credit or certain other benefits, sometimes marketed as ‘essential’ or ‘basic’ broadband. Eligibility and providers vary, so check the council’s current guidance and our UK broadband social tariffs guide before comparing standard SW1 promotions.',
+        },
+        {
+          question: 'Which part of London is SW1?',
+          answer: 'SW1 is a central London postcode district south-west of Westminster Abbey, covering Belgravia, Pimlico, Victoria, St James’s and the Whitehall and Westminster government area. It sits within the City of Westminster, though the postcode district and the local-authority boundary are not identical, and SW1 itself splits into eight separate outward codes (SW1A to SW1Y) with different broadband coverage.',
+        },
+      ]
+    : isSE1
+    ? [
+        {
+          question: 'Which broadband providers are available in Southwark and SE1?',
+          answer: 'SE1 households can check BT, Sky, EE, TalkTalk, Vodafone and NOW over Openreach, Virgin Media on its own network, and Hyperoptic or Community Fibre where their separate networks reach the building. This is a district shortlist, not an availability promise. Enter the complete house or flat number with each suitable network before comparing orderable packages across Borough, Bankside, London Bridge or Bermondsey.',
+        },
+        {
+          question: 'What is the cheapest broadband deal in Southwark under £30 or £25 a month?',
+          answer: `Whether a package under £30 or under £25 a month is available depends on the address, not just the advertised SE1-wide price. Compare the total minimum-term cost of packages actually orderable at your property, including any setup fee and stated price rise, then check the post-contract price. The cheapest option here currently starts from £${postcodeArea.cheapestMonthly.toFixed(2)}/month${cheapestProvider ? ` with ${cheapestProvider.name}` : ''}.`,
+        },
+        {
+          question: 'Can I get full-fibre broadband in SE1?',
+          answer: `Full fibre or another gigabit-capable service is available at many SE1 properties, but not throughout the district. BroadbandPicker's aggregation of Ofcom July 2024 residential postcode records shows ${districtCoverage?.gigabitPercent}% gigabit-capable availability across ${districtCoverage?.sampleSize.toLocaleString('en-GB')} sampled SE1 postcode units. Hyperoptic lists Elephant and Castle as a covered SE1 area on its own network pages. Check the complete address with Ofcom, Openreach, Virgin Media and suitable independent networks before treating any package as orderable.`,
+        },
+        {
+          question: 'How fast is broadband in Southwark and SE1?',
+          answer: `Ofcom-derived SE1 records show ${districtCoverage?.superfastPercent}% superfast, ${districtCoverage?.ultrafastPercent}% ultrafast and ${districtCoverage?.gigabitPercent}% gigabit-capable availability across ${districtCoverage?.sampleSize.toLocaleString('en-GB')} sampled postcode units. These percentages measure network reach, not the speed received by one household. Compare each provider's personalised estimate and minimum guaranteed download speed for the complete address.`,
+        },
+        {
+          question: 'What broadband is available at SE1 6RN?',
+          answer: 'SE1 6RN, on Falmouth Road near Elephant and Castle, is a complete postcode within the wider SE1 district, but district coverage cannot confirm service for one building. Use the house or flat number in each network checker, then compare the personalised speed estimate, minimum guaranteed speed, upload speed and total contract cost. A nearby full-fibre connection does not prove that the same network serves your property.',
+        },
+        {
+          question: 'What area of London is SE1?',
+          answer: 'SE1 is a central London postcode district south of the river, covering Waterloo, South Bank, Bankside, Borough, London Bridge, Bermondsey and Elephant and Castle. It sits within the London Borough of Southwark, though the postcode district and the borough boundary are not identical, so a Southwark-wide statistic and an SE1 statistic can differ.',
+        },
+      ]
+    : isHA1
     ? [
         {
           question: 'Which broadband providers are available in Harrow and HA1?',
@@ -846,24 +1743,32 @@ export default async function PostcodeAreaPage({
       }
     : null
 
+  const heading = isN1 ? 'Broadband Deals in Islington and N1' : isLE1 ? 'Broadband Deals in Leicester and LE1' : isSG1 ? 'Broadband Deals in Stevenage and SG1' : isCF10 ? 'Broadband Deals in Cardiff and CF10' : isLS1 ? 'Broadband Deals in Leeds City Centre and LS1' : isOX1 ? 'Broadband Deals in Oxford and OX1' : isBS3 ? 'Broadband Deals in Bedminster and BS3' : isG1 ? 'Broadband Deals in Glasgow and G1' : isL8 ? 'Broadband Deals in Toxteth and L8' : isCV1 ? 'Broadband Deals in Coventry and CV1' : isB1 ? 'Broadband Deals in Birmingham and B1' : isLS2 ? 'Broadband Deals in Leeds and LS2' : isL1 ? 'Broadband Deals in Liverpool and L1' : isLU1 ? 'Broadband Deals in Luton and LU1' : isSO14 ? 'Broadband Deals in Southampton and SO14' : isW5 ? 'Broadband Deals in Ealing and W5' : isNW1 ? 'Broadband Deals in Camden and NW1' : isEN1 ? 'Broadband Deals in Enfield and EN1' : isUB1 ? 'Broadband Deals in Southall and UB1' : isE1 ? 'Broadband Deals in Whitechapel and E1' : isSW1 ? 'Broadband Deals in Westminster and SW1' : isSE1 ? 'Broadband Deals in Southwark and SE1' : isHA1 ? 'Broadband Deals in Harrow and HA1' : isGU1 ? 'Broadband Deals in Guildford and GU1' : isBN1 ? 'Broadband Deals in Brighton and BN1' : isNE1 ? 'Broadband Deals in Newcastle and NE1' : isBS1 ? 'Broadband Deals in Bristol and BS1' : isCR0 ? 'Broadband Deals in Croydon and CR0' : isM1 ? 'M1 Broadband Deals and Coverage in Manchester City Centre' : isNG1 ? 'Broadband Deals in Nottingham and NG1' : isRG1 ? 'Broadband Deals in Reading and RG1' : isCT1 ? 'Broadband Deals in Canterbury and CT1' : isRM1 ? 'Broadband Deals in Romford and RM1' : `Best Broadband Deals in ${postcodeArea.town} (${prefix})`
+  const hero = hubHero()
+
   return (
-    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <main>
       <JsonLd data={webPageWithCitationsJsonLd} />
       <JsonLd data={areaDealListJsonLd} />
       <JsonLd data={faqJsonLd} />
       <JsonLd data={placeJsonLd} />
       {coverageDatasetJsonLd ? <JsonLd data={coverageDatasetJsonLd} /> : null}
-
+      <PageHeroBanner
+        title={heading}
+        kicker={`${prefix} broadband`}
+        lede={`Compare broadband deals, coverage and providers in ${postcodeArea.town}. Check the complete address before you order.`}
+        image={hero.image}
+        imageAlt={hero.imageAlt}
+        accent={hero.accent}
+        ctas={DEFAULT_GUIDE_CTAS}
+      />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <BreadcrumbNav
         items={[
           { name: 'Home', href: '/' },
           { name: `${prefix} broadband`, href: `/postcode/${area.toLowerCase()}` },
         ]}
       />
-
-      <h1 className="text-3xl font-extrabold text-slate-900 mb-2">
-        {isN1 ? 'Broadband Deals in Islington and N1' : isCR0 ? 'Broadband Deals in Croydon and CR0' : isHA1 ? 'Broadband Deals in Harrow and HA1' : isGU1 ? 'Broadband Deals in Guildford and GU1' : isBN1 ? 'Broadband Deals in Brighton and BN1' : isNE1 ? 'Broadband Deals in Newcastle and NE1' : isBS1 ? 'Broadband Deals in Bristol and BS1' : isM1 ? 'M1 Broadband Deals and Coverage in Manchester City Centre' : isNG1 ? 'Broadband Deals in Nottingham and NG1' : isRG1 ? 'Broadband Deals in Reading and RG1' : isCT1 ? 'Broadband Deals in Canterbury and CT1' : isRM1 ? 'Broadband Deals in Romford and RM1' : `Best Broadband Deals in ${postcodeArea.town} (${prefix})`}
-      </h1>
 
       <div className="flex flex-wrap items-center gap-4 text-sm text-slate-500 mb-6 pb-6 border-b border-slate-200">
         <span>Area model reviewed {pageReviewedDateLabel}</span>
@@ -878,6 +1783,48 @@ export default async function PostcodeAreaPage({
           <>Broadband deals in Islington&apos;s N1 district include retailers using Openreach, plus Virgin Media, Hyperoptic and Community Fibre where their separate networks reach the building. BroadbandPicker&apos;s aggregation of Ofcom July 2024 residential postcode records shows <strong>{districtCoverage?.gigabitPercent}% gigabit-capable</strong> and <strong>{districtCoverage?.superfastPercent}% superfast</strong> availability across {districtCoverage?.sampleSize.toLocaleString('en-GB')} sampled N1 postcode units. Compare total contract cost, then check the complete address before ordering.</>
         ) : isCR0 ? (
           <>Broadband deals in Croydon&apos;s CR0 district include retailers using Openreach, Virgin Media and Community Fibre where their separate networks reach the property. BroadbandPicker&apos;s aggregation of Ofcom July 2024 residential postcode records shows <strong>{districtCoverage?.gigabitPercent}% gigabit-capable</strong> and <strong>{districtCoverage?.superfastPercent}% superfast</strong> availability across {districtCoverage?.sampleSize.toLocaleString('en-GB')} sampled CR0 postcode units. Compare the full contract cost, then check the complete address before ordering.</>
+        ) : isLE1 ? (
+          <>Broadband deals in Leicester&apos;s LE1 district include retailers using Openreach, plus Virgin Media on its own network. toob confirmed on 15 October 2024 that it had launched full-fibre services to tens of thousands of homes in Leicester using CityFibre&apos;s network, though it is not currently in BroadbandPicker&apos;s comparison. Ofcom-derived July 2024 records separately show <strong>{districtCoverage?.gigabitPercent}% gigabit-capable</strong> and <strong>{districtCoverage?.superfastPercent}% superfast</strong> availability across {districtCoverage?.sampleSize} sampled LE1 postcode units. Compare total contract cost, then check the complete address before ordering.</>
+        ) : isSG1 ? (
+          <>Broadband deals in Stevenage&apos;s SG1 district include retailers using Openreach, plus Virgin Media on its own network. Independent monitoring found Openreach&apos;s full-fibre coverage across the Stevenage council area dropped from 62.66% to 52.61% by 6 February 2026 after installations were paused in areas with difficult ducting, common locally due to 1960s and 1970s direct-buried copper. Ofcom-derived July 2024 records separately show <strong>{districtCoverage?.gigabitPercent}% gigabit-capable</strong> and <strong>{districtCoverage?.superfastPercent}% superfast</strong> availability across {districtCoverage?.sampleSize.toLocaleString('en-GB')} sampled SG1 postcode units. Compare total contract cost, then check the complete address before ordering.</>
+        ) : isCF10 ? (
+          <>Broadband deals in Cardiff&apos;s CF10 district include retailers using Openreach, plus Virgin Media on its own network. Cardiff Council, the Welsh Government and Elevate confirmed on 16 January 2026 a business-focused &quot;hypercity network&quot; offering gigabit and up to 10 Gbps speeds across large parts of the city centre, and Ffeibr confirmed on 2 April 2026 that it was extending Transport for Wales fibre into Cardiff city centre and Cardiff Bay; neither is in BroadbandPicker&apos;s residential comparison. Ofcom-derived July 2024 records separately show <strong>{districtCoverage?.gigabitPercent}% gigabit-capable</strong> and <strong>{districtCoverage?.superfastPercent}% superfast</strong> availability across {districtCoverage?.sampleSize} sampled CF10 postcode units. Compare total contract cost, then check the complete address before ordering.</>
+        ) : isLS1 ? (
+          <>Broadband deals in Leeds city centre&apos;s LS1 district include retailers using Openreach, plus Virgin Media on its own network. Giant, a named ISP, states LS1 has CityFibre coverage alongside Openreach full fibre, both offering symmetric speeds up to 1 Gbps, though CityFibre is not currently in BroadbandPicker&apos;s comparison. Ofcom-derived July 2024 records show <strong>{districtCoverage?.gigabitPercent}% gigabit-capable</strong> and <strong>{districtCoverage?.superfastPercent}% superfast</strong> availability across {districtCoverage?.sampleSize} sampled LS1 postcode units, meaningfully lower than neighbouring LS2. Compare total contract cost, then check the complete address before ordering.</>
+        ) : isOX1 ? (
+          <>Broadband deals in Oxford&apos;s OX1 district include retailers using Openreach and Zen Internet, plus Virgin Media on its own network. Openreach confirmed on 14 October 2025 that its full-fibre network had reached more than 23,000 Oxford homes via a £6.9 million investment, yet fewer than 15% of eligible properties had actually upgraded. Ofcom-derived July 2024 records separately show <strong>{districtCoverage?.gigabitPercent}% gigabit-capable</strong> and <strong>{districtCoverage?.superfastPercent}% superfast</strong> availability across {districtCoverage?.sampleSize} sampled OX1 postcode units. Compare total contract cost, then check the complete address before ordering.</>
+        ) : isBS3 ? (
+          <>Broadband deals in Bedminster&apos;s BS3 district include retailers using Openreach, plus Virgin Media on its own network. CityFibre has partial coverage in parts of Bedminster, sold through Vodafone, TalkTalk and Zen Internet, though CityFibre itself is not currently in BroadbandPicker&apos;s comparison; BS31 (Keynsham) is a separate, genuinely different postcode district from BS3. Ofcom-derived July 2024 records separately show <strong>{districtCoverage?.gigabitPercent}% gigabit-capable</strong> and <strong>{districtCoverage?.superfastPercent}% superfast</strong> availability across {districtCoverage?.sampleSize} sampled BS3 postcode units. Compare total contract cost, then check the complete address before ordering.</>
+        ) : isG1 ? (
+          <>Broadband deals in Glasgow&apos;s G1 district include retailers using Openreach, plus Virgin Media on its own network. CityFibre has committed around £270 million to a citywide Glasgow rollout, though an independent report dated 21 May 2025 found private, unadopted roads in some Glasgow-area streets have delayed connections, and CityFibre is not currently in BroadbandPicker&apos;s comparison. Ofcom-derived July 2024 records separately show <strong>{districtCoverage?.gigabitPercent}% gigabit-capable</strong> and <strong>{districtCoverage?.superfastPercent}% superfast</strong> availability across {districtCoverage?.sampleSize} sampled G1 postcode units. Compare total contract cost, then check the complete address before ordering.</>
+        ) : isL8 ? (
+          <>Broadband deals in Toxteth&apos;s L8 district include retailers using Openreach; Virgin Media is not listed as available here. Giant, a Liverpool-founded ISP, states its LCR Connect symmetric network is largely ready to light on L8 sub-exchanges, though it is not currently in BroadbandPicker&apos;s comparison, and one independent guide flags that L8&apos;s older Victorian housing stock can limit achievable speed even where the street is gigabit-capable. Ofcom-derived July 2024 records separately show <strong>{districtCoverage?.gigabitPercent}% gigabit-capable</strong> and <strong>{districtCoverage?.superfastPercent}% superfast</strong> availability across {districtCoverage?.sampleSize} sampled L8 postcode units. Compare total contract cost, then check the complete address before ordering.</>
+        ) : isCV1 ? (
+          <>Broadband deals in Coventry&apos;s CV1 district include retailers using Openreach, plus Virgin Media on its own network. Openreach confirmed on 7 March 2025 that more than 125,000 homes and businesses across Coventry were eligible for full fibre, covering around 80% of properties city-wide, though upgrades are not automatic and still require an order. Ofcom-derived July 2024 records separately show <strong>{districtCoverage?.gigabitPercent}% gigabit-capable</strong> and <strong>{districtCoverage?.superfastPercent}% superfast</strong> availability across {districtCoverage?.sampleSize} sampled CV1 postcode units. Compare total contract cost, then check the complete address before ordering.</>
+        ) : isB1 ? (
+          <>Broadband deals in Birmingham&apos;s B1 district include retailers using Openreach and Zen Internet, plus Virgin Media on its own network. CityFibre&apos;s Birmingham footprint is concentrated in outer zones such as Gravelly Hill, Erdington and Acocks Green rather than the city centre; Hyperoptic instead has a notable presence in B1 apartment buildings around New Street, though it is not currently in BroadbandPicker&apos;s comparison. Ofcom-derived July 2024 records separately show <strong>{districtCoverage?.gigabitPercent}% gigabit-capable</strong> and <strong>{districtCoverage?.superfastPercent}% superfast</strong> availability across {districtCoverage?.sampleSize} sampled B1 postcode units. Compare total contract cost, then check the complete address before ordering.</>
+        ) : isLS2 ? (
+          <>Broadband deals in Leeds&apos; LS2 district include retailers using Openreach, plus Virgin Media on its own network. Two named local full-fibre altnets, CCS Leeds and Stream Networks, also build their own separate networks in parts of Leeds, with CCS Leeds listing LS2 among its served postcodes, though neither gives a dated coverage percentage and neither is currently in BroadbandPicker&apos;s comparison. Ofcom-derived July 2024 records separately show <strong>{districtCoverage?.gigabitPercent}% gigabit-capable</strong> and <strong>{districtCoverage?.superfastPercent}% superfast</strong> availability across {districtCoverage?.sampleSize} sampled LS2 postcode units. Compare total contract cost, then check the complete address before ordering.</>
+        ) : isL1 ? (
+          <>Broadband deals in Liverpool&apos;s L1 district include retailers using Openreach, plus Virgin Media on its own network. Netomnia, trading as YouFibre, confirmed on 11 February 2025 that its full-fibre network had passed 110,000 Liverpool premises, with plans to reach 190,000 by 2026, though coverage varies street by street rather than across the whole district. Ofcom-derived July 2024 records separately show <strong>{districtCoverage?.gigabitPercent}% gigabit-capable</strong> and <strong>{districtCoverage?.superfastPercent}% superfast</strong> availability across {districtCoverage?.sampleSize} sampled L1 postcode units. Compare total contract cost, then check the complete address before ordering.</>
+        ) : isLU1 ? (
+          <>Broadband deals in Luton&apos;s LU1 district include retailers using Openreach, plus Virgin Media and CityFibre on their own separate networks. CityFibre confirmed on 29 May 2024 that more than 35,000 Luton premises were ready for service on its full-fibre network at up to 2.5 Gbps; Openreach separately reported on 14 April 2025 that 60,000 Luton properties could upgrade to full fibre, yet fewer than one in five had actually switched. Ofcom-derived July 2024 records separately show <strong>{districtCoverage?.gigabitPercent}% gigabit-capable</strong> and <strong>{districtCoverage?.superfastPercent}% superfast</strong> availability across {districtCoverage?.sampleSize} sampled LU1 postcode units. Compare total contract cost, then check the complete address before ordering.</>
+        ) : isSO14 ? (
+          <>Broadband deals in Southampton&apos;s SO14 district include retailers using Openreach, plus Virgin Media and toob on their own separate full-fibre networks. Openreach confirmed on 3 November 2025 that more than 10,000 Southampton properties could already access full fibre, with thousands more planned; toob chose Southampton as the first city for its own self-built network and now serves over 125,000 customers UK-wide. Ofcom-derived July 2024 records separately show <strong>{districtCoverage?.gigabitPercent}% gigabit-capable</strong> and <strong>{districtCoverage?.superfastPercent}% superfast</strong> availability across {districtCoverage?.sampleSize} sampled SO14 postcode units. Compare total contract cost, then check the complete address before ordering.</>
+        ) : isW5 ? (
+          <>Broadband deals in Ealing&apos;s W5 district include retailers using Openreach, plus Virgin Media and Community Fibre on their own separate networks. Vodafone confirmed on 2 September 2025 that it could provide full fibre broadband, running on Community Fibre&apos;s network, to 37,000 homes across the wider London Borough of Ealing at speeds of up to 2.2 Gbps. Ofcom-derived July 2024 records separately show <strong>{districtCoverage?.gigabitPercent}% gigabit-capable</strong> and <strong>{districtCoverage?.superfastPercent}% superfast</strong> availability across {districtCoverage?.sampleSize} sampled W5 postcode units. Compare total contract cost, then check the complete address, for example W5 1LF, before ordering.</>
+        ) : isNW1 ? (
+          <>Broadband deals in Camden&apos;s NW1 district include retailers using Openreach, plus Virgin Media, Hyperoptic and Community Fibre on their own separate full-fibre networks. G.Network, another named full-fibre altnet in central London, exited administration debt-free on 25 March 2026 after entering it in January 2026, and is not currently in BroadbandPicker&apos;s NW1 comparison. Ofcom-derived July 2024 records separately show <strong>{districtCoverage?.gigabitPercent}% gigabit-capable</strong> and <strong>{districtCoverage?.superfastPercent}% superfast</strong> availability across {districtCoverage?.sampleSize.toLocaleString('en-GB')} sampled NW1 postcode units. Compare total contract cost, then check the complete address, for example NW1 0BJ, before ordering.</>
+        ) : isEN1 ? (
+          <>Broadband deals in Enfield&apos;s EN1 district include retailers using Openreach and Virgin Media on its own network. Openreach confirmed on 24 March 2026 that it had agreed to upgrade more than 1,500 flats and apartments across over 50 Enfield buildings to full fibre, with more planned. Ofcom-derived July 2024 records separately show <strong>{districtCoverage?.gigabitPercent}% gigabit-capable</strong> and <strong>{districtCoverage?.superfastPercent}% superfast</strong> availability across {districtCoverage?.sampleSize} sampled EN1 postcode units. Compare total contract cost, then check the complete address before ordering.</>
+        ) : isUB1 ? (
+          <>Broadband deals in Southall&apos;s UB1 district include retailers using Openreach and Virgin Media, whose gigabit cable network reached more than 20,000 additional Southall homes according to its own February 2023 announcement. Ofcom-derived July 2024 records separately show <strong>{districtCoverage?.gigabitPercent}% gigabit-capable</strong> and <strong>{districtCoverage?.superfastPercent}% superfast</strong> availability across {districtCoverage?.sampleSize} sampled UB1 postcode units. Compare total contract cost, then check the complete address before ordering.</>
+        ) : isE1 ? (
+          <>Broadband deals in Whitechapel&apos;s E1 district, covering Spitalfields, Aldgate, Stepney and part of Wapping, include retailers using Openreach such as EE, Virgin Media where its network reaches the property, and full-fibre operators such as Hyperoptic and Community Fibre. Ofcom-derived July 2024 records show <strong>{districtCoverage?.gigabitPercent}% gigabit-capable</strong> and <strong>{districtCoverage?.superfastPercent}% superfast</strong> availability across {districtCoverage?.sampleSize.toLocaleString('en-GB')} sampled E1 postcode units. Compare total contract cost, then check the complete address before ordering.</>
+        ) : isSW1 ? (
+          <>Westminster&apos;s SW1 postcode district is not one uniform area for broadband coverage: it splits into eight real outward codes, SW1A, SW1E, SW1H, SW1P, SW1V, SW1W, SW1X and SW1Y. BroadbandPicker&apos;s sample-size-weighted aggregation of Ofcom&apos;s July 2024 records across 1,710 sampled units shows an <strong>{`${sw1WeightedGigabitPercent}% gigabit-capable`}</strong> average, ranging from 36.4% in SW1A to 92% in SW1H. Compare total contract cost, then check the complete address before ordering.</>
+        ) : isSE1 ? (
+          <>Broadband deals in Southwark&apos;s SE1 district, covering Borough, Bankside, London Bridge, Waterloo, Bermondsey and Elephant and Castle, include retailers using Openreach, Virgin Media where its network reaches the property, and full-fibre operators such as Hyperoptic and Community Fibre where they reach the property. Ofcom-derived July 2024 records show <strong>{districtCoverage?.gigabitPercent}% gigabit-capable</strong> and <strong>{districtCoverage?.superfastPercent}% superfast</strong> availability across {districtCoverage?.sampleSize.toLocaleString('en-GB')} sampled SE1 postcode units. Compare total contract cost, then check the complete address before ordering.</>
         ) : isHA1 ? (
           <>Broadband deals in Harrow&apos;s HA1 district include Openreach retailers, Virgin Media and independent full-fibre networks where they reach the property. Ofcom-derived July 2024 records show <strong>{districtCoverage?.gigabitPercent}% gigabit-capable</strong> and <strong>{districtCoverage?.superfastPercent}% superfast</strong> availability across {districtCoverage?.sampleSize} sampled HA1 postcode units. Check the complete address, including the house or flat number, before comparing total contract cost.</>
         ) : isGU1 ? (
@@ -888,6 +1835,8 @@ export default async function PostcodeAreaPage({
           <>Broadband deals in Newcastle&apos;s NE1 district include retailers using Openreach, Virgin Media where its network reaches the property, and selected building-specific networks. Ofcom-derived July 2024 records show <strong>{districtCoverage?.gigabitPercent}% gigabit-capable</strong> and <strong>{districtCoverage?.superfastPercent}% superfast</strong> availability across {districtCoverage?.sampleSize} sampled NE1 postcode units. Compare total contract cost, then check the complete address before ordering.</>
         ) : isBS1 ? (
           <>Broadband deals in Bristol&apos;s BS1 district include retailers using Openreach, Virgin Media where its network reaches the property, and selected building-specific networks. Ofcom-derived July 2024 records show <strong>{districtCoverage?.gigabitPercent}% gigabit-capable</strong> and <strong>{districtCoverage?.superfastPercent}% superfast</strong> availability across {districtCoverage?.sampleSize} sampled BS1 postcode units. Compare total contract cost, then check the complete address before ordering.</>
+        ) : isCR0 ? (
+          <>Broadband deals in Croydon&apos;s CR0 district include retailers using Openreach, Virgin Media and Community Fibre where their separate networks reach the property. BroadbandPicker&apos;s aggregation of Ofcom July 2024 residential postcode records shows <strong>{districtCoverage?.gigabitPercent}% gigabit-capable</strong> and <strong>{districtCoverage?.superfastPercent}% superfast</strong> availability across {districtCoverage?.sampleSize.toLocaleString('en-GB')} sampled CR0 postcode units. Compare the full contract cost, then check the complete address before ordering.</>
         ) : isRM1 ? (
           <>Broadband deals in Romford&apos;s RM1 district include retailers using Openreach, Virgin Media where its network reaches the property, and selected independent full-fibre options. Ofcom-derived July 2024 records show <strong>{districtCoverage?.gigabitPercent}% gigabit-capable</strong> and <strong>{districtCoverage?.superfastPercent}% superfast</strong> availability across {districtCoverage?.sampleSize} sampled RM1 postcode units. Compare total contract cost, then check the complete address before ordering.</>
         ) : isM1 ? (
@@ -1082,6 +2031,65 @@ export default async function PostcodeAreaPage({
         </div>
       )}
 
+      {isSW1 && (
+        <>
+          <section className="mt-10 max-w-4xl" aria-labelledby="sw1-sub-districts">
+            <h2 id="sw1-sub-districts" className="text-2xl font-bold text-slate-900">
+              Why SW1 needs eight coverage figures, not one
+            </h2>
+            <p className="mt-4 leading-7 text-slate-700">
+              SW1 is a single postcode district for pricing and provider purposes, but Ofcom&apos;s coverage data cannot describe it with one number because SW1 genuinely splits into eight separate outward codes. BroadbandPicker&apos;s aggregation of Ofcom&apos;s July 2024 residential postcode records across{' '}
+              {`${sw1TotalSample.toLocaleString('en-GB')} sampled units`} gives a{' '}
+              {`${sw1WeightedGigabitPercent}% weighted-average gigabit-capable rate`} for SW1 as a whole, but the individual outward codes range from{' '}
+              {`${Math.min(...sw1SubDistricts.map((d) => d.gigabitPercent))}%`} to {`${Math.max(...sw1SubDistricts.map((d) => d.gigabitPercent))}%.`}
+            </p>
+            <div className="mt-6 overflow-x-auto rounded-xl border border-slate-200">
+              <table className="w-full min-w-[480px] text-sm">
+                <thead className="bg-slate-50 border-b border-slate-200">
+                  <tr>
+                    <th scope="col" className="text-left px-4 py-3 font-semibold text-slate-700">Outward code</th>
+                    <th scope="col" className="text-left px-4 py-3 font-semibold text-slate-700">Sampled postcode units</th>
+                    <th scope="col" className="text-left px-4 py-3 font-semibold text-slate-700">Gigabit-capable</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  {sw1SubDistricts.map((d) => (
+                    <tr key={d.code} className="bg-white">
+                      <td className="px-4 py-3 font-medium text-slate-900">{d.code}</td>
+                      <td className="px-4 py-3 text-slate-600">{d.sampleSize.toLocaleString('en-GB')}</td>
+                      <td className="px-4 py-3 text-slate-600">{`${d.gigabitPercent}%`}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-4 text-xs leading-relaxed text-slate-500">
+              Source: Ofcom Connected Nations, fixed broadband postcode-level coverage (residential), July 2024 edition, aggregated by BroadbandPicker under the Open Government Licence. Gigabit-capable means the network can deliver a package with a download speed of at least 1 Gbps; it describes network reach, not a measured speed at any one address.
+            </p>
+          </section>
+
+          <section className="mt-10 max-w-4xl" aria-labelledby="sw1-best-deal">
+            <h2 id="sw1-best-deal" className="text-2xl font-bold text-slate-900">
+              How to find the best broadband deal in Westminster
+            </h2>
+            <p className="mt-4 leading-7 text-slate-700">
+              A genuinely cheap SW1 broadband deal is a total-cost comparison, not the headline monthly price. Multiply the monthly charge across the minimum term, add setup fees and account for any stated annual price changes. Then check which SW1 outward code your address falls in using the table above as context, not proof, before choosing a package.
+            </p>
+            <p className="mt-4 leading-7 text-slate-700">
+              If you receive Universal Credit, Pension Credit or another qualifying benefit,{' '}
+              <Link href="/guides/broadband-social-tariffs-uk" className="font-semibold text-sky-700 hover:underline">
+                check current UK broadband social tariffs
+              </Link>
+              {' '}before comparing standard Westminster promotions; Westminster City Council signposts the same government-backed schemes directly to residents. For a district outside SW1, our{' '}
+              <Link href="/postcode/london" className="font-semibold text-sky-700 hover:underline">
+                London postcode guide
+              </Link>{' '}
+              links to other city postcode pages.
+            </p>
+          </section>
+        </>
+      )}
+
       {isDartford && districtCoverage && (
         <>
           <section className="mt-10 max-w-4xl" aria-labelledby="dartford-availability">
@@ -1198,6 +2206,19 @@ export default async function PostcodeAreaPage({
             {isGU1 && (
               <p className="mt-4 leading-7 text-slate-700">
                 For cheap broadband deals in Guildford, compare only packages confirmed for the complete GU1 address. Rank them by total minimum-term cost, including setup fees, rewards and stated price changes, then check the guaranteed and upload speeds. A Guildford-wide advertised price or network launch does not prove that the service reaches your property.
+              </p>
+            )}
+            {isSE1 && (
+              <p className="mt-4 leading-7 text-slate-700">
+                For cheap broadband deals in Southwark, compare only packages confirmed for the complete Borough, Bankside, London Bridge or Bermondsey address. Rank them by total minimum-term cost, including setup fees, rewards and stated price changes, then check the guaranteed and upload speeds. An SE1-wide advertised price does not prove that the network has reached your specific building. If you are{' '}
+                <Link href="/guides/how-to-switch-broadband-uk" className="font-semibold text-sky-700 hover:underline">
+                  switching from an existing provider
+                </Link>
+                , confirm your notice period before ordering. For a district outside SE1, our{' '}
+                <Link href="/postcode/london" className="font-semibold text-sky-700 hover:underline">
+                  London postcode guide
+                </Link>{' '}
+                links to other city postcode pages.
               </p>
             )}
             <ol className="mt-5 space-y-4 text-slate-700">
@@ -1452,6 +2473,7 @@ export default async function PostcodeAreaPage({
             What speed do I need?
           </Link>
         </div>
+      </div>
       </div>
     </main>
   )

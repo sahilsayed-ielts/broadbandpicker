@@ -4,13 +4,15 @@ import { notFound } from 'next/navigation'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
 import FAQAccordion from '@/components/FAQAccordion'
 import { getProviderBySlug } from '@/data/providers'
-import { getProviderComparisonBySlug, providerComparisons } from '@/data/provider-comparisons'
+import { getProviderComparisonBySlug, providerComparisons, type ProviderComparison } from '@/data/provider-comparisons'
+import type { Provider } from '@/types'
 import ReviewEvidencePanel from '@/components/ReviewEvidencePanel'
 import AffiliateCTA from '@/components/AffiliateCTA'
 import EeTalkTalkDecisionTool from '@/components/EeTalkTalkDecisionTool'
 import PlusnetVsSkyComparison from '@/components/PlusnetVsSkyComparison'
 import HyperopticVsCommunityFibreComparison from '@/components/HyperopticVsCommunityFibreComparison'
 import OnThisPageNav from '@/components/OnThisPageNav'
+import ShareBar from '@/components/ShareBar'
 import { JsonLd } from '@/lib/jsonLd'
 import { articleJsonLd } from '@/lib/siteSchema'
 import CiteableAnswer from '@/components/CiteableAnswer'
@@ -42,6 +44,21 @@ export async function generateMetadata({
   }
 }
 
+type SnapshotFacts = NonNullable<ProviderComparison['factSnapshot']>['providerA']
+
+/** Re-checked providers (data/provider-price-checks.json) show live figures, not the hand-typed snapshot. */
+function liveFacts(provider: Provider, snapshot?: SnapshotFacts): SnapshotFacts | undefined {
+  if (!snapshot || !provider.priceCheckNotes) return snapshot
+  const months = provider.packages ? [...new Set(provider.packages.map((p) => p.contractLength))].sort((a, b) => b - a) : null
+  return {
+    ...snapshot,
+    fromPrice: `£${provider.monthlyPriceFrom.toFixed(2)}/mo`,
+    maxSpeed: `${Math.max(...provider.speeds.map((sp) => sp.download)).toLocaleString('en-GB')} Mbps`,
+    setupFee: provider.setupFee === 0 ? 'Free' : `£${provider.setupFee.toFixed(2)}`,
+    contract: months ? `${months.join(' or ')} months` : snapshot.contract,
+  }
+}
+
 function getMaxDownload(slug: string) {
   const provider = getProviderBySlug(slug)
   if (!provider) return 0
@@ -61,8 +78,10 @@ export default async function ProviderComparisonPage({
   const providerB = getProviderBySlug(comparison.providerB)
   if (!providerA || !providerB) notFound()
 
-  const priceA = comparison.factSnapshot ? parseFloat(comparison.factSnapshot.providerA.fromPrice.replace(/[^0-9.]/g, '')) : providerA.monthlyPriceFrom
-  const priceB = comparison.factSnapshot ? parseFloat(comparison.factSnapshot.providerB.fromPrice.replace(/[^0-9.]/g, '')) : providerB.monthlyPriceFrom
+  const factsA = liveFacts(providerA, comparison.factSnapshot?.providerA)
+  const factsB = liveFacts(providerB, comparison.factSnapshot?.providerB)
+  const priceA = factsA ? parseFloat(factsA.fromPrice.replace(/[^0-9.]/g, '')) : providerA.monthlyPriceFrom
+  const priceB = factsB ? parseFloat(factsB.fromPrice.replace(/[^0-9.]/g, '')) : providerB.monthlyPriceFrom
   const speedA = getMaxDownload(providerA.slug)
   const speedB = getMaxDownload(providerB.slug)
 
@@ -71,7 +90,7 @@ export default async function ProviderComparisonPage({
       provider: providerA,
       bestFor: comparison.bestForA,
       maxSpeed: speedA,
-      facts: comparison.factSnapshot?.providerA,
+      facts: factsA,
       badge: !Number.isNaN(priceA) && !Number.isNaN(priceB) && priceA < priceB ? 'Best value'
         : speedA > speedB ? 'Fastest'
         : null,
@@ -80,7 +99,7 @@ export default async function ProviderComparisonPage({
       provider: providerB,
       bestFor: comparison.bestForB,
       maxSpeed: speedB,
-      facts: comparison.factSnapshot?.providerB,
+      facts: factsB,
       badge: !Number.isNaN(priceA) && !Number.isNaN(priceB) && priceB < priceA ? 'Best value'
         : speedB > speedA ? 'Fastest'
         : null,
@@ -267,13 +286,13 @@ export default async function ProviderComparisonPage({
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100">
-              {(comparison.factSnapshot ? [
-                ['From price', comparison.factSnapshot.providerA.fromPrice, comparison.factSnapshot.providerB.fromPrice],
-                ['Max speed', comparison.factSnapshot.providerA.maxSpeed, comparison.factSnapshot.providerB.maxSpeed],
-                ['Setup fee', comparison.factSnapshot.providerA.setupFee, comparison.factSnapshot.providerB.setupFee],
-                ['Typical contract', comparison.factSnapshot.providerA.contract, comparison.factSnapshot.providerB.contract],
-                ['Coverage', comparison.factSnapshot.providerA.coverage, comparison.factSnapshot.providerB.coverage],
-                ['Trustpilot', comparison.factSnapshot.providerA.trustpilot, comparison.factSnapshot.providerB.trustpilot],
+              {(factsA && factsB ? [
+                ['From price', factsA.fromPrice, factsB.fromPrice],
+                ['Max speed', factsA.maxSpeed, factsB.maxSpeed],
+                ['Setup fee', factsA.setupFee, factsB.setupFee],
+                ['Typical contract', factsA.contract, factsB.contract],
+                ['Coverage', factsA.coverage, factsB.coverage],
+                ['Trustpilot', factsA.trustpilot, factsB.trustpilot],
               ] : [
                 ['From price', `£${providerA.monthlyPriceFrom.toFixed(2)}/mo`, `£${providerB.monthlyPriceFrom.toFixed(2)}/mo`],
                 ['Max speed', `${getMaxDownload(providerA.slug)} Mbps`, `${getMaxDownload(providerB.slug)} Mbps`],
@@ -381,6 +400,16 @@ export default async function ProviderComparisonPage({
             label={`Check ${providerB.name} at my postcode`}
             size="md"
             variant="outline"
+          />
+        </div>
+        <div className="mt-5 border-t border-green-200 pt-4">
+          <ShareBar
+            url={`/providers/compare/${comparison.slug}`}
+            title={comparison.metaTitle}
+            text={`${providerA.name} or ${providerB.name}? This comparison helped:`}
+            contentType="provider_comparison"
+            itemId={comparison.slug}
+            placement="comparison_verdict"
           />
         </div>
       </section>

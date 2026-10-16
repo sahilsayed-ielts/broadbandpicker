@@ -37,6 +37,12 @@ const tools = [
       'Answer a few questions about your household and get a ranked shortlist from live package data, not the cheapest headline alone.',
   },
   {
+    href: '/tools/contract-end-reminder',
+    title: 'Contract end reminder',
+    description:
+      'Get a calendar or email reminder 30 days before your broadband contract ends, so you compare before the price goes up.',
+  },
+  {
     href: '/tools/broadband-cost-calculator',
     title: 'Cost calculator',
     description:

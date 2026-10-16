@@ -65,6 +65,11 @@ export default function DealsPage() {
       note: 'Explains how we review pricing, speed tiers, contract length, setup costs, coverage, and overall value across commercial pages.',
     },
     {
+      label: 'UK Broadband Price Index',
+      href: '/research/broadband-price-index',
+      note: 'Monthly median and cheapest entry prices across tracked providers, with a downloadable CSV.',
+    },
+    {
       label: 'BroadbandPicker editorial policy',
       href: '/editorial-policy',
       note: 'Sets out our editorial independence, correction standards, and how commercial relationships are handled.',

@@ -2,6 +2,8 @@
 
 import { useMemo, useState } from 'react'
 import Link from 'next/link'
+import ShareBar from '@/components/ShareBar'
+import { costCode } from '@/lib/shareCodes'
 
 function parseNumber(value: string): number {
   const n = parseFloat(value)
@@ -108,6 +110,26 @@ export default function BroadbandCostCalculator() {
           price rises, which many UK providers apply annually — check the deal&apos;s price-change terms separately.
         </p>
       </div>
+
+      {result.price > 0 && (
+        <div className="mt-6 rounded-xl border border-slate-700 p-4">
+          <ShareBar
+            url={`/tools/broadband-cost-calculator/result/${costCode({
+              monthly: result.price,
+              months: Math.min(36, Math.round(result.months)),
+              setup: parseNumber(setupFee),
+              cashback: parseNumber(cashback),
+              speed: parseNumber(speed) || null,
+            })}`}
+            title={`True cost of a ${formatMoney(result.price)} broadband deal`}
+            text={`That ${formatMoney(result.price)}/month broadband deal really costs ${formatMoney(Math.max(0, result.trueMonthlyCost))}/month (${formatMoney(Math.max(0, result.totalContractCost))} over ${result.months} months):`}
+            contentType="cost_calculator_result"
+            placement="cost_calculator"
+            tone="dark"
+            label="Share this calculation"
+          />
+        </div>
+      )}
 
       <div className="flex flex-col sm:flex-row gap-3 mt-6">
         <Link

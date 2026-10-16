@@ -176,6 +176,7 @@ const FOOTER_COLUMNS: { heading: string; links: { href: string; label: string; c
       { href: '/about', label: 'About us' },
       { href: '/contact', label: 'Contact' },
       { href: '/research/uk-broadband-customer-satisfaction', label: 'Research' },
+      { href: '/research/broadband-price-index', label: 'Broadband price index' },
       { href: '/editorial-policy', label: 'Editorial policy' },
       { href: '/how-we-make-money', label: 'How we make money' },
       { href: '/how-we-review-broadband', label: 'How we review' },

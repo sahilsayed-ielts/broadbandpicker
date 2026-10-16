@@ -5,6 +5,8 @@ import { useEffect, useMemo, useState } from 'react'
 import type { Provider } from '@/types'
 import { trackEvent } from '@/lib/analytics'
 import AffiliateCTA from './AffiliateCTA'
+import ShareBar from './ShareBar'
+import { comparisonPath } from '@/lib/shareCodes'
 import SpeedBadge from './SpeedBadge'
 import ProviderLogo from './ProviderLogo'
 
@@ -49,6 +51,24 @@ export default function ComparisonTable({ providers }: ComparisonTableProps) {
   const [selectionLimitMessage, setSelectionLimitMessage] = useState('')
 
   useEffect(() => {
+    // A shared link (/compare?p=bt,sky) wins over the stored shortlist.
+    const fromLink = new URLSearchParams(window.location.search).get('p')
+    if (fromLink) {
+      const slugs = [...new Set(fromLink.toLowerCase().split(','))].filter((slug) => validSlugs.has(slug)).slice(0, MAX_SELECTIONS)
+      if (slugs.length > 0) {
+        setSelectedSlugs(slugs)
+        try {
+          window.localStorage.setItem(STORAGE_KEY, JSON.stringify(slugs))
+        } catch {
+          // Storage blocked: the shared selection still shows for this visit.
+        }
+        trackEvent('compare_shared_link_opened', { provider_slugs: slugs.join(','), shortlist_size: slugs.length })
+        if (slugs.length >= 2) {
+          window.setTimeout(() => document.getElementById('provider-finalists')?.scrollIntoView({ block: 'start' }), 300)
+        }
+        return
+      }
+    }
     try {
       const stored = JSON.parse(window.localStorage.getItem(STORAGE_KEY) ?? '[]')
       if (Array.isArray(stored)) {
@@ -69,7 +89,11 @@ export default function ComparisonTable({ providers }: ComparisonTableProps) {
 
   function saveSelection(next: string[]) {
     setSelectedSlugs(next)
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(next))
+    try {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(next))
+    } catch {
+      // Private browsing: selection works for this visit only.
+    }
   }
 
   function toggleProvider(provider: Provider) {
@@ -320,6 +344,23 @@ export default function ComparisonTable({ providers }: ComparisonTableProps) {
                 </article>
               )
             })}
+          </div>
+        )}
+
+        {selectedProviders.length >= 2 && (
+          <div className="mt-5 rounded-xl border border-slate-200 bg-slate-50 p-4">
+            <p className="mb-3 text-sm font-semibold text-slate-800">
+              Deciding with someone else? Send them this comparison.
+            </p>
+            <ShareBar
+              url={comparisonPath(selectedProviders.map((provider) => provider.slug))}
+              title={`Broadband comparison: ${selectedProviders.map((provider) => provider.name).join(' vs ')}`}
+              text={`Comparing ${selectedProviders.map((provider) => provider.name).join(', ')} for our broadband:`}
+              contentType="comparison"
+              itemId={selectedProviders.map((provider) => provider.slug).join(',')}
+              placement="compare_finalists"
+              label="Send this comparison"
+            />
           </div>
         )}
       </section>

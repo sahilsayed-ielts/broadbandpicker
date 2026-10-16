@@ -4,6 +4,44 @@ export interface SpeedOption {
   type: 'ADSL' | 'FTTC' | 'FTTP' | 'Cable' | '5G'
 }
 
+/** One real, priced package, checked on the provider's own website. */
+export interface VerifiedPackage {
+  packageName: string
+  download: number
+  upload: number
+  type: SpeedOption['type']
+  monthlyPrice: number
+  contractLength: number
+  /** Minimum guaranteed download speed, where the provider states one. */
+  minGuaranteedMbps?: number
+  /** Scheduled in-contract price changes stated by the provider (date it applies from). */
+  priceRises?: { from: string; monthlyPrice: number }[]
+  /** Price change after an introductory period, e.g. month 13 of a 24-month contract. */
+  priceSteps?: { afterMonth: number; monthlyPrice: number }[]
+  /** Set when this package's setup fee differs from the provider-level one. */
+  setupFee?: number
+}
+
+export interface ProviderPriceCheck {
+  checkedAt: string
+  sourceUrl: string
+  sourceLabel: string
+  setupFee: number
+  setupNote?: string
+  /** Every package with its own checked price. Empty for an entry-price-only check. */
+  packages: VerifiedPackage[]
+  /** Entry-price-only check: the cheapest advertised price and the download speed it is for. */
+  entryPrice?: number
+  entryDownload?: number
+  notes: string[]
+}
+
+export interface ProviderPriceChecksFile {
+  /** How the checks were made; shown in methodology. */
+  method: string
+  providers: Record<string, ProviderPriceCheck>
+}
+
 export interface Provider {
   slug: string
   name: string
@@ -35,6 +73,9 @@ export interface Provider {
     note: string
   }[]
   awinProgramId: string | null
+  /** Present only when every package price was checked (data/provider-price-checks.json). */
+  packages?: VerifiedPackage[]
+  priceCheckNotes?: string[]
 }
 
 export interface Deal {
@@ -47,6 +88,8 @@ export interface Deal {
   contractLength: number
   setupFee: number
   badge?: 'Best Value' | 'Fastest' | "Editor's Pick"
+  minGuaranteedMbps?: number
+  priceRises?: { from: string; monthlyPrice: number }[]
 }
 
 export interface ProviderLiveOffer {
