@@ -42,7 +42,8 @@
     "alerts:analyze": "/usr/bin/python3 scripts/analyze_affiliate_email_alerts.py",
     "alerts:weekly": "/usr/bin/python3 scripts/analyze_weekly_newsletters.py",
     "index:build": "python3 scripts/build_price_index.py",
-    "test:alerts": "node scripts/test_alerts.mjs"
+    "test:alerts": "node scripts/test_alerts.mjs",
+    "prices:capture": "node scripts/capture_provider_prices.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.106.2",
