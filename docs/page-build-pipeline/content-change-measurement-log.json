@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-06T16:16:54.910401+00:00",
+  "updated_at": "2026-10-14T21:56:59.209688+00:00",
   "changes": [
     {
       "change_id": "content-2026-09-04-da626da4",
@@ -1196,6 +1196,1339 @@
           "sessions": 6.0,
           "engaged_sessions": 6.0,
           "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-11-238b1a4b",
+      "recorded_at": "2026-09-11T16:06:55.367564+00:00",
+      "change_date": "2026-09-11",
+      "url": "https://broadbandpicker.co.uk/guides/wifi-7-explained-uk",
+      "path": "/guides/wifi-7-explained-uk",
+      "title": "Wi-Fi 7 Explained: Is It Worth It in 2026?",
+      "change_type": "new_page",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15761342753",
+        "title": "New page: /guides/wifi-7-explained-uk"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-12",
+            "end": "2026-09-08"
+          },
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": null
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-14",
+            "end": "2026-09-10"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-11-07d86b4b",
+      "recorded_at": "2026-09-11T21:14:57.701365+00:00",
+      "change_date": "2026-09-11",
+      "url": "https://broadbandpicker.co.uk/guides/landline-switch-off-explained-uk",
+      "path": "/guides/landline-switch-off-explained-uk",
+      "title": "The UK landline switch-off explained",
+      "change_type": "new_page",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15762785003",
+        "title": "New page: /guides/landline-switch-off-explained-uk"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-12",
+            "end": "2026-09-08"
+          },
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": null
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-14",
+            "end": "2026-09-10"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-14-46a62b0c",
+      "recorded_at": "2026-09-14T11:34:22.357516+00:00",
+      "change_date": "2026-09-14",
+      "url": "https://broadbandpicker.co.uk/guides/digital-voice-explained-uk",
+      "path": "/guides/digital-voice-explained-uk",
+      "title": "Digital Voice explained: what changes and what to do",
+      "change_type": "new_page",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15774309227",
+        "title": "New page: /guides/digital-voice-explained-uk"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-15",
+            "end": "2026-09-11"
+          },
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": null
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-17",
+            "end": "2026-09-13"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-14-65fae423",
+      "recorded_at": "2026-09-14T15:08:51.867527+00:00",
+      "change_date": "2026-09-14",
+      "url": "https://broadbandpicker.co.uk/guides/does-a-vpn-slow-your-internet",
+      "path": "/guides/does-a-vpn-slow-your-internet",
+      "title": "Does a VPN slow down your internet?",
+      "change_type": "new_page",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15775670933",
+        "title": "New page: /guides/does-a-vpn-slow-your-internet"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-15",
+            "end": "2026-09-11"
+          },
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": null
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-17",
+            "end": "2026-09-13"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-14-eb34c937",
+      "recorded_at": "2026-09-14T16:30:37.158409+00:00",
+      "change_date": "2026-09-14",
+      "url": "https://broadbandpicker.co.uk/guides/fix-wifi-dead-spots-uk",
+      "path": "/guides/fix-wifi-dead-spots-uk",
+      "title": "How to fix Wi-Fi dead spots and weak signal at home",
+      "change_type": "new_page",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15776097073",
+        "title": "New page: /guides/fix-wifi-dead-spots-uk"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-15",
+            "end": "2026-09-11"
+          },
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": null
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-17",
+            "end": "2026-09-13"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-14-236843f7",
+      "recorded_at": "2026-09-14T17:12:09.578038+00:00",
+      "change_date": "2026-09-14",
+      "url": "https://broadbandpicker.co.uk/guides/cheapest-way-to-watch-sky-sports-uk",
+      "path": "/guides/cheapest-way-to-watch-sky-sports-uk",
+      "title": "Cheapest way to watch Sky Sports and TNT Sports",
+      "change_type": "new_page",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15776237033",
+        "title": "New page: /guides/cheapest-way-to-watch-sky-sports-uk"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-15",
+            "end": "2026-09-11"
+          },
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": null
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-17",
+            "end": "2026-09-13"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-14-70b0e4ec",
+      "recorded_at": "2026-09-14T21:35:49.877040+00:00",
+      "change_date": "2026-09-14",
+      "url": "https://broadbandpicker.co.uk/guides/broadband-and-mobile-bundle-discounts-uk",
+      "path": "/guides/broadband-and-mobile-bundle-discounts-uk",
+      "title": "Broadband and mobile bundle discounts explained",
+      "change_type": "new_page",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15777507000",
+        "title": "New page: /guides/broadband-and-mobile-bundle-discounts-uk"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-15",
+            "end": "2026-09-11"
+          },
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": null
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-17",
+            "end": "2026-09-13"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-15-9a6ff288",
+      "recorded_at": "2026-09-15T10:49:03.154145+00:00",
+      "change_date": "2026-09-15",
+      "url": "https://broadbandpicker.co.uk/guides/telecare-alarms-landline-switch-off-uk",
+      "path": "/guides/telecare-alarms-landline-switch-off-uk",
+      "title": "Will my alarm, telecare or lift line work after the switch-off?",
+      "change_type": "new_page",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15781012254",
+        "title": "New page: /guides/telecare-alarms-landline-switch-off-uk"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-16",
+            "end": "2026-09-12"
+          },
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": null
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-18",
+            "end": "2026-09-14"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-15-8ddc846f",
+      "recorded_at": "2026-09-15T15:48:12.590783+00:00",
+      "change_date": "2026-09-15",
+      "url": "https://broadbandpicker.co.uk/guides/esim-explained-uk",
+      "path": "/guides/esim-explained-uk",
+      "title": "eSIM explained: how it works and how to switch",
+      "change_type": "new_page",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15783061265",
+        "title": "New page: /guides/esim-explained-uk"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-16",
+            "end": "2026-09-12"
+          },
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": null
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-18",
+            "end": "2026-09-14"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-15-07c9b768",
+      "recorded_at": "2026-09-15T16:02:10.701867+00:00",
+      "change_date": "2026-09-15",
+      "url": "https://broadbandpicker.co.uk/guides/replace-isp-router-uk",
+      "path": "/guides/replace-isp-router-uk",
+      "title": "Should you replace your broadband provider's router?",
+      "change_type": "new_page",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15783211513",
+        "title": "New page: /guides/replace-isp-router-uk"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-16",
+            "end": "2026-09-12"
+          },
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": null
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-18",
+            "end": "2026-09-14"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-15-536cb52d",
+      "recorded_at": "2026-09-15T21:43:36.641939+00:00",
+      "change_date": "2026-09-15",
+      "url": "https://broadbandpicker.co.uk/guides/freely-and-fetch-tv-explained-uk",
+      "path": "/guides/freely-and-fetch-tv-explained-uk",
+      "title": "Freely and Fetch TV explained: free TV without an aerial",
+      "change_type": "new_page",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15785120868",
+        "title": "New page: /guides/freely-and-fetch-tv-explained-uk"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-16",
+            "end": "2026-09-12"
+          },
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": null
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-18",
+            "end": "2026-09-14"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-17-53b066e6",
+      "recorded_at": "2026-09-17T22:19:46.405908+00:00",
+      "change_date": "2026-09-17",
+      "url": "https://broadbandpicker.co.uk/guides/moving-house-broadband-checklist-uk",
+      "path": "/guides/moving-house-broadband-checklist-uk",
+      "title": "Moving house broadband checklist and timeline",
+      "change_type": "new_page",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15798980468",
+        "title": "New page: /guides/moving-house-broadband-checklist-uk"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-18",
+            "end": "2026-09-14"
+          },
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": null
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-20",
+            "end": "2026-09-16"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-19-0c9e2dbb",
+      "recorded_at": "2026-09-19T10:33:32.540196+00:00",
+      "change_date": "2026-09-19",
+      "url": "https://broadbandpicker.co.uk/guides/pstn-switch-off-small-business-uk",
+      "path": "/guides/pstn-switch-off-small-business-uk",
+      "title": "The PSTN switch-off for small businesses",
+      "change_type": "new_page",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15807206075",
+        "title": "New page: /guides/pstn-switch-off-small-business-uk"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-20",
+            "end": "2026-09-16"
+          },
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": null
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-22",
+            "end": "2026-09-18"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-20-f29b58c6",
+      "recorded_at": "2026-09-20T15:18:12.780024+00:00",
+      "change_date": "2026-09-20",
+      "url": "https://broadbandpicker.co.uk/guides/best-streaming-services-uk",
+      "path": "/guides/best-streaming-services-uk",
+      "title": "Best streaming services in the UK, compared",
+      "change_type": "new_page",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15812221337",
+        "title": "New page: /guides/best-streaming-services-uk"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-21",
+            "end": "2026-09-17"
+          },
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": null
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-23",
+            "end": "2026-09-19"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-20-6190d5d9",
+      "recorded_at": "2026-09-20T16:09:56.150533+00:00",
+      "change_date": "2026-09-20",
+      "url": "https://broadbandpicker.co.uk/guides/static-ip-business-broadband-explained",
+      "path": "/guides/static-ip-business-broadband-explained",
+      "title": "Static Ip Business Broadband Explained",
+      "change_type": "content_refresh",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15812350977",
+        "title": "Content refresh: /guides/static-ip-business-broadband-explai"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-21",
+            "end": "2026-09-17"
+          },
+          "clicks": 1,
+          "impressions": 199,
+          "ctr": 0.005025125628140704,
+          "position": 30.195979899497488
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-23",
+            "end": "2026-09-19"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-20-0735963a",
+      "recorded_at": "2026-09-20T16:40:09.348682+00:00",
+      "change_date": "2026-09-20",
+      "url": "https://broadbandpicker.co.uk/postcode/edinburgh",
+      "path": "/postcode/edinburgh",
+      "title": "Edinburgh",
+      "change_type": "content_refresh",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15812481351",
+        "title": "Content refresh: /postcode/edinburgh"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-21",
+            "end": "2026-09-17"
+          },
+          "clicks": 0,
+          "impressions": 82,
+          "ctr": 0,
+          "position": 20.670731707317074
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-23",
+            "end": "2026-09-19"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-20-ebdfa915",
+      "recorded_at": "2026-09-20T18:59:39.780729+00:00",
+      "change_date": "2026-09-20",
+      "url": "https://broadbandpicker.co.uk/guides/student-broadband-by-university-city",
+      "path": "/guides/student-broadband-by-university-city",
+      "title": "Student Broadband By University City",
+      "change_type": "content_refresh",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15812922950",
+        "title": "Content refresh: /guides/student-broadband-by-university-cit"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-21",
+            "end": "2026-09-17"
+          },
+          "clicks": 0,
+          "impressions": 53,
+          "ctr": 0,
+          "position": 14.320754716981131
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-23",
+            "end": "2026-09-19"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-20-f6c10461",
+      "recorded_at": "2026-09-20T19:22:00.132985+00:00",
+      "change_date": "2026-09-20",
+      "url": "https://broadbandpicker.co.uk/guides/small-office-broadband-setup-uk",
+      "path": "/guides/small-office-broadband-setup-uk",
+      "title": "Small Office Broadband Setup Uk",
+      "change_type": "content_refresh",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15812927628",
+        "title": "Content refresh: /guides/small-office-broadband-setup-uk"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-21",
+            "end": "2026-09-17"
+          },
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 2
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-23",
+            "end": "2026-09-19"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-20-4b65b396",
+      "recorded_at": "2026-09-20T19:50:23.247347+00:00",
+      "change_date": "2026-09-20",
+      "url": "https://broadbandpicker.co.uk/providers/compare/bt-vs-plusnet",
+      "path": "/providers/compare/bt-vs-plusnet",
+      "title": "Bt Vs Plusnet",
+      "change_type": "content_refresh",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15813037828",
+        "title": "Content refresh: /providers/compare/bt-vs-plusnet"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-21",
+            "end": "2026-09-17"
+          },
+          "clicks": 0,
+          "impressions": 81,
+          "ctr": 0,
+          "position": 25.567901234567902
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-23",
+            "end": "2026-09-19"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-20-7697000e",
+      "recorded_at": "2026-09-20T20:04:27.946959+00:00",
+      "change_date": "2026-09-20",
+      "url": "https://broadbandpicker.co.uk/postcode/glasgow",
+      "path": "/postcode/glasgow",
+      "title": "Glasgow",
+      "change_type": "content_refresh",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15813076519",
+        "title": "Content refresh: /postcode/glasgow"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-21",
+            "end": "2026-09-17"
+          },
+          "clicks": 3,
+          "impressions": 570,
+          "ctr": 0.005263157894736842,
+          "position": 36.06140350877193
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-23",
+            "end": "2026-09-19"
+          },
+          "sessions": 2.0,
+          "engaged_sessions": 2.0,
+          "key_events": 3.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-20-926e40fe",
+      "recorded_at": "2026-09-20T20:24:23.804612+00:00",
+      "change_date": "2026-09-20",
+      "url": "https://broadbandpicker.co.uk/postcode/liverpool",
+      "path": "/postcode/liverpool",
+      "title": "Liverpool",
+      "change_type": "content_refresh",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15813111496",
+        "title": "Content refresh: /postcode/liverpool"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-21",
+            "end": "2026-09-17"
+          },
+          "clicks": 0,
+          "impressions": 274,
+          "ctr": 0,
+          "position": 54.18613138686131
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-23",
+            "end": "2026-09-19"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-20-098ab31e",
+      "recorded_at": "2026-09-20T21:12:57.421469+00:00",
+      "change_date": "2026-09-20",
+      "url": "https://broadbandpicker.co.uk/guides/broadband-for-landlords-and-hmos-uk",
+      "path": "/guides/broadband-for-landlords-and-hmos-uk",
+      "title": "Broadband For Landlords And Hmos Uk",
+      "change_type": "content_refresh",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15813326775",
+        "title": "Content refresh: /guides/broadband-for-landlords-and-hmos-uk"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-21",
+            "end": "2026-09-17"
+          },
+          "clicks": 1,
+          "impressions": 219,
+          "ctr": 0.0045662100456621,
+          "position": 14.968036529680365
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-23",
+            "end": "2026-09-19"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-20-f6d37bb2",
+      "recorded_at": "2026-09-20T21:29:10.152075+00:00",
+      "change_date": "2026-09-20",
+      "url": "https://broadbandpicker.co.uk/postcode/leeds",
+      "path": "/postcode/leeds",
+      "title": "Leeds",
+      "change_type": "content_refresh",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15813332337",
+        "title": "Content refresh: /postcode/leeds"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-21",
+            "end": "2026-09-17"
+          },
+          "clicks": 0,
+          "impressions": 307,
+          "ctr": 0,
+          "position": 46.09120521172638
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-23",
+            "end": "2026-09-19"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-20-8f747cfe",
+      "recorded_at": "2026-09-20T22:01:47.894903+00:00",
+      "change_date": "2026-09-20",
+      "url": "https://broadbandpicker.co.uk/providers/compare/ee-vs-talktalk",
+      "path": "/providers/compare/ee-vs-talktalk",
+      "title": "EE vs TalkTalk broadband: which is better in 2026?",
+      "change_type": "content_refresh",
+      "source": "build_keyword_mapping.py",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15813521425",
+        "title": "Content refresh: /providers/compare/ee-vs-talktalk"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-21",
+            "end": "2026-09-17"
+          },
+          "clicks": 10,
+          "impressions": 545,
+          "ctr": 0.01834862385321101,
+          "position": 5.994495412844037
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-23",
+            "end": "2026-09-19"
+          },
+          "sessions": 4.0,
+          "engaged_sessions": 4.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-21-e7c45bd1",
+      "recorded_at": "2026-09-21T20:25:35.288119+00:00",
+      "change_date": "2026-09-21",
+      "url": "https://broadbandpicker.co.uk/postcode/bristol",
+      "path": "/postcode/bristol",
+      "title": "Broadband Providers Bristol: Coverage and Deals",
+      "change_type": "content_refresh",
+      "source": "GSC+GA4-informed additive refresh: preserved existing Truespeed/Openreach Feb 2026 facts, added dated thinkbroadband Labs 91.06% FTTP stat, named-neighbourhood coverage section, CityFibre/YouFibre coverage, expanded FAQ",
+      "deployment": "dpl_32Rg1eUrpMt6Mx9A4kZHv1AAWMXw",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15820171943",
+        "title": "Content refresh: /postcode/bristol"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-22",
+            "end": "2026-09-18"
+          },
+          "clicks": 0,
+          "impressions": 122,
+          "ctr": 0,
+          "position": 57.40163934426229
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-24",
+            "end": "2026-09-20"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-21-bfb5ae35",
+      "recorded_at": "2026-09-21T20:39:10.940296+00:00",
+      "change_date": "2026-09-21",
+      "url": "https://broadbandpicker.co.uk/postcode/birmingham",
+      "path": "/postcode/birmingham",
+      "title": "Broadband Providers Birmingham: Coverage and Deals",
+      "change_type": "content_refresh",
+      "source": "GSC+GA4-informed additive refresh: preserved existing content, added dated thinkbroadband Labs 88.97% FTTP stat, named-area coverage section, named CityFibre retail providers, expanded FAQ, Hyperoptic/Brsk nav cross-links",
+      "deployment": "dpl_9FeoHsxGdukHY3DZdfC9raqzwNnf",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15820297333",
+        "title": "Content refresh: /postcode/birmingham"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-22",
+            "end": "2026-09-18"
+          },
+          "clicks": 0,
+          "impressions": 296,
+          "ctr": 0,
+          "position": 37.71283783783784
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-24",
+            "end": "2026-09-20"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-21-eaf15233",
+      "recorded_at": "2026-09-21T20:59:24.290992+00:00",
+      "change_date": "2026-09-21",
+      "url": "https://broadbandpicker.co.uk/postcode/manchester",
+      "path": "/postcode/manchester",
+      "title": "Broadband Providers Manchester: Coverage and Deals",
+      "change_type": "content_refresh",
+      "source": "GSC+GA4-informed additive refresh: preserved existing content, added dated thinkbroadband Labs 91.39% FTTP stat, altnet/Virgin Media network-share figures, named-area coverage section, Stockport/Rochdale/Cheadle scope clarification, expanded FAQ",
+      "deployment": "dpl_FXFvqgBoE2NkS3gGZisroAxKxAsP",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15820421309",
+        "title": "Content refresh: /postcode/manchester"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-22",
+            "end": "2026-09-18"
+          },
+          "clicks": 0,
+          "impressions": 1232,
+          "ctr": 0,
+          "position": 49.8474025974026
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-24",
+            "end": "2026-09-20"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-21-43fc3c00",
+      "recorded_at": "2026-09-21T21:18:55.567533+00:00",
+      "change_date": "2026-09-21",
+      "url": "https://broadbandpicker.co.uk/postcode/bristol",
+      "path": "/postcode/bristol",
+      "title": "Broadband Providers Bristol: Coverage and Deals",
+      "change_type": "content_refresh",
+      "source": "Formal AI Overview check added via new scripts/capture_ai_overview.py: BP confirmed not cited for primary/secondary queries; independently verified and added Truespeed's named surrounding-town coverage (Keynsham, Portishead, etc); excluded two unverifiable AI-Overview claims (Hyperoptic, CityFibre-in-named-neighbourhoods) per editorial restraint",
+      "deployment": "dpl_7LSoXspD9VDtkLRfeKbdRMJMBguR",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15820445160",
+        "title": "Content refresh: /postcode/bristol"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-22",
+            "end": "2026-09-18"
+          },
+          "clicks": 0,
+          "impressions": 122,
+          "ctr": 0,
+          "position": 57.40163934426229
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-24",
+            "end": "2026-09-20"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-27-3035b000",
+      "recorded_at": "2026-09-27T21:45:04.405697+00:00",
+      "change_date": "2026-09-27",
+      "url": "https://broadbandpicker.co.uk/postcode/london",
+      "path": "/postcode/london",
+      "title": "Broadband Providers in London 2026",
+      "change_type": "content_refresh",
+      "source": "GSC+GA4+AI Overview-informed additive refresh: preserved existing content (previously the thinnest, oldest city hub), added Switchity-sourced 82.24% London-wide full-fibre aggregate (below UK average, honestly reported), named-borough coverage section, Hyperoptic's verified borough list including Newham (matching a real GSC query), expanded FAQ",
+      "deployment": "dpl_J4a282FeWQkAZgMgqdFjFw1PNiYe",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15855352244",
+        "title": "Content refresh: /postcode/london"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-28",
+            "end": "2026-09-24"
+          },
+          "clicks": 3,
+          "impressions": 1108,
+          "ctr": 0.002707581227436823,
+          "position": 28.935018050541515
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-30",
+            "end": "2026-09-26"
+          },
+          "sessions": 4.0,
+          "engaged_sessions": 4.0,
+          "key_events": 2.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-09-27-6efea5ff",
+      "recorded_at": "2026-09-27T22:00:48.310029+00:00",
+      "change_date": "2026-09-27",
+      "url": "https://broadbandpicker.co.uk/guides/leased-line-cost-uk-explained",
+      "path": "/guides/leased-line-cost-uk-explained",
+      "title": "Leased Line Cost UK: Small Business Price Guide",
+      "change_type": "content_refresh",
+      "source": "AI Overview-informed additive refresh (scripts/capture_ai_overview.py): preserved existing content, added third independently-verified cost source (Leased Line Comparison), new bearer-size-vs-ordered-speed explainer using BT's own re-verified wording, new FAQ, two new outbound internal links",
+      "deployment": "dpl_Czbh8FosXpDKLqdW7Cef28oqjbzh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15855463970",
+        "title": "Content refresh: /guides/leased-line-cost-uk-explained"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-28",
+            "end": "2026-09-24"
+          },
+          "clicks": 0,
+          "impressions": 7,
+          "ctr": 0,
+          "position": 12.285714285714286
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-30",
+            "end": "2026-09-26"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "review_days": [
+        7,
+        28,
+        56,
+        90
+      ]
+    },
+    {
+      "change_id": "content-2026-10-14-50864686",
+      "recorded_at": "2026-10-14T21:56:59.209688+00:00",
+      "change_date": "2026-10-14",
+      "url": "https://broadbandpicker.co.uk/guides/best-broadband-and-tv-deals",
+      "path": "/guides/best-broadband-and-tv-deals",
+      "title": "Deals-first commercial guide layout pilot (UX only, content unchanged)",
+      "change_type": "content_refresh",
+      "source": "guide-redesign-plan pilot, commit 9b2442c",
+      "deployment": "vercel-production",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/16131050478",
+        "title": "Content refresh: /guides/best-broadband-and-tv-deals"
+      },
+      "gsc_note": "Search Console has no annotation API; this ledger is the canonical change marker.",
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-09-14",
+            "end": "2026-10-11"
+          },
+          "clicks": 29,
+          "impressions": 25700,
+          "ctr": 0.0011284046692607004,
+          "position": 43.60992217898833
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-09-16",
+            "end": "2026-10-13"
+          },
+          "sessions": 21.0,
+          "engaged_sessions": 20.0,
+          "key_events": 4.0
         }
       },
       "review_days": [

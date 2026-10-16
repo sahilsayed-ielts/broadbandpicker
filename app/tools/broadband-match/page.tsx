@@ -6,6 +6,10 @@ import PostcodeContextBar from '@/components/PostcodeContextBar'
 import { providers } from '@/data/providers'
 import { JsonLd } from '@/lib/jsonLd'
 import { softwareApplicationJsonLd } from '@/lib/siteSchema'
+import PageHeroBanner from '@/components/PageHeroBanner'
+import { DEFAULT_GUIDE_CTAS, categoryHero } from '@/lib/pageHero'
+
+const HERO = categoryHero('technology-and-speeds')
 
 const PAGE_URL = 'https://broadbandpicker.co.uk/tools/broadband-match'
 const REVIEWED_DATE = '2026-08-22'
@@ -98,28 +102,27 @@ export default function BroadbandMatchPage() {
   return (
     <main className="bg-white">
       <JsonLd data={jsonLd} />
+      <PageHeroBanner
+        title="What broadband speed do you need?"
+        kicker="Free 60-second match tool"
+        lede="Most homes need at least 30-50 Mbps, more for gaming, 4K streaming or working from home. Answer 6 quick questions and we'll rank the UK providers that actually fit your household, not just the cheapest headline price."
+        image={HERO.image}
+        imageAlt={HERO.imageAlt}
+        accent={HERO.accent}
+        ctas={DEFAULT_GUIDE_CTAS}
+      />
 
-      <section className="bg-slate-950 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16">
-          <div className="[&_nav_span]:text-slate-300 [&_nav_a]:text-slate-400 [&_nav_a:hover]:text-white">
-            <BreadcrumbNav items={[{ name: 'Home', href: '/' }, { name: 'Broadband Match', href: '/tools/broadband-match' }]} />
-          </div>
-          <header className="text-center max-w-2xl mx-auto mt-4 mb-10">
-            <p className="text-sky-400 text-sm font-semibold uppercase tracking-widest">Free 60-second match tool</p>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mt-3 leading-tight">
-              What broadband speed do you need?
-            </h1>
-            <p className="text-slate-300 mt-4 text-lg leading-relaxed">
-              Most homes need at least 30-50 Mbps — more for gaming, 4K streaming or working from
-              home. Answer 6 quick questions and we&apos;ll rank the UK providers that actually fit
-              your household, not just the cheapest headline price.
-            </p>
-          </header>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 text-slate-700">
+        <BreadcrumbNav
+          items={[
+            { name: 'Home', href: '/' },
+            { name: 'Tools', href: '/tools' },
+            { name: 'Broadband Match', href: '/tools/broadband-match' },
+          ]}
+        />
+        <div className="mb-10">
           <BroadbandMatchQuiz providers={providers} />
         </div>
-      </section>
-
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14 text-slate-700">
         <PostcodeContextBar />
         <section aria-labelledby="quick-answer" className="rounded-2xl border border-sky-200 bg-sky-50 p-6 sm:p-8">
           <h2 id="quick-answer" className="text-2xl font-bold text-slate-900">Broadband speed by activity, at a glance</h2>
@@ -202,6 +205,7 @@ export default function BroadbandMatchPage() {
               ['/guides/best-broadband-for-gaming-uk', 'Best broadband for gaming'],
               ['/guides/best-broadband-for-working-from-home', 'Best broadband for working from home'],
               ['/guides/best-broadband-for-streaming', 'Best broadband for streaming'],
+              ['/guides/what-broadband-speed-do-i-need', 'What broadband speed do I need'],
               ['/guides/broadband-speeds-explained', 'Broadband speeds explained'],
             ].map(([href, label]) => (
               <Link key={href} href={href} className="block rounded-xl border border-slate-200 p-4 hover:border-sky-300 hover:bg-sky-50 transition-colors">

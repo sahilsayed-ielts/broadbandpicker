@@ -1,0 +1,386 @@
+{
+  "generated_at": "2026-09-04T15:29:12+00:00",
+  "app_requirements": [
+    "Next.js 16 App Router build support (not just static export)",
+    "Server-side API routes (contact form, IndexNow ping, partner onboarding, speed-test proxy endpoints)",
+    "Git push to main -> automatic production build and deploy, no manual step",
+    "Automatic preview deployment per branch/PR",
+    "Custom domain with managed SSL",
+    "Environment variables set via dashboard (Supabase, GA4, Awin, SerpApi keys)",
+    "Predictable cost at low-to-moderate traffic (current site is pre-scale)"
+  ],
+  "candidates": [
+    {
+      "name": "Vercel (current)",
+      "homepage": "https://vercel.com",
+      "why": "Baseline -- built by the Next.js authors, first-party feature support is always current.",
+      "urls_fetched": [
+        "https://vercel.com/pricing"
+      ],
+      "urls_failed": [
+        "https://vercel.com/docs/frameworks/nextjs"
+      ],
+      "price_figures_sample": [
+        "$0 /mo",
+        "$20 /mo",
+        "$20 ",
+        "$2 ",
+        "$0.15 ",
+        "$0.50 ",
+        "$1 ",
+        "$0.40 ",
+        "$4 ",
+        "$50 ",
+        "$0.023 ",
+        "$5 ",
+        "$0.05 ",
+        "$3 ",
+        "$250 ",
+        "$0.128 ",
+        "$0.0106 ",
+        "$0.60 ",
+        "$0.0212 ",
+        "$0.08 "
+      ],
+      "bandwidth_mentions": [
+        "cluded then starting at $2 per 1m custom fast data transfer 100 gb / month included 1tb / month included then starting at $0",
+        "ons 2k / month included $5 per 1m custom blob data transfer 10 gb / month included starting at $0",
+        "60 per 1m custom sandbox data transfer 20 gb / month included starting at $0"
+      ],
+      "feature_flags": {
+        "mentions_nextjs": true,
+        "mentions_ssr_isr": true,
+        "mentions_git_deploy": false,
+        "mentions_preview_deploys": true,
+        "mentions_edge_or_serverless_functions": false,
+        "mentions_free_tier": true,
+        "mentions_custom_domain": true,
+        "mentions_bandwidth_included": true
+      },
+      "notes": "Could not fetch: https://vercel.com/docs/frameworks/nextjs -- verify those manually."
+    },
+    {
+      "name": "Netlify",
+      "homepage": "https://www.netlify.com",
+      "why": "Closest like-for-like workflow to Vercel: same git-push model, its own Next.js runtime for SSR/ISR/API routes.",
+      "urls_fetched": [
+        "https://www.netlify.com/pricing/",
+        "https://docs.netlify.com/frameworks/next-js/overview/"
+      ],
+      "urls_failed": [],
+      "price_figures_sample": [
+        "$0 ",
+        "$9 /mo",
+        "$20 /mo",
+        "$5 ",
+        "$10 ",
+        "$40 ",
+        "$15 ",
+        "$9/mo"
+      ],
+      "bandwidth_mentions": [],
+      "feature_flags": {
+        "mentions_nextjs": true,
+        "mentions_ssr_isr": true,
+        "mentions_git_deploy": true,
+        "mentions_preview_deploys": true,
+        "mentions_edge_or_serverless_functions": true,
+        "mentions_free_tier": true,
+        "mentions_custom_domain": true,
+        "mentions_bandwidth_included": true
+      },
+      "notes": ""
+    },
+    {
+      "name": "Cloudflare Workers/Pages",
+      "homepage": "https://pages.cloudflare.com",
+      "why": "No bandwidth charges at all (the single biggest structural cost difference vs Vercel/Netlify) via the OpenNext Cloudflare adapter for Next.js.",
+      "urls_fetched": [
+        "https://pages.cloudflare.com/",
+        "https://developers.cloudflare.com/pages/platform/limits/",
+        "https://developers.cloudflare.com/workers/platform/pricing/"
+      ],
+      "urls_failed": [],
+      "price_figures_sample": [
+        "$5 ",
+        "$0.30 ",
+        "$0.02 ",
+        "$5.00 ",
+        "$1.50 ",
+        "$8.00 ",
+        "$0 ",
+        "$0.00 ",
+        "$1.99 ",
+        "$6.99 ",
+        "$27.00 ",
+        "$13.40 ",
+        "$45.40 ",
+        "$2.20 ",
+        "$34.20 ",
+        "$0.60 ",
+        "$0.05",
+        "$0.50",
+        "$5.00",
+        "$0.40"
+      ],
+      "bandwidth_mentions": [],
+      "feature_flags": {
+        "mentions_nextjs": true,
+        "mentions_ssr_isr": false,
+        "mentions_git_deploy": false,
+        "mentions_preview_deploys": true,
+        "mentions_edge_or_serverless_functions": true,
+        "mentions_free_tier": true,
+        "mentions_custom_domain": true,
+        "mentions_bandwidth_included": true
+      },
+      "notes": ""
+    },
+    {
+      "name": "AWS Amplify Hosting",
+      "homepage": "https://aws.amazon.com/amplify/",
+      "why": "Full SSR support, pay-as-you-go; more AWS console/IAM overhead than the others.",
+      "urls_fetched": [
+        "https://aws.amazon.com/amplify/pricing/"
+      ],
+      "urls_failed": [],
+      "price_figures_sample": [
+        "$200 ",
+        "$0.01 ",
+        "$0.025 ",
+        "$0.10 ",
+        "$0.023 ",
+        "$0.15 ",
+        "$0.30 ",
+        "$0.20 ",
+        "$15/mo",
+        "$6 ",
+        "$0.023",
+        "$1.97 ",
+        "$0.11 ",
+        "$2.08 ",
+        "$6",
+        "$8.08 per month",
+        "$0.06 ",
+        "$65.92 ",
+        "$0.06",
+        "$65.98 per month"
+      ],
+      "bandwidth_mentions": [
+        "s until the app is deleted) data transfer out no cost up to 15 gb per month $0"
+      ],
+      "feature_flags": {
+        "mentions_nextjs": false,
+        "mentions_ssr_isr": true,
+        "mentions_git_deploy": false,
+        "mentions_preview_deploys": false,
+        "mentions_edge_or_serverless_functions": true,
+        "mentions_free_tier": true,
+        "mentions_custom_domain": false,
+        "mentions_bandwidth_included": true
+      },
+      "notes": ""
+    },
+    {
+      "name": "Railway",
+      "homepage": "https://railway.com",
+      "why": "Runs Next.js as a normal Node server (not edge-split); usage-based, simple git deploys.",
+      "urls_fetched": [
+        "https://railway.com/pricing"
+      ],
+      "urls_failed": [],
+      "price_figures_sample": [
+        "$ 0 per month",
+        "$5 ",
+        "$1 per month",
+        "$ 5 ",
+        "$ 20 ",
+        "$20 ",
+        "$ 0.00000386 ",
+        "$ 0.00000772 ",
+        "$ 0.00000006 ",
+        "$ 0.05 ",
+        "$ 0.015 ",
+        "$1,000 ",
+        "$2,000 ",
+        "$5,000 ",
+        "$10,000 ",
+        "$4.5",
+        "$1",
+        "$300 per month",
+        "$1600 ",
+        "$300 "
+      ],
+      "bandwidth_mentions": [
+        "ree free free bucket egress free free free free max storage 50 gb during trial, then 10 gb 1 tb unlimited unlimited networkin"
+      ],
+      "feature_flags": {
+        "mentions_nextjs": false,
+        "mentions_ssr_isr": false,
+        "mentions_git_deploy": false,
+        "mentions_preview_deploys": true,
+        "mentions_edge_or_serverless_functions": false,
+        "mentions_free_tier": true,
+        "mentions_custom_domain": true,
+        "mentions_bandwidth_included": false
+      },
+      "notes": ""
+    },
+    {
+      "name": "Render",
+      "homepage": "https://render.com",
+      "why": "Same Node-server model as Railway; predictable flat-fee web-service tiers.",
+      "urls_fetched": [
+        "https://render.com/pricing"
+      ],
+      "urls_failed": [],
+      "price_figures_sample": [
+        "$10",
+        "$100",
+        "$ 0 /mo",
+        "$ 25 /mo",
+        "$ 499 /mo",
+        "$0.25",
+        "$0/mo",
+        "$7/mo",
+        "$25/mo",
+        "$85/mo",
+        "$135/mo",
+        "$200/mo",
+        "$175/mo",
+        "$225/mo",
+        "$350/mo",
+        "$300/mo",
+        "$450/mo",
+        "$1,000/mo",
+        "$800/mo",
+        "$1,500/mo"
+      ],
+      "bandwidth_mentions": [
+        "in touch connect your repo, and go deploy up to 25 services 5 gb of bandwidth included single-service previews global region",
+        "rt all hobby features, plus: unlimited seats &amp; services 25 gb bandwidth included full-stack previews horizontal autoscali",
+        "pace audit logs all pro features, plus: multiple workspaces 1 tb of bandwidth included extended metrics retention inbound ip",
+        "scaling — networking automatic private networking bandwidth 5 gb included per month then $0"
+      ],
+      "feature_flags": {
+        "mentions_nextjs": false,
+        "mentions_ssr_isr": false,
+        "mentions_git_deploy": true,
+        "mentions_preview_deploys": false,
+        "mentions_edge_or_serverless_functions": true,
+        "mentions_free_tier": true,
+        "mentions_custom_domain": true,
+        "mentions_bandwidth_included": true
+      },
+      "notes": ""
+    },
+    {
+      "name": "DigitalOcean App Platform",
+      "homepage": "https://www.digitalocean.com/products/app-platform",
+      "why": "PaaS on top of DO droplets; flat predictable tiers, git deploy, less edge-optimised than Vercel/Cloudflare.",
+      "urls_fetched": [
+        "https://www.digitalocean.com/pricing/app-platform"
+      ],
+      "urls_failed": [],
+      "price_figures_sample": [
+        "$0 /mo",
+        "$5 /mo",
+        "$ 0 ",
+        "$ 5.00 ",
+        "$ 10.00 ",
+        "$ 12.00 ",
+        "$ 25.00 ",
+        "$ 50.00 ",
+        "$25.00/mo",
+        "$0.02 ",
+        "$7.00 ",
+        "$ 3.00 ",
+        "$0 ",
+        "$ 0.02 ",
+        "$ 7.00 ",
+        "$10 ",
+        "$20 ",
+        "$40 ",
+        "$ 3.00 per month",
+        "$1 "
+      ],
+      "bandwidth_mentions": [],
+      "feature_flags": {
+        "mentions_nextjs": false,
+        "mentions_ssr_isr": false,
+        "mentions_git_deploy": false,
+        "mentions_preview_deploys": false,
+        "mentions_edge_or_serverless_functions": true,
+        "mentions_free_tier": true,
+        "mentions_custom_domain": true,
+        "mentions_bandwidth_included": true
+      },
+      "notes": ""
+    },
+    {
+      "name": "Fly.io",
+      "homepage": "https://fly.io",
+      "why": "Docker-based, deploys close to users globally; needs a GitHub Actions workflow for git-push deploys (not built in).",
+      "urls_fetched": [
+        "https://fly.io/docs/about/pricing/"
+      ],
+      "urls_failed": [],
+      "price_figures_sample": [
+        "$5",
+        "$0.15",
+        "$144",
+        "$20/mo",
+        "$1,440",
+        "$200/mo",
+        "$14,400",
+        "$2,000/mo",
+        "$36",
+        "$5/mo",
+        "$360",
+        "$50/mo",
+        "$3,600",
+        "$500/mo",
+        "$36 ",
+        "$3/mo",
+        "$0.08",
+        "$2/mo",
+        "$0.10/mo",
+        "$1/mo"
+      ],
+      "bandwidth_mentions": [],
+      "feature_flags": {
+        "mentions_nextjs": false,
+        "mentions_ssr_isr": false,
+        "mentions_git_deploy": false,
+        "mentions_preview_deploys": false,
+        "mentions_edge_or_serverless_functions": false,
+        "mentions_free_tier": false,
+        "mentions_custom_domain": true,
+        "mentions_bandwidth_included": true
+      },
+      "notes": ""
+    },
+    {
+      "name": "Self-hosted VPS + Coolify",
+      "homepage": "https://coolify.io",
+      "why": "Open-source, self-hosted Vercel/Heroku alternative on your own VPS (e.g. Hetzner) -- cheapest at real scale, but you own the box.",
+      "urls_fetched": [
+        "https://coolify.io/"
+      ],
+      "urls_failed": [],
+      "price_figures_sample": [],
+      "bandwidth_mentions": [],
+      "feature_flags": {
+        "mentions_nextjs": false,
+        "mentions_ssr_isr": false,
+        "mentions_git_deploy": true,
+        "mentions_preview_deploys": false,
+        "mentions_edge_or_serverless_functions": false,
+        "mentions_free_tier": false,
+        "mentions_custom_domain": true,
+        "mentions_bandwidth_included": false
+      },
+      "notes": ""
+    }
+  ]
+}

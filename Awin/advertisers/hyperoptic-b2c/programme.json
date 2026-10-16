@@ -3,8 +3,9 @@
   "slug": "hyperoptic-b2c",
   "awin_advertiser_id": 5737,
   "sector": "Internet Service Provider",
-  "relationship": "Rejected",
+  "relationship": "Pending",
   "live_url": "/providers/hyperoptic",
   "website": "",
-  "last_synced": "2026-08-29"
+  "last_synced": "2026-10-13",
+  "possible_invitation_flagged_on": "2026-09-07"
 }

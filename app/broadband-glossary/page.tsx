@@ -2,6 +2,10 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
 import { JsonLd } from '@/lib/jsonLd'
+import PageHeroBanner from '@/components/PageHeroBanner'
+import { DEFAULT_GUIDE_CTAS, categoryHero } from '@/lib/pageHero'
+
+const HERO = categoryHero('technology-and-speeds')
 
 export const metadata: Metadata = {
   title: { absolute: 'Broadband Glossary: Every Term Explained | BroadbandPicker' },
@@ -437,24 +441,25 @@ export default function BroadbandGlossaryPage() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div>
       <JsonLd data={jsonLd} />
-
+      <PageHeroBanner
+        title="Broadband Glossary"
+        kicker="A to Z"
+        lede="Plain-English definitions of every broadband term you will encounter when comparing UK deals, from the technology that delivers your connection to your rights as a consumer."
+        image={HERO.image}
+        imageAlt={HERO.imageAlt}
+        accent={HERO.accent}
+        ctas={DEFAULT_GUIDE_CTAS}
+      />
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <BreadcrumbNav
         items={[
           { name: 'Home', href: '/' },
           { name: 'Broadband glossary', href: '/broadband-glossary' },
         ]}
       />
-
-      <h1 className="text-3xl font-extrabold text-slate-900 mb-2">Broadband Glossary</h1>
-      <p className="text-sm text-slate-500 mb-4">Last updated: June 2026 &middot; {glossary.reduce((n, s) => n + s.terms.length, 0)} terms defined</p>
-
-      <p className="text-slate-600 leading-relaxed mb-8 max-w-2xl">
-        Plain-English definitions of every broadband term you will encounter when comparing UK
-        deals — from the technology that delivers your connection to your rights as a consumer.
-        Use the letters below to jump to any section.
-      </p>
+      <p className="text-sm text-slate-500 mb-8">Last updated: June 2026 &middot; {glossary.reduce((n, s) => n + s.terms.length, 0)} terms defined</p>
 
       {/* Letter jump navigation */}
       <nav aria-label="Jump to letter" className="mb-10">
@@ -530,6 +535,7 @@ export default function BroadbandGlossaryPage() {
         >
           Compare broadband deals
         </Link>
+      </div>
       </div>
     </div>
   )

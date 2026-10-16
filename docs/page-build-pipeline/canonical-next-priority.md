@@ -1,18 +1,18 @@
 # Canonical next priority
 
-Generated 2026-09-06T16:30:00.332151+00:00.
+Generated 2026-09-25T22:05:10.698263+00:00.
 
-## /tools/broadband-cost-calculator
+## /postcode/london
 
-- URL: `https://broadbandpicker.co.uk/tools/broadband-cost-calculator`
+- URL: `https://broadbandpicker.co.uk/postcode/london`
 - Source: Weekly GSC/GA4 intelligence
-- Evidence score: 56.0
+- Evidence score: 81.2
 - Reason: Expand missing subtopics for the leading queries, improve topical internal links and validate intent alignment.
-- Page type: tool
+- Page type: postcode
 
 ## Mandatory UX/GEO requirements
 
-- **P2 · GEO: be quotable in the AI answer**: 0 of 8 sampled interactive tool queries show an AI Overview; BroadbandPicker is cited in 0. Domains that do get cited: n/a. AI referral visits to this type in GA4: 0.
+- **P0 · GEO: be quotable in the AI answer**: 4 of 8 sampled postcode and local queries show an AI Overview; BroadbandPicker is cited in 0. Domains that do get cited: broadband.co.uk, broadbandcompared.co.uk, fibrecompare.com, gocompare.com, uswitch.com. AI referral visits to this type in GA4: 4.
 
 ## Workflow
 

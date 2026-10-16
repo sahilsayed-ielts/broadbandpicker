@@ -1,0 +1,606 @@
+<title>Deals-First Guide Redesign</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one 1080px reading column; data panels and wireframes break out to full column width. */
+:root {
+  --bg: #F6F8FB;
+  --surface: #FFFFFF;
+  --ink: #0F172A;
+  --muted: #526077;
+  --line: #DCE3EC;
+  --sky: #0284C7;
+  --sky-soft: #E0F2FE;
+  --green: #15803D;
+  --green-soft: #DCFCE7;
+  --amber: #B45309;
+  --amber-soft: #FEF3C7;
+  --red: #B91C1C;
+  --red-soft: #FEE2E2;
+  --wire: #EEF2F7;
+  --wire-line: #B8C3D1;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-data: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0B1220; --surface: #111A2B; --ink: #E7EDF5; --muted: #9AA8BC; --line: #24324A;
+    --sky: #38BDF8; --sky-soft: #0C2A40; --green: #4ADE80; --green-soft: #0F2E1C;
+    --amber: #FBBF24; --amber-soft: #33270B; --red: #F87171; --red-soft: #3A1414;
+    --wire: #18233A; --wire-line: #3A4A66; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0B1220; --surface: #111A2B; --ink: #E7EDF5; --muted: #9AA8BC; --line: #24324A;
+  --sky: #38BDF8; --sky-soft: #0C2A40; --green: #4ADE80; --green-soft: #0F2E1C;
+  --amber: #FBBF24; --amber-soft: #33270B; --red: #F87171; --red-soft: #3A1414;
+  --wire: #18233A; --wire-line: #3A4A66; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.6; padding-inline: 16px; padding-block: 0 64px; }
+.wrap { max-width: 1080px; margin: 0 auto; }
+h1, h2, h3 { text-wrap: balance; line-height: 1.2; margin: 0; }
+h1 { font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 800; letter-spacing: -0.02em; }
+h2 { font-size: 1.6rem; font-weight: 750; letter-spacing: -0.01em; }
+h3 { font-size: 1.1rem; font-weight: 650; }
+p { margin: 0; max-width: 68ch; }
+a { color: var(--sky); }
+:focus-visible { outline: 3px solid var(--sky); outline-offset: 2px; }
+.eyebrow { font-family: var(--font-data); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--sky); font-weight: 500; }
+.muted { color: var(--muted); }
+.small { font-size: .875rem; }
+.num { font-family: var(--font-data); font-variant-numeric: tabular-nums; }
+
+header.top { padding-block: 56px 32px; display: grid; gap: 16px; border-bottom: 1px solid var(--line); }
+header.top .lede { font-size: 1.15rem; color: var(--muted); }
+.meta { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: .85rem; color: var(--muted); }
+
+nav.toc { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line); padding-block: 10px; overflow-x: auto; }
+nav.toc ol { list-style: none; display: flex; gap: 18px; margin: 0; padding: 0; white-space: nowrap; font-size: .85rem; }
+nav.toc a { color: var(--muted); text-decoration: none; }
+nav.toc a:hover { color: var(--ink); }
+
+section { padding-block: 48px 8px; display: grid; gap: 20px; }
+section > header { display: grid; gap: 8px; }
+
+.verdict { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--sky); border-radius: 6px; padding: 24px; display: grid; gap: 14px; }
+.verdict p { font-size: 1.05rem; }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
+.stat { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 16px; display: grid; gap: 4px; align-content: start; }
+.stat .v { font-family: var(--font-data); font-size: 1.9rem; font-weight: 500; letter-spacing: -0.02em; }
+.stat .l { font-size: .85rem; color: var(--muted); }
+.stat.bad .v { color: var(--red); }
+.stat.good .v { color: var(--green); }
+
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 20px; display: grid; gap: 14px; min-width: 0; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+.grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+
+/* Bar charts: CSS widths are value / scale max, so marks are to scale */
+.bars { display: grid; gap: 8px; }
+.bar { display: grid; grid-template-columns: 150px 1fr 74px; gap: 10px; align-items: center; font-size: .85rem; }
+.bar .track { height: 18px; background: var(--wire); border-radius: 3px; overflow: hidden; }
+.bar .fill { height: 100%; background: var(--wire-line); }
+.bar.hi .fill { background: var(--sky); }
+.bar.warn .fill { background: var(--red); }
+.bar.ok .fill { background: var(--green); }
+.bar .val { font-family: var(--font-data); text-align: right; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .bar { grid-template-columns: 104px 1fr 62px; font-size: .78rem; } }
+
+.stack { display: flex; height: 34px; border-radius: 4px; overflow: hidden; }
+.stack div { display: grid; place-items: center; font-family: var(--font-data); font-size: .75rem; color: #fff; min-width: 0; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: .8rem; color: var(--muted); }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+
+.tablewrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: .875rem; }
+th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: .75rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); font-weight: 600; }
+td.n, th.n { text-align: right; font-family: var(--font-data); font-variant-numeric: tabular-nums; }
+
+.pill { display: inline-block; font-size: .72rem; font-weight: 600; padding: 2px 8px; border-radius: 99px; white-space: nowrap; }
+.pill.p0 { background: var(--red-soft); color: var(--red); }
+.pill.p1 { background: var(--amber-soft); color: var(--amber); }
+.pill.p2 { background: var(--sky-soft); color: var(--sky); }
+.pill.lead { background: var(--green-soft); color: var(--green); }
+
+/* Wireframes */
+.compare-layouts { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+.lane { display: grid; gap: 6px; }
+.lane .blk { border: 1px dashed var(--wire-line); background: var(--wire); border-radius: 4px; padding: 8px 10px; font-size: .8rem; color: var(--muted); }
+.lane .blk.money { border-style: solid; border-color: var(--sky); background: var(--sky-soft); color: var(--ink); font-weight: 600; }
+.lane .blk.tall { padding-block: 26px; }
+.lane .blk.xtall { padding-block: 60px; }
+
+.wf { border: 1px solid var(--line); border-radius: 8px; background: var(--surface); overflow: hidden; }
+.wf-bar { display: flex; gap: 6px; padding: 8px 12px; border-bottom: 1px solid var(--line); align-items: center; }
+.wf-bar span { width: 9px; height: 9px; border-radius: 50%; background: var(--wire-line); }
+.wf-bar em { margin-left: 8px; font-style: normal; font-family: var(--font-data); font-size: .72rem; color: var(--muted); }
+.wf-body { padding: 16px; display: grid; gap: 10px; }
+.w { border: 1px dashed var(--wire-line); background: var(--wire); border-radius: 4px; padding: 10px 12px; font-size: .8rem; color: var(--muted); display: grid; gap: 6px; min-width: 0; }
+.w b { color: var(--ink); font-weight: 600; }
+.w.money { border: 1.5px solid var(--sky); background: var(--sky-soft); }
+.w.trust { border: 1.5px solid var(--green); background: var(--green-soft); }
+.w-row { display: grid; grid-template-columns: 1fr 280px; gap: 10px; }
+.w-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.w-card { border: 1px solid var(--wire-line); background: var(--surface); border-radius: 4px; padding: 8px; display: grid; gap: 4px; font-size: .74rem; }
+.w-card .chip { justify-self: start; font-size: .66rem; background: var(--green-soft); color: var(--green); padding: 1px 6px; border-radius: 99px; font-weight: 600; }
+.w-card .price { font-family: var(--font-data); color: var(--ink); font-size: .9rem; }
+.w-card .btn { background: var(--sky); color: #fff; text-align: center; border-radius: 3px; padding: 3px; font-weight: 600; }
+.tabs { display: flex; gap: 6px; flex-wrap: wrap; }
+.tabs span { border: 1px solid var(--wire-line); border-radius: 99px; padding: 2px 8px; font-size: .7rem; background: var(--surface); }
+.tabs span.on { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.mob { max-width: 300px; justify-self: center; width: 100%; }
+@media (max-width: 760px) { .w-row { grid-template-columns: 1fr; } .w-cards { grid-template-columns: 1fr; } }
+
+.proto-card { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 24px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 24px; }
+@media (max-width: 760px) { .proto-card { grid-template-columns: 1fr; } }
+.proto-copy { display: grid; gap: 12px; justify-items: start; }
+.open-btn { background: var(--sky); color: #fff; text-decoration: none; font-weight: 700; padding: 12px 20px; border-radius: 8px; }
+.open-btn:hover { filter: brightness(1.08); }
+.proto-shot { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--bg); }
+.ps-bar { display: flex; gap: 6px; align-items: center; padding: 7px 10px; border-bottom: 1px solid var(--line); background: var(--surface); }
+.ps-bar span { width: 8px; height: 8px; border-radius: 50%; background: var(--wire-line); }
+.ps-bar em { margin-left: 6px; font-style: normal; font-family: var(--font-data); font-size: .68rem; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ps-body { padding: 14px; display: grid; gap: 8px; }
+.ps-h1 { height: 14px; width: 75%; background: var(--ink); border-radius: 3px; }
+.ps-line { height: 7px; background: var(--wire-line); border-radius: 3px; }
+.ps-row { display: grid; grid-template-columns: 1.3fr 1fr; gap: 8px; }
+.ps-verdict { border: 1px solid var(--line); border-radius: 6px; padding: 8px; display: grid; gap: 6px; background: var(--surface); }
+.ps-verdict i { height: 8px; background: var(--wire-line); border-radius: 3px; }
+.ps-pc { border: 1px solid var(--sky); background: var(--sky-soft); border-radius: 6px; padding: 8px; display: grid; gap: 6px; }
+.ps-pc b { height: 8px; width: 60%; background: var(--ink); border-radius: 3px; }
+.ps-pc span { height: 14px; background: var(--surface); border-radius: 3px; }
+.ps-chips { display: flex; gap: 5px; }
+.ps-chips span { height: 12px; width: 52px; border: 1px solid var(--wire-line); border-radius: 99px; }
+.ps-chips span:first-child { background: var(--ink); border-color: var(--ink); }
+.ps-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.ps-cards div { border: 1px solid var(--line); border-radius: 6px; padding: 7px; display: grid; gap: 5px; background: var(--surface); }
+.ps-cards em { height: 7px; width: 55%; background: var(--green-soft); border-radius: 99px; }
+.ps-cards strong { height: 12px; width: 70%; background: var(--ink); border-radius: 3px; }
+.ps-cards u { height: 12px; background: var(--sky); border-radius: 3px; }
+.ps-cards div:first-child { border-color: var(--green); }
+.anno { display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; font-size: .9rem; }
+.anno .k { font-family: var(--font-data); font-size: .75rem; background: var(--ink); color: var(--bg); border-radius: 4px; text-align: center; padding: 2px 0; }
+
+.site { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 16px; display: grid; gap: 6px; align-content: start; }
+.site .kind { font-size: .75rem; color: var(--muted); font-family: var(--font-data); }
+
+.callout { border-radius: 6px; padding: 16px 18px; display: grid; gap: 6px; }
+.callout.red { background: var(--red-soft); }
+.callout.amber { background: var(--amber-soft); }
+.callout.green { background: var(--green-soft); }
+.callout h3 { font-size: 1rem; }
+
+.idea { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 16px; display: grid; gap: 8px; align-content: start; }
+.idea .tag { font-family: var(--font-data); font-size: .7rem; color: var(--sky); text-transform: uppercase; letter-spacing: .06em; }
+
+.timeline { display: grid; gap: 0; }
+.phase { display: grid; grid-template-columns: 120px 1fr; gap: 16px; padding-block: 16px; border-top: 1px solid var(--line); }
+.phase .when { font-family: var(--font-data); font-size: .8rem; color: var(--sky); }
+.phase ul { margin: 6px 0 0; padding-left: 18px; display: grid; gap: 4px; font-size: .92rem; }
+@media (max-width: 560px) { .phase { grid-template-columns: 1fr; gap: 4px; } }
+
+ul.plain { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); font-size: .82rem; color: var(--muted); display: grid; gap: 8px; }
+code { font-family: var(--font-data); font-size: .85em; background: var(--wire); padding: 1px 5px; border-radius: 3px; overflow-wrap: anywhere; }
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+html { scroll-behavior: smooth; }
+</style>
+
+<div class="wrap">
+<header class="top">
+  <div class="eyebrow">BroadbandPicker · UX plan · 14 October 2026</div>
+  <h1>Deals-first guide redesign</h1>
+  <p class="lede">Guides are the most-seen page type on BroadbandPicker, but they earn almost nothing. This plan rebuilds the guide template to match how Google ranks, and how the UK's top-earning broadband affiliates design, pages for "best X deals" searches. It also sets out the authority work that design alone cannot do.</p>
+  <div class="meta">
+    <span>Data: Search Console + GA4, 14 Sep – 11 Oct 2026 vs prior 28 days</span>
+    <span>44 affiliate pages scraped across 11 sites</span>
+    <span>Script: <code>scripts/research_page_type_redesign.py</code></span>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Sections">
+  <ol>
+    <li><a href="#decision">Decision</a></li>
+    <li><a href="#problem">The real problem</a></li>
+    <li><a href="#audience">Audience</a></li>
+    <li><a href="#benchmark">What top affiliates do</a></li>
+    <li><a href="#template">Prototype</a></li>
+    <li><a href="#authority">Authority</a></li>
+    <li><a href="#missed">Missing from the brief</a></li>
+    <li><a href="#ideas">New ideas</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#measure">Measurement</a></li>
+  </ol>
+</nav>
+
+<!-- 1. DECISION -->
+<section id="decision">
+  <header>
+    <div class="eyebrow">1 · Decision</div>
+    <h2>Redesign the commercial guide template first</h2>
+  </header>
+  <div class="verdict">
+    <p><strong>Guides have more Google impressions than every other page type combined</strong> (99,508 vs 84,968), and 84% of those impressions land on 23 "best X deals" roundup pages. Those pages are written as articles, but people searching "broadband and TV deals" expect a page of deals. Google ranks the deal pages of MoneySuperMarket, Uswitch and MoneySavingExpert for these searches and puts ours around position 40–80.</p>
+    <p>The fix is a <strong>deals-first template</strong>: verdict, postcode check and filterable deal cards at the top, with our evidence-led advice underneath. That is the layout every leading UK broadband affiliate uses. Explainer guides (how-tos, "what is Digital Voice") keep a lighter article layout.</p>
+  </div>
+  <div class="stats">
+    <div class="stat"><span class="v num">99,508</span><span class="l">guide impressions in 28 days, up 13%</span></div>
+    <div class="stat bad"><span class="v num">0.26%</span><span class="l">guide click-through rate (postcode pages: 1.11%)</span></div>
+    <div class="stat bad"><span class="v num">1.4</span><span class="l">provider clicks per 100 guide visits (provider reviews: 29.5)</span></div>
+    <div class="stat bad"><span class="v num">81%</span><span class="l">of guide impressions are at position 21 or lower</span></div>
+  </div>
+  <div class="grid2">
+    <div class="panel">
+      <h3>Google impressions by page type</h3>
+      <p class="small muted">Last 28 days. Scale: 0 to 100,000.</p>
+      <div class="bars">
+        <div class="bar hi"><span>Editorial guide</span><div class="track"><div class="fill" style="width:99.5%"></div></div><span class="val">99,508</span></div>
+        <div class="bar"><span>Provider review</span><div class="track"><div class="fill" style="width:26.8%"></div></div><span class="val">26,824</span></div>
+        <div class="bar"><span>Postcode / local</span><div class="track"><div class="fill" style="width:23.4%"></div></div><span class="val">23,395</span></div>
+        <div class="bar"><span>Provider vs provider</span><div class="track"><div class="fill" style="width:18.2%"></div></div><span class="val">18,188</span></div>
+        <div class="bar"><span>Interactive tool</span><div class="track"><div class="fill" style="width:9.1%"></div></div><span class="val">9,139</span></div>
+        <div class="bar"><span>Deals hub</span><div class="track"><div class="fill" style="width:3.5%"></div></div><span class="val">3,472</span></div>
+        <div class="bar"><span>Original research</span><div class="track"><div class="fill" style="width:2.3%"></div></div><span class="val">2,257</span></div>
+        <div class="bar"><span>Compare tool</span><div class="track"><div class="fill" style="width:1.5%"></div></div><span class="val">1,496</span></div>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>Provider clicks per 100 visits</h3>
+      <p class="small muted">GA4 <code>outbound_provider_click</code> ÷ sessions. Scale: 0 to 30.</p>
+      <div class="bars">
+        <div class="bar ok"><span>Provider review</span><div class="track"><div class="fill" style="width:98.3%"></div></div><span class="val">29.5</span></div>
+        <div class="bar ok"><span>Provider vs provider</span><div class="track"><div class="fill" style="width:57.3%"></div></div><span class="val">17.2</span></div>
+        <div class="bar ok"><span>Compare tool</span><div class="track"><div class="fill" style="width:52.7%"></div></div><span class="val">15.8</span></div>
+        <div class="bar ok"><span>Postcode / local</span><div class="track"><div class="fill" style="width:42.3%"></div></div><span class="val">12.7</span></div>
+        <div class="bar warn"><span>Editorial guide</span><div class="track"><div class="fill" style="width:4.7%"></div></div><span class="val">1.4</span></div>
+        <div class="bar"><span>Interactive tool</span><div class="track"><div class="fill" style="width:0%"></div></div><span class="val">0.0</span></div>
+      </div>
+      <p class="small muted">Visitors who read our guides almost never reach a provider. The top 8 guides recorded zero provider clicks in 28 days.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 2. PROBLEM -->
+<section id="problem">
+  <header>
+    <div class="eyebrow">2 · The real problem</div>
+    <h2>Design alone won't fix this; the pages answer a different question</h2>
+    <p class="muted">Most guide impressions come from searches where we rank too low to be clicked. The first job is to match what Google shows for those searches. Authority does the rest.</p>
+  </header>
+  <div class="grid2">
+    <div class="panel">
+      <h3>Where guide impressions rank</h3>
+      <div class="stack" role="img" aria-label="Share of guide impressions by ranking position: 1 to 3, 5.4 percent; 4 to 10, 7.7 percent; 11 to 20, 5.9 percent; 21 to 50, 28.1 percent; 50 plus, 53 percent">
+        <div style="width:5.4%;background:var(--green)"></div>
+        <div style="width:7.7%;background:var(--sky)"></div>
+        <div style="width:5.9%;background:var(--amber)"></div>
+        <div style="width:28.1%;background:var(--wire-line)">28%</div>
+        <div style="width:53%;background:var(--red)">53%</div>
+      </div>
+      <div class="legend">
+        <span><i style="background:var(--green)"></i>1–3 · 5.4% · 8 clicks</span>
+        <span><i style="background:var(--sky)"></i>4–10 · 7.7% · 21 clicks</span>
+        <span><i style="background:var(--amber)"></i>11–20 · 5.9% · 17 clicks</span>
+        <span><i style="background:var(--wire-line)"></i>21–50 · 28.1% · 5 clicks</span>
+        <span><i style="background:var(--red)"></i>50+ · 53.0% · 2 clicks</span>
+      </div>
+      <p class="small">87% of guide clicks come from the 19% of impressions in the top 20. Moving the big roundups from page 5 to page 1 matters more than any CTR tweak.</p>
+    </div>
+    <div class="panel">
+      <h3>What the searches ask for</h3>
+      <p class="small muted">Share of guide impressions by query wording (a query can match several).</p>
+      <div class="bars">
+        <div class="bar hi"><span>"deals / offers"</span><div class="track"><div class="fill" style="width:49.2%"></div></div><span class="val">49.2%</span></div>
+        <div class="bar hi"><span>"best / top"</span><div class="track"><div class="fill" style="width:26.8%"></div></div><span class="val">26.8%</span></div>
+        <div class="bar"><span>Generic head term</span><div class="track"><div class="fill" style="width:15.9%"></div></div><span class="val">15.9%</span></div>
+        <div class="bar"><span>Speed / tech</span><div class="track"><div class="fill" style="width:14.5%"></div></div><span class="val">14.5%</span></div>
+        <div class="bar"><span>"compare / vs"</span><div class="track"><div class="fill" style="width:10.7%"></div></div><span class="val">10.7%</span></div>
+        <div class="bar"><span>Question</span><div class="track"><div class="fill" style="width:9.5%"></div></div><span class="val">9.5%</span></div>
+        <div class="bar"><span>"cheap / price"</span><div class="track"><div class="fill" style="width:8.3%"></div></div><span class="val">8.3%</span></div>
+      </div>
+      <p class="small">Three-quarters of impressions are transactional. Only 9.5% are questions, the kind an article layout serves best.</p>
+    </div>
+  </div>
+  <div class="panel">
+    <h3>Who Google ranks for our guide searches</h3>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Domain</th><th class="n">Top-10 spots</th><th class="n">Best rank</th><th>Page type that ranks</th></tr></thead>
+        <tbody>
+          <tr><td>moneysupermarket.com</td><td class="n">7</td><td class="n">2</td><td>"Fibre &amp; Full Fibre Broadband Deals – October 2026": a deals list with month in title</td></tr>
+          <tr><td>moneysavingexpert.com</td><td class="n">5</td><td class="n">1</td><td>"Broadband &amp; TV Deals": a postcode-led deal comparison</td></tr>
+          <tr><td>comparethemarket.com</td><td class="n">5</td><td class="n">2</td><td>"Compare Our BEST Broadband and TV Deals 2026": a deals list</td></tr>
+          <tr><td>gocompare.com · confused.com</td><td class="n">5 each</td><td class="n">4</td><td>Category deal comparison pages</td></tr>
+          <tr><td>uswitch.com</td><td class="n">4</td><td class="n">3</td><td>Deals list with filters, then guide content beneath</td></tr>
+          <tr><td>broadbandchoices.co.uk</td><td class="n">4</td><td class="n">3</td><td>"Today's best deals" cards, then "Fibre broadband deals explained"</td></tr>
+          <tr><td>openreach.com · bt.com · virginmedia.com</td><td class="n">5–6</td><td class="n">1</td><td>Network and provider pages (not competitors for affiliate revenue)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small muted">From cached UK Google results for our guide queries (SerpApi, 4 Sep and 14 Oct 2026). Not one top-10 result is an article-first page from an affiliate.</p>
+  </div>
+</section>
+
+<!-- 3. AUDIENCE -->
+<section id="audience">
+  <header>
+    <div class="eyebrow">3 · Who the pages serve</div>
+    <h2>TV bundlers and landline keepers, mostly on phones</h2>
+  </header>
+  <div class="grid2">
+    <div class="panel">
+      <h3>Audience segments in the search terms</h3>
+      <p class="small muted">Share of guide impressions. Scale: 0 to 35%.</p>
+      <div class="bars">
+        <div class="bar hi"><span>Streamers / TV</span><div class="track"><div class="fill" style="width:95.7%"></div></div><span class="val">33.5%</span></div>
+        <div class="bar hi"><span>Phone / landline</span><div class="track"><div class="fill" style="width:61.7%"></div></div><span class="val">21.6%</span></div>
+        <div class="bar"><span>Business</span><div class="track"><div class="fill" style="width:15.7%"></div></div><span class="val">5.5%</span></div>
+        <div class="bar"><span>Mobile bundlers</span><div class="track"><div class="fill" style="width:14.3%"></div></div><span class="val">5.0%</span></div>
+        <div class="bar"><span>Benefits / low income</span><div class="track"><div class="fill" style="width:7.4%"></div></div><span class="val">2.6%</span></div>
+        <div class="bar"><span>Students</span><div class="track"><div class="fill" style="width:5.7%"></div></div><span class="val">2.0%</span></div>
+        <div class="bar"><span>Gamers</span><div class="track"><div class="fill" style="width:3.7%"></div></div><span class="val">1.3%</span></div>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>Devices</h3>
+      <p class="small">Google <em>shows</em> guides more on desktop, but the people who <em>arrive</em> are mostly on phones.</p>
+      <div class="bars">
+        <div class="bar"><span>Search impr., desktop</span><div class="track"><div class="fill" style="width:56.5%"></div></div><span class="val">56%</span></div>
+        <div class="bar"><span>Search impr., mobile</span><div class="track"><div class="fill" style="width:43.2%"></div></div><span class="val">43%</span></div>
+        <div class="bar hi"><span>Visits, mobile</span><div class="track"><div class="fill" style="width:59.6%"></div></div><span class="val">60%</span></div>
+        <div class="bar"><span>Visits, desktop</span><div class="track"><div class="fill" style="width:38%"></div></div><span class="val">38%</span></div>
+      </div>
+      <p class="small muted">So the template is designed mobile-first: deal cards, not wide tables, and one sticky action.</p>
+    </div>
+  </div>
+  <div class="grid3">
+    <div class="site"><span class="kind">Need 1 · from TV queries + PAA</span><h3>"Is bundling actually cheaper?"</h3><p class="small">"How much should I pay for TV and broadband?", "Is it cheaper to get broadband and TV together?", "best TV and broadband deals with sports". They want totals, not headline prices.</p></div>
+    <div class="site"><span class="kind">Need 2 · from phone queries + PAA</span><h3>"Keep my landline, pay less"</h3><p class="small">"unlimited phone calls and broadband packages", "deals for pensioners", "fibre without a landline". Often older readers, so legibility and plain words matter.</p></div>
+    <div class="site"><span class="kind">Need 3 · from fibre queries + PAA</span><h3>"Is full fibre worth it, and can I get it?"</h3><p class="small">"Is full fibre better than normal broadband?", "What broadband can I get?", "What is the disadvantage of fibre?". Availability is the first question.</p></div>
+    <div class="site"><span class="kind">Need 4 · from "best" queries</span><h3>"Just tell me who's best for me"</h3><p class="small">"best broadband uk", "best fibre broadband", "who is the best Wi-Fi provider". They want a clear pick per need, with reasons.</p></div>
+    <div class="site"><span class="kind">Need 5 · trust (PAA)</span><h3>"Who says so?"</h3><p class="small">"Which deals are best according to Martin Lewis?" Readers look for a named, trusted person behind the recommendation. We currently have none.</p></div>
+    <div class="site"><span class="kind">Need 6 · contract terms</span><h3>"No nasty surprises"</h3><p class="small">"monthly broadband", "no contract", mid-contract rises. Smaller (3%) but these readers convert well (3 clicks from 2.9% of impressions).</p></div>
+  </div>
+  <p class="small muted">These needs are inferred from the search terms and People Also Ask questions, not from surveys. Section 9 adds an on-page feedback loop to test them.</p>
+</section>
+
+<!-- 4. BENCHMARK -->
+<section id="benchmark">
+  <header>
+    <div class="eyebrow">4 · What top affiliates do</div>
+    <h2>Every leader puts deals before the explanation</h2>
+    <p class="muted">Heading structure scraped from the equivalent pages today. Blue blocks are where money is made.</p>
+  </header>
+  <div class="compare-layouts">
+    <div class="panel lane">
+      <h3>BroadbandPicker today</h3>
+      <div class="blk">H1 "Best Broadband and TV Deals in the UK for 2026"</div>
+      <div class="blk">The quick answer</div>
+      <div class="blk">Key takeaways</div>
+      <div class="blk">Providers at a glance (table)</div>
+      <div class="blk xtall">~10 editorial sections: best overall, offer examples, savings, true cost, speed, switching, methodology…</div>
+      <div class="blk money">"Compare deals now" (about 80% down the page)</div>
+      <div class="blk">FAQ · sources · related guides</div>
+    </div>
+    <div class="panel lane">
+      <h3>Broadband Genie · Broadband Choices</h3>
+      <div class="blk">H1 "Best full fibre broadband deals"</div>
+      <div class="blk money">Compare packages (postcode)</div>
+      <div class="blk">Key takeaways</div>
+      <div class="blk money tall">Today's best deals: cards by bundle (phone · mobile · TV)</div>
+      <div class="blk">Understanding full fibre (what, benefits, speed)</div>
+      <div class="blk">Comparing prices · best providers</div>
+      <div class="blk">FAQs · "Switch today" CTA</div>
+    </div>
+    <div class="panel lane">
+      <h3>Uswitch · MoneySavingExpert</h3>
+      <div class="blk">H1 "Fibre broadband deals"</div>
+      <div class="blk money">Postcode → address → availability</div>
+      <div class="blk money tall">Filters (speed, provider, contract, cost) + sort + results</div>
+      <div class="blk">"Deals checked by…" · "About these results" · "How our site works"</div>
+      <div class="blk">Guide: can I get it? Cost? Value per Mbps</div>
+      <div class="blk">FAQs</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>Feature gaps: affiliates vs our top guides</h3>
+    <p class="small muted">Share of 44 scraped affiliate pages vs our 6 live top guides that show each feature. Sorted by gap.</p>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Feature</th><th class="n">Affiliates</th><th class="n">Ours</th><th>Why it matters</th><th>Priority</th></tr></thead>
+        <tbody>
+          <tr><td>Author marked up as a Person (schema)</td><td class="n">66%</td><td class="n">0%</td><td>Machine-readable expertise for Google and AI answers</td><td><span class="pill p0">P0</span></td></tr>
+          <tr><td>Filters on the deal list</td><td class="n">59%</td><td class="n">0%</td><td>Readers narrow to their own speed, budget and contract</td><td><span class="pill p0">P0</span></td></tr>
+          <tr><td>Deal cards (not only tables)</td><td class="n">55%</td><td class="n">0%</td><td>60% of our visits are on phones, where wide tables fail</td><td><span class="pill p0">P0</span></td></tr>
+          <tr><td>Named individual author</td><td class="n">50%</td><td class="n">0%</td><td>Quality raters look for an accountable person; readers ask "who says so?"</td><td><span class="pill p0">P0</span></td></tr>
+          <tr><td>Save / shortlist on guide deal lists</td><td class="n">43%</td><td class="n">0%</td><td>Brings back readers who aren't ready today</td><td><span class="pill p1">P1</span></td></tr>
+          <tr><td>Images and provider logos (average count)</td><td class="n">44.6</td><td class="n">3.0</td><td>Logos make options recognisable at a glance</td><td><span class="pill p1">P1</span></td></tr>
+          <tr><td>Jargon tooltips (FTTP, Mbps, OTS)</td><td class="n">34%</td><td class="n">0%</td><td>Explains terms in place without sending readers away</td><td><span class="pill p1">P1</span></td></tr>
+          <tr><td>Calculator / slider</td><td class="n">27%</td><td class="n">0%</td><td>Personalises an abstract answer</td><td><span class="pill p1">P1</span></td></tr>
+          <tr><td>Author bio box with role</td><td class="n">27%</td><td class="n">0%</td><td>Shows why the writer is qualified</td><td><span class="pill p1">P1</span></td></tr>
+          <tr><td>Product / Offer schema on deals</td><td class="n">41%</td><td class="n">17%</td><td>Price-rich search results</td><td><span class="pill p1">P1</span></td></tr>
+          <tr><td>Bundle tabs (broadband only / + TV / + phone)</td><td class="n">18%</td><td class="n">0%</td><td>Matches our two biggest segments directly</td><td><span class="pill p1">P1</span></td></tr>
+          <tr><td>Share buttons (WhatsApp)</td><td class="n">20%</td><td class="n">0%</td><td>Household decisions get shared</td><td><span class="pill p2">P2</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small"><span class="pill lead">Where we already lead</span> visible updated date (100% vs 25%), independence statement (100% vs 32%), quick answer (100% vs 41%), visible FAQ (100% vs 41%), price alerts (100% vs 0%), links to Ofcom and GOV.UK, mid-contract price-rise info. <strong>Keep all of these.</strong> They are why this plan moves content rather than cutting it.</p>
+  </div>
+
+  <div class="grid3">
+    <div class="site"><span class="kind">Uswitch · comparison giant</span><h3>Trust at the point of choice</h3><p class="small">"Deals checked by…", "About these results" and "How our site works" sit beside the results, not in the footer.</p></div>
+    <div class="site"><span class="kind">MoneySavingExpert · consumer champion</span><h3>Postcode first, then honesty</h3><p class="small">The page opens with postcode and address, then shows "Sorry, this deal isn't available to you" and offers alternatives. Availability is handled up front.</p></div>
+    <div class="site"><span class="kind">Broadband Genie · specialist</span><h3>Deals grouped by bundle</h3><p class="small">Separate deal blocks for broadband + phone, + mobile SIM and + TV mirror the way people search.</p></div>
+    <div class="site"><span class="kind">Broadband Choices · specialist</span><h3>"Today's best deals"</h3><p class="small">Ten named packages near the top, then "Fibre broadband deals explained" with its own jump links.</p></div>
+    <div class="site"><span class="kind">Cable.co.uk · research-led</span><h3>Authority from original data</h3><p class="small">Its global broadband price and speed league tables earn press coverage and links every year. That builds topical authority no layout can.</p></div>
+    <div class="site"><span class="kind">Which? · trust leader</span><h3>Named experts and test data</h3><p class="small">Articles carry a named author and refer to their own surveys. That is the strongest trust signal in UK consumer advice.</p></div>
+  </div>
+  <p class="small muted">Not scraped because they block bots: MoneySuperMarket, CompareTheMarket, GoCompare and Forbes Advisor. They are covered through their Google rankings above.</p>
+</section>
+
+<!-- 5. TEMPLATE -->
+<section id="template">
+  <header>
+    <div class="eyebrow">5 · Prototype</div>
+    <h2>See it working: the deals-first prototype</h2>
+    <p class="muted">The new template applied to our biggest guide. It keeps every trust feature we already have, moves the deals to where readers expect them, and adds the authority signals we lack.</p>
+  </header>
+
+  <div class="proto-card">
+    <div class="proto-shot" aria-hidden="true">
+      <div class="ps-bar"><span></span><span></span><span></span><em>/guides/best-broadband-and-tv-deals</em></div>
+      <div class="ps-body">
+        <div class="ps-h1"></div><div class="ps-line" style="width:45%"></div>
+        <div class="ps-row"><div class="ps-verdict"><i></i><i></i><i></i></div><div class="ps-pc"><b></b><span></span></div></div>
+        <div class="ps-chips"><span></span><span></span><span></span><span></span></div>
+        <div class="ps-cards"><div><em></em><strong></strong><u></u></div><div><em></em><strong></strong><u></u></div><div><em></em><strong></strong><u></u></div></div>
+      </div>
+    </div>
+    <div class="proto-copy">
+      <span class="eyebrow">Interactive prototype</span>
+      <h3>Best Broadband and TV Deals, rebuilt deals-first</h3>
+      <p class="small">A working version of our biggest guide (25,700 impressions in 28 days), built with the six real packages from <code>data/tvBroadbandBundles.ts</code> and the page's current verdict, Ofcom figures and FAQs. Nothing is invented. The author name is a placeholder until you choose one.</p>
+      <a class="open-btn" href="https://claude.ai/artifact/Y89i89qgwtAEMZq3oEmFQt" target="_blank" rel="noopener">Open the prototype</a>
+      <p class="small muted">Tip: press <strong>Show design notes</strong> at the top of the prototype to see the evidence behind each part. Try it on your phone too.</p>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="panel">
+      <h3>What to try</h3>
+      <div class="anno"><span class="k">1</span><span>Tap <strong>Live sport</strong>. The list narrows to sport bundles, and the ones that match get a green outline.</span></div>
+      <div class="anno"><span class="k">2</span><span>Sort by <strong>Lowest total cost</strong>. Each card adds up 24 months including confirmed rises. Virgin Media's £74.99 bundle comes to £1,975.26.</span></div>
+      <div class="anno"><span class="k">3</span><span>Change the <strong>Start</strong> month. EE's totals shift because its rise lands every 31 March.</span></div>
+      <div class="anno"><span class="k">4</span><span><strong>Save</strong> a deal. The count in the header and phone bar updates, as the live shortlist does.</span></div>
+      <div class="anno"><span class="k">5</span><span>Enter a postcode. The prototype explains what the live check will do; it doesn't pretend to check.</span></div>
+      <div class="anno"><span class="k">6</span><span>On a phone, scroll past the deals. A single bottom bar appears and hides again when deals are on screen.</span></div>
+    </div>
+    <div class="panel">
+      <h3>Module rules</h3>
+      <div class="anno"><span class="k">①</span><span><strong>Title with month and year</strong>, as MoneySuperMarket and CompareTheMarket do. Change the month only when prices are actually rechecked; never bump dates automatically.</span></div>
+      <div class="anno"><span class="k">③</span><span><strong>Verdict:</strong> one pick per need from Section 3, each with its reason. Reuses <code>CiteableAnswer</code>.</span></div>
+      <div class="anno"><span class="k">④</span><span><strong>Postcode in the first screen.</strong> After a check, cards re-sort to what is available. Reuses <code>PostcodeContextBar</code>.</span></div>
+      <div class="anno"><span class="k">⑤</span><span><strong>Deal cards</strong> show the <em>total contract cost</em> and the price rise in pounds, the information our audience asks about most. Reuses <code>DealsClient</code> filters and <code>SaveDealButton</code>. Where a rise isn't confirmed (Sky), the card says so instead of guessing.</span></div>
+      <div class="anno"><span class="k">⑦</span><span><strong>Keep all current advice</strong>, reordered and lightly restructured. No deleting content during the pilot, so we isolate the effect of layout.</span></div>
+      <div class="anno"><span class="k">⑩</span><span><strong>Named author with credentials</strong> and <code>Person</code> schema. Needs a real person, which is your decision (see Section 7).</span></div>
+      <div class="anno"><span class="k">⑫</span><span><strong>One sticky action</strong>, never two. No pop-ups, fake countdowns or "only 2 left" claims.</span></div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>Two variants, one component set</h3>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Variant</th><th>Pages</th><th class="n">Share of guide impr.</th><th>Order</th></tr></thead>
+        <tbody>
+          <tr><td><strong>A · Commercial roundup</strong> ("best X", "cheapest", "X deals")</td><td>23</td><td class="n">83.5%</td><td>Verdict → postcode → deal cards → advice → FAQ</td></tr>
+          <tr><td><strong>B · Explainer / audience guide</strong> ("Digital Voice explained", "social tariffs", "how to switch")</td><td>32</td><td class="n">14.9%</td><td>Quick answer → advice → <em>contextual</em> deal box (3 cards, relevant only) → FAQ</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 6. AUTHORITY -->
+<section id="authority">
+  <header>
+    <div class="eyebrow">6 · Becoming a top broadband site</div>
+    <h2>Authority is what moves page 5 to page 1</h2>
+    <p class="muted">Layout fixes the mismatch with what searchers want. These six moves build the trust Google needs before it ranks a newer site above MoneySuperMarket.</p>
+  </header>
+  <div class="grid3">
+    <div class="idea"><span class="tag">People</span><h3>Named experts</h3><p class="small">One or two real, named editors with bio pages, LinkedIn and a "why trust me" line. Every commercial guide is signed and dated. This matches Which? and the 50–66% of affiliate pages that do it.</p></div>
+    <div class="idea"><span class="tag">Data</span><h3>BroadbandPicker Price Index</h3><p class="small">A monthly report on the average UK broadband + TV price, the mid-contract rise, and the cheapest full fibre per Mbps. Built from data we already track (Awin and provider feeds). Cable.co.uk shows original data earns links every year.</p></div>
+    <div class="idea"><span class="tag">Structure</span><h3>Hub and spoke</h3><p class="small">Three hubs (TV bundles, phone + broadband, full fibre), each linking down to audience guides, provider pages and postcode pages, with links back up. One page per search intent, no duplicates.</p></div>
+    <div class="idea"><span class="tag">Freshness</span><h3>Visible price checks</h3><p class="small">"Prices checked [date] by [name]" on every card, driven by the provider deal agent. Stale deals hide automatically.</p></div>
+    <div class="idea"><span class="tag">Reach</span><h3>Digital PR</h3><p class="small">Pitch Price Index findings to the consumer press (money desks, ISPreview, regional news). Each story is a backlink to a hub.</p></div>
+    <div class="idea"><span class="tag">AI answers</span><h3>Quotable, sourced verdicts</h3><p class="small">0 citations in AI Overviews so far. Short verdicts with a named source, a date and an Ofcom link are what AI answers quote. Keep the AI Overview check rule for every build.</p></div>
+  </div>
+</section>
+
+<!-- 7. MISSED -->
+<section id="missed">
+  <header>
+    <div class="eyebrow">7 · Missing from the brief</div>
+    <h2>Things the plan has to cover that weren't asked for</h2>
+  </header>
+  <div class="grid2">
+    <div class="callout red"><h3>Two top guides are offline right now</h3><p class="small"><code>/guides/broadband-and-mobile-bundle-discounts-uk</code> (8,954 impressions, 13 clicks) and <code>/guides/cheapest-way-to-watch-sky-sports-uk</code> (5,433 impressions, 43 clicks, our best-clicking guide) return "page not found" on the live site. They exist only in uncommitted local code. Deploying them is the fastest win in this plan.</p></div>
+    <div class="callout red"><h3>Guides don't earn money yet</h3><p class="small">1.4 provider clicks per 100 visits, against 12.7–29.5 elsewhere. The redesign is judged on revenue per visit, not only on looks.</p></div>
+    <div class="callout amber"><h3>A real named author is needed</h3><p class="small">The biggest authority gap needs a real person: you, or a hired broadband writer. We must not invent one. This is your decision.</p></div>
+    <div class="callout amber"><h3>Pages may compete with each other</h3><p class="small"><code>/deals</code>, <code>/compare</code> and the "best X deals" guides target overlapping searches. Before rollout, give each search intent one page and merge or redirect the rest.</p></div>
+    <div class="callout amber"><h3>UK rules for price claims</h3><p class="small">Since January 2025, Ofcom requires mid-contract rises to be shown in pounds and pence. The DMCC Act bans fake reviews, and ASA/CMA rules require clear affiliate disclosure. Cards must show total cost and rises honestly.</p></div>
+    <div class="callout amber"><h3>Small samples</h3><p class="small">Guides had 292 visits in 28 days. Pilot results need 6–8 weeks and should be read as direction, not proof.</p></div>
+    <div class="callout green"><h3>Speed and accessibility are part of UX</h3><p class="small">Deal cards and filters must not slow the page: keep Core Web Vitals green, readable at 200% zoom and usable with a keyboard. Older landline readers benefit most.</p></div>
+    <div class="callout green"><h3>Revenue tracking per page</h3><p class="small">Connect Awin conversions to the guide that sent them (click reference per page), so we can see which template earns the most, not just which gets clicks.</p></div>
+  </div>
+</section>
+
+<!-- 8. IDEAS -->
+<section id="ideas">
+  <header>
+    <div class="eyebrow">8 · New ideas</div>
+    <h2>Features that could set BroadbandPicker apart</h2>
+    <p class="muted">None of the 44 scraped affiliate pages asked "was this helpful?", and only 2 cited original data of their own. These ideas fill that space.</p>
+  </header>
+  <div class="grid3">
+    <div class="idea"><span class="tag">Calculator · P1</span><h3>True cost over the contract</h3><p class="small">One slider: "How long will you stay?" Each card's total updates, including setup, the April rise and the out-of-contract price. It answers "how much should I pay?" directly.</p></div>
+    <div class="idea"><span class="tag">Tool · P1</span><h3>"Am I overpaying?" check</h3><p class="small">Enter your current monthly bill and provider. We show how far above the cheapest available deal you are, and the yearly saving. It captures the out-of-contract crowd.</p></div>
+    <div class="idea"><span class="tag">Personalisation · P1</span><h3>Three-question matcher</h3><p class="small">What do you watch? How many people stream? Need a landline? Cards re-sort and "Best for you" chips appear. No sign-up required.</p></div>
+    <div class="idea"><span class="tag">Retention · P2</span><h3>Contract-end reminder</h3><p class="small">"Remind me 4 weeks before my contract ends." This builds a list that returns every 18–24 months, the most valuable audience in broadband.</p></div>
+    <div class="idea"><span class="tag">Sharing · P2</span><h3>Share my shortlist on WhatsApp</h3><p class="small">Saved deals become a link the household can open, without logging in. Builds on the existing <code>/saved-deals</code>.</p></div>
+    <div class="idea"><span class="tag">Data · P2</span><h3>Price history per deal</h3><p class="small">A small line chart: "lowest price in 90 days". It shows readers whether today's offer is genuinely good. Needs the deal agent to keep a price history.</p></div>
+    <div class="idea"><span class="tag">Trust · P1</span><h3>"Was this helpful?" + "What's missing?"</h3><p class="small">Two taps at the end of each guide, sent to GA4. A free, permanent research loop on the audience needs above.</p></div>
+    <div class="idea"><span class="tag">Local · P2</span><h3>Altnet spotlight after postcode</h3><p class="small">When a postcode has an altnet (Community Fibre, Hyperoptic and others), show it as "Local full fibre option". Big sites often bury these, and many altnets are Awin advertisers.</p></div>
+    <div class="idea"><span class="tag">Later · P3</span><h3>Ask-the-guide assistant</h3><p class="small">Answers eligibility questions ("can I get this in a flat?") only from our own checked data and sources. Pilot after the template proves itself.</p></div>
+  </div>
+</section>
+
+<!-- 9. ROADMAP -->
+<section id="roadmap">
+  <header>
+    <div class="eyebrow">9 · Roadmap</div>
+    <h2>Pilot on three pages, measure, then roll out</h2>
+  </header>
+  <div class="timeline">
+    <div class="phase"><span class="when">Week 0</span><div><h3>Review the prototype and quick fixes</h3><ul><li>You review the <a href="https://claude.ai/artifact/Y89i89qgwtAEMZq3oEmFQt" target="_blank" rel="noopener">prototype</a> and approve or change it.</li><li>Deploy the two missing guides (bundle discounts, Sky Sports).</li><li>Add month and year to the titles of commercial guides whose prices have been rechecked.</li><li>Decide on the named author (your decision).</li></ul></div></div>
+    <div class="phase"><span class="when">Weeks 1–3</span><div><h3>Build the components</h3><ul><li><code>CommercialGuideShell</code>: turn the approved prototype into real site components (verdict, trust strip, postcode, deal cards with filters, sort and total cost, sticky panel).</li><li><code>AuthorBox</code> + <code>Person</code> schema, jargon tooltips, true-cost slider, "was this helpful?".</li><li>Reuse <code>DealsClient</code>, <code>SaveDealButton</code>, <code>PostcodeContextBar</code>, <code>CiteableAnswer</code>, <code>OnThisPageNav</code>.</li></ul></div></div>
+    <div class="phase"><span class="when">Week 4</span><div><h3>Pilot pages</h3><ul><li><code>/guides/best-broadband-and-tv-deals</code>: 25,700 impressions, position 43.6</li><li><code>/guides/best-phone-and-broadband-deals</code>: 13,671 impressions, position 52.6</li><li><code>/guides/best-full-fibre-broadband-uk</code>: 6,058 impressions, position 31.6</li><li>Run a live AI Overview check per page before publishing (standing rule).</li></ul></div></div>
+    <div class="phase"><span class="when">Weeks 5–12</span><div><h3>Measure and start authority work</h3><ul><li>Compare 6 weeks after launch with 6 weeks before, allowing for the 3-day Search Console delay.</li><li>Publish the first BroadbandPicker Price Index and pitch it to the press.</li><li>Build the three hubs and clear up overlapping pages.</li></ul></div></div>
+    <div class="phase"><span class="when">Week 12+</span><div><h3>Roll out</h3><ul><li>Apply variant A to the other 20 commercial roundups, then variant B to explainers.</li><li>Keep only the modules that improved provider clicks without hurting rankings.</li></ul></div></div>
+  </div>
+</section>
+
+<!-- 10. MEASUREMENT -->
+<section id="measure">
+  <header>
+    <div class="eyebrow">10 · Measurement</div>
+    <h2>How we'll know it worked</h2>
+  </header>
+  <div class="tablewrap panel">
+    <table>
+      <thead><tr><th>Goal</th><th>Metric</th><th class="n">Baseline (guides)</th><th class="n">Pilot target</th><th>Guardrail</th></tr></thead>
+      <tbody>
+        <tr><td>Earn money</td><td>Provider clicks per 100 visits</td><td class="n">1.4</td><td class="n">≥ 10</td><td>Clicks stay intentional; no dark patterns</td></tr>
+        <tr><td>Earn money</td><td>Postcode checks per 100 visits</td><td class="n">tracked from launch</td><td class="n">≥ 15</td><td>Card layout still works without a postcode</td></tr>
+        <tr><td>Get clicked</td><td>Search click-through rate</td><td class="n">0.26%</td><td class="n">≥ 0.6%</td><td>Impressions don't fall</td></tr>
+        <tr><td>Rank</td><td>Average position, pilot pages</td><td class="n">31.6–52.6</td><td class="n">improving trend</td><td>Long-term; mostly driven by authority work</td></tr>
+        <tr><td>Engage</td><td>Engaged-session rate</td><td class="n">88%</td><td class="n">≥ 85%</td><td>Must not drop much as deals move up</td></tr>
+        <tr><td>Be cited</td><td>AI Overview citations / AI referral visits</td><td class="n">0 / 8</td><td class="n">first citation</td><td>Claims verified against primary sources</td></tr>
+        <tr><td>Stay fast</td><td>Core Web Vitals (LCP, INP, CLS)</td><td class="n">current</td><td class="n">all green</td><td>No regression from filters or cards</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted">Targets are ambitions for planning, not forecasts. The 10-per-100 target is set below what postcode pages already achieve (12.7).</p>
+</section>
+
+<footer>
+  <p><strong>Method.</strong> <code>scripts/research_page_type_redesign.py</code> pulls Search Console (by page, page × query, page × device) and GA4 (sessions, engagement, outbound clicks, postcode checks, AI referrals) for 14 Sep – 11 Oct 2026 against the prior 28 days, scores each page type, and profiles the winner's searches. It then crawls the broadband hubs of 13 affiliate sites, finds pages matching our top guide topics, and scrapes about 50 features from each. Full evidence: <code>docs/home page UX/page-type-redesign-research.md</code> and <code>.json</code>.</p>
+  <p><strong>Limits.</strong> Feature detection is pattern-based and can miss things a page loads with JavaScript; deal lists loaded that way may be under-counted, so the layout evidence relies on scraped heading order. Audience needs are inferred from search terms. Bot-protected sites are judged from Google results only. GA4 volumes for guides are small.</p>
+</footer>
+</div>

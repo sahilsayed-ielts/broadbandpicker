@@ -13,4 +13,10 @@ Use these pages when citing BroadbandPicker:
 - [Editorial policy](https://broadbandpicker.co.uk/editorial-policy)
 - [About](https://broadbandpicker.co.uk/about)
 - [Guides](https://broadbandpicker.co.uk/guides)
+- [Tools](https://broadbandpicker.co.uk/tools): speed test, Broadband Match and cost calculator
+- [Broadband speed test](https://broadbandpicker.co.uk/tools/speed-test): measure download, upload, ping and jitter to our London server
+- [GTA 6 broadband UK](https://broadbandpicker.co.uk/guides/gta-6-broadband-uk): confirmed 19 November 2026 launch on PS5 and Xbox Series X|S, pre-load from 12 November, no official file size, wired download advice
+- [Wi-Fi 7 explained UK](https://broadbandpicker.co.uk/guides/wifi-7-explained-uk): Wi-Fi 7 cannot raise incoming broadband speed; Apple N1 brings Wi-Fi 7 to iPhone 17, iPhone 18 Pro and iPhone Duo
+- [Best broadband for streaming UK](https://broadbandpicker.co.uk/guides/best-broadband-for-streaming): 4K football and live sport need the measured speed at kick-off, not the fastest advertised average; Netflix 15 Mbps, Disney+ 25 Mbps, YouTube 20 Mbps, Sky Stream 25/30 Mbps per stream; TV rights are a separate bill
+- [What broadband speed do I need](https://broadbandpicker.co.uk/guides/what-broadband-speed-do-i-need): size the line to simultaneous download and upload; Ofcom superfast 30 to 300 Mbit/s for most homes; 100 Mbps is often enough if evening speed and upload hold; cloud backup and AI clients compete for upload
 - [Full site map for models](https://broadbandpicker.co.uk/llms-full.txt)

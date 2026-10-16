@@ -4,6 +4,10 @@ import { providers, providerDatasetUpdatedDate } from '@/data/providers'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
 import ProviderLogo from '@/components/ProviderLogo'
 import { JsonLd } from '@/lib/jsonLd'
+import PageHeroBanner from '@/components/PageHeroBanner'
+import { DEFAULT_GUIDE_CTAS, categoryHero } from '@/lib/pageHero'
+
+const HERO = categoryHero('providers-and-comparisons')
 
 export const metadata: Metadata = {
   title: 'UK Broadband Provider Reviews 2026',
@@ -94,23 +98,25 @@ export default function ProvidersPage() {
   ]
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div>
       <JsonLd data={itemListJsonLd} />
       <JsonLd data={providersPageJsonLd} />
+      <PageHeroBanner
+        title="UK Broadband Provider Reviews"
+        kicker="Provider reviews"
+        lede="We've reviewed every major UK broadband provider to help you choose the right one. Sorted by customer rating."
+        image={HERO.image}
+        imageAlt={HERO.imageAlt}
+        accent={HERO.accent}
+        ctas={DEFAULT_GUIDE_CTAS}
+      />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <BreadcrumbNav
         items={[
           { name: 'Home', href: '/' },
           { name: 'Provider reviews', href: '/providers' },
         ]}
       />
-
-      <h1 className="text-3xl font-extrabold text-slate-900 mb-2">
-        UK Broadband Provider Reviews
-      </h1>
-      <p className="text-slate-600 mb-8 max-w-2xl">
-        We&apos;ve reviewed every major UK broadband provider to help you choose the right one.
-        Sorted by customer rating.
-      </p>
       <div className="flex flex-wrap items-center gap-4 text-sm text-slate-500 mb-4 pb-6 border-b border-slate-200">
         <span>Provider review dataset reviewed {verifiedDateLabel}</span>
         <span>&middot;</span>
@@ -212,6 +218,24 @@ export default function ProvidersPage() {
         </ul>
       </section>
 
+      <section className="mt-10 rounded-xl border border-sky-200 bg-sky-50 p-6" aria-labelledby="provider-paths">
+        <h2 id="provider-paths" className="text-xl font-bold text-slate-900 mb-2">Choose a provider or compare networks</h2>
+        <p className="text-sm text-slate-600 mb-4">Use these focused pages when you are deciding between a local full-fibre network, a national provider or a direct head-to-head.</p>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 text-sm">
+          {[
+            ['/providers/connect-fibre', 'Connect Fibre review'],
+            ['/providers/shell-energy', 'Shell Energy broadband review'],
+            ['/providers/compare/bt-vs-virgin-media', 'BT vs Virgin Media'],
+            ['/providers/compare/ee-vs-vodafone', 'EE vs Vodafone'],
+            ['/providers/compare/sky-vs-vodafone', 'Sky vs Vodafone'],
+            ['/providers/compare', 'All provider comparisons'],
+            ['/postcode/b15', 'Check broadband in B15'],
+            ['/guides/best-broadband-providers-uk', 'Best broadband providers guide'],
+            ['/compare', 'Compare deals by postcode'],
+          ].map(([href, label]) => <Link key={href} href={href} className="font-semibold text-sky-700 hover:underline">{label} →</Link>)}
+        </div>
+      </section>
+
       <div className="mt-10 p-6 bg-slate-50 rounded-xl border border-slate-200">
         <h2 className="text-lg font-bold text-slate-900 mb-2">
           Not sure which provider to choose?
@@ -240,6 +264,7 @@ export default function ProvidersPage() {
             Compare two providers
           </Link>
         </div>
+      </div>
       </div>
     </div>
   )

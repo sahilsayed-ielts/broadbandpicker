@@ -96,6 +96,13 @@ Commands:
       to draft a single prioritised "what to do next" action plan, written
       to Awin/reports/latest-briefing.md.
 
+  reapply-next
+      Select exactly one rejected/suspended programme for the next evidence-led
+      reapplication and draft the application message. Uses current programme
+      records, the latest partnership briefing, GSC/GA4 opportunity evidence
+      and the content-change ledger. Writes Awin/reports/next-reapplication.md.
+      Nothing is submitted or sent automatically.
+
   check-programmes [--relationship ...]
       Legacy quick-look: print programme status straight from the API
       without touching the Awin/ folder. Useful for a fast manual check.
@@ -361,11 +368,39 @@ def sync_performance(days: int) -> None:
     snapshot_path = SNAPSHOTS_DIR / f"transactions-{_today()}.json"
     snapshot_path.write_text(json.dumps(transactions, indent=2), encoding="utf-8")
 
+    advertiser_slugs: dict[int, str] = {}
+    if ADVERTISERS_DIR.exists():
+        for directory in ADVERTISERS_DIR.iterdir():
+            programme_path = directory / "programme.json"
+            if not programme_path.exists():
+                continue
+            programme = json.loads(programme_path.read_text(encoding="utf-8"))
+            advertiser_id = programme.get("awin_advertiser_id")
+            if advertiser_id is not None:
+                advertiser_slugs[int(advertiser_id)] = str(programme.get("slug") or directory.name)
+
     grouped: dict[tuple[str, str, str], dict[str, Any]] = {}
+    status_totals: dict[str, dict[str, float | int]] = {
+        status: {"transactions": 0, "commission": 0.0}
+        for status in ("approved", "pending", "declined", "unknown")
+    }
+    payment_totals: dict[str, dict[str, float | int]] = {
+        state: {"transactions": 0, "commission": 0.0}
+        for state in ("paid", "unpaid")
+    }
     for transaction in transactions:
-        page = str(transaction.get("clickRef2") or "unattributed")
-        placement = str(transaction.get("clickRef") or "unattributed")
-        provider = str(transaction.get("clickRef3") or transaction.get("advertiserName") or "unattributed")
+        # The Transactions API returns ClickRefs inside `clickRefs`. Retain the
+        # flat-field fallbacks for old snapshots and defensive compatibility.
+        click_refs = transaction.get("clickRefs") or {}
+        page = str(click_refs.get("clickRef2") or transaction.get("clickRef2") or "unattributed")
+        placement = str(click_refs.get("clickRef") or transaction.get("clickRef") or "unattributed")
+        provider = str(
+            click_refs.get("clickRef3")
+            or transaction.get("clickRef3")
+            or transaction.get("advertiserName")
+            or advertiser_slugs.get(int(transaction.get("advertiserId") or 0))
+            or f"advertiser_{transaction.get('advertiserId', 'unattributed')}"
+        )
         key = (page, placement, provider)
         row = grouped.setdefault(key, {
             "source_page": page,
@@ -375,17 +410,45 @@ def sync_performance(days: int) -> None:
             "approved": 0,
             "pending": 0,
             "declined": 0,
+            "paid": 0,
+            "unpaid": 0,
             "sale_amount": 0.0,
             "commission": 0.0,
+            "approved_commission": 0.0,
+            "pending_commission": 0.0,
+            "declined_commission": 0.0,
+            "paid_commission": 0.0,
+            "unpaid_commission": 0.0,
         })
         row["transactions"] += 1
         status = str(transaction.get("commissionStatus") or "pending").lower()
-        if status in row:
-            row[status] += 1
         sale = transaction.get("saleAmount") or {}
         commission = transaction.get("commissionAmount") or {}
-        row["sale_amount"] += float(sale.get("amount") or 0)
-        row["commission"] += float(commission.get("amount") or 0)
+        sale_amount = float(sale.get("amount") or 0)
+        commission_amount = float(commission.get("amount") or 0)
+        normalised_status = status if status in {"approved", "pending", "declined"} else "unknown"
+        if normalised_status in row:
+            row[normalised_status] += 1
+        row[f"{normalised_status}_commission"] = round(
+            float(row.get(f"{normalised_status}_commission", 0)) + commission_amount, 2
+        )
+        status_totals[normalised_status]["transactions"] += 1
+        status_totals[normalised_status]["commission"] = round(
+            float(status_totals[normalised_status]["commission"]) + commission_amount, 2
+        )
+
+        is_paid = bool(transaction.get("paidToPublisher")) or int(transaction.get("paymentId") or 0) > 0
+        payment_state = "paid" if is_paid else "unpaid"
+        row[payment_state] += 1
+        row[f"{payment_state}_commission"] = round(
+            float(row[f"{payment_state}_commission"]) + commission_amount, 2
+        )
+        payment_totals[payment_state]["transactions"] += 1
+        payment_totals[payment_state]["commission"] = round(
+            float(payment_totals[payment_state]["commission"]) + commission_amount, 2
+        )
+        row["sale_amount"] = round(float(row["sale_amount"]) + sale_amount, 2)
+        row["commission"] = round(float(row["commission"]) + commission_amount, 2)
 
     rows = sorted(grouped.values(), key=lambda row: (row["commission"], row["transactions"]), reverse=True)
     report = {
@@ -400,6 +463,8 @@ def sync_performance(days: int) -> None:
             "clickRef5": "CTA label",
             "clickRef6": "tracking schema version",
         },
+        "status_totals": status_totals,
+        "payment_totals": payment_totals,
         "note": "Join this conversion data to GA4 outbound_provider_click by page, placement and provider to calculate conversion rate and earnings per click.",
         "rows": rows,
     }
@@ -927,6 +992,178 @@ Advertiser data:
     print(f"Written to {out_path}")
 
 
+def reapply_next() -> None:
+    """Choose one defensible reapplication and draft copy for human review."""
+    rejected = []
+    for d in sorted(ADVERTISERS_DIR.iterdir()):
+        programme_path = d / "programme.json"
+        if not programme_path.exists():
+            continue
+        programme = json.loads(programme_path.read_text())
+        if str(programme.get("relationship") or "").lower() not in {"rejected", "suspended"}:
+            continue
+        context = {"slug": d.name, "programme": programme, "documents": {}}
+        for name in ("research.md", "recommendation.md", "outreach-log.md"):
+            path = d / name
+            if path.exists():
+                context["documents"][name] = path.read_text()[:5000]
+        rejected.append(context)
+
+    if not rejected:
+        raise RuntimeError("No rejected or suspended Awin programmes are on file")
+
+    providers_source = PROVIDERS_TS.read_text(encoding="utf-8")
+    for item in rejected:
+        programme = item["programme"]
+        website = str(programme.get("website") or "").strip()
+        provider_slug = str(programme.get("live_url") or "").rstrip("/").rsplit("/", 1)[-1]
+        if not website and provider_slug:
+            match = re.search(
+                rf"slug:\s*['\"]{re.escape(provider_slug)}['\"][\s\S]{{0,1200}}?affiliateUrl:\s*['\"]([^'\"]+)",
+                providers_source,
+            )
+            website = match.group(1) if match else ""
+        item["brand_website"] = website
+        item["live_brand_snapshot"] = ""
+        item["brand_scrape_status"] = "No advertiser website available"
+        if website:
+            try:
+                response = requests.get(
+                    website, timeout=20,
+                    headers={"User-Agent": "Mozilla/5.0 BroadbandPicker partnership research"},
+                )
+                response.raise_for_status()
+                cleaned = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", response.text))
+                item["live_brand_snapshot"] = cleaned[:8000]
+                item["brand_scrape_status"] = f"HTTP {response.status_code}; scraped {_today()}"
+            except requests.RequestException as exc:
+                item["brand_scrape_status"] = f"Blocked/failed: {exc}"
+
+    evidence = {}
+    for name in (
+        "docs/weekly-seo-intelligence.json",
+        "docs/page-build-pipeline/content-change-measurement-log.json",
+        "Awin/reports/latest-briefing.md",
+    ):
+        path = ROOT / name
+        if path.exists():
+            evidence[name] = path.read_text()[:30000]
+
+    prompt = f"""You are BroadbandPicker's UK affiliate partnerships manager. Select exactly ONE
+rejected or suspended Awin programme to reapply to now. Base the decision only on the supplied
+programme records and current site evidence. Prefer a strong commercial/category fit with recently
+improved relevant content and measurable search demand. Do not recommend reapplying when the
+documented prerequisites are not yet met, and do not invent traffic, clicks, commissions or dates.
+
+Follow Awin application best practice: identify the promotional type, show current relevant evidence,
+name concrete placements, explain compliance, and make no unsupported promises. Use the live brand
+snapshot only for current positioning; if scraping failed, state the limitation and do not guess.
+
+Return markdown with exactly these sections:
+## Brand to reapply to
+Brand, Awin advertiser ID and a one-sentence decision.
+## Why now
+Three to five concise evidence bullets, including honest limitations.
+## Awin application message
+A polished application message written in first person as BroadbandPicker, HARD-CAPPED AT 1,000
+CHARACTERS INCLUDING SPACES AND LINE BREAKS. Mention
+specific relevant live BroadbandPicker pages and editorial/compliance strengths. Do not promise
+traffic or conversions, claim exclusivity, or quote unsupported figures. Ask for approval, not
+special treatment.
+## Before sending
+A short checklist of facts the human must verify in Awin and on the live pages.
+
+Nothing will be sent automatically.
+
+Rejected programme context:
+{json.dumps(rejected, indent=2)}
+
+Current site evidence:
+{json.dumps(evidence, indent=2)}
+"""
+    print("Selecting one evidence-led Awin reapplication and drafting the message ...")
+    try:
+        result = call_claude(prompt, timeout=240)
+    except RuntimeError as exc:
+        # Keep the command useful when the optional Claude CLI is unavailable.
+        # The maintained briefing already ranks reapplications from the same
+        # programme evidence; its first "worth reapplying" entry is the safe
+        # deterministic fallback rather than an arbitrary/high-profile brand.
+        briefing_text = evidence.get("Awin/reports/latest-briefing.md", "")
+        worth_section = briefing_text.partition("### Worth reapplying once evidence exists")[2]
+        worth_section = worth_section.partition("### Reapply later")[0]
+        ranked_names = re.findall(r"\*\*([^*]+?)\s+\(ID\s+\d+\)", worth_section)
+        selected = next(
+            (item for name in ranked_names for item in rejected
+             if str(item["programme"].get("advertiser") or "").lower() == name.strip().lower()),
+            rejected[0],
+        )
+        programme = selected["programme"]
+        brand = str(programme.get("advertiser") or selected["slug"])
+        advertiser_id = programme.get("awin_advertiser_id", "unknown")
+        live_path = str(programme.get("live_url") or "/providers")
+        brand_token = selected["slug"].split("-")[0]
+        related_paths: list[str] = []
+        try:
+            ledger = json.loads(evidence.get(
+                "docs/page-build-pipeline/content-change-measurement-log.json", "{}"
+            ))
+            related_paths = [
+                str(item.get("path")) for item in reversed(ledger.get("changes", []))
+                if brand_token in str(item.get("path") or "").lower()
+            ][:2]
+        except json.JSONDecodeError:
+            pass
+        page_lines = [f"- `{live_path}`"] + [f"- `{path}`" for path in related_paths if path != live_path]
+        page_mentions = ", ".join(
+            f"https://broadbandpicker.co.uk{line[3:-1]}" for line in page_lines[:3]
+        )
+        result = f"""## Brand to reapply to
+{brand} (Awin advertiser ID {advertiser_id}). Reapply next because it is the highest-ranked
+evidence-led candidate in the maintained partnerships briefing and now has relevant live content.
+
+## Why now
+- The programme is a direct UK broadband category fit.
+- The current briefing ranks it first among programmes worth reapplying to.
+- Relevant BroadbandPicker provider/comparison content is live and has been refreshed.
+- Approval, commission terms and current programme restrictions still need confirmation in Awin.
+
+## Awin application message
+Hello {brand} team,
+
+I’m reapplying to the {brand} programme on behalf of BroadbandPicker.co.uk, an independent UK
+broadband comparison and editorial website. We now have substantive, current coverage of the brand,
+including {page_mentions}. Our content helps readers compare availability, speeds, contract costs
+and service trade-offs before completing an address-level availability check.
+
+We use evidence-led British English content, clearly disclose affiliate relationships, keep
+commercial links separate from editorial conclusions and do not use trademark PPC bidding. We have
+also strengthened our provider-comparison and local broadband coverage so {brand} is presented only
+where it is relevant to the reader’s location and needs.
+
+We would be pleased if you would review our application again. If approved, we will use Awin-tracked
+links only on contextually relevant pages and keep pricing and availability caveats visible.
+
+Kind regards,\nBroadbandPicker.co.uk
+
+## Before sending
+- Confirm programme ID {advertiser_id}, commission, cookie window and promotional restrictions in Awin.
+- Open and fact-check the referenced live pages.
+- Replace “Hello {brand} team” with the named programme contact when available.
+- Review this draft manually; nothing has been sent automatically.
+
+_Deterministic fallback used because the optional Claude CLI was unavailable: {exc}_"""
+    REPORTS_DIR.mkdir(parents=True, exist_ok=True)
+    out_path = REPORTS_DIR / "next-reapplication.md"
+    message_match = re.search(
+        r"## Awin application message\s*\n(.*?)(?=\n## Before sending|\Z)", result, re.DOTALL
+    )
+    if message_match and len(message_match.group(1).strip()) > 1000:
+        raise RuntimeError("Generated Awin application message exceeds the 1,000-character limit")
+    out_path.write_text(f"# Next Awin reapplication\n\n_Generated {_today()}_\n\n{result}\n")
+    print(f"Written to {out_path}")
+
+
 def list_invitations() -> None:
     """Print every advertiser still flagged as a possible new invitation."""
     if not ADVERTISERS_DIR.exists():
@@ -1057,6 +1294,26 @@ def ga4_clicks(days: int, credentials_path: Path) -> None:
     print(f"Outbound provider clicks, last {days} day(s) (GA4 property {GA4_PROPERTY_ID}):\n")
     band_order = {"Joined": 0, "Invited": 1, "Pending": 2, "Suspended": 2, "Rejected": 3, "Prospect": 4}
     advertisers.sort(key=lambda a: (band_order.get(a["relationship"], 9), -a["clicks"]))
+
+    # Persist the same evidence the command prints so downstream planning
+    # tools (notably build_master_tracker.py) can use a dated, reproducible
+    # snapshot rather than relying on copied console output.
+    report = {
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "period_days": days,
+        "ga4_property_id": GA4_PROPERTY_ID,
+        "event_name": "outbound_provider_click",
+        "rows": advertisers,
+        "unmatched_provider_slugs": {
+            key: value for key, value in clicks_by_slug.items()
+            if key and key != "(not set)"
+        },
+        "not_set_clicks": clicks_by_slug.get("(not set)", 0),
+        "note": "Provider-level custom dimensions are not retroactive; not-set clicks cannot be assigned reliably.",
+    }
+    REPORTS_DIR.mkdir(parents=True, exist_ok=True)
+    (REPORTS_DIR / "ga4-affiliate-clicks-latest.json").write_text(json.dumps(report, indent=2))
+
     for a in advertisers:
         flag = "  <-- Joined but zero clicks — verify the tracked link is actually live" if a["relationship"] == "Joined" and a["clicks"] == 0 else ""
         print(f"  [{a['relationship']:<10}] {a['advertiser']:<35} clicks: {a['clicks']:<5}{flag}")
@@ -1366,6 +1623,7 @@ def main() -> None:
     p_research.add_argument("--url", help="Advertiser website to scrape (required first run, unless already stored)")
 
     sub.add_parser("briefing", help="Generate a prioritised next-actions briefing across all advertisers")
+    sub.add_parser("reapply-next", help="Choose one rejected programme and draft its reapplication message")
 
     sub.add_parser("invitations", help="List advertisers currently flagged as possible new invitations")
 
@@ -1442,6 +1700,8 @@ def main() -> None:
         research(args.advertiser, args.url)
     elif args.command == "briefing":
         briefing()
+    elif args.command == "reapply-next":
+        reapply_next()
     elif args.command == "invitations":
         list_invitations()
     elif args.command == "add-invitation":

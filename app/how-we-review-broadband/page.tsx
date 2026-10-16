@@ -3,6 +3,10 @@ import Link from 'next/link'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
 import { JsonLd } from '@/lib/jsonLd'
 import { organizationRef } from '@/lib/siteSchema'
+import PageHeroBanner from '@/components/PageHeroBanner'
+import { DEFAULT_GUIDE_CTAS, hubHero } from '@/lib/pageHero'
+
+const HERO = hubHero()
 
 export const metadata: Metadata = {
   title: 'How We Review and Compare Broadband | Our Methodology',
@@ -58,7 +62,7 @@ const criteria = [
   {
     label: 'Customer satisfaction score',
     detail:
-      'We use Trustpilot scores for indicative customer sentiment. We cross-reference with Ofcom\'s own consumer experience research, published annually.',
+      'We keep Ofcom survey scores, complaints per 100,000 subscribers, call-waiting times and review-platform sentiment separate. See our UK broadband customer satisfaction research for the dated tables and limitations.',
   },
   {
     label: 'Coverage and technology',
@@ -74,19 +78,24 @@ const criteria = [
 
 export default function HowWeReviewBroadbandPage() {
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div>
       <JsonLd data={jsonLd} />
-
+      <PageHeroBanner
+        title="How We Review and Compare Broadband"
+        kicker="Methodology"
+        lede="BroadbandPicker is built on verifiable data, not opinions. This page explains exactly what we measure, where the data comes from, and how frequently we update."
+        image={HERO.image}
+        imageAlt={HERO.imageAlt}
+        accent={HERO.accent}
+        ctas={DEFAULT_GUIDE_CTAS}
+      />
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <BreadcrumbNav
         items={[
           { name: 'Home', href: '/' },
           { name: 'How we review broadband', href: '/how-we-review-broadband' },
         ]}
       />
-
-      <h1 className="text-3xl font-extrabold text-slate-900 mb-2">
-        How We Review and Compare Broadband
-      </h1>
       <p className="text-sm text-slate-500 mb-8">Last updated: June 2026</p>
 
       <p className="text-slate-700 leading-relaxed mb-10">
@@ -140,7 +149,7 @@ export default function HowWeReviewBroadbandPage() {
           pay-TV every quarter. We use this as our primary measure of provider customer service
           quality because it is objective, consistent, and covers only complaints serious enough
           to be escalated through the provider&apos;s own complaints process.
-          See our <Link href="/research/broadband-customer-service-rankings-uk" className="text-sky-600 hover:underline">current broadband customer service ranking</Link> for the dated provider comparison and its limitations.
+          See our <Link href="/research/broadband-customer-service-rankings-uk" className="text-sky-600 hover:underline">current broadband customer service ranking</Link> and the <Link href="/research/uk-broadband-customer-satisfaction" className="text-sky-600 hover:underline">UK broadband customer satisfaction evidence dashboard</Link> for the dated provider comparison and its limitations.
         </p>
 
         <h3>Live provider pricing</h3>
@@ -257,6 +266,7 @@ export default function HowWeReviewBroadbandPage() {
           </h3>
           <p className="text-xs text-slate-500">Our independence standards and publishing guidelines.</p>
         </Link>
+      </div>
       </div>
     </div>
   )

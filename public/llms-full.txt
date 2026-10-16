@@ -22,9 +22,11 @@
 - https://broadbandpicker.co.uk/providers
 - https://broadbandpicker.co.uk/postcode
 - https://broadbandpicker.co.uk/guides
-- https://broadbandpicker.co.uk/speed-test
+- https://broadbandpicker.co.uk/tools
+- https://broadbandpicker.co.uk/tools/speed-test
 - https://broadbandpicker.co.uk/tools/broadband-match
 - https://broadbandpicker.co.uk/tools/broadband-cost-calculator
+
 - https://broadbandpicker.co.uk/broadband-glossary
 
 ## Citeable claims

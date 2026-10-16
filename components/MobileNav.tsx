@@ -130,7 +130,7 @@ export default function MobileNav() {
         } ${open ? '' : 'pointer-events-none'}`}
       >
         <nav
-          className="max-h-[calc(100vh-4rem)] overflow-y-auto rounded-b-2xl border-t border-slate-200 bg-white px-4 pb-6 pt-4 shadow-2xl"
+          className="max-h-[calc(100dvh-4rem-env(safe-area-inset-bottom))] overflow-y-auto rounded-b-2xl border-t border-slate-200 bg-white px-4 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-4 shadow-2xl"
           aria-label="Mobile navigation"
         >
           <div
@@ -197,6 +197,9 @@ export default function MobileNav() {
                   {tool.label}
                 </Link>
               ))}
+              <Link href="/tools" className="flex min-h-11 items-center gap-3 rounded-lg px-3 py-2.5 text-[15px] font-semibold text-sky-700 active:bg-sky-50">
+                Browse all tools &rarr;
+              </Link>
             </AccordionSection>
           </div>
 

@@ -1,7 +1,8 @@
 # BroadbandPicker social strategy
 
-Generated from the workspace on 2026-08-23.
+Generated from the workspace and live web research on 2026-08-31.
 Site: https://broadbandpicker.co.uk
+Live fetches this run: 44/49 (see `08-web-research.md`).
 
 ## What we are actually building
 
@@ -20,7 +21,7 @@ B2B proof → inbound affiliate applications → more complete deal tables → m
 
 ## Brand facts this plan is based on
 
-- **Providers in the dataset:** BT, Sky, Virgin Media, EE, TalkTalk, Plusnet, Vodafone, NOW Broadband, Hyperoptic, Community Fibre, Zen Internet, Toob, Brsk, YouFibre, Gigaclear, Cuckoo, Onestream, Shell Energy
+- **Providers in the dataset:** BT, Sky, Virgin Media, EE, TalkTalk, Plusnet, Vodafone, NOW Broadband, Hyperoptic, Community Fibre, Zen Internet, National Broadband, Trooli, Pine Media, Toob, giffgaff, Brsk, YouFibre, Gigaclear, Zzoomm, Highland Broadband, Cuckoo, Onestream, Shell Energy
 - **Guides on the site:** 40
 - **Tools:** Postcode checker, Compare, Deals, Speed test, Broadband Match quiz, Cost calculator, Glossary
 - **City / postcode hubs:** Birmingham, Bristol, Edinburgh, Glasgow, Leeds, Liverpool, London, Manchester, Sheffield, Cardiff, Belfast, Oxford
@@ -28,7 +29,7 @@ B2B proof → inbound affiliate applications → more complete deal tables → m
 - **Partnerships:** partnerships@broadbandpicker.co.uk
 - **Colours:** primary #0EA5E9, navy #0F172A, accent #22C55E
 - **Type on site:** Inter, system-ui
-- **Logo files:** public/logo.svg, public/logo.png, app/icon.svg, docs/branding-and-marketing/broadbandpicker-logo-icon.png, docs/branding-and-marketing/broadbandpicker-logo-icon.svg
+- **Logo files:** public/logo.svg, public/logo.png, docs/branding-and-marketing/broadbandpicker-logo-icon.png, docs/branding-and-marketing/broadbandpicker-logo-icon.svg
 
 ### Files read
 
@@ -46,16 +47,35 @@ B2B proof → inbound affiliate applications → more complete deal tables → m
 - docs/branding-and-marketing/x-content-calendar.md
 - docs/branding-and-marketing/README.md
 - components/Logo.tsx
+- app/how-we-review-broadband/page.tsx
+- app/editorial-policy/page.tsx
+- lib/affiliate.ts
+- docs/adsense-readiness-plan.md
+- docs/competitor-landscape-scan.json
+- docs/home page UX/homepage-redesign-analysis.md
 
 ### Warnings from the audit
 
-- Existing X calendar in docs/branding-and-marketing is clear and useful, but too polite to travel. This plan keeps the facts and swaps the tone for sarcasm, memes and hooks.
+- DAY ZERO: treat every channel as never posted. Handles may exist on the site (X is linked from the footer) but there is no content, no grid, no pin, no followers to speak of. Do not 'keep posting'. Launch. The old X calendar in docs/branding-and-marketing is unused — too polite, and it assumed an audience.
+- An unused polite X calendar exists in docs/branding-and-marketing. Ignore it.
+- Workspace competitor scan: UK comparison homepages are SVG/logo-heavy, no lifestyle photography. Social grids should match that — editorial, not stock.
 
 ## Positioning on social (one sentence)
 
 BroadbandPicker is the UK broadband comparison site that talks like a mate in the pub, ranks like a grown-up publisher, and will not pretend your 'fibre' is full fibre if it still involves 1998.
 
-Tone: British sarcasm, memes, twisted wise quotes, puns. Never cringe-corporate. Never punch down at people who cannot afford the bill. Punch **up** at loyalty tax, "up to" speeds, 8am–6pm engineer windows, and April rises.
+Tone: British sarcasm, memes, twisted wise quotes, puns. Casual, household, shareable — built for comments, tags and forwards, not for corporate likes. Never cringe-corporate. Never punch down at people who cannot afford the bill. Punch **up** at loyalty tax, "up to" speeds, 8am–6pm engineer windows, and April rises.
+
+Pictures do the opposite job to the copy: plush, niche, minimal, site colours. The joke is a mate in the kitchen. The frame looks like the website.
+
+## Why these channels (2026 UK facts, not vibes)
+
+Ofcom: 89% of adult internet users are on social, but only 49% still post or comment. Design for lurkers who screenshot and tag. Monthly reach still favours YouTube, Facebook/Messenger, WhatsApp, then Instagram, Reddit, TikTok, then X and LinkedIn together. Full numbers and sources: `08-web-research.md`.
+
+Consumer intents (cheap, switch, postcode, fibre, social tariff, moving, WFH, football, rural) → TikTok, Instagram, YouTube, Facebook, X.
+Provider / Awin intents → LinkedIn, X, the trust pages.
+
+Map: `05-intent-content-plan.md`. B2B loop: `07-affiliate-b2b-playbook.md`.
 
 ## The 80 / 15 / 5 mix
 
@@ -90,37 +110,42 @@ Every joke still has a door home: https://broadbandpicker.co.uk
 
 Do **not** affiliate-dump in captions. One relevant URL. ASA-friendly: prices dated, speeds address-level, commissions disclosed on the site (and on ads, with #ad, if you ever boost a specific deal).
 
-## 90-day operating plan
+## Operating plan — from zero posts
 
-### Days 1–7 — Claim the name
+Nothing has shipped. The job of week 0 is to look like a brand the moment the first stranger arrives. Full sequence: `09-day-zero-launch.md`.
 
-- Keep and pin a better X bio. Handle is already on the website.
-- Open Instagram, TikTok, LinkedIn company page, YouTube (dormant until week 3).
-- Usernames: `broadbandpicker` everywhere. If taken, `broadbandpickeruk`.
-- Avatars: `docs/branding-and-marketing/broadbandpicker-logo-icon.png`.
-- Bios: one joke + one job. Example: "UK broadband comparison. We mock the loyalty tax. Then we help you leave it. https://broadbandpicker.co.uk"
-- Link in bio: https://broadbandpicker.co.uk (later a Linktree-style page with Deals / Speed test / Match / Partnerships).
-- Cross-link from the site footer once IG and TikTok exist (X is already there).
+### Day 0 — Setup, no posts
 
-### Days 8–30 — Daily native comedy
+- Claim `broadbandpicker` (or `broadbandpickeruk`) on Instagram, TikTok, LinkedIn, YouTube. X @broadbandPicker already sits in the site footer — still treat it as empty.
+- Same avatar everywhere: `docs/branding-and-marketing/broadbandpicker-logo-icon.png`.
+- Bios: one joke + one job. "UK broadband comparison. We mock the loyalty tax. Then we help you leave it. https://broadbandpicker.co.uk"
+- Do **not** post a 'hello we are new' tile. Generate the first 9 IG frames first.
 
-- TikTok daily, Reels 4x/week (shift the best TikTok 24h later), X 1–2x/day, IG Stories on weekdays, LinkedIn 2x/week.
-- Do not wait for a studio. Phone, navy end card, captions burned in.
-- Reply to **every** comment for 30 days. The algorithm is a conversation.
+### Days 1–3 — Publish the grid
 
-### Days 31–60 — Turn jokes into a machine
+- Instagram: 3 feed posts/day until 9 exist, so the profile is a 3×3 the first time anyone clicks it.
+- TikTok: 1/day, native, no watermark. First comment is the question.
+- X: pin X-001 (loyalty tax). 1–2/day. Poll on day 2.
+- Reply to every comment within an hour. Cold-start algorithms rank conversations, not logos.
 
-- Repeat winners. Kill flops without sentiment.
-- Start YouTube Shorts mirroring.
-- One 'serious' carousel a week (social tariffs, rights, methodology).
-- Founder LinkedIn: traffic milestones only if true; otherwise methodology and market notes.
+### Days 4–14 — Engagement mechanics, not volume
 
-### Days 61–90 — Make it commercially loud
+- TikTok daily, Reels the best TikTok 24h later with a new first frame, X 1–2/day, Stories on weekdays with stickers.
+- LinkedIn from day 8, once there is a grid to screenshot. Methodology, not memes.
+- YouTube Shorts from day 3, mirrored.
+- Seed the first comment yourself. Ask for a tag or a number. Never a hard affiliate link in the TikTok caption.
 
-- WhatsApp Channel + Facebook page.
-- First modest TikTok Spark / IG boost **only** on posts that already organic-work.
-- One-pager media kit PDF from the LinkedIn posts, sent with `docs/affiliate-outreach-email.txt`.
-- Invite 5 providers that are on the site but not in affiliate yet.
+### Days 15–45 — Keep what repeats, kill what dies
+
+- Repeat winning hooks. Do not invent a mascot.
+- One serious carousel a week (social tariffs, OTS).
+- Founder LinkedIn: methodology and Ofcom facts only.
+
+### Days 46–90 — Commercially loud
+
+- Facebook + WhatsApp Channel.
+- Boost only posts that already have organic comments.
+- Media kit from the living grid, attached to `docs/affiliate-outreach-email.txt`.
 
 ## KPI that match the actual business
 
@@ -153,4 +178,4 @@ Do **not** affiliate-dump in captions. One relevant URL. ASA-friendly: prices da
 
 ## Idea bank size in this run
 
-36 named concepts, scheduled across 4 weeks, written out per channel in the folders beside this file.
+50 named concepts, scheduled across 6 weeks, written out per channel in the folders beside this file.

@@ -1,0 +1,1453 @@
+{
+  "generated_at": "2026-09-07T22:42:33.715963+00:00",
+  "purpose": "Content that would make BroadbandPicker eligible for nine regional full-fibre altnet Awin programmes. Per altnet: a provider review, a head-to-head against the local incumbent, and a local best-broadband guide, plus shared altnet explainers and a roundup. Build the provider review and roundup first, get them indexed, then apply with those pages as the relevance proof.",
+  "scoring_note": "opportunity_score is a 0-100 composite of editorial 1-5 bands plus 1-3 bands, commercial_value weighted higher than the adjacency plan because these are direct ISP affiliate programmes. No fabricated search volume, CPC or keyword-difficulty numbers.",
+  "weights": {
+    "demand": 0.24,
+    "ease": 0.22,
+    "content_gap": 0.16,
+    "geo_upside": 0.1,
+    "commercial_value": 0.18,
+    "awin_unlock": 0.1
+  },
+  "serp_meta": {
+    "mode": "live",
+    "checked": 12,
+    "searches_used": 11,
+    "searches_left": 37
+  },
+  "altnets": {
+    "fibrus": {
+      "name": "Fibrus",
+      "advertiser_id": "38394",
+      "slug": "fibrus",
+      "footprint": "Northern Ireland (majority) plus Cumbria: Carlisle, Workington, Whitehaven, Kendal",
+      "regions": [
+        "Northern Ireland",
+        "Cumbria"
+      ],
+      "price_from": "about GBP 24 to 30 a month for Full Fibre 150",
+      "notes": "Around 400,000 to 450,000 premises passed, Project Gigabit backed, no mid-contract price rises, FTTP."
+    },
+    "airband": {
+      "name": "Airband",
+      "advertiser_id": "44469",
+      "slug": "airband",
+      "footprint": "Rural West Midlands, Wales and the South West: Shropshire, Herefordshire, Devon, Cornwall",
+      "regions": [
+        "West Midlands",
+        "Wales",
+        "South West England"
+      ],
+      "price_from": "about GBP 30.50 a month for 160 Mbps",
+      "notes": "Mix of FTTP and fixed wireless access, 12-month terms, symmetrical speeds, Wi-Fi 6 router, price fixed for the term. 71,000 homes added in 2024."
+    },
+    "be-fibre": {
+      "name": "Be Fibre",
+      "advertiser_id": "60791",
+      "slug": "be-fibre",
+      "footprint": "Around 30 towns across England and Wales: Derbyshire, Essex, Gloucestershire, Greater Manchester and more",
+      "regions": [
+        "North West England",
+        "East Midlands",
+        "Essex",
+        "Wales"
+      ],
+      "price_from": "about GBP 19 to 24 a month for symmetrical 150 Mbps",
+      "notes": "Symmetrical speeds, fixed price for the contract term, a 2.3 Gbps Be2300 top tier."
+    },
+    "hey-broadband": {
+      "name": "Hey!Broadband",
+      "advertiser_id": "51115",
+      "slug": "hey-broadband",
+      "footprint": "Small towns and villages in the South East: Buckinghamshire, Oxfordshire, Surrey, West Sussex",
+      "regions": [
+        "Buckinghamshire",
+        "Oxfordshire",
+        "Surrey",
+        "West Sussex"
+      ],
+      "price_from": "about GBP 23 a month for symmetrical 150 Mbps",
+      "notes": "Founded 2019, focus on smaller southeastern towns, Trustpilot around 3.9 out of 5, 24-month symmetrical plans."
+    },
+    "quickline": {
+      "name": "Quickline",
+      "advertiser_id": "80323",
+      "slug": "quickline",
+      "footprint": "Rural Yorkshire, Lincolnshire and the Humber",
+      "regions": [
+        "Yorkshire",
+        "Lincolnshire",
+        "Humber"
+      ],
+      "price_from": "about GBP 24.99 a month for symmetrical 200 Mbps",
+      "notes": "Over 500,000 premises passed, FTTP and fixed wireless, Project Gigabit contracts, Trustpilot 'Excellent', no mid-contract price rises, a Full Fibre 2300 tier."
+    },
+    "gofibre": {
+      "name": "GoFibre",
+      "advertiser_id": "112018",
+      "slug": "gofibre",
+      "footprint": "Scotland (Scottish Borders, East Lothian, Fife, Aberdeenshire, Angus) plus Northumberland and Teesdale",
+      "regions": [
+        "Scottish Borders",
+        "East Lothian",
+        "Fife",
+        "Northumberland"
+      ],
+      "price_from": "about GBP 22.50 a month for 150 Mbps",
+      "notes": "Free installation and router on all plans, no mid-contract price rises, 24-month terms, speeds 150 Mbps to 1 Gbps."
+    },
+    "voneus": {
+      "name": "Voneus",
+      "advertiser_id": "124008",
+      "slug": "voneus",
+      "footprint": "Rural villages across England, Wales and Scotland: Shropshire, Somerset, Cornwall, Pembrokeshire, Isle of Arran and more",
+      "regions": [
+        "rural England",
+        "Wales",
+        "Scotland"
+      ],
+      "price_from": "about GBP 29.99 a month for symmetrical 500 Mbps",
+      "notes": "Rural full fibre specialist, grew by acquiring smaller village networks, no mid-contract price rises, Voneus router, 24-month terms."
+    },
+    "grain": {
+      "name": "Grain",
+      "advertiser_id": "125460",
+      "slug": "grain",
+      "footprint": "Kent, parts of Scotland (Perth, Fife) and northern England, described as Aberdeen to the south coast",
+      "regions": [
+        "Kent",
+        "Scotland",
+        "North East England"
+      ],
+      "price_from": "about GBP 24 to 27 a month for Full Fibre 250",
+      "notes": "Established 2016, HQ Carlisle, no phone line required, free installation, no mid-contract price rises, two social tariffs at 15 and 30 Mbps symmetrical."
+    },
+    "lightning-fibre": {
+      "name": "Lightning Fibre",
+      "advertiser_id": "119853",
+      "slug": "lightning-fibre",
+      "footprint": "East Sussex: Eastbourne, Hastings, Hailsham, St Leonards, Heathfield, plus Brighton and Hove, Worthing and parts of Kent",
+      "regions": [
+        "East Sussex",
+        "Brighton and Hove",
+        "Kent"
+      ],
+      "price_from": "about GBP 28 a month for symmetrical 300 Mbps, promotions from GBP 19 for the first six months",
+      "notes": "East Sussex full-fibre builder, never raises price during the contract, multi-gigabit tiers up to 2.5 Gbps."
+    }
+  },
+  "altnet_summary": [
+    {
+      "altnet": "airband",
+      "name": "Airband",
+      "advertiser_id": "44469",
+      "footprint": "Rural West Midlands, Wales and the South West: Shropshire, Herefordshire, Devon, Cornwall",
+      "price_from": "about GBP 30.50 a month for 160 Mbps",
+      "pages": 3,
+      "avg_opportunity_score": 78.4
+    },
+    {
+      "altnet": "fibrus",
+      "name": "Fibrus",
+      "advertiser_id": "38394",
+      "footprint": "Northern Ireland (majority) plus Cumbria: Carlisle, Workington, Whitehaven, Kendal",
+      "price_from": "about GBP 24 to 30 a month for Full Fibre 150",
+      "pages": 3,
+      "avg_opportunity_score": 78.3
+    },
+    {
+      "altnet": "be-fibre",
+      "name": "Be Fibre",
+      "advertiser_id": "60791",
+      "footprint": "Around 30 towns across England and Wales: Derbyshire, Essex, Gloucestershire, Greater Manchester and more",
+      "price_from": "about GBP 19 to 24 a month for symmetrical 150 Mbps",
+      "pages": 3,
+      "avg_opportunity_score": 77.3
+    },
+    {
+      "altnet": "hey-broadband",
+      "name": "Hey!Broadband",
+      "advertiser_id": "51115",
+      "footprint": "Small towns and villages in the South East: Buckinghamshire, Oxfordshire, Surrey, West Sussex",
+      "price_from": "about GBP 23 a month for symmetrical 150 Mbps",
+      "pages": 3,
+      "avg_opportunity_score": 77.3
+    },
+    {
+      "altnet": "voneus",
+      "name": "Voneus",
+      "advertiser_id": "124008",
+      "footprint": "Rural villages across England, Wales and Scotland: Shropshire, Somerset, Cornwall, Pembrokeshire, Isle of Arran and more",
+      "price_from": "about GBP 29.99 a month for symmetrical 500 Mbps",
+      "pages": 3,
+      "avg_opportunity_score": 77.3
+    },
+    {
+      "altnet": "quickline",
+      "name": "Quickline",
+      "advertiser_id": "80323",
+      "footprint": "Rural Yorkshire, Lincolnshire and the Humber",
+      "price_from": "about GBP 24.99 a month for symmetrical 200 Mbps",
+      "pages": 3,
+      "avg_opportunity_score": 76.2
+    },
+    {
+      "altnet": "gofibre",
+      "name": "GoFibre",
+      "advertiser_id": "112018",
+      "footprint": "Scotland (Scottish Borders, East Lothian, Fife, Aberdeenshire, Angus) plus Northumberland and Teesdale",
+      "price_from": "about GBP 22.50 a month for 150 Mbps",
+      "pages": 3,
+      "avg_opportunity_score": 76.2
+    },
+    {
+      "altnet": "grain",
+      "name": "Grain",
+      "advertiser_id": "125460",
+      "footprint": "Kent, parts of Scotland (Perth, Fife) and northern England, described as Aberdeen to the south coast",
+      "price_from": "about GBP 24 to 27 a month for Full Fibre 250",
+      "pages": 3,
+      "avg_opportunity_score": 76.2
+    },
+    {
+      "altnet": "lightning-fibre",
+      "name": "Lightning Fibre",
+      "advertiser_id": "119853",
+      "footprint": "East Sussex: Eastbourne, Hastings, Hailsham, St Leonards, Heathfield, plus Brighton and Hove, Worthing and parts of Kent",
+      "price_from": "about GBP 28 a month for symmetrical 300 Mbps, promotions from GBP 19 for the first six months",
+      "pages": 3,
+      "avg_opportunity_score": 76.2
+    },
+    {
+      "altnet": "all",
+      "name": "Shared (all altnets)",
+      "pages": 3,
+      "avg_opportunity_score": 70.2
+    }
+  ],
+  "pages": [
+    {
+      "record_type": "Provider review",
+      "altnet": "airband",
+      "page_type": "Provider review",
+      "working_title": "Airband broadband review",
+      "recommended_url": "/providers/airband",
+      "primary_keyword": "airband broadband",
+      "secondary_keywords": [
+        "airband broadband review",
+        "airband broadband deals",
+        "is airband broadband any good",
+        "airband broadband coverage",
+        "airband broadband prices",
+        "airband vs bt"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "airband"
+      ],
+      "bands": {
+        "demand": 2,
+        "difficulty": 1,
+        "content_gap": 5,
+        "commercial_value": 5,
+        "geo_upside": 3,
+        "awin_unlock": 3
+      },
+      "note": "Rural West Midlands, Wales and the South West: Shropshire, Herefordshire, Devon, Cornwall. Mix of FTTP and fixed wireless access, 12-month terms, symmetrical speeds, Wi-Fi 6 router, price fixed for the term. 71,000 homes added in 2024. Low brand-search volume but near-zero competition and it is the page the programme needs to see before approving.",
+      "opportunity_score": 85.6,
+      "serp": {
+        "query": "airband broadband",
+        "ai_overview": true,
+        "top_domains": [
+          "facebook.com",
+          "facebook.com",
+          "facebook.com",
+          "speed.is",
+          "facebook.com",
+          "broadbandin.co.uk",
+          "facebook.com",
+          "facebook.com"
+        ],
+        "forum_results_in_top10": 7,
+        "aggregator_results_in_top10": 0,
+        "bp_in_top10": false,
+        "brand_site_ranks_first": false,
+        "people_also_ask": [
+          "Is Airband broadband any good?",
+          "Is Airband better than BT?",
+          "What network is Airband?",
+          "What are Martin Lewis's reviews of Airband broadband?"
+        ]
+      },
+      "rank": 1
+    },
+    {
+      "record_type": "Provider review",
+      "altnet": "be-fibre",
+      "page_type": "Provider review",
+      "working_title": "Be Fibre broadband review",
+      "recommended_url": "/providers/be-fibre",
+      "primary_keyword": "be fibre broadband",
+      "secondary_keywords": [
+        "be fibre broadband review",
+        "be fibre broadband deals",
+        "is be fibre broadband any good",
+        "be fibre broadband coverage",
+        "be fibre broadband prices",
+        "be fibre vs bt"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "be-fibre"
+      ],
+      "bands": {
+        "demand": 2,
+        "difficulty": 1,
+        "content_gap": 4,
+        "commercial_value": 5,
+        "geo_upside": 3,
+        "awin_unlock": 3
+      },
+      "note": "Around 30 towns across England and Wales: Derbyshire, Essex, Gloucestershire, Greater Manchester and more. Symmetrical speeds, fixed price for the contract term, a 2.3 Gbps Be2300 top tier. Low brand-search volume but near-zero competition and it is the page the programme needs to see before approving.",
+      "opportunity_score": 82.4,
+      "serp": {
+        "query": "be fibre broadband",
+        "ai_overview": true,
+        "top_domains": [
+          "be-fibre.co.uk",
+          "uk.trustpilot.com",
+          "uswitch.com",
+          "facebook.com",
+          "gocompare.com",
+          "x.com"
+        ],
+        "forum_results_in_top10": 1,
+        "aggregator_results_in_top10": 2,
+        "bp_in_top10": false,
+        "brand_site_ranks_first": true,
+        "people_also_ask": [
+          "Is BeFibre a good broadband provider?",
+          "Is BeFibre BT?",
+          "What network does BeFibre use?",
+          "Is there a problem with BeFibre?"
+        ]
+      },
+      "rank": 2
+    },
+    {
+      "record_type": "Provider review",
+      "altnet": "hey-broadband",
+      "page_type": "Provider review",
+      "working_title": "Hey!Broadband broadband review",
+      "recommended_url": "/providers/hey-broadband",
+      "primary_keyword": "heybroadband broadband",
+      "secondary_keywords": [
+        "heybroadband broadband review",
+        "heybroadband broadband deals",
+        "is heybroadband broadband any good",
+        "heybroadband broadband coverage",
+        "heybroadband broadband prices",
+        "heybroadband vs bt"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "hey-broadband"
+      ],
+      "bands": {
+        "demand": 2,
+        "difficulty": 1,
+        "content_gap": 4,
+        "commercial_value": 5,
+        "geo_upside": 3,
+        "awin_unlock": 3
+      },
+      "note": "Small towns and villages in the South East: Buckinghamshire, Oxfordshire, Surrey, West Sussex. Founded 2019, focus on smaller southeastern towns, Trustpilot around 3.9 out of 5, 24-month symmetrical plans. Low brand-search volume but near-zero competition and it is the page the programme needs to see before approving.",
+      "opportunity_score": 82.4,
+      "serp": {
+        "query": "heybroadband broadband",
+        "ai_overview": true,
+        "top_domains": [
+          "ie.trustpilot.com",
+          "heybroadband.co.uk",
+          "broadbandproviders.co.uk",
+          "switchity.co.uk",
+          "trustpilot.com",
+          "facebook.com",
+          "forums.thinkbroadband.com",
+          "rocketreach.co"
+        ],
+        "forum_results_in_top10": 2,
+        "aggregator_results_in_top10": 3,
+        "bp_in_top10": false,
+        "brand_site_ranks_first": false,
+        "people_also_ask": [
+          "Is Hey Broadband a good provider?",
+          "Which network does Hey Broadband use?",
+          "Is Hey Broadband better than BT?",
+          "Who is Hey Broadband owned by?"
+        ]
+      },
+      "rank": 3
+    },
+    {
+      "record_type": "Provider review",
+      "altnet": "voneus",
+      "page_type": "Provider review",
+      "working_title": "Voneus broadband review",
+      "recommended_url": "/providers/voneus",
+      "primary_keyword": "voneus broadband",
+      "secondary_keywords": [
+        "voneus broadband review",
+        "voneus broadband deals",
+        "is voneus broadband any good",
+        "voneus broadband coverage",
+        "voneus broadband prices",
+        "voneus vs bt"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "voneus"
+      ],
+      "bands": {
+        "demand": 2,
+        "difficulty": 1,
+        "content_gap": 4,
+        "commercial_value": 5,
+        "geo_upside": 3,
+        "awin_unlock": 3
+      },
+      "note": "Rural villages across England, Wales and Scotland: Shropshire, Somerset, Cornwall, Pembrokeshire, Isle of Arran and more. Rural full fibre specialist, grew by acquiring smaller village networks, no mid-contract price rises, Voneus router, 24-month terms. Low brand-search volume but near-zero competition and it is the page the programme needs to see before approving.",
+      "opportunity_score": 82.4,
+      "serp": {
+        "query": "voneus broadband",
+        "ai_overview": true,
+        "top_domains": [
+          "voneus.com",
+          "uk.trustpilot.com",
+          "uk.linkedin.com",
+          "thinkbroadband.com",
+          "find-and-update.company-information.service.gov.uk",
+          "facebook.com"
+        ],
+        "forum_results_in_top10": 1,
+        "aggregator_results_in_top10": 1,
+        "bp_in_top10": false,
+        "brand_site_ranks_first": true,
+        "people_also_ask": [
+          "Who owns Voneus broadband?",
+          "Is there a problem with Voneus broadband?",
+          "Who is Voneus broadband?",
+          "Who is the CEO of Voneus broadband?"
+        ]
+      },
+      "rank": 4
+    },
+    {
+      "record_type": "Provider review",
+      "altnet": "fibrus",
+      "page_type": "Provider review",
+      "working_title": "Fibrus broadband review",
+      "recommended_url": "/providers/fibrus",
+      "primary_keyword": "fibrus broadband",
+      "secondary_keywords": [
+        "fibrus broadband review",
+        "fibrus broadband deals",
+        "is fibrus broadband any good",
+        "fibrus broadband coverage",
+        "fibrus broadband prices",
+        "fibrus vs bt"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "fibrus"
+      ],
+      "bands": {
+        "demand": 2,
+        "difficulty": 1,
+        "content_gap": 5,
+        "commercial_value": 5,
+        "geo_upside": 2,
+        "awin_unlock": 3
+      },
+      "note": "Northern Ireland (majority) plus Cumbria: Carlisle, Workington, Whitehaven, Kendal. Around 400,000 to 450,000 premises passed, Project Gigabit backed, no mid-contract price rises, FTTP. Low brand-search volume but near-zero competition and it is the page the programme needs to see before approving.",
+      "opportunity_score": 82.3,
+      "serp": {
+        "query": "fibrus broadband",
+        "ai_overview": false,
+        "top_domains": [
+          "bbc.com",
+          "fibrus.com",
+          "forestofblack.co.uk",
+          "facebook.com",
+          "reddit.com",
+          "thinkbroadband.com",
+          "dealsonbroadband.co.uk",
+          "youtube.com"
+        ],
+        "forum_results_in_top10": 3,
+        "aggregator_results_in_top10": 2,
+        "bp_in_top10": false,
+        "brand_site_ranks_first": false,
+        "people_also_ask": [
+          "Is Fibrus the same as BT?",
+          "Who is Fibrus owned by?",
+          "Is Fibrus a good broadband provider?",
+          "Does Openreach work with Fibrus?"
+        ]
+      },
+      "rank": 5
+    },
+    {
+      "record_type": "Provider review",
+      "altnet": "quickline",
+      "page_type": "Provider review",
+      "working_title": "Quickline broadband review",
+      "recommended_url": "/providers/quickline",
+      "primary_keyword": "quickline broadband",
+      "secondary_keywords": [
+        "quickline broadband review",
+        "quickline broadband deals",
+        "is quickline broadband any good",
+        "quickline broadband coverage",
+        "quickline broadband prices",
+        "quickline vs bt"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "quickline"
+      ],
+      "bands": {
+        "demand": 2,
+        "difficulty": 1,
+        "content_gap": 4,
+        "commercial_value": 5,
+        "geo_upside": 2,
+        "awin_unlock": 3
+      },
+      "note": "Rural Yorkshire, Lincolnshire and the Humber. Over 500,000 premises passed, FTTP and fixed wireless, Project Gigabit contracts, Trustpilot 'Excellent', no mid-contract price rises, a Full Fibre 2300 tier. Low brand-search volume but near-zero competition and it is the page the programme needs to see before approving.",
+      "opportunity_score": 79.1,
+      "serp": {
+        "query": "quickline broadband",
+        "ai_overview": false,
+        "top_domains": [
+          "quickline.co.uk",
+          "uk.trustpilot.com",
+          "thinkbroadband.com",
+          "facebook.com",
+          "mybroadbanddeals.co.uk",
+          "gocompare.com",
+          "broadband.co.uk"
+        ],
+        "forum_results_in_top10": 1,
+        "aggregator_results_in_top10": 3,
+        "bp_in_top10": false,
+        "brand_site_ranks_first": true,
+        "people_also_ask": [
+          "Is Quickline broadband any good?",
+          "What network does Quickline use?",
+          "Does Quickline broadband use Openreach?",
+          "Which router does Quickline use?"
+        ]
+      },
+      "rank": 6
+    },
+    {
+      "record_type": "Provider review",
+      "altnet": "gofibre",
+      "page_type": "Provider review",
+      "working_title": "GoFibre broadband review",
+      "recommended_url": "/providers/gofibre",
+      "primary_keyword": "gofibre broadband",
+      "secondary_keywords": [
+        "gofibre broadband review",
+        "gofibre broadband deals",
+        "is gofibre broadband any good",
+        "gofibre broadband coverage",
+        "gofibre broadband prices",
+        "gofibre vs bt"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "gofibre"
+      ],
+      "bands": {
+        "demand": 2,
+        "difficulty": 1,
+        "content_gap": 4,
+        "commercial_value": 5,
+        "geo_upside": 2,
+        "awin_unlock": 3
+      },
+      "note": "Scotland (Scottish Borders, East Lothian, Fife, Aberdeenshire, Angus) plus Northumberland and Teesdale. Free installation and router on all plans, no mid-contract price rises, 24-month terms, speeds 150 Mbps to 1 Gbps. Low brand-search volume but near-zero competition and it is the page the programme needs to see before approving.",
+      "opportunity_score": 79.1,
+      "serp": {
+        "query": "gofibre broadband",
+        "ai_overview": false,
+        "top_domains": [
+          "gofibre.co.uk",
+          "find-and-update.company-information.service.gov.uk",
+          "uk.trustpilot.com",
+          "thinkbroadband.com",
+          "facebook.com",
+          "uk.linkedin.com",
+          "youtube.com"
+        ],
+        "forum_results_in_top10": 1,
+        "aggregator_results_in_top10": 1,
+        "bp_in_top10": false,
+        "brand_site_ranks_first": true,
+        "people_also_ask": [
+          "Is GoFibre broadband any good?",
+          "Is GoFibre a good company?",
+          "How good is go fiber?",
+          "How does GoFibre work?"
+        ]
+      },
+      "rank": 7
+    },
+    {
+      "record_type": "Provider review",
+      "altnet": "grain",
+      "page_type": "Provider review",
+      "working_title": "Grain broadband review",
+      "recommended_url": "/providers/grain",
+      "primary_keyword": "grain broadband",
+      "secondary_keywords": [
+        "grain broadband review",
+        "grain broadband deals",
+        "is grain broadband any good",
+        "grain broadband coverage",
+        "grain broadband prices",
+        "grain vs bt"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "grain"
+      ],
+      "bands": {
+        "demand": 2,
+        "difficulty": 1,
+        "content_gap": 4,
+        "commercial_value": 5,
+        "geo_upside": 2,
+        "awin_unlock": 3
+      },
+      "note": "Kent, parts of Scotland (Perth, Fife) and northern England, described as Aberdeen to the south coast. Established 2016, HQ Carlisle, no phone line required, free installation, no mid-contract price rises, two social tariffs at 15 and 30 Mbps symmetrical. Low brand-search volume but near-zero competition and it is the page the programme needs to see before approving.",
+      "opportunity_score": 79.1,
+      "serp": {
+        "query": "grain broadband",
+        "ai_overview": false,
+        "top_domains": [
+          "grainconnect.com",
+          "uk.trustpilot.com",
+          "thinkbroadband.com",
+          "facebook.com",
+          "graincommunications.co.uk",
+          "find-and-update.company-information.service.gov.uk",
+          "reddit.com"
+        ],
+        "forum_results_in_top10": 2,
+        "aggregator_results_in_top10": 1,
+        "bp_in_top10": false,
+        "brand_site_ranks_first": true,
+        "people_also_ask": [
+          "Is Grain internet any good?",
+          "Which network does Grain broadband use?",
+          "Who is the best full fibre provider in the UK?",
+          "What are the benefits of Grain internet?"
+        ]
+      },
+      "rank": 8
+    },
+    {
+      "record_type": "Provider review",
+      "altnet": "lightning-fibre",
+      "page_type": "Provider review",
+      "working_title": "Lightning Fibre broadband review",
+      "recommended_url": "/providers/lightning-fibre",
+      "primary_keyword": "lightning fibre broadband",
+      "secondary_keywords": [
+        "lightning fibre broadband review",
+        "lightning fibre broadband deals",
+        "is lightning fibre broadband any good",
+        "lightning fibre broadband coverage",
+        "lightning fibre broadband prices",
+        "lightning fibre vs virgin media"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "lightning-fibre"
+      ],
+      "bands": {
+        "demand": 2,
+        "difficulty": 1,
+        "content_gap": 4,
+        "commercial_value": 5,
+        "geo_upside": 2,
+        "awin_unlock": 3
+      },
+      "note": "East Sussex: Eastbourne, Hastings, Hailsham, St Leonards, Heathfield, plus Brighton and Hove, Worthing and parts of Kent. East Sussex full-fibre builder, never raises price during the contract, multi-gigabit tiers up to 2.5 Gbps. Low brand-search volume but near-zero competition and it is the page the programme needs to see before approving.",
+      "opportunity_score": 79.1,
+      "serp": {
+        "query": "lightning fibre broadband",
+        "ai_overview": false,
+        "top_domains": [
+          "lightningfibre.co.uk",
+          "facebook.com",
+          "uk.trustpilot.com",
+          "thinkbroadband.com",
+          "comparefibre.co.uk",
+          "enterprise-centre.org",
+          "uk.linkedin.com"
+        ],
+        "forum_results_in_top10": 1,
+        "aggregator_results_in_top10": 2,
+        "bp_in_top10": false,
+        "brand_site_ranks_first": true,
+        "people_also_ask": [
+          "How good is Lightning Fibre?",
+          "Who owns Lightning Fibre?",
+          "Can I use my own router with Lightning Fibre?",
+          "What are some common problems with Lightning Fibre?"
+        ]
+      },
+      "rank": 9
+    },
+    {
+      "record_type": "Local guide",
+      "altnet": "fibrus",
+      "page_type": "Local guide",
+      "working_title": "Best broadband in Northern Ireland",
+      "recommended_url": "/guides/best-broadband-northern-ireland",
+      "primary_keyword": "best broadband northern ireland",
+      "secondary_keywords": [
+        "broadband providers northern ireland",
+        "full fibre northern ireland",
+        "northern ireland broadband deals",
+        "rural broadband northern ireland",
+        "altnet broadband northern ireland"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "fibrus"
+      ],
+      "bands": {
+        "demand": 3,
+        "difficulty": 3,
+        "content_gap": 5,
+        "commercial_value": 4,
+        "geo_upside": 3,
+        "awin_unlock": 3
+      },
+      "note": "Captures local intent and gives Fibrus a natural, non-brand placement. Overlaps the postcode strategy; several of these areas are outside the current city-hub set.",
+      "opportunity_score": 78.0,
+      "serp": {
+        "query": "best broadband northern ireland",
+        "ai_overview": true,
+        "top_domains": [
+          "reddit.com",
+          "beaconbroadband.co.uk",
+          "broadbandproviders.co.uk",
+          "thinkbroadband.com",
+          "ispreview.co.uk",
+          "facebook.com",
+          "broadbandproviders.co.uk",
+          "facebook.com"
+        ],
+        "forum_results_in_top10": 3,
+        "aggregator_results_in_top10": 2,
+        "bp_in_top10": false,
+        "brand_site_ranks_first": false,
+        "people_also_ask": [
+          "Which broadband provider is the most reliable in Ireland?",
+          "Which is better, BT or Sky broadband?",
+          "What are Martin Lewis' best fibre broadband deals?",
+          "Who has the strongest broadband?"
+        ]
+      },
+      "rank": 10
+    },
+    {
+      "record_type": "Local guide",
+      "altnet": "airband",
+      "page_type": "Local guide",
+      "working_title": "Best broadband in the South West",
+      "recommended_url": "/guides/best-rural-broadband-south-west-england",
+      "primary_keyword": "best broadband the south west",
+      "secondary_keywords": [
+        "broadband providers the south west",
+        "full fibre the south west",
+        "west midlands broadband deals",
+        "rural broadband the south west",
+        "altnet broadband the south west"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "airband"
+      ],
+      "bands": {
+        "demand": 3,
+        "difficulty": 3,
+        "content_gap": 4,
+        "commercial_value": 4,
+        "geo_upside": 3,
+        "awin_unlock": 3
+      },
+      "note": "Captures local intent and gives Airband a natural, non-brand placement. Overlaps the postcode strategy; several of these areas are outside the current city-hub set.",
+      "opportunity_score": 74.8,
+      "serp": {
+        "query": "best broadband the south west",
+        "ai_overview": true,
+        "top_domains": [
+          "dealtree.compare",
+          "reddit.com",
+          "southwestwifi.co.uk",
+          "broadbandproviders.co.uk",
+          "tbebathandsomerset.co.uk",
+          "bristolpost.co.uk",
+          "facebook.com",
+          "labs.thinkbroadband.com"
+        ],
+        "forum_results_in_top10": 2,
+        "aggregator_results_in_top10": 1,
+        "bp_in_top10": false,
+        "brand_site_ranks_first": false,
+        "people_also_ask": [
+          "What are Martin Lewis' best fibre broadband deals?",
+          "Who has the most reliable broadband in the UK?",
+          "Which broadband providers are most complained about in the UK?",
+          "How much should I be paying for broadband and landline?"
+        ]
+      },
+      "rank": 11
+    },
+    {
+      "record_type": "Local guide",
+      "altnet": "be-fibre",
+      "page_type": "Local guide",
+      "working_title": "Best broadband in Greater Manchester",
+      "recommended_url": "/guides/best-broadband-greater-manchester-altnets",
+      "primary_keyword": "best broadband greater manchester",
+      "secondary_keywords": [
+        "broadband providers greater manchester",
+        "full fibre greater manchester",
+        "north west england broadband deals",
+        "rural broadband greater manchester",
+        "altnet broadband greater manchester"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "be-fibre"
+      ],
+      "bands": {
+        "demand": 3,
+        "difficulty": 3,
+        "content_gap": 4,
+        "commercial_value": 4,
+        "geo_upside": 3,
+        "awin_unlock": 3
+      },
+      "note": "Captures local intent and gives Be Fibre a natural, non-brand placement. Overlaps the postcode strategy; several of these areas are outside the current city-hub set.",
+      "opportunity_score": 74.8,
+      "serp": {
+        "query": "best broadband greater manchester",
+        "ai_overview": true,
+        "top_domains": [
+          "comparethemarket.com",
+          "moneysupermarket.com",
+          "reddit.com",
+          "uswitch.com",
+          "talktalk.co.uk",
+          "broadbandcompared.co.uk",
+          "broadbandcheck.co.uk",
+          "bestbroadbanddeals.co.uk"
+        ],
+        "forum_results_in_top10": 1,
+        "aggregator_results_in_top10": 2,
+        "bp_in_top10": false,
+        "brand_site_ranks_first": false,
+        "people_also_ask": [
+          "Which broadband provider is best in Manchester?",
+          "How do I check which broadband is best for my area?",
+          "What is the most reliable broadband in the UK?",
+          "Which is better, BT or Sky broadband?"
+        ]
+      },
+      "rank": 12
+    },
+    {
+      "record_type": "Local guide",
+      "altnet": "hey-broadband",
+      "page_type": "Local guide",
+      "working_title": "Best broadband in Surrey and West Sussex",
+      "recommended_url": "/guides/best-broadband-surrey-west-sussex-villages",
+      "primary_keyword": "best broadband surrey and west sussex",
+      "secondary_keywords": [
+        "broadband providers surrey and west sussex",
+        "full fibre surrey and west sussex",
+        "buckinghamshire broadband deals",
+        "rural broadband surrey and west sussex",
+        "altnet broadband surrey and west sussex"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "hey-broadband"
+      ],
+      "bands": {
+        "demand": 3,
+        "difficulty": 3,
+        "content_gap": 4,
+        "commercial_value": 4,
+        "geo_upside": 3,
+        "awin_unlock": 3
+      },
+      "note": "Captures local intent and gives Hey!Broadband a natural, non-brand placement. Overlaps the postcode strategy; several of these areas are outside the current city-hub set.",
+      "opportunity_score": 74.8,
+      "rank": 13
+    },
+    {
+      "record_type": "Local guide",
+      "altnet": "quickline",
+      "page_type": "Local guide",
+      "working_title": "Best broadband in rural Yorkshire and Lincolnshire",
+      "recommended_url": "/guides/best-rural-broadband-yorkshire-lincolnshire",
+      "primary_keyword": "best broadband rural yorkshire and lincolnshire",
+      "secondary_keywords": [
+        "broadband providers rural yorkshire and lincolnshire",
+        "full fibre rural yorkshire and lincolnshire",
+        "yorkshire broadband deals",
+        "rural broadband rural yorkshire and lincolnshire",
+        "altnet broadband rural yorkshire and lincolnshire"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "quickline"
+      ],
+      "bands": {
+        "demand": 3,
+        "difficulty": 3,
+        "content_gap": 4,
+        "commercial_value": 4,
+        "geo_upside": 3,
+        "awin_unlock": 3
+      },
+      "note": "Captures local intent and gives Quickline a natural, non-brand placement. Overlaps the postcode strategy; several of these areas are outside the current city-hub set.",
+      "opportunity_score": 74.8,
+      "rank": 14
+    },
+    {
+      "record_type": "Local guide",
+      "altnet": "gofibre",
+      "page_type": "Local guide",
+      "working_title": "Best broadband in the Scottish Borders",
+      "recommended_url": "/guides/best-broadband-scottish-borders",
+      "primary_keyword": "best broadband the scottish borders",
+      "secondary_keywords": [
+        "broadband providers the scottish borders",
+        "full fibre the scottish borders",
+        "scottish borders broadband deals",
+        "rural broadband the scottish borders",
+        "altnet broadband the scottish borders"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "gofibre"
+      ],
+      "bands": {
+        "demand": 3,
+        "difficulty": 3,
+        "content_gap": 4,
+        "commercial_value": 4,
+        "geo_upside": 3,
+        "awin_unlock": 3
+      },
+      "note": "Captures local intent and gives GoFibre a natural, non-brand placement. Overlaps the postcode strategy; several of these areas are outside the current city-hub set.",
+      "opportunity_score": 74.8,
+      "rank": 15
+    },
+    {
+      "record_type": "Local guide",
+      "altnet": "voneus",
+      "page_type": "Local guide",
+      "working_title": "Best broadband in rural villages",
+      "recommended_url": "/guides/best-broadband-for-uk-villages-altnets",
+      "primary_keyword": "best broadband rural villages",
+      "secondary_keywords": [
+        "broadband providers rural villages",
+        "full fibre rural villages",
+        "rural england broadband deals",
+        "rural broadband rural villages",
+        "altnet broadband rural villages"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "voneus"
+      ],
+      "bands": {
+        "demand": 3,
+        "difficulty": 3,
+        "content_gap": 4,
+        "commercial_value": 4,
+        "geo_upside": 3,
+        "awin_unlock": 3
+      },
+      "note": "Captures local intent and gives Voneus a natural, non-brand placement. Overlaps the postcode strategy; several of these areas are outside the current city-hub set.",
+      "opportunity_score": 74.8,
+      "rank": 16
+    },
+    {
+      "record_type": "Local guide",
+      "altnet": "grain",
+      "page_type": "Local guide",
+      "working_title": "Best broadband in Kent",
+      "recommended_url": "/guides/best-broadband-kent-altnets",
+      "primary_keyword": "best broadband kent",
+      "secondary_keywords": [
+        "broadband providers kent",
+        "full fibre kent",
+        "kent broadband deals",
+        "rural broadband kent",
+        "altnet broadband kent"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "grain"
+      ],
+      "bands": {
+        "demand": 3,
+        "difficulty": 3,
+        "content_gap": 4,
+        "commercial_value": 4,
+        "geo_upside": 3,
+        "awin_unlock": 3
+      },
+      "note": "Captures local intent and gives Grain a natural, non-brand placement. Overlaps the postcode strategy; several of these areas are outside the current city-hub set.",
+      "opportunity_score": 74.8,
+      "rank": 17
+    },
+    {
+      "record_type": "Local guide",
+      "altnet": "lightning-fibre",
+      "page_type": "Local guide",
+      "working_title": "Best broadband in Eastbourne and East Sussex",
+      "recommended_url": "/guides/best-broadband-eastbourne-east-sussex",
+      "primary_keyword": "best broadband eastbourne and east sussex",
+      "secondary_keywords": [
+        "broadband providers eastbourne and east sussex",
+        "full fibre eastbourne and east sussex",
+        "east sussex broadband deals",
+        "rural broadband eastbourne and east sussex",
+        "altnet broadband eastbourne and east sussex"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "lightning-fibre"
+      ],
+      "bands": {
+        "demand": 3,
+        "difficulty": 3,
+        "content_gap": 4,
+        "commercial_value": 4,
+        "geo_upside": 3,
+        "awin_unlock": 3
+      },
+      "note": "Captures local intent and gives Lightning Fibre a natural, non-brand placement. Overlaps the postcode strategy; several of these areas are outside the current city-hub set.",
+      "opportunity_score": 74.8,
+      "rank": 18
+    },
+    {
+      "record_type": "Shared roundup",
+      "altnet": "all",
+      "page_type": "Buyer guide",
+      "working_title": "Best rural full-fibre altnet broadband UK 2026",
+      "recommended_url": "/guides/best-altnet-broadband-uk",
+      "primary_keyword": "best altnet broadband uk",
+      "secondary_keywords": [
+        "best rural full fibre broadband",
+        "alternative network broadband uk",
+        "altnet broadband providers list",
+        "best small broadband providers uk",
+        "full fibre without openreach"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "fibrus",
+        "airband",
+        "be-fibre",
+        "hey-broadband",
+        "quickline",
+        "gofibre",
+        "voneus",
+        "grain",
+        "lightning-fibre"
+      ],
+      "bands": {
+        "demand": 3,
+        "difficulty": 3,
+        "content_gap": 4,
+        "commercial_value": 4,
+        "geo_upside": 3,
+        "awin_unlock": 3
+      },
+      "note": "One page that features all nine altnets plus the others already on site. Highest leverage: a single build that makes the case for approval to multiple programmes.",
+      "opportunity_score": 74.8,
+      "rank": 19
+    },
+    {
+      "record_type": "Comparison",
+      "altnet": "fibrus",
+      "page_type": "Comparison",
+      "working_title": "Fibrus vs BT broadband",
+      "recommended_url": "/providers/compare/fibrus-vs-bt",
+      "primary_keyword": "fibrus vs bt broadband",
+      "secondary_keywords": [
+        "bt vs fibrus",
+        "is fibrus better than bt",
+        "fibrus or bt",
+        "switch from bt to fibrus",
+        "fibrus vs bt price"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "fibrus",
+        "bt"
+      ],
+      "bands": {
+        "demand": 2,
+        "difficulty": 2,
+        "content_gap": 4,
+        "commercial_value": 5,
+        "geo_upside": 2,
+        "awin_unlock": 3
+      },
+      "note": "The decision most Fibrus researchers actually face: an altnet against the incumbent line at the same address. Requires a fibrus provider entry first.",
+      "opportunity_score": 74.7,
+      "rank": 20
+    },
+    {
+      "record_type": "Comparison",
+      "altnet": "airband",
+      "page_type": "Comparison",
+      "working_title": "Airband vs BT broadband",
+      "recommended_url": "/providers/compare/airband-vs-bt",
+      "primary_keyword": "airband vs bt broadband",
+      "secondary_keywords": [
+        "bt vs airband",
+        "is airband better than bt",
+        "airband or bt",
+        "switch from bt to airband",
+        "airband vs bt price"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "airband",
+        "bt"
+      ],
+      "bands": {
+        "demand": 2,
+        "difficulty": 2,
+        "content_gap": 4,
+        "commercial_value": 5,
+        "geo_upside": 2,
+        "awin_unlock": 3
+      },
+      "note": "The decision most Airband researchers actually face: an altnet against the incumbent line at the same address. Requires a airband provider entry first.",
+      "opportunity_score": 74.7,
+      "rank": 21
+    },
+    {
+      "record_type": "Comparison",
+      "altnet": "be-fibre",
+      "page_type": "Comparison",
+      "working_title": "Be Fibre vs BT broadband",
+      "recommended_url": "/providers/compare/be-fibre-vs-bt",
+      "primary_keyword": "be fibre vs bt broadband",
+      "secondary_keywords": [
+        "bt vs be fibre",
+        "is be fibre better than bt",
+        "be fibre or bt",
+        "switch from bt to be fibre",
+        "be fibre vs bt price"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "be-fibre",
+        "bt"
+      ],
+      "bands": {
+        "demand": 2,
+        "difficulty": 2,
+        "content_gap": 4,
+        "commercial_value": 5,
+        "geo_upside": 2,
+        "awin_unlock": 3
+      },
+      "note": "The decision most Be Fibre researchers actually face: an altnet against the incumbent line at the same address. Requires a be-fibre provider entry first.",
+      "opportunity_score": 74.7,
+      "rank": 22
+    },
+    {
+      "record_type": "Comparison",
+      "altnet": "hey-broadband",
+      "page_type": "Comparison",
+      "working_title": "Hey!Broadband vs BT broadband",
+      "recommended_url": "/providers/compare/hey-broadband-vs-bt",
+      "primary_keyword": "heybroadband vs bt broadband",
+      "secondary_keywords": [
+        "bt vs heybroadband",
+        "is heybroadband better than bt",
+        "heybroadband or bt",
+        "switch from bt to heybroadband",
+        "heybroadband vs bt price"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "hey-broadband",
+        "bt"
+      ],
+      "bands": {
+        "demand": 2,
+        "difficulty": 2,
+        "content_gap": 4,
+        "commercial_value": 5,
+        "geo_upside": 2,
+        "awin_unlock": 3
+      },
+      "note": "The decision most Hey!Broadband researchers actually face: an altnet against the incumbent line at the same address. Requires a hey-broadband provider entry first.",
+      "opportunity_score": 74.7,
+      "rank": 23
+    },
+    {
+      "record_type": "Comparison",
+      "altnet": "quickline",
+      "page_type": "Comparison",
+      "working_title": "Quickline vs BT broadband",
+      "recommended_url": "/providers/compare/quickline-vs-bt",
+      "primary_keyword": "quickline vs bt broadband",
+      "secondary_keywords": [
+        "bt vs quickline",
+        "is quickline better than bt",
+        "quickline or bt",
+        "switch from bt to quickline",
+        "quickline vs bt price"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "quickline",
+        "bt"
+      ],
+      "bands": {
+        "demand": 2,
+        "difficulty": 2,
+        "content_gap": 4,
+        "commercial_value": 5,
+        "geo_upside": 2,
+        "awin_unlock": 3
+      },
+      "note": "The decision most Quickline researchers actually face: an altnet against the incumbent line at the same address. Requires a quickline provider entry first.",
+      "opportunity_score": 74.7,
+      "rank": 24
+    },
+    {
+      "record_type": "Comparison",
+      "altnet": "gofibre",
+      "page_type": "Comparison",
+      "working_title": "GoFibre vs BT broadband",
+      "recommended_url": "/providers/compare/gofibre-vs-bt",
+      "primary_keyword": "gofibre vs bt broadband",
+      "secondary_keywords": [
+        "bt vs gofibre",
+        "is gofibre better than bt",
+        "gofibre or bt",
+        "switch from bt to gofibre",
+        "gofibre vs bt price"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "gofibre",
+        "bt"
+      ],
+      "bands": {
+        "demand": 2,
+        "difficulty": 2,
+        "content_gap": 4,
+        "commercial_value": 5,
+        "geo_upside": 2,
+        "awin_unlock": 3
+      },
+      "note": "The decision most GoFibre researchers actually face: an altnet against the incumbent line at the same address. Requires a gofibre provider entry first.",
+      "opportunity_score": 74.7,
+      "rank": 25
+    },
+    {
+      "record_type": "Comparison",
+      "altnet": "voneus",
+      "page_type": "Comparison",
+      "working_title": "Voneus vs BT broadband",
+      "recommended_url": "/providers/compare/voneus-vs-bt",
+      "primary_keyword": "voneus vs bt broadband",
+      "secondary_keywords": [
+        "bt vs voneus",
+        "is voneus better than bt",
+        "voneus or bt",
+        "switch from bt to voneus",
+        "voneus vs bt price"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "voneus",
+        "bt"
+      ],
+      "bands": {
+        "demand": 2,
+        "difficulty": 2,
+        "content_gap": 4,
+        "commercial_value": 5,
+        "geo_upside": 2,
+        "awin_unlock": 3
+      },
+      "note": "The decision most Voneus researchers actually face: an altnet against the incumbent line at the same address. Requires a voneus provider entry first.",
+      "opportunity_score": 74.7,
+      "rank": 26
+    },
+    {
+      "record_type": "Comparison",
+      "altnet": "grain",
+      "page_type": "Comparison",
+      "working_title": "Grain vs BT broadband",
+      "recommended_url": "/providers/compare/grain-vs-bt",
+      "primary_keyword": "grain vs bt broadband",
+      "secondary_keywords": [
+        "bt vs grain",
+        "is grain better than bt",
+        "grain or bt",
+        "switch from bt to grain",
+        "grain vs bt price"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "grain",
+        "bt"
+      ],
+      "bands": {
+        "demand": 2,
+        "difficulty": 2,
+        "content_gap": 4,
+        "commercial_value": 5,
+        "geo_upside": 2,
+        "awin_unlock": 3
+      },
+      "note": "The decision most Grain researchers actually face: an altnet against the incumbent line at the same address. Requires a grain provider entry first.",
+      "opportunity_score": 74.7,
+      "rank": 27
+    },
+    {
+      "record_type": "Comparison",
+      "altnet": "lightning-fibre",
+      "page_type": "Comparison",
+      "working_title": "Lightning Fibre vs Virgin Media broadband",
+      "recommended_url": "/providers/compare/lightning-fibre-vs-virgin-media",
+      "primary_keyword": "lightning fibre vs virgin media broadband",
+      "secondary_keywords": [
+        "virgin media vs lightning fibre",
+        "is lightning fibre better than virgin media",
+        "lightning fibre or virgin media",
+        "switch from virgin media to lightning fibre",
+        "lightning fibre vs virgin media price"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "lightning-fibre",
+        "virgin-media"
+      ],
+      "bands": {
+        "demand": 2,
+        "difficulty": 2,
+        "content_gap": 4,
+        "commercial_value": 5,
+        "geo_upside": 2,
+        "awin_unlock": 3
+      },
+      "note": "The decision most Lightning Fibre researchers actually face: an altnet against the incumbent line at the same address. Requires a lightning-fibre provider entry first.",
+      "opportunity_score": 74.7,
+      "rank": 28
+    },
+    {
+      "record_type": "Shared explainer",
+      "altnet": "all",
+      "page_type": "Explainer",
+      "working_title": "What is an altnet broadband provider?",
+      "recommended_url": "/guides/what-is-an-altnet-broadband-provider",
+      "primary_keyword": "what is an altnet",
+      "secondary_keywords": [
+        "altnet meaning broadband",
+        "alternative network provider",
+        "is an altnet better than openreach",
+        "list of uk altnets",
+        "altnet vs openreach"
+      ],
+      "intent": "Informational",
+      "target_awin_programmes": [
+        "fibrus",
+        "airband",
+        "be-fibre",
+        "hey-broadband",
+        "quickline",
+        "gofibre",
+        "voneus",
+        "grain",
+        "lightning-fibre"
+      ],
+      "bands": {
+        "demand": 3,
+        "difficulty": 2,
+        "content_gap": 4,
+        "commercial_value": 2,
+        "geo_upside": 3,
+        "awin_unlock": 2
+      },
+      "note": "Definitional query with strong AI Overview upside and no strong UK consumer answer. Anchors the altnet cluster.",
+      "opportunity_score": 68.7,
+      "rank": 29
+    },
+    {
+      "record_type": "Shared explainer",
+      "altnet": "all",
+      "page_type": "Question and answer",
+      "working_title": "What happens if my altnet broadband provider goes bust?",
+      "recommended_url": "/guides/altnet-broadband-provider-goes-bust-uk",
+      "primary_keyword": "what happens if my broadband provider goes bust",
+      "secondary_keywords": [
+        "is altnet broadband safe",
+        "altnet broadband risk",
+        "broadband company administration what happens",
+        "will i lose my broadband if the provider closes",
+        "altnet consolidation uk"
+      ],
+      "intent": "Informational",
+      "target_awin_programmes": [
+        "fibrus",
+        "airband",
+        "be-fibre",
+        "hey-broadband",
+        "quickline",
+        "gofibre",
+        "voneus",
+        "grain",
+        "lightning-fibre"
+      ],
+      "bands": {
+        "demand": 2,
+        "difficulty": 2,
+        "content_gap": 5,
+        "commercial_value": 2,
+        "geo_upside": 3,
+        "awin_unlock": 2
+      },
+      "note": "A genuine buyer objection for regional altnets, almost unaddressed. Builds trust that helps every altnet convert.",
+      "opportunity_score": 67.1,
+      "rank": 30
+    }
+  ]
+}

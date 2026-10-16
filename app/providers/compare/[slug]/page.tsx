@@ -8,10 +8,14 @@ import { getProviderComparisonBySlug, providerComparisons } from '@/data/provide
 import ReviewEvidencePanel from '@/components/ReviewEvidencePanel'
 import AffiliateCTA from '@/components/AffiliateCTA'
 import EeTalkTalkDecisionTool from '@/components/EeTalkTalkDecisionTool'
+import PlusnetVsSkyComparison from '@/components/PlusnetVsSkyComparison'
+import HyperopticVsCommunityFibreComparison from '@/components/HyperopticVsCommunityFibreComparison'
 import OnThisPageNav from '@/components/OnThisPageNav'
 import { JsonLd } from '@/lib/jsonLd'
 import { articleJsonLd } from '@/lib/siteSchema'
 import CiteableAnswer from '@/components/CiteableAnswer'
+import PageHeroBanner from '@/components/PageHeroBanner'
+import { DEFAULT_GUIDE_CTAS, categoryHero, firstSentence } from '@/lib/pageHero'
 
 export async function generateStaticParams() {
   return providerComparisons.map((comparison) => ({ slug: comparison.slug }))
@@ -57,18 +61,29 @@ export default async function ProviderComparisonPage({
   const providerB = getProviderBySlug(comparison.providerB)
   if (!providerA || !providerB) notFound()
 
+  const priceA = comparison.factSnapshot ? parseFloat(comparison.factSnapshot.providerA.fromPrice.replace(/[^0-9.]/g, '')) : providerA.monthlyPriceFrom
+  const priceB = comparison.factSnapshot ? parseFloat(comparison.factSnapshot.providerB.fromPrice.replace(/[^0-9.]/g, '')) : providerB.monthlyPriceFrom
+  const speedA = getMaxDownload(providerA.slug)
+  const speedB = getMaxDownload(providerB.slug)
+
   const providers = [
     {
       provider: providerA,
       bestFor: comparison.bestForA,
-      maxSpeed: getMaxDownload(providerA.slug),
+      maxSpeed: speedA,
       facts: comparison.factSnapshot?.providerA,
+      badge: !Number.isNaN(priceA) && !Number.isNaN(priceB) && priceA < priceB ? 'Best value'
+        : speedA > speedB ? 'Fastest'
+        : null,
     },
     {
       provider: providerB,
       bestFor: comparison.bestForB,
-      maxSpeed: getMaxDownload(providerB.slug),
+      maxSpeed: speedB,
       facts: comparison.factSnapshot?.providerB,
+      badge: !Number.isNaN(priceA) && !Number.isNaN(priceB) && priceB < priceA ? 'Best value'
+        : speedB > speedA ? 'Fastest'
+        : null,
     },
   ]
 
@@ -96,11 +111,22 @@ export default async function ProviderComparisonPage({
     ...comparison.sources.map((source) => ({ ...source, external: true as const })),
   ]
 
+  const hero = categoryHero('providers-and-comparisons')
+
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div>
       <JsonLd data={articleStructuredData} />
       <JsonLd data={faqJsonLd} />
-
+      <PageHeroBanner
+        title={comparison.title}
+        kicker="Head-to-head"
+        lede={firstSentence(comparison.excerpt)}
+        image={hero.image}
+        imageAlt={hero.imageAlt}
+        accent={hero.accent}
+        ctas={DEFAULT_GUIDE_CTAS}
+      />
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <BreadcrumbNav
         items={[
           { name: 'Home', href: '/' },
@@ -109,8 +135,6 @@ export default async function ProviderComparisonPage({
           { name: comparison.title, href: `/providers/compare/${comparison.slug}` },
         ]}
       />
-
-      <h1 className="text-3xl font-extrabold text-slate-900 mb-3">{comparison.title}</h1>
       <CiteableAnswer>{comparison.excerpt}</CiteableAnswer>
 
       <div className="flex flex-wrap items-center gap-4 border-b border-slate-200 pb-6 text-sm text-slate-500 mb-8">
@@ -127,6 +151,21 @@ export default async function ProviderComparisonPage({
       <OnThisPageNav
         links={[
           { href: '#comparison', label: 'At-a-glance comparison' },
+          ...(comparison.slug === 'plusnet-vs-sky'
+            ? [
+                { href: '#price-tiers', label: 'Price per tier' },
+                { href: '#head-to-head', label: 'Common questions' },
+                { href: '#wins-when', label: 'Who each is best for' },
+              ]
+            : []),
+          ...(comparison.slug === 'hyperoptic-vs-community-fibre'
+            ? [
+                { href: '#availability-first', label: 'Availability first' },
+                { href: '#contract-facts', label: 'Contract facts' },
+                { href: '#cost-150', label: '24-month cost at 150 Mbps' },
+                { href: '#wins-when', label: 'Who each is best for' },
+              ]
+            : []),
           { href: '#key-differences', label: 'Key differences' },
           { href: '#how-we-think', label: 'How we think about this' },
           { href: '#verdict', label: 'Final verdict' },
@@ -142,9 +181,16 @@ export default async function ProviderComparisonPage({
       />
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 mb-10">
-        {providers.map(({ provider, bestFor, maxSpeed, facts }) => (
+        {providers.map(({ provider, bestFor, maxSpeed, facts, badge }) => (
           <section key={provider.slug} className="rounded-xl border border-slate-200 bg-white p-6">
-            <h2 className="text-xl font-bold text-slate-900 mb-1">{provider.name}</h2>
+            <div className="mb-1 flex flex-wrap items-center gap-2">
+              <h2 className="text-xl font-bold text-slate-900">{provider.name}</h2>
+              {badge && (
+                <span className="inline-flex items-center rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-bold uppercase tracking-wide text-emerald-800">
+                  {badge}
+                </span>
+              )}
+            </div>
             <span className="mb-4 inline-block rounded-full bg-sky-100 px-2.5 py-1 text-xs font-semibold text-sky-800">
               Best for: {bestFor}
             </span>
@@ -247,7 +293,48 @@ export default async function ProviderComparisonPage({
         </div>
       </section>
 
+      <section id="pros-cons" className="mb-10 scroll-mt-24">
+        <h2 className="text-xl font-bold text-slate-900 mb-4">Pros and Cons</h2>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          {providers.map(({ provider }) => (
+            <div key={provider.slug} className="rounded-xl border border-slate-200 bg-white p-5">
+              <h3 className="font-bold text-slate-900 mb-3">{provider.name}</h3>
+              <ul className="mb-4 space-y-2 text-sm text-slate-700">
+                {provider.pros.slice(0, 4).map((pro) => (
+                  <li key={pro} className="flex items-start gap-2">
+                    <span className="mt-0.5 text-emerald-600" aria-hidden="true">+</span>
+                    <span>{pro}</span>
+                  </li>
+                ))}
+              </ul>
+              <ul className="space-y-2 text-sm text-slate-600">
+                {provider.cons.slice(0, 4).map((con) => (
+                  <li key={con} className="flex items-start gap-2">
+                    <span className="mt-0.5 text-rose-500" aria-hidden="true">&minus;</span>
+                    <span>{con}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {comparison.slug === 'ee-vs-talktalk' ? <EeTalkTalkDecisionTool /> : null}
+
+      {comparison.slug === 'plusnet-vs-sky' ? (
+        <PlusnetVsSkyComparison
+          plusnetAffiliateUrl={providerA.affiliateUrl}
+          skyAffiliateUrl={providerB.affiliateUrl}
+        />
+      ) : null}
+
+      {comparison.slug === 'hyperoptic-vs-community-fibre' ? (
+        <HyperopticVsCommunityFibreComparison
+          hyperopticAffiliateUrl={providerA.affiliateUrl}
+          communityFibreAffiliateUrl={providerB.affiliateUrl}
+        />
+      ) : null}
 
       <section id="key-differences" className="mb-10 scroll-mt-24">
         <h2 className="text-xl font-bold text-slate-900 mb-4">Key Differences</h2>
@@ -330,7 +417,87 @@ export default async function ProviderComparisonPage({
             </li>
           ))}
         </ul>
+        {comparison.slug === 'community-fibre-vs-hyperoptic' ? (
+          <p className="mt-4 text-sm text-slate-600">
+            For the reverse-order matchup with the 24-month cost example and contract facts, see{' '}
+            <Link href="/providers/compare/hyperoptic-vs-community-fibre" className="text-sky-600 hover:underline">
+              Hyperoptic vs Community Fibre
+            </Link>
+            .
+          </p>
+        ) : null}
+        {comparison.slug === 'hyperoptic-vs-youfibre' ? (
+          <p className="mt-4 text-sm text-slate-600">
+            If you are choosing between London own-network altnets rather than YouFibre, see{' '}
+            <Link href="/providers/compare/hyperoptic-vs-community-fibre" className="text-sky-600 hover:underline">
+              Hyperoptic vs Community Fibre
+            </Link>
+            .
+          </p>
+        ) : null}
       </section>
+
+      {comparison.slug === 'ee-vs-talktalk' ? (
+        <section id="related-comparisons" className="mt-10 scroll-mt-24">
+          <h2 className="text-xl font-bold text-slate-900 mb-4">Related Comparisons and Guides</h2>
+          <ul className="grid grid-cols-1 gap-3 sm:grid-cols-3 text-sm">
+            <li>
+              <Link href="/providers/compare/bt-vs-talktalk" className="block rounded-lg border border-slate-200 bg-white p-4 font-semibold text-sky-700 hover:bg-slate-50">
+                BT vs TalkTalk &rarr;
+              </Link>
+            </li>
+            <li>
+              <Link href="/providers/compare/ee-vs-sky" className="block rounded-lg border border-slate-200 bg-white p-4 font-semibold text-sky-700 hover:bg-slate-50">
+                EE vs Sky &rarr;
+              </Link>
+            </li>
+            <li>
+              <Link href="/providers/compare/talktalk-vs-plusnet" className="block rounded-lg border border-slate-200 bg-white p-4 font-semibold text-sky-700 hover:bg-slate-50">
+                TalkTalk vs Plusnet &rarr;
+              </Link>
+            </li>
+            <li>
+              <Link href="/providers/shell-energy" className="block rounded-lg border border-slate-200 bg-white p-4 font-semibold text-sky-700 hover:bg-slate-50">
+                Shell Energy broadband migration guide &rarr;
+              </Link>
+            </li>
+          </ul>
+        </section>
+      ) : null}
+
+      {comparison.slug === 'bt-vs-plusnet' ? (
+        <section id="related-comparisons" className="mt-10 scroll-mt-24">
+          <h2 className="text-xl font-bold text-slate-900 mb-4">Related Comparisons and Guides</h2>
+          <ul className="grid grid-cols-1 gap-3 sm:grid-cols-3 text-sm">
+            <li>
+              <Link href="/providers/compare/bt-vs-sky" className="block rounded-lg border border-slate-200 bg-white p-4 font-semibold text-sky-700 hover:bg-slate-50">
+                BT vs Sky &rarr;
+              </Link>
+            </li>
+            <li>
+              <Link href="/providers/compare/bt-vs-talktalk" className="block rounded-lg border border-slate-200 bg-white p-4 font-semibold text-sky-700 hover:bg-slate-50">
+                BT vs TalkTalk &rarr;
+              </Link>
+            </li>
+            <li>
+              <Link href="/providers/compare/plusnet-vs-sky" className="block rounded-lg border border-slate-200 bg-white p-4 font-semibold text-sky-700 hover:bg-slate-50">
+                Plusnet vs Sky &rarr;
+              </Link>
+            </li>
+            <li>
+              <Link href="/guides/digital-voice-explained-uk" className="block rounded-lg border border-slate-200 bg-white p-4 font-semibold text-sky-700 hover:bg-slate-50">
+                Digital Voice explained &rarr;
+              </Link>
+            </li>
+            <li>
+              <Link href="/guides/landline-switch-off-explained-uk" className="block rounded-lg border border-slate-200 bg-white p-4 font-semibold text-sky-700 hover:bg-slate-50">
+                UK landline switch-off guide &rarr;
+              </Link>
+            </li>
+          </ul>
+        </section>
+      ) : null}
+      </div>
     </div>
   )
 }

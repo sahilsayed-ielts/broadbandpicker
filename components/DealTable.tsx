@@ -73,8 +73,9 @@ export default function DealTable({ deals, showDisclosure = true, compact = fals
         {(['price', 'speed', 'rating'] as SortKey[]).map((k) => (
           <button
             key={k}
+            type="button"
             onClick={() => updateSort(k)}
-            className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
+            className={`min-h-11 rounded-full px-3 py-2 text-sm font-medium transition-colors ${
               sort === k
                 ? 'bg-sky-700 text-white'
                 : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
@@ -91,7 +92,73 @@ export default function DealTable({ deals, showDisclosure = true, compact = fals
         </p>
       )}
 
-      <div className="overflow-x-auto rounded-xl border border-slate-200">
+      <ul className="space-y-3 md:hidden">
+        {sorted.map((deal, i) => (
+          <li key={`${deal.provider.slug}-${deal.packageName}-${i}`} className="rounded-xl border border-slate-200 bg-white p-4">
+            <div className="flex items-start justify-between gap-3">
+              <ProviderLogo
+                slug={deal.provider.slug}
+                name={deal.provider.name}
+                width={72}
+                height={36}
+                preload={i === 0}
+              />
+              {badges.has(deal) ? (
+                <span className={`rounded-full px-2 py-0.5 text-[11px] font-semibold ${badgeStyle[badges.get(deal)!]}`}>
+                  {badges.get(deal)}
+                </span>
+              ) : null}
+            </div>
+            <dl className="mt-3 grid grid-cols-2 gap-3 text-sm">
+              <div>
+                <dt className="text-xs text-slate-500">Speed</dt>
+                <dd className="font-semibold text-slate-900">{deal.download} Mbps</dd>
+              </div>
+              <div>
+                <dt className="text-xs text-slate-500">Monthly price</dt>
+                <dd>
+                  <span className="text-lg font-bold text-slate-900">£{deal.monthlyPrice.toFixed(2)}</span>
+                  <span className="text-xs text-slate-500">/mo</span>
+                </dd>
+              </div>
+              <div>
+                <dt className="text-xs text-slate-500">Contract</dt>
+                <dd className="text-slate-700">{deal.contractLength} months</dd>
+              </div>
+              {!compact ? (
+                <div>
+                  <dt className="text-xs text-slate-500">Setup</dt>
+                  <dd className="text-slate-700">{deal.setupFee === 0 ? 'Free' : `£${deal.setupFee}`}</dd>
+                </div>
+              ) : null}
+            </dl>
+            <div className="mt-4 flex flex-wrap items-center gap-2">
+              <AffiliateCTA
+                href={deal.provider.affiliateUrl}
+                providerName={deal.provider.name}
+                providerSlug={deal.provider.slug}
+                placement="deal_table_mobile_card"
+                size="md"
+              />
+              <SaveDealButton
+                providerSlug={deal.provider.slug}
+                providerName={deal.provider.name}
+                packageName={deal.packageName}
+                monthlyPrice={deal.monthlyPrice}
+                download={deal.download}
+                contractLength={deal.contractLength}
+              />
+            </div>
+          </li>
+        ))}
+      </ul>
+
+      <div
+        className="hidden overflow-x-auto rounded-xl border border-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-700 focus-visible:ring-offset-2 md:block"
+        role="region"
+        aria-label="Broadband deals table. Scroll horizontally on smaller laptops to view every column."
+        tabIndex={0}
+      >
         <table className="w-full min-w-[640px] text-sm">
           <thead className="bg-slate-50 border-b border-slate-200">
             <tr>

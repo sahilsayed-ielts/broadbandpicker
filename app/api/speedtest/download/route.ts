@@ -1,36 +1,39 @@
 import { randomFillSync } from 'node:crypto'
+import type { NextRequest } from 'next/server'
 
 export const dynamic = 'force-dynamic'
+export const runtime = 'nodejs'
+export const maxDuration = 30
 
-const CHUNK = 65536 // 64 KB per enqueue
-const TOTAL = 10 * 1024 * 1024 // 10 MB total
+const CHUNK = 65536
+const DEFAULT_BYTES = 8 * 1024 * 1024
+const MAX_BYTES = 16 * 1024 * 1024
 
-export async function GET() {
+export async function GET(request: NextRequest) {
+  const requested = Number(request.nextUrl.searchParams.get('bytes') ?? DEFAULT_BYTES)
+  const total = Number.isFinite(requested) ? Math.min(Math.max(Math.floor(requested), CHUNK), MAX_BYTES) : DEFAULT_BYTES
   let sent = 0
 
   const stream = new ReadableStream({
     pull(controller) {
-      if (sent >= TOTAL) {
+      if (sent >= total) {
         controller.close()
         return
       }
-      // Genuinely random bytes on every chunk. A deterministic or repeated
-      // pattern here gets flattened by Vercel's automatic Brotli/gzip
-      // compression before it ever leaves the edge — the browser then
-      // reports the decompressed byte count while only a tiny fraction of
-      // that actually crossed the network, wildly inflating the result.
-      // True high-entropy data can't be meaningfully compressed, so what
-      // the client measures matches what really transferred.
-      controller.enqueue(randomFillSync(new Uint8Array(CHUNK)))
-      sent += CHUNK
+      const size = Math.min(CHUNK, total - sent)
+      controller.enqueue(randomFillSync(new Uint8Array(size)))
+      sent += size
     },
   })
 
   return new Response(stream, {
     headers: {
       'Content-Type': 'application/octet-stream',
-      'Content-Length': String(TOTAL),
-      'Cache-Control': 'no-store',
+      'Content-Length': String(total),
+      'Content-Encoding': 'identity',
+      'Cache-Control': 'no-store, no-transform',
+      'CDN-Cache-Control': 'no-store',
+      'X-Content-Type-Options': 'nosniff',
     },
   })
 }

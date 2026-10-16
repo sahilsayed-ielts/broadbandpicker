@@ -1,10 +1,9 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import Script from 'next/script'
 import Link from 'next/link'
 import './globals.css'
 import PostcodeChecker from '@/components/PostcodeChecker'
-import NewsletterSignup from '@/components/NewsletterSignup'
 import CookieBanner from '@/components/CookieBanner'
 import CookiePreferencesButton from '@/components/CookiePreferencesButton'
 import Logo from '@/components/Logo'
@@ -13,6 +12,13 @@ import MobileNav from '@/components/MobileNav'
 import AiReferralTracker from '@/components/AiReferralTracker'
 import { JsonLd } from '@/lib/jsonLd'
 import { siteOrganizationGraph } from '@/lib/siteSchema'
+import {
+  ADSENSE_PUBLISHER_ID,
+  ADSENSE_SCRIPT_SRC,
+  FUNDING_CHOICES_SRC,
+  GOOGLE_CMP_BOOTSTRAP,
+} from '@/lib/adsense'
+import AdSenseRequestGate from '@/components/AdSenseRequestGate'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -20,7 +26,12 @@ const inter = Inter({
   display: 'swap',
 })
 
-const adsensePublisherId = 'ca-pub-9056289061141918'
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+  themeColor: '#0F172A',
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://broadbandpicker.co.uk'),
@@ -70,12 +81,12 @@ export const metadata: Metadata = {
 
 function TrustStrip() {
   return (
-    <div className="hidden border-b border-slate-800 bg-slate-900 text-sky-100 sm:block">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-1.5 sm:px-6 lg:px-8">
+    <div className="border-b border-slate-800 bg-slate-900 text-sky-100">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-1.5 sm:px-6 lg:px-8">
         <p className="text-[11px] font-medium tracking-wide">
           Independent UK broadband comparison. Rankings are not sold.
         </p>
-        <div className="flex items-center gap-4 text-[11px] font-semibold">
+        <div className="hidden items-center gap-4 text-[11px] font-semibold sm:flex">
           <Link href="/how-we-make-money" className="text-sky-300 transition-colors hover:text-white">
             How we make money
           </Link>
@@ -92,7 +103,7 @@ function Header() {
   return (
     <div id="top">
       <TrustStrip />
-      <header className="sticky top-0 z-30 border-b border-sky-100 bg-white/95 shadow-sm backdrop-blur">
+      <header className="sticky top-0 z-30 border-b border-sky-100 bg-white/95 pt-[env(safe-area-inset-top)] shadow-sm backdrop-blur">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between gap-4">
             <Link
@@ -134,8 +145,9 @@ const FOOTER_COLUMNS: { heading: string; links: { href: string; label: string; c
   {
     heading: 'Tools',
     links: [
+      { href: '/tools', label: 'All tools' },
       { href: '/tools/broadband-match', label: 'Broadband Match quiz' },
-      { href: '/speed-test', label: 'Speed test' },
+      { href: '/tools/speed-test', label: 'Speed test' },
       { href: '/tools/broadband-cost-calculator', label: 'Cost calculator' },
     ],
   },
@@ -273,10 +285,6 @@ function Footer() {
           </div>
         </div>
 
-        <div className="mb-10">
-          <NewsletterSignup source="footer" />
-        </div>
-
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-2 mb-10">
           {FOOTER_COLUMNS.map((column) => (
             <details key={column.heading} open className="group">
@@ -343,11 +351,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en-GB" className={`${inter.variable} h-full`}>
       <head>
         <link rel="alternate" hrefLang="en-GB" href="https://broadbandpicker.co.uk" />
-        <script
-          async
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsensePublisherId}`}
-          crossOrigin="anonymous"
-        />
+        <meta name="google-adsense-account" content={ADSENSE_PUBLISHER_ID} />
       </head>
       <body className="min-h-full flex flex-col font-[family-name:var(--font-inter)]">
         <JsonLd data={siteOrganizationGraph} />
@@ -355,14 +359,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="flex-1">{children}</main>
         <Footer />
         <CookieBanner />
+        <AdSenseRequestGate />
         <AiReferralTracker />
 
+        <Script id="google-cmp-bootstrap" strategy="beforeInteractive">
+          {GOOGLE_CMP_BOOTSTRAP}
+        </Script>
+        <Script id="google-funding-choices" src={FUNDING_CHOICES_SRC} strategy="afterInteractive" />
+        <Script
+          id="adsense-client"
+          src={ADSENSE_SCRIPT_SRC}
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
         {gaId && (
           <>
-            {/* Consent Mode v2 defaults: all optional storage denied until valid consent. */}
-            <Script id="ga-consent-default" strategy="beforeInteractive">
-              {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});`}
-            </Script>
             <Script
               src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
               strategy="afterInteractive"

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Register BroadbandPicker AI-referral reporting dimensions in GA4."""
+"""Register BroadbandPicker SEO, AI-referral and affiliate dimensions in GA4."""
 
 from __future__ import annotations
 
@@ -18,6 +18,30 @@ ADMIN_BASE = "https://analyticsadmin.googleapis.com/v1beta"
 EDIT_SCOPE = "https://www.googleapis.com/auth/analytics.edit"
 
 DIMENSIONS = [
+    {
+        "displayName": "Affiliate programme",
+        "parameterName": "provider_slug",
+        "description": "Broadband provider associated with an affiliate interaction.",
+        "scope": "EVENT",
+    },
+    {
+        "displayName": "Affiliate placement",
+        "parameterName": "affiliate_placement",
+        "description": "Stable, non-personal placement identifier for an affiliate exit.",
+        "scope": "EVENT",
+    },
+    {
+        "displayName": "Affiliate content type",
+        "parameterName": "content_type",
+        "description": "Low-cardinality page family for an affiliate exit.",
+        "scope": "EVENT",
+    },
+    {
+        "displayName": "Affiliate CTA label",
+        "parameterName": "link_label",
+        "description": "Normalised CTA wording used for an affiliate exit.",
+        "scope": "EVENT",
+    },
     {
         "displayName": "AI platform",
         "parameterName": "ai_platform",

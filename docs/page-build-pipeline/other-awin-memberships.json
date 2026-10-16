@@ -1,0 +1,1766 @@
+{
+  "generated_at": "2026-09-07T22:27:52.157833+00:00",
+  "purpose": "Content clusters that would make BroadbandPicker eligible for adjacent Awin affiliate programmes. On-genre only. Build highest opportunity score first, get the cluster indexed, then apply to the mapped programmes with those pages as the relevance proof.",
+  "scoring_note": "opportunity_score is a 0-100 composite of editorial 1-5 bands (demand, difficulty, content_gap, commercial_value) plus 1-3 bands (geo_upside, awin_unlock), optionally nudged by live SerpApi SERP shape. It contains no fabricated search volume, CPC or keyword-difficulty numbers.",
+  "weights": {
+    "demand": 0.28,
+    "ease": 0.24,
+    "content_gap": 0.18,
+    "geo_upside": 0.12,
+    "commercial_value": 0.1,
+    "awin_unlock": 0.08
+  },
+  "serp_meta": {
+    "mode": "live",
+    "checked": 12,
+    "searches_used": 12,
+    "searches_left": 48
+  },
+  "awin_targets": {
+    "smarty": {
+      "name": "SMARTY",
+      "advertiser_id": "10933",
+      "note": "SIM-only, GBP 6 to 15 per validated sale, 30-day cookie"
+    },
+    "mozillion": {
+      "name": "Mozillion",
+      "advertiser_id": "31539",
+      "note": "SIM-only, up to GBP 20 per sale"
+    },
+    "id_mobile": {
+      "name": "iD Mobile",
+      "advertiser_id": "6366",
+      "note": "SIM-only and handsets, Three network"
+    },
+    "o2_mobiles": {
+      "name": "O2 Mobiles",
+      "advertiser_id": "3235",
+      "note": "contracts, SIM-only, PAYG"
+    },
+    "mesh_computers": {
+      "name": "Mesh Computers",
+      "advertiser_id": "3936",
+      "note": "IT hardware incl. routers and mesh"
+    },
+    "wifi_hire_uk": {
+      "name": "Wifi Hire UK",
+      "advertiser_id": "123734",
+      "note": "pocket wifi and 4G/5G router rental"
+    },
+    "router_retailers": {
+      "name": "Router retailers (Currys, AO, TP-Link, Netgear, devolo)",
+      "advertiser_id": "",
+      "note": "networking hardware via retailer programmes"
+    },
+    "surfshark": {
+      "name": "Surfshark",
+      "advertiser_id": "",
+      "note": "VPN, ~40% revenue share, 30-day cookie, on Awin"
+    },
+    "vpn_other": {
+      "name": "IPVanish / PIA / other VPN",
+      "advertiser_id": "",
+      "note": "VPN, recurring revenue share; NordVPN UK is off Awin"
+    },
+    "now": {
+      "name": "NOW",
+      "advertiser_id": "",
+      "note": "streaming and broadband"
+    },
+    "sky_roi": {
+      "name": "Sky ROI",
+      "advertiser_id": "12422",
+      "note": "already pending; a TV cluster strengthens it"
+    },
+    "streaming_other": {
+      "name": "Disney+, Paramount+, discovery+, BritBox",
+      "advertiser_id": "",
+      "note": "SVOD programmes"
+    },
+    "compare_my_move": {
+      "name": "Compare My Move / reallymoving",
+      "advertiser_id": "",
+      "note": "removals and conveyancing quote comparison"
+    },
+    "voip": {
+      "name": "Voipfone / bOnline / VoIP",
+      "advertiser_id": "",
+      "note": "landline replacement for home and small business"
+    },
+    "isp_pool": {
+      "name": "ISP programmes (BT, Sky, EE, altnets)",
+      "advertiser_id": "",
+      "note": "core-broadband content strengthens every ISP application"
+    }
+  },
+  "clusters": [
+    {
+      "cluster": "Landline switch-off",
+      "pages": 6,
+      "avg_opportunity_score": 77.6,
+      "top_awin_programmes": [
+        {
+          "name": "Voipfone / bOnline / VoIP",
+          "advertiser_id": "",
+          "note": "landline replacement for home and small business",
+          "slug": "voip",
+          "pages": 6
+        },
+        {
+          "name": "ISP programmes (BT, Sky, EE, altnets)",
+          "advertiser_id": "",
+          "note": "core-broadband content strengthens every ISP application",
+          "slug": "isp_pool",
+          "pages": 6
+        }
+      ]
+    },
+    {
+      "cluster": "TV and streaming",
+      "pages": 6,
+      "avg_opportunity_score": 72.4,
+      "top_awin_programmes": [
+        {
+          "name": "NOW",
+          "advertiser_id": "",
+          "note": "streaming and broadband",
+          "slug": "now",
+          "pages": 5
+        },
+        {
+          "name": "Disney+, Paramount+, discovery+, BritBox",
+          "advertiser_id": "",
+          "note": "SVOD programmes",
+          "slug": "streaming_other",
+          "pages": 5
+        },
+        {
+          "name": "Sky ROI",
+          "advertiser_id": "12422",
+          "note": "already pending; a TV cluster strengthens it",
+          "slug": "sky_roi",
+          "pages": 3
+        },
+        {
+          "name": "ISP programmes (BT, Sky, EE, altnets)",
+          "advertiser_id": "",
+          "note": "core-broadband content strengthens every ISP application",
+          "slug": "isp_pool",
+          "pages": 1
+        },
+        {
+          "name": "Router retailers (Currys, AO, TP-Link, Netgear, devolo)",
+          "advertiser_id": "",
+          "note": "networking hardware via retailer programmes",
+          "slug": "router_retailers",
+          "pages": 1
+        }
+      ]
+    },
+    {
+      "cluster": "VPN and broadband privacy",
+      "pages": 6,
+      "avg_opportunity_score": 72.2,
+      "top_awin_programmes": [
+        {
+          "name": "Surfshark",
+          "advertiser_id": "",
+          "note": "VPN, ~40% revenue share, 30-day cookie, on Awin",
+          "slug": "surfshark",
+          "pages": 6
+        },
+        {
+          "name": "IPVanish / PIA / other VPN",
+          "advertiser_id": "",
+          "note": "VPN, recurring revenue share; NordVPN UK is off Awin",
+          "slug": "vpn_other",
+          "pages": 6
+        },
+        {
+          "name": "NOW",
+          "advertiser_id": "",
+          "note": "streaming and broadband",
+          "slug": "now",
+          "pages": 1
+        },
+        {
+          "name": "Router retailers (Currys, AO, TP-Link, Netgear, devolo)",
+          "advertiser_id": "",
+          "note": "networking hardware via retailer programmes",
+          "slug": "router_retailers",
+          "pages": 1
+        }
+      ]
+    },
+    {
+      "cluster": "Home Wi-Fi and networking hardware",
+      "pages": 9,
+      "avg_opportunity_score": 71.1,
+      "top_awin_programmes": [
+        {
+          "name": "Router retailers (Currys, AO, TP-Link, Netgear, devolo)",
+          "advertiser_id": "",
+          "note": "networking hardware via retailer programmes",
+          "slug": "router_retailers",
+          "pages": 9
+        },
+        {
+          "name": "Mesh Computers",
+          "advertiser_id": "3936",
+          "note": "IT hardware incl. routers and mesh",
+          "slug": "mesh_computers",
+          "pages": 5
+        },
+        {
+          "name": "ISP programmes (BT, Sky, EE, altnets)",
+          "advertiser_id": "",
+          "note": "core-broadband content strengthens every ISP application",
+          "slug": "isp_pool",
+          "pages": 2
+        }
+      ]
+    },
+    {
+      "cluster": "Broadband and mobile bundles",
+      "pages": 7,
+      "avg_opportunity_score": 70.7,
+      "top_awin_programmes": [
+        {
+          "name": "SMARTY",
+          "advertiser_id": "10933",
+          "note": "SIM-only, GBP 6 to 15 per validated sale, 30-day cookie",
+          "slug": "smarty",
+          "pages": 7
+        },
+        {
+          "name": "iD Mobile",
+          "advertiser_id": "6366",
+          "note": "SIM-only and handsets, Three network",
+          "slug": "id_mobile",
+          "pages": 6
+        },
+        {
+          "name": "Mozillion",
+          "advertiser_id": "31539",
+          "note": "SIM-only, up to GBP 20 per sale",
+          "slug": "mozillion",
+          "pages": 4
+        },
+        {
+          "name": "O2 Mobiles",
+          "advertiser_id": "3235",
+          "note": "contracts, SIM-only, PAYG",
+          "slug": "o2_mobiles",
+          "pages": 3
+        },
+        {
+          "name": "ISP programmes (BT, Sky, EE, altnets)",
+          "advertiser_id": "",
+          "note": "core-broadband content strengthens every ISP application",
+          "slug": "isp_pool",
+          "pages": 1
+        }
+      ]
+    },
+    {
+      "cluster": "Moving home",
+      "pages": 6,
+      "avg_opportunity_score": 70.2,
+      "top_awin_programmes": [
+        {
+          "name": "ISP programmes (BT, Sky, EE, altnets)",
+          "advertiser_id": "",
+          "note": "core-broadband content strengthens every ISP application",
+          "slug": "isp_pool",
+          "pages": 5
+        },
+        {
+          "name": "Compare My Move / reallymoving",
+          "advertiser_id": "",
+          "note": "removals and conveyancing quote comparison",
+          "slug": "compare_my_move",
+          "pages": 3
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "cluster": "Landline switch-off",
+      "page_type": "Explainer",
+      "working_title": "The UK landline switch-off explained",
+      "recommended_url": "/guides/landline-switch-off-explained-uk",
+      "primary_keyword": "landline switch off",
+      "secondary_keywords": [
+        "pstn switch off 2027",
+        "when is the landline being switched off",
+        "copper phone line switch off",
+        "digital voice switch over",
+        "will i lose my home phone"
+      ],
+      "intent": "Informational",
+      "target_awin_programmes": [
+        "voip",
+        "isp_pool"
+      ],
+      "bands": {
+        "demand": 4,
+        "difficulty": 2,
+        "content_gap": 5,
+        "commercial_value": 2,
+        "geo_upside": 3,
+        "awin_unlock": 3
+      },
+      "note": "Timely, urgent, almost no strong consumer coverage. Positions the site as the authority on the landline-to-broadband transition.",
+      "opportunity_score": 83.6,
+      "serp": {
+        "query": "landline switch off",
+        "ai_overview": true,
+        "ai_overview_needs_token": false,
+        "top_domains": [
+          "huntspost.co.uk",
+          "phonely.co.uk",
+          "onlinecommunity.stroke.org.uk",
+          "flotek.io",
+          "express.co.uk",
+          "techround.co.uk",
+          "edmondsonsit.co.uk",
+          "phonely.co.uk"
+        ],
+        "forum_results_in_top10": 1,
+        "bp_in_top10": false,
+        "people_also_ask": [
+          "Are landlines being switched off?",
+          "Is it worth keeping a landline phone?",
+          "How do I switch off my landline phone?",
+          "What will happen when landlines go digital?"
+        ],
+        "shopping_results": false
+      },
+      "rank": 1
+    },
+    {
+      "cluster": "Landline switch-off",
+      "page_type": "Explainer",
+      "working_title": "Digital Voice explained: what changes and what to do",
+      "recommended_url": "/guides/digital-voice-explained-uk",
+      "primary_keyword": "digital voice explained",
+      "secondary_keywords": [
+        "what is bt digital voice",
+        "sky digital voice",
+        "virgin media landline switch off",
+        "do i need a special phone for digital voice",
+        "digital voice power cut"
+      ],
+      "intent": "Informational",
+      "target_awin_programmes": [
+        "voip",
+        "isp_pool"
+      ],
+      "bands": {
+        "demand": 4,
+        "difficulty": 2,
+        "content_gap": 5,
+        "commercial_value": 2,
+        "geo_upside": 3,
+        "awin_unlock": 3
+      },
+      "note": "",
+      "opportunity_score": 83.6,
+      "serp": {
+        "query": "digital voice explained",
+        "ai_overview": true,
+        "ai_overview_needs_token": false,
+        "top_domains": [
+          "zen.co.uk",
+          "which.co.uk",
+          "bt.com",
+          "abilitynet.org.uk",
+          "virginmedia.com",
+          "ofcom.org.uk",
+          "vodafone.co.uk"
+        ],
+        "forum_results_in_top10": 0,
+        "bp_in_top10": false,
+        "people_also_ask": [
+          "Can you refuse to have digital voice?",
+          "How do I know if I am on digital voice?",
+          "What are the disadvantages of digital voice?",
+          "Can I use a normal phone with digital voice?"
+        ],
+        "shopping_results": false
+      },
+      "rank": 2
+    },
+    {
+      "cluster": "VPN and broadband privacy",
+      "page_type": "Question and answer",
+      "working_title": "Does a VPN slow down your internet?",
+      "recommended_url": "/guides/does-a-vpn-slow-your-internet",
+      "primary_keyword": "does a vpn slow down your internet",
+      "secondary_keywords": [
+        "vpn speed loss",
+        "why is my vpn slow",
+        "fastest vpn for speed",
+        "how much does a vpn slow broadband",
+        "vpn vs no vpn speed test"
+      ],
+      "intent": "Informational",
+      "target_awin_programmes": [
+        "surfshark",
+        "vpn_other"
+      ],
+      "bands": {
+        "demand": 4,
+        "difficulty": 3,
+        "content_gap": 5,
+        "commercial_value": 4,
+        "geo_upside": 3,
+        "awin_unlock": 3
+      },
+      "note": "Perfect fit: a broadband site can run the actual speed tests competitors do not. Strong AI Overview upside.",
+      "opportunity_score": 82.8,
+      "serp": {
+        "query": "does a vpn slow down your internet",
+        "ai_overview": true,
+        "ai_overview_needs_token": false,
+        "top_domains": [
+          "vividrepairs.co.uk",
+          "reddit.com",
+          "backup.education",
+          "meegle.com",
+          "community.spiceworks.com",
+          "facebook.com",
+          "thesun.co.uk",
+          "turbovpn.com"
+        ],
+        "forum_results_in_top10": 3,
+        "bp_in_top10": false,
+        "people_also_ask": [
+          "How do I stop my VPN from slowing down my internet?",
+          "How much slower is the internet with a VPN?",
+          "Is there a downside to using a VPN?",
+          "Should I leave the VPN on all the time?"
+        ],
+        "shopping_results": false
+      },
+      "rank": 3
+    },
+    {
+      "cluster": "Home Wi-Fi and networking hardware",
+      "page_type": "Question and answer",
+      "working_title": "How to fix Wi-Fi dead spots and weak signal at home",
+      "recommended_url": "/guides/fix-wifi-dead-spots-uk",
+      "primary_keyword": "how to fix wifi dead spots",
+      "secondary_keywords": [
+        "wifi not reaching upstairs",
+        "improve wifi signal at home",
+        "why is my wifi bad in one room",
+        "wifi black spots fix",
+        "broadband fine but wifi slow"
+      ],
+      "intent": "Informational",
+      "target_awin_programmes": [
+        "mesh_computers",
+        "router_retailers"
+      ],
+      "bands": {
+        "demand": 4,
+        "difficulty": 2,
+        "content_gap": 4,
+        "commercial_value": 2,
+        "geo_upside": 3,
+        "awin_unlock": 3
+      },
+      "note": "High-volume support intent, currently answered mostly by forums and thin listicles.",
+      "opportunity_score": 80.0,
+      "serp": {
+        "query": "how to fix wifi dead spots",
+        "ai_overview": true,
+        "ai_overview_needs_token": false,
+        "top_domains": [
+          "reddit.com",
+          "epb.com",
+          "tp-link.com",
+          "teltonika-networks.com",
+          "glofiber.com",
+          "cnet.com",
+          "wirelessconnect.ie"
+        ],
+        "forum_results_in_top10": 1,
+        "bp_in_top10": false,
+        "people_also_ask": [
+          "Can dead zones be fixed?",
+          "How to test for Wi-Fi dead spots?",
+          "How can I fix a dead zone in my house?",
+          "What does Wi-Fi dead zone mean?"
+        ],
+        "shopping_results": false
+      },
+      "rank": 4
+    },
+    {
+      "cluster": "TV and streaming",
+      "page_type": "Question and answer",
+      "working_title": "Cheapest way to watch Sky Sports and TNT Sports",
+      "recommended_url": "/guides/cheapest-way-to-watch-sky-sports-uk",
+      "primary_keyword": "cheapest way to watch sky sports",
+      "secondary_keywords": [
+        "sky sports without sky",
+        "now sports day pass",
+        "tnt sports cheapest",
+        "watch premier league cheaply uk",
+        "sky sports vs now sports"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "now",
+        "sky_roi",
+        "streaming_other"
+      ],
+      "bands": {
+        "demand": 4,
+        "difficulty": 3,
+        "content_gap": 4,
+        "commercial_value": 4,
+        "geo_upside": 3,
+        "awin_unlock": 3
+      },
+      "note": "",
+      "opportunity_score": 79.2,
+      "serp": {
+        "query": "cheapest way to watch sky sports",
+        "ai_overview": true,
+        "ai_overview_needs_token": false,
+        "top_domains": [
+          "nowtv.com",
+          "moneysavingexpert.com",
+          "reddit.com",
+          "sky.com",
+          "choose.co.uk",
+          "comparethemarket.com",
+          "broadband.co.uk",
+          "moneysupermarket.com"
+        ],
+        "forum_results_in_top10": 2,
+        "bp_in_top10": false,
+        "people_also_ask": [
+          "Can I buy Sky Sports without Sky?",
+          "How can I watch Sky Sports without paying?",
+          "What is the cheapest Sky package that includes Sky Sports?",
+          "Is Sky cheaper for pensioners?"
+        ],
+        "shopping_results": false
+      },
+      "rank": 5
+    },
+    {
+      "cluster": "Broadband and mobile bundles",
+      "page_type": "Buyer guide",
+      "working_title": "Broadband and mobile bundle discounts explained",
+      "recommended_url": "/guides/broadband-and-mobile-bundle-discounts-uk",
+      "primary_keyword": "broadband and mobile deals",
+      "secondary_keywords": [
+        "ee together discount",
+        "vodafone broadband and mobile discount",
+        "virgin media o2 volt",
+        "bt broadband and mobile bundle",
+        "is a broadband and mobile bundle worth it"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "smarty",
+        "id_mobile",
+        "o2_mobiles",
+        "isp_pool"
+      ],
+      "bands": {
+        "demand": 4,
+        "difficulty": 3,
+        "content_gap": 4,
+        "commercial_value": 4,
+        "geo_upside": 3,
+        "awin_unlock": 3
+      },
+      "note": "Directly on-genre: bundle discounts are a real broadband buying factor and nobody explains them well.",
+      "opportunity_score": 79.2,
+      "serp": {
+        "query": "broadband and mobile deals",
+        "ai_overview": true,
+        "ai_overview_needs_token": false,
+        "top_domains": [
+          "bestbroadbanddeals.co.uk",
+          "phonesltd.co.uk",
+          "expertreviews.co.uk",
+          "theexpatmarketplace.co.uk",
+          "partner.uw.co.uk",
+          "reddit.com",
+          "switchity.co.uk",
+          "community.ee.co.uk"
+        ],
+        "forum_results_in_top10": 2,
+        "bp_in_top10": false,
+        "people_also_ask": [
+          "Can you get mobile and broadband deals?",
+          "Who is the best broadband and phone provider?",
+          "Does EE do broadband and mobile deals?",
+          "What are Martin Lewis' best fibre broadband deals?"
+        ],
+        "shopping_results": false
+      },
+      "rank": 6
+    },
+    {
+      "cluster": "Landline switch-off",
+      "page_type": "Question and answer",
+      "working_title": "Will my alarm, telecare or lift line work after the switch-off?",
+      "recommended_url": "/guides/telecare-alarms-landline-switch-off-uk",
+      "primary_keyword": "will my house alarm work after the digital switchover",
+      "secondary_keywords": [
+        "telecare after landline switch off",
+        "careline digital switchover",
+        "lift phone line switch off",
+        "pendant alarm digital phone",
+        "does my alarm need a phone line"
+      ],
+      "intent": "Informational",
+      "target_awin_programmes": [
+        "voip",
+        "isp_pool"
+      ],
+      "bands": {
+        "demand": 3,
+        "difficulty": 1,
+        "content_gap": 5,
+        "commercial_value": 1,
+        "geo_upside": 3,
+        "awin_unlock": 2
+      },
+      "note": "Genuine safety-critical information gap; low competition; high citability.",
+      "opportunity_score": 78.1,
+      "serp": {
+        "query": "will my house alarm work after the digital switchover",
+        "ai_overview": true,
+        "ai_overview_needs_token": true,
+        "top_domains": [
+          "ctbalarms.co.uk",
+          "citizensadvice.org.uk",
+          "taking.care",
+          "facebook.com",
+          "thealarmpeople.net",
+          "adt.co.uk",
+          "telecare24.co.uk",
+          "community.bt.com"
+        ],
+        "forum_results_in_top10": 2,
+        "bp_in_top10": false,
+        "people_also_ask": [
+          "Can I keep my landline after 2027?",
+          "Will a house alarm reset itself?",
+          "Why is my house alarm going off even though there is no code?",
+          "Is my landline going to be cut off?"
+        ],
+        "shopping_results": false
+      },
+      "rank": 7
+    },
+    {
+      "cluster": "Home Wi-Fi and networking hardware",
+      "page_type": "Explainer",
+      "working_title": "Wi-Fi 7 explained: is it worth it in 2026?",
+      "recommended_url": "/guides/wifi-7-explained-uk",
+      "primary_keyword": "wifi 7 explained",
+      "secondary_keywords": [
+        "is wifi 7 worth it",
+        "wifi 7 vs wifi 6",
+        "do i need a wifi 7 router",
+        "wifi 7 uk availability",
+        "what broadband speed for wifi 7"
+      ],
+      "intent": "Informational",
+      "target_awin_programmes": [
+        "router_retailers",
+        "isp_pool"
+      ],
+      "bands": {
+        "demand": 4,
+        "difficulty": 2,
+        "content_gap": 4,
+        "commercial_value": 2,
+        "geo_upside": 3,
+        "awin_unlock": 2
+      },
+      "note": "Question-heavy, strong AI Overview upside; low difficulty while the term is new.",
+      "opportunity_score": 77.3,
+      "serp": {
+        "query": "wifi 7 explained",
+        "ai_overview": true,
+        "ai_overview_needs_token": true,
+        "top_domains": [
+          "juejin.cn",
+          "instagram.com",
+          "youtube.com",
+          "edgehill.ac.uk",
+          "cnet.com",
+          "ieeexplore.ieee.org"
+        ],
+        "forum_results_in_top10": 0,
+        "bp_in_top10": false,
+        "people_also_ask": [
+          "Is WiFi 8 coming out soon?",
+          "Is WiFi 7 actually better?",
+          "What are the downsides of Wi-Fi 7?",
+          "Is Wi-Fi 7 faster than 5G?"
+        ],
+        "shopping_results": false
+      },
+      "rank": 8
+    },
+    {
+      "cluster": "Broadband and mobile bundles",
+      "page_type": "Explainer",
+      "working_title": "eSIM explained: how it works and how to switch",
+      "recommended_url": "/guides/esim-explained-uk",
+      "primary_keyword": "esim explained",
+      "secondary_keywords": [
+        "what is an esim",
+        "how to set up an esim",
+        "esim vs physical sim",
+        "does my phone support esim",
+        "esim uk providers"
+      ],
+      "intent": "Informational",
+      "target_awin_programmes": [
+        "smarty",
+        "id_mobile"
+      ],
+      "bands": {
+        "demand": 4,
+        "difficulty": 2,
+        "content_gap": 4,
+        "commercial_value": 2,
+        "geo_upside": 3,
+        "awin_unlock": 2
+      },
+      "note": "Rising interest, low current difficulty, strong AI Overview upside.",
+      "opportunity_score": 77.3,
+      "serp": {
+        "query": "esim explained",
+        "ai_overview": true,
+        "ai_overview_needs_token": false,
+        "top_domains": [
+          "moneysavingexpert.com",
+          "easysim.global",
+          "uswitch.com",
+          "en.wikipedia.org",
+          "vodafone.co.uk",
+          "airalo.com",
+          "esim.holafly.com",
+          "which.co.uk"
+        ],
+        "forum_results_in_top10": 1,
+        "bp_in_top10": false,
+        "people_also_ask": [
+          "What are the disadvantages of eSIMs?",
+          "What is an eSIM and how does it work?",
+          "Do I turn off roaming when using eSIM on my iPhone?",
+          "Do I need to put my SIM card in if I have an eSIM?"
+        ],
+        "shopping_results": false
+      },
+      "rank": 9
+    },
+    {
+      "cluster": "Home Wi-Fi and networking hardware",
+      "page_type": "Question and answer",
+      "working_title": "Should you replace your broadband provider's router?",
+      "recommended_url": "/guides/replace-isp-router-uk",
+      "primary_keyword": "should i replace my isp router",
+      "secondary_keywords": [
+        "bt smart hub replacement",
+        "sky broadband hub alternative",
+        "best third party router uk",
+        "virgin media modem mode",
+        "is a better router worth it for broadband"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "router_retailers",
+        "mesh_computers"
+      ],
+      "bands": {
+        "demand": 3,
+        "difficulty": 2,
+        "content_gap": 4,
+        "commercial_value": 3,
+        "geo_upside": 3,
+        "awin_unlock": 3
+      },
+      "note": "",
+      "opportunity_score": 76.4,
+      "serp": {
+        "query": "should i replace my isp router",
+        "ai_overview": true,
+        "ai_overview_needs_token": true,
+        "top_domains": [
+          "reddit.com",
+          "quora.com",
+          "howtogeek.com",
+          "blog.bestbuy.ca",
+          "broadband.co.uk",
+          "xda-developers.com",
+          "tcaflisch.medium.com",
+          "tomsguide.com"
+        ],
+        "forum_results_in_top10": 2,
+        "bp_in_top10": false,
+        "people_also_ask": [
+          "Can I replace an ISP router?",
+          "Is a 10 year old router outdated?",
+          "How often should you replace a Wi-Fi router?",
+          "Does my IP change if I change my ISP?"
+        ],
+        "shopping_results": false
+      },
+      "rank": 10
+    },
+    {
+      "cluster": "TV and streaming",
+      "page_type": "Explainer",
+      "working_title": "Freely and Fetch TV explained: free TV without an aerial",
+      "recommended_url": "/guides/freely-and-fetch-tv-explained-uk",
+      "primary_keyword": "what is freely tv",
+      "secondary_keywords": [
+        "freely vs freeview",
+        "freely explained",
+        "fetch tv uk",
+        "free tv over broadband",
+        "watch tv without an aerial uk"
+      ],
+      "intent": "Informational",
+      "target_awin_programmes": [
+        "now",
+        "streaming_other",
+        "isp_pool"
+      ],
+      "bands": {
+        "demand": 3,
+        "difficulty": 2,
+        "content_gap": 5,
+        "commercial_value": 2,
+        "geo_upside": 3,
+        "awin_unlock": 2
+      },
+      "note": "Freely is new and barely covered; wide gap, strong citability.",
+      "opportunity_score": 75.3,
+      "serp": {
+        "query": "what is freely tv",
+        "ai_overview": true,
+        "ai_overview_needs_token": false,
+        "top_domains": [
+          "theaerialguys.co.uk",
+          "dailyrecord.co.uk",
+          "mirror.co.uk",
+          "thesun.co.uk",
+          "currys.co.uk",
+          "advanced-television.com"
+        ],
+        "forum_results_in_top10": 0,
+        "bp_in_top10": false,
+        "people_also_ask": [
+          "What are the disadvantages of Freely TV?",
+          "Is Freely TV the same as Freeview?",
+          "What TV channels do you get on Freely?",
+          "What is the point of Freely TV?"
+        ],
+        "shopping_results": false
+      },
+      "rank": 11
+    },
+    {
+      "cluster": "Moving home",
+      "page_type": "Checklist or tool",
+      "working_title": "Moving house broadband checklist and timeline",
+      "recommended_url": "/guides/moving-house-broadband-checklist-uk",
+      "primary_keyword": "moving house broadband checklist",
+      "secondary_keywords": [
+        "when to sort broadband when moving",
+        "transfer broadband to a new house",
+        "how far in advance to order broadband when moving",
+        "can i take my broadband to my new home",
+        "broadband not available at my new address"
+      ],
+      "intent": "Informational",
+      "target_awin_programmes": [
+        "isp_pool",
+        "compare_my_move"
+      ],
+      "bands": {
+        "demand": 4,
+        "difficulty": 3,
+        "content_gap": 4,
+        "commercial_value": 3,
+        "geo_upside": 3,
+        "awin_unlock": 2
+      },
+      "note": "Moving is the number-one broadband switching trigger; the site has broadband-moving-house but this is the actionable checklist.",
+      "opportunity_score": 74.5,
+      "serp": {
+        "query": "moving house broadband checklist",
+        "ai_overview": true,
+        "ai_overview_needs_token": true,
+        "top_domains": [
+          "help.royalmail.com",
+          "openreach.com",
+          "hoa.org.uk",
+          "fusionfibregroup.co.uk",
+          "postoffice.co.uk",
+          "uswitch.com",
+          "virginmedia.com",
+          "hometelecom.co.uk"
+        ],
+        "forum_results_in_top10": 0,
+        "bp_in_top10": false,
+        "people_also_ask": [
+          "What do I do with my broadband when I move house?",
+          "Is it necessary to order broadband before moving in?",
+          "What is the best checklist for moving house?",
+          "How do broadband contracts work if you move house?"
+        ],
+        "shopping_results": false
+      },
+      "rank": 12
+    },
+    {
+      "cluster": "Landline switch-off",
+      "page_type": "Explainer",
+      "working_title": "The PSTN switch-off for small businesses",
+      "recommended_url": "/guides/pstn-switch-off-small-business-uk",
+      "primary_keyword": "pstn switch off business",
+      "secondary_keywords": [
+        "isdn switch off",
+        "business phone line switch off",
+        "what businesses need to do before 2027",
+        "sip trunk vs pstn",
+        "voip for small business uk"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "voip",
+        "isp_pool"
+      ],
+      "bands": {
+        "demand": 3,
+        "difficulty": 2,
+        "content_gap": 4,
+        "commercial_value": 4,
+        "geo_upside": 2,
+        "awin_unlock": 3
+      },
+      "note": "B2B angle; overlaps the existing business-broadband cluster and unlocks VoIP programmes.",
+      "opportunity_score": 74.4,
+      "rank": 13
+    },
+    {
+      "cluster": "TV and streaming",
+      "page_type": "Buyer guide",
+      "working_title": "Best streaming services in the UK, compared",
+      "recommended_url": "/guides/best-streaming-services-uk",
+      "primary_keyword": "best streaming services uk",
+      "secondary_keywords": [
+        "which streaming service is best uk",
+        "streaming services compared",
+        "best value streaming uk",
+        "how many streaming services do i need",
+        "cheapest streaming service uk"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "now",
+        "streaming_other",
+        "sky_roi"
+      ],
+      "bands": {
+        "demand": 5,
+        "difficulty": 4,
+        "content_gap": 3,
+        "commercial_value": 3,
+        "geo_upside": 3,
+        "awin_unlock": 3
+      },
+      "note": "",
+      "opportunity_score": 74.4,
+      "rank": 14
+    },
+    {
+      "cluster": "Broadband and mobile bundles",
+      "page_type": "Explainer",
+      "working_title": "Best mobile network for coverage in the UK",
+      "recommended_url": "/guides/best-mobile-network-coverage-uk",
+      "primary_keyword": "best mobile network for coverage",
+      "secondary_keywords": [
+        "ee vs vodafone vs o2 vs three coverage",
+        "best mobile network in my area",
+        "which network has the best signal",
+        "mobile signal checker uk"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "smarty",
+        "id_mobile",
+        "o2_mobiles"
+      ],
+      "bands": {
+        "demand": 4,
+        "difficulty": 3,
+        "content_gap": 3,
+        "commercial_value": 3,
+        "geo_upside": 3,
+        "awin_unlock": 3
+      },
+      "note": "",
+      "opportunity_score": 73.6,
+      "rank": 15
+    },
+    {
+      "cluster": "Moving home",
+      "page_type": "Question and answer",
+      "working_title": "What happens to your broadband contract when you move",
+      "recommended_url": "/guides/broadband-contract-when-you-move-uk",
+      "primary_keyword": "moving house broadband contract",
+      "secondary_keywords": [
+        "can i cancel broadband if i move house",
+        "broadband early exit fee moving",
+        "broadband home mover deal",
+        "provider not available at new address",
+        "broadband cooling off period moving"
+      ],
+      "intent": "Informational",
+      "target_awin_programmes": [
+        "isp_pool"
+      ],
+      "bands": {
+        "demand": 4,
+        "difficulty": 3,
+        "content_gap": 3,
+        "commercial_value": 3,
+        "geo_upside": 3,
+        "awin_unlock": 3
+      },
+      "note": "",
+      "opportunity_score": 73.6,
+      "rank": 16
+    },
+    {
+      "cluster": "VPN and broadband privacy",
+      "page_type": "Question and answer",
+      "working_title": "How to stop your ISP tracking your browsing",
+      "recommended_url": "/guides/stop-isp-tracking-browsing-uk",
+      "primary_keyword": "how to stop your isp tracking you",
+      "secondary_keywords": [
+        "does my isp see my browsing history",
+        "hide browsing from isp",
+        "isp data retention uk",
+        "private dns vs vpn",
+        "is my isp selling my data"
+      ],
+      "intent": "Informational",
+      "target_awin_programmes": [
+        "surfshark",
+        "vpn_other"
+      ],
+      "bands": {
+        "demand": 3,
+        "difficulty": 3,
+        "content_gap": 4,
+        "commercial_value": 4,
+        "geo_upside": 3,
+        "awin_unlock": 3
+      },
+      "note": "",
+      "opportunity_score": 73.6,
+      "rank": 17
+    },
+    {
+      "cluster": "Home Wi-Fi and networking hardware",
+      "page_type": "Buyer guide",
+      "working_title": "Best mesh Wi-Fi systems UK",
+      "recommended_url": "/guides/best-mesh-wifi-systems-uk",
+      "primary_keyword": "best mesh wifi uk",
+      "secondary_keywords": [
+        "best mesh wifi system",
+        "mesh wifi vs extender",
+        "best mesh wifi for a large house",
+        "best budget mesh wifi uk",
+        "mesh wifi for full fibre"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "mesh_computers",
+        "router_retailers"
+      ],
+      "bands": {
+        "demand": 4,
+        "difficulty": 3,
+        "content_gap": 4,
+        "commercial_value": 3,
+        "geo_upside": 2,
+        "awin_unlock": 3
+      },
+      "note": "Site has best-mesh-wifi-for-your-broadband-router; this is the standalone buyer guide that anchors the cluster.",
+      "opportunity_score": 73.2,
+      "rank": 18
+    },
+    {
+      "cluster": "Home Wi-Fi and networking hardware",
+      "page_type": "Buyer guide",
+      "working_title": "Best Wi-Fi extenders and boosters UK",
+      "recommended_url": "/guides/best-wifi-extender-uk",
+      "primary_keyword": "best wifi extender uk",
+      "secondary_keywords": [
+        "wifi booster vs extender",
+        "best wifi extender for a router",
+        "do wifi extenders actually work",
+        "best wifi extender for virgin media",
+        "cheap wifi booster uk"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "router_retailers",
+        "mesh_computers"
+      ],
+      "bands": {
+        "demand": 4,
+        "difficulty": 3,
+        "content_gap": 4,
+        "commercial_value": 3,
+        "geo_upside": 2,
+        "awin_unlock": 3
+      },
+      "note": "",
+      "opportunity_score": 73.2,
+      "rank": 19
+    },
+    {
+      "cluster": "Landline switch-off",
+      "page_type": "Buyer guide",
+      "working_title": "Broadband with a home phone included after 2027",
+      "recommended_url": "/guides/broadband-with-home-phone-after-2027",
+      "primary_keyword": "broadband with a landline included",
+      "secondary_keywords": [
+        "home phone with broadband deals",
+        "do i still need a landline",
+        "broadband and phone package 2026",
+        "digital voice included broadband"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "isp_pool",
+        "voip"
+      ],
+      "bands": {
+        "demand": 4,
+        "difficulty": 3,
+        "content_gap": 4,
+        "commercial_value": 3,
+        "geo_upside": 2,
+        "awin_unlock": 3
+      },
+      "note": "",
+      "opportunity_score": 73.2,
+      "rank": 20
+    },
+    {
+      "cluster": "VPN and broadband privacy",
+      "page_type": "Question and answer",
+      "working_title": "Is a free VPN safe?",
+      "recommended_url": "/guides/is-a-free-vpn-safe",
+      "primary_keyword": "is a free vpn safe",
+      "secondary_keywords": [
+        "free vpn risks",
+        "best free vpn uk",
+        "free vpn vs paid",
+        "are free vpns dangerous",
+        "free vpn that works"
+      ],
+      "intent": "Informational",
+      "target_awin_programmes": [
+        "surfshark",
+        "vpn_other"
+      ],
+      "bands": {
+        "demand": 4,
+        "difficulty": 3,
+        "content_gap": 3,
+        "commercial_value": 4,
+        "geo_upside": 3,
+        "awin_unlock": 2
+      },
+      "note": "",
+      "opportunity_score": 72.9,
+      "rank": 21
+    },
+    {
+      "cluster": "Landline switch-off",
+      "page_type": "Question and answer",
+      "working_title": "Landline switch-off with no mobile signal: what to do",
+      "recommended_url": "/guides/landline-switch-off-no-mobile-signal-uk",
+      "primary_keyword": "landline switch off no mobile signal",
+      "secondary_keywords": [
+        "battery backup unit for landline",
+        "rural landline switch off",
+        "resilience for digital voice",
+        "what if the power goes out digital phone"
+      ],
+      "intent": "Informational",
+      "target_awin_programmes": [
+        "voip",
+        "isp_pool"
+      ],
+      "bands": {
+        "demand": 2,
+        "difficulty": 1,
+        "content_gap": 5,
+        "commercial_value": 1,
+        "geo_upside": 3,
+        "awin_unlock": 2
+      },
+      "note": "",
+      "opportunity_score": 72.5,
+      "rank": 22
+    },
+    {
+      "cluster": "Moving home",
+      "page_type": "Buyer guide",
+      "working_title": "Broadband for student house shares",
+      "recommended_url": "/guides/broadband-for-student-house-shares-uk",
+      "primary_keyword": "broadband for a student house",
+      "secondary_keywords": [
+        "student house share broadband",
+        "9 month broadband contract",
+        "term time only broadband",
+        "splitting a broadband bill",
+        "best broadband for a shared house"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "isp_pool"
+      ],
+      "bands": {
+        "demand": 3,
+        "difficulty": 2,
+        "content_gap": 4,
+        "commercial_value": 3,
+        "geo_upside": 2,
+        "awin_unlock": 3
+      },
+      "note": "Complements the existing student-broadband-by-university-city page with the shared-house money angle.",
+      "opportunity_score": 72.4,
+      "rank": 23
+    },
+    {
+      "cluster": "Moving home",
+      "page_type": "Question and answer",
+      "working_title": "How long does it take to get broadband when you move?",
+      "recommended_url": "/guides/how-long-broadband-installation-uk",
+      "primary_keyword": "how long does broadband installation take",
+      "secondary_keywords": [
+        "openreach engineer wait time",
+        "broadband activation time",
+        "full fibre installation lead time",
+        "how long without internet when switching"
+      ],
+      "intent": "Informational",
+      "target_awin_programmes": [
+        "isp_pool"
+      ],
+      "bands": {
+        "demand": 3,
+        "difficulty": 2,
+        "content_gap": 4,
+        "commercial_value": 2,
+        "geo_upside": 3,
+        "awin_unlock": 2
+      },
+      "note": "",
+      "opportunity_score": 71.7,
+      "rank": 24
+    },
+    {
+      "cluster": "VPN and broadband privacy",
+      "page_type": "Question and answer",
+      "working_title": "How to watch UK TV abroad",
+      "recommended_url": "/guides/watch-uk-tv-abroad",
+      "primary_keyword": "how to watch uk tv abroad",
+      "secondary_keywords": [
+        "bbc iplayer abroad",
+        "itvx abroad",
+        "watch uk tv on holiday",
+        "vpn for iplayer",
+        "uk streaming abroad vpn"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "surfshark",
+        "vpn_other",
+        "now"
+      ],
+      "bands": {
+        "demand": 4,
+        "difficulty": 4,
+        "content_gap": 3,
+        "commercial_value": 4,
+        "geo_upside": 3,
+        "awin_unlock": 3
+      },
+      "note": "",
+      "opportunity_score": 70.8,
+      "rank": 25
+    },
+    {
+      "cluster": "Home Wi-Fi and networking hardware",
+      "page_type": "Comparison",
+      "working_title": "Powerline adapters vs mesh Wi-Fi: which is better?",
+      "recommended_url": "/guides/powerline-adapters-vs-mesh-wifi",
+      "primary_keyword": "powerline adapter vs mesh wifi",
+      "secondary_keywords": [
+        "do powerline adapters work",
+        "best powerline adapter uk",
+        "powerline vs wifi extender",
+        "powerline adapter for gaming"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "router_retailers"
+      ],
+      "bands": {
+        "demand": 3,
+        "difficulty": 2,
+        "content_gap": 4,
+        "commercial_value": 3,
+        "geo_upside": 2,
+        "awin_unlock": 2
+      },
+      "note": "",
+      "opportunity_score": 69.7,
+      "rank": 26
+    },
+    {
+      "cluster": "Moving home",
+      "page_type": "Checklist or tool",
+      "working_title": "Change of address checklist: who to tell when you move",
+      "recommended_url": "/guides/change-of-address-checklist-uk",
+      "primary_keyword": "change of address checklist",
+      "secondary_keywords": [
+        "who to tell when you move house",
+        "moving house admin checklist",
+        "update my address uk",
+        "moving house to do list",
+        "notify dvla of address change"
+      ],
+      "intent": "Informational",
+      "target_awin_programmes": [
+        "compare_my_move",
+        "isp_pool"
+      ],
+      "bands": {
+        "demand": 5,
+        "difficulty": 4,
+        "content_gap": 3,
+        "commercial_value": 2,
+        "geo_upside": 3,
+        "awin_unlock": 2
+      },
+      "note": "Broad, high-demand, competitive; a genuine interactive checklist is the differentiator and the information-gain asset.",
+      "opportunity_score": 69.7,
+      "rank": 27
+    },
+    {
+      "cluster": "TV and streaming",
+      "page_type": "Comparison",
+      "working_title": "NOW vs Sky: which is better value?",
+      "recommended_url": "/guides/now-vs-sky-uk",
+      "primary_keyword": "now tv vs sky",
+      "secondary_keywords": [
+        "now broadband vs sky",
+        "is now cheaper than sky",
+        "now membership vs sky glass",
+        "now vs sky sports",
+        "sky stream vs now"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "now",
+        "sky_roi"
+      ],
+      "bands": {
+        "demand": 3,
+        "difficulty": 3,
+        "content_gap": 4,
+        "commercial_value": 4,
+        "geo_upside": 2,
+        "awin_unlock": 3
+      },
+      "note": "",
+      "opportunity_score": 69.6,
+      "rank": 28
+    },
+    {
+      "cluster": "TV and streaming",
+      "page_type": "Question and answer",
+      "working_title": "Do you still need a TV licence for streaming?",
+      "recommended_url": "/guides/do-you-need-a-tv-licence-uk",
+      "primary_keyword": "do i need a tv licence for streaming",
+      "secondary_keywords": [
+        "tv licence for netflix",
+        "tv licence rules 2026",
+        "watch tv without a licence",
+        "do i need a tv licence for iplayer",
+        "tv licence for students"
+      ],
+      "intent": "Informational",
+      "target_awin_programmes": [
+        "now",
+        "streaming_other"
+      ],
+      "bands": {
+        "demand": 4,
+        "difficulty": 3,
+        "content_gap": 3,
+        "commercial_value": 2,
+        "geo_upside": 3,
+        "awin_unlock": 2
+      },
+      "note": "",
+      "opportunity_score": 68.9,
+      "rank": 29
+    },
+    {
+      "cluster": "Broadband and mobile bundles",
+      "page_type": "Deals page",
+      "working_title": "Best SIM-only deals UK",
+      "recommended_url": "/guides/best-sim-only-deals-uk",
+      "primary_keyword": "best sim only deals",
+      "secondary_keywords": [
+        "cheap sim only deals",
+        "unlimited data sim",
+        "1 month rolling sim only",
+        "sim only no credit check",
+        "best sim only deal for me"
+      ],
+      "intent": "Transactional",
+      "target_awin_programmes": [
+        "smarty",
+        "mozillion",
+        "id_mobile",
+        "o2_mobiles"
+      ],
+      "bands": {
+        "demand": 5,
+        "difficulty": 4,
+        "content_gap": 2,
+        "commercial_value": 4,
+        "geo_upside": 2,
+        "awin_unlock": 3
+      },
+      "note": "Very competitive but the highest-demand entry point; needs a genuine angle, e.g. total-cost and network-coverage led rather than a raw table.",
+      "opportunity_score": 68.8,
+      "rank": 30
+    },
+    {
+      "cluster": "Broadband and mobile bundles",
+      "page_type": "Question and answer",
+      "working_title": "How to keep your phone number when you switch network",
+      "recommended_url": "/guides/keep-your-number-pac-code-uk",
+      "primary_keyword": "how to keep your phone number when switching",
+      "secondary_keywords": [
+        "what is a pac code",
+        "how to get a pac code",
+        "stac code vs pac code",
+        "port my number to a new network",
+        "text 65075 pac"
+      ],
+      "intent": "Informational",
+      "target_awin_programmes": [
+        "smarty",
+        "id_mobile",
+        "mozillion"
+      ],
+      "bands": {
+        "demand": 3,
+        "difficulty": 2,
+        "content_gap": 3,
+        "commercial_value": 2,
+        "geo_upside": 3,
+        "awin_unlock": 2
+      },
+      "note": "",
+      "opportunity_score": 68.1,
+      "rank": 31
+    },
+    {
+      "cluster": "Home Wi-Fi and networking hardware",
+      "page_type": "Buyer guide",
+      "working_title": "Best broadband router for a large house or thick walls",
+      "recommended_url": "/guides/best-router-for-large-house-uk",
+      "primary_keyword": "best router for a large house",
+      "secondary_keywords": [
+        "best wifi for a 4 bedroom house",
+        "best router for thick walls",
+        "wifi for a house over three floors",
+        "best long range router uk"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "router_retailers",
+        "mesh_computers"
+      ],
+      "bands": {
+        "demand": 3,
+        "difficulty": 3,
+        "content_gap": 4,
+        "commercial_value": 3,
+        "geo_upside": 2,
+        "awin_unlock": 3
+      },
+      "note": "",
+      "opportunity_score": 67.6,
+      "rank": 32
+    },
+    {
+      "cluster": "TV and streaming",
+      "page_type": "Comparison",
+      "working_title": "Fire TV Stick vs Chromecast vs Roku vs Apple TV",
+      "recommended_url": "/guides/streaming-stick-comparison-uk",
+      "primary_keyword": "best streaming stick uk",
+      "secondary_keywords": [
+        "fire tv stick vs chromecast",
+        "roku vs fire stick",
+        "cheapest streaming device uk",
+        "best streaming device for 4k",
+        "do i need a streaming stick"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "router_retailers",
+        "streaming_other"
+      ],
+      "bands": {
+        "demand": 4,
+        "difficulty": 3,
+        "content_gap": 3,
+        "commercial_value": 3,
+        "geo_upside": 2,
+        "awin_unlock": 2
+      },
+      "note": "",
+      "opportunity_score": 66.9,
+      "rank": 33
+    },
+    {
+      "cluster": "VPN and broadband privacy",
+      "page_type": "Question and answer",
+      "working_title": "How to set up a VPN on your router",
+      "recommended_url": "/guides/set-up-vpn-on-router-uk",
+      "primary_keyword": "how to set up a vpn on your router",
+      "secondary_keywords": [
+        "router vpn uk",
+        "vpn for the whole home",
+        "best router for a vpn",
+        "vpn on wifi router",
+        "does a router vpn slow speed"
+      ],
+      "intent": "Informational",
+      "target_awin_programmes": [
+        "surfshark",
+        "vpn_other",
+        "router_retailers"
+      ],
+      "bands": {
+        "demand": 3,
+        "difficulty": 3,
+        "content_gap": 4,
+        "commercial_value": 4,
+        "geo_upside": 2,
+        "awin_unlock": 2
+      },
+      "note": "Bridges the VPN and hardware clusters.",
+      "opportunity_score": 66.9,
+      "rank": 34
+    },
+    {
+      "cluster": "Broadband and mobile bundles",
+      "page_type": "Deals page",
+      "working_title": "Cheapest unlimited data SIM UK",
+      "recommended_url": "/guides/cheapest-unlimited-data-sim-uk",
+      "primary_keyword": "cheapest unlimited data sim",
+      "secondary_keywords": [
+        "unlimited data sim deals",
+        "best unlimited sim uk",
+        "unlimited 5g sim",
+        "unlimited data sim for home broadband"
+      ],
+      "intent": "Transactional",
+      "target_awin_programmes": [
+        "smarty",
+        "mozillion",
+        "id_mobile"
+      ],
+      "bands": {
+        "demand": 4,
+        "difficulty": 4,
+        "content_gap": 3,
+        "commercial_value": 4,
+        "geo_upside": 2,
+        "awin_unlock": 3
+      },
+      "note": "",
+      "opportunity_score": 66.8,
+      "rank": 35
+    },
+    {
+      "cluster": "VPN and broadband privacy",
+      "page_type": "Buyer guide",
+      "working_title": "Best VPN for UK broadband 2026",
+      "recommended_url": "/guides/best-vpn-uk",
+      "primary_keyword": "best vpn uk",
+      "secondary_keywords": [
+        "best vpn for streaming uk",
+        "cheapest vpn uk",
+        "best vpn 2026",
+        "fastest vpn uk",
+        "best vpn for home broadband"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "surfshark",
+        "vpn_other"
+      ],
+      "bands": {
+        "demand": 5,
+        "difficulty": 5,
+        "content_gap": 2,
+        "commercial_value": 5,
+        "geo_upside": 2,
+        "awin_unlock": 3
+      },
+      "note": "Highest commercial value on the list (recurring revenue share) but the most competitive; needs a broadband-speed-tested angle to be credible.",
+      "opportunity_score": 66.0,
+      "rank": 36
+    },
+    {
+      "cluster": "Home Wi-Fi and networking hardware",
+      "page_type": "Buyer guide",
+      "working_title": "Best gaming router UK 2026",
+      "recommended_url": "/guides/best-gaming-router-uk",
+      "primary_keyword": "best gaming router uk",
+      "secondary_keywords": [
+        "best router for low ping",
+        "best router for ps5 and xbox",
+        "gaming router vs normal router",
+        "does a gaming router reduce lag"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "router_retailers"
+      ],
+      "bands": {
+        "demand": 3,
+        "difficulty": 3,
+        "content_gap": 3,
+        "commercial_value": 3,
+        "geo_upside": 2,
+        "awin_unlock": 2
+      },
+      "note": "",
+      "opportunity_score": 61.3,
+      "rank": 37
+    },
+    {
+      "cluster": "Home Wi-Fi and networking hardware",
+      "page_type": "Buyer guide",
+      "working_title": "Best router for Virgin Media broadband",
+      "recommended_url": "/guides/best-router-for-virgin-media",
+      "primary_keyword": "best router for virgin media",
+      "secondary_keywords": [
+        "virgin media hub 5 alternative",
+        "third party router virgin media",
+        "virgin media modem mode setup",
+        "improve virgin media wifi"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "router_retailers",
+        "isp_pool"
+      ],
+      "bands": {
+        "demand": 3,
+        "difficulty": 3,
+        "content_gap": 3,
+        "commercial_value": 3,
+        "geo_upside": 2,
+        "awin_unlock": 2
+      },
+      "note": "",
+      "opportunity_score": 61.3,
+      "rank": 38
+    },
+    {
+      "cluster": "Broadband and mobile bundles",
+      "page_type": "Comparison",
+      "working_title": "30-day rolling SIM vs a mobile contract",
+      "recommended_url": "/guides/rolling-sim-vs-contract-uk",
+      "primary_keyword": "30 day sim vs contract",
+      "secondary_keywords": [
+        "rolling monthly sim",
+        "no contract sim uk",
+        "is a rolling sim cheaper",
+        "sim only vs pay monthly"
+      ],
+      "intent": "Commercial investigation",
+      "target_awin_programmes": [
+        "smarty",
+        "mozillion"
+      ],
+      "bands": {
+        "demand": 3,
+        "difficulty": 3,
+        "content_gap": 3,
+        "commercial_value": 3,
+        "geo_upside": 2,
+        "awin_unlock": 2
+      },
+      "note": "",
+      "opportunity_score": 61.3,
+      "rank": 39
+    },
+    {
+      "cluster": "Moving home",
+      "page_type": "Checklist or tool",
+      "working_title": "Moving house utilities checklist",
+      "recommended_url": "/guides/moving-house-utilities-checklist-uk",
+      "primary_keyword": "moving house utilities checklist",
+      "secondary_keywords": [
+        "set up utilities in a new home",
+        "meter readings when moving house",
+        "when to switch energy when moving",
+        "council tax when you move"
+      ],
+      "intent": "Informational",
+      "target_awin_programmes": [
+        "compare_my_move"
+      ],
+      "bands": {
+        "demand": 3,
+        "difficulty": 3,
+        "content_gap": 3,
+        "commercial_value": 2,
+        "geo_upside": 2,
+        "awin_unlock": 2
+      },
+      "note": "",
+      "opportunity_score": 59.3,
+      "rank": 40
+    }
+  ]
+}

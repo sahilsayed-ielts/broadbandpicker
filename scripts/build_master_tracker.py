@@ -30,6 +30,8 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
+import re
 import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
@@ -42,6 +44,8 @@ from openpyxl.worksheet.table import Table, TableStyleInfo
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT = ROOT / "docs" / "master-build-tracker.xlsx"
+CONTENT_CHANGE_LOG = ROOT / "docs" / "page-build-pipeline" / "content-change-measurement-log.json"
+CANONICAL_PRIORITY = ROOT / "docs" / "page-build-pipeline" / "canonical-next-priority.json"
 DEFAULT_SOURCE = ROOT / "docs" / "broadbandpicker-keyword-mapping.xlsx"
 RUN_DATE = datetime.now(timezone.utc).date().isoformat()
 
@@ -50,8 +54,33 @@ MANUAL_HEADERS = ("Status", "Owner", "Target Date", "Notes")
 DEFAULT_STATUS = "Not started"
 
 AWIN_MANUAL_HEADERS = ("Status", "Owner", "Last Contacted", "Next Follow-up", "Decision / Feedback")
+SERP_PLAN_MANUAL_HEADERS = ("Status", "Owner", "Notes")
+SERP_PLAN_SHEET = "SerpAPI Plan"
+SERP_PLAN_GOOGLE_SHEET_ID = "1AcDSE_Gm3EdzDKZ2MQscGErVBONEoq9A"
+
+GEO_CLUSTER_STRATEGY = ROOT / "docs" / "page-build-pipeline" / "geo-topic-cluster-strategy.json"
+GEO_CLUSTER_SHEET = "GEO Topic Cluster Strategy"
+GEO_CLUSTER_MANUAL_HEADERS = ("Status", "Owner", "Notes")
+
+OTHER_AWIN_STRATEGY = ROOT / "docs" / "page-build-pipeline" / "other-awin-memberships.json"
+OTHER_AWIN_SHEET = "Other AWIN Memberships"
+OTHER_AWIN_MANUAL_HEADERS = ("Status", "Owner", "Notes")
+
+ALTNET_AWIN_STRATEGY = ROOT / "docs" / "page-build-pipeline" / "altnet-awin-programmes.json"
+ALTNET_AWIN_SHEET = "Altnet AWIN Programmes"
+ALTNET_AWIN_MANUAL_HEADERS = ("Status", "Owner", "Notes")
 
 AWIN_ADVERTISERS_DIR = ROOT / "Awin" / "advertisers"
+AWIN_REPORTS_DIR = ROOT / "Awin" / "reports"
+AWIN_PUBLISHER_ID = "2942019"
+PAGE_UX_SCAN = ROOT / "docs" / "home page UX" / "page-type-ux-scan.json"
+
+PAGE_PIPELINE_SCRIPTS = (
+    "scripts/run_priority_workflow.py; scripts/generate_weekly_seo_intelligence.py; "
+    "scripts/analyze_content_priority.py; scripts/analyze_page_type_ux.py; "
+    "scripts/build_keyword_mapping.py; scripts/record_content_change.py; "
+    "scripts/build_master_tracker.py"
+)
 
 # Priority band per relationship, in display order. Awin work is deliberately
 # separated from the product/content build queue: monetise joined programmes
@@ -82,6 +111,19 @@ def load_awin_advertisers() -> list[dict[str, Any]]:
     if not AWIN_ADVERTISERS_DIR.exists():
         return []
     programmes = []
+    click_report_path = AWIN_REPORTS_DIR / "ga4-affiliate-clicks-latest.json"
+    performance_path = AWIN_REPORTS_DIR / "affiliate-performance-latest.json"
+    click_report = json.loads(click_report_path.read_text()) if click_report_path.exists() else {}
+    performance = json.loads(performance_path.read_text()) if performance_path.exists() else {}
+    clicks = {row.get("advertiser"): row.get("clicks", 0) for row in click_report.get("rows", [])}
+    conversions: dict[str, dict[str, float]] = {}
+    for row in performance.get("rows", []):
+        advertiser = row.get("advertiser") or row.get("advertiser_name")
+        if advertiser:
+            conversions[advertiser] = {
+                "transactions": row.get("transactions", row.get("transaction_count", 0)) or 0,
+                "commission": row.get("commission", row.get("commission_amount", 0)) or 0,
+            }
     for d in sorted(AWIN_ADVERTISERS_DIR.iterdir()):
         programme_path = d / "programme.json"
         if not programme_path.exists():
@@ -91,16 +133,152 @@ def load_awin_advertisers() -> list[dict[str, Any]]:
         except (json.JSONDecodeError, OSError):
             continue
         relationship = data.get("relationship", "Prospect")
+        research_path = d / "research.md"
+        research = research_path.read_text() if research_path.exists() else ""
+        fit_match = re.search(r"\*\*(\d+(?:\.\d+)?)/10", research)
+        fit_score = float(fit_match.group(1)) if fit_match else None
+        angle_match = re.search(
+            r"## Suggested placement / pitch angle\s+(.+?)(?=\n## |\Z)",
+            research,
+            flags=re.S,
+        )
+        research_angle = " ".join(angle_match.group(1).split()) if angle_match else ""
+        perf = conversions.get(data.get("advertiser", d.name), {})
         programmes.append({
             "band": AWIN_BAND_ORDER.get(relationship, "P4 Under review"),
             "advertiser": data.get("advertiser", d.name),
             "id": data.get("awin_advertiser_id") or "",
             "relationship": relationship,
             "url": data.get("live_url") or "",
+            "slug": data.get("slug", d.name),
+            "sector": data.get("sector") or "",
+            "last_synced": data.get("last_synced") or "",
+            "fit_score": fit_score,
+            "research_status": "Completed" if research else "Needed",
+            "research_angle": research_angle,
+            "ga4_clicks": clicks.get(data.get("advertiser", d.name), 0),
+            "transactions": perf.get("transactions", 0),
+            "commission": perf.get("commission", 0),
+            "click_period": click_report.get("period_days", ""),
+            "clicks_generated_at": click_report.get("generated_at", ""),
+            "performance_generated_at": performance.get("generated_at", ""),
         })
     band_rank = {band: i for i, band in enumerate(dict.fromkeys(AWIN_BAND_ORDER.values()))}
-    programmes.sort(key=lambda p: (band_rank.get(p["band"], 99), p["advertiser"]))
+    for programme in programmes:
+        relationship = programme["relationship"]
+        base = {"Joined": 90, "Invited": 85, "Pending": 70, "Suspended": 65,
+                "Rejected": 40, "Prospect": 20}.get(relationship, 10)
+        # Clicks are direct evidence of commercial audience intent. Fit is
+        # supporting evidence, not a fabricated probability of acceptance.
+        programme["outreach_score"] = min(
+            100,
+            base + min(programme["ga4_clicks"] * 2, 10) + (programme["fit_score"] or 0),
+        )
+        # A joined programme with no clicks needs activation attention first.
+        programme["activation_gap"] = relationship == "Joined" and programme["ga4_clicks"] == 0
+    programmes.sort(key=lambda p: (
+        band_rank.get(p["band"], 99),
+        0 if p["activation_gap"] else 1,
+        -p["outreach_score"],
+        p["advertiser"],
+    ))
     return programmes
+
+
+def awin_copy_paste_pitch(programme: dict[str, Any], url: str) -> str:
+    """Create an honest, advertiser-specific message ready for Awin's
+    application or messaging field. It deliberately avoids invented traffic,
+    conversion or approval claims and changes the ask by relationship stage.
+    """
+    brand = programme["advertiser"]
+    relationship = programme["relationship"]
+    clicks = programme["ga4_clicks"]
+    fit = programme["fit_score"]
+    page_line = (
+        f"We already have a dedicated, live page for {brand}: {url}. "
+        if url else
+        f"We have identified a relevant editorial placement for {brand} and will only publish once the offer, coverage and claims are verified. "
+    )
+    demand_line = (
+        f"GA4 recorded {clicks} provider-specific outbound click{'s' if clicks != 1 else ''} in the latest 30-day window, giving us direct evidence of commercial interest. "
+        if clicks else
+        "We will measure provider-level outbound clicks from launch and reconcile them with Awin reporting, so placement decisions are based on qualified demand rather than unsupported forecasts. "
+    )
+    fit_line = f"Our documented editorial fit assessment scores this partnership {fit:g}/10. " if fit is not None else ""
+    angle = programme.get("research_angle", "")
+    angle_line = f"Our planned editorial angle is: {angle[:650]} " if angle else ""
+
+    if relationship == "Joined":
+        opening = f"Subject: {brand} launch plan for BroadbandPicker, Awin publisher {AWIN_PUBLISHER_ID}\n\nHi {brand} partnerships team,\n\nThank you for approving BroadbandPicker.co.uk for your Awin programme. "
+        close = (
+            "Could you please confirm the current commission structure, cookie window, validation period, permitted deep-link destinations and any comparison-site restrictions? "
+            "Please also share your current offer feed, approved creative and coverage data so we can launch accurately.\n\n"
+            "Once confirmed, we will test the tracked link and monitor clicks by page, placement and CTA through our Awin click-reference taxonomy.\n\nBest,\nSahil\nBroadbandPicker.co.uk"
+        )
+    elif relationship in {"Pending", "Suspended", "Invited"}:
+        opening = f"Subject: BroadbandPicker application for {brand}, Awin publisher {AWIN_PUBLISHER_ID}\n\nHi {brand} partnerships team,\n\nI’m following up on BroadbandPicker.co.uk’s {brand} programme application. BroadbandPicker is an independent UK broadband comparison and editorial website helping users compare providers, coverage, speed, price and contract terms. "
+        close = (
+            "Our promotional method is content-led SEO, provider comparisons, postcode-led coverage pages and contextual calls to action. We use clear affiliate disclosure, avoid trademark bidding and verify material price, speed and coverage claims before publication.\n\n"
+            "Would you be able to review our application and let me know whether any additional traffic, placement or compliance evidence would help? We would also appreciate confirmation of the commission structure, cookie window, validation period, deep-link rules and any paid-search or brand restrictions.\n\nBest,\nSahil\nBroadbandPicker.co.uk"
+        )
+    elif relationship == "Rejected":
+        opening = f"Subject: Evidence-led reapplication for the {brand} programme, publisher {AWIN_PUBLISHER_ID}\n\nHi {brand} partnerships team,\n\nI’m writing regarding BroadbandPicker.co.uk’s previous application to the {brand} programme. Since that decision, we have strengthened our content-led comparison proposition and advertiser-level measurement. "
+        close = (
+            "We promote partners through relevant editorial reviews, comparisons and local coverage content, with clear affiliate disclosure and no trademark bidding. Price, speed, coverage and contract claims are checked before publication.\n\n"
+            "Could you tell us the reason for the earlier decision and whether you would reconsider an evidence-led application? If there is a minimum traffic level, required content format or restricted promotional method, please share it so we can assess fit before reapplying.\n\nBest,\nSahil\nBroadbandPicker.co.uk"
+        )
+    else:
+        opening = f"Subject: Potential editorial partnership with BroadbandPicker.co.uk\n\nHi {brand} partnerships team,\n\nI’m Sahil from BroadbandPicker.co.uk, an independent UK broadband comparison and editorial website. We are assessing whether {brand} is a genuine fit for our audience before applying or publishing a commercial placement. "
+        close = (
+            "Could you share the programme’s commission structure, cookie window, validation and payment terms, permitted promotional methods, deduplication policy and any brand or paid-search restrictions? We would only proceed with a relevant, clearly disclosed placement backed by accurate information.\n\nBest,\nSahil\nBroadbandPicker.co.uk"
+        )
+    pitch = opening + page_line + demand_line + fit_line + angle_line + "\n\n" + close
+    if len(pitch) <= 990:
+        return pitch
+
+    # Awin application/message fields commonly cap copy at 1,000 characters.
+    # Keep a complete, well-formed message rather than slicing off the ask or
+    # sign-off. The full research angle remains in its neighbouring column.
+    if relationship == "Joined":
+        ask = "Please confirm current commission, cookie window, validation period, deep-link rules, approved creative and coverage data so we can launch accurately."
+    elif relationship in {"Pending", "Suspended", "Invited"}:
+        ask = "Please review our application and tell us if further traffic, placement or compliance evidence is required. Please also confirm commission, cookie window, validation and promotional restrictions."
+    elif relationship == "Rejected":
+        ask = "Please share the earlier rejection reason and whether you would reconsider based on this evidence. If you require minimum traffic or particular content formats, please let us know before we reapply."
+    else:
+        ask = "Before we apply, please share commission, cookie window, validation terms, permitted promotion, deduplication and brand restrictions."
+    proof_parts = []
+    if url:
+        proof_parts.append(f"Relevant live page: {url}.")
+    if clicks:
+        proof_parts.append(f"GA4 recorded {clicks} provider-specific outbound click{'s' if clicks != 1 else ''} in the latest 30 days.")
+    else:
+        proof_parts.append("We will report provider, page and placement-level clicks from launch.")
+    if fit is not None:
+        proof_parts.append(f"Documented audience fit: {fit:g}/10.")
+    evidence_short = " ".join(proof_parts) + " "
+    compact_pitch = (
+        f"Subject: BroadbandPicker and {brand}, Awin publisher {AWIN_PUBLISHER_ID}\n\n"
+        f"Hi {brand} partnerships team,\n\n"
+        "I’m Sahil from BroadbandPicker.co.uk, an independent UK broadband comparison and editorial website. "
+        + evidence_short
+        + "We promote providers through relevant reviews, comparisons and postcode-led coverage content. "
+        "We use clear affiliate disclosure, avoid trademark bidding, verify material claims and track clicks by provider, page and placement. "
+        + ask
+        + "\n\nBest,\nSahil\nBroadbandPicker.co.uk"
+    )
+    if len(compact_pitch) <= 990:
+        return compact_pitch
+    # Final compact form for unusually long advertiser names or URLs.
+    return (
+        f"Subject: {brand} partnership, Awin publisher {AWIN_PUBLISHER_ID}\n\n"
+        f"Hi {brand} partnerships team,\n\n"
+        "I’m Sahil from BroadbandPicker.co.uk, an independent UK broadband comparison website. "
+        + evidence_short
+        + "We use relevant editorial placements, clear affiliate disclosure, verified claims, no trademark bidding and provider-level click tracking. "
+        + ask
+        + "\n\nBest,\nSahil"
+    )
 
 # ---------------------------------------------------------------------------
 # Feature / UX / content-strategy builds — curated from the growth playbook.
@@ -2406,7 +2584,86 @@ def repo_sync_status() -> str:
     return "Live but not committed to git" if dirty else "Committed"
 
 
-def load_page_builds(source: Path) -> list[dict[str, Any]]:
+def load_keyword_mapping_completions() -> dict[str, dict[str, Any]]:
+    """Return production page changes completed by the page-build pipeline.
+
+    The deployment/annotation ledger is more precise than route existence: it
+    records the exact URL, source script and completion date only after the
+    production verification and measurement steps have succeeded.
+    """
+    if not CONTENT_CHANGE_LOG.exists():
+        return {}
+    try:
+        payload = json.loads(CONTENT_CHANGE_LOG.read_text())
+    except (json.JSONDecodeError, OSError):
+        return {}
+
+    completions: dict[str, dict[str, Any]] = {}
+    for change in payload.get("changes", []):
+        if change.get("source") != "build_keyword_mapping.py":
+            continue
+        if change.get("deployment") != "vercel-production":
+            continue
+        path = str(change.get("path") or "").rstrip("/") or "/"
+        source_script = str(change.get("source") or "")
+        if source_script and not source_script.startswith("scripts/"):
+            source_script = f"scripts/{source_script}"
+        scripts_used = [
+            source_script,
+            "scripts/record_content_change.py",
+            "scripts/build_master_tracker.py",
+        ]
+        completions[path] = {
+            **change,
+            "scripts_used": "; ".join(script for script in scripts_used if script),
+        }
+    return completions
+
+
+def load_current_seo_priority() -> tuple[list[str], list[list[Any]]] | None:
+    """Load the canonical, analytics-led next-page decision into the workbook."""
+    if not CANONICAL_PRIORITY.exists():
+        return None
+    try:
+        payload = json.loads(CANONICAL_PRIORITY.read_text())
+    except (json.JSONDecodeError, OSError):
+        return None
+    winner_path = str((payload.get("next_priority") or {}).get("path") or "")
+    generated = str(payload.get("generated_at") or "")
+    headers = [
+        "Priority Rank", "Decision", "Page", "Opportunity Source", "Priority Score",
+        "Clicks", "Impressions", "CTR", "Average Position", "GA4 Sessions",
+        "AI Referral Visits", "Top Queries", "Recommended Action", "Scripts Used",
+        "Generated",
+    ]
+    rows: list[list[Any]] = []
+    for rank, item in enumerate(payload.get("shortlist", []), 1):
+        metrics = item.get("metrics") or {}
+        path = str(item.get("path") or "")
+        rows.append([
+            rank,
+            "BUILD NEXT" if path == winner_path else "Shortlist",
+            path,
+            item.get("source", ""),
+            item.get("score", 0),
+            metrics.get("clicks", ""),
+            metrics.get("impressions", ""),
+            metrics.get("ctr", ""),
+            metrics.get("position", ""),
+            metrics.get("sessions", ""),
+            metrics.get("ai_referral_visits", ""),
+            "; ".join(item.get("top_queries") or []),
+            item.get("reason", ""),
+            "scripts/run_priority_workflow.py; scripts/generate_weekly_seo_intelligence.py; scripts/analyze_content_priority.py; scripts/analyze_page_type_ux.py; scripts/build_keyword_mapping.py",
+            generated,
+        ])
+    return headers, rows
+
+
+def load_page_builds(
+    source: Path,
+    completions: dict[str, dict[str, Any]] | None = None,
+) -> list[dict[str, Any]]:
     wb = load_workbook(source, data_only=True)
     ws = wb["Content Gap Roadmap"]
     rows = list(ws.iter_rows(values_only=True))
@@ -2414,6 +2671,7 @@ def load_page_builds(source: Path) -> list[dict[str, Any]]:
     positions = {name: i for i, name in enumerate(headers)}
     sync = repo_sync_status()
 
+    completions = completions or {}
     items: list[dict[str, Any]] = []
     for row in data_rows:
         def get(col: str) -> Any:
@@ -2421,7 +2679,11 @@ def load_page_builds(source: Path) -> list[dict[str, Any]]:
 
         url = get("Recommended URL") or ""
         slug = url.replace("https://broadbandpicker.co.uk/", "")
+        path = f"/{slug}".rstrip("/") or "/"
+        completion = completions.get(path, {})
         status_field = get("Current Status") or ""
+        if completion:
+            status_field = "Built, live and deployed on Vercel"
         page_type = get("Page Type") or ""
         items.append({
             "item_id": f"page-{slug}",
@@ -2440,6 +2702,8 @@ def load_page_builds(source: Path) -> list[dict[str, Any]]:
             "cluster": get("Topic Cluster") or "",
             "keywords": get("Primary Keywords") or "",
             "volume": get("Combined Est. Volume") or "",
+            "scripts_used": completion.get("scripts_used") or "scripts/build_keyword_mapping.py",
+            "completed_date": completion.get("change_date") or "",
         })
     return items
 
@@ -2495,6 +2759,880 @@ def load_weekly_seo_actions(output: Path) -> tuple[list[str], list[list[Any]]] |
     return list(rows[0]), [list(row) for row in rows[1:] if any(value is not None for value in row)]
 
 
+def load_serp_plan_overrides(output: Path) -> dict[str, dict[str, Any]]:
+    """Preserve Status, Owner and Notes on the SerpAPI Plan tab."""
+    if not output.exists():
+        return {}
+    try:
+        wb = load_workbook(output, data_only=True, read_only=True)
+        if SERP_PLAN_SHEET not in wb.sheetnames:
+            return {}
+        rows = list(wb[SERP_PLAN_SHEET].iter_rows(values_only=True))
+    except Exception:
+        return {}
+    if not rows:
+        return {}
+    positions = {name: i for i, name in enumerate(rows[0])}
+    if "Action ID" not in positions:
+        return {}
+    overrides: dict[str, dict[str, Any]] = {}
+    for row in rows[1:]:
+        action_id = row[positions["Action ID"]]
+        if not action_id:
+            continue
+        overrides[str(action_id)] = {
+            header: row[positions[header]]
+            for header in SERP_PLAN_MANUAL_HEADERS
+            if header in positions
+        }
+    return overrides
+
+
+def load_geo_cluster_overrides(output: Path) -> dict[str, dict[str, Any]]:
+    """Preserve Status, Owner and Notes on the GEO Topic Cluster Strategy tab, matched by Key."""
+    if not output.exists():
+        return {}
+    try:
+        wb = load_workbook(output, data_only=True, read_only=True)
+        if GEO_CLUSTER_SHEET not in wb.sheetnames:
+            return {}
+        rows = list(wb[GEO_CLUSTER_SHEET].iter_rows(values_only=True))
+    except Exception:
+        return {}
+    if not rows:
+        return {}
+    positions = {name: i for i, name in enumerate(rows[0])}
+    if "Key" not in positions:
+        return {}
+    overrides: dict[str, dict[str, Any]] = {}
+    for row in rows[1:]:
+        key = row[positions["Key"]]
+        if not key:
+            continue
+        overrides[str(key)] = {
+            header: row[positions[header]]
+            for header in GEO_CLUSTER_MANUAL_HEADERS
+            if header in positions
+        }
+    return overrides
+
+
+def load_geo_topic_clusters(
+    overrides: dict[str, dict[str, Any]] | None = None,
+) -> tuple[list[str], list[list[Any]]] | None:
+    """Turn docs/page-build-pipeline/geo-topic-cluster-strategy.json into a durable worksheet.
+
+    The strategy JSON is produced by scripts/analyze_geo_growth_strategy.py: growing GSC
+    topic clusters, their intent / customer-journey stage, the AI Overview citation gap,
+    affiliate-programme alignment, and the new pages / refreshes to build. Status, Owner
+    and Notes are user-owned and preserved across regenerations, matched by Key.
+    """
+    overrides = overrides or {}
+    if not GEO_CLUSTER_STRATEGY.exists():
+        return None
+    try:
+        payload = json.loads(GEO_CLUSTER_STRATEGY.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+
+    generated = str(payload.get("generated_at", ""))[:10]
+    window = payload.get("current_window", {})
+    window_label = f"{window.get('start', '')}..{window.get('end', '')}"
+    headers = [
+        "Rank", "Key", "Record Type", "Cluster", "Intent", "Journey Stage",
+        "Impressions (28d)", "Impr. Change %", "Conversational Share", "Avg Position",
+        "Growth Score", "AI Overview", "BP Cited", "Existing Coverage",
+        "Recommended Page / Action", "Working Title", "Primary Queries", "Rising Queries",
+        "PAA To Answer", "Related Prompts", "Affiliate Partners", "Affiliate Readiness",
+        "GEO Answer Block", "Internal Links", "Priority Score", "Status", "Owner", "Notes",
+        "Source", "Generated",
+    ]
+    rows: list[list[Any]] = []
+
+    def manual(key: str, default_status: str) -> tuple[Any, Any, Any]:
+        entry = overrides.get(key, {})
+        return (
+            entry.get("Status") or default_status,
+            entry.get("Owner") or "",
+            entry.get("Notes") or "",
+        )
+
+    summary = payload.get("summary", {})
+    exec_key = "geo::summary"
+    status, owner, notes = manual(exec_key, "Monitoring")
+    rows.append([
+        0, exec_key, "Executive finding", "All growing clusters", "", "",
+        round(float(summary.get("gsc_impressions", 0))),
+        summary.get("gsc_impression_change_pct", 0),
+        summary.get("conversational_impression_share", 0), "", "",
+        "", "", "",
+        "Close the AI Overview citation gap on the growing clusters below",
+        "GEO topic-cluster strategy",
+        "", "", "", "",
+        "", "",
+        "Add concise, sourceable answer blocks + entity comparison tables to the recommended "
+        "pages, then measure AI citations and GA4 ai_referral_visit after release.",
+        "/compare; /deals",
+        "", status, owner, notes,
+        f"analyze_geo_growth_strategy.py ({window_label})", generated,
+    ])
+
+    league_by_key = {row.get("cluster_key"): row for row in payload.get("cluster_league", [])}
+    for rank, cluster in enumerate(payload.get("cluster_league", []), 1):
+        key = f"geo::cluster::{cluster.get('cluster_key')}"
+        status, owner, notes = manual(key, "Monitoring")
+        rows.append([
+            rank, key, "Topic cluster", cluster.get("cluster_label", ""),
+            cluster.get("dominant_intent", ""), cluster.get("dominant_journey_stage", ""),
+            cluster.get("impressions", 0), cluster.get("impression_change_pct", 0),
+            cluster.get("conversational_share", 0), cluster.get("avg_position", 0),
+            cluster.get("growth_score", 0), "", "",
+            "\n".join(cluster.get("existing_coverage", [])),
+            "See recommendation rows below", "", "", "", "", "", "", "", "", "",
+            "", status, owner, notes,
+            f"analyze_geo_growth_strategy.py ({window_label})", generated,
+        ])
+
+    for rank, rec in enumerate(payload.get("recommendations", []), 1):
+        key = f"geo::rec::{rec.get('cluster_key')}::{rec.get('recommended_url')}"
+        default_status = "Not started"
+        status, owner, notes = manual(key, default_status)
+        league = league_by_key.get(rec.get("cluster_key"), {})
+        rows.append([
+            rank, key, rec.get("record_type", "New page"), rec.get("cluster_label", ""),
+            rec.get("intent", ""), rec.get("journey_stage", ""),
+            rec.get("impressions", 0), rec.get("impression_change_pct", 0),
+            rec.get("conversational_share", 0), rec.get("avg_position", 0),
+            rec.get("growth_score", 0), rec.get("ai_overview_signal", ""),
+            rec.get("bp_cited", ""),
+            "\n".join(rec.get("existing_coverage", [])),
+            rec.get("recommended_url", ""), rec.get("working_title", ""),
+            "\n".join(rec.get("primary_queries", [])),
+            "\n".join(rec.get("rising_queries", [])),
+            "\n".join(rec.get("paa_to_answer", [])),
+            "\n".join(rec.get("related_prompts", [])),
+            "; ".join(rec.get("affiliate_partners", [])),
+            rec.get("affiliate_readiness", ""),
+            rec.get("geo_block_spec", ""),
+            "; ".join(rec.get("internal_links", [])),
+            rec.get("priority_score", 0),
+            status, owner, notes,
+            f"analyze_geo_growth_strategy.py ({window_label})", generated,
+        ])
+    return headers, rows
+
+
+def load_other_awin_overrides(output: Path) -> dict[str, dict[str, Any]]:
+    """Preserve Status, Owner and Notes on the Other AWIN Memberships tab, matched by Key."""
+    if not output.exists():
+        return {}
+    try:
+        wb = load_workbook(output, data_only=True, read_only=True)
+        if OTHER_AWIN_SHEET not in wb.sheetnames:
+            return {}
+        rows = list(wb[OTHER_AWIN_SHEET].iter_rows(values_only=True))
+    except Exception:
+        return {}
+    if not rows:
+        return {}
+    positions = {name: i for i, name in enumerate(rows[0])}
+    if "Key" not in positions:
+        return {}
+    overrides: dict[str, dict[str, Any]] = {}
+    for row in rows[1:]:
+        key = row[positions["Key"]]
+        if not key:
+            continue
+        overrides[str(key)] = {
+            header: row[positions[header]]
+            for header in OTHER_AWIN_MANUAL_HEADERS
+            if header in positions
+        }
+    return overrides
+
+
+def load_other_awin_memberships(
+    overrides: dict[str, dict[str, Any]] | None = None,
+) -> tuple[list[str], list[list[Any]]] | None:
+    """Turn docs/page-build-pipeline/other-awin-memberships.json into a durable worksheet.
+
+    The plan JSON is produced by scripts/plan_awin_adjacency_content.py: content
+    clusters that would make BroadbandPicker eligible for adjacent Awin affiliate
+    programmes, each candidate page with a primary keyword, secondary keywords, a
+    page type, the target Awin programmes and a 0-100 SEO opportunity score. Rows
+    are ordered highest opportunity first. Status, Owner and Notes are user-owned
+    and preserved across regenerations, matched by Key.
+    """
+    overrides = overrides or {}
+    if not OTHER_AWIN_STRATEGY.exists():
+        return None
+    try:
+        payload = json.loads(OTHER_AWIN_STRATEGY.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+
+    generated = str(payload.get("generated_at", ""))[:10]
+    targets = payload.get("awin_targets", {})
+
+    def programme_names(slugs: list[str]) -> str:
+        return "; ".join(targets.get(slug, {}).get("name", slug) for slug in slugs)
+
+    headers = [
+        "Rank", "Key", "Record Type", "Cluster", "Page Type", "Working Title",
+        "Recommended URL", "Primary Keyword", "Secondary Keywords", "Intent",
+        "Target Awin Programmes", "Demand (1-5)", "Difficulty (1-5)", "Content Gap (1-5)",
+        "Commercial Value (1-5)", "GEO Upside (1-3)", "Awin Unlock (1-3)",
+        "SEO Opportunity Score", "AI Overview", "SERP Notes", "Build Note",
+        "Status", "Owner", "Notes", "Source", "Generated",
+    ]
+    rows: list[list[Any]] = []
+
+    def manual(key: str, default_status: str) -> tuple[Any, Any, Any]:
+        entry = overrides.get(key, {})
+        return (
+            entry.get("Status") or default_status,
+            entry.get("Owner") or "",
+            entry.get("Notes") or "",
+        )
+
+    exec_key = "awin_adj::summary"
+    status, owner, notes = manual(exec_key, "Monitoring")
+    serp_meta = payload.get("serp_meta", {})
+    rows.append([
+        0, exec_key, "Strategy note", "All adjacent clusters", "", "",
+        "", "", "", "",
+        "", "", "", "", "", "", "",
+        "", "", f"SERP enrichment mode: {serp_meta.get('mode', 'editorial_only')} "
+        f"({serp_meta.get('checked', 0)} queries checked)",
+        payload.get("purpose", ""),
+        status, owner, notes,
+        "plan_awin_adjacency_content.py", generated,
+    ])
+
+    for cluster in payload.get("clusters", []):
+        key = f"awin_adj::cluster::{cluster.get('cluster')}"
+        status, owner, notes = manual(key, "Monitoring")
+        top = "; ".join(
+            f"{t.get('name')} ({t.get('pages')})" for t in cluster.get("top_awin_programmes", [])[:4]
+        )
+        rows.append([
+            0, key, "Cluster", cluster.get("cluster", ""), "", "",
+            "", "", "", "",
+            top, "", "", "", "", "", "",
+            cluster.get("avg_opportunity_score", 0), "", "",
+            f"{cluster.get('pages', 0)} candidate pages; build these together so the cluster "
+            "reads as topical authority before applying to the programmes above.",
+            status, owner, notes,
+            "plan_awin_adjacency_content.py", generated,
+        ])
+
+    for row in payload.get("pages", []):
+        bands = row.get("bands", {})
+        key = f"awin_adj::page::{row.get('recommended_url')}"
+        status, owner, notes = manual(key, "Not started")
+        serp = row.get("serp", {})
+        serp_notes = ""
+        if serp:
+            serp_notes = (
+                f"top: {', '.join(serp.get('top_domains', [])[:5])}; "
+                f"forums in top 10: {serp.get('forum_results_in_top10', 0)}; "
+                f"BP in top 10: {serp.get('bp_in_top10', False)}"
+            )
+        rows.append([
+            row.get("rank", 0), key, "Candidate page",
+            row.get("cluster", ""), row.get("page_type", ""), row.get("working_title", ""),
+            row.get("recommended_url", ""), row.get("primary_keyword", ""),
+            "\n".join(row.get("secondary_keywords", [])), row.get("intent", ""),
+            programme_names(row.get("target_awin_programmes", [])),
+            bands.get("demand", ""), bands.get("difficulty", ""), bands.get("content_gap", ""),
+            bands.get("commercial_value", ""), bands.get("geo_upside", ""), bands.get("awin_unlock", ""),
+            row.get("opportunity_score", 0),
+            "yes" if serp.get("ai_overview") else ("no" if serp else "not checked"),
+            serp_notes,
+            row.get("note", ""),
+            status, owner, notes,
+            "plan_awin_adjacency_content.py", generated,
+        ])
+    return headers, rows
+
+
+def load_altnet_awin_overrides(output: Path) -> dict[str, dict[str, Any]]:
+    """Preserve Status, Owner and Notes on the Altnet AWIN Programmes tab, matched by Key."""
+    if not output.exists():
+        return {}
+    try:
+        wb = load_workbook(output, data_only=True, read_only=True)
+        if ALTNET_AWIN_SHEET not in wb.sheetnames:
+            return {}
+        rows = list(wb[ALTNET_AWIN_SHEET].iter_rows(values_only=True))
+    except Exception:
+        return {}
+    if not rows:
+        return {}
+    positions = {name: i for i, name in enumerate(rows[0])}
+    if "Key" not in positions:
+        return {}
+    overrides: dict[str, dict[str, Any]] = {}
+    for row in rows[1:]:
+        key = row[positions["Key"]]
+        if not key:
+            continue
+        overrides[str(key)] = {
+            header: row[positions[header]]
+            for header in ALTNET_AWIN_MANUAL_HEADERS
+            if header in positions
+        }
+    return overrides
+
+
+def load_altnet_awin_programmes(
+    overrides: dict[str, dict[str, Any]] | None = None,
+) -> tuple[list[str], list[list[Any]]] | None:
+    """Turn docs/page-build-pipeline/altnet-awin-programmes.json into a durable worksheet.
+
+    Produced by scripts/plan_altnet_awin_content.py: per-altnet content (a provider
+    review, a head-to-head against the local incumbent, a local best-broadband
+    guide) plus shared altnet explainers and a roundup, for nine regional
+    full-fibre altnet Awin programmes. Each candidate page has a primary keyword,
+    secondary keywords, a page type and a 0-100 SEO opportunity score; rows are
+    ordered highest opportunity first. Status, Owner and Notes are preserved
+    across regenerations, matched by Key.
+    """
+    overrides = overrides or {}
+    if not ALTNET_AWIN_STRATEGY.exists():
+        return None
+    try:
+        payload = json.loads(ALTNET_AWIN_STRATEGY.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+
+    generated = str(payload.get("generated_at", ""))[:10]
+    altnets = payload.get("altnets", {})
+
+    def programme_names(slugs: list[str]) -> str:
+        out = []
+        for s in slugs:
+            if s == "all":
+                out.append("all nine altnet programmes")
+            elif s in altnets:
+                out.append(f"{altnets[s].get('name', s)} ({altnets[s].get('advertiser_id', '')})")
+            else:
+                out.append(s)
+        return "; ".join(out)
+
+    headers = [
+        "Rank", "Key", "Record Type", "Altnet", "Awin ID", "Page Type", "Working Title",
+        "Recommended URL", "Primary Keyword", "Secondary Keywords", "Intent",
+        "Target Awin Programmes", "Demand (1-5)", "Difficulty (1-5)", "Content Gap (1-5)",
+        "Commercial Value (1-5)", "GEO Upside (1-3)", "Awin Unlock (1-3)",
+        "SEO Opportunity Score", "AI Overview", "SERP Notes", "Build Note",
+        "Status", "Owner", "Notes", "Source", "Generated",
+    ]
+    rows: list[list[Any]] = []
+
+    def manual(key: str, default_status: str) -> tuple[Any, Any, Any]:
+        entry = overrides.get(key, {})
+        return (entry.get("Status") or default_status, entry.get("Owner") or "", entry.get("Notes") or "")
+
+    serp_meta = payload.get("serp_meta", {})
+    exec_key = "altnet_awin::summary"
+    status, owner, notes = manual(exec_key, "Monitoring")
+    rows.append([
+        0, exec_key, "Strategy note", "All nine altnets", "", "", "",
+        "", "", "", "", "",
+        "", "", "", "", "", "",
+        "", "", f"SERP enrichment mode: {serp_meta.get('mode', 'editorial_only')} "
+        f"({serp_meta.get('checked', 0)} queries checked)",
+        payload.get("purpose", ""),
+        status, owner, notes, "plan_altnet_awin_content.py", generated,
+    ])
+
+    for a in payload.get("altnet_summary", []):
+        slug = a.get("altnet")
+        key = f"altnet_awin::altnet::{slug}"
+        status, owner, notes = manual(key, "Monitoring")
+        rows.append([
+            0, key, "Altnet", a.get("name", slug), a.get("advertiser_id", ""), "", "",
+            "", "", "", "", "",
+            "", "", "", "", "", "",
+            a.get("avg_opportunity_score", 0), "", "",
+            f"{a.get('pages', 0)} candidate pages. Footprint: {a.get('footprint', 'shared')}. "
+            f"Price from: {a.get('price_from', 'n/a')}.",
+            status, owner, notes, "plan_altnet_awin_content.py", generated,
+        ])
+
+    for row in payload.get("pages", []):
+        bands = row.get("bands", {})
+        key = f"altnet_awin::page::{row.get('recommended_url')}"
+        status, owner, notes = manual(key, "Not started")
+        serp = row.get("serp", {})
+        serp_notes = ""
+        if serp:
+            serp_notes = (
+                f"top: {', '.join(serp.get('top_domains', [])[:5])}; "
+                f"aggregators in top 10: {serp.get('aggregator_results_in_top10', 0)}; "
+                f"BP in top 10: {serp.get('bp_in_top10', False)}"
+            )
+        an_slug = row.get("altnet")
+        awin_id = "" if an_slug == "all" else altnets.get(an_slug, {}).get("advertiser_id", "")
+        rows.append([
+            row.get("rank", 0), key, row.get("record_type", "Candidate page"),
+            "Shared" if an_slug == "all" else altnets.get(an_slug, {}).get("name", an_slug),
+            awin_id, row.get("page_type", ""), row.get("working_title", ""),
+            row.get("recommended_url", ""), row.get("primary_keyword", ""),
+            "\n".join(row.get("secondary_keywords", [])), row.get("intent", ""),
+            programme_names(row.get("target_awin_programmes", [])),
+            bands.get("demand", ""), bands.get("difficulty", ""), bands.get("content_gap", ""),
+            bands.get("commercial_value", ""), bands.get("geo_upside", ""), bands.get("awin_unlock", ""),
+            row.get("opportunity_score", 0),
+            "yes" if serp.get("ai_overview") else ("no" if serp else "not checked"),
+            serp_notes, row.get("note", ""),
+            status, owner, notes, "plan_altnet_awin_content.py", generated,
+        ])
+    return headers, rows
+
+
+def serp_api_plan_rows(overrides: dict[str, dict[str, Any]] | None = None) -> tuple[list[str], list[list[Any]]]:
+    """Quota-aware SerpAPI plan for Google visitors, Awin revenue and AI/LLM citations."""
+    overrides = overrides or {}
+    headers = [
+        "Rank", "Record Type", "Priority", "Action ID", "Workstream", "Action",
+        "Cadence", "Searches / run", "Monthly budget", "Command", "Target queries or pages",
+        "Commercial goal", "Success metric", "Output", "Status", "Owner", "Notes",
+    ]
+    plan = [
+        {
+            "record_type": "Operating rule",
+            "priority": "P0",
+            "action_id": "serp-rule-cache-default",
+            "workstream": "Quota",
+            "action": "Reuse the newest SerpAPI cache for ordinary priority refreshes. Do not spend credits on `npm run priority:next`.",
+            "cadence": "Every priority refresh",
+            "searches": "0",
+            "budget": "0",
+            "command": "npm run priority:next   # or python3 scripts/run_priority_workflow.py",
+            "target": "Winning page types already in GSC",
+            "goal": "Protect the 250-search monthly cap for work that changes a live page or measures a release",
+            "metric": "Searches used on a default refresh = 0",
+            "output": "docs/geo-serp-research/*-page-ux-raw.json (existing cache)",
+            "status": "Live",
+        },
+        {
+            "record_type": "Operating rule",
+            "priority": "P0",
+            "action_id": "serp-rule-uk-engine",
+            "workstream": "Quota",
+            "action": "All live searches use Google engine, gl=uk, hl=en, location=United Kingdom. Never loop uncapped. Print remaining quota before and after every spend.",
+            "cadence": "Every paid run",
+            "searches": "n/a",
+            "budget": "Cap 250/month unless the plan is upgraded",
+            "command": "Existing scripts already pass gl=uk and check serpapi.com/account",
+            "target": "UK broadband queries only",
+            "goal": "Keep results comparable to GSC UK performance",
+            "metric": "No run exceeds remaining quota; leftover printed in the log",
+            "output": "Script stdout + serp_meta.searches_used",
+            "status": "Live",
+        },
+        {
+            "record_type": "Monthly budget",
+            "priority": "P0",
+            "action_id": "serp-budget-250",
+            "workstream": "Quota",
+            "action": "Default monthly allocation on the free plan. Leave 30 searches unallocated for emergencies (a sudden SERP change on a money page, or a blocked AI Overview follow-up).",
+            "cadence": "Monthly, resets with the SerpAPI plan",
+            "searches": "220 planned + 30 reserve",
+            "budget": "36 winning-type + 24 page-build packs + 20 GEO scan + 12 post-release + 10 CTR watch + 8 local + 6 LLM prompts + 4 related-search harvest = 120 typical; 220 hard ceiling",
+            "command": "Check remaining quota: python3 -c \"import os,requests; ...\" or any --run script header",
+            "target": "Whole site",
+            "goal": "Stop burning credits on head terms BroadbandPicker cannot win",
+            "metric": "Month ends with reserve remaining unless an emergency spend is logged in Notes",
+            "output": "This sheet, Notes column",
+            "status": "Standing rule",
+        },
+        {
+            "record_type": "Action",
+            "priority": "P0",
+            "action_id": "serp-fresh-winning-types",
+            "workstream": "SEO / GEO",
+            "action": "Once a month, or after a material change in winning page types, refresh Google UK SERPs for real GSC queries. Capture organic top 10, AI Overview presence and citations, and People Also Ask. This is the input that turns UX/GEO gaps into mandatory page-build requirements.",
+            "cadence": "Monthly, or when GSC page-type mix changes",
+            "searches": "36",
+            "budget": "36",
+            "command": "npm run priority:next:fresh-serp",
+            "target": "GSC queries for guide, postcode, provider review, provider vs, deals, research, tools, homepage",
+            "goal": "More Google visitors from pages already earning impressions (positions about 1-30)",
+            "metric": "Fresh cache written; P0/P1 GEO requirements updated in canonical-next-priority.json",
+            "output": "docs/geo-serp-research/YYYY-MM-DD-page-ux-raw.json; docs/home page UX/page-type-ux-scan.json",
+            "status": "Live",
+        },
+        {
+            "record_type": "Action",
+            "priority": "P0",
+            "action_id": "serp-per-page-build-pack",
+            "workstream": "SEO / Affiliate / GEO",
+            "action": "When a specific URL is being built or refreshed, spend 3-6 searches on that page only: primary keyword, two leading GSC queries, one question query. Record current titles, PAA, AI Overview text and cited domains in current-page-research.json. Do not substitute a week-old sitewide cache for this.",
+            "cadence": "Each production page build",
+            "searches": "3-6",
+            "budget": "24 (about four page builds)",
+            "command": "Use SerpAPI Google UK during Stage 3 research of scripts/build_keyword_mapping.py; write findings into docs/page-build-pipeline/current-page-research.json",
+            "target": "The exact URL in canonical-next-priority.json (currently comparison, postcode, research and near-page-one GSC opportunities)",
+            "goal": "Higher CTR and more qualified visits that can click Awin Get Deal CTAs",
+            "metric": "Research JSON has a dated AI Overview observation and three live competitor URLs for that keyword",
+            "output": "docs/page-build-pipeline/current-page-research.json",
+            "status": "Not started",
+        },
+        {
+            "record_type": "Action",
+            "priority": "P0",
+            "action_id": "serp-ai-overview-followup",
+            "workstream": "AI Overview citation",
+            "action": "When a search returns ai_overview.page_token, make the SerpAPI follow-up call and store the full citation list. Today analyze_page_type_ux.py records the token but does not fetch it, so citation domains are often missing.",
+            "cadence": "On every fresh-serp or per-page pack where page_token is present",
+            "searches": "1 extra per such query",
+            "budget": "Included in the 36 + page-build budgets",
+            "command": "Extend scripts/analyze_page_type_ux.py serp_search() to request the page_token result",
+            "target": "Queries that show an AI Overview for research, comparison, switching, explainer and local intent",
+            "goal": "See exactly who Google cites, then copy the citability pattern (short answer, named Ofcom source, date) onto BroadbandPicker pages",
+            "metric": "ai_references populated; bp_in_ai_overview checked against real citation URLs not only snippet text",
+            "output": "docs/geo-serp-research/*-page-ux-raw.json ai_references[]",
+            "status": "Not started",
+        },
+        {
+            "record_type": "Action",
+            "priority": "P1",
+            "action_id": "serp-monthly-geo-scan",
+            "workstream": "AI Overview / LLM",
+            "action": "Re-run the curated 35-query UK broadband set (or --limit 20 if quota is tight). Check organic top 10 and AI Overview citation for broadbandpicker.co.uk. Cross-check with GSC, not the SERP snapshot alone.",
+            "cadence": "Monthly",
+            "searches": "20-35",
+            "budget": "20",
+            "command": "python3 scripts/analyze_serp_geo_opportunities.py --run --limit 20",
+            "target": "Deals, switching, explainers, affordability, provider vs, altnets, tools, local. Prefer queries with a live AI Overview.",
+            "goal": "LLM/AI Overview visibility: find definitional queries BroadbandPicker can realistically be cited on",
+            "metric": "Count of queries with BP in organic top 10; count with BP in AI Overview (baseline 0/35 on 2026-09-01)",
+            "output": "docs/geo-serp-research/YYYY-MM-DD-raw.json and an updated strategy note if the headline changes",
+            "status": "Live",
+        },
+        {
+            "record_type": "Action",
+            "priority": "P1",
+            "action_id": "serp-post-release-monitor",
+            "workstream": "Measurement",
+            "action": "7 and 28 days after a verified production refresh, re-search the same 3 queries used at build time. Pair with the saved GSC/GA4 baseline in the change ledger. Do not rewrite the page from SERP movement alone.",
+            "cadence": "Day 7 and day 28 of each pipeline release",
+            "searches": "3 per check",
+            "budget": "12",
+            "command": "Same Google UK query pack as the page build; compare to docs/page-build-pipeline/content-change-measurement-log.json",
+            "target": "Pages in the 28-day measurement window (currently including /research/uk-broadband-customer-satisfaction until 2026-10-04)",
+            "goal": "Prove whether the rewrite improved rank, CTR, AI Overview presence or citation",
+            "metric": "Rank change; AI Overview present yes/no; BP cited yes/no; GSC CTR vs baseline",
+            "output": "Notes on the matching post-publication-review-queue.json row",
+            "status": "Not started",
+        },
+        {
+            "record_type": "Action",
+            "priority": "P1",
+            "action_id": "serp-commercial-ctr-watch",
+            "workstream": "Affiliate revenue",
+            "action": "Watch titles and snippets on commercial SERPs BroadbandPicker already appears on: provider vs provider, no mid-contract price rise, social tariff, postcode deals. If Uswitch or Choose change a title to include price, month or a named winner, test a CTR candidate on the matching BroadbandPicker page without a full rewrite.",
+            "cadence": "Monthly",
+            "searches": "8-10",
+            "budget": "10",
+            "command": "SerpAPI Google UK on the top GSC queries for /providers/compare/*, /guides/broadband-deals-with-no-mid-contract-price-rise, /guides/broadband-social-tariffs-uk, selected postcode hubs",
+            "target": "Queries with affiliate-adjacent intent and average position 1-20",
+            "goal": "More clicks and Awin outbound_provider_click events from the same impressions",
+            "metric": "GSC CTR on those URLs; GA4 affiliate clicks; Awin transactions on the same providers",
+            "output": "Title/meta candidates in the next page research packet",
+            "status": "Not started",
+        },
+        {
+            "record_type": "Action",
+            "priority": "P1",
+            "action_id": "serp-local-postcode-serp",
+            "workstream": "Affiliate revenue",
+            "action": "For city and district pages, search with a UK city location (Manchester, Sheffield, London) not only national UK. Capture local PAA and whether comparison sites still use a generic template. Postcode pages already have the site's best CTR.",
+            "cadence": "When building or refreshing a city/district hub",
+            "searches": "2-3 per city",
+            "budget": "8",
+            "command": "SerpAPI Google engine with location set to the city; store in the page research file",
+            "target": "/postcode/* hubs with impressions and a live deal or provider path",
+            "goal": "Local visits that convert through address-level compare CTAs",
+            "metric": "Postcode-type CTR vs site average; affiliate clicks from those paths",
+            "output": "docs/page-build-pipeline/current-page-research.json serp_competitors and people_also_ask",
+            "status": "Not started",
+        },
+        {
+            "record_type": "Action",
+            "priority": "P2",
+            "action_id": "serp-llm-shaped-prompts",
+            "workstream": "LLM traffic / AI Overview",
+            "action": "Keep a small conversational query set that matches how people ask ChatGPT or AI Overviews, not only short keywords. Examples: which UK broadband provider has the fewest Ofcom complaints; is Plusnet better than Sky for customer service; what is an altnet broadband provider; can I leave broadband after a price rise.",
+            "cadence": "Monthly, as part of the GEO scan or a 6-query add-on",
+            "searches": "6",
+            "budget": "6",
+            "command": "python3 scripts/analyze_serp_geo_opportunities.py --run --limit 6 after extending SEED_QUERIES, or a one-off SerpAPI Google UK list",
+            "target": "Research, switching, comparison and explainer pages with citeable answers",
+            "goal": "AI Overview and LLM citations, then GA4 AI/LLM referral visits",
+            "metric": "AI Overview present; cited domains listed; GA4 ai_referral_visits on the matching URL",
+            "output": "docs/geo-serp-research/YYYY-MM-DD-raw.json cluster=llm",
+            "status": "Not started",
+        },
+        {
+            "record_type": "Action",
+            "priority": "P2",
+            "action_id": "serp-related-search-harvest",
+            "workstream": "SEO",
+            "action": "Store and use related_searches from the GEO script as secondary-keyword candidates. This is how queries such as mid-contract price rise calculator show up before they are strong in GSC.",
+            "cadence": "Monthly, from the GEO scan (no extra searches if already in the raw file)",
+            "searches": "0 extra if GEO scan ran; otherwise 4",
+            "budget": "4",
+            "command": "Read related_searches from docs/geo-serp-research/*-raw.json into the next page packet secondary_keywords",
+            "target": "Tools, switching and deals pages",
+            "goal": "New indexable queries that still sit on commercial or decision pages",
+            "metric": "At least two harvested related searches mapped into a live page per month",
+            "output": "next-page.json secondary keywords / current-page-research.json",
+            "status": "Not started",
+        },
+        {
+            "record_type": "Content bet from SerpAPI",
+            "priority": "P2",
+            "action_id": "serp-altnet-explainer",
+            "workstream": "AI Overview citation",
+            "action": "Build the definitional guide confirmed by the 2026-09-01 SerpAPI run: What is an altnet broadband provider? The query had a live AI Overview and BroadbandPicker had no dedicated page. Do not treat this as a deals hub.",
+            "cadence": "Once, then monitor monthly",
+            "searches": "3 at build + 3 at day 28",
+            "budget": "From page-build and post-release budgets",
+            "command": "Page pipeline after higher-confidence GSC opportunities; seed query already in analyze_serp_geo_opportunities.py",
+            "target": "New guide slug, internally linked from altnet provider reviews",
+            "goal": "A realistic AI Overview citation on a lower-competition explainer",
+            "metric": "Page live; query re-checked for BP citation; GSC impressions for the exact query",
+            "output": "app/guides/[slug] plus research JSON",
+            "status": "Not started",
+        },
+        {
+            "record_type": "Do not spend",
+            "priority": "P0",
+            "action_id": "serp-do-not-head-term-loops",
+            "workstream": "Quota",
+            "action": "Do not spend quota looping cheap broadband deals UK, best broadband provider UK or other head terms occupied by Uswitch, MoneySuperMarket, MoneySavingExpert and Compare the Market. One monthly GEO-scan sample is enough. GSC already shows those impressions sit at positions 30-80.",
+            "cadence": "Standing rule",
+            "searches": "0 extra",
+            "budget": "0",
+            "command": "n/a",
+            "target": "Broad commercial head terms",
+            "goal": "Avoid wasting credits on unwinnable SERPs",
+            "metric": "No uncapped head-term batch in the monthly log",
+            "output": "n/a",
+            "status": "Standing rule",
+        },
+        {
+            "record_type": "Do not spend",
+            "priority": "P0",
+            "action_id": "serp-do-not-other-engines",
+            "workstream": "Quota",
+            "action": "Do not use Shopping, Jobs, Scholar, or unattended loops. YouTube/autocomplete only if a specific BroadbandPicker page needs that SERP. Affiliate money on this site comes from UK Google comparison clicks, not those engines.",
+            "cadence": "Standing rule",
+            "searches": "0",
+            "budget": "0",
+            "command": "n/a",
+            "target": "Non-Google-web engines",
+            "goal": "Keep SerpAPI pointed at organic Google UK + AI Overviews",
+            "metric": "Engine=google on every paid call unless Notes records an exception",
+            "output": "n/a",
+            "status": "Standing rule",
+        },
+    ]
+    rows: list[list[Any]] = []
+    for rank, item in enumerate(plan, 1):
+        manual = overrides.get(item["action_id"], {})
+        rows.append([
+            rank,
+            item["record_type"],
+            item["priority"],
+            item["action_id"],
+            item["workstream"],
+            item["action"],
+            item["cadence"],
+            item["searches"],
+            item["budget"],
+            item["command"],
+            item["target"],
+            item["goal"],
+            item["metric"],
+            item["output"],
+            manual.get("Status") or item["status"],
+            manual.get("Owner") or "",
+            manual.get("Notes") or "",
+        ])
+    return headers, rows
+
+
+def classify_opportunity(item: dict[str, Any]) -> str:
+    """Use one stable label for new pages, existing-page work and site initiatives."""
+    if item.get("type") == "Page":
+        return "New build"
+    title = str(item.get("title") or "").lower()
+    if title.startswith(("deep rewrite:", "update:", "research-led editorial refresh:")):
+        return "Optimise existing build"
+    if title.startswith("new guide:") or "dedicated /providers/" in title:
+        return "New build"
+    return "Site / feature initiative"
+
+
+def ensure_keyword_mapping_workflow(opportunity_type: str, scripts_used: str = "") -> str:
+    """Every page build/refresh must pass through the keyword-mapping pipeline."""
+    scripts = [part.strip() for part in str(scripts_used or "").split(";") if part.strip()]
+    if opportunity_type in {"New build", "Optimise existing build"}:
+        for script in PAGE_PIPELINE_SCRIPTS.split(";"):
+            script = script.strip()
+            if script and script not in scripts:
+                scripts.append(script)
+    return "; ".join(scripts)
+
+
+def effort_multiplier(effort: Any) -> float:
+    value = str(effort or "").lower()
+    if "very easy" in value or value == "low":
+        return 1.08
+    if "easy" in value:
+        return 1.04
+    if "high" in value:
+        return 0.92
+    return 1.0
+
+
+def growth_priority_rows(
+    all_items: list[dict[str, Any]],
+    weekly_actions: tuple[list[str], list[list[Any]]] | None,
+    completions: dict[str, dict[str, Any]],
+) -> tuple[list[str], list[list[Any]]]:
+    """Create one actionable queue using the best evidence available per work type.
+
+    Live pages retain the GSC/GA4 opportunity score. New pages retain the
+    keyword-mapping demand/difficulty score. Non-page initiatives combine the
+    directional priority and impact scores, adjusted modestly for effort.
+    The scoring basis is explicit so unlike metrics are never presented as if
+    they came from one measurement system.
+    """
+    headers = [
+        "Growth Rank", "Opportunity Type", "Target", "Title / Opportunity",
+        "Growth Priority Score", "Priority Band", "Clicks (28d)",
+        "Impressions (28d)", "CTR", "Average Position", "Search Demand / mo",
+        "Rankability", "Growth Levers", "Status", "Recommended Action",
+        "Required Workflow", "Scripts Used", "Evidence Source",
+    ]
+    records: list[dict[str, Any]] = []
+
+    if weekly_actions:
+        source_headers, source_rows = weekly_actions
+        pos = {str(name): index for index, name in enumerate(source_headers)}
+        for row in source_rows:
+            page = str(row[pos["Page"]] or "") if "Page" in pos else ""
+            opportunity = str(row[pos["Opportunity"]] or "") if "Opportunity" in pos else ""
+            eligible = bool(row[pos["Priority Eligible"]]) if "Priority Eligible" in pos else opportunity != "Monitor"
+            if not page or not eligible or opportunity in {"Monitor", "Post-publication monitoring"}:
+                continue
+            if (page.rstrip("/") or "/") in completions:
+                continue
+            base_score = float(row[pos["Score"]] or 0)
+            impressions = float(row[pos["Impressions"]] or 0)
+            clicks = float(row[pos["Clicks"]] or 0)
+            ctr = float(row[pos["CTR"]] or 0)
+            position = float(row[pos["Position"]] or 0)
+            if 0 < position <= 10:
+                rankability = "First-page opportunity"
+                rankability_adjustment = 10
+            elif position <= 15:
+                rankability = "Page-one threshold"
+                rankability_adjustment = 7
+            elif position <= 30:
+                rankability = "Page-two opportunity"
+                rankability_adjustment = 3
+            else:
+                rankability = "Strategic / harder rank"
+                rankability_adjustment = -5
+            score = round(max(0, min(100, base_score + rankability_adjustment)), 1)
+            records.append({
+                "opportunity_type": "Optimise existing build",
+                "target": page,
+                "title": opportunity,
+                "score": score,
+                "clicks": clicks,
+                "impressions": impressions,
+                "ctr": ctr,
+                "position": position,
+                "demand": "",
+                "rankability": rankability,
+                "levers": "Grow clicks and CTR from existing impressions; improve average position; strengthen GEO citations",
+                "status": "Not started",
+                "action": row[pos["Recommended Action"]] if "Recommended Action" in pos else "Optimise against current GSC queries.",
+                "workflow": "Refresh evidence → keyword-map the exact URL → SERP/GEO research → optimise → validate → deploy → annotate → measure",
+                "scripts": ensure_keyword_mapping_workflow("Optimise existing build"),
+                "source": (
+                    f"Live GSC + GA4: Weekly SEO Actions; base {base_score:g}, "
+                    f"rankability adjustment {rankability_adjustment:+g}"
+                ),
+            })
+
+    for item in all_items:
+        if item.get("status") == "Done":
+            continue
+        opportunity_type = classify_opportunity(item)
+        if opportunity_type == "Site / feature initiative":
+            score = min(100.0, round(
+                (0.6 * float(item.get("priority_score") or 0)
+                 + 0.4 * float(item.get("impact_score") or 0))
+                * effort_multiplier(item.get("effort")), 1
+            ))
+            basis = "Directional priority + impact score, adjusted for effort"
+            workflow = "Validate growth hypothesis → implement → measure GSC/GA4 effect"
+        else:
+            score = float(item.get("priority_score") or 0)
+            basis = "Keyword Mapping Content Gap Roadmap" if item.get("type") == "Page" else "Curated page opportunity"
+            workflow = "Refresh evidence → keyword-map the exact URL → SERP/GEO research → build/optimise → validate → deploy → annotate → measure"
+        records.append({
+            "opportunity_type": opportunity_type,
+            "target": item.get("target", ""),
+            "title": item.get("title", ""),
+            "score": score,
+            "clicks": "", "impressions": "", "ctr": "", "position": "",
+            "demand": item.get("volume", ""),
+            "rankability": item.get("effort", "") if opportunity_type != "Site / feature initiative" else "Not page-specific",
+            "levers": (
+                "Grow impressions and first-page keyword coverage"
+                if opportunity_type == "New build" else
+                "Grow clicks, CTR, impressions, average position and GEO visibility"
+                if opportunity_type == "Optimise existing build" else
+                "Enable or accelerate measurable organic growth"
+            ),
+            "status": item.get("status", DEFAULT_STATUS),
+            "action": item.get("description", ""),
+            "workflow": workflow,
+            "scripts": ensure_keyword_mapping_workflow(opportunity_type, item.get("scripts_used", "")),
+            "source": basis,
+        })
+
+    # Prefer rankable page actions on ties, then higher-impression evidence.
+    type_order = {"Optimise existing build": 0, "New build": 1, "Site / feature initiative": 2}
+    records.sort(key=lambda record: (
+        -record["score"],
+        type_order.get(record["opportunity_type"], 9),
+        -float(record["impressions"] or 0),
+        str(record["target"]),
+    ))
+    rows: list[list[Any]] = []
+    for rank, record in enumerate(records, 1):
+        score = record["score"]
+        band = "P0 Do next" if score >= 70 else "P1 High" if score >= 60 else "P2 Medium" if score >= 45 else "P3 Later"
+        rows.append([
+            rank, record["opportunity_type"], record["target"], record["title"], score, band,
+            record["clicks"], record["impressions"], record["ctr"], record["position"],
+            record["demand"], record["rankability"], record["levers"], record["status"],
+            record["action"], record["workflow"], record["scripts"], record["source"],
+        ])
+    return headers, rows
+
+
 def load_awin_overrides(output: Path) -> dict[str, dict[str, Any]]:
     """Preserve the human-maintained outreach log across regenerations."""
     if not output.exists():
@@ -2534,6 +3672,85 @@ def add_sheet(wb: Workbook, name: str, headers: list[str], rows: list[list[Any]]
     return ws
 
 
+def load_page_ux_findings() -> tuple[list[str], list[list[Any]]] | None:
+    """Turn the page-type UX/CTR/GEO scan into a durable tracker worksheet."""
+    if not PAGE_UX_SCAN.exists():
+        return None
+    payload = json.loads(PAGE_UX_SCAN.read_text())
+    generated = str(payload.get("generated_at", ""))[:10]
+    headers = [
+        "Record Type", "Priority", "Page Type", "Finding / Opportunity",
+        "Evidence", "Recommended Action", "Applies To", "Benchmark / Citation Domains",
+        "Status", "Source", "Generated",
+    ]
+    rows: list[list[Any]] = []
+
+    totals = payload.get("site_totals", {})
+    rows.append([
+        "Executive finding", "P0", "All winning page types", "Close the AI Overview citation gap",
+        "BroadbandPicker was cited in 0 AI Overviews across 44 winning-type queries; 23 of those queries showed an AI Overview.",
+        "Add concise, evidence-backed answer blocks, explicit comparisons and sourceable facts to the page types below, then measure citations and AI referrals after release.",
+        "Sitewide", "comparethemarket.com; uswitch.com; confused.com; gocompare.com; broadband.co.uk; choose.co.uk; bestbroadbanddeals.co.uk",
+        "Not started", "page-category-ux-ctr-plan.md; page-type-ux-scan.json", generated,
+    ])
+    rows.append([
+        "Executive finding", "P0", "Postcode and local", "Protect the strongest CTR template and focus on GEO",
+        "9,542 impressions, 58 clicks, 0.61% CTR, average position 22.5, and more than 1,100 newly ranking pages. UX is already competitive; AI citations remain at 0.",
+        "Keep the existing UX pattern. Add genuinely local, quotable evidence and answer blocks rather than redesigning the template.",
+        "Postcode and city hubs", "uswitch.com; broadband.co.uk; gocompare.com", "Not started",
+        "page-category-ux-ctr-plan.md; competitor-ux-benchmark.md", generated,
+    ])
+    rows.append([
+        "Site metric", "Monitor", "Sitewide", "Rapid visibility growth with low aggregate CTR",
+        f"Latest 28 days: {totals.get('impressions', 0):,} impressions, {totals.get('clicks', 0):,} clicks, "
+        f"{float(totals.get('ctr', 0)):.2%} CTR, average position {float(totals.get('avg_position', 0)):.1f}.",
+        "Judge changes by page type and release cohort because newly indexed pages distort the sitewide average position.",
+        "Sitewide", "", "Monitoring", "page-type-ux-scan.json", generated,
+    ])
+
+    for key, league in payload.get("page_type_league", {}).items():
+        if key not in payload.get("winning_types", []):
+            continue
+        label = league.get("label") or key.replace("_", " ").title()
+        rows.append([
+            "Page-type performance", "Monitor", label, "Current 28-day SEO performance",
+            f"{league.get('impressions', 0):,} impressions; {league.get('clicks', 0):,} clicks; "
+            f"{float(league.get('ctr', 0)):.2%} CTR; average position {float(league.get('avg_position', 0)):.1f}; "
+            f"AI referral visits {league.get('ai_referral', 0):g}.",
+            "Use this row as the baseline for prioritising and measuring the detailed opportunities below.",
+            label, "", "Monitoring", "page-type-ux-scan.json", generated,
+        ])
+
+    action_map = {
+        "Current month in title": "Add the current UK month and year to the title using a maintainable dynamic or scheduled update.",
+        "Visible FAQ section": "Add a visible, user-first FAQ that answers real People Also Ask and GSC queries; keep schema consistent with visible copy.",
+        "Product / Offer schema": "Add valid Product/Offer structured data whose price and availability exactly match visible deal content.",
+        "Get Deal CTAs on page": "Add useful, clearly labelled tracked CTAs at decision points without turning the page into repetitive advertising.",
+        "On-this-page jump links": "Add accessible jump navigation for long comparison and research pages.",
+        "Author / reviewed-by byline": "Add a visible author/reviewer byline linked to transparent editorial credentials and review dates.",
+        "Badges / chips (Best value, Fastest)": "Add evidence-based comparison badges with a visible methodology and no unsupported superlatives.",
+        "Question-shaped H2s (PAA match)": "Use question-led headings where they match genuine search intent, followed by a direct answer and supporting evidence.",
+        "Card layout (not table-only)": "Add responsive deal cards alongside the comparison table to improve scanning and CTA clarity on mobile.",
+        "GEO: be quotable in the AI answer": "Add short sourceable answers, named evidence, dates, methodology and clear entity comparisons; track AI citations and LLM referrals after release.",
+    }
+    priority_order = {"P0": 0, "P1": 1, "P2": 2}
+    recommendations = sorted(
+        payload.get("recommendations", []),
+        key=lambda row: (priority_order.get(row.get("priority"), 9), row.get("label", ""), row.get("feature", "")),
+    )
+    for recommendation in recommendations:
+        feature = recommendation.get("feature", "")
+        rows.append([
+            "Actionable finding", recommendation.get("priority", ""), recommendation.get("label", ""), feature,
+            " ".join(filter(None, [recommendation.get("evidence", ""), recommendation.get("gsc", "")])),
+            action_map.get(feature, f"Implement and validate {feature.lower()} against the cited evidence."),
+            "\n".join(recommendation.get("our_pages", [])),
+            "; ".join(recommendation.get("ai_cited_domains", [])),
+            "Not started", "page-category-ux-ctr-plan.md; competitor-ux-benchmark.md; page-type-ux-scan.json", generated,
+        ])
+    return headers, rows
+
+
 def style_sheet(ws: Any) -> None:
     navy, pale = "0F172A", "E2F2F6"
     thin = Side(style="thin", color="D7E1E8")
@@ -2564,7 +3781,16 @@ def build_workbook(
     overrides: dict[str, dict[str, Any]],
     weekly_actions: tuple[list[str], list[list[Any]]] | None = None,
     awin_overrides: dict[str, dict[str, Any]] | None = None,
+    keyword_mapping_completions: dict[str, dict[str, Any]] | None = None,
+    serp_plan_overrides: dict[str, dict[str, Any]] | None = None,
+    geo_cluster_overrides: dict[str, dict[str, Any]] | None = None,
+    other_awin_overrides: dict[str, dict[str, Any]] | None = None,
+    altnet_awin_overrides: dict[str, dict[str, Any]] | None = None,
 ) -> Workbook:
+    keyword_mapping_completions = keyword_mapping_completions or {}
+    geo_cluster_overrides = geo_cluster_overrides or {}
+    other_awin_overrides = other_awin_overrides or {}
+    altnet_awin_overrides = altnet_awin_overrides or {}
     all_items = FEATURE_BUILDS + page_items
     for item in all_items:
         manual = overrides.get(item["item_id"], {})
@@ -2587,62 +3813,105 @@ def build_workbook(
         item["owner"] = manual.get("Owner") or ""
         item["target_date"] = manual.get("Target Date") or ""
         item["notes"] = manual.get("Notes") or item.get("completion_notes", "")
+        item["opportunity_type"] = classify_opportunity(item)
+        item["scripts_used"] = ensure_keyword_mapping_workflow(
+            item["opportunity_type"], item.get("scripts_used", "")
+        )
     all_items.sort(key=lambda it: it["priority_score"], reverse=True)
 
     wb = Workbook()
     wb.remove(wb.active)
 
     readme = [
-        ["Purpose", "One prioritised list of everything still to build for BroadbandPicker.co.uk — new pages and product/UX features together, ranked highest priority first."],
+        ["Purpose", "One evidence-led growth queue for BroadbandPicker.co.uk, prioritised around clicks, CTR, impressions, average position, first-page rankability and GEO visibility."],
         ["Generated", RUN_DATE],
         ["Sources", "Page builds: docs/broadbandpicker-keyword-mapping.xlsx (Content Gap Roadmap). Feature builds: the growth playbook, scored on the same rough 0-100 scale."],
-        ["Scoring", "Page rows use the existing SEO Build Priority Score / Revenue Priority Score from the keyword-mapping pipeline. Feature rows are hand-scored on the same scale — both numbers are directional priority signals, not a single unified formula."],
-        ["Status is preserved", "Status, Owner, Target Date and Notes carry forward from the previous docs/master-build-tracker.xlsx on every re-run, matched by Item ID — safe to edit by hand."],
-        ["Focused views", "Awin Outreach Priority separates partnership actions. Page & Content Priority separates page creation, thin-content work and evidence-led SEO improvements."],
+        ["Scoring", "Growth Priority uses live GSC/GA4 opportunity scores for existing pages, keyword-mapping demand/difficulty scores for new pages, and directional priority/impact scores adjusted for effort for site initiatives. The Evidence Source column makes the basis explicit."],
+        ["Page workflow rule", "Every New build and Optimise existing build row must use scripts/build_keyword_mapping.py within the full research, validation, deployment, annotation and measurement workflow."],
+        ["Status is preserved", "Status, Owner, Target Date and Notes carry forward from the previous docs/master-build-tracker.xlsx on every re-run, matched by Item ID. Page completion is refreshed from the keyword-mapping roadmap and the verified production change ledger."],
+        ["Script attribution", "Scripts Used records the scripts evidenced for each page build/update. Verified priority-pipeline releases come from docs/page-build-pipeline/content-change-measurement-log.json."],
+        ["Focused views", "Awin Outreach Priority separates partnership actions. Page & Content Priority separates page creation, thin-content work and evidence-led SEO improvements. UX & GEO Findings records the latest page-type benchmark and implementation actions. SerpAPI Plan is the quota-aware search/GEO spend plan."],
         ["Roadmap state", "There are currently no unbuilt rows remaining in the page-build roadmap. Page & Content Priority therefore focuses on thin-content audits, existing-page improvements and the future research-page bet."],
         ["Re-run", "python3 scripts/build_master_tracker.py"],
     ]
     add_sheet(wb, "Read Me", ["Field", "Detail"], readme)
 
+    growth_headers, growth_rows = growth_priority_rows(
+        all_items, weekly_actions, keyword_mapping_completions
+    )
+    ws = add_sheet(wb, "Growth Priority", growth_headers, growth_rows)
+    for cell in ws["I"][1:]:
+        cell.number_format = "0.00%"
+    for column in ("M", "O", "P", "Q", "R"):
+        ws.column_dimensions[column].width = 55
+
     tracker_headers = [
-        "Rank", "Item ID", "Type", "Pillar", "Title", "Priority Score", "Impact Score",
-        "Effort", "Status", "Owner", "Target Date", "Notes",
+        "Rank", "Item ID", "Opportunity Type", "Type", "Pillar", "Title", "Priority Score", "Impact Score",
+        "Effort", "Status", "Scripts Used", "Owner", "Target Date", "Notes",
     ]
     tracker_rows = []
     for rank, item in enumerate(all_items, 1):
         tracker_rows.append([
-            rank, item["item_id"], item["type"], item["pillar"], item["title"],
+            rank, item["item_id"], item["opportunity_type"], item["type"], item["pillar"], item["title"],
             item["priority_score"], item["impact_score"], item["effort"],
-            item["status"], item["owner"], item["target_date"], item["notes"],
+            item["status"], item.get("scripts_used", ""), item["owner"], item["target_date"], item["notes"],
         ])
     add_sheet(wb, "Master Tracker", tracker_headers, tracker_rows)
 
     pending_headers = [
-        "Pending Rank", "Item ID", "Type", "Pillar", "Title", "Priority Score",
+        "Pending Rank", "Item ID", "Opportunity Type", "Type", "Pillar", "Title", "Priority Score",
         "Impact Score", "Effort", "Status", "Target", "Dependencies", "Owner",
-        "Target Date", "Notes",
+        "Target Date", "Scripts Used", "Notes",
     ]
     pending_rows = []
     pending_items = [item for item in all_items if item["status"] != "Done"]
     for rank, item in enumerate(pending_items, 1):
         pending_rows.append([
-            rank, item["item_id"], item["type"], item["pillar"], item["title"],
+            rank, item["item_id"], item["opportunity_type"], item["type"], item["pillar"], item["title"],
             item["priority_score"], item["impact_score"], item["effort"],
             item["status"], item.get("target", ""), item.get("dependencies", ""),
-            item["owner"], item["target_date"], item["notes"],
+            item["owner"], item["target_date"], item.get("scripts_used", ""), item["notes"],
         ])
     add_sheet(wb, "Pending Build Priority", pending_headers, pending_rows)
 
     awin_overrides = awin_overrides or {}
     awin_headers = [
         "Rank", "Priority Band", "Advertiser", "Awin Advertiser ID", "Relationship",
-        "Recommended Action", "Relevant Live URL", "Timing / Gate", "Status", "Owner",
+        "Outreach Priority Score", "Fit Score / 10", "GA4 Affiliate Clicks (30d)", "Awin Transactions (30d)",
+        "Awin Commission (30d)", "Acceptance Evidence", "Tailored Outreach Angle",
+        "Copy-and-Paste Professional Pitch", "Readiness Gap / Gate", "Recommended Action", "Relevant Live URL", "Last Awin Sync",
+        "Evidence Refreshed", "Status", "Owner",
         "Last Contacted", "Next Follow-up", "Decision / Feedback",
     ]
     awin_rows = []
     for rank, programme in enumerate(load_awin_advertisers(), 1):
         manual = awin_overrides.get(programme["advertiser"], {})
         relationship = programme["relationship"]
+        clicks = programme["ga4_clicks"]
+        fit = programme["fit_score"]
+        url = f"https://broadbandpicker.co.uk{programme['url']}" if programme["url"] else ""
+        evidence_bits = []
+        if url:
+            evidence_bits.append(f"Live, brand-relevant editorial page: {url}")
+        if clicks:
+            evidence_bits.append(f"{clicks} tracked outbound provider click(s) in the latest 30-day GA4 window")
+        if fit is not None:
+            evidence_bits.append(f"Documented audience fit: {fit:g}/10")
+        evidence = "; ".join(evidence_bits) or "No advertiser-specific traffic or live-page evidence recorded yet"
+        pitch = awin_copy_paste_pitch(programme, url)
+
+        if relationship == "Joined":
+            angle = "Share placement plan and qualified-click evidence; ask for current offers, creative, commission rules and coverage data to improve conversion."
+            gate = "Tracked link and provider_slug must be verified; promote only where coverage and user intent match."
+        elif relationship in ("Pending", "Suspended"):
+            angle = "Lead with the relevant live review/coverage page, transparent editorial method, UK audience fit and measured commercial intent. Ask what evidence would complete review."
+            gate = "Send one concise follow-up after the review interval; include real metrics only and avoid repeated generic chasers."
+        elif relationship == "Rejected":
+            angle = "Reapply with a material change: refreshed brand page, real GA4 click demand, relevant comparison/local cluster and clear ASA/CAP compliance controls."
+            gate = "Do not reapply until at least one new, advertiser-specific proof point exists and the previous rejection reason has been checked."
+        else:
+            angle = "Confirm genuine audience overlap, commercial terms and an honest contextual placement before applying."
+            gate = "Research and terms review required before outreach."
         if relationship == "Joined":
             action = "Verify the tracked deep link, feature the programme on relevant pages and reconcile GA4 outbound clicks against Awin transactions."
             timing = "Now: approved revenue opportunity"
@@ -2663,13 +3932,14 @@ def build_workbook(
             action = "Reapply selectively with stronger GSC traffic, GA4 commercial-click and content-quality evidence; record the rejection reason first."
             timing = "Gate on stronger evidence; do not bulk reapply"
             default = "Not started"
-        url = f"https://broadbandpicker.co.uk{programme['url']}" if programme["url"] else ""
         manual_status = manual.get("Status")
         if relationship == "Joined" and manual_status in {"Awaiting our response", "Waiting on advertiser"}:
             manual_status = "In progress"
         awin_rows.append([
             rank, programme["band"], programme["advertiser"], programme["id"], relationship,
-            action, url, timing,
+            programme["outreach_score"], fit if fit is not None else "Research needed", clicks, programme["transactions"],
+            programme["commission"], evidence, angle, pitch, gate, action, url,
+            programme["last_synced"], programme["clicks_generated_at"] or programme["performance_generated_at"],
             manual_status or default, manual.get("Owner") or "",
             manual.get("Last Contacted") or "", manual.get("Next Follow-up") or "",
             manual.get("Decision / Feedback") or "",
@@ -2678,13 +3948,13 @@ def build_workbook(
 
     content_headers = [
         "Rank", "Workstream", "Target", "Opportunity", "Priority Source", "Source Score",
-        "Status", "Evidence", "Recommended Action",
+        "Status", "Scripts Used", "Evidence", "Recommended Action",
     ]
     content_rows: list[list[Any]] = []
     city_audit = next((item for item in all_items if item["item_id"] == "audit-city-hub-thinness"), None)
     if city_audit and city_audit["status"] != "Done":
         content_rows.append([1, "Thin-content audit", city_audit["target"], city_audit["title"],
-                             "Master tracker", city_audit["priority_score"], city_audit["status"],
+                             "Master tracker", city_audit["priority_score"], city_audit["status"], "",
                              city_audit["description"], "Audit each city hub and add a genuinely local, sourced fact where missing."])
     if weekly_actions:
         headers, rows = weekly_actions
@@ -2708,15 +3978,18 @@ def build_workbook(
                 f"CTR {row[pos['CTR']]}; position {row[pos['Position']]}; "
                 f"top queries: {row[pos['Top Queries']]}{freshness}"
             )
+            completion = keyword_mapping_completions.get(str(page).rstrip("/") or "/")
             content_rows.append([
                 0, "Existing-page SEO improvement", page, opportunity, "Weekly GSC/GA4 action queue",
-                row[pos["Score"]], "Not started", evidence, row[pos["Recommended Action"]],
+                row[pos["Score"]], "Done" if completion else "Not started",
+                completion.get("scripts_used", "") if completion else "",
+                evidence, row[pos["Recommended Action"]],
             ])
     research = next((item for item in all_items if item["item_id"] == "bet-annual-research-report"), None)
     if research and research["status"] != "Done":
         content_rows.append([0, "New evidence-led page", research["target"], research["title"],
                              "Master tracker", research["priority_score"], research["status"],
-                             research["description"], "Build after higher-confidence thin-content and ranking opportunities."])
+                             "", research["description"], "Build after higher-confidence thin-content and ranking opportunities."])
     connect_fibre_ids = {
         "content-connect-fibre-provider-page",
         "content-wifi7-broadband-explained-guide",
@@ -2735,6 +4008,7 @@ def build_workbook(
             "Joined Awin programme 114602 + SEO/GEO content plan",
             item["priority_score"],
             item["status"],
+            item.get("scripts_used", ""),
             item["description"],
             "Proceed now" if item["item_id"] in {
                 "content-wifi7-broadband-explained-guide",
@@ -2746,9 +4020,19 @@ def build_workbook(
         row[0] = rank
     add_sheet(wb, "Page & Content Priority", content_headers, content_rows)
 
+    current_priority = load_current_seo_priority()
+    if current_priority:
+        headers, rows = current_priority
+        ws = add_sheet(wb, "Current SEO Priority", headers, rows)
+        for cell in ws["H"][1:]:
+            cell.number_format = "0.00%"
+        ws.column_dimensions["L"].width = 55
+        ws.column_dimensions["M"].width = 62
+        ws.column_dimensions["N"].width = 70
+
     page_headers = [
         "Rank", "Title", "Cluster", "Priority Score", "Revenue Score", "Difficulty Band",
-        "Build Status", "Repo Sync", "Status", "Keywords", "Volume/mo", "URL",
+        "Build Status", "Repo Sync", "Status", "Scripts Used", "Completed Date", "Keywords", "Volume/mo", "URL",
     ]
     page_rows = []
     sorted_pages = sorted(page_items, key=lambda it: it["priority_score"], reverse=True)
@@ -2756,9 +4040,34 @@ def build_workbook(
         page_rows.append([
             rank, item["title"], item["cluster"], item["priority_score"], item["impact_score"],
             item["effort"], item["build_status"], item["repo_sync"], item["status"],
+            item.get("scripts_used", ""), item.get("completed_date", ""),
             item["keywords"], item["volume"], item["target"],
         ])
     add_sheet(wb, "Page Builds", page_headers, page_rows)
+
+    pipeline_headers = [
+        "Rank", "Page", "Title", "Change Type", "Status", "Completed Date",
+        "Deployment", "GA4 Annotation", "Scripts Used",
+    ]
+    pipeline_rows = []
+    ordered_completions = sorted(
+        keyword_mapping_completions.values(),
+        key=lambda change: (str(change.get("change_date", "")), str(change.get("recorded_at", ""))),
+    )
+    for rank, change in enumerate(ordered_completions, 1):
+        annotation = change.get("ga4_annotation") or {}
+        pipeline_rows.append([
+            rank,
+            change.get("path", ""),
+            change.get("title", ""),
+            change.get("change_type", ""),
+            "Done",
+            change.get("change_date", ""),
+            change.get("deployment", ""),
+            annotation.get("name", ""),
+            change.get("scripts_used", ""),
+        ])
+    add_sheet(wb, "Priority Pipeline Builds", pipeline_headers, pipeline_rows)
 
     feature_headers = [
         "Rank", "Type", "Pillar", "Title", "Description", "Priority Score", "Impact Score",
@@ -2777,13 +4086,22 @@ def build_workbook(
     done = sum(1 for it in all_items if it["status"] == "Done")
     methodology = [
         ["Item count", f"{len(all_items)} total ({len(page_items)} page builds, {len(FEATURE_BUILDS)} feature/strategy builds); {done} already marked Done."],
+        ["Growth Priority", "Unified pending-work queue. Existing pages use the live Weekly SEO Actions score plus a rankability adjustment: +10 for positions 1-10, +7 for 11-15, +3 for 16-30 and -5 below 30. New pages use the keyword-mapping SEO build score. Site initiatives combine 60% priority and 40% impact with a modest effort adjustment."],
+        ["Fast-growth ordering", "Existing pages already near page one are favoured because improving their title, answer, evidence and internal links can turn current impressions into clicks faster than waiting for a new page to index. High-impression deep-ranking pages remain visible but are labelled strategic/harder rank."],
+        ["Mandatory page pipeline", "Every New build and Optimise existing build row includes scripts/build_keyword_mapping.py plus evidence refresh, SERP/GEO research, validation, production deployment, change annotation and measurement."],
         ["Page priority score", "Existing SEO Build Priority Score from the keyword-mapping pipeline — weighted toward CPC/commercial intent, tuned for affiliate revenue."],
         ["Feature priority score", "Hand-scored 0-100 reflecting the growth playbook's sequencing: infra risk and quick wins first, bigger bets last."],
         ["Repo Sync column", "A single snapshot check of `git status` across the folders that hold page-build content — not a per-row git-blame lookup. 'Live but not committed to git' means production and git have diverged for that batch of pages."],
         ["Pending queue", "Pending Build Priority contains only non-Done items from the combined page, feature, audit and strategy list, ordered by Priority Score."],
         ["Awin outreach", "Awin Outreach Priority is ordered by action stage: activate joined programmes, follow up pending applications, then make selective evidence-led reapplications. Manual outreach fields survive regeneration."],
         ["Page/content queue", "Page & Content Priority combines the tracker thin-content audit with non-monitor weekly GSC/GA4 opportunities. Source scores use different models and are labelled; the list is a working sequence, not a claim that the scores are directly comparable."],
-        ["Editing this file", "Status/Owner/Target Date/Notes are yours to edit freely — they survive the next `python3 scripts/build_master_tracker.py` run."],
+        ["Priority pipeline completion", f"{len(keyword_mapping_completions)} verified production page builds/updates are marked Done from the deployment and annotation ledger."],
+        ["Current SEO priority", "Current SEO Priority mirrors the canonical next-page decision after the live GSC/GA4 refresh. The primary queue favours measurable demand already ranking in positions 1-30; deeper high-impression pages remain in Weekly SEO Actions for strategic work."],
+        ["SerpAPI plan", "SerpAPI Plan spends the Google-UK search quota on winning GSC queries, per-page build packs, AI Overview citation checks and post-release measurement. Default priority refreshes stay cached. Status/Owner/Notes on that tab survive regeneration, matched by Action ID."],
+        ["GEO topic clusters", f"{GEO_CLUSTER_SHEET} is generated by scripts/analyze_geo_growth_strategy.py: growing GSC topic clusters, their intent and customer-journey stage, the AI Overview citation gap, affiliate-programme alignment, and the new pages / refreshes to build for LLM and AI Overview traffic. 'Generative AI performance' is a documented proxy (conversational-query growth + searchAppearance + opt-in SerpApi AI Overview checks + GA4 ai_referral_visit). Status/Owner/Notes survive regeneration, matched by Key."],
+        ["Other AWIN memberships", f"{OTHER_AWIN_SHEET} is generated by scripts/plan_awin_adjacency_content.py: candidate content pages, on-genre, for six adjacent verticals (home Wi-Fi hardware, broadband and mobile, landline switch-off, moving home, TV and streaming, VPN and privacy) that would make BroadbandPicker eligible for related Awin programmes. Each page has a primary keyword, secondary keywords, page type and a 0-100 SEO opportunity score; rows are ordered highest opportunity first. The score is a transparent composite of editorial 1-5 bands plus optional live SerpApi SERP shape, with no fabricated search volume, CPC or difficulty. Status/Owner/Notes survive regeneration, matched by Key."],
+        ["Altnet AWIN programmes", f"{ALTNET_AWIN_SHEET} is generated by scripts/plan_altnet_awin_content.py: per-altnet content (a provider review, a head-to-head against the local incumbent, a local best-broadband guide) plus shared altnet explainers and a roundup, for nine regional full-fibre altnet Awin programmes (Fibrus, Airband, Be Fibre, Hey!Broadband, Quickline, GoFibre, Voneus, Grain, Lightning Fibre). Same keyword and scoring model as the adjacency plan, with commercial value weighted higher because these are direct ISP programmes. Ordered highest SEO opportunity first. Status/Owner/Notes survive regeneration, matched by Key."],
+        ["Editing this file", "Status/Owner/Target Date/Notes are yours to edit freely — they survive the next `python3 scripts/build_master_tracker.py` run. Scripts Used is regenerated from repository evidence."],
     ]
     add_sheet(wb, "Methodology", ["Aspect", "Detail"], methodology)
 
@@ -2791,25 +4109,151 @@ def build_workbook(
         headers, rows = weekly_actions
         add_sheet(wb, "Weekly SEO Actions", headers, rows)
 
+    page_ux_findings = load_page_ux_findings()
+    if page_ux_findings:
+        headers, rows = page_ux_findings
+        ws = add_sheet(wb, "UX & GEO Findings", headers, rows)
+        ws.column_dimensions["E"].width = 55
+        ws.column_dimensions["F"].width = 55
+        ws.column_dimensions["G"].width = 55
+        ws.column_dimensions["H"].width = 45
+
+    serp_headers, serp_rows = serp_api_plan_rows(serp_plan_overrides)
+    ws = add_sheet(wb, SERP_PLAN_SHEET, serp_headers, serp_rows)
+    ws.column_dimensions["F"].width = 62
+    ws.column_dimensions["J"].width = 55
+    ws.column_dimensions["K"].width = 50
+    ws.column_dimensions["L"].width = 50
+    ws.column_dimensions["M"].width = 50
+
+    geo_clusters = load_geo_topic_clusters(geo_cluster_overrides)
+    if geo_clusters:
+        headers, rows = geo_clusters
+        ws = add_sheet(wb, GEO_CLUSTER_SHEET, headers, rows)
+        for column in ("N", "O", "Q", "R", "S", "T", "U", "V", "W", "X"):
+            ws.column_dimensions[column].width = 48
+        ws.column_dimensions["D"].width = 30
+
+    other_awin = load_other_awin_memberships(other_awin_overrides)
+    if other_awin:
+        headers, rows = other_awin
+        ws = add_sheet(wb, OTHER_AWIN_SHEET, headers, rows)
+        for column in ("D", "F", "G", "H", "I", "K", "T", "U"):
+            ws.column_dimensions[column].width = 44
+        ws.column_dimensions["I"].width = 50
+
+    altnet_awin = load_altnet_awin_programmes(altnet_awin_overrides)
+    if altnet_awin:
+        headers, rows = altnet_awin
+        ws = add_sheet(wb, ALTNET_AWIN_SHEET, headers, rows)
+        for column in ("G", "H", "J", "L", "U", "V"):
+            ws.column_dimensions[column].width = 44
+        ws.column_dimensions["J"].width = 50
+
     return wb
+
+
+def sync_named_sheet_to_google(wb: Workbook, spreadsheet_id: str, sheet_name: str) -> dict[str, Any]:
+    """Create or replace one worksheet in a native Google Sheet."""
+    from build_keyword_mapping import google_access_token, sheets_request
+
+    token = google_access_token(["https://www.googleapis.com/auth/spreadsheets"])
+    base = f"https://sheets.googleapis.com/v4/spreadsheets/{spreadsheet_id}"
+    metadata = sheets_request(
+        token, "GET", base,
+        params={"fields": "properties(title),sheets(properties(sheetId,title))"},
+    )
+    remote = {sheet["properties"]["title"]: sheet["properties"]["sheetId"]
+              for sheet in metadata.get("sheets", [])}
+    if sheet_name not in remote:
+        created = sheets_request(token, "POST", f"{base}:batchUpdate", json={
+            "requests": [{"addSheet": {"properties": {
+                "title": sheet_name, "gridProperties": {"frozenRowCount": 1},
+            }}}],
+        })
+        replies = created.get("replies") or []
+        new_id = replies[0]["addSheet"]["properties"]["sheetId"] if replies else None
+        if new_id is None:
+            metadata = sheets_request(
+                token, "GET", base,
+                params={"fields": "sheets(properties(sheetId,title))"},
+            )
+            remote = {sheet["properties"]["title"]: sheet["properties"]["sheetId"]
+                      for sheet in metadata.get("sheets", [])}
+            new_id = remote.get(sheet_name)
+        remote[sheet_name] = new_id
+    ws = wb[sheet_name]
+    rows = [[cell.value if cell.value is not None else "" for cell in row] for row in ws.iter_rows()]
+    last_col = get_column_letter(max(len(row) for row in rows) if rows else 1)
+    quoted = sheet_name.replace("'", "''")
+    sheets_request(
+        token, "POST", f"{base}/values:batchUpdate",
+        json={
+            "valueInputOption": "RAW",
+            "data": [{"range": f"'{quoted}'!A1:{last_col}{len(rows)}", "values": rows}],
+        },
+    )
+    return {
+        "spreadsheetId": spreadsheet_id,
+        "spreadsheetUrl": f"https://docs.google.com/spreadsheets/d/{spreadsheet_id}/edit",
+        "sheet": sheet_name,
+        "rows": len(rows),
+    }
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--source", type=Path, default=DEFAULT_SOURCE)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument(
+        "--sync-google-sheet-id",
+        default="",
+        help="Optional native Google Sheet ID. When set, the SerpAPI Plan tab is created or replaced in that spreadsheet.",
+    )
+    parser.add_argument(
+        "--sync-serp-plan-sheet",
+        action="store_true",
+        help=f"Sync the SerpAPI Plan tab to {SERP_PLAN_GOOGLE_SHEET_ID}",
+    )
     args = parser.parse_args()
 
-    page_items = load_page_builds(args.source)
+    keyword_mapping_completions = load_keyword_mapping_completions()
+    page_items = load_page_builds(args.source, keyword_mapping_completions)
     overrides = load_manual_overrides(args.output)
     weekly_actions = load_weekly_seo_actions(args.output)
     awin_overrides = load_awin_overrides(args.output)
-    wb = build_workbook(page_items, overrides, weekly_actions, awin_overrides)
+    serp_plan_overrides = load_serp_plan_overrides(args.output)
+    geo_cluster_overrides = load_geo_cluster_overrides(args.output)
+    other_awin_overrides = load_other_awin_overrides(args.output)
+    altnet_awin_overrides = load_altnet_awin_overrides(args.output)
+    wb = build_workbook(
+        page_items,
+        overrides,
+        weekly_actions,
+        awin_overrides,
+        keyword_mapping_completions,
+        serp_plan_overrides,
+        geo_cluster_overrides,
+        other_awin_overrides,
+        altnet_awin_overrides,
+    )
     args.output.parent.mkdir(parents=True, exist_ok=True)
     wb.save(args.output)
     print(f"Saved {args.output.resolve()}")
     print(f"{len(page_items)} page builds + {len(FEATURE_BUILDS)} feature builds = "
           f"{len(page_items) + len(FEATURE_BUILDS)} tracked items")
+    print(f"Added worksheet: {SERP_PLAN_SHEET}")
+    if GEO_CLUSTER_STRATEGY.exists():
+        print(f"Added worksheet: {GEO_CLUSTER_SHEET}")
+    if OTHER_AWIN_STRATEGY.exists():
+        print(f"Added worksheet: {OTHER_AWIN_SHEET}")
+    if ALTNET_AWIN_STRATEGY.exists():
+        print(f"Added worksheet: {ALTNET_AWIN_SHEET}")
+
+    sheet_id = args.sync_google_sheet_id or (SERP_PLAN_GOOGLE_SHEET_ID if args.sync_serp_plan_sheet else "")
+    if sheet_id:
+        result = sync_named_sheet_to_google(wb, sheet_id, SERP_PLAN_SHEET)
+        print(f"Google Sheet: {result['spreadsheetUrl']} ({result['sheet']}, {result['rows']} rows)")
 
 
 if __name__ == "__main__":

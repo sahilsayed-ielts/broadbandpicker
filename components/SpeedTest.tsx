@@ -1,196 +1,227 @@
 'use client'
 
-import { useState, useCallback } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import Link from 'next/link'
 import { trackEvent } from '@/lib/analytics'
+import { roundMbps, runProfessionalSpeedTest } from '@/lib/speedTestMeasure'
+import {
+  queryGeoPermission,
+  requestSpeedTestLocation,
+  skipLocationThisVisit,
+  skippedLocationThisVisit,
+  type SpeedTestPlace,
+} from '@/lib/speedTestLocation'
 
 type Phase = 'idle' | 'ping' | 'download' | 'upload' | 'done'
+type GeoState = PermissionState | 'unsupported' | 'skipped' | 'timeout'
 
-// Gauge geometry — 270° arc, open at the bottom
 const R = 75
 const CX = 100
 const CY = 100
 const CIRC = 2 * Math.PI * R
-const GAUGE = CIRC * 0.75  // 270° worth of arc
-const GAP   = CIRC * 0.25  // the open 90° gap
+const GAUGE = CIRC * 0.75
+const GAP = CIRC * 0.25
 const MAX_MBPS = 1000
 
 function arcFill(mbps: number) {
-  const pct = Math.min(mbps / MAX_MBPS, 1)
-  return GAUGE * pct
+  return GAUGE * Math.min(mbps / MAX_MBPS, 1)
 }
 
 function speedColor(mbps: number) {
-  if (mbps < 20)  return '#ef4444'
-  if (mbps < 50)  return '#f97316'
+  if (mbps < 20) return '#ef4444'
+  if (mbps < 50) return '#f97316'
   if (mbps < 100) return '#eab308'
   if (mbps < 300) return '#22c55e'
   return '#0ea5e9'
 }
 
 function speedLabel(mbps: number) {
-  if (mbps < 10)  return 'Very slow'
-  if (mbps < 30)  return 'Basic'
+  if (mbps < 10) return 'Very slow'
+  if (mbps < 30) return 'Basic'
   if (mbps < 100) return 'Standard'
   if (mbps < 300) return 'Fast'
   if (mbps < 600) return 'Superfast'
   return 'Gigabit'
 }
 
-function recommendation(dl: number) {
-  if (dl < 10)  return 'This result is slow for modern household use. Repeat the test over Ethernet and compare it with the minimum guaranteed speed in your contract.'
-  if (dl < 30)  return 'This may support everyday use for a small household, but simultaneous streaming and calls could be limited. Repeat the test before comparing alternatives.'
-  if (dl < 100) return 'This is within Ofcom\'s superfast range. It should suit many homes, although actual needs depend on simultaneous users and activities.'
-  if (dl < 300) return 'This is a fast result within Ofcom\'s superfast range and should support a busy connected household.'
-  return 'This is an ultrafast result under Ofcom\'s speed categories. Compare repeated tests with the service level and price in your contract.'
+function recommendation(download: number, upload: number, ping: number, loaded: number | null) {
+  const bufferbloat = loaded !== null && loaded - ping > 80
+  if (download < 10) {
+    return 'This result is slow for modern household use. Repeat over Ethernet, pause other devices, then compare with the minimum guaranteed speed in your contract.'
+  }
+  if (bufferbloat) {
+    return 'Download may look acceptable, but ping rose sharply under load. That usually feels like stalling video calls. Test on Ethernet and check whether a backup or stream was running.'
+  }
+  if (upload < 5 && download >= 30) {
+    return 'Download is in Ofcom’s superfast range, but upload is tight for HD video calls and cloud backup. Full fibre is the usual upgrade if the evening speed holds.'
+  }
+  if (download < 30) {
+    return 'This may support everyday use for a small household. Simultaneous 4K streams and calls could be limited. Repeat at least three times, including once in the evening.'
+  }
+  if (download < 100) {
+    return 'This is within Ofcom’s superfast range. It should suit many homes if the measured upload and evening speed also hold.'
+  }
+  if (download < 300) {
+    return 'This is a fast superfast result and should support a busy connected household, provided Wi-Fi in the room matches this figure.'
+  }
+  return 'This is an ultrafast result under Ofcom’s speed categories. Compare repeated Ethernet tests with the service level and price in your contract.'
 }
 
-async function measurePing(): Promise<number> {
-  const times: number[] = []
-  for (let i = 0; i < 5; i++) {
-    const t = performance.now()
-    await fetch(`/api/speedtest/ping?t=${Date.now()}`, { cache: 'no-store' })
-    times.push(performance.now() - t)
-  }
-  times.sort((a, b) => a - b)
-  return times[2] // median of 5
+function ratingDots(score: number) {
+  return Array.from({ length: 5 }, (_, index) => index < score)
 }
 
-async function measureDownload(onTick: (mbps: number) => void): Promise<number> {
-  const res = await fetch(`/api/speedtest/download?t=${Date.now()}`, { cache: 'no-store' })
-  if (!res.ok || !res.body) throw new Error('Download failed')
-  const reader = res.body.getReader()
-
-  let totalBytes = 0
-  let lastBytes = 0
-  const t0 = performance.now()
-  let lastTick = t0
-
-  while (true) {
-    const { done, value } = await reader.read()
-    if (done) break
-    totalBytes += value.byteLength
-    const now = performance.now()
-    if (now - lastTick > 150) {
-      const mbps = ((totalBytes - lastBytes) * 8) / ((now - lastTick) / 1000) / 1e6
-      onTick(mbps)
-      lastBytes = totalBytes
-      lastTick = now
-    }
-  }
-
-  const elapsed = (performance.now() - t0) / 1000
-  return (totalBytes * 8) / elapsed / 1e6
-}
-
-async function measureUpload(onTick: (mbps: number) => void): Promise<number> {
-  const SIZE = 5 * 1024 * 1024 // 5 MB
-  const data = new Uint8Array(SIZE)
-  // crypto.getRandomValues caps out at 65536 bytes per call, so fill in chunks.
-  // Genuinely random bytes, not a repeating pattern — a predictable payload
-  // risks the same silent inflation the download test had if anything in the
-  // path ever starts compressing request bodies.
-  const RAND_CHUNK = 65536
-  for (let offset = 0; offset < SIZE; offset += RAND_CHUNK) {
-    crypto.getRandomValues(data.subarray(offset, Math.min(offset + RAND_CHUNK, SIZE)))
-  }
-
-  return new Promise((resolve, reject) => {
-    const xhr = new XMLHttpRequest()
-    const t0 = performance.now()
-
-    xhr.upload.onprogress = (e) => {
-      const elapsed = (performance.now() - t0) / 1000
-      if (elapsed > 0 && e.loaded > 0) {
-        onTick((e.loaded * 8) / elapsed / 1e6)
-      }
-    }
-
-    xhr.onload = () => {
-      const elapsed = (performance.now() - t0) / 1000
-      resolve((SIZE * 8) / elapsed / 1e6)
-    }
-
-    xhr.onerror = () => reject(new Error('Upload failed'))
-    xhr.open('POST', `/api/speedtest/upload?t=${Date.now()}`)
-    xhr.setRequestHeader('Content-Type', 'application/octet-stream')
-    xhr.send(data)
-  })
+function experience(download: number, upload: number, ping: number, jitter: number) {
+  const browsing = download >= 10 && ping < 100 ? (download >= 30 && ping < 40 ? 5 : 4) : download >= 5 ? 3 : 2
+  const streaming = download >= 50 ? 5 : download >= 25 ? 4 : download >= 15 ? 3 : download >= 5 ? 2 : 1
+  const calls = upload >= 10 && ping < 50 ? 5 : upload >= 5 && ping < 80 ? 4 : upload >= 3 ? 3 : 2
+  const gaming = ping < 30 && jitter < 10 ? 5 : ping < 60 && jitter < 20 ? 4 : ping < 100 ? 3 : 2
+  return [
+    { label: 'Web browsing', score: browsing },
+    { label: 'Video streaming', score: streaming },
+    { label: 'Video calls', score: calls },
+    { label: 'Online gaming', score: gaming },
+  ]
 }
 
 export default function SpeedTest() {
-  const [phase, setPhase]         = useState<Phase>('idle')
+  const [phase, setPhase] = useState<Phase>('idle')
   const [liveSpeed, setLiveSpeed] = useState(0)
-  const [ping, setPing]           = useState<number | null>(null)
-  const [download, setDownload]   = useState<number | null>(null)
-  const [upload, setUpload]       = useState<number | null>(null)
-  const [error, setError]         = useState<string | null>(null)
-  const [jitter, setJitter]       = useState<number | null>(null)
+  const [ping, setPing] = useState<number | null>(null)
+  const [download, setDownload] = useState<number | null>(null)
+  const [upload, setUpload] = useState<number | null>(null)
+  const [jitter, setJitter] = useState<number | null>(null)
+  const [loadedPing, setLoadedPing] = useState<number | null>(null)
+  const [sustain, setSustain] = useState<number | null>(null)
+  const [error, setError] = useState<string | null>(null)
+  const [place, setPlace] = useState<SpeedTestPlace | null>(null)
+  const [geoState, setGeoState] = useState<GeoState>('prompt')
+  const [geoBusy, setGeoBusy] = useState(false)
 
-  const runTest = useCallback(async () => {
-    trackEvent('speed_test_started')
-    setPhase('ping')
-    setPing(null); setDownload(null); setUpload(null)
-    setLiveSpeed(0); setError(null)
-
-    try {
-      // Ping
-      const pingSamples = await Promise.all(Array.from({ length: 5 }, async () => measurePing()))
-      const pingMs = pingSamples.reduce((sum, value) => sum + value, 0) / pingSamples.length
-      const jitterMs = pingSamples.reduce((sum, value) => sum + Math.abs(value - pingMs), 0) / pingSamples.length
-      setPing(Math.round(pingMs))
-      setJitter(Math.round(jitterMs))
-
-      // Download
-      setPhase('download')
-      setLiveSpeed(0)
-      const dlMbps = await measureDownload((mbps) => setLiveSpeed(mbps))
-      const dlFinal = Math.round(dlMbps * 10) / 10
-      setDownload(dlFinal)
-      setLiveSpeed(dlMbps)
-
-      await new Promise(r => setTimeout(r, 600))
-
-      // Upload
-      setPhase('upload')
-      setLiveSpeed(0)
-      const ulMbps = await measureUpload((mbps) => setLiveSpeed(mbps))
-      const ulFinal = Math.round(ulMbps * 10) / 10
-      setUpload(ulFinal)
-      setLiveSpeed(ulMbps)
-
-      await new Promise(r => setTimeout(r, 600))
-      setPhase('done')
-      trackEvent('speed_test_completed', {
-        ping_ms: Math.round(pingMs),
-        download_mbps: dlFinal,
-        upload_mbps: ulFinal,
-        jitter_ms: Math.round(jitterMs),
-        speed_band: speedLabel(dlFinal).toLowerCase(),
-      })
-    } catch {
-      trackEvent('speed_test_failed')
-      setError('Test failed. Please check your connection and try again.')
-      setPhase('idle')
+  useEffect(() => {
+    let cancelled = false
+    void (async () => {
+      if (skippedLocationThisVisit()) {
+        if (!cancelled) setGeoState('skipped')
+        return
+      }
+      const permission = await queryGeoPermission()
+      if (cancelled) return
+      setGeoState(permission)
+      if (permission === 'granted') {
+        try {
+          const result = await requestSpeedTestLocation()
+          if (!cancelled && result.ok) setPlace(result.place)
+        } catch {
+          /* keep the test usable without a place */
+        }
+      }
+    })()
+    return () => {
+      cancelled = true
     }
   }, [])
 
-  // Gauge display: during 'done', show download speed on the dial
-  const dialSpeed   = phase === 'done' ? (download ?? 0) : liveSpeed
-  const fill        = arcFill(dialSpeed)
-  const dialColor   = speedColor(dialSpeed)
-  const isRunning   = phase === 'ping' || phase === 'download' || phase === 'upload'
-  const phaseLabel  = phase === 'ping' ? 'Testing ping…' : phase === 'download' ? 'Testing download…' : phase === 'upload' ? 'Testing upload…' : ''
+  const askForLocation = useCallback(async () => {
+    setGeoBusy(true)
+    try {
+      const result = await requestSpeedTestLocation()
+      if (result.ok) {
+        setPlace(result.place)
+        setGeoState('granted')
+        trackEvent('speed_test_location', { granted: true, in_uk: result.place.inUk ? 1 : 0 })
+        return result.place
+      }
+      setGeoState(
+        result.reason === 'denied'
+          ? 'denied'
+          : result.reason === 'unsupported'
+            ? 'unsupported'
+            : result.reason === 'timeout' || result.reason === 'unavailable'
+              ? 'timeout'
+              : 'skipped',
+      )
+      trackEvent('speed_test_location', { granted: false, in_uk: 0 })
+      return null
+    } catch {
+      setGeoState('denied')
+      trackEvent('speed_test_location', { granted: false, in_uk: 0 })
+      return null
+    } finally {
+      setGeoBusy(false)
+    }
+  }, [])
+
+  const runTest = useCallback(async () => {
+    let currentPlace = place
+    if (geoState === 'prompt' && !skippedLocationThisVisit()) {
+      currentPlace = await askForLocation()
+    }
+    trackEvent('speed_test_started', {
+      device_category: window.matchMedia('(max-width: 767px)').matches ? 'mobile' : 'desktop',
+      test_context: 'speed-test-page',
+    })
+    setPhase('ping')
+    setPing(null)
+    setDownload(null)
+    setUpload(null)
+    setJitter(null)
+    setLoadedPing(null)
+    setSustain(null)
+    setLiveSpeed(0)
+    setError(null)
+
+    try {
+      const result = await runProfessionalSpeedTest((nextPhase, mbps) => {
+        setPhase(nextPhase)
+        setLiveSpeed(mbps)
+      })
+      const dl = roundMbps(result.downloadMbps)
+      const ul = roundMbps(result.uploadMbps)
+      const pingMs = Math.round(result.pingMs)
+      const jitterMs = Math.round(result.jitterMs)
+      setPing(pingMs)
+      setJitter(jitterMs)
+      setDownload(dl)
+      setUpload(ul)
+      setLoadedPing(result.loadedPingMs === null ? null : Math.round(result.loadedPingMs))
+      setSustain(roundMbps(result.downloadSustainMbps))
+      setLiveSpeed(result.downloadMbps)
+      setPhase('done')
+      trackEvent('speed_test_completed', {
+        ping_ms: pingMs,
+        download_mbps: dl,
+        upload_mbps: ul,
+        jitter_ms: jitterMs,
+        loaded_ping_ms: result.loadedPingMs === null ? 0 : Math.round(result.loadedPingMs),
+        speed_band: speedLabel(dl).toLowerCase(),
+        location_used: currentPlace?.inUk ? 1 : 0,
+        device_category: window.matchMedia('(max-width: 767px)').matches ? 'mobile' : 'desktop',
+      })
+    } catch {
+      trackEvent('speed_test_failed')
+      setError('Test failed. Check the connection and try again.')
+      setPhase('idle')
+    }
+  }, [askForLocation, geoState, place])
+
+  const dialSpeed = phase === 'done' ? (download ?? 0) : liveSpeed
+  const fill = arcFill(dialSpeed)
+  const dialColor = speedColor(dialSpeed)
+  const isRunning = phase === 'ping' || phase === 'download' || phase === 'upload'
+  const phaseLabel =
+    phase === 'ping' ? 'Measuring idle ping…' : phase === 'download' ? 'Filling download…' : phase === 'upload' ? 'Filling upload…' : ''
 
   return (
-    <div className="max-w-2xl mx-auto">
-      {/* Dial */}
-      <div className="flex flex-col items-center py-10">
+    <div className="mx-auto max-w-2xl rounded-3xl bg-slate-950 px-4 py-8 text-white sm:px-8">
+      <div className="flex flex-col items-center py-4">
+        <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-sky-400">UK multi-stream test</p>
         <div className="relative">
           <svg width="240" height="215" viewBox="0 12 200 188" aria-hidden="true">
-            {/* Background track */}
             <circle
-              cx={CX} cy={CY} r={R}
+              cx={CX}
+              cy={CY}
+              r={R}
               fill="none"
               stroke="#1e293b"
               strokeWidth="14"
@@ -198,9 +229,10 @@ export default function SpeedTest() {
               strokeLinecap="round"
               transform={`rotate(135 ${CX} ${CY})`}
             />
-            {/* Coloured progress arc */}
             <circle
-              cx={CX} cy={CY} r={R}
+              cx={CX}
+              cy={CY}
+              r={R}
               fill="none"
               stroke={dialSpeed > 0 ? dialColor : '#1e293b'}
               strokeWidth="14"
@@ -210,42 +242,29 @@ export default function SpeedTest() {
               style={{ transition: 'stroke-dasharray 0.18s ease, stroke 0.3s ease' }}
             />
           </svg>
-
-          {/* Centre readout */}
           <div className="absolute inset-0 flex flex-col items-center justify-center pb-4">
             {phase === 'idle' || phase === 'ping' ? (
               <>
-                <span className="text-5xl font-black text-white tabular-nums leading-none">
-                  {phase === 'ping' ? '—' : '—'}
-                </span>
-                <span className="text-slate-400 text-sm mt-1">Mbps</span>
+                <span className="text-5xl font-black leading-none text-white tabular-nums">—</span>
+                <span className="mt-1 text-sm text-slate-400">Mbps</span>
               </>
             ) : (
               <>
-                <span
-                  className="text-5xl font-black tabular-nums leading-none"
-                  style={{ color: dialColor }}
-                >
-                  {dialSpeed < 10
-                    ? dialSpeed.toFixed(1)
-                    : Math.round(dialSpeed)}
+                <span className="text-5xl font-black leading-none tabular-nums" style={{ color: dialColor }}>
+                  {dialSpeed < 10 ? dialSpeed.toFixed(1) : Math.round(dialSpeed)}
                 </span>
-                <span className="text-slate-400 text-sm mt-1">Mbps</span>
-                {phase === 'done' && download !== null && (
-                  <span
-                    className="text-xs font-bold mt-1 uppercase tracking-widest"
-                    style={{ color: dialColor }}
-                  >
+                <span className="mt-1 text-sm text-slate-400">Mbps</span>
+                {phase === 'done' && download !== null ? (
+                  <span className="mt-1 text-xs font-bold uppercase tracking-widest" style={{ color: dialColor }}>
                     {speedLabel(download)}
                   </span>
-                )}
+                ) : null}
               </>
             )}
           </div>
         </div>
 
-        {/* Speed indicators */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8 mt-2" aria-live="polite">
+        <div className="mt-2 grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-8" aria-live="polite">
           {[
             { label: 'Ping', value: ping !== null ? `${ping} ms` : '—' },
             { label: 'Download', value: download !== null ? `${download} Mbps` : '—' },
@@ -253,73 +272,193 @@ export default function SpeedTest() {
             { label: 'Jitter', value: jitter !== null ? `${jitter} ms` : '—' },
           ].map(({ label, value }) => (
             <div key={label} className="text-center">
-              <div className="text-xs text-slate-500 uppercase tracking-wide mb-1">{label}</div>
-              <div className="text-lg font-bold text-white tabular-nums">{value}</div>
+              <div className="mb-1 text-xs uppercase tracking-wide text-slate-500">{label}</div>
+              <div className="text-lg font-bold tabular-nums text-white">{value}</div>
             </div>
           ))}
         </div>
 
-        {/* Phase label */}
-        <div className="h-6 mt-4">
-          {isRunning && (
-            <p className="text-sky-400 text-sm font-medium motion-safe:animate-pulse" aria-live="polite">{phaseLabel}</p>
-          )}
-          {error && <p className="text-red-400 text-sm" role="alert">{error}</p>}
+        <div className="mt-4 h-6">
+          {isRunning ? (
+            <p className="text-sm font-medium text-sky-400 motion-safe:animate-pulse" aria-live="polite">
+              {phaseLabel}
+            </p>
+          ) : null}
+          {error ? (
+            <p className="text-sm text-red-400" role="alert">
+              {error}
+            </p>
+          ) : null}
         </div>
 
-        {/* Button */}
+        {phase === 'idle' && geoState === 'prompt' ? (
+          <div className="mt-4 w-full max-w-md rounded-2xl border border-slate-700 bg-slate-900 p-4 text-left">
+            <p className="text-sm font-semibold text-white">Use your location for a more useful result</p>
+            <p className="mt-2 text-sm leading-relaxed text-slate-300">
+              Chrome, Safari and Firefox will show their usual location prompt. You can allow while visiting this
+              site, allow this time, or never allow. We use the coordinates only in your browser to confirm you are
+              in the UK and find the nearest postcode district. The speed measurement still runs to our London
+              server. Coordinates are not sent to analytics.
+            </p>
+            <div className="mt-3 flex flex-col gap-2 sm:flex-row">
+              <button
+                type="button"
+                onClick={() => void askForLocation()}
+                disabled={geoBusy}
+                className="flex-1 rounded-full bg-sky-500 px-4 py-2.5 text-sm font-bold text-white hover:bg-sky-600 disabled:opacity-60"
+              >
+                {geoBusy ? 'Waiting for browser…' : 'Allow location'}
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  skipLocationThisVisit()
+                  setGeoState('skipped')
+                  trackEvent('speed_test_location', { granted: false, in_uk: 0 })
+                }}
+                className="flex-1 rounded-full border border-slate-600 px-4 py-2.5 text-sm font-semibold text-slate-200 hover:border-slate-400"
+              >
+                Not this time
+              </button>
+            </div>
+          </div>
+        ) : null}
+
+        {place?.inUk && place.postcode ? (
+          <p className="mt-4 text-sm text-sky-300">
+            Near {place.district ? `${place.district}, ` : ''}
+            {place.postcode}
+            {place.kmFromLondon > 0 ? ` · about ${place.kmFromLondon} km from the London test server` : ''}
+          </p>
+        ) : null}
+        {place?.inUk && !place.postcode ? (
+          <p className="mt-4 text-sm text-sky-300">UK location confirmed. The test still uses our London server.</p>
+        ) : null}
+        {place && !place.inUk ? (
+          <p className="mt-4 text-sm text-amber-300">
+            Location looks outside the UK. Ping will include the extra distance to London
+            {place.kmFromLondon > 0 ? ` (about ${place.kmFromLondon} km)` : ''}.
+          </p>
+        ) : null}
+        {geoState === 'denied' ? (
+          <p className="mt-4 text-sm text-slate-400">Location is blocked in the browser. The test still runs to our London server.</p>
+        ) : null}
+        {geoState === 'timeout' ? (
+          <p className="mt-4 text-sm text-slate-400">Could not get a location fix in time. The test still runs to our London server.</p>
+        ) : null}
+        {geoState === 'unsupported' ? (
+          <p className="mt-4 text-sm text-slate-400">This browser cannot share location. The test still runs to our London server.</p>
+        ) : null}
+        {phase === 'idle' && (geoState === 'skipped' || geoState === 'timeout') ? (
+          <button
+            type="button"
+            onClick={() => void askForLocation()}
+            disabled={geoBusy}
+            className="mt-3 text-sm font-semibold text-sky-300 underline-offset-2 hover:underline disabled:opacity-60"
+          >
+            {geoBusy ? 'Waiting for browser…' : 'Share location'}
+          </button>
+        ) : null}
+
         {(phase === 'idle' || phase === 'done') && (
           <button
             onClick={runTest}
-            className="mt-4 px-10 py-3.5 bg-sky-500 hover:bg-sky-600 active:bg-sky-700 text-white font-bold rounded-full text-base transition-colors shadow-lg shadow-sky-500/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-300"
+            disabled={geoBusy}
+            className="mt-4 rounded-full bg-sky-500 px-10 py-3.5 text-base font-bold text-white shadow-lg shadow-sky-500/20 transition-colors hover:bg-sky-600 active:bg-sky-700 disabled:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-300"
           >
-            {phase === 'done' ? 'Test again' : 'Start test'}
+            {geoBusy ? 'Waiting for browser…' : phase === 'done' ? 'Test again' : 'Start test'}
           </button>
         )}
       </div>
 
-      {/* Results panel */}
-      {phase === 'done' && download !== null && (
-        <div className="border-t border-slate-800 pt-8 pb-4 space-y-6">
-          <div className="bg-slate-800/60 rounded-2xl p-5">
-            <p className="text-sm text-slate-300 leading-relaxed">{recommendation(download)}</p>
+      {phase === 'done' && download !== null && upload !== null && ping !== null && jitter !== null ? (
+        <div className="space-y-6 border-t border-slate-800 pt-8 pb-2">
+          <div className="rounded-2xl bg-slate-800/60 p-5">
+            <p className="text-sm leading-relaxed text-slate-300">{recommendation(download, upload, ping, loadedPing)}</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 text-center">
+          <div className="grid grid-cols-1 gap-3 text-center sm:grid-cols-4">
             {[
-              { label: 'Ping', value: `${ping} ms`, note: ping! < 20 ? 'Excellent' : ping! < 50 ? 'Good' : 'High' },
+              { label: 'Ping', value: `${ping} ms`, note: ping < 20 ? 'Excellent' : ping < 50 ? 'Good' : 'High' },
               { label: 'Download', value: `${download} Mbps`, note: speedLabel(download) },
-              { label: 'Upload', value: `${upload} Mbps`, note: '' },
-              { label: 'Jitter', value: `${jitter} ms`, note: jitter! < 10 ? 'Stable' : jitter! < 30 ? 'Variable' : 'Unstable' },
+              { label: 'Upload', value: `${upload} Mbps`, note: upload < 10 ? 'Watch calls' : 'Usable' },
+              { label: 'Jitter', value: `${jitter} ms`, note: jitter < 10 ? 'Stable' : jitter < 30 ? 'Variable' : 'Unstable' },
             ].map(({ label, value, note }) => (
-              <div key={label} className="bg-slate-800/40 rounded-xl p-4">
-                <div className="text-xs text-slate-500 uppercase tracking-wide mb-1">{label}</div>
-                <div className="text-xl font-black text-white tabular-nums">{value}</div>
-                {note && <div className="text-xs text-sky-400 mt-1">{note}</div>}
+              <div key={label} className="rounded-xl bg-slate-800/40 p-4">
+                <div className="mb-1 text-xs uppercase tracking-wide text-slate-500">{label}</div>
+                <div className="text-xl font-black tabular-nums text-white">{value}</div>
+                {note ? <div className="mt-1 text-xs text-sky-400">{note}</div> : null}
               </div>
             ))}
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-3">
+          <div className="grid grid-cols-2 gap-3 text-sm sm:grid-cols-5">
+            <div className="rounded-xl border border-slate-800 p-3">
+              <div className="text-xs uppercase tracking-wide text-slate-500">Sustain</div>
+              <div className="mt-1 font-semibold tabular-nums">{sustain ?? '—'} Mbps</div>
+            </div>
+            <div className="rounded-xl border border-slate-800 p-3">
+              <div className="text-xs uppercase tracking-wide text-slate-500">Loaded ping</div>
+              <div className="mt-1 font-semibold tabular-nums">{loadedPing !== null ? `${loadedPing} ms` : '—'}</div>
+            </div>
+            <div className="rounded-xl border border-slate-800 p-3">
+              <div className="text-xs uppercase tracking-wide text-slate-500">Connections</div>
+              <div className="mt-1 font-semibold">6 down / 4 up</div>
+            </div>
+            <div className="rounded-xl border border-slate-800 p-3">
+              <div className="text-xs uppercase tracking-wide text-slate-500">Server</div>
+              <div className="mt-1 font-semibold">London</div>
+            </div>
+            <div className="rounded-xl border border-slate-800 p-3">
+              <div className="text-xs uppercase tracking-wide text-slate-500">Your area</div>
+              <div className="mt-1 font-semibold">
+                {place?.inUk && place.postcode ? place.postcode : place?.inUk ? 'UK' : 'Not shared'}
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-slate-500">Likely experience from this snapshot</p>
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+              {experience(download, upload, ping, jitter).map((item) => (
+                <div key={item.label} className="rounded-xl bg-slate-800/40 p-3">
+                  <div className="text-xs text-slate-400">{item.label}</div>
+                  <div className="mt-2 flex gap-1" aria-label={`${item.score} out of 5`}>
+                    {ratingDots(item.score).map((on, index) => (
+                      <span key={index} className={`h-2 w-2 rounded-full ${on ? 'bg-sky-400' : 'bg-slate-600'}`} />
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-3 sm:flex-row">
             <Link
-              href="/compare"
-              onClick={() => trackEvent('speed_test_compare_clicked', { speed_band: speedLabel(download).toLowerCase() })}
-              className="flex-1 text-center px-6 py-3 bg-sky-500 hover:bg-sky-600 text-white font-bold rounded-xl text-sm transition-colors"
+              href={place?.inUk && place.pagePrefix ? `/postcode/${place.pagePrefix}` : '/compare'}
+              onClick={() => trackEvent('speed_test_compare_clicked', {
+                speed_band: speedLabel(download).toLowerCase(),
+                cta_placement: 'results-card',
+                device_category: window.matchMedia('(max-width: 767px)').matches ? 'mobile' : 'desktop',
+              })}
+              className="flex-1 rounded-xl bg-sky-500 px-6 py-3 text-center text-sm font-bold text-white transition-colors hover:bg-sky-600"
             >
-              Compare broadband deals →
+              {place?.inUk && place.pagePrefix
+                ? `Compare deals in ${place.pagePrefix.toUpperCase()}`
+                : 'Compare broadband deals →'}
             </Link>
             <Link
-              href="/guides/broadband-speeds-explained"
-              className="flex-1 text-center px-6 py-3 border border-slate-700 hover:border-slate-600 text-slate-300 font-semibold rounded-xl text-sm transition-colors"
+              href="/guides/what-broadband-speed-do-i-need"
+              className="flex-1 rounded-xl border border-slate-700 px-6 py-3 text-center text-sm font-semibold text-slate-300 transition-colors hover:border-slate-600"
             >
-              What does my speed mean?
+              What speed do I need?
             </Link>
           </div>
-          <p className="text-xs text-slate-500 text-center">
-            Availability and speeds vary by address. We may earn commission if you buy after clicking through.
+          <p className="text-center text-xs text-slate-500">
+            Headline download is the 90th percentile after discarding TCP slow start. This is the path to our London server, not an Ofcom-accredited line test. Availability varies by address. We may earn commission if you buy after clicking through.
           </p>
         </div>
-      )}
+      ) : null}
     </div>
   )
 }

@@ -40,6 +40,7 @@ import sys
 import time
 import urllib.parse
 import xml.etree.ElementTree as ET
+import uuid
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
@@ -72,6 +73,10 @@ CANONICAL_PRIORITY_FILE = PIPELINE_DIR / "canonical-next-priority.json"
 PAGE_TYPE_UX_SCAN_FILE = ROOT / "docs" / "home page UX" / "page-type-ux-scan.json"
 WEEKLY_SEO_INTELLIGENCE_FILE = ROOT / "docs" / "weekly-seo-intelligence.json"
 POST_PUBLICATION_REVIEW_FILE = PIPELINE_DIR / "post-publication-review-queue.json"
+PLANNED_PAGE_SOURCES = (
+    PIPELINE_DIR / "other-awin-memberships.json",
+    PIPELINE_DIR / "altnet-awin-programmes.json",
+)
 
 PAGE_ROUTES = {
     "providers/compare/": ("data/provider-comparisons.ts", "app/providers/compare/[slug]/page.tsx", "ProviderComparison"),
@@ -239,6 +244,67 @@ def kw(
         "intent": intent, "funnel": funnel, "cluster": cluster, "page_type": page_type,
         "mapped_url": mapped_url, "gap_slug": gap_slug, "gap_title": gap_title,
     }
+
+
+def planned_page_keyword_rows(existing_rows: list[KeywordRow]) -> list[KeywordRow]:
+    """Import ranked page ideas from tracker strategy outputs into this mapper.
+
+    Those plans intentionally use ordinal demand/difficulty bands rather than
+    invented monthly-volume, CPC or KD figures. Keep numeric estimates at zero
+    here, preserve the plan's primary/secondary order, and require the live
+    page-level research gate to validate the actual query and SERP before build.
+    """
+    existing = {
+        (str(row.get("keyword") or "").strip().lower(), str(row.get("gap_slug") or "").strip("/"))
+        for row in existing_rows
+    }
+    imported: list[KeywordRow] = []
+    page_type_map = {
+        "provider review": "Provider page",
+        "comparison": "Comparison page",
+        "buyer guide": "Guide",
+        "explainer": "Guide",
+        "question and answer": "Guide",
+        "local guide": "Guide",
+        "checklist or tool": "Guide",
+        "roundup": "Guide",
+    }
+    for source_path in PLANNED_PAGE_SOURCES:
+        try:
+            payload = json.loads(source_path.read_text(encoding="utf-8"))
+        except (FileNotFoundError, OSError, json.JSONDecodeError):
+            continue
+        for page in payload.get("pages", []):
+            slug = str(page.get("recommended_url") or "").strip("/")
+            primary = str(page.get("primary_keyword") or "").strip().lower()
+            if not slug or not primary:
+                continue
+            raw_type = str(page.get("page_type") or "Guide")
+            mapped_type = page_type_map.get(raw_type.lower(), raw_type)
+            cluster = str(page.get("cluster") or page.get("altnet") or "Planned opportunity")
+            intent = str(page.get("intent") or "Informational")
+            funnel = "MOFU" if "commercial" in intent.lower() else "TOFU"
+            title = str(page.get("working_title") or primary)
+            phrases = [primary, *[str(value).strip().lower() for value in page.get("secondary_keywords", [])]]
+            for index, phrase in enumerate(dict.fromkeys(value for value in phrases if value)):
+                key = (phrase, slug)
+                if key in existing:
+                    continue
+                row = kw(
+                    phrase, 0, 0, 0.0, intent, funnel, cluster, mapped_type,
+                    gap_slug=slug, gap_title=title,
+                )
+                row.update({
+                    "role": "primary" if index == 0 else "secondary",
+                    "recommended_slot": "title/excerpt" if index == 0 else "body/faq",
+                    "source": f"{source_path.relative_to(ROOT)}; requires fresh page-level validation",
+                    "strategy_opportunity_score": page.get("opportunity_score"),
+                })
+                imported.append(row)
+                existing.add(key)
+    if imported:
+        print(f"Imported {len(imported)} planned keyword rows from tracker strategy outputs")
+    return imported
 
 
 def build_keyword_dataset() -> list[KeywordRow]:
@@ -451,6 +517,7 @@ def build_keyword_dataset() -> list[KeywordRow]:
         kw("what is a good broadband speed", 2400, 23, 1.60, "Informational", "TOFU", "Informational", "Glossary", "/broadband-glossary"),
     ]
 
+    rows.extend(planned_page_keyword_rows(rows))
     return rows
 
 
@@ -1306,6 +1373,11 @@ def page_packet_for_url(url: str, keywords: list[KeywordRow]) -> dict[str, Any]:
         or f"/{str(row.get('gap_slug') or '').lstrip('/')}" == mapped_path
     ]
     mapped.sort(key=lambda row: (row["difficulty"], -row["volume"]))
+    planned_gap_rows = [
+        row for row in mapped
+        if f"/{str(row.get('gap_slug') or '').lstrip('/')}" == mapped_path
+        and row.get("mapped_url") != mapped_path
+    ]
     if not mapped and slug.startswith("postcode/"):
         weekly_report = WEEKLY_SEO_INTELLIGENCE_FILE
         if weekly_report.exists():
@@ -1351,7 +1423,11 @@ def page_packet_for_url(url: str, keywords: list[KeywordRow]) -> dict[str, Any]:
         "generated": RUN_DATE,
         "slug": slug,
         "url": f"https://broadbandpicker.co.uk/{slug}",
-        "title": slug.rsplit("/", 1)[-1].replace("-", " ").title(),
+        "title": (
+            str(planned_gap_rows[0].get("gap_title"))
+            if planned_gap_rows and planned_gap_rows[0].get("gap_title")
+            else slug.rsplit("/", 1)[-1].replace("-", " ").title()
+        ),
         "cluster": "Provider vs comparison" if is_hub else mapped[0]["cluster"],
         "page_type": "Comparison directory" if is_hub else mapped[0]["page_type"],
         "data_file": data_file,
@@ -1361,7 +1437,7 @@ def page_packet_for_url(url: str, keywords: list[KeywordRow]) -> dict[str, Any]:
         "provider_prerequisites": providers,
         "missing_provider_prerequisites": [provider for provider in providers if not provider_exists(provider)],
         "brief": str(PIPELINE_BRIEF),
-        "build_mode": "complete_existing_page",
+        "build_mode": "new_page" if planned_gap_rows else "complete_existing_page",
     }
     if hub_note:
         packet["keyword_mapping_note"] = hub_note
@@ -1415,6 +1491,22 @@ def page_type_recommended_actions(packet: dict[str, Any]) -> list[dict[str, Any]
 
 def write_page_build_packet(packet: dict[str, Any]) -> tuple[Path, Path]:
     PIPELINE_DIR.mkdir(parents=True, exist_ok=True)
+    # A page build/update may never inherit research from a previous run. The
+    # writer copies this opaque ID into current-page-research.json and the
+    # validator checks both the ID and completion time before compilation.
+    prepared_at = datetime.now(timezone.utc)
+    packet["research_gate"] = {
+        "run_id": str(uuid.uuid4()),
+        "prepared_at": prepared_at.isoformat(),
+        "required_before": "compile_and_deploy",
+        "applies_to": "every_new_page_and_existing_page_update",
+        "required_outputs": [
+            "fresh_page_level_keyword_mapping",
+            "live_uk_serp_intent_research",
+            "uk_and_international_ux_ui_benchmarks",
+            "final_section_by_section_content_structure",
+        ],
+    }
     packet["benchmark_strategy"] = {
         "uk_seo_leaders_required": 3,
         "ai_cited_pages_required_when_ai_overview_present": 1,
@@ -1478,6 +1570,12 @@ needs current page-specific evidence and visible validation terms. Never mark an
 merely because a shared template or unrelated page contains something similar.
 
 ## 1. Keyword research and live SERP scraping (required every build, not optional)
+
+This is a fresh-research gate for this exact run. Copy `research_gate.run_id` from the page packet
+to `research_gate.run_id` in the research JSON and set `research_gate.completed_at` to the real UTC
+completion time after all research below is finished. Also set every item in
+`research_gate.completed_outputs` to `true`. Never reuse or merely re-date research from an earlier
+page build or update. Compilation and deployment fail when the run ID, time or outputs do not match.
 
 The packet's keyword list is a starting point, not the finished research. Before writing:
 - Search the primary keyword and scrape/read at least three currently ranking UK pages. Note the
@@ -1563,6 +1661,9 @@ banned above.
 ## 5. Save the research and keyword map (mandatory validation input)
 
 Before running the build, write `{PAGE_RESEARCH_FILE.relative_to(ROOT)}` as valid JSON with:
+- `research_gate`: `run_id` copied exactly from the current page packet, a real ISO-8601 UTC
+  `completed_at` after the packet's `prepared_at`, and `completed_outputs` containing all four
+  required output names from the packet set to `true`;
 - `slug`, `primary_keyword`, and `search_locale` (`UK`);
 - `secondary_keywords`: at least four objects containing `keyword`, `intent`, `page_slot` and
   `coverage_note`;
@@ -1737,6 +1838,39 @@ def validate_page_research(packet: dict[str, Any]) -> dict[str, Any]:
         research = json.loads(PAGE_RESEARCH_FILE.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as exc:
         raise RuntimeError(f"Page research file is not valid JSON: {exc}") from exc
+    packet_gate = packet.get("research_gate") or {}
+    research_gate = research.get("research_gate") or {}
+    expected_run_id = str(packet_gate.get("run_id") or "")
+    if not expected_run_id or research_gate.get("run_id") != expected_run_id:
+        raise RuntimeError(
+            "Fresh page research is required for this build/update: research_gate.run_id "
+            "does not match the current build packet"
+        )
+    try:
+        prepared_at = datetime.fromisoformat(str(packet_gate["prepared_at"]).replace("Z", "+00:00"))
+        completed_at = datetime.fromisoformat(str(research_gate["completed_at"]).replace("Z", "+00:00"))
+        if prepared_at.tzinfo is None or completed_at.tzinfo is None:
+            raise ValueError("timestamps must include a timezone")
+    except (KeyError, TypeError, ValueError) as exc:
+        raise RuntimeError(
+            "research_gate must contain valid timezone-aware prepared_at/completed_at timestamps"
+        ) from exc
+    now = datetime.now(timezone.utc)
+    if completed_at < prepared_at:
+        raise RuntimeError("Page research predates the current build packet and cannot be reused")
+    if completed_at > now + timedelta(minutes=5):
+        raise RuntimeError("Page research completion time is in the future")
+    if now - completed_at > timedelta(hours=24):
+        raise RuntimeError("Page research is older than 24 hours; rerun it before building or updating")
+    completed_outputs = research_gate.get("completed_outputs") or {}
+    missing_outputs = [
+        name for name in packet_gate.get("required_outputs", [])
+        if completed_outputs.get(name) is not True
+    ]
+    if missing_outputs:
+        raise RuntimeError(
+            "Fresh research gate is incomplete: " + ", ".join(missing_outputs)
+        )
     if research.get("slug") != packet["slug"]:
         raise RuntimeError("Page research file does not match the page being built")
     primary = str(research.get("primary_keyword") or "").strip().lower()
@@ -1988,7 +2122,13 @@ def validate_page_build(packet: dict[str, Any], port: int = 4321) -> None:
             )
         if primary:
             def keyword_tokens(value: str) -> list[str]:
-                tokens = re.findall(r"[a-z0-9]+", value.lower().replace("-", " "))
+                normalized = value.lower()
+                # Search data normally spells the standard as "wifi", while
+                # editorial copy correctly uses the Wi-Fi trademark. Treat
+                # ASCII and Unicode hyphen variants as the same keyword token.
+                normalized = re.sub(r"\bwi[-\u2010-\u2015\u2212]?fi\b", "wifi", normalized)
+                normalized = re.sub(r"[-\u2010-\u2015\u2212]", " ", normalized)
+                tokens = re.findall(r"[a-z0-9]+", normalized)
                 stopwords = {"a", "an", "and", "for", "in", "of", "the", "to", "uk"}
                 return [token[:-1] if len(token) > 3 and token.endswith("s") else token
                         for token in tokens if token not in stopwords]
@@ -2147,6 +2287,8 @@ def main() -> None:
     parser.add_argument("--create-google-doc", action="store_true", help="Create a brand-new Google Sheet on Drive with the finished mapping")
     parser.add_argument("--update-google-sheet-id", default=os.environ.get("BROADBANDPICKER_MAPPING_SHEET_ID", ""),
                         help=f"Update an existing mapping Sheet in place (for this plan use {DEFAULT_MAPPING_SHEET_ID})")
+    parser.add_argument("--skip-google-sheet-sync", action="store_true",
+                        help="Skip the Google Sheet write for a separately verified bounded sync")
     parser.add_argument("--build-next-page", action="store_true",
                         help="Research, draft and locally validate the next active roadmap page")
     parser.add_argument("--build-page-url",
@@ -2160,7 +2302,7 @@ def main() -> None:
     parser.add_argument("--deploy-production", action="store_true",
                         help="After validation, deploy the drafted page to Vercel production")
     parser.add_argument("--use-existing-draft", action="store_true",
-                        help="Skip the writing agent and validate/deploy the already human-reviewed local draft")
+                        help="Skip the writer only; a fresh research file matching this run is still mandatory before validation/deployment")
     parser.add_argument("--approve-factual-review", action="store_true",
                         help="Confirm a human reviewed winner, trust, pricing and estimated-stat claims before deployment")
     parser.add_argument("--doc-title", default=f"BroadbandPicker Keyword Mapping — {RUN_DATE}")
@@ -2228,7 +2370,7 @@ def main() -> None:
         parser.error("--deploy-production requires --approve-factual-review")
     if args.build_next_page and not args.prepare_only and not args.deploy_production:
         parser.error("Page builds must use --deploy-production; use --prepare-only to generate instructions without shipping")
-    if args.deploy_production and not args.update_google_sheet_id:
+    if args.deploy_production and not args.update_google_sheet_id and not args.skip_google_sheet_sync:
         parser.error("Production page builds require --update-google-sheet-id so the shared tracker is updated")
     if args.build_all_priority and not args.deploy_production:
         parser.error("--build-all-priority requires --deploy-production so priority can advance from verified live pages")
@@ -2345,7 +2487,7 @@ def main() -> None:
         wb_for_upload = load_workbook(args.output.resolve())
         doc_result = create_google_sheet_from_workbook(wb_for_upload, args.doc_title, args.share_with or None)
         print(f"Created Google Sheet: {doc_result['spreadsheetUrl']}")
-    elif args.update_google_sheet_id and not (args.build_all_priority and doc_result):
+    elif args.update_google_sheet_id and not args.skip_google_sheet_sync and not (args.build_all_priority and doc_result):
         wb_for_upload = load_workbook(args.output.resolve())
         try:
             doc_result = update_google_sheet_from_workbook(wb_for_upload, args.update_google_sheet_id)

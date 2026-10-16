@@ -1,0 +1,761 @@
+{
+  "run_at_utc": "2026-09-20T11:44:53+00:00",
+  "method": {
+    "http": "GET with a research user-agent",
+    "parser": "lxml on the initial HTML only",
+    "limitation": "JS-rendered and Cloudflare-protected pages are marked, not guessed"
+  },
+  "legal_pages": [
+    {
+      "name": "ICO electronic mail marketing (brief)",
+      "url": "https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/guide-to-pecr/electronic-and-telephone-marketing/electronic-mail-marketing/",
+      "status": 200,
+      "html_bytes": 57062,
+      "excerpts": [
+        "You must not send marketing emails or texts to individuals without specific consent. There is a limited exception for your own previous customers, often called the \u2018soft opt-in\u2019. You can send marketing e",
+        "soft opt-in\u2019. You can send marketing emails or texts to companies. However, it is good practice to keep a \u2018do not email or text\u2019 list of any companies that object. In more detail\u2026 What are th",
+        "unsubscribe. What about texts and other types of electronic message? This same rule applies to emails, texts, picture messages, video messages, voicema",
+        "must not disguise or conceal your identity, and you must provide a valid contact address so they can opt out or unsubscribe. What about texts and other types of electronic message? This same rule applie",
+        "valid contact address so they can opt out or unsubscribe. What about texts and other types of electronic message? This same rule applies to emails, texts, picture messages, video me",
+        "You must not send marketing emails or texts to individuals without specific consent. There is a limited exception for your own previous customers, often called the \u2018soft opt-in\u2019.",
+        "The rules on electronic mail marketing are in regulation 22. In short, you must not send electronic mail marketing to individuals, unless:",
+        "You must not disguise or conceal your identity, and you must provide a valid contact address so they can opt out or unsubscribe."
+      ],
+      "notes": ""
+    },
+    {
+      "name": "ICO electronic mail marketing (detailed)",
+      "url": "https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/guidance-on-direct-marketing-using-electronic-mail/",
+      "status": 200,
+      "html_bytes": 49553,
+      "excerpts": [
+        "soft opt-in for charitable purposes in PECR regulation 22(3A). This allows charities to send direct marketing by electronic mail without people\u2019s consent if certain requirements are met. We\u2019v",
+        "This guidance explains electronic mail marketing under the Privacy and Electronic Communications Regulations 2003 (PECR) in detail. It complements the brief guidance on"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "ICO how to comply with PECR email rules",
+      "url": "https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/guidance-on-direct-marketing-using-electronic-mail/how-do-we-comply-with-the-pecr-electronic-mail-marketing-rules/",
+      "status": 200,
+      "html_bytes": 99093,
+      "excerpts": [
+        "soft opt-ins and who can use them? How do we use the soft opt-in for products and services? How do we use the soft opt-in for charitable purposes? What happens if both soft opt-ins apply? Can",
+        "pre-ticked opt-in boxes, silence or inactivity as evidence of consent (\u2018clear affirmative action\u2019). Example A company provides the",
+        "freely given, specific, informed and unambiguous indication of the data subject\u2019s wishes by which he or she, by a statement or by a clear affirmative action, signifies agre",
+        "unsubscribe. These rules apply regardless of whether the message is solicited or unsolicited. Further reading \u2013 ICO guidance Business-to-business marke",
+        "Consent must be freely given. It\u2019s unlikely to be valid consent if you make agreeing to marketing a necessary condition for buying your product or service or donating to your cause. Example \u2714",
+        "valid contact address for recipients to opt out or unsubscribe. These rules apply regardless of whether the message is solicited or unsolicited. Further reading \u2013 ICO guidance Busin",
+        "PECR applies to anyone who sends or instigates the sending of direct marketing by electronic mail.",
+        "You\u2019re likely to be instigating if you encourage, incite, incentivise or ask someone else to send electronic mail containing your direct marketing. If you ask another organisation to send your electronic mail marketing, you may still be responsible under PECR as the instigator, w"
+      ],
+      "notes": ""
+    }
+  ],
+  "competitor_pages": [
+    {
+      "name": "BroadbandPicker (current)",
+      "category": "self",
+      "url": "https://broadbandpicker.co.uk/",
+      "status": 200,
+      "title": "Compare Broadband Deals UK | BroadbandPicker",
+      "html_bytes": 297304,
+      "word_count": 15338,
+      "js_rendered_suspected": false,
+      "email_input_count": 2,
+      "email_placeholders": [
+        "your@email.com",
+        "Your email address"
+      ],
+      "postcode_input_count": 6,
+      "checkbox_count": 2,
+      "checkbox_labels": [
+        "I want BroadbandPicker to email me weekly UK broadband deal roundups and occasional switching guides. I can unsubscribe at any time. Privacy policy.",
+        "I want BroadbandPicker to email me weekly UK broadband deal roundups and occasional switching guides. I can unsubscribe at any time. Privacy policy."
+      ],
+      "form_count": 6,
+      "cta_texts": [
+        "Find Deals",
+        "Email me alerts",
+        "Get alerts"
+      ],
+      "privacy_link_count": 3,
+      "privacy_hrefs": [
+        "https://broadbandpicker.co.uk/privacy-policy"
+      ],
+      "signals_found": [
+        "deal_alerts",
+        "weekly",
+        "unsubscribe_promise",
+        "account_signup",
+        "contract_end_reminder",
+        "frequency_stated",
+        "branded_from"
+      ],
+      "nearby_consent_snippets": [
+        "Leave this field blank Email me alerts I want BroadbandPicker to email me weekly UK broadband deal roundups and occasional switching guides. I can unsubscribe at any time. Privacy policy .",
+        "Leave this field blank Get alerts I want BroadbandPicker to email me weekly UK broadband deal roundups and occasional switching guides. I can unsubscribe at any time. Privacy policy ."
+      ],
+      "noreply_addresses": [],
+      "visible_from_addresses": [
+        "editorial@broadbandpicker.co.uk",
+        "hello@broadbandpicker.co.uk",
+        "partnerships@broadbandpicker.co.uk"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "Uswitch broadband",
+      "category": "comparison",
+      "url": "https://www.uswitch.com/broadband/",
+      "status": 200,
+      "title": "Broadband Deals: Compare in September 2026 - Uswitch",
+      "html_bytes": 924234,
+      "word_count": 14141,
+      "js_rendered_suspected": false,
+      "email_input_count": 0,
+      "email_placeholders": [],
+      "postcode_input_count": 0,
+      "checkbox_count": 31,
+      "checkbox_labels": [
+        "Essential",
+        "Performance",
+        "Marketing",
+        "Functionality",
+        "Social",
+        "Early switch credit(20)",
+        "Broadband(28)",
+        "Broadband + TV(14)",
+        "Part fibre(22)",
+        "Cable(16)"
+      ],
+      "form_count": 2,
+      "cta_texts": [
+        "Accept all cookies",
+        "Save my preferences",
+        "Close"
+      ],
+      "privacy_link_count": 1,
+      "privacy_hrefs": [
+        "https://www.rvu.co.uk/customer-privacy-notice/"
+      ],
+      "signals_found": [
+        "account_signup",
+        "contract_end_reminder"
+      ],
+      "nearby_consent_snippets": [],
+      "noreply_addresses": [],
+      "visible_from_addresses": [],
+      "notes": ""
+    },
+    {
+      "name": "Uswitch privacy",
+      "category": "legal",
+      "url": "https://www.uswitch.com/privacy/",
+      "status": 200,
+      "title": "Customer Privacy Notice | RVU",
+      "html_bytes": 243679,
+      "word_count": 11150,
+      "js_rendered_suspected": false,
+      "email_input_count": 0,
+      "email_placeholders": [],
+      "postcode_input_count": 0,
+      "checkbox_count": 0,
+      "checkbox_labels": [],
+      "form_count": 0,
+      "cta_texts": [],
+      "privacy_link_count": 1,
+      "privacy_hrefs": [
+        "https://www.uswitch.com/privacy-notices/"
+      ],
+      "signals_found": [
+        "unsubscribe_promise",
+        "consent_language",
+        "account_signup",
+        "contract_end_reminder",
+        "marketing_opt_in"
+      ],
+      "nearby_consent_snippets": [],
+      "noreply_addresses": [],
+      "visible_from_addresses": [],
+      "notes": ""
+    },
+    {
+      "name": "MoneySuperMarket broadband",
+      "category": "comparison",
+      "url": "https://www.moneysupermarket.com/broadband/",
+      "status": 403,
+      "title": "",
+      "html_bytes": 34288,
+      "word_count": 0,
+      "js_rendered_suspected": false,
+      "email_input_count": 0,
+      "email_placeholders": [],
+      "postcode_input_count": 0,
+      "checkbox_count": 0,
+      "checkbox_labels": [],
+      "form_count": 0,
+      "cta_texts": [],
+      "privacy_link_count": 0,
+      "privacy_hrefs": [],
+      "signals_found": [],
+      "nearby_consent_snippets": [],
+      "noreply_addresses": [],
+      "visible_from_addresses": [],
+      "notes": "Non-200 or empty (403)"
+    },
+    {
+      "name": "Compare the Market broadband",
+      "category": "comparison",
+      "url": "https://www.comparethemarket.com/broadband/",
+      "status": 403,
+      "title": "",
+      "html_bytes": 472282,
+      "word_count": 0,
+      "js_rendered_suspected": false,
+      "email_input_count": 0,
+      "email_placeholders": [],
+      "postcode_input_count": 0,
+      "checkbox_count": 0,
+      "checkbox_labels": [],
+      "form_count": 0,
+      "cta_texts": [],
+      "privacy_link_count": 0,
+      "privacy_hrefs": [],
+      "signals_found": [],
+      "nearby_consent_snippets": [],
+      "noreply_addresses": [],
+      "visible_from_addresses": [],
+      "notes": "Non-200 or empty (403)"
+    },
+    {
+      "name": "broadbandchoices",
+      "category": "comparison",
+      "url": "https://www.broadbandchoices.co.uk/",
+      "status": 403,
+      "title": "",
+      "html_bytes": 5716,
+      "word_count": 0,
+      "js_rendered_suspected": false,
+      "email_input_count": 0,
+      "email_placeholders": [],
+      "postcode_input_count": 0,
+      "checkbox_count": 0,
+      "checkbox_labels": [],
+      "form_count": 0,
+      "cta_texts": [],
+      "privacy_link_count": 0,
+      "privacy_hrefs": [],
+      "signals_found": [],
+      "nearby_consent_snippets": [],
+      "noreply_addresses": [],
+      "visible_from_addresses": [],
+      "notes": "Non-200 or empty (403)"
+    },
+    {
+      "name": "broadbandchoices privacy",
+      "category": "legal",
+      "url": "https://www.broadbandchoices.co.uk/privacy-policy",
+      "status": 403,
+      "title": "",
+      "html_bytes": 5779,
+      "word_count": 0,
+      "js_rendered_suspected": false,
+      "email_input_count": 0,
+      "email_placeholders": [],
+      "postcode_input_count": 0,
+      "checkbox_count": 0,
+      "checkbox_labels": [],
+      "form_count": 0,
+      "cta_texts": [],
+      "privacy_link_count": 0,
+      "privacy_hrefs": [],
+      "signals_found": [],
+      "nearby_consent_snippets": [],
+      "noreply_addresses": [],
+      "visible_from_addresses": [],
+      "notes": "Non-200 or empty (403)"
+    },
+    {
+      "name": "choose.co.uk broadband",
+      "category": "comparison",
+      "url": "https://www.choose.co.uk/broadband/",
+      "status": 200,
+      "title": "Compare Broadband Deals in the UK | Latest Prices & Offers September 2026",
+      "html_bytes": 106908,
+      "word_count": 2592,
+      "js_rendered_suspected": false,
+      "email_input_count": 0,
+      "email_placeholders": [],
+      "postcode_input_count": 0,
+      "checkbox_count": 0,
+      "checkbox_labels": [],
+      "form_count": 0,
+      "cta_texts": [],
+      "privacy_link_count": 1,
+      "privacy_hrefs": [
+        "https://www.choose.co.uk/terms/privacy/"
+      ],
+      "signals_found": [
+        "account_signup"
+      ],
+      "nearby_consent_snippets": [],
+      "noreply_addresses": [],
+      "visible_from_addresses": [],
+      "notes": ""
+    },
+    {
+      "name": "broadband.co.uk",
+      "category": "comparison",
+      "url": "https://www.broadband.co.uk/broadband",
+      "status": 200,
+      "title": "Best Broadband Deals | BT, Sky, Virgin Media, Vodafone & more Broadband Genie logo",
+      "html_bytes": 202198,
+      "word_count": 4761,
+      "js_rendered_suspected": false,
+      "email_input_count": 0,
+      "email_placeholders": [],
+      "postcode_input_count": 2,
+      "checkbox_count": 19,
+      "checkbox_labels": [
+        "4th Utility (11)",
+        "BT (21)",
+        "EE (13)",
+        "Fibrely (6)",
+        "NOW (4)",
+        "Plusnet (6)",
+        "Rebel Internet (18)",
+        "Rise Fibre (5)",
+        "Sky (16)",
+        "TalkTalk (3)"
+      ],
+      "form_count": 5,
+      "cta_texts": [
+        "Average Speed",
+        "Clear",
+        "Monthly Price",
+        "Providers",
+        "TV",
+        "Calls",
+        "Contract Length",
+        "Fibre",
+        "Extras",
+        "Why do we need your address?"
+      ],
+      "privacy_link_count": 3,
+      "privacy_hrefs": [
+        "https://www.broadband.co.uk/about/privacy"
+      ],
+      "signals_found": [
+        "no_spam",
+        "account_signup",
+        "contract_end_reminder"
+      ],
+      "nearby_consent_snippets": [],
+      "noreply_addresses": [],
+      "visible_from_addresses": [],
+      "notes": ""
+    },
+    {
+      "name": "Broadband Genie",
+      "category": "comparison",
+      "url": "https://www.broadbandgenie.co.uk/",
+      "status": 200,
+      "title": "Best Broadband Price Comparison | Broadband Genie - It is Genius! Broadband Genie logo",
+      "html_bytes": 75201,
+      "word_count": 1366,
+      "js_rendered_suspected": false,
+      "email_input_count": 0,
+      "email_placeholders": [],
+      "postcode_input_count": 1,
+      "checkbox_count": 0,
+      "checkbox_labels": [],
+      "form_count": 1,
+      "cta_texts": [],
+      "privacy_link_count": 2,
+      "privacy_hrefs": [
+        "https://www.broadbandgenie.co.uk/about/privacy"
+      ],
+      "signals_found": [
+        "consent_language"
+      ],
+      "nearby_consent_snippets": [],
+      "noreply_addresses": [],
+      "visible_from_addresses": [],
+      "notes": ""
+    },
+    {
+      "name": "Go.Compare broadband",
+      "category": "comparison",
+      "url": "https://www.gocompare.com/broadband/",
+      "status": 200,
+      "title": "Pardon Our Interruption",
+      "html_bytes": 6183,
+      "word_count": 193,
+      "js_rendered_suspected": false,
+      "email_input_count": 0,
+      "email_placeholders": [],
+      "postcode_input_count": 0,
+      "checkbox_count": 0,
+      "checkbox_labels": [],
+      "form_count": 0,
+      "cta_texts": [],
+      "privacy_link_count": 0,
+      "privacy_hrefs": [],
+      "signals_found": [],
+      "nearby_consent_snippets": [],
+      "noreply_addresses": [],
+      "visible_from_addresses": [],
+      "notes": ""
+    },
+    {
+      "name": "Confused.com broadband",
+      "category": "comparison",
+      "url": "https://www.confused.com/broadband",
+      "status": 200,
+      "title": "Broadband deals \u00e2\u0080\u0093 Compare broadband today \u00e2\u0080\u0093 Confused.com Confused.com",
+      "html_bytes": 152881,
+      "word_count": 3340,
+      "js_rendered_suspected": false,
+      "email_input_count": 0,
+      "email_placeholders": [],
+      "postcode_input_count": 1,
+      "checkbox_count": 0,
+      "checkbox_labels": [],
+      "form_count": 1,
+      "cta_texts": [
+        "Get started"
+      ],
+      "privacy_link_count": 2,
+      "privacy_hrefs": [
+        "https://www.confused.com/privacy-and-security",
+        "https://www.confused.com/privacy-and-security/terms-and-conditions"
+      ],
+      "signals_found": [
+        "account_signup"
+      ],
+      "nearby_consent_snippets": [],
+      "noreply_addresses": [],
+      "visible_from_addresses": [],
+      "notes": ""
+    },
+    {
+      "name": "Which? broadband",
+      "category": "reviews",
+      "url": "https://www.which.co.uk/reviews/broadband",
+      "status": 200,
+      "title": "Compare broadband, internet, digital TV & landline phone packages - Which? Switch Broadband",
+      "html_bytes": 37009,
+      "word_count": 164,
+      "js_rendered_suspected": false,
+      "email_input_count": 0,
+      "email_placeholders": [],
+      "postcode_input_count": 0,
+      "checkbox_count": 0,
+      "checkbox_labels": [],
+      "form_count": 2,
+      "cta_texts": [
+        "Search"
+      ],
+      "privacy_link_count": 1,
+      "privacy_hrefs": [
+        "https://www.which.co.uk/help/which-privacy-notice-aGL107i27ybI"
+      ],
+      "signals_found": [
+        "newsletter"
+      ],
+      "nearby_consent_snippets": [],
+      "noreply_addresses": [],
+      "visible_from_addresses": [],
+      "notes": ""
+    },
+    {
+      "name": "MoneySavingExpert home",
+      "category": "editorial",
+      "url": "https://www.moneysavingexpert.com/",
+      "status": 403,
+      "title": "",
+      "html_bytes": 5736,
+      "word_count": 0,
+      "js_rendered_suspected": false,
+      "email_input_count": 0,
+      "email_placeholders": [],
+      "postcode_input_count": 0,
+      "checkbox_count": 0,
+      "checkbox_labels": [],
+      "form_count": 0,
+      "cta_texts": [],
+      "privacy_link_count": 0,
+      "privacy_hrefs": [],
+      "signals_found": [],
+      "nearby_consent_snippets": [],
+      "noreply_addresses": [],
+      "visible_from_addresses": [],
+      "notes": "Non-200 or empty (403)"
+    },
+    {
+      "name": "MoneySavingExpert newsletters",
+      "category": "newsletter",
+      "url": "https://www.moneysavingexpert.com/newsletters/",
+      "status": 403,
+      "title": "",
+      "html_bytes": 5793,
+      "word_count": 0,
+      "js_rendered_suspected": false,
+      "email_input_count": 0,
+      "email_placeholders": [],
+      "postcode_input_count": 0,
+      "checkbox_count": 0,
+      "checkbox_labels": [],
+      "form_count": 0,
+      "cta_texts": [],
+      "privacy_link_count": 0,
+      "privacy_hrefs": [],
+      "signals_found": [],
+      "nearby_consent_snippets": [],
+      "noreply_addresses": [],
+      "visible_from_addresses": [],
+      "notes": "Non-200 or empty (403)"
+    },
+    {
+      "name": "NerdWallet UK",
+      "category": "editorial",
+      "url": "https://www.nerdwallet.com/uk/",
+      "status": 410,
+      "title": "",
+      "html_bytes": 15,
+      "word_count": 0,
+      "js_rendered_suspected": false,
+      "email_input_count": 0,
+      "email_placeholders": [],
+      "postcode_input_count": 0,
+      "checkbox_count": 0,
+      "checkbox_labels": [],
+      "form_count": 0,
+      "cta_texts": [],
+      "privacy_link_count": 0,
+      "privacy_hrefs": [],
+      "signals_found": [],
+      "nearby_consent_snippets": [],
+      "noreply_addresses": [],
+      "visible_from_addresses": [],
+      "notes": "Non-200 or empty (410)"
+    },
+    {
+      "name": "cable.co.uk",
+      "category": "comparison",
+      "url": "https://www.cable.co.uk/",
+      "status": 200,
+      "title": "Best Broadband Deals 2026: Compare & Save Money",
+      "html_bytes": 434817,
+      "word_count": 6723,
+      "js_rendered_suspected": false,
+      "email_input_count": 0,
+      "email_placeholders": [],
+      "postcode_input_count": 3,
+      "checkbox_count": 0,
+      "checkbox_labels": [],
+      "form_count": 1,
+      "cta_texts": [],
+      "privacy_link_count": 1,
+      "privacy_hrefs": [
+        "https://www.cable.co.uk/about/privacy/"
+      ],
+      "signals_found": [
+        "consent_language",
+        "account_signup"
+      ],
+      "nearby_consent_snippets": [],
+      "noreply_addresses": [],
+      "visible_from_addresses": [
+        "info@cable.co.uk"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "thinkbroadband",
+      "category": "specialist",
+      "url": "https://www.thinkbroadband.com/",
+      "status": 403,
+      "title": "",
+      "html_bytes": 15786,
+      "word_count": 0,
+      "js_rendered_suspected": false,
+      "email_input_count": 0,
+      "email_placeholders": [],
+      "postcode_input_count": 0,
+      "checkbox_count": 0,
+      "checkbox_labels": [],
+      "form_count": 0,
+      "cta_texts": [],
+      "privacy_link_count": 0,
+      "privacy_hrefs": [],
+      "signals_found": [],
+      "nearby_consent_snippets": [],
+      "noreply_addresses": [],
+      "visible_from_addresses": [],
+      "notes": "Non-200 or empty (403)"
+    },
+    {
+      "name": "money.co.uk broadband",
+      "category": "comparison",
+      "url": "https://www.money.co.uk/broadband",
+      "status": 200,
+      "title": "Business & personal finance comparison | money.co.uk",
+      "html_bytes": 1503394,
+      "word_count": 47991,
+      "js_rendered_suspected": false,
+      "email_input_count": 1,
+      "email_placeholders": [
+        "Email"
+      ],
+      "postcode_input_count": 0,
+      "checkbox_count": 5,
+      "checkbox_labels": [
+        "Essential",
+        "Performance",
+        "Marketing",
+        "Functionality",
+        "Social"
+      ],
+      "form_count": 2,
+      "cta_texts": [
+        "Open your free account",
+        "Sign up"
+      ],
+      "privacy_link_count": 2,
+      "privacy_hrefs": [
+        "https://www.rvu.co.uk/customer-privacy-notice/"
+      ],
+      "signals_found": [
+        "weekly",
+        "unsubscribe_promise",
+        "consent_language",
+        "double_opt_in",
+        "account_signup"
+      ],
+      "nearby_consent_snippets": [
+        "Stay updated on Making Tax Digital Tax returns are changing. Get expert updates and practical guidance to help you get MTD-ready with confidence. Sign up \u200bBy submitting your email you agree to receive money-saving deals and insights from money.co.uk. We can help you save on your "
+      ],
+      "noreply_addresses": [],
+      "visible_from_addresses": [
+        "customerservice@money.co.uk"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "MoneySavingExpert privacy",
+      "category": "legal",
+      "url": "https://www.moneysavingexpert.com/site/privacy-policy/",
+      "status": 403,
+      "title": "",
+      "html_bytes": 5817,
+      "word_count": 0,
+      "js_rendered_suspected": false,
+      "email_input_count": 0,
+      "email_placeholders": [],
+      "postcode_input_count": 0,
+      "checkbox_count": 0,
+      "checkbox_labels": [],
+      "form_count": 0,
+      "cta_texts": [],
+      "privacy_link_count": 0,
+      "privacy_hrefs": [],
+      "signals_found": [],
+      "nearby_consent_snippets": [],
+      "noreply_addresses": [],
+      "visible_from_addresses": [],
+      "notes": "Non-200 or empty (403)"
+    },
+    {
+      "name": "MoneySavingExpert email FAQ",
+      "category": "newsletter",
+      "url": "https://www.moneysavingexpert.com/site/money-tips-email-faqs/",
+      "status": 403,
+      "title": "",
+      "html_bytes": 5859,
+      "word_count": 0,
+      "js_rendered_suspected": false,
+      "email_input_count": 0,
+      "email_placeholders": [],
+      "postcode_input_count": 0,
+      "checkbox_count": 0,
+      "checkbox_labels": [],
+      "form_count": 0,
+      "cta_texts": [],
+      "privacy_link_count": 0,
+      "privacy_hrefs": [],
+      "signals_found": [],
+      "nearby_consent_snippets": [],
+      "noreply_addresses": [],
+      "visible_from_addresses": [],
+      "notes": "Non-200 or empty (403)"
+    }
+  ],
+  "working_models": [
+    "postcode_first_email_later",
+    "email_my_results_as_service_message",
+    "named_newsletter_centre",
+    "account_contract_end_reminder",
+    "footer_and_midpage_deal_alerts"
+  ],
+  "our_dns": {
+    "domain": "broadbandpicker.co.uk",
+    "ns": "ns2.wordpress.com. ns3.wordpress.com. ns1.wordpress.com.",
+    "mx": "",
+    "spf": "",
+    "dmarc": "",
+    "txt": "\"google-site-verification=JxWo4msWeIzvf_XuD0Fy5B07TnOe0K_n33pAd1ibxlA\""
+  },
+  "implementation_spec": {
+    "product_name": "BroadbandPicker deal alerts",
+    "public_path": "/alerts",
+    "placements": [
+      "Dedicated /alerts landing page (indexable)",
+      "Homepage mid-page (inline)",
+      "Site footer",
+      "Postcode area pages, with the area pre-filled",
+      "Tools hub card"
+    ],
+    "fields": {
+      "email": "required",
+      "uk_postcode": "optional, for localising later emails; never a full street address on a newsletter form",
+      "consent_checkbox": "required, unticked, separate from using the site",
+      "honeypot": "hidden website field"
+    },
+    "consent_text": "I want BroadbandPicker to email me weekly UK broadband deal roundups and occasional switching guides. I can unsubscribe at any time.",
+    "legal_basis": {
+      "pecr": "Regulation 22 prior consent. Soft opt-in does not apply: this is not a sale.",
+      "uk_gdpr": "Consent for sending the emails; legitimate interests are not a PECR basis for marketing email.",
+      "double_opt_in": "Confirmation link before any deals email. Records the consent wording, time, source URL and hashed IP."
+    },
+    "do_not_copy": [
+      "Invented subscriber counts such as 'thousands of households'",
+      "Pre-ticked boxes",
+      "Bundling marketing consent into the postcode checker",
+      "Bought-in lists",
+      "Daily spam or unnamed 'partners' in the same tick",
+      "Full home address on an alerts form (that is an availability-check pattern, not a newsletter)"
+    ],
+    "email_programme": {
+      "confirmation": "Send immediately; expire the link after 48 hours",
+      "welcome": "Only after confirm; include unsubscribe",
+      "recurring": "Weekly deals roundup plus occasional guides, as named in the tick",
+      "headers": "List-Unsubscribe and List-Unsubscribe-Post on every message",
+      "identification": "BroadbandPicker and broadbandpicker.co.uk in every message; do not invent a postal address"
+    },
+    "email_identity": {
+      "from_name": "BroadbandPicker",
+      "from_address": "noreply@broadbandpicker.co.uk",
+      "reply_to": "hello@broadbandpicker.co.uk, with body copy that this is automated and the contact page is the human route",
+      "logo": "Hosted PNG at https://broadbandpicker.co.uk/logo.png plus a text wordmark. Do not use SVG in email. Do not put a personal Gmail address in From, Reply-To, or the body.",
+      "html": "Table layout, 560px, brand bar #0ea5e9, logo + wordmark, one primary button, unsubscribe, List-Unsubscribe headers",
+      "why_not_gmail": "Comparison sites send as TheirBrand <noreply@theirdomain>. Gmail SMTP rewrites From to the logged-in Gmail user, so a personal Gmail address always shows unless the domain itself is the authenticated sender.",
+      "sending": "Keep sending inside the Next.js app with nodemailer. Authenticate as a broadbandpicker.co.uk mailbox (or a Gmail Send-mail-as alias for noreply@) so the envelope matches the From header. Do not add Mailchimp, Brevo or Klaviyo for this."
+    },
+    "analytics": {
+      "request_event": "newsletter_signup_request",
+      "confirmed_key_event": "newsletter_signup"
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 
-const allowAll = { allow: '/', disallow: ['/api/', '/partners/'] as string[] }
+const allowAll = { allow: '/', disallow: ['/api/', '/partners/', '/admin/', '/alerts'] as string[] }
 
 export default function robots(): MetadataRoute.Robots {
   return {

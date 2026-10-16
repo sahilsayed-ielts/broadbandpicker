@@ -1,0 +1,1047 @@
+{
+  "generated": "2026-09-26T23:10:44.360736+00:00",
+  "page": "https://broadbandpicker.co.uk/tools/speed-test",
+  "window": {
+    "start": "2026-08-29",
+    "end": "2026-09-25",
+    "prior_start": "2026-08-01",
+    "prior_end": "2026-08-28"
+  },
+  "gsc": {
+    "current": {
+      "clicks": 2.0,
+      "impressions": 1576.0,
+      "ctr": 0.0012690355329949238,
+      "position": 48.806472081218274
+    },
+    "prior": {
+      "clicks": 0,
+      "impressions": 0,
+      "ctr": 0,
+      "position": 0
+    },
+    "queries": [
+      {
+        "query": "internet speed",
+        "clicks": 0,
+        "impressions": 41,
+        "ctr": 0,
+        "position": 44.46341463414634
+      },
+      {
+        "query": "broadband speed test",
+        "clicks": 0,
+        "impressions": 36,
+        "ctr": 0,
+        "position": 46.27777777777778
+      },
+      {
+        "query": "broadband speed",
+        "clicks": 0,
+        "impressions": 23,
+        "ctr": 0,
+        "position": 57.869565217391305
+      },
+      {
+        "query": "check broadband speed",
+        "clicks": 0,
+        "impressions": 22,
+        "ctr": 0,
+        "position": 28.181818181818183
+      },
+      {
+        "query": "test internet speed",
+        "clicks": 0,
+        "impressions": 20,
+        "ctr": 0,
+        "position": 41.9
+      },
+      {
+        "query": "speed test wifi",
+        "clicks": 0,
+        "impressions": 20,
+        "ctr": 0,
+        "position": 64.15
+      },
+      {
+        "query": "internet speed test",
+        "clicks": 0,
+        "impressions": 20,
+        "ctr": 0,
+        "position": 65.8
+      },
+      {
+        "query": "test my broadband speed",
+        "clicks": 0,
+        "impressions": 18,
+        "ctr": 0,
+        "position": 39.05555555555556
+      },
+      {
+        "query": "broadband speedtest",
+        "clicks": 0,
+        "impressions": 18,
+        "ctr": 0,
+        "position": 43.666666666666664
+      },
+      {
+        "query": "broadband speed checker",
+        "clicks": 0,
+        "impressions": 18,
+        "ctr": 0,
+        "position": 52.166666666666664
+      },
+      {
+        "query": "check internet speed",
+        "clicks": 0,
+        "impressions": 17,
+        "ctr": 0,
+        "position": 43.76470588235294
+      },
+      {
+        "query": "broadband checker",
+        "clicks": 0,
+        "impressions": 17,
+        "ctr": 0,
+        "position": 73.58823529411765
+      },
+      {
+        "query": "speed test internet",
+        "clicks": 0,
+        "impressions": 16,
+        "ctr": 0,
+        "position": 49.4375
+      },
+      {
+        "query": "what is my broadband speed",
+        "clicks": 0,
+        "impressions": 13,
+        "ctr": 0,
+        "position": 26.076923076923077
+      },
+      {
+        "query": "speed test broadband",
+        "clicks": 0,
+        "impressions": 13,
+        "ctr": 0,
+        "position": 52.46153846153846
+      },
+      {
+        "query": "check internet connection",
+        "clicks": 0,
+        "impressions": 13,
+        "ctr": 0,
+        "position": 83.3076923076923
+      },
+      {
+        "query": "check your broadband speed",
+        "clicks": 0,
+        "impressions": 11,
+        "ctr": 0,
+        "position": 27.90909090909091
+      },
+      {
+        "query": "how to check broadband speed",
+        "clicks": 0,
+        "impressions": 11,
+        "ctr": 0,
+        "position": 47.54545454545455
+      },
+      {
+        "query": "internet test",
+        "clicks": 0,
+        "impressions": 11,
+        "ctr": 0,
+        "position": 54.72727272727273
+      },
+      {
+        "query": "my internet speed",
+        "clicks": 0,
+        "impressions": 11,
+        "ctr": 0,
+        "position": 72.27272727272727
+      },
+      {
+        "query": "check my internet speed",
+        "clicks": 0,
+        "impressions": 11,
+        "ctr": 0,
+        "position": 74.18181818181819
+      },
+      {
+        "query": "test my internet speed",
+        "clicks": 0,
+        "impressions": 11,
+        "ctr": 0,
+        "position": 76.45454545454545
+      },
+      {
+        "query": "broadband internet speed test",
+        "clicks": 0,
+        "impressions": 10,
+        "ctr": 0,
+        "position": 29.4
+      },
+      {
+        "query": "check your internet speed",
+        "clicks": 0,
+        "impressions": 10,
+        "ctr": 0,
+        "position": 42.9
+      },
+      {
+        "query": "broadband speed test uk",
+        "clicks": 0,
+        "impressions": 10,
+        "ctr": 0,
+        "position": 45.4
+      },
+      {
+        "query": "test broadband speed",
+        "clicks": 0,
+        "impressions": 10,
+        "ctr": 0,
+        "position": 63.5
+      },
+      {
+        "query": "internet speed check",
+        "clicks": 0,
+        "impressions": 10,
+        "ctr": 0,
+        "position": 70.9
+      },
+      {
+        "query": "uk ping test",
+        "clicks": 0,
+        "impressions": 10,
+        "ctr": 0,
+        "position": 71.4
+      },
+      {
+        "query": "internet speed test free",
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0,
+        "position": 36.333333333333336
+      },
+      {
+        "query": "whats my internet speed",
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0,
+        "position": 39.888888888888886
+      },
+      {
+        "query": "my broadband speed test",
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0,
+        "position": 41.77777777777778
+      },
+      {
+        "query": "how to check internet speed",
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0,
+        "position": 48.22222222222222
+      },
+      {
+        "query": "how to check broadband speed in my area",
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0,
+        "position": 51.666666666666664
+      },
+      {
+        "query": "what is my internet speed",
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0,
+        "position": 53.77777777777778
+      },
+      {
+        "query": "check wifi speed",
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0,
+        "position": 55.333333333333336
+      },
+      {
+        "query": "network speed test",
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0,
+        "position": 78.55555555555556
+      },
+      {
+        "query": "speedtest internet",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr": 0,
+        "position": 20.5
+      },
+      {
+        "query": "broadband speed checker uk",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr": 0,
+        "position": 33.125
+      },
+      {
+        "query": "test my internet",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr": 0,
+        "position": 52.875
+      },
+      {
+        "query": "broadband internet speed",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr": 0,
+        "position": 79.625
+      },
+      {
+        "query": "ping test uk",
+        "clicks": 0,
+        "impressions": 8,
+        "ctr": 0,
+        "position": 79.75
+      },
+      {
+        "query": "what internet speed can i get",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 24.285714285714285
+      },
+      {
+        "query": "how can i check my broadband speed",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 38.285714285714285
+      },
+      {
+        "query": "check my broadband",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 45.42857142857143
+      },
+      {
+        "query": "test your broadband speed",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 48.714285714285715
+      },
+      {
+        "query": "broadband speed check",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 61.857142857142854
+      },
+      {
+        "query": "check download speed",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 65.42857142857143
+      },
+      {
+        "query": "check my broadband speed",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 65.42857142857143
+      },
+      {
+        "query": "test my speed",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 65.85714285714286
+      },
+      {
+        "query": "internet speed checker",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 69.42857142857143
+      },
+      {
+        "query": "free broadband speed test",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 70.57142857142857
+      },
+      {
+        "query": "free internet speed test",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 71.14285714285714
+      },
+      {
+        "query": "internet speeds",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 74.85714285714286
+      },
+      {
+        "query": "how to check internet speeds",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 79
+      },
+      {
+        "query": "how can you check broadband speed",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 80.71428571428571
+      },
+      {
+        "query": "net speed test",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 82.71428571428571
+      },
+      {
+        "query": "measure my broadband speed",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 7.666666666666667
+      },
+      {
+        "query": "checking internet speed",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 41.333333333333336
+      },
+      {
+        "query": "internet connection speed",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 42.5
+      },
+      {
+        "query": "check broadband speed test",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 55.333333333333336
+      },
+      {
+        "query": "broadband download speed test",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 56.333333333333336
+      },
+      {
+        "query": "check network speed",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 60.666666666666664
+      },
+      {
+        "query": "which speed checker",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 61.333333333333336
+      },
+      {
+        "query": "test your internet speed",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 62
+      },
+      {
+        "query": "run speed test",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 65.33333333333333
+      },
+      {
+        "query": "how can i test my broadband speed",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 67.83333333333333
+      },
+      {
+        "query": "what's my internet speed",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 70.33333333333333
+      },
+      {
+        "query": "check internet speed test",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 72.66666666666667
+      },
+      {
+        "query": "how to check my broadband speed",
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 73
+      },
+      {
+        "query": "internet speed in my area",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 10.2
+      },
+      {
+        "query": "home broadband speed test",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 46.8
+      },
+      {
+        "query": "how do you check internet speed",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 50
+      },
+      {
+        "query": "test internet",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 54.6
+      },
+      {
+        "query": "internet test speed",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 55.6
+      },
+      {
+        "query": "broadband area speed checker",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 59.8
+      },
+      {
+        "query": "internet connection speed test",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 62
+      },
+      {
+        "query": "how check internet speed",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 62.2
+      },
+      {
+        "query": "test speed",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 65
+      },
+      {
+        "query": "check my speed broadband",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 65.4
+      },
+      {
+        "query": "speed internet",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 71.4
+      },
+      {
+        "query": "test upload speed",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 77
+      },
+      {
+        "query": "how fast is my internet",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 78.8
+      },
+      {
+        "query": "speed test your broadband",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 81.2
+      },
+      {
+        "query": "how to check broadband speeds",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 82.6
+      },
+      {
+        "query": "how to test my broadband speed",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 82.6
+      },
+      {
+        "query": "speed test for broadband internet",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 83
+      },
+      {
+        "query": "internet ping test",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 86.4
+      },
+      {
+        "query": "test internet connection",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 86.8
+      },
+      {
+        "query": "test wifi speed",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 87
+      },
+      {
+        "query": "internet speed test online",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 94
+      },
+      {
+        "query": "broadband test",
+        "clicks": 0,
+        "impressions": 5,
+        "ctr": 0,
+        "position": 98.8
+      },
+      {
+        "query": "web speed test",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "query": "wifi test",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 1
+      },
+      {
+        "query": "broadband speed checker postcode",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 3.5
+      },
+      {
+        "query": "check broadband speed postcode",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 5
+      },
+      {
+        "query": "wifi speed test",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 7.25
+      },
+      {
+        "query": "check broadband speeds in my area",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 14.25
+      },
+      {
+        "query": "broadband speed comparison",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 21
+      },
+      {
+        "query": "broadband tester",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 23.75
+      },
+      {
+        "query": "test my wifi speed",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 25
+      }
+    ]
+  },
+  "ga4": {
+    "sessions": 14.0,
+    "engaged_sessions": 13.0,
+    "engagement_rate": 0.9285714285714286
+  },
+  "serp": {
+    "enabled": true,
+    "queries": [
+      {
+        "query": "internet speed test",
+        "top10_domains": [
+          "play.google.com",
+          "rankwatch.com",
+          "reddit.com",
+          "apps.microsoft.com",
+          "tools.iplocation.net",
+          "facebook.com",
+          "testmyspeed.com",
+          "speednetlte.com",
+          "loudmobility.co.uk",
+          "reddit.com"
+        ],
+        "ai_overview": false,
+        "ai_citations": []
+      },
+      {
+        "query": "broadband speed test",
+        "top10_domains": [
+          "ukspeedtest.co.uk",
+          "speedtest.hqtelecom.co.uk",
+          "broadbandpicker.co.uk",
+          "helpforum.sky.com",
+          "broadband.co.uk",
+          "youtube.com",
+          "broadbandspeedchecker.co.uk",
+          "community.ee.co.uk",
+          "news.bbc.co.uk"
+        ],
+        "ai_overview": true,
+        "ai_citations": []
+      },
+      {
+        "query": "internet speed test free",
+        "top10_domains": [
+          "play.google.com",
+          "alleasyseo.com",
+          "akita.co.uk",
+          "galaxystore.samsung.com",
+          "loudmobility.co.uk",
+          "youtube.com",
+          "mirror.co.uk",
+          "apps.microsoft.com",
+          "forums.outandaboutlive.co.uk",
+          "play.google.com"
+        ],
+        "ai_overview": false,
+        "ai_citations": []
+      },
+      {
+        "query": "broadband speed test UK",
+        "top10_domains": [
+          "speedtest.net",
+          "imdb.com",
+          "en.wikipedia.org",
+          "bushtheatre.co.uk",
+          "surreycc.gov.uk",
+          "uk-scape.ceh.ac.uk",
+          "wiltshire.gov.uk",
+          "youtube.com",
+          "community.ee.co.uk"
+        ],
+        "ai_overview": true,
+        "ai_citations": []
+      },
+      {
+        "query": "speed test download upload",
+        "top10_domains": [
+          "compressnconvert.com",
+          "speedtestplus.vercel.app",
+          "tools.wellerdeveler.com",
+          "toolboxhub.app",
+          "youtube.com",
+          "speedvexa.com",
+          "mytour.vn",
+          "stackoverflow.com",
+          "internetspeed.sbs",
+          "reddit.com"
+        ],
+        "ai_overview": false,
+        "ai_citations": []
+      },
+      {
+        "query": "speed test ping",
+        "top10_domains": [
+          "drspeed.web-wab.com",
+          "pingtesti.com",
+          "vividrepairs.co.uk",
+          "speedtestplus.vercel.app",
+          "bandrift.com",
+          "pingtesti.com",
+          "apps.apple.com",
+          "appbrain.com",
+          "community.home-assistant.io",
+          "netsorted.co.uk"
+        ],
+        "ai_overview": false,
+        "ai_citations": []
+      },
+      {
+        "query": "wifi speed test",
+        "top10_domains": [
+          "prd.base.be",
+          "broadbandspeedtest.org.uk",
+          "tp-link.com",
+          "rankwatch.com",
+          "helpdesk.amlltd.co.uk",
+          "microsoft.com",
+          "youtube.com",
+          "play.google.com",
+          "reddit.com"
+        ],
+        "ai_overview": false,
+        "ai_citations": []
+      },
+      {
+        "query": "check broadband speed",
+        "top10_domains": [
+          "ukspeedtest.co.uk",
+          "broadbandswitch.uk",
+          "falmouthpacket.co.uk",
+          "broadbandpicker.co.uk",
+          "occta.co.uk",
+          "redshed.co.uk",
+          "theargus.co.uk",
+          "forums.outandaboutlive.co.uk",
+          "broadbandspeedchecker.co.uk"
+        ],
+        "ai_overview": true,
+        "ai_citations": []
+      },
+      {
+        "query": "what is a good broadband speed",
+        "top10_domains": [
+          "broadband.co.uk",
+          "comparethemarket.com",
+          "en.wikipedia.org",
+          "ispreview.co.uk",
+          "broadbandchoices.co.uk",
+          "gov.wales",
+          "broadbandcommission.org",
+          "suffolk.gov.uk",
+          "telegraph.co.uk"
+        ],
+        "ai_overview": true,
+        "ai_citations": []
+      }
+    ]
+  },
+  "competitor_crawl": {
+    "Ookla Speedtest": {
+      "url": "https://www.speedtest.net/",
+      "status": 200,
+      "visible_words": 10574,
+      "headings": [
+        "Speedtest by Ookla",
+        "GO",
+        "Finding provider",
+        "Finding optimal server...",
+        "Finding provider",
+        "Finding optimal server..."
+      ],
+      "signals": {
+        "download": true,
+        "upload": true,
+        "ping": true,
+        "jitter": false,
+        "wifi_ethernet": false,
+        "troubleshooting": true,
+        "faq": true,
+        "methodology": true
+      }
+    },
+    "Cloudflare Speed Test": {
+      "url": "https://speed.cloudflare.com/",
+      "status": 200,
+      "visible_words": 625,
+      "headings": [
+        "Speed Test",
+        "Your Internet Speed",
+        "Network Quality Score",
+        "Privacy and Speed Test",
+        "Server Location"
+      ],
+      "signals": {
+        "download": true,
+        "upload": true,
+        "ping": true,
+        "jitter": true,
+        "wifi_ethernet": false,
+        "troubleshooting": false,
+        "faq": false,
+        "methodology": false
+      }
+    },
+    "Uswitch Speed Test": {
+      "url": "https://www.uswitch.com/broadband/speedtest/",
+      "status": 200,
+      "visible_words": 47284,
+      "headings": [
+        "Select cookie preferences",
+        "Test your broadband speed with Uswitch",
+        "About your broadband",
+        "Get your current speed results in seconds",
+        "Compare your speed to other providers in your area",
+        "See if you can switch to a better service",
+        "What is my broadband speed?",
+        "How does the Uswitch broadband speed checker work?",
+        "What does my speed actually mean?",
+        "How can I get accurate results when I check my broadband speed?",
+        "Why is my broadband connection so slow?",
+        "How to complain about broadband speed",
+        "Which broadband provider is the fastest?",
+        "How does distance affect internet speed?",
+        "How far am I from my broadband exchange?",
+        "What is the Voluntary Code of Practice on Broadband Speed?",
+        "Why you should run an internet speed test when working from home",
+        "Technical specifications",
+        "How accurate is my speed test result?",
+        "How is download speed measured?"
+      ],
+      "signals": {
+        "download": true,
+        "upload": true,
+        "ping": true,
+        "jitter": false,
+        "wifi_ethernet": true,
+        "troubleshooting": true,
+        "faq": true,
+        "methodology": true
+      }
+    },
+    "thinkbroadband Speed Test": {
+      "url": "https://www.thinkbroadband.com/speedtest",
+      "status": "unavailable",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    "Broadband.co.uk Speed Test": {
+      "url": "https://www.broadband.co.uk/broadband-speed-test",
+      "status": 200,
+      "visible_words": 2364,
+      "headings": [
+        "Broadband Speed Test",
+        "UK average broadband speeds for August 2026",
+        "Why your broadband speed matters",
+        "How to get accurate broadband speed test results",
+        "What\u2019s my broadband speed good for?",
+        "Why is my broadband slower than expected or advertised?",
+        "How to complain to your broadband provider if you\u2019re consistently getting a slow speed",
+        "FAQs about broadband speed tests"
+      ],
+      "signals": {
+        "download": true,
+        "upload": true,
+        "ping": true,
+        "jitter": false,
+        "wifi_ethernet": true,
+        "troubleshooting": true,
+        "faq": true,
+        "methodology": false
+      }
+    }
+  },
+  "official_guidance": [
+    {
+      "source": "Google AI features",
+      "url": "https://developers.google.com/search/docs/appearance/ai-features",
+      "rule": "No special AI markup is required; foundational SEO and visible, accurate content remain the requirement."
+    },
+    {
+      "source": "Google helpful content",
+      "url": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+      "rule": "Demonstrate original value, clear sourcing, expertise and a satisfying people-first experience."
+    },
+    {
+      "source": "OpenAI publisher guidance",
+      "url": "https://help.openai.com/en/articles/12627856-publishers-and-developers-faq",
+      "rule": "Allow OAI-SearchBot if ChatGPT discovery is desired and monitor referrals in analytics."
+    }
+  ],
+  "recommendations": [
+    {
+      "priority": "P0",
+      "action": "Run a title/snippet CTR test",
+      "why": "The page has 1576 impressions but only 0.13% CTR; test a UK-specific title and benefit-led meta description without changing the URL."
+    },
+    {
+      "priority": "P0",
+      "action": "Strengthen answer-first relevance",
+      "why": "Average position is 48.8; put a concise definition, result interpretation and UK testing caveat immediately below the H1, then link to the methodology and troubleshooting sections."
+    },
+    {
+      "priority": "P1",
+      "action": "Build the secondary-intent cluster",
+      "why": "Create clearly linked, answer-first sections for ping, jitter, upload/download differences, Wi-Fi versus Ethernet, slow results, and what speed households need; use observed GSC queries to choose headings."
+    },
+    {
+      "priority": "P1",
+      "action": "Increase AI Overview and LLM citability",
+      "why": "Add 40\u201370 word standalone answers, dated methodology, transparent limitations, UK server/location details, and schema that matches visible text. Keep claims factual and quoteable; Google confirms there is no special AI markup requirement."
+    },
+    {
+      "priority": "P2",
+      "action": "Earn first-party and expert references",
+      "why": "Publish a lightweight results methodology/data note and link it from relevant broadband guides; cite Ofcom and other primary sources, while avoiding invented accuracy or rank claims."
+    },
+    {
+      "priority": "P2",
+      "action": "Measure the commercial next step",
+      "why": "Segment speed_test_started, speed_test_completed, speed_test_failed and speed_test_compare_clicked by landing page, device and result band; improve the CTA only where completion and outbound clicks support it."
+    }
+  ]
+}

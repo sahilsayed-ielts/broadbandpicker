@@ -1,21 +1,24 @@
 # Instagram design system
 
+The grid should look like a niche publisher, not a meme page that found a wifi joke. Professional captions; plush minimalism in the picture. Full rules: `../06-visual-design-system.md`. First 9 tiles: `professional-content.md`.
+
 ## Colour
 
 | Token | Hex | Use |
 |---|---|---|
-| Sky | #0EA5E9 | Highlights, wifi-mark, links |
-| Navy | #0F172A | End cards, carousels, Stories |
+| Sky | #0EA5E9 | Highlights, wifi-mark, links, one accent line |
+| Navy | #0F172A | End cards, carousels, Stories, most fields |
 | Green | #22C55E | Genuine good-news ticks only |
+| Soft sky | #7DD3FC | 10–20% glow, never a fill |
 | Paper | #F8FAFC | Quote-card background alt |
 | White | #FFFFFF | Type on navy |
 
 ## Type
 
-- Site-faithful: **Inter ExtraBold** headlines, Inter Regular body.
-- Meme-native: Anton / Impact / condensed gothic.
-- Quote remix: a readable serif (Playfair / Source Serif).
-- Official-pastiche: whatever the format needs (dot matrix, highways, Met Office), always slightly wrong so it reads as parody.
+- Site-faithful: **Inter ExtraBold** headlines, Inter Regular body. This is the default.
+- Quote remix: a readable serif (Playfair / Source Serif) on a navy or paper card.
+- Official-pastiche: whatever the format needs (dot matrix, highways, Met Office), always slightly wrong so it reads as parody — then put that pastiche *on* a navy canvas so the grid stays expensive.
+- Avoid raw Impact-on-white in the feed. If a meme font is the joke, frame it.
 
 ## Logo
 

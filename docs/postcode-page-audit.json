@@ -1,0 +1,1290 @@
+{
+  "generated": "2026-10-15",
+  "window_days": 90,
+  "inventory": {
+    "city": 10,
+    "curated": 50,
+    "district": 2772
+  },
+  "demand": {
+    "city": {
+      "urls": 10,
+      "urls_with_impressions": 10,
+      "urls_with_clicks": 8,
+      "impressions": 11673,
+      "clicks": 49,
+      "median_position": 31.3,
+      "top": [
+        {
+          "path": "/postcode/london",
+          "impressions": 3287,
+          "clicks": 12,
+          "position": 33.62488591420748
+        },
+        {
+          "path": "/postcode/manchester",
+          "impressions": 2180,
+          "clicks": 5,
+          "position": 46.174311926605505
+        },
+        {
+          "path": "/postcode/glasgow",
+          "impressions": 1676,
+          "clicks": 7,
+          "position": 24.66527446300716
+        },
+        {
+          "path": "/postcode/edinburgh",
+          "impressions": 1073,
+          "clicks": 10,
+          "position": 21.835973904939422
+        },
+        {
+          "path": "/postcode/birmingham",
+          "impressions": 1003,
+          "clicks": 7,
+          "position": 30.308075772681953
+        },
+        {
+          "path": "/postcode/leeds",
+          "impressions": 953,
+          "clicks": 4,
+          "position": 35.94753410283316
+        },
+        {
+          "path": "/postcode/bristol",
+          "impressions": 717,
+          "clicks": 3,
+          "position": 32.2510460251046
+        },
+        {
+          "path": "/postcode",
+          "impressions": 380,
+          "clicks": 0,
+          "position": 26.878947368421052
+        },
+        {
+          "path": "/postcode/liverpool",
+          "impressions": 342,
+          "clicks": 0,
+          "position": 48.86842105263158
+        },
+        {
+          "path": "/postcode/sheffield",
+          "impressions": 62,
+          "clicks": 1,
+          "position": 18.016129032258064
+        }
+      ]
+    },
+    "curated": {
+      "urls": 50,
+      "urls_with_impressions": 49,
+      "urls_with_clicks": 40,
+      "impressions": 22200,
+      "clicks": 134,
+      "median_position": 9.9,
+      "top": [
+        {
+          "path": "/postcode/da1",
+          "impressions": 8648,
+          "clicks": 6,
+          "position": 9.885522664199815
+        },
+        {
+          "path": "/postcode/bt1",
+          "impressions": 1208,
+          "clicks": 0,
+          "position": 40.567880794701985
+        },
+        {
+          "path": "/postcode/ls2",
+          "impressions": 679,
+          "clicks": 6,
+          "position": 32.005891016200295
+        },
+        {
+          "path": "/postcode/bn1",
+          "impressions": 620,
+          "clicks": 6,
+          "position": 10.314516129032258
+        },
+        {
+          "path": "/postcode/ng1",
+          "impressions": 610,
+          "clicks": 2,
+          "position": 14.219672131147542
+        },
+        {
+          "path": "/postcode/ne1",
+          "impressions": 587,
+          "clicks": 4,
+          "position": 16.10562180579216
+        },
+        {
+          "path": "/postcode/rm1",
+          "impressions": 554,
+          "clicks": 1,
+          "position": 9.584837545126353
+        },
+        {
+          "path": "/postcode/e1",
+          "impressions": 497,
+          "clicks": 16,
+          "position": 5.283702213279678
+        },
+        {
+          "path": "/postcode/so14",
+          "impressions": 485,
+          "clicks": 3,
+          "position": 24.55257731958763
+        },
+        {
+          "path": "/postcode/ct1",
+          "impressions": 444,
+          "clicks": 1,
+          "position": 9.927927927927929
+        }
+      ]
+    },
+    "district": {
+      "urls": 2772,
+      "urls_with_impressions": 2222,
+      "urls_with_clicks": 195,
+      "impressions": 11416,
+      "clicks": 214,
+      "median_position": 5.2,
+      "top": [
+        {
+          "path": "/postcode/bt68",
+          "impressions": 195,
+          "clicks": 0,
+          "position": 11.133333333333333
+        },
+        {
+          "path": "/postcode/bb2",
+          "impressions": 73,
+          "clicks": 0,
+          "position": 8.054794520547945
+        },
+        {
+          "path": "/postcode/st7",
+          "impressions": 66,
+          "clicks": 1,
+          "position": 7.454545454545454
+        },
+        {
+          "path": "/postcode/po5",
+          "impressions": 56,
+          "clicks": 0,
+          "position": 8
+        },
+        {
+          "path": "/postcode/ha8",
+          "impressions": 55,
+          "clicks": 0,
+          "position": 5.872727272727273
+        },
+        {
+          "path": "/postcode/bt30",
+          "impressions": 50,
+          "clicks": 0,
+          "position": 18.84
+        },
+        {
+          "path": "/postcode/sw6",
+          "impressions": 43,
+          "clicks": 1,
+          "position": 11.255813953488373
+        },
+        {
+          "path": "/postcode/se5",
+          "impressions": 40,
+          "clicks": 0,
+          "position": 12.65
+        },
+        {
+          "path": "/postcode/sp4",
+          "impressions": 40,
+          "clicks": 2,
+          "position": 6.7
+        },
+        {
+          "path": "/postcode/g42",
+          "impressions": 39,
+          "clicks": 2,
+          "position": 3.3846153846153846
+        }
+      ]
+    }
+  },
+  "postcode_urls_in_gsc_not_in_sitemap": {},
+  "postcode_urls_in_gsc_not_in_sitemap_count": 0,
+  "index_sample": {
+    "city": {
+      "inspected": 10,
+      "coverage": {
+        "Submitted and indexed": 10
+      },
+      "rows": [
+        {
+          "url": "https://broadbandpicker.co.uk/postcode",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-10-06T19:05:35Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/london",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-09-27T22:04:09Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/london",
+          "referring_urls": 0,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/sheffield",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-08-28T23:11:10Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/sheffield",
+          "referring_urls": 1,
+          "sitemaps": [
+            "https://broadbandpicker.co.uk/postcode/sitemap.xml",
+            "https://broadbandpicker.co.uk/sitemap.xml"
+          ]
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/edinburgh",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-10-10T13:26:19Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/edinburgh",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/glasgow",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-09-20T20:09:27Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/glasgow",
+          "referring_urls": 2,
+          "sitemaps": [
+            "https://broadbandpicker.co.uk/postcode/sitemap.xml",
+            "https://broadbandpicker.co.uk/sitemap.xml"
+          ]
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/liverpool",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-08-18T18:28:37Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/liverpool",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/leeds",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-10-14T12:34:47Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/leeds",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/bristol",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-10-05T12:25:28Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/bristol",
+          "referring_urls": 1,
+          "sitemaps": [
+            "https://broadbandpicker.co.uk/postcode/sitemap.xml",
+            "https://broadbandpicker.co.uk/sitemap.xml"
+          ]
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/birmingham",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-09-21T21:29:16Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/birmingham",
+          "referring_urls": 2,
+          "sitemaps": [
+            "https://broadbandpicker.co.uk/postcode/sitemap.xml",
+            "https://broadbandpicker.co.uk/sitemap.xml"
+          ]
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/manchester",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-10-07T07:34:34Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/manchester",
+          "referring_urls": 2,
+          "sitemaps": []
+        }
+      ]
+    },
+    "curated": {
+      "inspected": 25,
+      "coverage": {
+        "Submitted and indexed": 25
+      },
+      "rows": [
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/bs1",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-10-02T06:58:13Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/bs1",
+          "referring_urls": 0,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/wc1",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-10-15T01:57:57Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/wc1",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/bt1",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-10-15T02:00:13Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/bt1",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/rm1",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-10-15T01:22:15Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/rm1",
+          "referring_urls": 1,
+          "sitemaps": [
+            "https://broadbandpicker.co.uk/sitemap.xml"
+          ]
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/n1",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-10-15T01:03:43Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/n1",
+          "referring_urls": 1,
+          "sitemaps": [
+            "https://broadbandpicker.co.uk/sitemap.xml"
+          ]
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/nw1",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-09-14T00:13:46Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/nw1",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/bn1",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-10-02T16:24:42Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/bn1",
+          "referring_urls": 1,
+          "sitemaps": [
+            "https://broadbandpicker.co.uk/sitemap.xml"
+          ]
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/sw1",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-08-10T02:40:43Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/sw1",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/g1",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-10-14T23:59:14Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/g1",
+          "referring_urls": 1,
+          "sitemaps": [
+            "https://broadbandpicker.co.uk/sitemap.xml"
+          ]
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/cr0",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-10-15T01:33:04Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/cr0",
+          "referring_urls": 0,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/rg1",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-08-09T21:48:37Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/rg1",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/so14",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-10-07T02:35:55Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/so14",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/b1",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-10-15T01:02:44Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/b1",
+          "referring_urls": 0,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/ec1",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-08-27T07:17:11Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/ec1",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/se1",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-10-15T01:19:13Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/se1",
+          "referring_urls": 1,
+          "sitemaps": [
+            "https://broadbandpicker.co.uk/sitemap.xml"
+          ]
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/cb1",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-10-15T01:11:29Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/cb1",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/ox1",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-10-06T17:11:16Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/ox1",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/sl1",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-10-15T01:20:15Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/sl1",
+          "referring_urls": 1,
+          "sitemaps": [
+            "https://broadbandpicker.co.uk/sitemap.xml"
+          ]
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/ls1",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-10-07T12:16:18Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/ls1",
+          "referring_urls": 1,
+          "sitemaps": [
+            "https://broadbandpicker.co.uk/sitemap.xml"
+          ]
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/kt1",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-10-15T01:41:50Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/kt1",
+          "referring_urls": 1,
+          "sitemaps": [
+            "https://broadbandpicker.co.uk/sitemap.xml"
+          ]
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/l1",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-10-14T15:30:20Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/l1",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/en1",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-10-01T03:40:41Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/en1",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/e2",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-10-14T17:59:49Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/e2",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/po1",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-10-15T01:11:40Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/po1",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/l8",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-10-06T01:49:18Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/l8",
+          "referring_urls": 0,
+          "sitemaps": []
+        }
+      ]
+    },
+    "district": {
+      "inspected": 25,
+      "coverage": {
+        "Submitted and indexed": 25
+      },
+      "rows": [
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/cr6",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-10-14T10:00:35Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/cr6",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/g73",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-08-28T15:29:44Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/g73",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/tw20",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-10-15T03:09:16Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/tw20",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/ts27",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-08-27T20:53:18Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/ts27",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/sy12",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-10-15T03:00:21Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/sy12",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/bs20",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-08-27T21:05:11Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/bs20",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/sw16",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-08-24T18:08:12Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/sw16",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/sy2",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-08-28T02:00:50Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/sy2",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/ne71",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-09-01T13:06:55Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/ne71",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/bl3",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-08-28T06:19:44Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/bl3",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/g63",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-08-22T23:10:45Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/g63",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/bh31",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-08-29T01:48:17Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/bh31",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/so16",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-10-15T01:19:24Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/so16",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/cv36",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-08-29T15:31:23Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/cv36",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/ka20",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-08-28T19:49:35Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/ka20",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/nr18",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-08-28T13:48:52Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/nr18",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/dd9",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-08-31T01:58:23Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/dd9",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/sg17",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-08-29T02:30:26Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/sg17",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/cm77",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-08-30T17:23:54Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/cm77",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/st1",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-08-22T23:10:05Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/st1",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/ky14",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-08-24T14:22:11Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/ky14",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/so45",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-08-29T20:28:41Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/so45",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/ec2m",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-08-29T00:45:40Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/ec2m",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/cf44",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-08-22T23:09:33Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/cf44",
+          "referring_urls": 1,
+          "sitemaps": []
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/sw1p",
+          "coverage": "Submitted and indexed",
+          "verdict": "PASS",
+          "last_crawl": "2026-10-15T02:58:29Z",
+          "google_canonical": "https://broadbandpicker.co.uk/postcode/sw1p",
+          "referring_urls": 1,
+          "sitemaps": []
+        }
+      ]
+    }
+  },
+  "content": {
+    "city": {
+      "sampled": 10,
+      "median_words": 775,
+      "median_unique_share": 0.342,
+      "pages": [
+        {
+          "url": "https://broadbandpicker.co.uk/postcode",
+          "words": 490,
+          "unique_share": 0.769
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/london",
+          "words": 472,
+          "unique_share": 0.754
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/sheffield",
+          "words": 1507,
+          "unique_share": 0.82
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/edinburgh",
+          "words": 772,
+          "unique_share": 0.27
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/glasgow",
+          "words": 779,
+          "unique_share": 0.269
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/liverpool",
+          "words": 770,
+          "unique_share": 0.258
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/leeds",
+          "words": 770,
+          "unique_share": 0.26
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/bristol",
+          "words": 797,
+          "unique_share": 0.351
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/birmingham",
+          "words": 807,
+          "unique_share": 0.333
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/manchester",
+          "words": 821,
+          "unique_share": 0.553
+        }
+      ]
+    },
+    "curated": {
+      "sampled": 40,
+      "median_words": 771,
+      "median_unique_share": 0.199,
+      "pages": [
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/kt1",
+          "words": 799,
+          "unique_share": 0.203
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/en1",
+          "words": 750,
+          "unique_share": 0.156
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/m14",
+          "words": 752,
+          "unique_share": 0.165
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/g1",
+          "words": 770,
+          "unique_share": 0.179
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/sw1",
+          "words": 765,
+          "unique_share": 0.206
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/ct1",
+          "words": 1688,
+          "unique_share": 0.743
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/nw1",
+          "words": 810,
+          "unique_share": 0.195
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/sg1",
+          "words": 750,
+          "unique_share": 0.163
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/n1",
+          "words": 1394,
+          "unique_share": 0.666
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/ub1",
+          "words": 750,
+          "unique_share": 0.162
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/b1",
+          "words": 804,
+          "unique_share": 0.203
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/cv1",
+          "words": 772,
+          "unique_share": 0.182
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/bn1",
+          "words": 781,
+          "unique_share": 0.311
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/cb1",
+          "words": 802,
+          "unique_share": 0.195
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/bs1",
+          "words": 1702,
+          "unique_share": 0.732
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/ng1",
+          "words": 1938,
+          "unique_share": 0.769
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/cr0",
+          "words": 1241,
+          "unique_share": 0.625
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/gu1",
+          "words": 735,
+          "unique_share": 0.271
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/s1",
+          "words": 770,
+          "unique_share": 0.179
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/w1",
+          "words": 765,
+          "unique_share": 0.206
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/bt1",
+          "words": 740,
+          "unique_share": 0.187
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/se1",
+          "words": 779,
+          "unique_share": 0.197
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/eh1",
+          "words": 802,
+          "unique_share": 0.201
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/cf10",
+          "words": 770,
+          "unique_share": 0.179
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/le1",
+          "words": 772,
+          "unique_share": 0.182
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/ec1",
+          "words": 733,
+          "unique_share": 0.212
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/l8",
+          "words": 720,
+          "unique_share": 0.164
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/wc1",
+          "words": 733,
+          "unique_share": 0.212
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/ls2",
+          "words": 750,
+          "unique_share": 0.156
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/ls1",
+          "words": 770,
+          "unique_share": 0.179
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/m1",
+          "words": 1983,
+          "unique_share": 0.775
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/b15",
+          "words": 752,
+          "unique_share": 0.159
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/da1",
+          "words": 1565,
+          "unique_share": 0.661
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/ox1",
+          "words": 804,
+          "unique_share": 0.203
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/rm1",
+          "words": 1851,
+          "unique_share": 0.757
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/w5",
+          "words": 779,
+          "unique_share": 0.182
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/rg1",
+          "words": 1960,
+          "unique_share": 0.769
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/bs3",
+          "words": 752,
+          "unique_share": 0.165
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/ne1",
+          "words": 750,
+          "unique_share": 0.288
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/mk1",
+          "words": 761,
+          "unique_share": 0.172
+        }
+      ]
+    },
+    "district": {
+      "sampled": 40,
+      "median_words": 505,
+      "median_unique_share": 0.072,
+      "pages": [
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/po10",
+          "words": 505,
+          "unique_share": 0.073
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/nr30",
+          "words": 505,
+          "unique_share": 0.063
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/bd21",
+          "words": 505,
+          "unique_share": 0.063
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/wv15",
+          "words": 505,
+          "unique_share": 0.073
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/bt48",
+          "words": 505,
+          "unique_share": 0.073
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/so21",
+          "words": 505,
+          "unique_share": 0.063
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/st21",
+          "words": 505,
+          "unique_share": 0.073
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/l3",
+          "words": 505,
+          "unique_share": 0.066
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/ll75",
+          "words": 505,
+          "unique_share": 0.063
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/ls10",
+          "words": 505,
+          "unique_share": 0.066
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/td10",
+          "words": 505,
+          "unique_share": 0.073
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/rg30",
+          "words": 505,
+          "unique_share": 0.073
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/sw4",
+          "words": 505,
+          "unique_share": 0.066
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/pe19",
+          "words": 505,
+          "unique_share": 0.081
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/bs29",
+          "words": 505,
+          "unique_share": 0.063
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/ca25",
+          "words": 505,
+          "unique_share": 0.073
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/ip17",
+          "words": 505,
+          "unique_share": 0.063
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/pl12",
+          "words": 505,
+          "unique_share": 0.081
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/ws8",
+          "words": 505,
+          "unique_share": 0.063
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/bs34",
+          "words": 505,
+          "unique_share": 0.063
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/bs11",
+          "words": 505,
+          "unique_share": 0.071
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/l15",
+          "words": 505,
+          "unique_share": 0.071
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/wc1b",
+          "words": 505,
+          "unique_share": 0.082
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/sw1a",
+          "words": 505,
+          "unique_share": 0.063
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/pa38",
+          "words": 505,
+          "unique_share": 0.073
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/iv45",
+          "words": 505,
+          "unique_share": 0.073
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/n7",
+          "words": 505,
+          "unique_share": 0.073
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/yo10",
+          "words": 505,
+          "unique_share": 0.063
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/ln10",
+          "words": 505,
+          "unique_share": 0.073
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/b74",
+          "words": 505,
+          "unique_share": 0.063
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/pe34",
+          "words": 505,
+          "unique_share": 0.081
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/ls6",
+          "words": 505,
+          "unique_share": 0.063
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/dn9",
+          "words": 505,
+          "unique_share": 0.073
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/tq10",
+          "words": 505,
+          "unique_share": 0.073
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/cm5",
+          "words": 505,
+          "unique_share": 0.073
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/rg18",
+          "words": 505,
+          "unique_share": 0.063
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/br3",
+          "words": 505,
+          "unique_share": 0.074
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/g34",
+          "words": 505,
+          "unique_share": 0.071
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/iv52",
+          "words": 505,
+          "unique_share": 0.084
+        },
+        {
+          "url": "https://broadbandpicker.co.uk/postcode/ct9",
+          "words": 505,
+          "unique_share": 0.063
+        }
+      ]
+    }
+  }
+}

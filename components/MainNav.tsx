@@ -43,7 +43,7 @@ export const POSTCODE_QUICK_LINKS = [
 
 export const TOOL_LINKS = [
   { href: '/tools/broadband-match', label: 'Broadband Match', desc: 'Get a personalised, ranked recommendation' },
-  { href: '/speed-test', label: 'Speed Test', desc: 'Check your current connection speed' },
+  { href: '/tools/speed-test', label: 'Speed Test', desc: 'Check your current connection speed' },
   { href: '/tools/broadband-cost-calculator', label: 'Cost Calculator', desc: 'True monthly cost, not just the headline price' },
 ]
 
@@ -187,6 +187,11 @@ export default function MainNav() {
               </span>
             </Link>
           ))}
+          <div className="mt-2 border-t border-slate-100 pt-2">
+            <Link href="/tools" className="block rounded-lg px-2 py-1.5 text-sm font-semibold text-sky-600 hover:bg-sky-50 hover:text-sky-800">
+              All tools &rarr;
+            </Link>
+          </div>
         </div>
       </div>
     </nav>

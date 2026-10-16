@@ -3,8 +3,9 @@
   "slug": "virgin-media",
   "awin_advertiser_id": 6399,
   "sector": "Internet Service Provider",
-  "relationship": "Rejected",
+  "relationship": "Pending",
   "live_url": "/providers/virgin-media",
   "website": "",
-  "last_synced": "2026-08-29"
+  "last_synced": "2026-10-13",
+  "possible_invitation_flagged_on": "2026-09-07"
 }

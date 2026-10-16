@@ -5,25 +5,29 @@ import SpeedTest from '@/components/SpeedTest'
 import PostcodeContextBar from '@/components/PostcodeContextBar'
 import { JsonLd } from '@/lib/jsonLd'
 import { softwareApplicationJsonLd } from '@/lib/siteSchema'
+import PageHeroBanner from '@/components/PageHeroBanner'
+import { DEFAULT_GUIDE_CTAS, categoryHero } from '@/lib/pageHero'
 
-const PAGE_URL = 'https://broadbandpicker.co.uk/speed-test'
-const REVIEWED_DATE = '2026-08-23'
+const HERO = categoryHero('technology-and-speeds')
+
+const PAGE_URL = 'https://broadbandpicker.co.uk/tools/speed-test'
+const REVIEWED_DATE = '2026-09-27'
 
 export const metadata: Metadata = {
-  title: 'Internet Speed Test UK: Check Broadband Speed Free',
+  title: 'Free Broadband Speed Test UK: Check Download, Upload & Ping',
   description:
-    'Run a free UK broadband speed test. Check download speed, upload speed and ping, understand your result, then compare options available at your postcode.',
+    'Run a free UK broadband speed test and check download, upload, ping and jitter. See what your result means, test Wi-Fi against Ethernet, and compare broadband options at your postcode.',
   alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: 'Free Broadband Speed Test UK | BroadbandPicker',
-    description: 'Check your download speed, upload speed and ping, then understand what the results mean.',
+    title: 'Free Broadband Speed Test UK: Download, Upload & Ping | BroadbandPicker',
+    description: 'Check download, upload, ping and jitter, then understand your UK broadband result.',
     url: PAGE_URL,
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Free Broadband Speed Test UK | BroadbandPicker',
-    description: 'Check your download speed, upload speed and ping for free.',
+    description: 'Check download, upload, ping and jitter for free, then understand your result.',
   },
 }
 
@@ -52,6 +56,11 @@ const faqs = [
     question: 'What should I do if my broadband is consistently slow?',
     answer:
       'Restart the router, test with Ethernet, pause other traffic and repeat the test at different times. Compare the results with the minimum guaranteed speed in your contract. If results remain below it, record the tests and contact your provider before considering a switch.',
+  },
+  {
+    question: 'Why does the speed test ask for my location?',
+    answer:
+      'The browser may ask for your location so we can confirm you are in the UK and attach the nearest postcode district to your result. That helps you compare deals for your area. The speed measurement still runs to our London server. You can allow this visit, allow this time, or never allow. The test still works if you decline.',
   },
 ]
 
@@ -88,32 +97,41 @@ export default function SpeedTestPage() {
   return (
     <main className="bg-white">
       <JsonLd data={jsonLd} />
+      <PageHeroBanner
+        title="Broadband speed test"
+        kicker="Free UK internet speed checker"
+        lede="Measure your download speed, upload speed and ping in your browser. For the most useful result, stop large downloads and test once over Wi-Fi and once with an Ethernet cable."
+        image={HERO.image}
+        imageAlt={HERO.imageAlt}
+        accent={HERO.accent}
+        ctas={DEFAULT_GUIDE_CTAS}
+      />
 
-      <section className="bg-slate-950 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-14">
-          <div className="[&_nav_span]:text-slate-300 [&_nav_a]:text-slate-400 [&_nav_a:hover]:text-white">
-            <BreadcrumbNav items={[{ name: 'Home', href: '/' }, { name: 'Broadband speed test', href: '/speed-test' }]} />
-          </div>
-          <header className="text-center max-w-3xl mx-auto mt-4">
-            <p className="text-sky-400 text-sm font-semibold uppercase tracking-widest">Free UK internet speed checker</p>
-            <h1 className="text-4xl sm:text-5xl font-extrabold mt-3">Broadband speed test</h1>
-            <p className="text-slate-300 mt-4 text-lg leading-relaxed">
-              Measure your download speed, upload speed and ping in your browser. For the most useful result,
-              stop large downloads and test once over Wi-Fi and once with an Ethernet cable.
-            </p>
-            <p className="text-slate-400 mt-3 text-sm">Free to use · No registration · Reviewed 23 August 2026</p>
-          </header>
-          <SpeedTest />
-          <aside className="max-w-2xl mx-auto border border-slate-700 bg-slate-900 rounded-xl p-4 text-sm text-slate-300 leading-relaxed">
-            <strong className="text-white">Independent comparison disclosure:</strong> the test is free and its result is
-            not changed by commercial relationships. If you follow a comparison link and buy a service, we may receive
-            commission from the provider. This does not increase the price you pay.{' '}
-            <Link href="/how-we-make-money" className="text-sky-400 underline">How we make money</Link>.
-          </aside>
-        </div>
-      </section>
-
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14 text-slate-700">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 text-slate-700">
+        <BreadcrumbNav
+          items={[
+            { name: 'Home', href: '/' },
+            { name: 'Tools', href: '/tools' },
+            { name: 'Broadband speed test', href: '/tools/speed-test' },
+          ]}
+        />
+        <p className="mb-6 text-sm text-slate-500">Free to use · No registration · Method reviewed 27 September 2026</p>
+        <section aria-labelledby="answer-first" className="mb-8 rounded-2xl border border-sky-200 bg-sky-50 p-6 sm:p-8">
+          <h2 id="answer-first" className="text-2xl font-bold text-slate-900">What does a broadband speed test measure?</h2>
+          <p className="mt-3 leading-relaxed text-slate-700">
+            This free UK broadband speed test measures the connection between your device and our London test server:
+            download speed for receiving data, upload speed for sending it, ping for responsiveness and jitter for
+            consistency. Run it once near your router over Wi-Fi and again over Ethernet for the clearest diagnosis;
+            one result is a snapshot, not a guarantee of your provider&apos;s advertised speed.
+          </p>
+        </section>
+        <SpeedTest />
+        <aside className="mt-6 max-w-2xl rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm leading-relaxed text-slate-700">
+          <strong className="text-slate-900">Independent comparison disclosure:</strong> the test is free and its result is
+          not changed by commercial relationships. If you follow a comparison link and buy a service, we may receive
+          commission from the provider. This does not increase the price you pay.{' '}
+          <Link href="/how-we-make-money" className="font-semibold text-sky-700 underline">How we make money</Link>.
+        </aside>
         <PostcodeContextBar />
         <section aria-labelledby="quick-answer" className="rounded-2xl border border-sky-200 bg-sky-50 p-6 sm:p-8">
           <h2 id="quick-answer" className="text-2xl font-bold text-slate-900">What your broadband speed-test result tells you</h2>
@@ -158,11 +176,33 @@ export default function SpeedTestPage() {
         <section className="mt-12" aria-labelledby="methodology">
           <h2 id="methodology" className="text-2xl font-bold text-slate-900">How BroadbandPicker measures your connection</h2>
           <div className="mt-4 space-y-4 leading-relaxed">
-            <p><strong>Ping and jitter:</strong> repeated small requests are sent to the server. Ping reports typical round-trip delay; jitter reports how much that delay varies. Low jitter matters for calls and gaming because a connection can be fast but still feel unstable.</p>
-            <p><strong>Download:</strong> your browser receives a test payload and calculates megabits transferred per second. <strong>Upload:</strong> it sends a test payload and measures the transfer rate.</p>
-            <p><strong>Limitations:</strong> this browser test measures the route to our server, not the access-line speed inside your provider&apos;s network. Wi-Fi, device capability, browser load, routing and congestion can affect it. We do not claim Ofcom accreditation.</p>
+            <p><strong>Ping and jitter:</strong> two warmup requests are discarded, then ten sequential requests to our London server. The headline ping is the median. Jitter is the mean gap between consecutive samples, which is closer to how a call feels than a single round trip.</p>
+            <p><strong>Download and upload:</strong> the tester opens several parallel connections for eight seconds and ignores the first two seconds of TCP slow start. The headline figure is the 90th percentile of the remaining samples, the same idea Ookla uses to report a filled path rather than bytes divided by the whole clock. A sustain figure is the median of the last three seconds. Loaded ping is sampled during download to show bufferbloat.</p>
+            <p><strong>Payloads:</strong> download bytes are high-entropy and sent with <code>Content-Encoding: identity</code> so compression cannot inflate the result. Upload uses random bytes for the same reason.</p>
+            <p><strong>Location:</strong> if you allow it, the browser asks for your location in the usual way (this visit, while visiting the site, or never). We use the coordinates only to look up the nearest UK postcode district through postcodes.io, then store that postcode locally like the postcode checker. Coordinates are not sent to analytics. The speed measurement still uses our London server.</p>
+            <p><strong>Limitations:</strong> this browser test measures the route to our London server, not the access-line speed inside your provider&apos;s network and not a dedicated Ookla or thinkbroadband probe. Wi-Fi, device radios, browser limits, routing and congestion can cap it. We do not claim Ofcom accreditation. Ethernet still beats Wi-Fi for a line diagnosis.</p>
           </div>
-          <p className="text-sm text-slate-500 mt-4">Methodology reviewed by the BroadbandPicker editorial team on 23 August 2026.</p>
+          <p className="text-sm text-slate-500 mt-4">Methodology reviewed by the BroadbandPicker editorial team on 27 September 2026.</p>
+        </section>
+
+        <section className="mt-12" aria-labelledby="compare-tests">
+          <h2 id="compare-tests" className="text-2xl font-bold text-slate-900">Why speed-test results differ</h2>
+          <p className="mt-3 leading-relaxed">
+            Different speed tests can show different numbers because they use different servers, routes, connection
+            counts and scoring windows. Compare like with like: use the same device and room, repeat at the same time,
+            and record whether the test used Wi-Fi or Ethernet. A higher number is not automatically a better diagnosis
+            if the test hides upload speed, latency under load or the measurement method.
+          </p>
+          <div className="mt-5 grid gap-4 sm:grid-cols-2">
+            <div className="rounded-xl border border-slate-200 p-5">
+              <h3 className="font-bold text-slate-900">For a line fault</h3>
+              <p className="mt-2 text-sm leading-relaxed">Use Ethernet beside the router, pause other traffic and compare repeated results with the minimum guaranteed speed in your contract.</p>
+            </div>
+            <div className="rounded-xl border border-slate-200 p-5">
+              <h3 className="font-bold text-slate-900">For everyday Wi-Fi</h3>
+              <p className="mt-2 text-sm leading-relaxed">Test in the room where the problem occurs. A lower result may describe Wi-Fi coverage or interference rather than the broadband line.</p>
+            </div>
+          </div>
         </section>
 
         <section className="mt-12 rounded-2xl bg-slate-900 text-white p-7 sm:p-9" aria-labelledby="slow-result">
@@ -171,6 +211,7 @@ export default function SpeedTestPage() {
           <div className="flex flex-col sm:flex-row gap-3 mt-6">
             <Link href="/compare" className="text-center rounded-lg bg-sky-500 hover:bg-sky-600 px-5 py-3 font-bold">Compare options at your postcode</Link>
             <Link href="/guides/broadband-speeds-explained" className="text-center rounded-lg border border-slate-600 px-5 py-3 font-semibold">Read the broadband speed guide</Link>
+            <Link href="/guides/does-a-vpn-slow-your-internet" className="text-center rounded-lg border border-slate-600 px-5 py-3 font-semibold">Test VPN speed loss fairly</Link>
           </div>
           <p className="text-xs text-slate-400 mt-4">Availability and speeds vary by address. A provider may pay us commission if you purchase after clicking through; rankings are not changed by commission.</p>
         </section>
@@ -188,9 +229,12 @@ export default function SpeedTestPage() {
             <li><a className="text-sky-700 underline" href="https://www.ofcom.org.uk/phones-and-broadband/saving-money/get-more-from-your-broadband" rel="noopener noreferrer">Ofcom: Get more from your broadband</a></li>
             <li><a className="text-sky-700 underline" href="https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/clear-information-before-you-buy-broadband" rel="noopener noreferrer">Ofcom: Clear information before you buy broadband</a></li>
             <li><a className="text-sky-700 underline" href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content" rel="noopener noreferrer">Google Search Central: Creating helpful, reliable, people-first content</a></li>
+            <li><a className="text-sky-700 underline" href="https://www.speedtest.net/about/knowledge/faq" rel="noopener noreferrer">Ookla Speedtest: what a result measures</a></li>
+            <li><a className="text-sky-700 underline" href="https://www.uswitch.com/broadband/speedtest/" rel="noopener noreferrer">Uswitch: how download and upload payloads are sized</a></li>
+            <li><a className="text-sky-700 underline" href="https://postcodes.io" rel="noopener noreferrer">postcodes.io: UK postcode lookup used only after you allow location</a></li>
             <li><Link className="text-sky-700 underline" href="/how-we-review-broadband">BroadbandPicker review methodology</Link> and <Link className="text-sky-700 underline" href="/editorial-policy">editorial policy</Link></li>
           </ul>
-          <p className="mt-4 text-slate-500">Last tested and reviewed: 23 August 2026. We review this page when the test method or relevant Ofcom guidance changes.</p>
+            <p className="mt-4 text-slate-500">Last tested and reviewed: 27 September 2026. We review this page when the test method or relevant Ofcom guidance changes.</p>
         </section>
       </div>
     </main>

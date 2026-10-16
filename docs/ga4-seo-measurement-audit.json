@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-24T22:08:32.885612+00:00",
+  "generated_at": "2026-08-29T00:49:03.953938+00:00",
   "scope": "Repository instrumentation audit plus GA4/GSC SEO measurement design; not a GA4 reporting-data export.",
   "summary": {
-    "events_found": 16,
+    "events_found": 27,
     "required_events_implemented": 10,
     "required_events_total": 15,
     "coverage_percent": 66.7,
@@ -42,6 +42,30 @@
     "deal_sort_changed": [
       "components/DealTable.tsx"
     ],
+    "local_speed_need_selected": [
+      "components/DartfordBroadbandNeeds.tsx"
+    ],
+    "local_speed_plan_completed": [
+      "components/DartfordBroadbandNeeds.tsx"
+    ],
+    "m1_compare_deals_clicked": [
+      "components/M1BroadbandPlanComparison.tsx"
+    ],
+    "m1_plan_comparison_completed": [
+      "components/M1BroadbandPlanComparison.tsx"
+    ],
+    "m1_plan_comparison_started": [
+      "components/M1BroadbandPlanComparison.tsx"
+    ],
+    "ng1_compare_deals_clicked": [
+      "components/NG1BroadbandComparison.tsx"
+    ],
+    "ng1_comparison_completed": [
+      "components/NG1BroadbandComparison.tsx"
+    ],
+    "ng1_comparison_started": [
+      "components/NG1BroadbandComparison.tsx"
+    ],
     "outbound_provider_click": [
       "components/AffiliateCTA.tsx"
     ],
@@ -50,6 +74,15 @@
     ],
     "postcode_submit": [
       "components/PostcodeChecker.tsx"
+    ],
+    "rg1_compare_deals_clicked": [
+      "components/RG1BroadbandComparison.tsx"
+    ],
+    "rg1_comparison_completed": [
+      "components/RG1BroadbandComparison.tsx"
+    ],
+    "rg1_comparison_started": [
+      "components/RG1BroadbandComparison.tsx"
     ],
     "speed_test_compare_clicked": [
       "components/SpeedTest.tsx"

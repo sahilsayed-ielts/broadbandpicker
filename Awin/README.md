@@ -201,6 +201,15 @@ programmes are worth a fresh, evidence-led reapplication. Writes
 python3 scripts/awin_sync.py briefing
 ```
 
+**`reapply-next`** — chooses exactly one rejected/suspended programme using the
+latest programme records, partnership briefing, GSC/GA4 opportunity evidence
+and content-change ledger, then writes a ready-to-review application message to
+`reports/next-reapplication.md`. It never submits or sends the application.
+
+```
+python3 scripts/awin_sync.py reapply-next
+```
+
 **`check-programmes`** and **`generate-link`** are the original quick-look
 tools: print live status straight from the API without touching this folder,
 or generate a tracking link for a specific advertiser + URL.
@@ -210,6 +219,10 @@ for every tracked advertiser, without opening the GA4 UI at all. This is the
 same information a GA4 Explore free-form report (Event name / Provider slug /
 Event count, filtered to `outbound_provider_click`) would show — flags any
 Joined programme sitting at zero clicks.
+
+The command also saves the dated result to
+`reports/ga4-affiliate-clicks-latest.json`, allowing the master tracker to
+use the same evidence automatically.
 
 ```
 python3 scripts/awin_sync.py ga4-clicks --days 90
@@ -232,11 +245,15 @@ JSON (plus any uploaded files), ready for `import-onboarding-response`.
 
 ## How this feeds the master tracker
 
-`scripts/build_master_tracker.py` reads `Awin/advertisers/*/programme.json`
+`scripts/build_master_tracker.py` joins `Awin/advertisers/*/programme.json`,
+`reports/ga4-affiliate-clicks-latest.json`,
+`reports/affiliate-performance-latest.json` and any advertiser `research.md`
 directly to build the "Awin Outreach Priority" sheet in
 `docs/master-build-tracker.xlsx` — there's no separate hardcoded list to keep
-in sync by hand any more. Run `sync` before regenerating the tracker if you
-want the sheet to reflect the latest Awin account status.
+in sync by hand any more. It records evidence, fit, an outreach angle, a
+readiness gate and a priority score. The score is a prioritisation aid, not a
+claimed probability of acceptance. Run `sync`, `ga4-clicks` and
+`sync-performance` before regenerating the tracker for the freshest evidence.
 
 Anything you type into the tracker spreadsheet's Status / Owner / Last
 Contacted / Next Follow-up / Decision columns is preserved across
@@ -246,14 +263,17 @@ regenerations, same as before.
 
 1. `python3 scripts/awin_sync.py sync` — see what changed, and whether
    anything looks like a new invitation.
-2. `python3 scripts/awin_sync.py invitations` — review anything flagged,
+2. `python3 scripts/awin_sync.py ga4-clicks --days 30` and
+   `python3 scripts/awin_sync.py sync-performance --days 30` — refresh
+   advertiser-level demand and conversion evidence.
+3. `python3 scripts/awin_sync.py invitations` — review anything flagged,
    confirm in the Awin dashboard, then `mark-reviewed` it.
-3. Check Awin's Activity Stream by eye (no API for it) — for anything real,
+4. Check Awin's Activity Stream by eye (no API for it) — for anything real,
    `add-invitation` it, then `analyse-invitation`. Once the advertiser sends
    real T&Cs, drop them in `terms/` and run `analyse-terms`. Then
    `recommend` for a final verdict and `draft-reply` to get a reply ready
    to send.
-4. For anything newly Pending or newly Rejected with no `research.md` yet,
+5. For anything newly Pending or newly Rejected with no `research.md` yet,
    run `research --advertiser <slug> --url <their site>`.
-5. `python3 scripts/awin_sync.py briefing` — get the prioritised plan.
-6. `python3 scripts/build_master_tracker.py` — refresh the spreadsheet.
+6. `python3 scripts/awin_sync.py briefing` — get the prioritised plan.
+7. `python3 scripts/build_master_tracker.py` — refresh the spreadsheet.

@@ -1,40 +1,29 @@
-Built the new guide at `/guides/broadband-complaints-and-ombudsman-uk`.
+Built `/guides/moving-house-broadband-checklist-uk` and completed the required fresh research packet.
 
-Research findings:
+Key findings:
 
-- Ranking pages were roughly 700 to 1,250 words and consistently used provider-first escalation, evidence checklists, deadlock guidance, ADR eligibility and FAQs.
-- The guide renders approximately 1,652 relevant content words, exceeding the justified 1,500-word target.
-- No AI Overview appeared for the exact UK query during the live check.
-- The main freshness opportunity was correcting older eight-week guidance. Complaints first raised from 8 April 2026 normally reach ADR after six weeks, or sooner after deadlock.
-
-Implemented:
-
-- Answer-first complaint route.
-- Escalation timeline and evidence checklist.
-- Current CISAS versus Communications Ombudsman provider table.
-- Deadlock and transition rules.
-- ADR remedies, limitations and automatic-compensation distinction.
-- Seven standalone 35–90 word FAQs.
-- Contextual inbound links from three related guides.
-- Article and FAQPage structured data through the existing template.
-
-Primary sources included Ofcom’s current ADR and compensation guidance, April 2026 CISAS rules, Communications Ombudsman process guidance, CEDR/CISAS documentation and Citizens Advice.
-
-Validation passed:
-
-- `npm run build`: passed, 171 static pages generated.
-- New route: HTTP 200.
-- Correct title, H1 and H2 order confirmed.
-- Three JSON-LD blocks rendered, including Article and FAQPage.
-- Research validator: passed.
-- Secondary-query coverage: 7/7.
-- Public-copy em-dash check: passed.
-- `git diff --check`: passed.
+- Current UK leaders were Openreach, Uswitch and official retailer home-move pages, typically checklists of about 700–1,600 words with start-early advice, provider steps and FAQs.
+- No AI Overview was exposed by the fresh search interface. This limitation is recorded rather than reusing the older cached observation.
+- One Touch Switch is not the house-move process. Ofcom designed it for changing provider at the current address and says it does not apply when the customer manages overlap between old and new services.
+- Move fees must be sourced per retailer. Current official examples: Virgin Media from £20 (or £35 if the package changes), Sky £50 unless Sky VIP, BT generally no move fee unless a new line is needed.
+- Take the provider router; leave an Openreach fibre modem or ONT at the old property.
+- Local validation passed against the 1,250-word floor. Production returned HTTP 200 with Vercel headers.
 
 Changed files:
 
-- [page.tsx](/Users/sahilrafiqsayed/broadbandpicker/app/guides/[slug]/page.tsx)
-- [guides.ts](/Users/sahilrafiqsayed/broadbandpicker/data/guides.ts)
-- [current-page-research.json](/Users/sahilrafiqsayed/broadbandpicker/docs/page-build-pipeline/current-page-research.json)
+- [data/guides.ts](data/guides.ts) adds metadata, excerpt, takeaways and verified sources.
+- [app/guides/[slug]/page.tsx](app/guides/[slug]/page.tsx) adds the complete guide, timeline, decision and equipment tables, FAQs, HowTo JSON-LD and three inbound contextual links.
+- [current-page-research.json](docs/page-build-pipeline/current-page-research.json) contains the fresh research gate, benchmarks, keyword map, mandatory-action evidence and review schedule.
 
-The workbook’s live reconciliation cannot legitimately mark this undeployed route as existing because deployment was explicitly excluded. I restored the workbook instead of leaving a misleading “live check unavailable” rewrite. Provider ADR membership remains a freshness-sensitive fact, so the guide tells readers to verify Ofcom’s current list. The pre-existing untracked `.github/` directory was untouched. No commit, push or deployment was performed.
+Validation:
+
+- Research schema and run ID: passed
+- TypeScript and static generation: passed, 205 pages generated
+- Pipeline `validate_page_build`: passed
+- Production: `HTTP 200`, canonical and HowTo/FAQ/Article JSON-LD present
+- Primary keyword, secondary coverage, benchmark terms and information-gain terms: passed
+- Em-dash check: passed
+
+GA4 annotation `properties/551202232/reportingDataAnnotations/15798980468` recorded. Reviews due 24 September, 15 October, 12 November and 16 December 2026. Local keyword mapping and master tracker mark the URL as built and live on Vercel.
+
+No commit or push was performed.

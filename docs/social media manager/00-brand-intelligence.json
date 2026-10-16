@@ -18,7 +18,6 @@
   "logo_files": [
     "public/logo.svg",
     "public/logo.png",
-    "app/icon.svg",
     "docs/branding-and-marketing/broadbandpicker-logo-icon.png",
     "docs/branding-and-marketing/broadbandpicker-logo-icon.svg"
   ],
@@ -45,10 +44,16 @@
     "Hyperoptic",
     "Community Fibre",
     "Zen Internet",
+    "National Broadband",
+    "Trooli",
+    "Pine Media",
     "Toob",
+    "giffgaff",
     "Brsk",
     "YouFibre",
     "Gigaclear",
+    "Zzoomm",
+    "Highland Broadband",
     "Cuckoo",
     "Onestream",
     "Shell Energy"
@@ -332,14 +337,7 @@
     "Affordability without punching down (social tariffs as a scandal of awareness)",
     "Brand trust (independent comparison, affiliate honesty, postcode truth)"
   ],
-  "existing_x_posts": [
-    "Compare broadband deals for your postcode in a few clicks.",
-    "What speed do you actually need?",
-    "Out of contract on broadband?",
-    "Compare current deals before your next bill lands:",
-    "Compare options in your area: `https://broadbandpicker.co.uk`",
-    "Compare deals: `https://broadbandpicker.co.uk/compare`"
-  ],
+  "existing_x_posts": [],
   "audience_notes": [
     "UK households paying a loyalty tax after the cheap intro period.",
     "Renters, students, and shared houses who treat the router like a housegod.",
@@ -390,12 +388,437 @@
     "docs/affiliate-outreach-email.txt",
     "docs/branding-and-marketing/x-content-calendar.md",
     "docs/branding-and-marketing/README.md",
-    "components/Logo.tsx"
+    "components/Logo.tsx",
+    "app/how-we-review-broadband/page.tsx",
+    "app/editorial-policy/page.tsx",
+    "lib/affiliate.ts",
+    "docs/adsense-readiness-plan.md",
+    "docs/competitor-landscape-scan.json",
+    "docs/home page UX/homepage-redesign-analysis.md"
   ],
   "warnings": [
-    "Existing X calendar in docs/branding-and-marketing is clear and useful, but too polite to travel. This plan keeps the facts and swaps the tone for sarcasm, memes and hooks."
+    "DAY ZERO: treat every channel as never posted. Handles may exist on the site (X is linked from the footer) but there is no content, no grid, no pin, no followers to speak of. Do not 'keep posting'. Launch. The old X calendar in docs/branding-and-marketing is unused — too polite, and it assumed an audience.",
+    "An unused polite X calendar exists in docs/branding-and-marketing. Ignore it.",
+    "Workspace competitor scan: UK comparison homepages are SVG/logo-heavy, no lifestyle photography. Social grids should match that — editorial, not stock."
   ],
-  "generated_at": "2026-08-23T18:34:35",
+  "web_research": {
+    "skipped": false,
+    "generated_at": "2026-08-31T16:59:16+00:00",
+    "notes": [
+      "Live fetches: 44/49 succeeded.",
+      "BroadbandPicker homepage: ok",
+      "BroadbandPicker about: ok",
+      "How we make money: ok",
+      "Deals table: ok",
+      "Ofcom: how the UK goes online 2025: ok",
+      "Ofcom: adults media habits 2026: ok",
+      "ASA: affiliate marketing rules: ok",
+      "ASA: social media remit: ok",
+      "Awin: comparison-site publishers: ok",
+      "Awin: how advertisers approve publishers: ok",
+      "UK Telecoms Consumer Charter: ok",
+      "Uswitch broadband hub: ok",
+      "Uswitch homepage (social links): ok",
+      "Compare the Market broadband: fail (HTTP 403)",
+      "MoneySuperMarket broadband: fail (HTTP 403)",
+      "Go.Compare broadband: ok",
+      "MoneySavingExpert cheap broadband: fail (HTTP 403)",
+      "MoneySavingExpert home: fail (HTTP 403)",
+      "Which? broadband deals: ok",
+      "broadbandchoices hub: fail (HTTP 403)",
+      "choose.co.uk broadband: ok",
+      "Confused.com broadband: ok",
+      "broadband.co.uk hub: ok",
+      "TopCashback (affiliate): ok",
+      "DataReportal Digital 2026 UK: ok",
+      "Uswitch Wilderness social AOR: ok",
+      "MSM ChatGPT + marketing mix 2026: ok",
+      "Young UK money advice on TikTok: ok",
+      "Instagram business setup checklist 2026: ok",
+      "Instagram branding guide 2026: ok",
+      "Instagram on captions 2026: ok",
+      "Monzo Instagram (professional UK consumer): ok",
+      "Octopus Energy Instagram: ok",
+      "Which? Instagram: ok",
+      "MoneySavingExpert Instagram: ok",
+      "Uswitch Instagram: ok",
+      "Compare the Market Instagram: ok",
+      "Starling Bank Instagram: ok",
+      "Virgin Media Instagram: ok",
+      "EE Instagram: ok",
+      "Hyperoptic Instagram: ok",
+      "X bio and profile limits 2026: ok",
+      "Which? on X (professional UK consumer): ok",
+      "Monzo on X: ok",
+      "Octopus Energy on X: ok",
+      "MoneySavingExpert on X: ok",
+      "TikTok bio field limits 2026: ok",
+      "YouTube channel description limits 2026: ok",
+      "Facebook page description limits 2026: ok",
+      "JS-heavy comparison homepages often return a shell. Treat those excerpts as presence checks, not as a full read — the competitor-landscape scan in docs/ already covers structural UX. Competitor *social* strategy is in competitor_social."
+    ],
+    "fetch_ok": 44,
+    "fetch_n": 49,
+    "curated": {
+      "as_of": "2026-08",
+      "uk_social_reach_pct_18plus_monthly": {
+        "YouTube": 66.9,
+        "Facebook & Messenger": 66.1,
+        "WhatsApp": 63.4,
+        "Instagram": 55.6,
+        "Reddit": 42.4,
+        "TikTok": 39.4,
+        "X": 27.8,
+        "LinkedIn": 27.8,
+        "Pinterest": 18.0,
+        "Snapchat": 16.0,
+        "Threads": 5.9,
+        "Bluesky": 3.9,
+        "source": "Ofcom Online Nations 2025, as compiled by Dan Slee / Datawrapper"
+      },
+      "ofcom_media": {
+        "adult_social_users_pct": 89,
+        "social_users_16_34_pct": 97,
+        "actively_post_share_comment_pct": 49,
+        "actively_post_share_comment_pct_2024": 61,
+        "adults_online_hours_per_day": 4.5,
+        "youtube_uk_ad_users_m": 55.5,
+        "facebook_uk_ad_users_m": 38.8,
+        "tiktok_uk_ad_users_18plus_m": 26.8,
+        "implication": "Half of UK social users now lurk. Design for screenshots, tags, saves and shares — not for people who will write a paragraph."
+      },
+      "broadband_market": {
+        "one_touch_switch_launched": "2024-09-12",
+        "residential_switches_since_ots": "2 million+",
+        "social_tariff_options": "30+",
+        "social_tariff_price_band": "£12.50–£24 / month",
+        "social_tariff_takeup_jun_2025": 532000,
+        "eligible_unaware_oct_2025_pct": 70,
+        "eligible_takeup_pct": "<9%",
+        "full_fibre_homes_pct_approx": "80%+",
+        "source": "Ofcom Pricing and Consumer Engagement 2025/26; Telecoms Consumer Charter 2026"
+      },
+      "affiliate_and_ads": {
+        "awin": "Manual publisher review. Live, content-rich site beats a parked domain. Advertisers check promotional type, audience fit, brand-safety of neighbouring content, and whether similar ISPs already work with you. Social following is a supporting signal, not a substitute for the site. Comparison sites are an official Awin publisher type.",
+        "asa_cap": "Affiliate links or codes in social copy make that post an ad. Label specific deal posts #ad / #affiliate, upfront. Organic jokes with no outbound deal link are brand content, but any hard claim ('cheapest in the UK', a named speed, a named price) still needs to be qualified and dated. Brand and affiliate are jointly on the hook."
+      },
+      "competitor_gap": "Uswitch, MoneySuperMarket, Compare the Market, broadbandchoices and choose.co.uk talk like comparison engines. MoneySavingExpert talks like a consumer champion. Which? talks like a lab. None of them run a consistently funny, design-led UK broadband brand on TikTok. Instagram is the professional shopfront: providers judge the grid in three seconds. Which? has already called out ISPs for barely posting about social tariffs. X and TikTok take the sarcasm. Instagram takes the publisher look.",
+      "sources": [
+        "https://www.ofcom.org.uk/media-use-and-attitudes/online-habits/from-apps-to-ai-search-how-the-uk-goes-online-in-2025",
+        "https://www.ofcom.org.uk/media-use-and-attitudes/media-habits-adults/passive-social-media-use-ai-companionship-and-online-side-hustles-uk-adults-media-and-online-lives-revealed",
+        "https://datareportal.com/reports/digital-2026-united-kingdom",
+        "https://www.asa.org.uk/news/get-yourself-affiliated-with-the-rules-on-affiliate-marketing.html",
+        "https://www.asa.org.uk/advice-online/remit-social-media.html",
+        "https://advertiser-success.awin.com/s/article/How-do-I-decide-which-publishers-to-approve-onto-my-programme",
+        "https://www.awin.com/gb/publishers/other-partner-types",
+        "https://www.gov.uk/government/publications/telecoms-consumer-charter/telecoms-consumer-charter"
+      ]
+    }
+  },
+  "search_intents": [
+    {
+      "intent": "Cheap / cheapest broadband deals",
+      "queries": "cheap broadband, cheapest broadband UK, broadband deals under £20, broadband from £20",
+      "who": "Bill-payers hunting a lower monthly. High CPC, high affiliate value.",
+      "channels": "TikTok, Instagram Reels, Facebook, Pinterest, YouTube 'cheap broadband 2026'",
+      "content": "Loyalty-tax hostage joke; Greggs-vs-gigabit; social-tariff public service; under-£20 carousel",
+      "site": "https://broadbandpicker.co.uk/deals · https://broadbandpicker.co.uk/guides/cheapest-broadband-uk · https://broadbandpicker.co.uk/guides/broadband-deals-under-20",
+      "why_channel": "TikTok discovers the 16–34s who still live at home and the 25–40s who pay the bill. Facebook still owns 35–60 bill-payers. YouTube catches typed search."
+    },
+    {
+      "intent": "Compare / best broadband UK",
+      "queries": "compare broadband, best broadband UK, best broadband providers, BT vs Virgin",
+      "who": "Researchers opening five tabs. This is the homepage job.",
+      "channels": "Instagram carousels, YouTube, X, Reddit replies",
+      "content": "Same-cabinet-different-jumper; speed-you-actually-need; provider roast that stays accurate",
+      "site": "https://broadbandpicker.co.uk/compare · https://broadbandpicker.co.uk/providers · https://broadbandpicker.co.uk/guides/best-broadband-providers-uk",
+      "why_channel": "Carousels get saves. YouTube ranks for 'best broadband'. Reddit is where the high-intent argument already happens."
+    },
+    {
+      "intent": "Postcode / in my area / availability",
+      "queries": "broadband in my area, [postcode] broadband, full fibre near me, [city] broadband deals",
+      "who": "Movers, new tenants, anyone who has been lied to by a national advert.",
+      "channels": "All consumer channels, with city-named Stories and X replies",
+      "content": "Coming-soon-since-2014; check the postcode not the poster; local buffering times",
+      "site": "https://broadbandpicker.co.uk (postcode checker) · https://broadbandpicker.co.uk/postcode/…",
+      "why_channel": "Availability is address-level. The joke exists to force the postcode box."
+    },
+    {
+      "intent": "Full fibre / fastest / gigabit",
+      "queries": "full fibre broadband, FTTP vs FTTC, gigabit broadband, fastest broadband UK",
+      "who": "People who were sold 'fibre' and got copper. Gamers. Bragging rights.",
+      "channels": "TikTok, Reels, YouTube explainers, IG carousel",
+      "content": "Fibre I barely know her; gigabit is a personality; two-door cartoon",
+      "site": "https://broadbandpicker.co.uk/guides/full-fibre-broadband-explained · https://broadbandpicker.co.uk/guides/fttp-vs-fttc-explained",
+      "why_channel": "The fibre/liar confusion is the most useful joke in the market. Short video teaches it."
+    },
+    {
+      "intent": "How to switch / One Touch Switch",
+      "queries": "how to switch broadband, One Touch Switch, switching broadband without downtime",
+      "who": "Out-of-contract or furious. Admin-phobic.",
+      "channels": "YouTube how-to, Instagram carousel, Facebook, TikTok POV",
+      "content": "Switching used to be emigrating; chatbot of Theseus; engineer window",
+      "site": "https://broadbandpicker.co.uk/guides/how-to-switch-broadband-uk · https://broadbandpicker.co.uk/guides/one-touch-switching-explained",
+      "why_channel": "YouTube SEO for 'how to switch'. Facebook for the 40+ who still think they have to phone up."
+    },
+    {
+      "intent": "Out of contract / loyalty tax",
+      "queries": "out of contract broadband, broadband loyalty tax, cheaper if I stay, existing customer broadband",
+      "who": "The business model of the UK ISP. Highest share-to-group-chat energy.",
+      "channels": "X, TikTok, Instagram, Facebook",
+      "content": "Hostage situation with better Wi-Fi; new customer £19 / you £41",
+      "site": "https://broadbandpicker.co.uk/deals · https://broadbandpicker.co.uk/guides/broadband-for-existing-customers",
+      "why_channel": "Rage travels. People tag the bill-payer. This is the brand's origin myth."
+    },
+    {
+      "intent": "April price rises / mid-contract",
+      "queries": "broadband price rise 2026, April broadband increase, can I leave after price rise",
+      "who": "Anyone who got the email. Cyclical, appointment virality.",
+      "channels": "All. Prep in February. Peak March–April.",
+      "content": "April the other tax month; pounds-not-CPI joke",
+      "site": "https://broadbandpicker.co.uk/guides/broadband-price-rises-2026 · https://broadbandpicker.co.uk/guides/can-i-leave-broadband-early-after-price-rise",
+      "why_channel": "News + bills = Facebook shares and X quote-tweets. LinkedIn for the policy take."
+    },
+    {
+      "intent": "Social tariffs / benefits / affordability",
+      "queries": "broadband social tariff, cheap broadband Universal Credit, broadband on benefits",
+      "who": "Eligible households (most have never heard of it) and the people who love them.",
+      "channels": "Facebook, Instagram carousel, X, WhatsApp, YouTube",
+      "content": "Serious voice. 70% unaware. Share even if it isn't you.",
+      "site": "https://broadbandpicker.co.uk/guides/broadband-social-tariffs-uk · https://broadbandpicker.co.uk/guides/broadband-help-if-you-claim-benefits-uk",
+      "why_channel": "Which? found ISPs barely post this. Facebook 35–60 is the bill-payer. Trust-builder for Awin."
+    },
+    {
+      "intent": "Students / flatshares / first bill",
+      "queries": "student broadband, university wifi, HMO broadband, cheap broadband for students",
+      "who": "September gold. Parents pay; kids pick the meme.",
+      "channels": "TikTok first, Instagram, Snapchat skip (TikTok covers it)",
+      "content": "Four people, one router, FIFA; Wi-Fi name roast",
+      "site": "https://broadbandpicker.co.uk/guides/best-broadband-for-students · https://broadbandpicker.co.uk/guides/student-broadband-by-university-city",
+      "why_channel": "Discovery graph. Tags are built in. Peak Aug–Oct."
+    },
+    {
+      "intent": "Moving house",
+      "queries": "broadband when moving house, set up broadband new home, moving house internet",
+      "who": "High commercial intent dressed as a sitcom. May–September.",
+      "channels": "Pinterest, Instagram, YouTube, Facebook, Google Search via YouTube",
+      "content": "Kettle, Wi-Fi, sofa optional; check the postcode",
+      "site": "https://broadbandpicker.co.uk/guides/broadband-moving-house",
+      "why_channel": "Pinterest is where movers save checklists. YouTube is where they search the night before."
+    },
+    {
+      "intent": "WFH / upload / Zoom",
+      "queries": "best broadband for working from home, upload speed WFH, Zoom keeps freezing",
+      "who": "Professionals whose upload is a personality flaw.",
+      "channels": "LinkedIn (soft), Instagram, TikTok, X",
+      "content": "You're muted — that's the broadband; impressionist Zoom",
+      "site": "https://broadbandpicker.co.uk/guides/best-broadband-for-working-from-home",
+      "why_channel": "LinkedIn is where WFH people live at 9am. TikTok is where they go at 7pm."
+    },
+    {
+      "intent": "Streaming / football / buffering at 7pm",
+      "queries": "broadband for streaming, buffering football, why is netflix slow at night",
+      "who": "Appointment virality every Saturday 19:00–22:00.",
+      "channels": "TikTok, X (live), Instagram Reels, Stories",
+      "content": "Yellow warning of buffering; 89th minute; 2am vs 7pm speed test",
+      "site": "https://broadbandpicker.co.uk/guides/best-broadband-for-streaming · https://broadbandpicker.co.uk/speed-test",
+      "why_channel": "X is the 89th-minute complaint desk. TikTok finds people who have never heard of a comparison site."
+    },
+    {
+      "intent": "Gaming / ping",
+      "queries": "best broadband for gaming UK, ping vs download speed, fibre for xbox",
+      "who": "Teens and the parent who pays. Vanity Mbps vs actual ping.",
+      "channels": "TikTok, YouTube, Instagram, Reddit r/broadband",
+      "content": "Gigabit is a personality; ping is the game",
+      "site": "https://broadbandpicker.co.uk/guides/best-broadband-for-gaming-uk",
+      "why_channel": "YouTube search + TikTok stitches of lag clips."
+    },
+    {
+      "intent": "Slow Wi-Fi / speed test / router in cupboard",
+      "queries": "why is my wifi slow, speed test UK, where to put router, mesh wifi",
+      "who": "People who need a diagnosis before a switch.",
+      "channels": "TikTok, Reels, YouTube, Stories stickers",
+      "content": "Cupboard under the stairs; 2am vs 7pm; mesh as a plaster",
+      "site": "https://broadbandpicker.co.uk/speed-test · https://broadbandpicker.co.uk/guides/best-mesh-wifi-for-your-broadband-router",
+      "why_channel": "Participatory (post your numbers). Speed test is the product."
+    },
+    {
+      "intent": "Rural / not-spot / 5G home / satellite",
+      "queries": "rural broadband UK, not spot, 5G home broadband, Starlink vs fibre",
+      "who": "Underserved, high gratitude, parish-Facebook sharers.",
+      "channels": "Facebook, X, Instagram feed (not Reels-first)",
+      "content": "Fibre van is the British Yeti; honest plan B",
+      "site": "https://broadbandpicker.co.uk/guides/best-broadband-for-rural-areas-uk · https://broadbandpicker.co.uk/guides/best-5g-home-broadband-uk · https://broadbandpicker.co.uk/guides/starlink-vs-fibre-broadband-uk",
+      "why_channel": "Facebook local groups still move rural information. Don't dunk on the users — dunk on the promises."
+    },
+    {
+      "intent": "TV + broadband bundles",
+      "queries": "broadband and TV deals, Sky TV and broadband, Virgin TV bundle",
+      "who": "Households who think they have to buy the sport to buy the line.",
+      "channels": "Facebook, Instagram, YouTube",
+      "content": "Two products arguing in a trench coat; unbundle joke",
+      "site": "https://broadbandpicker.co.uk/guides/best-broadband-and-tv-deals · https://broadbandpicker.co.uk/guides/best-phone-and-broadband-deals",
+      "why_channel": "Older bill-payers, sport households. Facebook + YouTube search."
+    },
+    {
+      "intent": "Complaints / ombudsman / chatbot hell",
+      "queries": "broadband ombudsman, complain about ISP, ISP chatbot, leave broadband early",
+      "who": "People at the end of their tether. Helpful-funny, then a rights page.",
+      "channels": "X, Reddit, TikTok storytime, Instagram carousel",
+      "content": "Chatbot of Theseus; have you tried restarting yourself",
+      "site": "https://broadbandpicker.co.uk/guides/broadband-complaints-and-ombudsman-uk · https://broadbandpicker.co.uk/guides/broadband-contract-end-rights",
+      "why_channel": "X and Reddit are the complaint squares. Don't pile on a live outage with an affiliate link."
+    },
+    {
+      "intent": "Business / landlord / HMO / affiliate B2B",
+      "queries": "business broadband UK, landlord broadband, HMO wifi, broadband affiliate programme",
+      "who": "Landlords, small offices, and — separately — ISP partnership managers.",
+      "channels": "LinkedIn primary; X secondary; site trust pages always on",
+      "content": "We list you even without an affiliate deal; methodology; market notes",
+      "site": "https://broadbandpicker.co.uk/guides/best-business-broadband-providers-uk · https://broadbandpicker.co.uk/how-we-make-money · mailto:partnerships@broadbandpicker.co.uk",
+      "why_channel": "This is how providers find you. LinkedIn is the media kit that never sleeps."
+    }
+  ],
+  "competitor_social": [
+    {
+      "brand": "Uswitch",
+      "type": "National comparison (RVU). Broadband + energy + mobiles. Awin/direct.",
+      "goal": "Remain the default compare-and-switch brand; recruit Gen Z/millennials who do not open comparison sites.",
+      "social_move": "Aug 2025: appointed Wilderness as social AOR. Brief is TikTok-first, Instagram/Facebook consultancy, 'major life stages' content. They are paying an agency because organic personality was missing.",
+      "what_they_post": "Deal graphics, 'save £X', life-stage explainers once the agency lands. Historically TV + PPC, not a funny account.",
+      "handles_known": "Site footer typically X/Facebook/YouTube. TikTok being built, not native-born.",
+      "gap_for_us": "They will professionalise TikTok with an agency voice. They will not sound like a mate in a British kitchen. Occupy 'independent and actually funny about broadband' before their anniversary work fills the feed. Do not copy their save-£X red. Look more expensive than them, talk ruder.",
+      "do_not_copy": "Voucher red, 'save up to £395', meerkat energy, agency-smooth life-stage films.",
+      "live_social_links": [
+        "http://www.twitter.com/ErnestDoku",
+        "https://www.facebook.com/Uswitch/",
+        "https://x.com/UswitchUK/",
+        "https://linkedin.com/company/uswitch/",
+        "https://www.instagram.com/uswitchuk/",
+        "https://www.tiktok.com/@uswitchuk/",
+        "https://www.linkedin.com/company/grocery-gazette",
+        "https://twitter.com/GazetteGrocery",
+        "https://www.facebook.com/Grocery-Gazette-100312315629844",
+        "https://www.facebook.com/MarketingBeat/",
+        "https://twitter.com/MarketingBeatUK",
+        "https://www.linkedin.com/company/marketingbeat"
+      ],
+      "live_fetch_notes": [
+        "Uswitch broadband hub: ok",
+        "Uswitch homepage (social links): ok",
+        "Uswitch Wilderness social AOR: ok"
+      ]
+    },
+    {
+      "brand": "MoneySuperMarket / MONY Group",
+      "type": "National comparison + MSE + Quidco. Huge PPC. Affiliate + lead-gen.",
+      "goal": "Defend against AI search eating comparison; SuperSaveClub loyalty; ChatGPT distribution.",
+      "social_move": "2025 marketing spend £194m. PPC costs +21%. They trialled moving mix out of PPC into social with 'initial good results', then still spent the money on brand + PPC. First UK comparison brand inside ChatGPT.",
+      "what_they_post": "Brand films, club/loyalty, generic money-saving. Not broadband-native comedy.",
+      "handles_known": "@moneysupermarket, YouTube, Facebook.",
+      "gap_for_us": "They buy attention. We cannot. We have to earn the first 1,000 followers with comments. Social is a side bet for them; it is the whole brand-build for us. They will never dunk on loyalty tax hard — they sell the same ISPs.",
+      "do_not_copy": "Superhero brand films, club points, 'we've helped UK families save £2.8bn'.",
+      "live_social_links": [
+        "https://twitter.com/marketingweeked",
+        "https://www.linkedin.com/company/marketing-week/",
+        "https://www.facebook.com/marketingweek",
+        "https://www.instagram.com/marketingweeked/"
+      ],
+      "live_fetch_notes": [
+        "MoneySuperMarket broadband: fail 403",
+        "MSM ChatGPT + marketing mix 2026: ok"
+      ]
+    },
+    {
+      "brand": "MoneySavingExpert (Martin Lewis)",
+      "type": "Consumer-champion publisher. Email list is the product. Affiliate on tools.",
+      "goal": "Trust, email sign-ups, 'Martin said so'. Broadband is a tool, not a personality.",
+      "social_move": "Facebook + Martin-as-news. Tips, warnings, TV clips. Almost no TikTok comedy.",
+      "what_they_post": "Top deals, scam warnings, 'do this today'. Authority, not jokes.",
+      "handles_known": "@MoneySavingExp, Facebook/MoneySavingExpert.",
+      "gap_for_us": "Do not compete on authority in week 1. Compete on shareability. When we do social tariffs, match their seriousness — that's the MSE lane we are allowed to borrow, because Which? already proved ISPs don't post it.",
+      "do_not_copy": "Martin-face thumbnails, 'THIS WEEKEND ONLY', email-capture everything.",
+      "live_social_links": [],
+      "live_fetch_notes": [
+        "MoneySavingExpert cheap broadband: fail 403",
+        "MoneySavingExpert home: fail 403"
+      ]
+    },
+    {
+      "brand": "Compare the Market / Go.Compare",
+      "type": "Insurance-first comparison. Broadband is a tab. TV-ad brands.",
+      "goal": "Brand recall (meerkat / Gio Compario), then quote. Social is TV residue.",
+      "social_move": "YouTube ads, character IP, almost no broadband-native organic.",
+      "what_they_post": "Characters, car insurance. Broadband is an afterthought.",
+      "handles_known": "@ComparetheMkt, @gocompare.",
+      "gap_for_us": "They own funny TV. They do not own funny broadband. Stay in our niche.",
+      "do_not_copy": "Mascots. Opera. Meerkats. BroadbandPicker is not a character.",
+      "live_social_links": [],
+      "live_fetch_notes": [
+        "Compare the Market broadband: fail 403",
+        "Go.Compare broadband: ok"
+      ]
+    },
+    {
+      "brand": "Which?",
+      "type": "Subscription consumer champion. Tests, not affiliate-first.",
+      "goal": "Membership. Lab credibility. Policy noise (social tariffs).",
+      "social_move": "X + Facebook as press office. Called out ISPs for not posting social tariffs.",
+      "what_they_post": "Test scores, 'best buy', regulator stories.",
+      "handles_known": "@WhichUK.",
+      "gap_for_us": "Borrow the social-tariff public-service post. Do not borrow the beige. Which? will never make a Keep Calm router poster.",
+      "do_not_copy": "Best Buy roundels, membership CTAs, lab-coat photography.",
+      "live_social_links": [
+        "https://www.facebook.com/dialog/share"
+      ],
+      "live_fetch_notes": [
+        "Which? broadband deals: ok"
+      ]
+    },
+    {
+      "brand": "broadbandchoices / choose.co.uk / broadband.co.uk",
+      "type": "Broadband-specialist affiliate SEO sites. Our closest product comps.",
+      "goal": "Postcode-checker sessions → Awin. Rank for 'cheap broadband'.",
+      "social_move": "Thin or absent. SEO is the channel. Social is a neglected footer icon.",
+      "what_they_post": "Occasional deal graphic, if anything.",
+      "handles_known": "Often a dormant Facebook or X.",
+      "gap_for_us": "Specialist broadband affiliates in the UK almost do not do social. A designed, funny, independent specialist can look like the category leader in 30 days of posting — because nobody else is standing there.",
+      "do_not_copy": "SEO-title posts ('Cheapest Broadband Deals UK 2026'), stacked logos, from-£19 banners.",
+      "live_social_links": [
+        "https://x.com/ChooseUK",
+        "https://www.facebook.com/ChooseUK",
+        "https://www.facebook.com/BroadbandGenie/",
+        "https://www.instagram.com/broadbandgenie/"
+      ],
+      "live_fetch_notes": [
+        "broadbandchoices hub: fail 403",
+        "choose.co.uk broadband: ok",
+        "broadband.co.uk hub: ok"
+      ]
+    },
+    {
+      "brand": "TopCashback / Quidco",
+      "type": "Cashback affiliates. Community + Facebook + app.",
+      "goal": "Clicks on merchant rates. Not a comparison publisher.",
+      "social_move": "Facebook groups, 'hot rates', user community. High engagement, low prestige.",
+      "what_they_post": "Rate alerts, '4% at X'.",
+      "handles_known": "Facebook-first.",
+      "gap_for_us": "Never look like a cashback account. Providers judge that in three seconds and reject Awin applications.",
+      "do_not_copy": "Hot rate banners, emoji stacks, 'click our link'.",
+      "live_social_links": [
+        "https://www.facebook.com/topcashback",
+        "https://twitter.com/Top_CashBack",
+        "https://www.instagram.com/top_cashback",
+        "https://www.linkedin.com/company/top-cashback"
+      ],
+      "live_fetch_notes": [
+        "TopCashback (affiliate): ok"
+      ]
+    }
+  ],
+  "launch_posture": "day_zero_no_posts_yet",
+  "generated_at": "2026-08-31T17:59:37",
+  "design_look": "Match the BroadbandPicker poster system (the Engineer Window reference). 1) Full-bleed outer canvas in deep navy #0F172A. 2) A large rounded paper card #F8FAFC (corner radius 28-32px) sitting on the navy so a navy footer strip remains at the bottom. 3) Top of the card: one small sky-blue #0EA5E9 icon, centred (clock, wifi arc, kettle). 4) Headline in huge Inter ExtraBold navy #0F172A, 2 to 5 words, slightly tracked, British English. 5) A thin sky #0EA5E9 hairline under the headline. 6) One giant navy fact, time or price (example: 8AM-6PM). 7) A sky-blue sarcastic punchline under the fact, smaller than the headline (example: So... Tuesday.). 8) Illustration: clean editorial British cartoon, black/navy outlines, flat colour, limited palette navy/sky/grey/white. Split before/after or left/right panels with tiny navy time labels. Simple cartoon people (jumpers, slippers, glasses) not photoreal, not stock, not 3D, not celebrity. British terrace, kettle, mug, router, van, flask, pizza box, laptop allowed. 9) Navy footer: left-aligned sky rounded-square wifi-mark (two white arcs + white dot, like public/logo.svg) then white wordmark BroadbandPicker and URL broadbandpicker.co.uk in smaller white or sky type. 10) Matte. One joke. No extra slogans, no QR, no fake ISP logos, no SALE red, no emojis on the artwork, no 'comment below'.",
   "idea_pillars": [
     "british sarcasm",
     "memes",

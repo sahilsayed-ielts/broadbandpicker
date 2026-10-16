@@ -1,7 +1,177 @@
-date,day,time_uk,week,platform,format,idea_id,pillar,title,hook,status
-2026-08-26,Wednesday,08:30,1,tiktok,tiktok,X-003,quote,Keep calm and restart the router,Keep calm and restart the router,Draft
-2026-09-02,Wednesday,08:30,2,tiktok,tiktok,X-010,meme,Drake / out of contract,Paying the out-of-contract price vs spending four minutes comparing.,Draft
-2026-09-09,Wednesday,08:30,3,tiktok,tiktok,X-017,meme,Wi-Fi name personality test,Your Wi-Fi name is a personality test.,Draft
-2026-09-12,Saturday,10:00,3,tiktok,tiktok,X-020,british-life,"Zoom, you're muted, no it's the line",You're muted. No — that's the broadband.,Draft
-2026-09-16,Wednesday,08:30,4,tiktok,tiktok,X-024,useful-funny,Things faster than your broadband,Things that are currently faster than your broadband.,Draft
-2026-09-19,Saturday,10:00,4,tiktok,tiktok,X-028,british-life,Moving house broadband,Moving house is two crises in a trench coat. One of them is broadband.,Draft
+date,day,timezone,time_uk,peak_window_uk,why_this_slot,design_by_date,design_by_time_uk,week,platform,format,idea_id,pillar,title,hook,status,artwork_size,chatgpt_prompt,on_screen_text,visual_concept
+2026-09-02,Wednesday,Europe/London,19:00,"18:00-21:00 UK weeknights, 11:00-14:00 weekends",TikTok discovery is evening. Lunch works for students and HMOs.,2026-09-01,17:00,1,tiktok,tiktok,X-003,quote,Keep calm and restart the router,Keep calm and restart the router,Not posted,1080x1920px,"Create a 1080x1920px social graphic for TikTok cover / first frame (9:16). UK English. Europe/London audience.
+
+BRAND: BroadbandPicker, independent UK broadband comparison. Rankings are not sold.
+
+REFERENCE SYSTEM (copy this layout, then change the joke):
+Match the BroadbandPicker poster system (the Engineer Window reference). 1) Full-bleed outer canvas in deep navy #0F172A. 2) A large rounded paper card #F8FAFC (corner radius 28-32px) sitting on the navy so a navy footer strip remains at the bottom. 3) Top of the card: one small sky-blue #0EA5E9 icon, centred (clock, wifi arc, kettle). 4) Headline in huge Inter ExtraBold navy #0F172A, 2 to 5 words, slightly tracked, British English. 5) A thin sky #0EA5E9 hairline under the headline. 6) One giant navy fact, time or price (example: 8AM-6PM). 7) A sky-blue sarcastic punchline under the fact, smaller than the headline (example: So... Tuesday.). 8) Illustration: clean editorial British cartoon, black/navy outlines, flat colour, limited palette navy/sky/grey/white. Split before/after or left/right panels with tiny navy time labels. Simple cartoon people (jumpers, slippers, glasses) not photoreal, not stock, not 3D, not celebrity. British terrace, kettle, mug, router, van, flask, pizza box, laptop allowed. 9) Navy footer: left-aligned sky rounded-square wifi-mark (two white arcs + white dot, like public/logo.svg) then white wordmark BroadbandPicker and URL broadbandpicker.co.uk in smaller white or sky type. 10) Matte. One joke. No extra slogans, no QR, no fake ISP logos, no SALE red, no emojis on the artwork, no 'comment below'.
+
+CROP FOR THIS SIZE: Portrait poster stacked like the Engineer Window reference: icon, headline, giant fact, sky punchline, then the cartoon, then the navy logo footer.
+
+COLOURS: navy #0F172A, sky #0EA5E9, paper #F8FAFC, white #FFFFFF. Green #22C55E only as a single tick. Palette: Ministry cream, poster red, navy type, sky wifi-mark.
+
+TYPE: Inter ExtraBold for the headline, Inter Regular for the whisper. A Times-like serif or a poster gothic. Not Inter for this one.
+
+LOGO: Wifi-mark as the 'crown'. Wordmark tiny at the bottom.
+
+PEOPLE: Simple editorial cartoon people allowed (jumpers, slippers, glasses). Not photoreal, not stock smiles, not 3D.
+
+THIS JOKE: Classic cream poster, crown replaced with the BroadbandPicker wifi mark, red strip KEEP CALM AND RESTART THE ROUTER.
+
+ON-SCREEN TEXT, exactly, large, no extras: ""KEEP CALM"" | ""AND"" | ""RESTART THE ROUTER""
+
+AVOID: Don't add six other jokes on the poster. One line.. No fake BT/Sky/Virgin logos. No QR. No SALE red. No watermarks. No 'comment below'. Fibre not fiber. The caption, not the artwork, asks the question.",KEEP CALM | AND | RESTART THE ROUTER,"Classic cream poster, crown replaced with the BroadbandPicker wifi mark, red strip KEEP CALM AND RESTART THE ROUTER."
+2026-09-09,Wednesday,Europe/London,19:00,"18:00-21:00 UK weeknights, 11:00-14:00 weekends",TikTok discovery is evening. Lunch works for students and HMOs.,2026-09-08,17:00,2,tiktok,tiktok,X-010,meme,Drake / out of contract,Paying the out-of-contract price vs spending four minutes comparing.,Not posted,1080x1920px,"Create a 1080x1920px social graphic for TikTok cover / first frame (9:16). UK English. Europe/London audience.
+
+BRAND: BroadbandPicker, independent UK broadband comparison. Rankings are not sold.
+
+REFERENCE SYSTEM (copy this layout, then change the joke):
+Match the BroadbandPicker poster system (the Engineer Window reference). 1) Full-bleed outer canvas in deep navy #0F172A. 2) A large rounded paper card #F8FAFC (corner radius 28-32px) sitting on the navy so a navy footer strip remains at the bottom. 3) Top of the card: one small sky-blue #0EA5E9 icon, centred (clock, wifi arc, kettle). 4) Headline in huge Inter ExtraBold navy #0F172A, 2 to 5 words, slightly tracked, British English. 5) A thin sky #0EA5E9 hairline under the headline. 6) One giant navy fact, time or price (example: 8AM-6PM). 7) A sky-blue sarcastic punchline under the fact, smaller than the headline (example: So... Tuesday.). 8) Illustration: clean editorial British cartoon, black/navy outlines, flat colour, limited palette navy/sky/grey/white. Split before/after or left/right panels with tiny navy time labels. Simple cartoon people (jumpers, slippers, glasses) not photoreal, not stock, not 3D, not celebrity. British terrace, kettle, mug, router, van, flask, pizza box, laptop allowed. 9) Navy footer: left-aligned sky rounded-square wifi-mark (two white arcs + white dot, like public/logo.svg) then white wordmark BroadbandPicker and URL broadbandpicker.co.uk in smaller white or sky type. 10) Matte. One joke. No extra slogans, no QR, no fake ISP logos, no SALE red, no emojis on the artwork, no 'comment below'.
+
+CROP FOR THIS SIZE: Portrait poster stacked like the Engineer Window reference: icon, headline, giant fact, sky punchline, then the cartoon, then the navy logo footer.
+
+COLOURS: navy #0F172A, sky #0EA5E9, paper #F8FAFC, white #FFFFFF. Green #22C55E only as a single tick. Palette: Meme-native, end card in brand colours.
+
+TYPE: Inter ExtraBold for the headline, Inter Regular for the whisper. Impact for panels, Inter on the end card.
+
+LOGO: Only on the accept panel as the UI, plus end card.
+
+PEOPLE: Simple editorial cartoon people allowed (jumpers, slippers, glasses). Not photoreal, not stock smiles, not 3D.
+
+THIS JOKE: Standard two-panel Drake. Top: crumpled bill. Bottom: postcode checker screenshot (use BroadbandPicker UI, not a competitor).
+
+ON-SCREEN TEXT, exactly, large, no extras: ""Paying the loyalty price"" | ""Four minutes on BroadbandPicker""
+
+AVOID: Don't use uncleared celebrity likeness if you can shoot an original 'nah/yeah' with a staffer. No fake BT/Sky/Virgin logos. No QR. No SALE red. No watermarks. No 'comment below'. Fibre not fiber. The caption, not the artwork, asks the question.",Paying the loyalty price | Four minutes on BroadbandPicker,"Standard two-panel Drake. Top: crumpled bill. Bottom: postcode checker screenshot (use BroadbandPicker UI, not a competitor)."
+2026-09-16,Wednesday,Europe/London,19:00,"18:00-21:00 UK weeknights, 11:00-14:00 weekends",TikTok discovery is evening. Lunch works for students and HMOs.,2026-09-15,17:00,3,tiktok,tiktok,X-017,meme,Wi-Fi name personality test,Your Wi-Fi name is a personality test.,Not posted,1080x1920px,"Create a 1080x1920px social graphic for TikTok cover / first frame (9:16). UK English. Europe/London audience.
+
+BRAND: BroadbandPicker, independent UK broadband comparison. Rankings are not sold.
+
+REFERENCE SYSTEM (copy this layout, then change the joke):
+Match the BroadbandPicker poster system (the Engineer Window reference). 1) Full-bleed outer canvas in deep navy #0F172A. 2) A large rounded paper card #F8FAFC (corner radius 28-32px) sitting on the navy so a navy footer strip remains at the bottom. 3) Top of the card: one small sky-blue #0EA5E9 icon, centred (clock, wifi arc, kettle). 4) Headline in huge Inter ExtraBold navy #0F172A, 2 to 5 words, slightly tracked, British English. 5) A thin sky #0EA5E9 hairline under the headline. 6) One giant navy fact, time or price (example: 8AM-6PM). 7) A sky-blue sarcastic punchline under the fact, smaller than the headline (example: So... Tuesday.). 8) Illustration: clean editorial British cartoon, black/navy outlines, flat colour, limited palette navy/sky/grey/white. Split before/after or left/right panels with tiny navy time labels. Simple cartoon people (jumpers, slippers, glasses) not photoreal, not stock, not 3D, not celebrity. British terrace, kettle, mug, router, van, flask, pizza box, laptop allowed. 9) Navy footer: left-aligned sky rounded-square wifi-mark (two white arcs + white dot, like public/logo.svg) then white wordmark BroadbandPicker and URL broadbandpicker.co.uk in smaller white or sky type. 10) Matte. One joke. No extra slogans, no QR, no fake ISP logos, no SALE red, no emojis on the artwork, no 'comment below'.
+
+CROP FOR THIS SIZE: Portrait poster stacked like the Engineer Window reference: icon, headline, giant fact, sky punchline, then the cartoon, then the navy logo footer.
+
+COLOURS: navy #0F172A, sky #0EA5E9, paper #F8FAFC, white #FFFFFF. Green #22C55E only as a single tick. Palette: OS-native then brand end card.
+
+TYPE: Inter ExtraBold for the headline, Inter Regular for the whisper. SF/Roboto for the fake OS, Inter at the end.
+
+LOGO: Footer only. Sky rounded-square wifi-mark (#0EA5E9, two white arcs + white dot, public/logo.svg) on the navy strip, left, with white wordmark BroadbandPicker and broadbandpicker.co.uk. Never recolour the mark green. Never put it on the punchline. Never a generic stock wifi icon. Never a QR code.
+
+PEOPLE: Simple editorial cartoon people allowed (jumpers, slippers, glasses). Not photoreal, not stock smiles, not 3D.
+
+THIS JOKE: iOS/Android Wi-Fi list with joke names. A finger hovers, never connects.
+
+ON-SCREEN TEXT, exactly, large, no extras: ""Choose your fighter"" | ""password in the comments = banned""
+
+AVOID: Don't include a real neighbour's network from a captured screenshot. No fake BT/Sky/Virgin logos. No QR. No SALE red. No watermarks. No 'comment below'. Fibre not fiber. The caption, not the artwork, asks the question.",Choose your fighter | password in the comments = banned,"iOS/Android Wi-Fi list with joke names. A finger hovers, never connects."
+2026-09-19,Saturday,Europe/London,11:30,"18:00-21:00 UK weeknights, 11:00-14:00 weekends",TikTok discovery is evening. Lunch works for students and HMOs.,2026-09-18,17:00,3,tiktok,tiktok,X-020,british-life,"Zoom, you're muted, no it's the line",You're muted. No — that's the broadband.,Not posted,1080x1920px,"Create a 1080x1920px social graphic for TikTok cover / first frame (9:16). UK English. Europe/London audience.
+
+BRAND: BroadbandPicker, independent UK broadband comparison. Rankings are not sold.
+
+REFERENCE SYSTEM (copy this layout, then change the joke):
+Match the BroadbandPicker poster system (the Engineer Window reference). 1) Full-bleed outer canvas in deep navy #0F172A. 2) A large rounded paper card #F8FAFC (corner radius 28-32px) sitting on the navy so a navy footer strip remains at the bottom. 3) Top of the card: one small sky-blue #0EA5E9 icon, centred (clock, wifi arc, kettle). 4) Headline in huge Inter ExtraBold navy #0F172A, 2 to 5 words, slightly tracked, British English. 5) A thin sky #0EA5E9 hairline under the headline. 6) One giant navy fact, time or price (example: 8AM-6PM). 7) A sky-blue sarcastic punchline under the fact, smaller than the headline (example: So... Tuesday.). 8) Illustration: clean editorial British cartoon, black/navy outlines, flat colour, limited palette navy/sky/grey/white. Split before/after or left/right panels with tiny navy time labels. Simple cartoon people (jumpers, slippers, glasses) not photoreal, not stock, not 3D, not celebrity. British terrace, kettle, mug, router, van, flask, pizza box, laptop allowed. 9) Navy footer: left-aligned sky rounded-square wifi-mark (two white arcs + white dot, like public/logo.svg) then white wordmark BroadbandPicker and URL broadbandpicker.co.uk in smaller white or sky type. 10) Matte. One joke. No extra slogans, no QR, no fake ISP logos, no SALE red, no emojis on the artwork, no 'comment below'.
+
+CROP FOR THIS SIZE: Portrait poster stacked like the Engineer Window reference: icon, headline, giant fact, sky punchline, then the cartoon, then the navy logo footer.
+
+COLOURS: navy #0F172A, sky #0EA5E9, paper #F8FAFC, white #FFFFFF. Green #22C55E only as a single tick. Palette: App greys, then brand end card.
+
+TYPE: Inter ExtraBold for the headline, Inter Regular for the whisper. UI type.
+
+LOGO: Footer only. Sky rounded-square wifi-mark (#0EA5E9, two white arcs + white dot, public/logo.svg) on the navy strip, left, with white wordmark BroadbandPicker and broadbandpicker.co.uk. Never recolour the mark green. Never put it on the punchline. Never a generic stock wifi icon. Never a QR code.
+
+PEOPLE: Simple editorial cartoon people allowed (jumpers, slippers, glasses). Not photoreal, not stock smiles, not 3D.
+
+THIS JOKE: 2x2 grid. Three crisp colleagues. One pixelated impressionist painting that used to be a man in Stevenage.
+
+ON-SCREEN TEXT, exactly, large, no extras: ""You're muted"" | ""That's the broadband""
+
+AVOID: Don't mock a real person's appearance; keep it about the pixels. No fake BT/Sky/Virgin logos. No QR. No SALE red. No watermarks. No 'comment below'. Fibre not fiber. The caption, not the artwork, asks the question.",You're muted | That's the broadband,2x2 grid. Three crisp colleagues. One pixelated impressionist painting that used to be a man in Stevenage.
+2026-09-23,Wednesday,Europe/London,19:00,"18:00-21:00 UK weeknights, 11:00-14:00 weekends",TikTok discovery is evening. Lunch works for students and HMOs.,2026-09-22,17:00,4,tiktok,tiktok,X-024,useful-funny,Things faster than your broadband,Things that are currently faster than your broadband.,Not posted,1080x1920px,"Create a 1080x1920px social graphic for TikTok cover / first frame (9:16). UK English. Europe/London audience.
+
+BRAND: BroadbandPicker, independent UK broadband comparison. Rankings are not sold.
+
+REFERENCE SYSTEM (copy this layout, then change the joke):
+Match the BroadbandPicker poster system (the Engineer Window reference). 1) Full-bleed outer canvas in deep navy #0F172A. 2) A large rounded paper card #F8FAFC (corner radius 28-32px) sitting on the navy so a navy footer strip remains at the bottom. 3) Top of the card: one small sky-blue #0EA5E9 icon, centred (clock, wifi arc, kettle). 4) Headline in huge Inter ExtraBold navy #0F172A, 2 to 5 words, slightly tracked, British English. 5) A thin sky #0EA5E9 hairline under the headline. 6) One giant navy fact, time or price (example: 8AM-6PM). 7) A sky-blue sarcastic punchline under the fact, smaller than the headline (example: So... Tuesday.). 8) Illustration: clean editorial British cartoon, black/navy outlines, flat colour, limited palette navy/sky/grey/white. Split before/after or left/right panels with tiny navy time labels. Simple cartoon people (jumpers, slippers, glasses) not photoreal, not stock, not 3D, not celebrity. British terrace, kettle, mug, router, van, flask, pizza box, laptop allowed. 9) Navy footer: left-aligned sky rounded-square wifi-mark (two white arcs + white dot, like public/logo.svg) then white wordmark BroadbandPicker and URL broadbandpicker.co.uk in smaller white or sky type. 10) Matte. One joke. No extra slogans, no QR, no fake ISP logos, no SALE red, no emojis on the artwork, no 'comment below'.
+
+CROP FOR THIS SIZE: Portrait poster stacked like the Engineer Window reference: icon, headline, giant fact, sky punchline, then the cartoon, then the navy logo footer.
+
+COLOURS: navy #0F172A, sky #0EA5E9, paper #F8FAFC, white #FFFFFF. Green #22C55E only as a single tick. Palette: Outer navy #0F172A, inner paper card #F8FAFC, headline navy, icon and punchline sky #0EA5E9, wordmark white on the navy footer, green #22C55E only if the joke is genuine good news (one tick). Illustration greys plus sky jumpers. No rainbow, no neon, no SALE red.
+
+TYPE: Inter ExtraBold for the headline, Inter Regular for the whisper. Sports graphic.
+
+LOGO: Footer only. Sky rounded-square wifi-mark (#0EA5E9, two white arcs + white dot, public/logo.svg) on the navy strip, left, with white wordmark BroadbandPicker and broadbandpicker.co.uk. Never recolour the mark green. Never put it on the punchline. Never a generic stock wifi icon. Never a QR code.
+
+PEOPLE: Simple editorial cartoon people allowed (jumpers, slippers, glasses). Not photoreal, not stock smiles, not 3D.
+
+THIS JOKE: Medal table. Gold: Nan's gossip. Silver: kettle. Bronze: your download speed, looking ashamed.
+
+ON-SCREEN TEXT, exactly, large, no extras: ""MEDAL TABLE"" | ""household events""
+
+AVOID: Don't use BBC branding. No fake BT/Sky/Virgin logos. No QR. No SALE red. No watermarks. No 'comment below'. Fibre not fiber. The caption, not the artwork, asks the question.",MEDAL TABLE | household events,"Medal table. Gold: Nan's gossip. Silver: kettle. Bronze: your download speed, looking ashamed."
+2026-09-26,Saturday,Europe/London,11:30,"18:00-21:00 UK weeknights, 11:00-14:00 weekends",TikTok discovery is evening. Lunch works for students and HMOs.,2026-09-25,17:00,4,tiktok,tiktok,X-028,british-life,Moving house broadband,Moving house is two crises in a trench coat. One of them is broadband.,Not posted,1080x1920px,"Create a 1080x1920px social graphic for TikTok cover / first frame (9:16). UK English. Europe/London audience.
+
+BRAND: BroadbandPicker, independent UK broadband comparison. Rankings are not sold.
+
+REFERENCE SYSTEM (copy this layout, then change the joke):
+Match the BroadbandPicker poster system (the Engineer Window reference). 1) Full-bleed outer canvas in deep navy #0F172A. 2) A large rounded paper card #F8FAFC (corner radius 28-32px) sitting on the navy so a navy footer strip remains at the bottom. 3) Top of the card: one small sky-blue #0EA5E9 icon, centred (clock, wifi arc, kettle). 4) Headline in huge Inter ExtraBold navy #0F172A, 2 to 5 words, slightly tracked, British English. 5) A thin sky #0EA5E9 hairline under the headline. 6) One giant navy fact, time or price (example: 8AM-6PM). 7) A sky-blue sarcastic punchline under the fact, smaller than the headline (example: So... Tuesday.). 8) Illustration: clean editorial British cartoon, black/navy outlines, flat colour, limited palette navy/sky/grey/white. Split before/after or left/right panels with tiny navy time labels. Simple cartoon people (jumpers, slippers, glasses) not photoreal, not stock, not 3D, not celebrity. British terrace, kettle, mug, router, van, flask, pizza box, laptop allowed. 9) Navy footer: left-aligned sky rounded-square wifi-mark (two white arcs + white dot, like public/logo.svg) then white wordmark BroadbandPicker and URL broadbandpicker.co.uk in smaller white or sky type. 10) Matte. One joke. No extra slogans, no QR, no fake ISP logos, no SALE red, no emojis on the artwork, no 'comment below'.
+
+CROP FOR THIS SIZE: Portrait poster stacked like the Engineer Window reference: icon, headline, giant fact, sky punchline, then the cartoon, then the navy logo footer.
+
+COLOURS: navy #0F172A, sky #0EA5E9, paper #F8FAFC, white #FFFFFF. Green #22C55E only as a single tick. Palette: Cardboard, navy sharpie, sky circle.
+
+TYPE: Inter ExtraBold for the headline, Inter Regular for the whisper. Handwritten then Inter CTA.
+
+LOGO: Tape-style end card.
+
+PEOPLE: Simple editorial cartoon people allowed (jumpers, slippers, glasses). Not photoreal, not stock smiles, not 3D.
+
+THIS JOKE: Sharpie on a moving box. Last item, circled: ACTUALLY CHECK THE POSTCODE.
+
+ON-SCREEN TEXT, exactly, large, no extras: ""Kettle"" | ""Wi-Fi"" | ""Sofa (optional)""
+
+AVOID: Don't show a real new address. No fake BT/Sky/Virgin logos. No QR. No SALE red. No watermarks. No 'comment below'. Fibre not fiber. The caption, not the artwork, asks the question.",Kettle | Wi-Fi | Sofa (optional),"Sharpie on a moving box. Last item, circled: ACTUALLY CHECK THE POSTCODE."
+2026-10-07,Wednesday,Europe/London,19:00,"18:00-21:00 UK weeknights, 11:00-14:00 weekends",TikTok discovery is evening. Lunch works for students and HMOs.,2026-10-06,17:00,6,tiktok,tiktok,X-040,sarcasm,Existing customer rewards,Existing customer broadband: the reward is getting to keep paying more.,Not posted,1080x1920px,"Create a 1080x1920px social graphic for TikTok cover / first frame (9:16). UK English. Europe/London audience.
+
+BRAND: BroadbandPicker, independent UK broadband comparison. Rankings are not sold.
+
+REFERENCE SYSTEM (copy this layout, then change the joke):
+Match the BroadbandPicker poster system (the Engineer Window reference). 1) Full-bleed outer canvas in deep navy #0F172A. 2) A large rounded paper card #F8FAFC (corner radius 28-32px) sitting on the navy so a navy footer strip remains at the bottom. 3) Top of the card: one small sky-blue #0EA5E9 icon, centred (clock, wifi arc, kettle). 4) Headline in huge Inter ExtraBold navy #0F172A, 2 to 5 words, slightly tracked, British English. 5) A thin sky #0EA5E9 hairline under the headline. 6) One giant navy fact, time or price (example: 8AM-6PM). 7) A sky-blue sarcastic punchline under the fact, smaller than the headline (example: So... Tuesday.). 8) Illustration: clean editorial British cartoon, black/navy outlines, flat colour, limited palette navy/sky/grey/white. Split before/after or left/right panels with tiny navy time labels. Simple cartoon people (jumpers, slippers, glasses) not photoreal, not stock, not 3D, not celebrity. British terrace, kettle, mug, router, van, flask, pizza box, laptop allowed. 9) Navy footer: left-aligned sky rounded-square wifi-mark (two white arcs + white dot, like public/logo.svg) then white wordmark BroadbandPicker and URL broadbandpicker.co.uk in smaller white or sky type. 10) Matte. One joke. No extra slogans, no QR, no fake ISP logos, no SALE red, no emojis on the artwork, no 'comment below'.
+
+CROP FOR THIS SIZE: Portrait poster stacked like the Engineer Window reference: icon, headline, giant fact, sky punchline, then the cartoon, then the navy logo footer.
+
+COLOURS: navy #0F172A, sky #0EA5E9, paper #F8FAFC, white #FFFFFF. Green #22C55E only as a single tick. Palette: Outer navy #0F172A, inner paper card #F8FAFC, headline navy, icon and punchline sky #0EA5E9, wordmark white on the navy footer, green #22C55E only if the joke is genuine good news (one tick). Illustration greys plus sky jumpers. No rainbow, no neon, no SALE red.
+
+TYPE: Inter ExtraBold for the headline, Inter Regular for the whisper. Refined grotesque, letter-spaced like a members' club.
+
+LOGO: Tiny mark as the hologram.
+
+PEOPLE: Simple editorial cartoon people allowed (jumpers, slippers, glasses). Not photoreal, not stock smiles, not 3D.
+
+THIS JOKE: A plush navy loyalty card. Stamps: 8 years. Reward: '£22 extra a month'. Soft shadow, lots of margin, foil-ish sky type.
+
+ON-SCREEN TEXT, exactly, large, no extras: ""LOYALTY CARD"" | ""Reward: paying more"" | ""New customers skip the queue""
+
+AVOID: Don't fake a real ISP's loyalty scheme name. No fake BT/Sky/Virgin logos. No QR. No SALE red. No watermarks. No 'comment below'. Fibre not fiber. The caption, not the artwork, asks the question.",LOYALTY CARD | Reward: paying more | New customers skip the queue,"A plush navy loyalty card. Stamps: 8 years. Reward: '£22 extra a month'. Soft shadow, lots of margin, foil-ish sky type."
+2026-10-10,Saturday,Europe/London,11:30,"18:00-21:00 UK weeknights, 11:00-14:00 weekends",TikTok discovery is evening. Lunch works for students and HMOs.,2026-10-09,17:00,6,tiktok,tiktok,X-043,pun,Mesh is a plaster,Mesh Wi-Fi is a plaster. Sometimes the wound is the copper.,Not posted,1080x1920px,"Create a 1080x1920px social graphic for TikTok cover / first frame (9:16). UK English. Europe/London audience.
+
+BRAND: BroadbandPicker, independent UK broadband comparison. Rankings are not sold.
+
+REFERENCE SYSTEM (copy this layout, then change the joke):
+Match the BroadbandPicker poster system (the Engineer Window reference). 1) Full-bleed outer canvas in deep navy #0F172A. 2) A large rounded paper card #F8FAFC (corner radius 28-32px) sitting on the navy so a navy footer strip remains at the bottom. 3) Top of the card: one small sky-blue #0EA5E9 icon, centred (clock, wifi arc, kettle). 4) Headline in huge Inter ExtraBold navy #0F172A, 2 to 5 words, slightly tracked, British English. 5) A thin sky #0EA5E9 hairline under the headline. 6) One giant navy fact, time or price (example: 8AM-6PM). 7) A sky-blue sarcastic punchline under the fact, smaller than the headline (example: So... Tuesday.). 8) Illustration: clean editorial British cartoon, black/navy outlines, flat colour, limited palette navy/sky/grey/white. Split before/after or left/right panels with tiny navy time labels. Simple cartoon people (jumpers, slippers, glasses) not photoreal, not stock, not 3D, not celebrity. British terrace, kettle, mug, router, van, flask, pizza box, laptop allowed. 9) Navy footer: left-aligned sky rounded-square wifi-mark (two white arcs + white dot, like public/logo.svg) then white wordmark BroadbandPicker and URL broadbandpicker.co.uk in smaller white or sky type. 10) Matte. One joke. No extra slogans, no QR, no fake ISP logos, no SALE red, no emojis on the artwork, no 'comment below'.
+
+CROP FOR THIS SIZE: Portrait poster stacked like the Engineer Window reference: icon, headline, giant fact, sky punchline, then the cartoon, then the navy logo footer.
+
+COLOURS: navy #0F172A, sky #0EA5E9, paper #F8FAFC, white #FFFFFF. Green #22C55E only as a single tick. Palette: Outer navy #0F172A, inner paper card #F8FAFC, headline navy, icon and punchline sky #0EA5E9, wordmark white on the navy footer, green #22C55E only if the joke is genuine good news (one tick). Illustration greys plus sky jumpers. No rainbow, no neon, no SALE red.
+
+TYPE: Inter ExtraBold for the headline, Inter Regular for the whisper. Inter ExtraBold.
+
+LOGO: Footer only. Sky rounded-square wifi-mark (#0EA5E9, two white arcs + white dot, public/logo.svg) on the navy strip, left, with white wordmark BroadbandPicker and broadbandpicker.co.uk. Never recolour the mark green. Never put it on the punchline. Never a generic stock wifi icon. Never a QR code.
+
+PEOPLE: Simple editorial cartoon people allowed (jumpers, slippers, glasses). Not photoreal, not stock smiles, not 3D.
+
+THIS JOKE: A single pale plaster on a navy Openreach-ish cabinet, huge paper margin. Caption small and sharp.
+
+ON-SCREEN TEXT, exactly, large, no extras: ""Mesh is a plaster"" | ""Sometimes the wound is the copper""
+
+AVOID: Don't use a real mesh-brand logo. No fake BT/Sky/Virgin logos. No QR. No SALE red. No watermarks. No 'comment below'. Fibre not fiber. The caption, not the artwork, asks the question.",Mesh is a plaster | Sometimes the wound is the copper,"A single pale plaster on a navy Openreach-ish cabinet, huge paper margin. Caption small and sharp."

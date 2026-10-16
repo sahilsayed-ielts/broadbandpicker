@@ -28,7 +28,7 @@ from lxml import html
 ROOT = Path(__file__).resolve().parents[1]
 SITE = "https://broadbandpicker.co.uk"
 REPORT = ROOT / "docs" / "speed-test-audit.json"
-PAGE = ROOT / "app" / "speed-test" / "page.tsx"
+PAGE = ROOT / "app" / "tools" / "speed-test" / "page.tsx"
 COMPONENT = ROOT / "components" / "SpeedTest.tsx"
 USER_AGENT = "BroadbandPickerSpeedTestAudit/1.0 (+https://broadbandpicker.co.uk/contact)"
 
@@ -110,6 +110,7 @@ def source_contract() -> dict:
     combined = page + "\n" + component
     requirements = {
         "download_upload_ping_jitter": all(term in component.lower() for term in ("download", "upload", "ping", "jitter")),
+        "multi_stream_percentile": all(term in component.lower() for term in ("90th", "london", "multi-stream")),
         "ga4_start_complete_failure_cta": all(term in component for term in ("speed_test_started", "speed_test_completed", "speed_test_failed", "speed_test_compare_clicked")),
         "accessible_live_status": "aria-live" in component and "focus-visible" in component,
         "responsive_results": "grid-cols-1" in component and "sm:grid-cols" in component,
@@ -130,7 +131,7 @@ def main() -> None:
 
     report = {
         "generated": datetime.now(timezone.utc).isoformat(),
-        "page": f"{SITE}/speed-test",
+        "page": f"{SITE}/tools/speed-test",
         "objective": "A fast, trustworthy UK speed test that diagnoses the result and gives a relevant, disclosed comparison next step.",
         "ranking_note": "The pipeline targets usefulness and discoverability; it cannot guarantee position 1, AI Overview inclusion or LLM citations.",
         "keyword_source": "Ubersuggest UK live snapshot, 2026-08-23",
@@ -158,7 +159,7 @@ def main() -> None:
         subprocess.run([
             sys.executable, str(ROOT / "scripts" / "build_keyword_mapping.py"),
             "--skip-source-sheet", "--max-pages", "1000",
-            "--build-page-url", f"{SITE}/speed-test", "--deploy-production",
+            "--build-page-url", f"{SITE}/tools/speed-test", "--deploy-production",
             "--approve-factual-review", "--update-google-sheet-id", "1Ke0YWo5T-45JRpuXpfqL_0vwmcBbS0i06Da47quRRH0",
         ], cwd=ROOT, check=True)
 

@@ -18,9 +18,25 @@ import { withHeadingIds } from '@/lib/extractHeadings'
 import { JsonLd } from '@/lib/jsonLd'
 import { articleJsonLd } from '@/lib/siteSchema'
 import CiteableAnswer from '@/components/CiteableAnswer'
+import PageHeroBanner from '@/components/PageHeroBanner'
+import {
+  DEFAULT_GUIDE_CTAS,
+  absoluteHeroUrl,
+  firstSentence,
+  guideHero,
+  guideHeroKicker,
+} from '@/lib/pageHero'
 
 export async function generateStaticParams() {
-  return guides.map((g) => ({ slug: g.slug }))
+  return guides
+    .filter(
+      (g) =>
+        g.slug !== 'gta-6-broadband-uk' &&
+        g.slug !== 'wifi-7-explained-uk' &&
+        g.slug !== 'best-broadband-for-streaming' &&
+        g.slug !== 'what-broadband-speed-do-i-need',
+    )
+    .map((g) => ({ slug: g.slug }))
 }
 
 export async function generateMetadata({
@@ -31,6 +47,8 @@ export async function generateMetadata({
   const { slug } = await params
   const guide = getGuideBySlug(slug)
   if (!guide) return {}
+  const hero = guideHero(guide)
+  const banner = absoluteHeroUrl(hero.image)
 
   return {
     title: { absolute: guide.metaTitle },
@@ -46,11 +64,13 @@ export async function generateMetadata({
       publishedTime: guide.publishDate,
       modifiedTime: guide.updatedDate,
       locale: 'en_GB',
+      images: [{ url: banner, width: 1600, height: 900, alt: hero.imageAlt }],
     },
     twitter: {
       card: 'summary_large_image',
       title: guide.metaTitle,
       description: guide.metaDescription,
+      images: [banner],
     },
   }
 }
@@ -59,7 +79,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
   'how-to-switch-broadband-uk': {
     body: (
       <>
-        <p><strong>One Touch Switch means most UK home broadband customers only contact the provider they are joining.</strong> The new provider asks for your address and current-provider details, matches the existing service, tells the old provider and arranges the transfer. Your old broadband should end automatically after the new service starts, unless you deliberately choose to manage the two contracts yourself.</p>
+        <p><strong>One Touch Switch means most UK home broadband customers only contact the provider they are joining.</strong> The new provider asks for your address and current-provider details, matches the existing service, tells the old provider and arranges the transfer. Your old broadband should end automatically after the new service starts, unless you deliberately choose to manage the two contracts yourself. A house move is different: use the <Link href="/guides/moving-house-broadband-checklist-uk">moving house broadband checklist</Link> if you need overlap between the old and new addresses, because Ofcom says One Touch Switch does not apply when you manage that cancellation yourself.</p>
         <p><a href="https://www.ofcom.org.uk/phones-and-broadband/switching-provider/simpler-broadband-switching-is-here" target="_blank" rel="noopener noreferrer">Ofcom introduced the cross-network process on 12 September 2024</a>. It applies when moving between participating fixed broadband networks, not just between providers using the same Openreach line. A first full-fibre installation or a move to a different network can still require an engineer, new wiring or drilling. Your new provider must explain those steps before the start date.</p>
         <p>Ofcom closed its dedicated One Touch Switch enforcement programme on 11 June 2026, around three years after opening it when providers missed the original legal deadline. The regulator found the majority of customers now switch successfully using the process, with more than 2 million having used it, and that providers previously attempting workarounds had stopped doing so. In practice this changes little day to day, but it confirms One Touch Switch as the industry&apos;s permanent standard rather than a still-bedding-in process, with Ofcom now able to take targeted action against any individual provider found to be obstructing it.</p>
 
@@ -86,7 +106,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         <h2>Step 1: Check your contract end date and exit charge</h2>
         <p>Start with your bill, online account or end-of-contract message. <a href="https://www.ofcom.org.uk/phones-and-broadband/saving-money/in-or-out" target="_blank" rel="noopener noreferrer">Ofcom says broadband contracts are commonly 12, 18 or 24 months</a>. Providers must send an end-of-contract notification by text, email or letter between 10 and 40 days before the minimum term ends. It must state the end date, notice period, current and post-contract price and the provider&apos;s best available deals.</p>
         <p>If the minimum term has ended, you can normally leave without an early termination charge. If it has not, ask the old provider for the exact charge on your intended switch date. Do not estimate it as simply the monthly bill multiplied by the months left. Providers use contract-specific calculations that can account for VAT, avoided costs, discounts and bundled products.</p>
-        <p>A mid-contract switch can still make sense if the new provider offers a switching credit or the saving across the new minimum term exceeds the confirmed exit charge. Compare like with like: exit charge plus setup cost plus every scheduled monthly price against the full cost of staying. Our <Link href="/guides/broadband-contract-end-rights">broadband contract end rights guide</Link> explains the notice and tariff information you should receive.</p>
+        <p>A mid-contract switch can still make sense if the new provider offers a switching credit or the saving across the new minimum term exceeds the confirmed exit charge. Compare like with like: exit charge plus setup cost plus every scheduled monthly price against the full cost of staying. Our <Link href="/guides/broadband-contract-end-rights">broadband contract end rights guide</Link> explains the notice and tariff information you should receive. If a mobile discount depends on keeping the old broadband, check our <Link href="/guides/broadband-and-mobile-bundle-discounts-uk">broadband and mobile bundle guide</Link> before starting either switch.</p>
 
         <h2>Step 2: Compare broadband available at your address</h2>
         <p>Broadband availability and speed can change between neighbouring streets and flats, so a national headline offer is not enough. Use an address-level <Link href="/compare">broadband comparison</Link>, then verify the package summary supplied by the provider before ordering. We would start with total contract cost and the guaranteed or estimated speed for the address, not a gift card or an advertised maximum.</p>
@@ -109,7 +129,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         <h2>Step 4: Confirm phone, TV, email and accessibility needs</h2>
         <p>Broadband may sit inside a bundle whose parts do not all transfer. Ask the new and old providers to identify what happens to paid TV, call packages, mobile discounts, security products and extra Wi-Fi equipment. Ofcom says the old provider should explain any services that need separate cancellation. Paying the final broadband bill does not necessarily cancel an attached TV contract.</p>
         <p>If you want to keep a landline number, request the transfer during the new order and get confirmation before switch day. Citizens Advice says customers should generally be able to keep a number when changing landline provider unless moving house, but compatibility matters. A broadband-only package or a provider without a suitable digital voice service may not accept the number.</p>
-        <p>Move away from an old provider-hosted email address before switching if continued access is uncertain. Update banking, government and recovery accounts first, export important messages and give contacts a provider-independent email address. People who rely on a personal alarm, medical device or landline during power cuts should tell the new provider before ordering and confirm how the equipment works with a digital phone service.</p>
+        <p>Move away from an old provider-hosted email address before switching if continued access is uncertain. Update banking, government and recovery accounts first, export important messages and give contacts a provider-independent email address. People who rely on a personal alarm, medical device or landline during power cuts should tell the new provider before ordering and confirm how the equipment works with a digital phone service. Use our <Link href="/guides/digital-voice-explained-uk">Digital Voice guide</Link> to check provider names, handset setup and power-cut arrangements.</p>
 
         <h2>Step 5: Prepare for switch day and close the old account</h2>
         <p>The new provider gives you a start date and tells you whether an engineer is needed. Keep the old router connected until instructed, but unpack the new equipment early and check that the cables and power supply are present. If an engineer needs access, confirm the appointment window and any landlord permission required for drilling or a new fibre entry point.</p>
@@ -210,7 +230,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         <p>Automatic compensation has provider, event and exclusion rules. It does not replace a formal complaint where the payment is missing, the provider disputes eligibility or the loss falls outside the code. Include the expected automatic payment in the complaint, identify the qualifying dates and explain separately any further remedy requested. This prevents an ADR application from mixing a fixed code payment with an unsupported general compensation figure.</p>
 
         <h2>Does Ofcom deal with individual broadband complaints?</h2>
-        <p><strong>Ofcom does not resolve an individual broadband dispute or order a provider to refund one customer.</strong> It sets and enforces sector rules, approves ADR schemes and uses consumer reports to identify wider patterns. Report a regulatory concern to Ofcom where appropriate, but keep the provider complaint and ADR case moving because an Ofcom report is not a substitute for either.</p>
+        <p><strong>Ofcom does not resolve an individual broadband dispute or order a provider to refund one customer.</strong> It sets and enforces sector rules, approves ADR schemes and uses consumer reports to identify wider patterns. Report a regulatory concern to Ofcom where appropriate, but keep the provider complaint and ADR case moving because an Ofcom report is not a substitute for either. For the dated national picture, see our <Link href="/research/uk-broadband-customer-satisfaction">UK broadband customer satisfaction research</Link>, which keeps survey scores and complaints per 100,000 subscribers in separate columns.</p>
         <p>Consumers needing help with rights or disputed bills can contact Citizens Advice in England and Wales, Advice Direct Scotland in Scotland, or Consumerline in Northern Ireland. If the relationship with the provider is no longer workable after the dispute is closed, check your contract and use our <Link href="/guides/how-to-switch-broadband-uk">UK broadband switching guide</Link>. Compare services for the exact address through our <Link href="/compare">broadband comparison</Link> rather than cancelling first and risking avoidable downtime or exit charges.</p>
 
         <h2>What to do today</h2>
@@ -333,6 +353,601 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
     ],
   },
 
+  'telecare-alarms-landline-switch-off-uk': {
+    body: (
+      <>
+        <p className="text-lg"><strong>An alarm connected to the old telephone line is not automatically safe after the digital switchover.</strong> It should continue only if its alarm company confirms the exact model, dialler and monitoring service work with the new connection, followed by a monitored test. Ofcom says to tell both the landline provider and device supplier before migration. If they cannot confirm a safe setup, ask the phone provider to pause the change while the equipment is adapted or replaced.</p>
+
+        <div className="rounded-xl border border-red-200 bg-red-50 p-5">
+          <p className="mb-0 text-sm"><strong>Do not unplug or test a monitored alarm without arranging it with the alarm receiving centre.</strong> An unplanned test can create a false alert. If an alarm has already stopped working, use another safe way to contact the monitoring provider and follow its fault instructions.</p>
+        </div>
+
+        <h2>Your five checks before the phone line changes</h2>
+        <div className="overflow-x-auto" role="region" aria-label="Five checks for alarms before the digital phone switchover" tabIndex={0}>
+          <table className="w-full min-w-[680px] border-collapse text-sm">
+            <thead><tr className="bg-slate-50">{['Check', 'What to confirm', 'Who confirms it'].map((heading) => <th scope="col" key={heading} className="border border-slate-200 px-4 py-3 text-left font-semibold text-slate-700">{heading}</th>)}</tr></thead>
+            <tbody>{[
+              ['1. Identify', 'Make, model, monitoring company and how the alarm connects', 'Alarm or telecare provider'],
+              ['2. Report', 'The landline account records that safety equipment uses the line', 'Landline provider'],
+              ['3. Confirm', 'The exact device and service are approved for the proposed digital setup', 'Alarm provider, in writing where possible'],
+              ['4. Protect', 'Every required powered box has suitable backup and mobile fallback has indoor signal', 'Both providers'],
+              ['5. Test', 'The receiving centre gets the correct identity, address and two-way audio where used', 'Monitoring centre after migration'],
+            ].map(([check, task, owner]) => <tr key={check} className="border-b border-slate-100"><td className="border border-slate-200 px-4 py-3 font-semibold text-slate-900">{check}</td><td className="border border-slate-200 px-4 py-3 text-slate-700">{task}</td><td className="border border-slate-200 px-4 py-3 text-slate-600">{owner}</td></tr>)}</tbody>
+          </table>
+        </div>
+
+        <h2>Which alarms can be affected?</h2>
+        <p><strong>The equipment at risk is anything that sends a signal through the old analogue telephone socket.</strong> That can include a monitored burglar or fire alarm, a Careline or Lifeline base unit, a pendant alarm, an emergency call button, a door-entry system and a lift emergency phone. The sensor itself may be wireless while its base unit still uses the landline, so inspect the complete system rather than the pendant or detector alone.</p>
+        <p>A modern unit may use Ethernet, Wi-Fi or a mobile SIM instead of an analogue dialler. That can remove its dependence on the phone line, but it does not prove the service will continue through a power or broadband outage. Ask which connection is primary, whether there is a second path, how long each battery should last and how the unit reports a failed connection or low battery.</p>
+        <p>Do not use a generic compatibility list as certification. Firmware, adapters, router configuration, monitoring protocols and the provider&apos;s voice service can all affect one model differently. The alarm supplier or manufacturer is the right organisation to confirm its equipment; the phone company must explain the new line, migration and emergency-calling support.</p>
+
+        <h2>Telecare and pendant alarms after the landline switch-off</h2>
+        <p><strong>A telecare alarm may continue through an approved adapter, or it may need a digital replacement.</strong> GOV.UK says upwards of two million people in the UK use telecare and that most devices historically relied on the analogue network. Citizens Advice says a person should not be switched until the telecare and home phone providers are confident the personal alarm will work with the new line.</p>
+        <p>Call the council, housing association or private company that supplies the Careline, Lifeline or pendant alarm. Give the make and model printed on the base unit and ask whether it is analogue-only, compatible with the proposed digital phone service, or due to be replaced. If nobody knows who supplies it, start with the local council&apos;s adult social care team and the paperwork beside the unit.</p>
+        <p>Tell the landline provider separately. Ask it to record that a telecare user lives at the address, note any disability or installation support needed, and state the proposed migration date. A family member or carer can ask to be nominated to help manage the change. Verify calls using a number from a bill or official website because Citizens Advice warns that customers should not be charged simply for the move to a digital phone line.</p>
+
+        <h2>Does a house alarm need a phone line?</h2>
+        <p><strong>Only alarms with a telephone dialler need a phone service; many newer monitored systems use broadband or a mobile network.</strong> Look for a cable from the alarm panel or control box to a telephone socket, but do not open the panel or alter wiring. The monitoring company can check the account and model. A local audible-only siren may not call anyone, while an app-enabled alarm can still use broadband even without a landline number.</p>
+        <p>For a monitored burglar or fire alarm, ask who is responsible for replacing the signalling path and whether the maintenance contract covers it. Confirm whether police, keyholder or alarm receiving centre response depends on certification or a dual-path connection. This guide cannot certify a security or fire installation. The installer must specify and test the correct migration for that system.</p>
+
+        <h2>Lift phones, door entry and other shared systems</h2>
+        <p><strong>A lift emergency phone or communal door-entry line belongs with the building&apos;s responsible person, managing agent or lift maintenance company.</strong> Residents should report the line rather than attempt a test or change. Ask the responsible organisation to confirm the line identifier, equipment owner, replacement technology, backup duration and completed test before the analogue service ends.</p>
+        <p>A lift line needs an emergency communication route even when mains power fails. A replacement might use an IP connection or a mobile gateway, but suitability depends on the lift standard, equipment and signal inside the shaft or motor room. The same caution applies to warden-call panels, CCTV diallers, fax-based health equipment and payment terminals. Treat each as a separate service even when several share one building.</p>
+
+        <h2>Power cuts: trace the whole alert path</h2>
+        <p><strong>A standard digital phone line stops if the broadband router loses mains power.</strong> The alarm&apos;s own battery does not power the router, adapter or optical network terminal. Draw the route from button or sensor to the receiving centre and list every powered component. Ask what remains operational during a local power cut, a broadband fault and a mobile outage, because these are different failures.</p>
+        <p><a href="https://www.ofcom.org.uk/phones-and-broadband/landline-phones/future-of-landline-calls" target="_blank" rel="noopener noreferrer">Ofcom says a landline provider must offer a free backup solution lasting at least one hour</a> when a customer depends on the landline to contact emergency services and has no working mobile alternative or reliable signal. That rule concerns access to emergency organisations. It does not certify every alarm or promise that its monitoring service will work, so confirm the alarm&apos;s separate backup with its supplier.</p>
+        <p>If a proposed replacement uses a mobile SIM, check reception where the base unit or lift gateway will sit, not outside the building. Ask which network it uses, whether it can roam to another network, how it reports loss of service and what happens when older mobile networks close. A charged mobile can be a useful separate fallback for someone able to use it, but it is not a substitute for an accessible personal alarm.</p>
+
+        <h2>How to test safely after the digital switchover</h2>
+        <ol>
+          <li>Book the test with the alarm provider or monitoring centre and follow its instructions.</li>
+          <li>Confirm the router, adapter, alarm base and backup equipment are connected as specified.</li>
+          <li>Activate the approved test and wait for the receiving centre to answer.</li>
+          <li>Ask it to confirm the correct person or site, address, signal type and two-way speech where fitted.</li>
+          <li>Record the date, result, person spoken to and fault reference. Agree when the next test and battery check are due.</li>
+        </ol>
+        <p>A successful call proves the alert path worked at that moment. Repeat the approved test after a router replacement, new phone provider, alarm update, building work or power-backup change. If the test fails, keep an alternative way to summon help, report the fault to both providers and do not accept an unsupported reassurance that the unit is probably compatible.</p>
+
+        <h2>Keep a critical information record</h2>
+        <p><strong>Write down the details another person would need to check the system without guessing.</strong> This practical record is adapted for the UK from safety-device migration checklists used in Australia and New Zealand. It is uncommon in the UK pages reviewed for this guide and turns a one-off test into an owned maintenance task.</p>
+        <ul>
+          <li><strong>Equipment:</strong> alarm type, make, model, serial or account reference and connection method.</li>
+          <li><strong>Contacts:</strong> landline provider, monitoring centre, installer, council or building manager.</li>
+          <li><strong>Resilience:</strong> each battery&apos;s stated duration, replacement date and mobile-network details.</li>
+          <li><strong>Evidence:</strong> written compatibility confirmation, migration date, last successful test and fault reference.</li>
+          <li><strong>Named owner:</strong> the person responsible for the next test, battery check and updating carers.</li>
+        </ul>
+        <p>Keep the record near the alarm instructions and give an accessible copy to the user, nominated relative or carer as appropriate. Do not publish account numbers or medical details. The aim is to make responsibility clear when equipment or providers change, not to create a public register.</p>
+
+        <h2>What to do if the alarm fails or the switch is unsafe</h2>
+        <p>Contact the phone provider first about loss of digital landline service and the alarm provider about device or monitoring failure. Explain that safety-critical equipment is affected and request a fault reference. If migration has not happened, ask both organisations to agree a safe plan and whether the line change should be paused. If there is immediate danger, use an available working phone to call 999 or 112.</p>
+        <p>If the phone provider does not resolve a complaint, our <Link href="/guides/broadband-complaints-and-ombudsman-uk">broadband and landline complaints guide</Link> explains the formal complaint and alternative dispute resolution process. For the wider deadline, provider names and home-phone setup, read the <Link href="/guides/landline-switch-off-explained-uk">UK landline switch-off guide</Link> and <Link href="/guides/digital-voice-explained-uk">Digital Voice guide</Link>.</p>
+      </>
+    ),
+    faqs: [
+      { question: 'Will my house alarm work after the digital switchover?', answer: 'A house alarm will work only if its installer or monitoring company confirms the exact dialler and service are compatible with the new digital connection. Older monitored alarms that call through an analogue socket may need an approved adapter, new communicator or replacement panel. Tell the phone provider too, then arrange a monitored end-to-end test after migration.' },
+      { question: 'Will my Careline or pendant alarm work with a digital phone?', answer: 'Some Careline and pendant alarms work with an approved digital setup, while analogue-only units may need an adapter or a digital replacement. Give the telecare provider the base unit’s exact make and model and ask for written confirmation. Tell the landline provider separately, agree power-cut protection and test with the monitoring centre after the line changes.' },
+      { question: 'Does my alarm need a phone line?', answer: 'An alarm needs a phone service only if its communicator dials through a telephone connection. Newer systems may use Ethernet, Wi-Fi or a mobile SIM, while a local siren may not contact a monitoring centre at all. Ask the installer how the exact model sends an alert and what happens during power, broadband and mobile outages.' },
+      { question: 'Will a lift phone work after the landline switch-off?', answer: 'A lift phone that uses an analogue line needs assessment and may require an IP or mobile replacement gateway. The building manager or responsible person should coordinate the lift company and communications provider, confirm backup power and test the emergency call path before the old service ends. Residents should report concerns rather than altering or testing lift equipment themselves.' },
+      { question: 'What happens to an alarm during a power cut?', answer: 'A digital phone line normally stops when its router loses mains power. An alarm battery alone may not power the router, adapter or fibre terminal needed to send the call. Trace and back up every required component. Eligible landline-dependent customers can receive a free emergency-calling solution from their phone provider, but alarm compatibility still needs separate confirmation.' },
+      { question: 'How do I test a telecare alarm after digital switchover?', answer: 'Arrange the test with the monitoring centre so it is not treated as an emergency. Activate the approved test, then confirm the centre received the correct identity, address, signal and two-way speech where fitted. Record the result and repeat after any router, provider, alarm or backup-power change. A dial tone by itself is not a complete test.' },
+    ],
+  },
+  'pstn-switch-off-small-business-uk': {
+    body: (
+      <>
+        <p className="text-lg"><strong>A small business still using a PSTN, ISDN or ADSL service must move it to a suitable digital replacement before 31 January 2027.</strong> Start with an inventory of every line and every device attached to it, not just desk phones. Card terminals, monitored alarms, lift phones, door entry, CCTV diallers, fax machines and telemetry may use an analogue line without appearing on the phone bill by a recognisable name.</p>
+        <p><a href="https://www.gov.uk/guidance/telecommunications-modernisation-connectivity-timeline" target="_blank" rel="noopener noreferrer">The UK Government says all users of the Openreach PSTN must be migrated by 31 January 2027</a>. Openreach supplies the underlying access network, but your communications provider sells and migrates your service. Equipment suppliers must separately confirm whether each connected device works over the proposed replacement. A promise that the new phone system works does not prove that an alarm or payment terminal will work.</p>
+
+        <h2>PSTN switch-off business checklist</h2>
+        <ol>
+          <li><strong>Find every line:</strong> match phone bills, socket labels, alarm contracts and equipment records to each business site.</li>
+          <li><strong>Name what uses it:</strong> record the number, device, supplier, business owner and what happens if it fails.</li>
+          <li><strong>Ask the device supplier:</strong> obtain written compatibility advice for the exact make, model and monitoring service.</li>
+          <li><strong>Choose the replacement:</strong> hosted VoIP, SIP, a digital provider service, mobile connectivity or another approved solution.</li>
+          <li><strong>Plan resilience:</strong> decide how calls and critical devices work during power, broadband and mobile outages.</li>
+          <li><strong>Test before closure:</strong> run old and new services in parallel where risk justifies it, then record every successful test.</li>
+        </ol>
+
+        <h2>Which small-business services are affected?</h2>
+        <p><strong>The switch-off affects more than voice calls.</strong> BT Business lists alarms, EPOS machines, door-entry systems, CCTV and fax among products that may use traditional lines. GOV.UK guidance also identifies tills, vending machines, franking machines and printers. Treat those examples as prompts for an audit, not proof that a particular device is affected.</p>
+        <div className="overflow-x-auto" role="region" aria-label="PSTN device migration register" tabIndex={0}>
+          <table className="w-full min-w-[760px] text-sm border-collapse">
+            <caption className="pb-3 text-left text-sm text-slate-600"><strong>PSTN device migration register:</strong> use one row per line or connected service. The supplier of the device or monitoring contract should approve the replacement.</caption>
+            <thead><tr className="bg-slate-50">{['Service or device', 'Ask this supplier', 'Evidence to obtain', 'Test before closure'].map((heading) => <th scope="col" key={heading} className="border border-slate-200 px-4 py-3 text-left font-semibold text-slate-700">{heading}</th>)}</tr></thead>
+            <tbody>{[
+              ['Desk phones or PBX', 'Phone-system maintainer and communications provider', 'Number-port plan, handset compatibility and call-feature list', 'Inbound, outbound, hunt group, voicemail and emergency calls'],
+              ['Card or EPOS terminal', 'Acquiring bank or terminal supplier', 'Approved IP or mobile connection and installation date', 'A live authorised transaction and receipt'],
+              ['Security or fire alarm', 'Alarm installer and monitoring centre', 'Approved communicator, signalling path and backup specification', 'A scheduled end-to-end monitored signal'],
+              ['Lift emergency phone', 'Lift company and building responsible person', 'Compliant replacement, power backup and maintenance owner', 'A witnessed call to the correct response centre'],
+              ['Door entry, CCTV or intercom', 'Installer or maintenance company', 'Exact model compatibility and remote-access method', 'Every call, alert and remote-control function'],
+              ['Fax, franking or telemetry', 'Equipment or application supplier', 'Supported digital workflow or replacement device', 'A real send-and-receive or reporting cycle'],
+            ].map(([device, supplier, evidence, test]) => <tr key={device}><th scope="row" className="border border-slate-200 px-4 py-3 text-left font-semibold text-slate-900">{device}</th><td className="border border-slate-200 px-4 py-3">{supplier}</td><td className="border border-slate-200 px-4 py-3">{evidence}</td><td className="border border-slate-200 px-4 py-3">{test}</td></tr>)}</tbody>
+          </table>
+        </div>
+
+        <h2>What replaces PSTN and ISDN?</h2>
+        <p><strong>Most small firms will replace voice calls with VoIP, but the right form depends on the existing phone system.</strong> Hosted VoIP puts the call platform in the provider&apos;s cloud and can serve desk phones, mobiles and computer apps. SIP trunking carries internet-based calls to a compatible on-site PBX. A simple digital voice line from a broadband provider may suit a single number with few call-handling needs.</p>
+        <p>SIP trunking is not a direct continuation of PSTN. It connects a compatible business phone system over IP. Keeping an old PBX can reduce handset changes, but only if its maintainer supports the proposed SIP service. Hosted VoIP removes more on-site telephony equipment and can make remote working easier, but it creates a clear dependency on local power, connectivity and the provider&apos;s platform.</p>
+        <p>Do not buy a voice replacement for a non-voice device until its supplier has approved the design. An analogue terminal connected through an adapter may appear to dial but still fail to transmit data reliably. The safer option may be an Ethernet model, a managed mobile communicator or a replacement designed for IP networks.</p>
+
+        <h2>ISDN switch-off: what changes for a phone system?</h2>
+        <p><strong>ISDN2 and ISDN30 services are included in the retirement of the old Wholesale Line Rental network.</strong> A business using multiple channels, a switchboard or Direct Dial In numbers should document every number and call route before migration. Confirm which numbers will be ported, which can be retired, how long the port should take and who can divert calls if the planned change fails.</p>
+        <p><a href="https://business.bt.com/help/article/phone-line-and-services/move-from-traditional-lines-to-the-cloud/the-pstn-and-isdn-switch-off-what-it-means-for-you/" target="_blank" rel="noopener noreferrer">BT Business says ISDN, Featureline, multiline and some broadband access products cannot be moved automatically</a> under its protective migration programme. Do not cancel the existing service before the new provider confirms the number port. Cancellation can jeopardise a number and removes the safest route to a parallel test.</p>
+
+        <h2>Power cuts, broadband failure and business continuity</h2>
+        <p><strong>A digital phone or device path can fail when mains power or broadband fails, even where the old analogue line worked without local power.</strong> Trace the whole path: handset or device, adapter, switch, router, firewall and fibre terminal. A battery on an alarm panel is not enough if the router it needs has no backup.</p>
+        <p><a href="https://www.ofcom.org.uk/siteassets/resources/documents/consumers/2024/published-letter-to-business-on-pstn-switch-off-deadline.pdf?v=412769" target="_blank" rel="noopener noreferrer">Ofcom says providers must offer at least one solution enabling a landline-dependent customer to contact emergency organisations for at least one hour during a power cut</a>. It recognises that a sole trader or small office with no mobile signal may need that protection. This safeguard is not a general uptime guarantee for a PBX, card machine or alarm.</p>
+        <p>Set a recovery objective for each service. A shop may accept a mobile card-terminal fallback for an hour, while a monitored fire alarm or lift phone needs a supplier-approved design and testing regime. Consider two genuinely independent routes where an outage stops trading or creates a safety risk. Two services sharing the same router, power socket or access circuit are not independent.</p>
+
+        <h2>A safe migration and test plan</h2>
+        <p><strong>For a critical service, prove the replacement before the cease order.</strong> The useful international model is a device-led readiness check: Australia&apos;s NBN guidance asks businesses to identify PBX systems, EFTPOS, alarms, lift phones and other equipment, then contact the relevant equipment provider. For a UK small business, add a named owner, written supplier approval and a witnessed end-to-end test.</p>
+        <ol>
+          <li>Export the current numbers, extensions, call routes and supplier contacts.</li>
+          <li>Install the new connection and retain the old service in parallel where the supplier permits it.</li>
+          <li>Test incoming and outgoing calls, caller ID, voicemail, transfers, hunt groups and emergency-call location handling where applicable.</li>
+          <li>Ask each device owner to run an end-to-end test with the receiving party, such as the alarm monitoring centre or acquiring bank.</li>
+          <li>Test the agreed outage fallback under supplier instructions.</li>
+          <li>Only then approve the port or closure. Record the asset, result, date and person who accepted it.</li>
+        </ol>
+
+        <h2>What a small business should do before 2027</h2>
+        <p><strong>Contact your communications provider now if any line remains unidentified or no migration date is booked.</strong> Ask for the product name on each circuit, whether it depends on PSTN, ISDN, WLR or ADSL, and the proposed replacement. Then verify connected equipment with its own supplier. Openreach advises customers to act before the deadline because late migration can leave too little time to find compatibility problems.</p>
+        <p>For connectivity and resilience choices, compare <Link href="/guides/best-business-broadband-providers-uk">UK business broadband providers</Link> and read our guide to <Link href="/guides/static-ip-business-broadband-explained">static IP business broadband</Link>. Our <Link href="/guides/small-office-broadband-setup-uk">small office broadband setup guide</Link> covers the wider router, backup and service-level checklist that a VoIP migration should sit alongside. For the domestic change, including ordinary home phones and telecare, use the <Link href="/guides/landline-switch-off-explained-uk">UK landline switch-off guide</Link>. The business task is broader because the same unnoticed line can support calls, safety equipment and payment systems.</p>
+      </>
+    ),
+    faqs: [
+      { question: 'When is the PSTN switch-off for UK businesses?', answer: 'The published Openreach PSTN deadline is 31 January 2027. A business can be migrated earlier by its communications provider. PSTN, ISDN and related Wholesale Line Rental services are affected, and BT Business also lists ADSL in its withdrawal programme. Check every circuit now because an alarm, lift phone or payment terminal may use a line that staff do not recognise as a telephone service.' },
+      { question: 'What should a small business do before the PSTN switch-off?', answer: 'Create a site-by-site register of phone lines and connected devices, name an owner for each, and ask both the communications provider and equipment supplier what must change. Choose the replacement, document number porting and power-cut arrangements, then test calls and every alarm, payment or monitoring path end to end before the old line is closed. Keep the results and support contacts.' },
+      { question: 'Will ISDN stop working in 2027?', answer: 'ISDN services on the old Openreach Wholesale Line Rental network are due to be withdrawn with PSTN by 31 January 2027. They will not become SIP automatically. A business using ISDN2, ISDN30, Featureline or a PBX should arrange an IP replacement, confirm hardware compatibility and port every number it needs. BT says some multiline and ISDN services cannot use its automatic protective migration.' },
+      { question: 'Should a small business choose SIP trunking or hosted VoIP?', answer: 'SIP trunking can suit a supported on-site PBX that the business wants to retain; hosted VoIP moves more of the phone system into the provider’s cloud and commonly suits firms wanting simpler administration or remote use. Compare number porting, handsets, call features, support, contract cost and failure arrangements. Neither choice proves that alarms or payment terminals are compatible, so check those separately.' },
+      { question: 'Will card machines and alarms work after the PSTN switch-off?', answer: 'Only if the device or service supplier confirms the exact setup. Some card terminals and alarms already use Ethernet or mobile data, while older models may dial over an analogue line. Ask the acquiring bank, installer or monitoring centre for an approved replacement, including backup power and connectivity, then perform a live transaction or scheduled monitored test before the old line closes.' },
+      { question: 'Can a business keep its existing phone number?', answer: 'A business can normally port an existing number to a digital service, but the receiving provider must confirm that the number and any associated range are portable. Give it a complete number inventory and agree the port date, call diversions and failure contact. Do not cancel the old line first, because a cease order can interrupt service and may put the number at risk.' },
+      { question: 'Does VoIP work during a power cut?', answer: 'VoIP needs power for the handset or adapter, network switch, router and any fibre terminal, so it normally stops if those components lose power. A mobile fallback or correctly sized battery supply can add resilience, but it must cover the whole call path. Ofcom’s emergency-calling protection for landline-dependent customers is not a general uptime promise for business phones, alarms or payment systems.' },
+    ],
+  },
+
+  'digital-voice-explained-uk': {
+    body: (
+      <>
+        <p className="text-lg"><strong>Digital Voice is a home phone service carried over the internet: speech travels through your broadband connection instead of the old analogue Public Switched Telephone Network.</strong> BT uses the Digital Voice name, Sky calls its digital home phone service Internet Calls and Virgin Media carries home phone calls through its Hub. You can usually keep a familiar handset and number, but the router must remain powered and connected.</p>
+
+        <h2>Digital Voice at a glance</h2>
+        <div className="overflow-x-auto" role="region" aria-label="Digital Voice practical changes" tabIndex={0}>
+          <table className="w-full min-w-[680px] text-sm border-collapse">
+            <caption className="pb-3 text-left text-sm text-slate-600">What normally stays the same and what needs checking before a digital phone migration.</caption>
+            <thead><tr className="bg-slate-50">{['Part of the service', 'What normally happens', 'What to check'].map((heading) => <th scope="col" key={heading} className="text-left px-4 py-3 border border-slate-200 font-semibold text-slate-700">{heading}</th>)}</tr></thead>
+            <tbody>{[
+              ['Phone number', 'Usually stays the same', 'Confirm number retention before changing provider'],
+              ['Existing handset', 'Most ordinary phones can still work', 'Socket type, adapter and extension wiring'],
+              ['Calls', 'Dial and answer much as before', 'Call features and voicemail after migration'],
+              ['Connection', 'Phone plugs into a router or supplied adapter', 'Router location and cable reach'],
+              ['Power cut', 'Standard service stops with the router', 'Backup power or another way to call'],
+              ['Alarms and telecare', 'Compatibility is not automatic', 'Device supplier approval and an end-to-end test'],
+            ].map(([part, normal, check]) => <tr key={part}><th scope="row" className="px-4 py-3 border border-slate-200 text-left font-semibold text-slate-900">{part}</th><td className="px-4 py-3 border border-slate-200">{normal}</td><td className="px-4 py-3 border border-slate-200">{check}</td></tr>)}</tbody>
+          </table>
+        </div>
+
+        <h2>What is BT Digital Voice?</h2>
+        <p><strong>BT Digital Voice is BT&apos;s home phone service delivered through a BT broadband connection.</strong> It is a branded form of Voice over Internet Protocol, usually shortened to VoIP. Your voice is converted into data, carried through the router and connected to ordinary UK telephone numbers. It is not a mobile service and it does not mean calls must be made through an app.</p>
+        <p><a href="https://www.bt.com/broadband/digital-voice" target="_blank" rel="noopener noreferrer">BT says existing customers are contacted with instructions and suitable equipment</a>. Depending on the setup, a telephone can connect to the phone socket on the Smart Hub, a supplied adapter or a compatible Digital Home Phone. Do not unplug the old service until BT gives the migration date. If the preferred phone sits away from the router, ask what adapter or wiring option applies before the change.</p>
+
+        <h2>Digital Voice, Sky Internet Calls and Virgin Media home phone compared</h2>
+        <p>The underlying idea is similar across providers, but the brand name, router and support arrangement differ. Treat the service as provider-specific rather than assuming an adapter or backup unit from one company works with another.</p>
+        <div className="overflow-x-auto" role="region" aria-label="UK digital home phone provider comparison" tabIndex={0}>
+          <table className="w-full min-w-[720px] text-sm border-collapse">
+            <caption className="pb-3 text-left text-sm text-slate-600">Provider terminology and published home setup, checked 14 September 2026.</caption>
+            <thead><tr className="bg-slate-50">{['Provider', 'Service name', 'Normal home connection', 'Published point to act on'].map((heading) => <th scope="col" key={heading} className="text-left px-4 py-3 border border-slate-200 font-semibold text-slate-700">{heading}</th>)}</tr></thead>
+            <tbody>{[
+              ['BT', 'Digital Voice', 'BT hub phone socket, adapter or compatible Digital Home Phone', 'Tell BT about telecare and reliance on the landline before migration'],
+              ['Sky', 'Internet Calls', 'Compatible phone connects to a Sky hub or phone adapter', 'The phone does not work if the hub is off, broadband fails or power is cut'],
+              ['Virgin Media', 'Digital voice or fibre phone line', 'Existing phone normally connects through the Virgin Media Hub', 'Contact Virgin Media about telecare, accessibility needs, no mobile or extension wiring'],
+            ].map(([provider, name, connection, action]) => <tr key={provider}><th scope="row" className="px-4 py-3 border border-slate-200 text-left font-semibold text-slate-900">{provider}</th><td className="px-4 py-3 border border-slate-200">{name}</td><td className="px-4 py-3 border border-slate-200">{connection}</td><td className="px-4 py-3 border border-slate-200">{action}</td></tr>)}</tbody>
+          </table>
+        </div>
+        <p>A provider can revise equipment and migration processes, so the letter or email for your account takes precedence over a general guide. Verify unexpected messages using the number on a bill or the provider&apos;s official website. <a href="https://www.citizensadvice.org.uk/consumer/phone-internet-downloads-or-tv/check-your-personal-alarm-will-work-after-the-landline-switch-off/" target="_blank" rel="noopener noreferrer">Citizens Advice warns that the provider will not ask you to pay simply to move an existing phone line to digital service</a>.</p>
+
+        <h2>Do I need a special phone for Digital Voice?</h2>
+        <p><strong>Most households do not need to buy a special Digital Voice phone.</strong> BT, Sky and Virgin Media each say many existing home phones can continue when plugged into the correct router socket or supplied adapter. A cordless system usually needs only its base station connected; the other handsets still communicate wirelessly with that base.</p>
+        <p>Compatibility can become less straightforward with very old handsets, pulse-dial phones, several separately wired base stations or extension sockets in different rooms. Ask the provider whether it will reactivate extension wiring, supply an adapter or arrange an engineer. Do not buy a handset before checking the exact router and service because an ordinary compatible phone may already be sufficient.</p>
+
+        <h2>Will Digital Voice work in a power cut?</h2>
+        <p><strong>A standard Digital Voice line will not work if the broadband router loses mains power, and it can also fail during a broadband outage.</strong> That includes calls to 999 and 112. <a href="https://www.ofcom.org.uk/phones-and-broadband/landline-phones/future-of-landline-calls" target="_blank" rel="noopener noreferrer">Ofcom says providers must offer at least one hour of access to emergency organisations during a power cut</a> to customers who depend on the landline because they have no other way to call.</p>
+        <p>The practical solution can be a battery unit, a mobile-network backup device or another arrangement chosen by the provider. Ask what equipment is covered, who qualifies, how long it works and whether the handset or cordless base also needs power. A cordless phone base can stop even when the router has a battery, so a compatible corded handset may form part of the plan. Keep a charged mobile and power bank where mobile coverage and the user&apos;s ability make that suitable.</p>
+
+        <h2>Telecare, personal alarms and other connected equipment</h2>
+        <p>Tell the phone provider before migration if the line supports a care pendant, personal alarm, monitored burglar or fire alarm, lift phone, fax, entry system, card terminal or accessibility device. Then contact the organisation that supplied or monitors the equipment. A handset making an ordinary call does not prove that a monitoring centre receives the device&apos;s data or the correct address.</p>
+        <p><a href="https://www.citizensadvice.org.uk/consumer/phone-internet-downloads-or-tv/check-your-personal-alarm-will-work-after-the-landline-switch-off/" target="_blank" rel="noopener noreferrer">Citizens Advice recommends checking the exact personal-alarm model with its supplier</a>. Get written confirmation of compatibility or arrange a replacement, then perform a supervised end-to-end test after Digital Voice activates. Our <Link href="/guides/telecare-alarms-landline-switch-off-uk">alarm and telecare switchover checklist</Link> covers house alarms, Careline pendants, lift phones and a written critical information record. If a safety-critical device is not ready, ask the phone provider and equipment supplier to agree a safe migration plan rather than relying on an untested adapter.</p>
+
+        <h2>Your Digital Voice readiness card</h2>
+        <div className="rounded-xl border border-sky-200 bg-sky-50 p-5">
+          <p className="font-semibold text-slate-900">Write these five answers down before migration day:</p>
+          <ol className="mb-0">
+            <li><strong>Connection:</strong> which router socket or adapter will the main phone use?</li>
+            <li><strong>Rooms:</strong> will every required handset or extension still ring?</li>
+            <li><strong>Devices:</strong> has each alarm or telecare supplier approved the exact model?</li>
+            <li><strong>Outage:</strong> how will this household call 999 if power and broadband stop?</li>
+            <li><strong>Test:</strong> who will confirm incoming calls, outgoing calls and monitored-device signals?</li>
+          </ol>
+        </div>
+        <p>This written readiness card adapts the emergency communications checklist used by Australia&apos;s nbn for a UK household. It puts the phone, router, power and dependent devices into one test plan, rather than treating a dial tone as the only measure of a safe migration.</p>
+
+        <h2>What to do on migration day</h2>
+        <ol>
+          <li>Follow the dated instructions from the company that bills for the home phone service.</li>
+          <li>Connect the telephone only to the router socket or adapter specified by that provider.</li>
+          <li>Wait for the router and phone service lights to reach their normal state.</li>
+          <li>Make an outgoing call, then call the home number from another line and check caller display and voicemail.</li>
+          <li>Test every required extension handset and complete supervised tests with alarm or telecare monitoring centres.</li>
+          <li>Keep the router powered, store the provider&apos;s fault number elsewhere and practise the agreed power-cut route.</li>
+        </ol>
+        <p>If the number is missing, there is no dial tone or a safety device fails, contact the phone provider from another line and record the time, equipment lights and fault reference. The broader <Link href="/guides/landline-switch-off-explained-uk">UK landline switch-off guide</Link> explains the 31 January 2027 deadline, landline-only services and the difference between retiring PSTN voice and removing copper broadband.</p>
+
+        <h2>Should you keep a home phone service?</h2>
+        <p>Keep it if household members use the number, mobile coverage is poor or a compatible accessibility or safety arrangement depends on it. Giving up the service is reasonable where nobody uses it and every emergency route has been checked, but removing a call plan does not always reduce the broadband bundle price. Ask the provider for broadband-only and broadband-with-phone totals before deciding.</p>
+        <p>If you change broadband company at the same time, tell the new provider that the landline number must transfer and do not cancel the old service first. Our <Link href="/guides/how-to-switch-broadband-uk">broadband switching guide</Link> covers number transfer and One Touch Switch, while the <Link href="/guides/broadband-complaints-and-ombudsman-uk">complaints guide</Link> explains the escalation route if agreed support is not delivered. Firms should instead use the <Link href="/guides/pstn-switch-off-small-business-uk">PSTN switch-off checklist for small businesses</Link>, which covers ISDN, PBX systems, alarms and payment terminals.</p>
+      </>
+    ),
+    faqs: [
+      { question: 'What is BT Digital Voice?', answer: 'BT Digital Voice is BT’s internet-based home phone service. Calls travel through a BT broadband router rather than the old analogue telephone network. You can still call ordinary landline and mobile numbers, and usually keep your existing number. The main practical changes are where the phone plugs in and the need for working router power and broadband.' },
+      { question: 'Do I need a special phone for Digital Voice?', answer: 'Most existing corded and cordless phones can work with Digital Voice when connected to the provider’s router socket or supplied adapter. A cordless system normally needs only its base station connected. Ask the provider about very old phones, separate wired extensions or a phone far from the router before buying anything, because an adapter or engineer visit may solve the setup.' },
+      { question: 'Does Digital Voice work in a power cut?', answer: 'Digital Voice normally stops when the broadband router loses mains power, so calls to 999 and 112 can fail too. Tell the provider if anyone depends on the landline or lacks another emergency-calling method. Ofcom requires at least one hour of emergency access for eligible customers, but the backup equipment and qualification process vary by provider.' },
+      { question: 'What is Sky Digital Voice called?', answer: 'Sky calls its digital home phone service Internet Calls rather than Digital Voice. An existing compatible phone connects to a Sky hub or phone adapter, not the old telephone wall socket. Sky says the service will not work when the hub is switched off, broadband fails or power is cut, so households need another emergency-calling route.' },
+      { question: 'How does the Virgin Media landline switch-off work?', answer: 'Virgin Media moves its home phone service from the old analogue network to a digital connection through the Hub. Most customers can keep their number and handset, but the phone’s connection point changes. Contact Virgin Media before migration about telecare, accessibility needs, no mobile access, a phone far from the Hub or separately wired extensions.' },
+      { question: 'Will a personal alarm work with Digital Voice?', answer: 'Compatibility depends on the exact alarm and monitoring service, so do not rely on an ordinary dial tone. Tell both the phone provider and alarm supplier before migration, obtain model-specific confirmation or replacement advice and arrange an end-to-end test afterwards. The monitoring centre should confirm that it received the alarm signal and correct household details.' },
+      { question: 'Can I keep my landline number with Digital Voice?', answer: 'A migration to digital service with the same provider normally keeps the existing landline number. If you also change provider or move home, request number transfer during the new order and get confirmation before cancelling anything. Cancelling the old line first can put the number at risk, so let the gaining provider explain and coordinate the transfer process.' },
+    ],
+  },
+
+  'landline-switch-off-explained-uk': {
+    body: (
+      <>
+        <p className="text-lg"><strong>The UK landline switch-off retires the old Public Switched Telephone Network, or PSTN, by 31 January 2027 and moves phone calls to digital services carried over an internet connection.</strong> Your home phone is not being banned. Most customers can keep a landline number and existing handset, but the phone will usually connect to a broadband router or adapter and may stop working in a power cut unless backup is provided.</p>
+
+        <h2>What the landline switch-off means at a glance</h2>
+        <div className="overflow-x-auto" role="region" aria-label="Landline switch-off changes at a glance" tabIndex={0}>
+          <table className="w-full min-w-[680px] text-sm border-collapse">
+            <caption className="pb-3 text-left text-sm text-slate-600">The practical difference between an old PSTN line and a digital phone service.</caption>
+            <thead><tr className="bg-slate-50">{['Question', 'Old PSTN service', 'Digital phone service'].map((heading) => <th scope="col" key={heading} className="text-left px-4 py-3 border border-slate-200 font-semibold text-slate-700">{heading}</th>)}</tr></thead>
+            <tbody>{[
+              ['Where does the phone connect?', 'Usually a wall phone socket', 'Usually the router or a supplied adapter'],
+              ['How are calls carried?', 'Legacy telephone switching network', 'Voice over Internet Protocol, or VoIP'],
+              ['Can you keep a home phone?', 'Yes', 'Yes, if you retain a voice service'],
+              ['Does it work in a home power cut?', 'A basic corded phone often can', 'Not without working backup power or another resilient solution'],
+              ['What needs checking?', 'Few household devices changed', 'Telecare, alarms, fax, lift phones and other line-connected equipment'],
+            ].map(([question, oldService, digitalService]) => <tr key={question}><th scope="row" className="px-4 py-3 border border-slate-200 text-left font-semibold text-slate-900">{question}</th><td className="px-4 py-3 border border-slate-200">{oldService}</td><td className="px-4 py-3 border border-slate-200">{digitalService}</td></tr>)}</tbody>
+          </table>
+        </div>
+
+        <h2>When is the landline being switched off?</h2>
+        <p><strong>Openreach says providers must move customers from analogue to digital phone lines by 31 January 2027.</strong> The original industry target was December 2025, but it was extended after safety concerns about telecare users and people who rely on a landline. The House of Commons Library reported that residential customers still on the PSTN fell from 5.2 million in July 2024 to 3.2 million in July 2025.</p>
+        <p>Your own changeover can happen before the national deadline. The company that bills you for phone or broadband service should contact you, explain the date and provide any router or adapter it requires. Do not act on an unexpected caller demanding money or bank details. Citizens Advice says a provider will not charge you simply to change the phone line to digital service.</p>
+
+        <h2>What is actually being switched off?</h2>
+        <p>The PSTN is the ageing network equipment that provides traditional fixed-line voice calls. Digital Voice is a common brand name for its replacement; the general technology is Voice over Internet Protocol, or VoIP. It turns speech into data and routes the call through the provider&apos;s broadband-based phone platform. Other companies use names such as IP Voice or their own branded voice service. Our <Link href="/guides/digital-voice-explained-uk">Digital Voice explainer</Link> compares the names and practical home setup published by BT, Sky and Virgin Media.</p>
+        <p><strong>The PSTN switch-off is not the same as removing every copper cable or completing full-fibre coverage.</strong> A property without fibre to the premises can still receive broadband over part of the existing copper access line while calls use a digital service. The January 2027 change concerns legacy phone service. Full-fibre construction follows a separate timetable, so a claim that every copper broadband connection dies on one day is misleading.</p>
+
+        <h2>Will I lose my home phone or number?</h2>
+        <p>You do not have to give up home phone service because of the digital voice switchover. GOV.UK says a landline-only option remains available for customers who do not want a general internet service. In practice, the provider may install an internet-based connection dedicated to carrying calls. Ask it to state the monthly price, included calls, equipment and power-cut arrangements before agreeing.</p>
+        <p>Tell the provider that you want to keep your existing number before any service is cancelled or moved. A routine migration with the same company should normally preserve it, but a house move or change of provider can require a separate number-porting process. Do not cancel the old line yourself until the gaining provider confirms how the number will transfer. Our <Link href="/guides/how-to-switch-broadband-uk">UK broadband switching guide</Link> explains the managed switching process.</p>
+
+        <h2>How a digital phone line works at home</h2>
+        <p>Most households will plug a compatible telephone into a labelled phone socket on the broadband router. If the router and preferred telephone are in different rooms, the provider may offer an adapter or another installation option. The old extension sockets around the property may not work automatically, so ask before the migration if several rooms need a phone.</p>
+        <p>The router must be switched on and connected for the digital phone to work. Check the new dial tone, make an outgoing call and ring the home number from another phone on migration day. Test voicemail, caller display and any call-blocking feature you use. Keep the provider&apos;s fault number somewhere accessible away from the router.</p>
+
+        <h2>What happens during a power cut?</h2>
+        <p><strong>A normal digital landline stops working when the router loses power.</strong> Ofcom requires providers to offer a solution that enables access to emergency organisations for at least one hour during a power cut for customers who depend on the landline because they do not have another way to call. The solution can vary, so ask exactly what it powers, how long it lasts and how it must be maintained.</p>
+        <p>BT says its battery backup provides at least one hour of power for its hub, allowing essential calls when the handset is connected correctly. Another provider may use different backup equipment or a mobile-network device. A battery is not a guarantee against every outage: it must be charged, connected to the right equipment and may run out during a long cut. Keep a charged mobile if coverage and ability allow, and test the agreed backup rather than leaving it boxed.</p>
+
+        <h2>Telecare, alarms and other devices to check</h2>
+        <p>Anything connected to a telephone wall socket needs an explicit compatibility check. That includes personal alarms and fall pendants, monitored security or fire alarms, lift emergency phones, fax machines, card terminals, entry systems and some accessibility equipment. A device producing a dial tone is not proof that its monitoring centre receives the correct signal.</p>
+        <p>Contact both the phone provider and the organisation responsible for each device before accepting a migration date. Citizens Advice advises personal-alarm users to ask the telecare provider whether the equipment works with a digital phone line. If it does not, the supplier may need to replace the unit or fit an adapter. Ask for an end-to-end test with the monitoring centre after installation.</p>
+
+        <h3>Make a line-dependent device inventory</h3>
+        <div className="overflow-x-auto" role="region" aria-label="Line-dependent device inventory" tabIndex={0}>
+          <table className="w-full min-w-[720px] text-sm border-collapse">
+            <caption className="pb-3 text-left text-sm text-slate-600">Write one row for every device before your provider changes the line.</caption>
+            <thead><tr className="bg-slate-50">{['Device or service', 'Who supports it?', 'Compatibility confirmed?', 'Power-cut plan', 'Migration-day test'].map((heading) => <th scope="col" key={heading} className="text-left px-4 py-3 border border-slate-200 font-semibold text-slate-700">{heading}</th>)}</tr></thead>
+            <tbody>{[
+              ['Personal alarm or telecare pendant', 'Council, care provider or alarm company', 'Ask for the model in writing', 'Battery and mobile backup, if supplied', 'Trigger a test call to the monitoring centre'],
+              ['Security or fire alarm', 'Installer or monitoring company', 'Confirm digital-line support', 'Confirm panel battery duration', 'Verify the alarm signal was received'],
+              ['Telephone and extension sockets', 'Phone provider', 'Confirm handset and room setup', 'Corded handset plus agreed backup', 'Incoming and outgoing calls'],
+              ['Fax, entry system or card terminal', 'Equipment supplier', 'Ask whether replacement is required', 'Agree an alternative process', 'Send a real test transmission'],
+            ].map(([device, owner, compatibility, backup, test]) => <tr key={device}><th scope="row" className="px-4 py-3 border border-slate-200 text-left font-semibold text-slate-900">{device}</th><td className="px-4 py-3 border border-slate-200">{owner}</td><td className="px-4 py-3 border border-slate-200">{compatibility}</td><td className="px-4 py-3 border border-slate-200">{backup}</td><td className="px-4 py-3 border border-slate-200">{test}</td></tr>)}</tbody>
+          </table>
+        </div>
+        <p>This inventory adapts a useful safety pattern from Australian and New Zealand copper-transition guidance: identify every dependent device, its responsible supplier and its separate power requirement. It avoids the common mistake of testing only the telephone handset while leaving a personal alarm or monitored device unchecked.</p>
+
+        <h2>What vulnerable customers should do now</h2>
+        <p>Contact the phone provider now if anyone at the address relies on the landline, cannot use a mobile, has poor mobile reception, uses telecare or needs extra help installing equipment. Ask it to record the circumstances on the account and explain the resilient calling solution. GOV.UK says providers should identify and support at-risk customers, while the industry&apos;s commitments include extra protections for telecare users. Use our <Link href="/guides/telecare-alarms-landline-switch-off-uk">digital switchover alarm checklist</Link> to identify the device, assign the compatibility checks and record an end-to-end test.</p>
+        <p>Use plain, specific questions: “How will this household call 999 in a power cut?”, “How long does your backup last?”, “Who installs and tests it?” and “Will you confirm that the migration is paused until the telecare supplier says the device is compatible?” Keep the answers and appointment date. If the provider does not resolve a safety concern, make a formal complaint and follow our <Link href="/guides/broadband-complaints-and-ombudsman-uk">broadband complaint and ombudsman guide</Link>.</p>
+
+        <h2>Landline switch-off checklist</h2>
+        <ol>
+          <li><strong>Wait for a genuine notice, but do not ignore it:</strong> verify it through the number on your bill or provider&apos;s official website.</li>
+          <li><strong>List every connected device:</strong> check wall sockets, alarm panels, pendants, entry systems, fax machines and payment terminals.</li>
+          <li><strong>Tell the provider about vulnerability:</strong> explain reliance on emergency calls, mobile coverage, disability or telecare before a date is fixed.</li>
+          <li><strong>Ask each equipment supplier about VoIP:</strong> obtain compatibility and replacement advice for the exact model.</li>
+          <li><strong>Agree the home setup:</strong> confirm the router location, adapters, extension-phone needs and who will install them.</li>
+          <li><strong>Agree a power-cut plan:</strong> identify the backup device, minimum operating time, charging routine and alternative way to call.</li>
+          <li><strong>Protect the phone number:</strong> confirm porting before cancelling any old service.</li>
+          <li><strong>Test end to end:</strong> make and receive calls, then trigger supervised tests for every monitored device.</li>
+        </ol>
+
+        <h2>What to do if the switch goes wrong</h2>
+        <p>Call the provider from another phone if the new line has no dial tone, cannot make emergency calls or has lost the existing number. For a telecare or alarm failure, contact the monitoring organisation as well and use the agreed alternative safety plan. Record times, error messages, equipment lights and the names of people spoken to.</p>
+        <p>Ask the provider to log a formal complaint when a fault or promised protection is not fixed. Ofcom collects reports and sets sector rules but does not decide individual compensation disputes. An unresolved complaint can go to the provider&apos;s approved alternative dispute resolution scheme after the applicable waiting period or sooner with a deadlock letter. Business users with ISDN, a PBX or non-voice equipment should follow the separate <Link href="/guides/pstn-switch-off-small-business-uk">business PSTN migration and test plan</Link>.</p>
+      </>
+    ),
+    faqs: [
+      { question: 'When is the UK landline being switched off?', answer: 'Openreach says providers must migrate customers from analogue PSTN phone lines by 31 January 2027. Your provider can move your individual service earlier and should contact you with the date and equipment instructions. The original December 2025 target was extended after concerns about telecare users and people who depend on a landline.' },
+      { question: 'Will I lose my home phone after the landline switch-off?', answer: 'No. The old PSTN technology is closing, not home phone service itself. You can keep a digital landline, usually by connecting a compatible phone to your broadband router or an adapter. GOV.UK also says a landline-only option remains for people who do not want a general internet service, although the underlying connection will be digital.' },
+      { question: 'Will my existing phone work with Digital Voice?', answer: 'Many existing corded and cordless phones work when connected to the provider&apos;s router or adapter, but the exact handset and extension setup must be checked. Ask the provider before migration if the telephone is old, sits far from the router or uses several wall sockets. Test incoming and outgoing calls as soon as the new service activates.' },
+      { question: 'Does Digital Voice work during a power cut?', answer: 'A standard digital phone service will not work when its broadband router loses power. If you depend on the landline and have no other way to contact emergency services, tell the provider. Ofcom requires an emergency-calling solution lasting at least one hour for eligible customers. Ask how its backup works, then keep it charged and test it.' },
+      { question: 'What happens to a personal alarm during the digital voice switchover?', answer: 'A personal alarm may need an adapter or replacement before the phone line changes. Tell both the landline provider and the telecare supplier, giving the exact alarm model. Do not assume a dial tone proves compatibility. After installation, arrange an end-to-end test and confirm that the monitoring centre received the alarm signal and your address details correctly.' },
+      { question: 'Is the PSTN switch-off the same as the copper phone line switch-off?', answer: 'The January 2027 deadline retires the PSTN voice service, but it does not mean every copper cable or part-copper broadband connection disappears that day. Some homes can continue receiving broadband over copper from the street cabinet while phone calls use VoIP. Full-fibre rollout and physical copper withdrawal are related programmes with different schedules.' },
+      { question: 'Do I have to pay to change to a digital phone line?', answer: 'You should not be charged simply for the provider-led migration of an existing phone service. Citizens Advice warns that an unexpected demand for payment or bank details may be a scam. Verify every message using contact details on your bill or the provider&apos;s official website. Optional call packages, new handsets or unrelated broadband upgrades can still have charges.' },
+    ],
+  },
+
+  'fix-wifi-dead-spots-uk': {
+    body: (
+      <>
+        <p className="text-lg"><strong>A Wi-Fi dead spot is a room or part of a room where the wireless signal is absent or too weak for a dependable connection.</strong> Start by comparing a test beside the router with the same test in the problem room. If the nearby result is healthy, a more expensive broadband package will not carry the radio signal through a wall. Fix placement or coverage first.</p>
+
+        <h2>Diagnose the dead spot before buying equipment</h2>
+        <p>Use one phone or laptop for every test, pause large downloads and keep the device in roughly the same position in each room. Run our <Link href="/tools/speed-test">broadband speed test</Link> beside the router, then repeat it at the place where calls, streaming or browsing fail. Record download speed, upload speed, ping and whether the connection drops completely. Test once during a quiet period and again when the problem usually occurs.</p>
+        <p>A poor result beside the router can indicate a line, router or device problem. Restart the router once, check its cables and updates, then test by Ethernet if possible. A good wired result and poor Wi-Fi result throughout the home points to wireless setup or old equipment. A good nearby Wi-Fi result but poor result in one room identifies a coverage problem. If Ethernet is also below the address-specific minimum guaranteed speed, contact the provider rather than buying a booster.</p>
+
+        <h3>Room-by-room Wi-Fi baseline and retest</h3>
+        <div className="overflow-x-auto" role="region" aria-label="Room-by-room Wi-Fi baseline and retest worksheet" tabIndex={0}>
+          <table className="w-full min-w-[720px] text-sm border-collapse">
+            <caption className="pb-3 text-left text-sm text-slate-600">Write down the same measures before and after each change so a better signal icon is not mistaken for a better connection.</caption>
+            <thead><tr className="bg-slate-50">{['Test location', 'Download and upload', 'Ping or dropouts', 'Change made', 'Retest result'].map((heading) => <th scope="col" key={heading} className="text-left px-4 py-3 border border-slate-200 font-semibold text-slate-700">{heading}</th>)}</tr></thead>
+            <tbody>{[
+              ['Beside the router', 'Your baseline', 'Record both', 'None', 'Reference result'],
+              ['Weak room at the usual device position', 'Same test and device', 'Record both', 'None', 'Problem result'],
+              ['Weak room after moving the router', 'Same test and device', 'Record both', 'Placement only', 'Keep or reverse'],
+              ['Weak room after adding equipment', 'Same test and device', 'Record both', 'Name the extender, node or access point', 'Compare with baseline'],
+            ].map(([location, speed, stability, change, result]) => <tr key={location}><th scope="row" className="px-4 py-3 border border-slate-200 text-left font-semibold text-slate-900">{location}</th><td className="px-4 py-3 border border-slate-200">{speed}</td><td className="px-4 py-3 border border-slate-200">{stability}</td><td className="px-4 py-3 border border-slate-200">{change}</td><td className="px-4 py-3 border border-slate-200">{result}</td></tr>)}</tbody>
+          </table>
+        </div>
+
+        <h2>Move the router and remove common obstacles</h2>
+        <p><strong>Ofcom recommends placing a router out in the open, off the floor and roughly central in the home.</strong> Keep it away from radiators, fish tanks, metal objects, large mirrors and thick walls because water, metal, glass and dense building materials weaken radio signals. Do not hide it in a cupboard or behind a television. Even moving it from floor level to an open shelf can clear obstacles between the aerials and upstairs rooms.</p>
+        <p>The broadband entry point may limit movement. A longer suitable Ethernet cable can sometimes let a separate router or access point sit more centrally, but do not bend or extend fibre cables casually. Ask the provider what can move if the optical network terminal, cable socket or master socket is in an awkward corner. Keep the router powered so it can receive security and performance updates.</p>
+        <p>Test both radio bands if the router lets you choose. The 2.4GHz band generally reaches farther and passes through obstacles better, while 5GHz can be faster at shorter range. Automatic band steering often makes this choice for each device. Changing the band may improve Wi-Fi not reaching upstairs, but it cannot overcome every brick wall or reinforced floor.</p>
+
+        <h2>Choose the right fix for your home</h2>
+        <div className="overflow-x-auto" role="region" aria-label="Wi-Fi dead spot fix comparison" tabIndex={0}>
+          <table className="w-full min-w-[760px] text-sm border-collapse">
+            <caption className="pb-3 text-left text-sm text-slate-600">Start with the least costly option that addresses the measured cause.</caption>
+            <thead><tr className="bg-slate-50">{['Situation', 'Start with', 'Main limitation', 'Placement check'].map((heading) => <th scope="col" key={heading} className="text-left px-4 py-3 border border-slate-200 font-semibold text-slate-700">{heading}</th>)}</tr></thead>
+            <tbody>{[
+              ['One nearby weak room', 'Router move or range extender', 'A wireless extender shares an already limited link', 'Install where the router signal is still usable'],
+              ['Several weak rooms or floors', 'Mesh Wi-Fi', 'Wireless backhaul also loses strength through obstacles', 'Put nodes between the router and weak area'],
+              ['Thick walls but suitable electrical wiring', 'Powerline adapter with Wi-Fi', 'Performance depends on the home wiring and circuits', 'Use wall sockets and check the manufacturer instructions'],
+              ['Home office, gaming room or stubborn dead spot', 'Ethernet or a wired access point', 'Cable installation takes planning', 'Run cable to the room, then broadcast locally if needed'],
+            ].map(([situation, start, limit, placement]) => <tr key={situation}><th scope="row" className="px-4 py-3 border border-slate-200 text-left font-semibold text-slate-900">{situation}</th><td className="px-4 py-3 border border-slate-200">{start}</td><td className="px-4 py-3 border border-slate-200">{limit}</td><td className="px-4 py-3 border border-slate-200">{placement}</td></tr>)}</tbody>
+          </table>
+        </div>
+
+        <h2>When a Wi-Fi extender is enough</h2>
+        <p>A range extender can be a sensible wifi black spots fix for one room near the edge of the router&apos;s coverage. It receives the existing wireless signal and rebroadcasts it. That means it must sit between the router and dead spot, where the original signal remains usable. An extender placed inside a complete dead zone has little useful connection to repeat.</p>
+        <p>Expect some performance cost when the same radio handles traffic to the router and device. Some products create a second network name, which can leave a phone attached to the weaker connection as you move. Check compatibility, supported Wi-Fi generation, security updates and whether the unit provides an Ethernet socket. Retest the application that matters, such as a work call, rather than relying only on the number of signal bars.</p>
+
+        <h2>When mesh Wi-Fi is the better answer</h2>
+        <p>Mesh Wi-Fi uses a main unit and one or more nodes under one managed network. It is usually the clearer choice for several dead spots, a long property or multiple floors. Place each node where it can still communicate well with the main router or previous node. Ofcom warns that too many mesh boxes can make performance worse, so add only what the layout needs and follow the maker&apos;s spacing guidance.</p>
+        <p>Ethernet backhaul connects mesh nodes by cable and removes the need for their inter-node traffic to cross difficult walls wirelessly. It is especially useful in brick homes, extensions and converted lofts. Before buying, read our <Link href="/guides/best-mesh-wifi-for-your-broadband-router">mesh Wi-Fi buying guide</Link> and check whether the provider router must stay connected for digital voice or television. Access-point or bridge mode can prevent two routers from competing to manage the same home network.</p>
+
+        <h2>Powerline, Ethernet and wired access points</h2>
+        <p>Powerline adapters carry network data over the home&apos;s electrical wiring. They can reach a room that defeats wireless backhaul, but performance varies with wiring condition, circuits and electrical noise. Ofcom advises checking for a UKCA or CE safety mark. Follow the product instructions, connect directly to suitable wall sockets where specified and keep the receipt so you can test the equipment in the actual property.</p>
+        <p>Ethernet is the most predictable connection for a fixed television, games console or work computer. A cable can also feed a wired access point in the weak room, creating a strong local Wi-Fi signal without asking it to cross every wall twice. Use cable rated for the speed of the network. For rented homes, agree any drilling or permanent cable route with the landlord first.</p>
+
+        <h2>Why broadband is fine but Wi-Fi is slow</h2>
+        <p>Broadband is the service entering the router; Wi-Fi is the local radio link between the router and a device. Ofcom states that Wi-Fi cannot outperform the broadband service, but a strong broadband line can still be followed by weak Wi-Fi in one room. Distance, walls, congestion, the device&apos;s radio and the router&apos;s position can all reduce the speed after it enters the home.</p>
+        <p>Use our <Link href="/guides/broadband-speeds-explained">broadband speeds explained guide</Link> to compare line speed with device speed. If every device is slow even over Ethernet, report the connection problem. If only one old device is slow beside the router, update it and test another device. If several devices work beside the router but not upstairs, improve coverage rather than upgrading the package. The next step is to <Link href="/guides/replace-isp-router-uk">decide whether to replace the provider router</Link>, add an access point or leave the hub in place.</p>
+
+        <h2>A practical order for fixing weak Wi-Fi</h2>
+        <ol>
+          <li><strong>Measure:</strong> test one device beside the router and at the exact dead spot.</li>
+          <li><strong>Separate line from Wi-Fi:</strong> use Ethernet where possible and compare the result with the provider&apos;s speed estimate.</li>
+          <li><strong>Reposition:</strong> move the router into the open, higher and away from dense obstacles, then retest.</li>
+          <li><strong>Check the device and band:</strong> install updates and compare 2.4GHz with 5GHz if controls are available.</li>
+          <li><strong>Add the smallest suitable fix:</strong> use an extender for one edge room, mesh for several rooms, powerline where wiring helps, or Ethernet for dependable fixed use.</li>
+          <li><strong>Retest and return poor hardware:</strong> repeat the same room-by-room checks before committing to more nodes or a faster package.</li>
+        </ol>
+      </>
+    ),
+    faqs: [
+      { question: 'How do I fix Wi-Fi dead spots at home?', answer: 'Test beside the router and in the dead spot with the same device. If the nearby result is good, move the router into the open, off the floor and away from thick walls, metal and water, then retest. Use an extender for one edge room, mesh for several rooms, or Ethernet and a wired access point for stubborn obstacles.' },
+      { question: 'Why is my Wi-Fi bad in only one room?', answer: 'Wi-Fi can be bad in one room because distance, brick or concrete walls, metal, mirrors, water or an awkward floor blocks the signal after it leaves the router. A good speed beside the router confirms the broadband line may be fine. Reposition the router first, then place any extender or mesh node where it still receives a usable signal.' },
+      { question: 'What should I do if Wi-Fi is not reaching upstairs?', answer: 'Place the router high and in the open, then test 2.4GHz because it usually reaches farther than 5GHz. If the floor still blocks service, put a mesh node between the router and upstairs area, not inside the dead spot. Powerline may help where the electrical wiring suits it; Ethernet backhaul to an upstairs access point is the most dependable option.' },
+      { question: 'Will a faster broadband package improve Wi-Fi signal at home?', answer: 'No. A faster package increases the potential speed reaching the router but does not increase the router&apos;s radio range. If Ethernet and nearby Wi-Fi are fast while one room is slow, spend on placement or coverage rather than line speed. If Ethernet is also below the provider&apos;s minimum guaranteed speed, report that broadband problem to the provider.' },
+      { question: 'Is mesh Wi-Fi better than a range extender?', answer: 'Mesh Wi-Fi is usually better for several weak rooms because its nodes share one managed network and can support smoother roaming. A range extender costs less and may be enough for one nearby room. Both need a good link back to the router. Ethernet backhaul makes mesh more dependable where thick walls or floors weaken the wireless connection between nodes.' },
+      { question: 'Where should I place a Wi-Fi extender or mesh node?', answer: 'Place it between the router and weak area, where the router signal is still stable. Do not put a wireless extender or mesh node deep inside the dead spot because it cannot repeat a connection it barely receives. Keep it in the open and away from large metal objects, water and dense obstacles, then retest the target room before fixing its final position.' },
+    ],
+  },
+
+  'replace-isp-router-uk': {
+    body: (
+      <>
+        <p className="text-lg"><strong>Keep the provider router unless a repeatable test shows it is holding your home network back.</strong> A replacement can improve Wi-Fi capacity, controls and local-network performance, but it cannot increase the broadband speed entering the property. It can also remove provider-managed phone, TV, mesh or diagnostic features.</p>
+        <p>Our starting recommendation is to test first, then choose the least disruptive fix. Ofcom says an older router or frequent disconnections can justify an upgrade, but also warns that a third-party model can be difficult to configure and the provider may not support it. Ask the provider for a newer hub before spending, especially if the supplied model is old or faulty.</p>
+
+        <h2>Router replacement decision at a glance</h2>
+        <div className="overflow-x-auto" role="region" aria-label="ISP router replacement decision table" tabIndex={0}>
+          <table className="w-full min-w-[720px] text-sm border-collapse">
+            <caption className="pb-3 text-left text-sm text-slate-600">Match the measured problem to the smallest change likely to fix it.</caption>
+            <thead><tr className="bg-slate-50">{['What your tests show', 'Best first step', 'Why', 'Do not expect'].map((heading) => <th scope="col" key={heading} className="border border-slate-200 px-4 py-3 text-left font-semibold text-slate-700">{heading}</th>)}</tr></thead>
+            <tbody>{[
+              ['Ethernet and nearby Wi-Fi are both slow', 'Check the line, package and provider fault status', 'The router may be receiving a slow service', 'A router to exceed the incoming line speed'],
+              ['Ethernet is fast but one room is weak', 'Reposition the hub or add a wired access point or mesh', 'This is mainly a coverage problem', 'One expensive router to defeat every wall'],
+              ['Nearby Wi-Fi slows with many active devices', 'Compare a newer router or mesh system', 'Newer Wi-Fi can manage busy local traffic better', 'Older phones to gain a newer Wi-Fi standard'],
+              ['You need VLANs, VPN hosting or detailed controls', 'Use a compatible third-party router', 'Provider hubs often expose fewer advanced settings', 'Your ISP to configure unsupported equipment'],
+              ['The hub no longer receives security updates', 'Request a current hub or buy a supported replacement', 'Unsupported network equipment is a security risk', 'A used old model to be a safe long-term fix'],
+            ].map(([result, step, reason, limit]) => <tr key={result}><th scope="row" className="border border-slate-200 px-4 py-3 text-left font-semibold text-slate-900">{result}</th><td className="border border-slate-200 px-4 py-3">{step}</td><td className="border border-slate-200 px-4 py-3">{reason}</td><td className="border border-slate-200 px-4 py-3">{limit}</td></tr>)}</tbody>
+          </table>
+        </div>
+
+        <h2>Test before you replace the router</h2>
+        <p>Run two comparable tests with the same device. First connect by Ethernet, or stand beside the provider hub if the device has no Ethernet port. Then repeat the test in the room where performance is poor. Pause large downloads and note the time, device and result. Our <Link href="/tools/speed-test">broadband speed test</Link> gives you a consistent starting point.</p>
+        <p>If Ethernet is also much slower than the address-specific estimate, report the line or service problem before buying hardware. If the near-router result is good but a distant room is poor, read the <Link href="/guides/fix-wifi-dead-spots-uk">Wi-Fi dead-spot diagnosis guide</Link>. Placement, a wired access point or a correctly positioned mesh node is more likely to help than swapping one central box for another.</p>
+
+        <h2>Three ways to use your own router</h2>
+        <h3>Replace the provider router completely</h3>
+        <p>A direct replacement is cleanest when the broadband arrives through an Ethernet hand-off from an optical network terminal, or ONT, and the new router supports the provider&apos;s authentication. Part-fibre and older copper services may instead require a compatible VDSL modem-router. Do not plug a router-only WAN port straight into a telephone socket.</p>
+        <h3>Keep the provider hub in modem or bridge mode</h3>
+        <p>Modem or bridge mode leaves the provider device handling the network connection while your own router manages the home network. Virgin Media officially supports modem mode on Hub 3, Hub 4 and standard Hub 5 hardware, but its help page says it is not currently available on Hub 5x. The mode disables several Virgin Wi-Fi and app features, although Virgin says its 21CV phone service continues to work.</p>
+        <h3>Add your equipment in access-point mode</h3>
+        <p>Access-point mode keeps the provider hub as the only router and uses the new device for Wi-Fi. This is a sensible fallback where Digital Voice, television or provider support requires the hub. It also avoids double NAT, where two routers both translate and manage traffic. Double NAT may not affect ordinary browsing but can complicate port forwarding, remote access, gaming and some work VPNs.</p>
+
+        <h2>BT, Sky, TalkTalk and Virgin Media checks</h2>
+        <div className="overflow-x-auto" role="region" aria-label="UK broadband provider router compatibility" tabIndex={0}>
+          <table className="w-full min-w-[760px] text-sm border-collapse">
+            <thead><tr className="bg-slate-50">{['Provider', 'Practical route', 'Check before changing', 'Support position'].map((heading) => <th scope="col" key={heading} className="border border-slate-200 px-4 py-3 text-left font-semibold text-slate-700">{heading}</th>)}</tr></thead>
+            <tbody>
+              <tr><th scope="row" className="border border-slate-200 px-4 py-3 text-left font-semibold text-slate-900">BT</th><td className="border border-slate-200 px-4 py-3">On full fibre, a compatible router can use the ONT Ethernet hand-off; other lines may need a VDSL modem-router.</td><td className="border border-slate-200 px-4 py-3">Confirm PPPoE settings and whether BT Digital Voice or Complete Wi-Fi requires the Smart Hub.</td><td className="border border-slate-200 px-4 py-3">BT Business explicitly permits compatible equipment but does not configure or support it; residential service details must be confirmed for the account.</td></tr>
+              <tr><th scope="row" className="border border-slate-200 px-4 py-3 text-left font-semibold text-slate-900">Sky</th><td className="border border-slate-200 px-4 py-3">A compatible router may work directly, but authentication can require DHCP Option 61 or provider-specific IPv6 behaviour.</td><td className="border border-slate-200 px-4 py-3">Check the exact access network, Sky Internet Calls and Sky Q or pod behaviour.</td><td className="border border-slate-200 px-4 py-3">Sky publishes little consumer setup help for third-party routers, so treat full replacement as an advanced, unsupported configuration.</td></tr>
+              <tr><th scope="row" className="border border-slate-200 px-4 py-3 text-left font-semibold text-slate-900">TalkTalk</th><td className="border border-slate-200 px-4 py-3">TalkTalk publishes non-TalkTalk router settings, including DHCP/IPoE and VLAN ID 101 for its fibre configuration.</td><td className="border border-slate-200 px-4 py-3">TalkTalk TV can require IGMP support; confirm voice and any Eero or Wi-Fi service features.</td><td className="border border-slate-200 px-4 py-3">TalkTalk allows your own router but recommends its supplied hub and limits help with third-party hardware.</td></tr>
+              <tr><th scope="row" className="border border-slate-200 px-4 py-3 text-left font-semibold text-slate-900">Virgin Media</th><td className="border border-slate-200 px-4 py-3">Keep the Virgin Hub as the network termination and use supported modem mode, then connect your router by Ethernet.</td><td className="border border-slate-200 px-4 py-3">Identify the Hub model first: Virgin says modem mode is not currently available on Hub 5x.</td><td className="border border-slate-200 px-4 py-3">The official modem-mode process is reversible, but some Connect app, Pod and Intelligent WiFi functions stop while it is enabled.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Provider settings and bundled services change. Verify the instructions for your exact hub, connection type and account on the day you change it. Keep screenshots of the old settings, but do not copy passwords into notes that other people can access.</p>
+
+        <h2>Is a better router worth it for broadband?</h2>
+        <p>A better router is worth buying when it fixes a measured local-network constraint. Good reasons include unsupported old hardware, congestion with many devices, a need for stronger parental controls, guest networks, VPN features, faster Ethernet ports or a mesh system with wired backhaul. Compare the security-update period and support policy as carefully as the advertised wireless speed.</p>
+        <p>Do not buy solely because the box advertises a multi-gigabit wireless rate. That number is not the speed one device will receive from the internet. A <Link href="/guides/wifi-7-explained-uk">Wi-Fi 7 router</Link> also needs compatible clients to use its new features, while the package speed, walls, interference and port speeds remain limits.</p>
+
+        <h2>What to check on a replacement router</h2>
+        <p><strong>Start with the internet-facing connection, not the Wi-Fi number on the box.</strong> An FTTP service with a separate ONT normally needs an Ethernet WAN socket, while a part-fibre line may need an integrated VDSL2 modem or a separate compatible modem. The WAN port must also be fast enough for the package. A 1Gbps port cannot carry a multi-gigabit service at full rate.</p>
+        <ul>
+          <li><strong>Provider settings:</strong> confirm PPPoE, DHCP, VLAN and IPv6 requirements from the provider or router maker. Compatibility with another Openreach-based ISP does not prove compatibility with your service.</li>
+          <li><strong>Wi-Fi generation:</strong> Wi-Fi 6 is capable for many sub-gigabit homes. Consider Wi-Fi 6E or Wi-Fi 7 for compatible devices, 6GHz capacity or multi-gigabit local traffic, not simply because the standard is newer.</li>
+          <li><strong>Ethernet ports:</strong> count the wired devices and check both the number and speed of LAN ports. A fast WAN socket does not guarantee equally fast LAN sockets.</li>
+          <li><strong>Coverage design:</strong> one powerful router still has to cross the same walls. For several weak rooms, compare mesh with a suitable backhaul or wired access points.</li>
+          <li><strong>Security support:</strong> look for automatic updates, a stated support period, WPA2 or WPA3 and a way to disable unused remote-management features.</li>
+          <li><strong>Everyday controls:</strong> check guest networking, parental controls, device pausing and VPN features. Some brands charge a subscription for controls that appear in marketing.</li>
+          <li><strong>Recovery and returns:</strong> buy from a seller that permits a practical home test, keep the packaging and confirm how settings can be backed up or reset.</li>
+        </ul>
+        <p>Match the router to the devices that will use it. An older phone or laptop remains limited by its own radio, antennas and Ethernet adapter. If one device is slow while others perform well in the same place, update or replace that client before rebuilding the whole network.</p>
+
+        <h2>What you may lose by removing the ISP hub</h2>
+        <p>Provider hubs do more than broadcast Wi-Fi. They can hold credentials, deliver internet-based phone service, integrate TV traffic, manage provider mesh nodes and expose remote diagnostics to support staff. Removing the hub may also disable a mobile-backup or security add-on included with the package. Make a written list of the services you use and obtain a provider-specific answer for each one.</p>
+        <p>Support is the practical trade-off. A provider can test and replace its own router, but may stop troubleshooting once unsupported equipment sits between the line and your devices. Keep the original hub ready to reconnect. If the fault remains when the provider hub is restored with an Ethernet test, you have much stronger evidence that the line or service needs attention.</p>
+
+        <h2>Safe changeover checklist</h2>
+        <ol>
+          <li><strong>Identify the hand-off:</strong> ONT Ethernet, Virgin Hub, VDSL phone line or another provider-specific connection.</li>
+          <li><strong>List services tied to the hub:</strong> Digital Voice, TV, provider mesh, security controls, mobile backup and fault diagnostics.</li>
+          <li><strong>Confirm compatibility:</strong> modem type, WAN port speed, authentication, VLAN, IPv6 and any IGMP requirement.</li>
+          <li><strong>Save a rollback path:</strong> photograph cable positions, keep the original power supply and record non-secret settings.</li>
+          <li><strong>Update first:</strong> install current firmware on the new router, use a unique admin password and enable automatic updates where available.</li>
+          <li><strong>Change one layer:</strong> use direct replacement, modem or bridge mode, or access-point mode rather than leaving two unmanaged routers active.</li>
+          <li><strong>Test the whole service:</strong> internet, phone, TV, work VPN, gaming, port forwarding and rooms that previously had weak Wi-Fi.</li>
+          <li><strong>Keep the provider hub:</strong> you may need to reconnect it for support, return it when the contract ends or restore service quickly.</li>
+        </ol>
+
+        <h2>Bottom line</h2>
+        <p>Replace the ISP router when you can name the bottleneck, prove it with a test and verify a compatible setup that preserves the services you use. Add mesh or an access point when coverage is the problem. Keep the supplied hub when it already performs well, supports your phone or TV, or provides the simplest route to provider support.</p>
+      </>
+    ),
+    faqs: [
+      { question: 'Should I replace my ISP router?', answer: 'Replace your ISP router only if tests show it is the bottleneck, it no longer receives security updates, or you need features it cannot provide. Keep it if speeds are good, it supports Digital Voice or TV, or your provider requires it for diagnosis. For one weak room, repositioning the hub, mesh or a wired access point is usually the better first step.' },
+      { question: 'Will a better router increase broadband speed?', answer: 'A better router cannot increase the speed delivered to your home or exceed your package. It can improve the Wi-Fi or wired connection between the router and your devices, helping them receive more of the available broadband speed. Compare an Ethernet or near-router test with a weak-room test before deciding whether the line, Wi-Fi coverage or router capacity is limiting performance.' },
+      { question: 'Can I replace a BT Smart Hub with my own router?', answer: 'A compatible third-party router can work on BT broadband, but the required hardware and settings depend on whether the connection is full fibre, VDSL or ADSL. Full fibre normally presents Ethernet at the ONT; other services may need a modem-router. Confirm PPPoE settings and Digital Voice or Complete Wi-Fi dependencies with BT, and keep the Smart Hub for fault testing.' },
+      { question: 'Can I use a third-party router with Sky broadband?', answer: 'It can be possible, but a Sky broadband hub alternative must support the authentication used on your exact access network, which may involve DHCP Option 61 or provider-specific IPv6 behaviour. Sky offers little official consumer setup support for third-party routers. Check Internet Calls, Sky Q and pod dependencies first, and use access-point mode if keeping the Sky hub is safer.' },
+      { question: 'How does Virgin Media modem mode work?', answer: 'Virgin Media modem mode keeps the Hub as the cable or fibre termination but disables its routing and Wi-Fi so your own router can manage the home network. Virgin publishes the setting for Hub 3, Hub 4 and standard Hub 5, but says it is not currently available on Hub 5x. Some Connect app, Pod and Intelligent WiFi features are disabled in modem mode.' },
+      { question: 'Do I need to keep my provider router?', answer: 'Keep the provider router even after a successful replacement. The provider may ask you to reconnect it while diagnosing a fault, and loaned equipment may have to be returned when the contract ends. Store the hub, matching power supply and cables safely. Do not sell or discard it unless the provider confirms that you own it and will never need to return it.' },
+    ],
+  },
+
+  'wifi-7-explained-uk': {
+    body: (
+      <>
+        <p className="text-lg"><strong>Wi-Fi 7 is the newest widely sold Wi-Fi generation and a home wireless-network upgrade, not a faster broadband package.</strong> It can move data faster between compatible equipment and use several wireless links more intelligently. A Wi-Fi 7 router cannot make the incoming broadband line faster. Most UK homes on sub-gigabit broadband should wait if Wi-Fi 6 already works reliably.</p>
+
+        <h2>Wi-Fi 7 at a glance</h2>
+        <div className="overflow-x-auto" role="region" aria-label="Wi-Fi 6, Wi-Fi 6E and Wi-Fi 7 comparison" tabIndex={0}>
+          <table className="w-full min-w-[680px] text-sm border-collapse">
+            <caption className="pb-3 text-left text-sm text-slate-600">The capabilities of the standard. A particular router or phone may support only a subset.</caption>
+            <thead><tr className="bg-slate-50">{['Feature', 'Wi-Fi 6', 'Wi-Fi 6E', 'Wi-Fi 7'].map((heading) => <th scope="col" key={heading} className="text-left px-4 py-3 border border-slate-200 font-semibold text-slate-700">{heading}</th>)}</tr></thead>
+            <tbody>{[
+              ['IEEE name', '802.11ax', '802.11ax', '802.11be'],
+              ['Bands', '2.4GHz and 5GHz', '2.4GHz, 5GHz and 6GHz', '2.4GHz, 5GHz and 6GHz on tri-band equipment'],
+              ['Maximum channel width', '160MHz', '160MHz', '320MHz in 6GHz'],
+              ['Multi-Link Operation', 'No', 'No', 'Yes, on compatible router and client'],
+              ['Best fit', 'Most sub-gigabit homes', 'Extra short-range 6GHz capacity', 'Multi-gigabit and demanding local networks'],
+            ].map(([feature, six, sixE, seven]) => <tr key={feature}><th scope="row" className="px-4 py-3 border border-slate-200 text-left font-semibold text-slate-900">{feature}</th><td className="px-4 py-3 border border-slate-200">{six}</td><td className="px-4 py-3 border border-slate-200">{sixE}</td><td className="px-4 py-3 border border-slate-200">{seven}</td></tr>)}</tbody>
+          </table>
+        </div>
+
+        <h2>What is Wi-Fi 7?</h2>
+        <p>Wi-Fi 7 is the consumer name for IEEE 802.11be, the generation after Wi-Fi 6 and Wi-Fi 6E. Intel identifies three headline changes: channels as wide as 320MHz, 4096-QAM or 4K-QAM modulation, and Multi-Link Operation. Together they can increase peak capacity, reduce delays caused by a busy link and improve reliability. They do not guarantee a particular speed through the walls of a home.</p>
+        <p>The often-quoted 46Gbps figure describes the theoretical maximum across an extremely capable implementation of the standard, not the internet speed one phone will receive. A typical client has fewer antennas, while distance, interference, router design, Ethernet ports and broadband speed impose lower limits. Treat the BE number on a router box as aggregate marketing classification, then inspect its bands, ports and tested throughput.</p>
+
+        <h2>What Wi-Fi 7 changes in practice</h2>
+        <h3>Multi-Link Operation can use more than one link</h3>
+        <p>Older generations normally connect a client over one main wireless link at a time. Multi-Link Operation, or MLO, lets compatible Wi-Fi 7 equipment coordinate links across more than one band or channel. It can combine capacity or move traffic away from congestion, which is useful for large local transfers, cloud gaming and video calls. The exact MLO mode and bands supported vary by device.</p>
+        <h3>320MHz channels can carry more data</h3>
+        <p>A 320MHz channel is twice the maximum width used by Wi-Fi 6 or 6E. It is available in the 6GHz band, subject to the channels and power permitted in each country. Ofcom opened the UK lower 6GHz band for licence-exempt Wi-Fi use, but UK spectrum is not identical to US spectrum. A UK product specification is therefore more useful than a review of a US model.</p>
+        <h3>4K-QAM packs more data into a strong signal</h3>
+        <p>4K-QAM encodes more data in each radio transmission than the 1024-QAM used by Wi-Fi 6. It needs a clean, strong signal, so its gain is most plausible near the router rather than through several brick walls. Preamble puncturing can also let a Wi-Fi 7 network use the clear parts of a wide channel instead of abandoning the whole channel when part is affected by interference.</p>
+
+        <h2>Is Wi-Fi 7 worth it?</h2>
+        <p><strong>Wi-Fi 7 is worth it now for a narrower group of UK households.</strong> We would put it on the shortlist when replacing a failing or Wi-Fi 5 router, buying for a 1Gbps-plus full-fibre service, moving large files to local storage, or serving several new Wi-Fi 7 devices. In those cases, buy tri-band hardware with 6GHz and at least 2.5Gbps WAN and LAN ports so another component does not become the bottleneck.</p>
+        <p>Wait if Wi-Fi 6 already delivers the speed you pay for in the rooms that matter, most devices are Wi-Fi 6 or older, or the broadband package is below roughly 500Mbps. First <Link href="/guides/fix-wifi-dead-spots-uk">diagnose and fix Wi-Fi dead spots</Link>; then consider an appropriate <Link href="/guides/best-mesh-wifi-for-your-broadband-router">mesh Wi-Fi system</Link> if measurements show that several rooms need better coverage. Six-gigahertz signals offer useful capacity at short range but do not pass through obstacles better than lower frequencies.</p>
+
+        <h2>Wi-Fi 7 upgrade decision table</h2>
+        <div className="overflow-x-auto" role="region" aria-label="Wi-Fi 7 upgrade decisions" tabIndex={0}>
+          <table className="w-full min-w-[640px] text-sm border-collapse"><thead><tr className="bg-slate-50">{['Your position', 'Our starting recommendation', 'Check before spending'].map((heading) => <th scope="col" key={heading} className="text-left px-4 py-3 border border-slate-200 font-semibold text-slate-700">{heading}</th>)}</tr></thead><tbody>{[
+            ['100 to 500Mbps broadband; Wi-Fi 6 works well', 'Keep Wi-Fi 6', 'Run tests beside the router and in problem rooms'],
+            ['Gigabit broadband; several Wi-Fi 7 clients', 'Consider tri-band Wi-Fi 7', '6GHz, MLO and 2.5Gbps ports on both ends'],
+            ['Multi-gigabit broadband or fast home server', 'Wi-Fi 7 can remove a local bottleneck', 'WAN, LAN, switch, cabling and client limits'],
+            ['Dead zones behind thick walls', 'Solve coverage first', 'Router placement, wired access points or mesh backhaul'],
+            ['Old router needs replacing anyway', 'Compare total price with strong Wi-Fi 6 alternatives', 'Security updates, support period and returns policy'],
+          ].map(([position, recommendation, check]) => <tr key={position}><td className="px-4 py-3 border border-slate-200 font-semibold text-slate-900">{position}</td><td className="px-4 py-3 border border-slate-200">{recommendation}</td><td className="px-4 py-3 border border-slate-200">{check}</td></tr>)}</tbody></table>
+        </div>
+
+        <h2>Do you need a Wi-Fi 7 router?</h2>
+        <p>You need both a Wi-Fi 7 router and a compatible client to use Wi-Fi 7-only features. Older equipment remains able to connect, but it negotiates the older standard it supports. Before buying, check the precise phone, laptop or adapter specification rather than its age. Also confirm that a replacement router works with the provider&apos;s authentication, digital voice and TV service.</p>
+        <p>Run a broadband speed test before replacing the router so you can identify whether the incoming line, local Wi-Fi coverage or client device is the real bottleneck. Our <Link href="/guides/replace-isp-router-uk">guide to replacing an ISP router safely</Link> covers BT, Sky, TalkTalk and Virgin Media connection methods, voice and TV checks, and a rollback plan.</p>
+        <ol><li>Run a <Link href="/tools/speed-test">broadband speed test</Link> over Ethernet or beside the router, then repeat it in the room with the problem.</li><li>Compare the first result with your address-specific broadband estimate and package speed.</li><li>Check the Wi-Fi generation of the devices that need more performance.</li><li>Inspect the proposed router&apos;s 6GHz support, MLO implementation, Ethernet port speeds and security-update policy.</li><li>Buy only if the new hardware addresses the bottleneck you measured.</li></ol>
+
+        <h2>What broadband speed do you need for Wi-Fi 7?</h2>
+        <p>There is no minimum broadband speed for Wi-Fi 7, but the upgrade is easier to justify with gigabit or multi-gigabit full fibre. A 100Mbps package remains limited to about 100Mbps from the internet even if the local wireless link reports several gigabits. Wi-Fi 7 can still help local file transfers or congestion, but a well-configured Wi-Fi 6 router is normally sufficient for ordinary sub-gigabit internet use.</p>
+        <p>Use our <Link href="/guides/broadband-speeds-explained">broadband speeds explained guide</Link> to separate the speed entering the property from the speed reaching a device. If Ethernet is slow too, investigate the line or package. If Ethernet is fast but one room is slow, placement, interference, mesh or a wired access point is the more relevant decision.</p>
+
+        <h2>Wi-Fi 7 availability in the UK</h2>
+        <p>Wi-Fi 7 routers, mesh systems, phones and laptops are on sale in the UK, and EE advertises Wi-Fi 7 Smart Hubs with selected broadband packages. Availability does not mean every model has tri-band 6GHz support or every connected device can use MLO. Product names and included routers change, so verify the exact model supplied with a broadband order and do not rely on the package name alone.</p>
+        <p>The UK permits Wi-Fi in the lower 6GHz band, while Ofcom continues work on how other 6GHz spectrum can be shared. That regulatory detail matters because a router reviewed abroad may expose different channels or power levels. Buy a UK-market model from a source with clear specifications, firmware support and a practical return route.</p>
+
+        <h2>Wi-Fi 7 router buying checklist</h2>
+        <ul>
+          <li><strong>Bands:</strong> check whether the router is dual-band or tri-band and whether it actually includes 6GHz. The Wi-Fi 7 label alone does not promise the same radios on every model.</li>
+          <li><strong>Ports:</strong> a 1Gbps WAN or LAN socket can restrict a multi-gigabit broadband service or local transfer. Look for 2.5Gbps or faster ports in the positions you will use.</li>
+          <li><strong>Clients:</strong> list the phones and laptops expected to benefit and verify their exact Wi-Fi specification. Older devices remain compatible but cannot use Wi-Fi 7-only features.</li>
+          <li><strong>Home layout:</strong> decide whether one router can cover the property or whether mesh, Ethernet backhaul or wired access points would solve the measured weak rooms more effectively.</li>
+          <li><strong>Provider services:</strong> confirm authentication, digital voice and television support before replacing an ISP hub. Access-point mode may be safer when the provider router must remain connected.</li>
+          <li><strong>Support:</strong> compare the firmware-update policy, warranty, parental-control costs and returns terms. Long security support is more useful than an unused peak-speed claim.</li>
+        </ul>
+
+        <h2>Bottom line</h2>
+        <p>Buy Wi-Fi 7 for a measured need, not for its theoretical maximum. It is a sound choice for new multi-gigabit equipment and a longer-term router replacement, particularly where compatible clients can use MLO and 6GHz. Reliable Wi-Fi 6 remains the better-value answer for most sub-gigabit UK homes. Test first, identify whether the line, coverage or client is limiting performance, and spend on that constraint.</p>
+      </>
+    ),
+    faqs: [
+      { question: 'Is Wi-Fi 7 worth it in the UK?', answer: 'Wi-Fi 7 is worth considering for gigabit or multi-gigabit full fibre, compatible phones and laptops, demanding local file transfers or a router that already needs replacing. Most homes with reliable Wi-Fi 6 and broadband below 1Gbps can wait. A new wireless standard cannot raise the speed entering the property from the broadband provider.' },
+      { question: 'What is the difference between Wi-Fi 7 and Wi-Fi 6?', answer: 'Wi-Fi 7, or 802.11be, adds Multi-Link Operation, channels up to 320MHz and 4K-QAM. Wi-Fi 6 uses channels up to 160MHz and lacks MLO. These changes can improve capacity, peak throughput and link reliability, but require compatible equipment. Actual internet performance still depends on broadband speed, distance, interference, Ethernet ports and the client device.' },
+      { question: 'Do I need a Wi-Fi 7 router?', answer: 'You need a Wi-Fi 7 router only to use Wi-Fi 7 features with a compatible client. Older devices will still connect but use their own older standard. Upgrade when current hardware is the measured bottleneck, particularly on gigabit-plus broadband. Check 6GHz support, MLO, Ethernet port speeds and ISP voice or TV compatibility before replacing a provider hub.' },
+      { question: 'Will Wi-Fi 7 make my broadband faster?', answer: 'Wi-Fi 7 can improve the wireless link between a compatible device and router, helping you receive more of the broadband speed already delivered. It cannot make a 100Mbps package become 500Mbps. Test over Ethernet or beside the router first. If that result is slow, the broadband line, package or provider needs attention rather than the Wi-Fi generation.' },
+      { question: 'Are Wi-Fi 7 routers backwards compatible?', answer: 'Yes. A Wi-Fi 7 router can connect Wi-Fi 6E, Wi-Fi 6, Wi-Fi 5 and many older devices. Each client uses features it supports, so an older phone does not gain 320MHz channels or Wi-Fi 7 Multi-Link Operation. Legacy smart-home equipment may also need 2.4GHz setup, so confirm band and security compatibility before retiring the old router.' },
+      { question: 'What broadband speed is needed for Wi-Fi 7?', answer: 'Wi-Fi 7 has no minimum broadband speed, but it is easiest to justify with gigabit or multi-gigabit full fibre. On a sub-500Mbps package, good Wi-Fi 6 equipment is normally enough for internet access. Wi-Fi 7 may still benefit fast transfers to a home server, though the router, client, Ethernet ports, switch and storage must all support that performance.' },
+    ],
+  },
+
   'best-broadband-and-tv-deals': {
     body: (
       <>
@@ -388,6 +1003,11 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
           This is a decision shortlist, not a claim that one provider is cheapest at every address.
           Start with the provider that matches your viewing habits, then compare the live package
           and broadband options available at your postcode.
+        </p>
+        <p>
+          If you mainly want public-service channels without a monthly TV package, read our guide to{' '}
+          <Link href="/guides/freely-and-fetch-tv-explained-uk">Freely TV and watching live TV without an aerial</Link>{' '}
+          before paying for a bundle.
         </p>
 
         <h2>Which broadband and TV deal is best for you?</h2>
@@ -485,6 +1105,11 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
           extra channels attached. Use the Ofcom figures as a sense check on a live quote, not a
           guarantee that any specific bundle is good value for your household.
         </p>
+        <p>
+          If the package also includes a SIM, use our{' '}
+          <Link href="/guides/broadband-and-mobile-bundle-discounts-uk">broadband and mobile bundle discount guide</Link>{' '}
+          to compare EE One, Vodafone Together and Virgin Media O2 Volt against buying the services separately.
+        </p>
 
         <h2>How to compare the true cost of a broadband and TV bundle</h2>
         <p>
@@ -541,7 +1166,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
           advertised tier.
         </p>
         <p>
-          Use our <Link href="/speed-test">broadband speed test</Link>, then read
+          Use our <Link href="/tools/speed-test">broadband speed test</Link>, then read
           {' '}<Link href="/guides/broadband-speeds-explained">what broadband speed you actually need</Link>.
         </p>
 
@@ -575,7 +1200,8 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
           and a broad cable-TV package at an eligible address, or EE TV when its NOW and TNT Sports
           combinations match what you watch. Choose broadband-only plus streaming if premium live
           TV is not essential. In every case, compare the whole minimum-term cost at your postcode
-          before signing.
+          before signing. If live sport is the deciding factor, compare the direct options in our{' '}
+          <Link href="/guides/cheapest-way-to-watch-sky-sports-uk">Sky Sports and TNT Sports cost guide</Link>.
         </p>
       </>
     ),
@@ -592,10 +1218,81 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
     ],
   },
 
+  'freely-and-fetch-tv-explained-uk': {
+    body: (
+      <>
+        <p><strong>Freely is free UK television delivered through your broadband connection instead of relying on an aerial or satellite dish.</strong> It is operated by Everyone TV, the organisation that also runs Freeview and Freesat on behalf of the BBC, ITV, Channel 4 and Channel 5. Supported live channels, catch-up programmes and broadcaster apps appear in a single television interface.</p>
+        <p>The service itself has no monthly subscription, but that does not make the whole setup cost-free. You need a compatible Freely television or streaming device, home broadband and, for live television or BBC iPlayer, a TV Licence. Paid apps such as Netflix remain separate subscriptions. Check the current equipment and channel list before buying because both are changing as Freely develops.</p>
+
+        <h2>Freely, Freeview and Fetch TV at a glance</h2>
+        <div role="region" aria-label="Freely, Freeview and Fetch TV comparison" tabIndex={0} className="overflow-x-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2">
+          <table className="w-full min-w-[720px] border-collapse text-sm">
+            <thead>
+              <tr className="bg-slate-50">
+                {['Question', 'Freely', 'Freeview or Freeview Play', 'Fetch TV today'].map((heading) => (
+                  <th key={heading} scope="col" className="border border-slate-200 px-4 py-3 text-left font-semibold text-slate-700">{heading}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row" className="border border-slate-200 px-4 py-3 text-left font-semibold">Where is it offered?</th><td className="border border-slate-200 px-4 py-3">United Kingdom</td><td className="border border-slate-200 px-4 py-3">United Kingdom</td><td className="border border-slate-200 px-4 py-3">Australia, not the UK</td></tr>
+              <tr><th scope="row" className="border border-slate-200 px-4 py-3 text-left font-semibold">How does live TV arrive?</th><td className="border border-slate-200 px-4 py-3">Broadband, by Wi-Fi or Ethernet</td><td className="border border-slate-200 px-4 py-3">Aerial for the live Freeview line-up; internet adds catch-up on Freeview Play</td><td className="border border-slate-200 px-4 py-3">Australian broadband plus a Fetch box; an Australian antenna can add free-to-air channels</td></tr>
+              <tr><th scope="row" className="border border-slate-200 px-4 py-3 text-left font-semibold">Ongoing service charge?</th><td className="border border-slate-200 px-4 py-3">No Freely subscription</td><td className="border border-slate-200 px-4 py-3">No Freeview subscription</td><td className="border border-slate-200 px-4 py-3">Yes, for the current Australian Fetch service</td></tr>
+              <tr><th scope="row" className="border border-slate-200 px-4 py-3 text-left font-semibold">Main limitation</th><td className="border border-slate-200 px-4 py-3">Needs compatible equipment and working broadband</td><td className="border border-slate-200 px-4 py-3">Live reception depends on an aerial and local signal</td><td className="border border-slate-200 px-4 py-3">Not a service UK households can order</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>How Freely TV works</h2>
+        <p>Freely sends its supported live television streams through the internet. The programme guide then places live channels beside programmes available through services such as BBC iPlayer, ITVX, Channel 4 and 5. Features include a MiniGuide and restart on supported programmes, though availability can vary by channel, programme and device.</p>
+        <p>The official guide currently includes the main public-service channels such as BBC One, BBC Two, ITV1, Channel 4 and 5, alongside services including ITV2, Film4, E4, U&amp;Dave and Sky Arts. That is an example, not a permanent promise for every region. Use Freely&apos;s location setting and current channel checker because regional variants, streaming rights and optional aerial additions can change what appears.</p>
+        <p><a href="https://www.freely.co.uk/products/buying-advice/freely-vs-freeview-difference-comparison" target="_blank" rel="noopener noreferrer">Freely says a connection of at least 10Mbps is required</a>. Treat that as a service minimum rather than a guarantee for the whole home. A television sharing Wi-Fi with video calls, downloads and other streams needs spare capacity, and the connection at the TV matters more than the speed measured next to the router.</p>
+        <p>Ethernet is the most dependable connection where a cable is practical. On Wi-Fi, test in the room where the television will sit. Our guide to <Link href="/guides/fix-wifi-dead-spots-uk">fixing Wi-Fi dead spots</Link> explains how to separate poor room coverage from a slow broadband line. The <Link href="/guides/best-broadband-for-streaming">broadband for streaming guide</Link> helps size a package for several simultaneous viewers.</p>
+
+        <h2>What equipment do you need for Freely?</h2>
+        <p>You need a product that expressly lists Freely support. A television being smart, having Wi-Fi or supporting Freeview Play does not automatically make it compatible. Freely is built into selected televisions, and current streaming devices can add it to an older television through an HDMI port. Check the exact model on the <a href="https://www.freely.co.uk/get-freely" target="_blank" rel="noopener noreferrer">official Freely device page</a> before paying.</p>
+        <p>Use this pre-purchase checklist:</p>
+        <ul>
+          <li><strong>Compatibility:</strong> confirm the full television or box model, not only the manufacturer.</li>
+          <li><strong>Connection:</strong> test stable Wi-Fi at the intended television position or plan an Ethernet cable.</li>
+          <li><strong>Channels:</strong> check the <a href="https://www.freely.co.uk/channels" target="_blank" rel="noopener noreferrer">current Freely channel guide</a> and your region rather than assuming every Freeview channel is streamed.</li>
+          <li><strong>Recording:</strong> verify the hardware feature separately. Freely restart and catch-up are not the same as recording any scheduled programme.</li>
+          <li><strong>Accessibility:</strong> check subtitles, audio description, accessible-guide support and remote layout on the exact product.</li>
+          <li><strong>Licence:</strong> budget for a TV Licence if anyone watches live television on any service or uses BBC iPlayer.</li>
+        </ul>
+
+        <h2>Freely vs Freeview: which is better?</h2>
+        <p><strong>Choose Freely when the room has good broadband but no usable aerial socket.</strong> Choose Freeview when you already have a sound aerial, want live television to continue during an internet outage or need channels and recording options that your proposed Freely device does not provide. Freeview Play adds broadcaster catch-up to compatible aerial-based equipment, so it is not simply the old version of Freely.</p>
+        <p>Freely can optionally combine streamed channels with extra channels received through an aerial on compatible equipment. That hybrid arrangement offers a practical fallback and a broader line-up in some homes, but it removes the main no-aerial advantage. Compare the actual channel lists, not headline totals, because regional services, streamed channels and aerial additions are counted differently.</p>
+        <p>Freely is not replacing Freeview on a published household deadline. Both currently operate, while Freesat remains an aerial-free option that receives live channels through a satellite dish. If your aim is premium sport, films or specialist channels, compare Freely’s free base with the full contract cost of a paid bundle in our <Link href="/guides/best-broadband-and-tv-deals">broadband and TV deals guide</Link>.</p>
+
+        <h2>Can you watch TV without an aerial in the UK?</h2>
+        <p>Yes. Freely supplies a conventional live-channel guide over broadband on compatible equipment. You can also open individual broadcaster apps, use free ad-supported streaming services, choose Freesat with a dish, or buy an internet-delivered package such as Sky Stream or EE TV. These routes are not interchangeable: app and channel availability, regional news, recording, restart and monthly costs differ.</p>
+        <p>A TV Licence is about what you watch, not how the signal reaches the screen. <a href="https://www.tvlicensing.co.uk/check-if-you-need-one" target="_blank" rel="noopener noreferrer">TV Licensing says a licence is required to watch live television on any channel or service, or to use BBC iPlayer</a>. Watching only non-BBC on-demand programmes can fall outside that requirement, but check the official rules for your exact use.</p>
+
+        <h2>What does Fetch TV UK mean?</h2>
+        <p><strong>There is no current Fetch TV service marketed to UK households.</strong> The live Fetch TV brand is an Australian paid television platform that combines streamed channels, apps, rentals and purchases through a Fetch set-top box. Its Australian prices, channel packs and antenna references do not apply to a UK address, so it should not appear in a UK buying shortlist beside Freely.</p>
+        <p>A different UK service called Fetch TV was operated by IP Vision, whose owner entered administration in 2012. Older UK articles, manuals and search results may still describe its boxes, Freeview tuner and on-demand service. Those pages are historical, not evidence that today’s Australian Fetch TV can be ordered in Britain. If a retailer uses “fetch TV” casually to mean retrieving television over broadband, check the product name and territory before assuming it refers to either brand.</p>
+
+        <h2>Our recommendation before you buy</h2>
+        <p>Start with Freely if you want familiar UK live channels in a room without an aerial and your Wi-Fi is dependable there. Keep or add Freeview if live-TV resilience, a broader local aerial line-up or recorder support matters more. Before buying, write down five channels and two must-have functions, then verify each against the exact device. This channel-first check prevents a free service from becoming an expensive hardware mistake. Once free live channels are sorted, our <Link href="/guides/best-streaming-services-uk">best streaming services in the UK comparison</Link> covers which paid apps, such as Netflix or Disney+, are worth adding on top.</p>
+      </>
+    ),
+    faqs: [
+      { question: 'What is Freely TV?', answer: 'Freely TV is a UK free-to-view television service operated by Everyone TV, which also runs Freeview and Freesat. It streams supported live channels through broadband and combines them with broadcaster catch-up services in one guide. Freely has no monthly subscription, but you need compatible equipment, internet access and a TV Licence for live television or BBC iPlayer.' },
+      { question: 'Do I need an aerial for Freely TV?', answer: 'No. Freely can stream its supported live channels through broadband without an aerial or satellite dish. You need a compatible Freely television or streaming device and a stable connection of at least 10Mbps. Some equipment can also use an aerial to add channels, but that is optional and the extra reception depends on the local Freeview signal.' },
+      { question: 'Is Freely TV the same as Freeview?', answer: 'No. Freely streams supported live channels over broadband, while Freeview receives its live line-up through a television aerial. Freeview Play adds catch-up apps to compatible Freeview equipment, but still uses the aerial for its main live guide. Freely suits a room without an aerial; Freeview offers a useful live-TV fallback when broadband or Wi-Fi fails.' },
+      { question: 'What broadband speed do I need for Freely TV?', answer: 'Freely states that at least 10Mbps is required for live and on-demand viewing. A household may need more headroom when several people stream, game or make video calls at once. Test the connection beside the television, not only beside the router, because weak room-level Wi-Fi can cause buffering even on a fast broadband package.' },
+      { question: 'Can I add Freely to my existing television?', answer: 'Yes, if the television has a suitable HDMI input and you buy a compatible Freely streaming device. A generic smart-TV stick does not automatically support Freely, and older smart televisions do not gain it through a routine software update. Check the exact device on Freely’s current compatibility page before buying and confirm that its apps and accessibility features meet your needs.' },
+      { question: 'Is Fetch TV available in the UK?', answer: 'No current Fetch TV service is sold to UK households. Today’s Fetch TV is an Australian paid platform with set-top boxes, channel packs, apps and rentals. The operator of a separate British service with the same name entered administration in 2012, so old UK pages are historical. UK viewers should compare Freely with current UK alternatives instead.' },
+      { question: 'Do I need a TV Licence for Freely?', answer: 'Yes, if you use Freely to watch live television. TV Licensing says a licence is needed to watch live programmes on any channel or service and to use BBC iPlayer, regardless of whether reception is through broadband, an aerial or a dish. Freely itself does not charge a subscription, but that does not remove the separate legal licensing requirement.' },
+    ],
+  },
+
   'best-rolling-monthly-broadband-deals': {
     body: (
       <>
-        <p>Rolling monthly broadband is designed for people who need flexibility more than the absolute lowest monthly price. It is especially useful for renters, short-term lets, people moving house soon, or anyone who does not want to lock into an 18- or 24-month contract. Genuine rolling monthly broadband from a national provider is rarer than it used to be; the honest starting point is knowing which providers actually still offer it.</p>
+        <p>Rolling monthly broadband is designed for people who need flexibility more than the absolute lowest monthly price. It is especially useful for renters, short-term lets, people moving house soon, or anyone who does not want to lock into an 18- or 24-month contract. If a move is already booked, use the <Link href="/guides/moving-house-broadband-checklist-uk">moving house broadband checklist</Link> first so the new address is live before you worry about the next contract length. Genuine rolling monthly broadband from a national provider is rarer than it used to be; the honest starting point is knowing which providers actually still offer it.</p>
 
         <h2>Who should consider rolling monthly broadband</h2>
         <ul>
@@ -606,7 +1303,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         </ul>
 
         <h2>YouFibre: a genuine rolling monthly full-fibre option</h2>
-        <p>YouFibre, a full-fibre altnet on the Netomnia network, is one of the few providers on this site that genuinely offers a rolling monthly contract alongside its standard 24-month term, with no mid-contract price rise on either option. Rolling prices run from £33.99 a month for its entry tier up to £129.99 for its fastest 8 Gbps package, requiring 30 days&apos; notice to cancel rather than a fixed minimum term. This is a real, meaningful premium over its 24-month pricing (from £20 a month for the equivalent entry tier), so it only makes sense for households that genuinely value the flexibility over the extra cost. Coverage is limited to around 10% of UK premises across more than 150 towns, following its 2026 merger with sister altnet Brsk.</p>
+        <p>YouFibre, a full-fibre altnet on the Netomnia network, is one of the few providers on this site that genuinely offers a rolling monthly contract alongside its standard 24-month term, with no mid-contract price rise on either option. Rolling prices run from £33.99 a month for its entry tier up to £129.99 for its fastest 8 Gbps package, requiring 30 days&apos; notice to cancel rather than a fixed minimum term. This is a real, meaningful premium over its 24-month pricing (from £20 a month for the equivalent entry tier), so it only makes sense for households that genuinely value the flexibility over the extra cost. Coverage is limited to around 10% of UK premises across more than 150 towns, following its 2026 merger with sister altnet Brsk. Netomnia is actively expanding in cities including Liverpool, where BroadbandPicker&apos;s <Link href="/postcode/l1">L1 broadband deals guide</Link> covers its confirmed rollout in more depth; check the exact address, since coverage varies street by street rather than area by area.</p>
 
         <h2>Rolling monthly vs a 12-month contract</h2>
         <p>Some people ask for rolling monthly broadband when what they actually need is just a shorter fixed contract. A 12-month term can be the smarter middle ground, lowering the monthly cost while still avoiding the longest 24-month lock-in. Hyperoptic, Community Fibre and Onestream all currently offer a 12-month option alongside their standard 24-month term, a real, moderate-flexibility alternative to YouFibre&apos;s more expensive rolling plan.</p>
@@ -671,7 +1368,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         <p><strong>FTTC (Fibre to the Cabinet)</strong> is still common across the UK. It runs fibre optic cable to the green street cabinet, then uses older copper telephone wire for the final stretch to the home. This limits maximum realistic speeds to around 80 Mbps download, and upload is typically only a fraction of that.</p>
         <p><strong>FTTP (Fibre to the Premises)</strong> runs fibre optic cable all the way to the home, with no copper in the line at all. Speeds have moved well beyond the old 1,000 Mbps (1 Gbps) benchmark: most national providers now offer a flagship tier around 900 Mbps to 1 Gbps, while several altnets go considerably further, Community Fibre up to 3,000 Mbps and YouFibre up to 8,000 Mbps on their fastest current tiers, both genuinely symmetrical.</p>
         <h2>Is full fibre available at my address?</h2>
-        <p>Ofcom&apos;s Spring 2026 Connected Nations data put gigabit-capable coverage at 89% of UK premises, 27.1 million homes, up from 87% a year earlier, with full fibre specifically now reaching 82%. Coverage is uneven by area though: 93% in urban areas against 66% in rural areas, so a national average tells only part of the story for any specific address. Openreach, which builds and maintains the network used by BT, Sky, EE, TalkTalk and Plusnet, continues to expand its rollout, and altnets including Hyperoptic, Community Fibre, toob and YouFibre are building entirely separate FTTP networks in specific towns and cities on top of that.</p>
+        <p>Ofcom&apos;s Spring 2026 Connected Nations data put gigabit-capable coverage at 89% of UK premises, 27.1 million homes, up from 87% a year earlier, with full fibre specifically now reaching 82%. Coverage is uneven by area though: 93% in urban areas against 66% in rural areas, so a national average tells only part of the story for any specific address. Openreach, which builds and maintains the network used by BT, Sky, EE, TalkTalk and Plusnet, continues to expand its rollout, and altnets including Hyperoptic, Community Fibre, toob and YouFibre are building entirely separate FTTP networks in specific towns and cities on top of that. Rollout is not always purely additive, though: BroadbandPicker&apos;s <Link href="/postcode/sg1">SG1 broadband deals guide</Link> covers a genuine, reported case in Stevenage where Openreach paused full-fibre installations in streets with difficult ducting, causing coverage to fall rather than rise.</p>
         <p>To check if FTTP is available at a specific address, enter the postcode into our postcode checker.</p>
         <h2>Is full fibre worth paying more for?</h2>
         <p>Often yes, and increasingly it does not mean paying much more at all. Community Fibre&apos;s entry full-fibre tier starts from £12.50 a month, cheaper than many FTTC packages, though its network remains limited to London, Surrey and Sussex. Full fibre is worth prioritising specifically for:</p>
@@ -682,7 +1379,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
           <li>Wanting genuinely symmetrical upload speeds for backups and cloud services, which several full-fibre altnets, including Community Fibre, Hyperoptic and Trooli, now offer on most or all tiers</li>
         </ul>
         <h2>Full fibre and the landline switch-off</h2>
-        <p>Full fibre connections are also the natural home for Digital Voice, the internet-based phone service replacing the UK&apos;s old analogue landline network, which is being fully retired by 31 January 2027. A full-fibre line delivers Digital Voice more reliably than an older FTTC or ADSL connection, though it still depends on the broadband router rather than a separately powered copper line, so it will not work in a power cut without a backup solution meeting Ofcom&apos;s minimum one-hour requirement.</p>
+        <p>Full fibre connections are also the natural home for Digital Voice, the internet-based phone service replacing the UK&apos;s old analogue landline network, which is being fully retired by 31 January 2027. A full-fibre line delivers Digital Voice more reliably than an older FTTC or ADSL connection, though it still depends on the broadband router rather than a separately powered copper line, so it will not work in a power cut without a backup solution meeting Ofcom&apos;s minimum one-hour requirement. Our <Link href="/guides/landline-switch-off-explained-uk">landline switch-off explainer</Link> covers the deadline, telecare checks and emergency-calling backup.</p>
         <h2>Will an engineer visit be needed?</h2>
         <p>Usually yes, if the property has not previously had FTTP installed. This requires a new optical fibre cable to be run into the property, typically a 2 to 4 hour appointment. Most providers include the installation cost as part of the standard deal, though a separate setup fee can still apply on some packages regardless of whether an engineer visit is needed.</p>
       </>
@@ -699,6 +1396,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
     body: (
       <>
         <p>Broadband speeds are measured in <strong>Megabits per second (Mbps)</strong> or, for the very fastest connections, <strong>Gigabits per second (Gbps)</strong>. The higher the number, the faster data travels between the internet and your device.</p>
+        <p>If you are comparing results with an encrypted connection active, use our guide to <Link href="/guides/does-a-vpn-slow-your-internet">VPN speed loss and paired testing</Link> before assuming the broadband line is at fault.</p>
         <h2>Download speed vs upload speed</h2>
         <p><strong>Download speed</strong> is how quickly data comes from the internet to your device. This affects streaming, web browsing, downloading files, and loading video calls.</p>
         <p><strong>Upload speed</strong> is how quickly data goes from your device to the internet. This affects video calls, cloud backups, uploading photos, and live streaming.</p>
@@ -706,6 +1404,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         <h2>The UK&apos;s "average speed" is higher than what most people actually get</h2>
         <p>Ofcom&apos;s Connected Nations data recorded the average maximum available download speed at 285 Mbps, up nearly 30% from 223 Mbps the year before, driven by the rapid rollout of gigabit-capable full fibre. This figure describes what is technically available, not what a typical household experiences day to day: the median speed actually delivered on FTTC connections specifically is closer to 80 to 100 Mbps, since the national average is pulled upward by full-fibre connections capable of far higher speeds. When comparing a package against "the UK average," check whether the figure describes availability or actual delivered speed, since the two can differ substantially.</p>
         <h2>What broadband speed do you actually need?</h2>
+        <p>Do not confuse broadband speed with the wireless link inside the home. Our <Link href="/guides/wifi-7-explained-uk">Wi-Fi 7 explained guide</Link> shows when a newer router can remove a local bottleneck and when the incoming package remains the limit. For a household sizing of 100, 150 and 300 Mbps, including upload, cloud backup and always-on clients, use <Link href="/guides/what-broadband-speed-do-i-need">what broadband speed do I need</Link>.</p>
         <div className="overflow-x-auto">
           <table className="w-full text-sm border-collapse">
             <thead>
@@ -745,6 +1444,77 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
       { question: 'Why is my broadband slower than advertised?', answer: 'Advertised speeds are "up to" figures. For FTTC, actual speed depends heavily on your distance from the street cabinet — the further away you are, the slower your speed. Wi-Fi can also reduce speeds compared to a wired connection.' },
       { question: 'What is the average UK broadband speed?', answer: 'Ofcom recorded the average maximum available download speed at 285 Mbps, up nearly 30% from 223 Mbps the year before. This describes what is technically available, not what most households experience: the median speed actually delivered on FTTC connections specifically is closer to 80 to 100 Mbps.' },
       { question: 'Why does my broadband slow down in the evening specifically?', answer: 'FTTC and cable connections share capacity with other properties on the same street cabinet or node, so speed can dip during peak hours, roughly 7pm to 10pm, when many homes are online at once. Full fibre (FTTP) is far less affected, since each property has its own dedicated fibre line.' },
+    ],
+  },
+
+  'does-a-vpn-slow-your-internet': {
+    body: (
+      <>
+        <p><strong>Yes, a VPN normally slows your internet slightly.</strong> It encrypts data on your device, carries that traffic to a VPN server and only then sends it towards the website or app. The return journey follows the same extra route. That usually lowers download and upload throughput, while the extra travel and processing can raise latency, also called ping. A controlled paired test lets you measure your own loss.</p>
+        <p>There is no honest universal percentage for VPN speed loss. The result changes with the starting connection, VPN protocol, server distance and load, device processor, Wi-Fi quality and destination. Top10VPN reported about 7% average loss to nearby servers and 16% over longer distances in its own tests, but those figures describe its method and test set, not a promise for every UK home. Measure your own connection before deciding that a result is normal.</p>
+
+        <h2>How much does a VPN slow broadband?</h2>
+        <p>A small reduction is common on a good service connected to a nearby UK server. A much larger fall can occur when the server is distant or busy, the device struggles with encryption, a work VPN routes traffic through a remote office, or weak Wi-Fi was already limiting the connection. A speed change matters only in context: losing 10% from 500 Mbps is unlikely to affect ordinary browsing, while the same proportion on a 15 Mbps line leaves far less room for calls and streaming.</p>
+        <div className="overflow-x-auto" role="region" aria-label="VPN speed loss interpretation table" tabIndex={0}>
+          <table className="w-full min-w-[640px] border-collapse text-sm">
+            <thead><tr className="bg-slate-50">{['Paired test result', 'What it suggests', 'Next check'].map((heading) => <th key={heading} className="border border-slate-200 px-4 py-3 text-left font-semibold">{heading}</th>)}</tr></thead>
+            <tbody>
+              <tr><td className="border border-slate-200 px-4 py-3 font-semibold">Little practical change</td><td className="border border-slate-200 px-4 py-3">The VPN is not the current bottleneck.</td><td className="border border-slate-200 px-4 py-3">Keep the nearby server and record the protocol.</td></tr>
+              <tr><td className="border border-slate-200 px-4 py-3 font-semibold">Download falls, ping stays similar</td><td className="border border-slate-200 px-4 py-3">Server capacity, protocol overhead or device processing may limit throughput.</td><td className="border border-slate-200 px-4 py-3">Change protocol, then try another nearby server.</td></tr>
+              <tr><td className="border border-slate-200 px-4 py-3 font-semibold">Ping rises sharply</td><td className="border border-slate-200 px-4 py-3">The VPN route is probably longer or inefficient.</td><td className="border border-slate-200 px-4 py-3">Choose the nearest suitable exit location.</td></tr>
+              <tr><td className="border border-slate-200 px-4 py-3 font-semibold">Both tests are slow</td><td className="border border-slate-200 px-4 py-3">The base broadband or home network may be the main problem.</td><td className="border border-slate-200 px-4 py-3">Test over Ethernet and compare with the provider estimate.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Why is my VPN slow?</h2>
+        <p><strong>Server distance is often the first cause to check.</strong> A London user connecting through New York sends every request across the Atlantic before it reaches its destination. A nearby London, Manchester or European server usually shortens that path. The closest server is not guaranteed to be fastest, however, because congestion and the VPN operator&apos;s network links also matter.</p>
+        <p><strong>Protocol choice changes the amount of processing and packet overhead.</strong> Many consumer apps offer a modern UDP-based protocol such as WireGuard or a provider-specific option, alongside OpenVPN and sometimes IKEv2. Use the app&apos;s recommended or automatic setting first. A workplace VPN may be fixed by an administrator, so do not weaken or replace its security settings simply to improve a speed test.</p>
+        <p><strong>The device or router can become the ceiling.</strong> Encrypting a fast full-fibre connection demands processing power. An older phone, laptop or VPN-enabled router may top out well below the broadband line rate even when the VPN server has spare capacity. Test another capable device on the same connection before blaming the line.</p>
+        <p>Where the VPN runs also matters. An app on a recent laptop encrypts only that device&apos;s traffic, while a VPN configured on the home router may process traffic for every connected device. Compare one device with the VPN app against the router-wide setup. If the app is faster under otherwise identical conditions, the router&apos;s processor or VPN implementation is the more likely limit.</p>
+        <p><strong>Wi-Fi problems remain Wi-Fi problems.</strong> A VPN does not repair interference, poor router placement or a weak signal in one room. If both VPN-on and VPN-off results improve beside the router or over Ethernet, fix the home network first. Our <Link href="/guides/broadband-speeds-explained">broadband speeds guide</Link> separates line speed, Wi-Fi speed and latency.</p>
+
+        <h2>VPN vs no VPN speed test: a fair six-step method</h2>
+        <ol>
+          <li><strong>Use one device and one test service.</strong> Connect over Ethernet where practical, or stay in the same place on the same Wi-Fi band.</li>
+          <li><strong>Pause competing traffic.</strong> Stop downloads, cloud backups, streaming and console updates elsewhere in the home.</li>
+          <li><strong>Record the baseline.</strong> Turn the VPN off and run our <Link href="/tools/speed-test">broadband speed test</Link> three times. Note the median download, upload and ping rather than keeping only the best result.</li>
+          <li><strong>Connect nearby.</strong> Turn the VPN on, choose a nearby UK server and repeat three tests against the same speed-test endpoint.</li>
+          <li><strong>Calculate the loss.</strong> Use <code>((off speed - on speed) / off speed) × 100</code>. For example, 100 Mbps off and 82 Mbps on is an 18% download loss.</li>
+          <li><strong>Change one factor at a time.</strong> Try a second nearby server, then another supported protocol. If everything changes at once, the result cannot identify the cause.</li>
+        </ol>
+        <p>Also compare ping in milliseconds. Download throughput shows how quickly a large transfer arrives; ping shows delay and often matters more for gaming, remote desktop and live calls. Save the date, device, protocol, server location and connection type so a later test is genuinely comparable.</p>
+
+        <h2>How to make a VPN faster</h2>
+        <ul>
+          <li><strong>Select a nearby, lightly loaded server.</strong> If the app displays load, compare two nearby choices rather than repeatedly reconnecting at random.</li>
+          <li><strong>Use the recommended modern protocol.</strong> Test only protocols supported by the official app and keep the app and operating system updated.</li>
+          <li><strong>Remove the local bottleneck.</strong> Use Ethernet for a desktop or move closer to the router before assessing the VPN.</li>
+          <li><strong>Restart the app and device.</strong> A stuck process or stale network state can produce a one-off poor result.</li>
+          <li><strong>Check device limits.</strong> Compare another recent device. Router-wide VPN use can be slower than an app because some routers have limited processors.</li>
+          <li><strong>Ask the workplace administrator.</strong> Corporate VPN routing and security controls are managed choices. Report measured times, server or gateway details and the business task affected.</li>
+        </ul>
+        <p>Split tunnelling sends selected apps outside the VPN and can reduce load or keep a call or game on the direct route. It is not a free performance switch: excluded apps lose protection from that tunnel. The NCSC also warns that split tunnelling can undermine monitoring or expose sensitive traffic when configured poorly. Follow workplace policy and keep protected work traffic inside the approved connection.</p>
+
+        <h2>Can a VPN make internet faster?</h2>
+        <p>A VPN cannot raise the physical capacity of your broadband line. It can occasionally improve performance to one service if the normal internet route is poor or if traffic is being selectively throttled, because the encrypted tunnel changes what the access network can see and where the traffic travels. Cloudflare describes this as a specific exception, not the usual result. A one-off faster test may also be normal measurement variation, so repeat paired tests before drawing a conclusion.</p>
+
+        <h2>Is the VPN or broadband connection at fault?</h2>
+        <p>Turn the VPN off and test first. If the baseline is also poor, check Ethernet, Wi-Fi signal, other household traffic and the address-specific speed estimate from the broadband provider. Ofcom says providers signed to its speed code must give an expected range and help when speeds fall significantly below it. Keep repeated wired results if you need to report a line problem.</p>
+        <p>If only the VPN-on result is poor, try a second nearby server and supported protocol, then another device. Consistent poor performance across devices points more strongly to the VPN service, gateway or route. Poor performance only on a work VPN should go to the employer&apos;s IT team; the broadband provider cannot normally change how a corporate gateway is configured.</p>
+
+        <h2>What to do next</h2>
+        <p>Run the paired test before paying for faster broadband or replacing a VPN. Keep the current setup if the VPN-on result supports the actual task and ping remains acceptable. If the baseline itself is inadequate, compare the measured result with your provider&apos;s estimate and use our <Link href="/compare">UK broadband comparison</Link> only after checking the line and Wi-Fi. If the VPN alone is the limit, test its supported servers and protocols or contact its support team with the recorded evidence.</p>
+      </>
+    ),
+    faqs: [
+      { question: 'Does a VPN slow down your internet?', answer: 'Yes, a VPN usually reduces internet speed slightly and can increase ping because it encrypts traffic and routes it through an additional server. The size of the change depends on the server distance and load, protocol, device and original connection. A nearby server on a good service may feel unchanged, while a distant or congested route can be much slower.' },
+      { question: 'How much does a VPN slow broadband?', answer: 'There is no universal VPN speed-loss figure. Top10VPN reported roughly 7% loss to nearby servers and 16% on longer routes in its own tests, but your result may differ substantially. Run three tests with the VPN off and three with a nearby UK server on, using the same device and test endpoint, then compare the median results.' },
+      { question: 'Why is my VPN suddenly slow?', answer: 'A previously fast VPN can slow because its server is busy, the route has changed, the app selected another protocol, the device is overloaded or the underlying Wi-Fi or broadband has deteriorated. Test with the VPN off first, then try another nearby server and restart the app. Change one factor at a time so the comparison identifies the likely cause.' },
+      { question: 'Which VPN settings are fastest?', answer: 'Start with the VPN app’s automatic or recommended protocol and a nearby, lightly loaded server. Modern UDP-based protocols are often efficient, but availability and names differ between providers. Do not disable encryption or alter a workplace VPN’s managed security settings for speed. Compare supported protocols with paired tests and keep the setting that performs reliably for your connection.' },
+      { question: 'Can a VPN improve gaming ping?', answer: 'Usually not, because the VPN adds another server and route, which tends to increase latency. It can occasionally improve ping when the ordinary route to a particular game server is inefficient, but that is an exception. Test the same game region with the VPN off and with a nearby server on, and compare repeat results rather than relying on one speed test.' },
+      { question: 'Does a VPN slow other devices on my Wi-Fi?', answer: 'A VPN app on one device normally routes only that device’s traffic. Other devices are affected only indirectly if the VPN device is using much of the shared broadband capacity. A VPN configured on the router can carry traffic for every connected device and the router’s processor may limit total speed. Check where the VPN is installed before diagnosing a whole-home slowdown.' },
+      { question: 'Should I use split tunnelling to improve VPN speed?', answer: 'Split tunnelling can send selected high-bandwidth or latency-sensitive apps over the direct internet connection, reducing traffic through the VPN. Those excluded apps no longer receive protection from that tunnel, and the NCSC warns that poor configuration can expose sensitive traffic or weaken workplace monitoring. Use it only where the VPN provider supports it and organisational policy permits it.' },
     ],
   },
 
@@ -802,6 +1572,9 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
 
         <h2>Community Fibre: the genuinely cheapest full-fibre deal, if it reaches you</h2>
         <p>Community Fibre&apos;s Essential 35 package, £12.50 a month for 35 Mbps symmetrical, is the lowest full-fibre price of any provider covered on this site, and it comes from a provider with one of the strongest customer-satisfaction records in the UK: around 4.7 out of 5 on Trustpilot and 92% customer satisfaction in Ofcom&apos;s 2025 data. The catch is coverage: this is a London-centred network with only recent, partial expansion into Surrey and Sussex, so it simply is not available to most UK addresses.</p>
+
+        <h2>toob: the cheapest symmetrical full fibre, where it reaches</h2>
+        <p>toob&apos;s entry Home 150 package, £19.50 a month for 150 Mbps symmetrical, undercuts every national Openreach reseller on this page while including a WiFi 7 router and no mid-contract price rise. It began in Southampton, where BroadbandPicker&apos;s <Link href="/postcode/so14">SO14 broadband deals guide</Link> covers district-level Ofcom coverage and toob&apos;s own network story in more depth, and has since expanded to around 290,000 premises across 29 towns in Hampshire, Dorset, Surrey, Sussex and Berkshire. As with Community Fibre, this is a regional network, so check the exact address before assuming coverage. toob has also recently arrived in the West Midlands, partnered with CityFibre; BroadbandPicker&apos;s <Link href="/postcode/cv1">CV1 broadband deals guide</Link> covers what that means for Coventry specifically. toob confirmed a launch on CityFibre&apos;s network in Leicester in October 2024; BroadbandPicker&apos;s <Link href="/postcode/le1">LE1 broadband deals guide</Link> covers what that means locally.</p>
 
         <h2>NOW Broadband: not as cheap as its reputation suggests</h2>
         <p>NOW Broadband, part of the Sky group, is widely assumed to be the default cheapest option, and it was, historically. Its current entry-level Brilliant Broadband package runs on older, slower ADSL-style technology, and its more usable Full Fibre 75 package starts from £23 a month on a 24-month contract, not meaningfully cheaper than Plusnet or EE&apos;s full-fibre entry tiers. Its Trustpilot score sits around 1.2 out of 5 from over 14,000 reviews, with reviews commonly citing long activation waits and slow support. Check the actual current price before assuming NOW is automatically the cheapest option; it frequently is not.</p>
@@ -1174,6 +1947,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         </ul>
         <h2>The best rule of thumb</h2>
         <p>If living in a shared student home, buy broadband based on the <em>whole house</em>, not one person. A slightly faster, cleaner deal split across multiple flatmates is often better value than the cheapest plan on paper.</p>
+        <p>Students renting in Brighton can use the <Link href="/postcode/bn1">Brighton BN1 broadband deals guide</Link> to compare district coverage, complete-address checks and contract costs before choosing a provider.</p>
         <div className="not-prose rounded-xl border-2 border-sky-200 bg-sky-50 p-5 my-6">
           <p className="font-bold text-slate-900 mb-1">Want a personalised recommendation instead?</p>
           <p className="text-sm text-slate-700 mb-3">Answer 6 quick questions about your household and budget, and our free Broadband Match tool ranks the providers that actually fit — not just the cheapest headline price.</p>
@@ -1194,6 +1968,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
     body: (
       <>
         <p>The best broadband for streaming is not automatically the fastest package available. For most UK households, smooth streaming depends on having <strong>enough speed for the number of people watching at once</strong>, stable Wi-Fi, and a package that still performs well in the evening when everyone is online.</p>
+        <p>Planning to replace aerial television with broadband delivery? Our <Link href="/guides/freely-and-fetch-tv-explained-uk">Freely TV guide</Link> explains compatible equipment, the 10Mbps service minimum and why room-level Wi-Fi still matters.</p>
         <h2>How much speed do you need for streaming?</h2>
         <div className="overflow-x-auto">
           <table className="w-full text-sm border-collapse">
@@ -1603,6 +2378,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
           </table>
         </div>
         <p>If your postcode has a genuine full-fibre option at a similar price, it will usually be more predictable than 5G, which is affected by local mobile congestion and signal conditions in a way a dedicated fixed line is not. See our full <Link href="/guides/best-full-fibre-broadband-uk">guide to the best full fibre broadband</Link>, including why every major provider&apos;s Trustpilot score and its real Ofcom complaints position often tell different stories, a pattern that applies to 5G-focused mobile networks too.</p>
+        <p>A mobile broadband plan may arrive as a physical SIM or a downloadable profile. Our <Link href="/guides/esim-explained-uk">UK eSIM explainer and switching checklist</Link> shows how to check handset support, activate a line and avoid deleting the old profile before the replacement works.</p>
 
         <h2>What to check before buying 5G home broadband</h2>
         <ul>
@@ -1727,7 +2503,8 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
   'best-broadband-for-gaming-uk': {
     body: (
       <>
-        <p>The best broadband for gaming in the UK is full fibre (FTTP) with low latency. For online gaming, ping (latency) matters more than raw download speed — a 50 Mbps connection with 10ms ping will outperform a 500 Mbps connection with 60ms ping. Here is what to look for and which providers deliver it.</p>
+        <p>The best broadband for gaming in the UK is full fibre (FTTP) with low latency. For online gaming, ping (latency) matters more than raw download speed: a 50 Mbps connection with 10ms ping will outperform a 500 Mbps connection with 60ms ping. Here is what to look for and which providers deliver it.</p>
+        <p>If you are lining up <Link href="/guides/gta-6-broadband-uk" className="font-semibold text-sky-700 hover:underline">Grand Theft Auto VI on 19 November 2026</Link>, start with the confirmed pre-load date, a wired console and spare storage. Rockstar has not published a file size, and the launch build is a single-player game, so do not buy gigabit broadband only because a forum thread guessed the download.</p>
 
         <h2>What makes broadband good for gaming?</h2>
         <p>Online gaming has three key requirements: low latency (ping), consistent speeds (low jitter), and enough bandwidth for your household. Unlike streaming, gaming sends and receives small packets of data constantly — the speed at which those packets travel (latency) determines whether your gaming experience is smooth or laggy.</p>
@@ -1976,10 +2753,324 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
     ],
   },
 
+  'moving-house-broadband-checklist-uk': {
+    body: (
+      <>
+        <p>
+          <strong>Start broadband planning the day you know the new address, then work backwards from moving day.</strong>{' '}
+          Check what is available there first. Then either transfer the current contract, place a new order, or leave if
+          the provider cannot serve the property.{' '}
+          <a href="https://www.openreach.com/help-and-support/moving-home" target="_blank" rel="noopener noreferrer">
+            Openreach tells movers to treat broadband as a priority as soon as they have a completion date
+          </a>
+          , especially for a new build that already has a fibre socket.
+        </p>
+        <p>
+          One Touch Switch is for changing provider at your current address, not for a house move.{' '}
+          <a
+            href="https://www.ofcom.org.uk/phones-and-broadband/switching-provider/switching-broadband-provider"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ofcom designed One Touch Switch for that same-address change
+          </a>
+          . A house move is usually a home-move transfer or a new installation at a different property. If you want the
+          old and new lines to overlap, Ofcom says you manage the cancellation yourself and One Touch Switch does not
+          apply.
+        </p>
+
+        <h2>Moving house broadband timeline</h2>
+        <div
+          role="region"
+          aria-label="Moving house broadband timeline"
+          tabIndex={0}
+          className="overflow-x-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2"
+        >
+          <table className="w-full min-w-[720px] border-collapse text-sm">
+            <thead>
+              <tr className="bg-slate-50">
+                {['When', 'What to do', 'Why it matters'].map((heading) => (
+                  <th key={heading} scope="col" className="border border-slate-200 px-4 py-3 text-left font-semibold text-slate-700">
+                    {heading}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" className="border border-slate-200 px-4 py-3 text-left font-semibold">As soon as you have the new address</th>
+                <td className="border border-slate-200 px-4 py-3">Check providers and connection type at the exact address, not just the town.</td>
+                <td className="border border-slate-200 px-4 py-3">Virgin Media, full fibre and older copper services are not interchangeable between streets.</td>
+              </tr>
+              <tr>
+                <th scope="row" className="border border-slate-200 px-4 py-3 text-left font-semibold">Four weeks before</th>
+                <td className="border border-slate-200 px-4 py-3">Compare a transfer with a new-customer order. Ask the current provider about remaining term, any move fee and whether the same speed exists at the new home.</td>
+                <td className="border border-slate-200 px-4 py-3">A slower technology at the new address can change the package even if the brand is available.</td>
+              </tr>
+              <tr>
+                <th scope="row" className="border border-slate-200 px-4 py-3 text-left font-semibold">Two to four weeks before</th>
+                <td className="border border-slate-200 px-4 py-3">Book the transfer or new order. Sky asks for 2 to 4 weeks. BT asks you to try for two weeks. Virgin Media can self-install from about three days where the network is already in the property.</td>
+                <td className="border border-slate-200 px-4 py-3">Engineer slots for a first full-fibre install take longer than a self-install on an existing socket.</td>
+              </tr>
+              <tr>
+                <th scope="row" className="border border-slate-200 px-4 py-3 text-left font-semibold">One week before</th>
+                <td className="border border-slate-200 px-4 py-3">Confirm activation and stop dates in writing. Pack the provider router separately. Photograph the socket or fibre box at both properties.</td>
+                <td className="border border-slate-200 px-4 py-3">A previous occupant&apos;s live service can delay a working-line takeover if they have not cancelled.</td>
+              </tr>
+              <tr>
+                <th scope="row" className="border border-slate-200 px-4 py-3 text-left font-semibold">Moving day</th>
+                <td className="border border-slate-200 px-4 py-3">Plug the router into the correct socket or Openreach ONT. Keep mobile data as backup. Do not cancel the old line until the new one works, unless the provider has already set a stop date.</td>
+                <td className="border border-slate-200 px-4 py-3">If a promised start date slips, providers in Ofcom&apos;s automatic compensation scheme pay £6.46 for each calendar day of delay.</td>
+              </tr>
+              <tr>
+                <th scope="row" className="border border-slate-200 px-4 py-3 text-left font-semibold">After you move</th>
+                <td className="border border-slate-200 px-4 py-3">Test the line, return kit you no longer need, and keep the final bill and any cooling-off deadline.</td>
+                <td className="border border-slate-200 px-4 py-3">You have 14 calendar days to cancel a new order. If the service has started you may still pay for use and installation.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Use our{' '}
+          <Link href="/compare">postcode comparison</Link> for the new address before you accept a transfer. If you are
+          unsure what speed the household needs, the{' '}
+          <Link href="/guides/what-broadband-speed-do-i-need">speed-need guide</Link> is the next stop.
+        </p>
+
+        <h2>Transfer, new order or leave?</h2>
+        <div
+          role="region"
+          aria-label="Transfer, new order or leave comparison"
+          tabIndex={0}
+          className="overflow-x-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2"
+        >
+          <table className="w-full min-w-[720px] border-collapse text-sm">
+            <thead>
+              <tr className="bg-slate-50">
+                {['Option', 'Use when', 'Watch for'].map((heading) => (
+                  <th key={heading} scope="col" className="border border-slate-200 px-4 py-3 text-left font-semibold text-slate-700">
+                    {heading}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" className="border border-slate-200 px-4 py-3 text-left font-semibold">Transfer the current contract</th>
+                <td className="border border-slate-200 px-4 py-3">The same provider can serve the new address and you want to keep the remaining term.</td>
+                <td className="border border-slate-200 px-4 py-3">A move fee, a slower technology, or a new minimum term if you upgrade. BT says remaining term transfers if you take the same service, but a term under three months becomes a new three-month contract.</td>
+              </tr>
+              <tr>
+                <th scope="row" className="border border-slate-200 px-4 py-3 text-left font-semibold">New order at the new address</th>
+                <td className="border border-slate-200 px-4 py-3">You are out of contract, the current brand is missing, or a better full-fibre option exists.</td>
+                <td className="border border-slate-200 px-4 py-3">This is a new installation, not One Touch Switch, if the old service is at a different property. Set a stop date on the old account yourself if you need overlap.</td>
+              </tr>
+              <tr>
+                <th scope="row" className="border border-slate-200 px-4 py-3 text-left font-semibold">Leave the current provider</th>
+                <td className="border border-slate-200 px-4 py-3">They cannot serve the new address, or you prefer a different network such as Virgin Media or an altnet.</td>
+                <td className="border border-slate-200 px-4 py-3">Citizens Advice says you might still face a cancellation fee if they cannot provide the same service, and you should ask them to reduce or remove it. Do not assume a waiver until it is confirmed in writing.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Can I take my broadband to my new home?</h2>
+        <p>
+          Often yes, if the same provider covers the new property.{' '}
+          <a
+            href="https://www.citizensadvice.org.uk/consumer/phone-internet-downloads-or-tv/cancelling-a-phone-tv-internet-or-mobile-contract/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Citizens Advice says you should check whether they offer the same service in the new area
+          </a>
+          , and that a small fee can apply to move it. Official current examples: Virgin Media charges £20 to transfer,
+          or £35 if the package changes; Sky charges £50 unless you have Sky VIP; BT says there is generally no home-move
+          fee, with a £30 or £70 connection charge only if a new BT line is needed and you stay on the old package.
+        </p>
+        <p>
+          Coverage is not the same as the same speed. Openreach warns that moving from full fibre to fibre-to-the-cabinet,
+          or the other way, can change setup and speeds. Virgin Media uses its own network, so a street that looks nearby
+          can still be off-net. Check the exact address before you promise the household it will &ldquo;just move&rdquo;.
+        </p>
+
+        <h2>How far in advance to order broadband when moving</h2>
+        <p>
+          Book once the moving date is firm enough for the provider to hold a slot, then keep a buffer.{' '}
+          <a href="https://www.sky.com/help/articles/home-move" target="_blank" rel="noopener noreferrer">
+            Sky says it needs two weeks&apos; notice
+          </a>{' '}
+          and that a transfer can take up to 10 working days. BT asks you to try for two weeks and says the process can
+          take two weeks, though it is often faster. Virgin Media says a self-install can be ready in as little as three
+          days, with an engineer visit usually around 7 to 14 days, and you must leave at least one day between
+          disconnecting the old home and activating the new one.
+        </p>
+        <p>
+          First-time full fibre at an existing house, a missing socket, or a new-build ONT that is not yet live can take
+          longer. Openreach says timescales depend on what is already in the property. If the provider misses a promised
+          start date,{' '}
+          <a
+            href="https://www.ofcom.org.uk/phones-and-broadband/service-quality/automatic-compensation-need-know"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ofcom&apos;s automatic compensation scheme
+          </a>{' '}
+          pays £6.46 for each calendar day of delay for signed-up providers, and £32.31 for a missed engineer appointment.
+        </p>
+
+        <h2>What to pack, and what to leave</h2>
+        <div
+          role="region"
+          aria-label="Broadband equipment to take or leave when moving house"
+          tabIndex={0}
+          className="overflow-x-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2"
+        >
+          <table className="w-full min-w-[640px] border-collapse text-sm">
+            <thead>
+              <tr className="bg-slate-50">
+                {['Item', 'Take or leave', 'Source'].map((heading) => (
+                  <th key={heading} scope="col" className="border border-slate-200 px-4 py-3 text-left font-semibold text-slate-700">
+                    {heading}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" className="border border-slate-200 px-4 py-3 text-left font-semibold">Provider router or hub</th>
+                <td className="border border-slate-200 px-4 py-3">Take it, unless you are leaving that provider and they have asked for it back.</td>
+                <td className="border border-slate-200 px-4 py-3">BT: take the Hub. Openreach: plug the router into the ONT once the service is ready.</td>
+              </tr>
+              <tr>
+                <th scope="row" className="border border-slate-200 px-4 py-3 text-left font-semibold">Openreach fibre modem or ONT</th>
+                <td className="border border-slate-200 px-4 py-3">Leave it at the old property if it is the wall-mounted fibre box.</td>
+                <td className="border border-slate-200 px-4 py-3">BT: leave an Openreach fibre modem for the people who move in. Openreach: new builds already have an ONT.</td>
+              </tr>
+              <tr>
+                <th scope="row" className="border border-slate-200 px-4 py-3 text-left font-semibold">Sky dish</th>
+                <td className="border border-slate-200 px-4 py-3">Leave the dish. Take Sky Glass or Sky Stream with you.</td>
+                <td className="border border-slate-200 px-4 py-3">Sky help: leave the dish; Glass and Stream do not need a home-move booking in the same way.</td>
+              </tr>
+              <tr>
+                <th scope="row" className="border border-slate-200 px-4 py-3 text-left font-semibold">Your own mesh kit and cables</th>
+                <td className="border border-slate-200 px-4 py-3">Take them. They are not tied to the old line.</td>
+                <td className="border border-slate-200 px-4 py-3">Test Wi-Fi in the rooms you will actually use after the line is live.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          If you later switch provider rather than transferring, use the{' '}
+          <Link href="/guides/how-to-switch-broadband-uk">One Touch Switch guide</Link> at the new address once you live
+          there. That is a same-address switch, not a house move.
+        </p>
+
+        <h2>Broadband not available at my new address</h2>
+        <p>
+          If the current provider cannot serve the new property, ask in writing what they will charge to end the
+          contract. Citizens Advice says a cancellation fee might still apply and that it is worth explaining the move
+          because some providers reduce or remove it. Treat any waiver as a confirmed account note, not a rumour.
+        </p>
+        <p>
+          Then check what actually exists at the new address: Openreach full fibre, Virgin Media, an altnet, or only
+          slower copper. A{' '}
+          <Link href="/guides/best-rolling-monthly-broadband-deals">rolling monthly or 12-month deal</Link> can be
+          rational if you might move again. Eligible households should check{' '}
+          <Link href="/guides/broadband-social-tariffs-uk">social tariffs</Link> before signing a long expensive term.
+          Rural or new-build gaps belong in the{' '}
+          <Link href="/guides/best-broadband-for-rural-areas-uk">rural broadband guide</Link> rather than a guess that
+          &ldquo;fibre will arrive next month&rdquo;.
+        </p>
+
+        <h2>One Touch Switch versus a house move</h2>
+        <p>
+          One Touch Switch is the standard way to change broadband provider where you already live. You contact the
+          provider you want to join. They match the current service, send the switching information (including any early
+          termination charge) and, if you go ahead, arrange the cutover. Your old service should then stop
+          automatically. Ofcom says any loss of service on that process should not last longer than one working day, and
+          the old provider must not charge you for a notice period after the switchover date.
+        </p>
+        <p>
+          A house move is different because the new line is at another address. If you want broadband at both homes
+          during the move, Ofcom says you manage your own switch: order the new service, cancel the old one separately,
+          and accept that One Touch Switch does not apply. That overlap is how you avoid a dark week, but you may pay
+          for both services for a few days. Our longer rights explainer is still{' '}
+          <Link href="/guides/broadband-moving-house">broadband when moving house</Link>, including contract and
+          landline context.
+        </p>
+
+        <h2>Phone line, telecare and moving day</h2>
+        <p>
+          Openreach is upgrading the UK to digital phone lines by January 2027, so a new address may already run voice
+          through the router. Check telecare, alarms and older handsets before you unplug anything. If you need to keep
+          a landline number, ask during the order: BT says you can usually keep it when the new home uses the same
+          exchange, and you cannot keep it when the dialling code changes. Sky says you will not keep the old landline
+          number on a home move. The{' '}
+          <Link href="/guides/landline-switch-off-explained-uk">landline switch-off guide</Link> covers backup power and
+          alarms.
+        </p>
+        <p>
+          On the day, plug in, test, then worry about mesh Wi-Fi. If the line is live but one room is dead, that is a
+          Wi-Fi problem, not a failed move. Keep the activation email. If an engineer is due, someone needs to be in;
+          Ofcom compensation for a missed appointment is £32.31 where the scheme applies.
+        </p>
+
+        <h2>Buying checklist before you sign</h2>
+        <ul>
+          <li>Write down the new address, moving date, current provider, account number and remaining minimum term.</li>
+          <li>Check availability and typical speed at the exact address, including whether an engineer or self-install is needed.</li>
+          <li>Ask whether a transfer keeps the remaining term or starts a new one, and get any move fee in writing.</li>
+          <li>If you are leaving, ask in writing whether an early termination charge applies because of the move.</li>
+          <li>Set activation and stop dates so the old line does not die before the new one works, unless you accept a gap.</li>
+          <li>Pack the router. Leave any Openreach ONT. Return kit only after the new service is working if you are changing provider.</li>
+          <li>If anyone relies on a landline or telecare, confirm Digital Voice compatibility before you unplug.</li>
+        </ul>
+      </>
+    ),
+    faqs: [
+      {
+        question: 'What is a moving house broadband checklist?',
+        answer:
+          'It is the order of jobs that keeps you online when you change address: check the new property, decide whether to transfer or start a new order, book dates, pack the right kit and only then stop the old line. Start as soon as you know the address. A house move is usually a transfer or a new installation, not One Touch Switch, which Ofcom designed for changing provider where you already live.',
+      },
+      {
+        question: 'Can I take my broadband to my new home?',
+        answer:
+          'Often yes, if your current provider can serve the new address. Citizens Advice says a small fee can apply to move the service. Virgin Media currently charges from £20, Sky charges £50 unless you have Sky VIP, and BT generally charges no home-move fee unless a new line is needed. If they cannot serve the new property, ask in writing what they will charge to end the contract rather than assuming a free exit.',
+      },
+      {
+        question: 'When should I sort broadband when moving house?',
+        answer:
+          'The day you know the new address. Openreach says to treat broadband as a priority once you have a completion date. Use the following weeks to compare a transfer with a new order, then book two to four weeks before moving day. Sky wants two weeks of notice. Leaving it until packing week is how people end up on mobile data while they wait for an engineer.',
+      },
+      {
+        question: 'How far in advance should I order broadband when moving?',
+        answer:
+          'Book as soon as the moving date is usable, with a buffer for engineer visits. Sky says a transfer can take up to 10 working days. BT asks you to try for two weeks. Virgin Media can self-install from about three days where its network is already in the property, or around 7 to 14 days with an engineer. First-time full fibre and new builds can take longer, so do not use the fastest advertised transfer as your only plan.',
+      },
+      {
+        question: 'How do I transfer broadband to a new house?',
+        answer:
+          'Use the provider’s home-move process, not One Touch Switch. Give the new address, moving date and account details, then take the router unless they send a replacement. BT says remaining term transfers if you take the same service. Confirm in writing whether the speed, fee and contract length stay the same. Set a stop date at the old property so you are not paying for two lines longer than you need.',
+      },
+      {
+        question: 'What if broadband is not available at my new address?',
+        answer:
+          'Ask the current provider in writing whether they will charge to end the contract because they cannot serve the new property. Citizens Advice says a cancellation fee might still apply and that you should ask them to reduce or remove it. Then check Openreach full fibre, Virgin Media, altnets and, if needed, rural or temporary options. Do not sign a long new term until the address check is real.',
+      },
+      {
+        question: 'Does One Touch Switch work when I move house?',
+        answer:
+          'Not as the house-move process. Ofcom’s One Touch Switch is for changing provider at your current address. If you want the old and new services to overlap while you move, Ofcom says you manage the cancellation yourself and One Touch Switch does not apply. Use One Touch Switch later if you switch provider after you live at the new home.',
+      },
+    ],
+  },
+
   'broadband-moving-house': {
     body: (
       <>
-        <p>When moving house, your broadband needs to be handled in a specific order to avoid gaps in service, early termination charges, or paying for two connections at once. Since September 2024, most switches are also covered by Ofcom&apos;s One Touch Switch process, which shifted from an actively enforced pilot to the permanent industry standard when Ofcom closed its enforcement case on 11 June 2026, having found more than 2 million customers had already used it successfully. Follow this checklist and you will have broadband set up at your new address with no unnecessary costs.</p>
+        <p>When moving house, your broadband needs to be handled in a specific order to avoid gaps in service, early termination charges, or paying for two connections at once. Use the dated <Link href="/guides/moving-house-broadband-checklist-uk">moving house broadband checklist and timeline</Link> for the week-by-week jobs, including when One Touch Switch does and does not apply. Since September 2024, most same-address switches are covered by Ofcom&apos;s One Touch Switch process, which shifted from an actively enforced pilot to the permanent industry standard when Ofcom closed its enforcement case on 11 June 2026, having found more than 2 million customers had already used it successfully.</p>
 
         <h2>Broadband moving house — the complete checklist</h2>
         <ul>
@@ -2227,18 +3318,15 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
     body: (
       <>
         <p className="text-lg">
-          A <strong>static public IP address</strong> keeps the same internet-facing address for
-          your business connection. You need one when another system must consistently recognise
-          or connect back to that address. It does not make broadband faster, and it is not a
-          security feature by itself.
+          <strong>A static public IP address keeps the same internet-facing address for your business connection, and most UK business broadband providers now include, discount or add it for roughly £0 to £10 a month plus VAT.</strong> You need one when another system must consistently recognise or connect back to that address. It does not make broadband faster, and it is not a security feature by itself.
         </p>
 
         <div className="rounded-xl border border-amber-200 bg-amber-50 p-5">
           <p className="mb-0 text-sm">
-            <strong>Price check:</strong> provider features and the price example below were
-            checked on 14 August 2026. Business broadband prices are commonly shown without VAT,
-            and availability depends on the premises. Confirm the live order summary before
-            signing a contract.
+            <strong>Price check:</strong> provider features and the prices below were checked on
+            20 September 2026. Business broadband prices are commonly shown without VAT, and
+            availability depends on the premises. Confirm the live order summary before signing a
+            contract.
           </p>
         </div>
 
@@ -2257,6 +3345,22 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
           connections.
         </p>
 
+        <h2>What is CGNat and why does it matter?</h2>
+        <p>
+          Carrier-grade network address translation, or CGNat, is how a provider shares one public
+          IPv4 address across many customer connections, a response to the industry running out of
+          new IPv4 addresses to hand out individually. A connection behind CGNat can browse the web
+          normally, but it cannot reliably accept unsolicited inbound connections, so an
+          IP-allowlisted portal, an inbound VPN or a self-hosted service will not work correctly
+          until the line is moved onto a dedicated, non-shared static IPv4 address.
+        </p>
+        <p>
+          Ask a prospective provider directly whether the specific package you are quoted is
+          behind CGNat by default, since this is not always stated on the pricing page. Some
+          providers use CGNat on entry-level packages and only supply a dedicated address as a paid
+          add-on or on a higher tier.
+        </p>
+
         <h2>When does a business need a static IP?</h2>
         <p>A static address is useful when you have a specific inbound or identification need:</p>
         <ul>
@@ -2264,6 +3368,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
           <li><strong>An on-site VPN gateway:</strong> remote workers or another branch must connect to a predictable office endpoint</li>
           <li><strong>Remote equipment:</strong> authorised administrators need to reach an on-site firewall, server or monitoring system</li>
           <li><strong>Self-hosted services:</strong> a service at your premises must remain reachable from outside the network</li>
+          <li><strong>Business VoIP:</strong> some hosted and on-site VoIP or SIP trunk setups route more reliably from a fixed address, which matters more as the UK approaches the January 2027 PSTN and ISDN switch-off covered in our <Link href="/guides/pstn-switch-off-small-business-uk">PSTN switch-off guide for small businesses</Link></li>
           <li><strong>Multiple public services:</strong> a larger address block may be needed where separate systems cannot share one address through port forwarding</li>
         </ul>
         <p>
@@ -2278,20 +3383,33 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
           accounting, cloud storage, card terminals, video meetings and ordinary browsing. These
           are outbound connections and do not usually require the office to keep the same public
           address. Faster downloads, better Wi-Fi and improved fault support are separate buying
-          decisions.
+          decisions covered in our <Link href="/guides/best-business-broadband-providers-uk">best business broadband providers guide</Link>.
         </p>
 
-        <h2>How much does a static IP cost?</h2>
+        <h2>Static IP pricing across major UK business providers</h2>
+        <p>Static IP business broadband pricing and inclusion policy vary widely by provider and tier. The table below compares the major national providers checked on 20 September 2026.</p>
+        <div role="region" aria-label="Static IP pricing by UK business broadband provider" tabIndex={0} className="overflow-x-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2">
+          <table className="w-full min-w-[640px] border-collapse text-sm">
+            <caption className="sr-only">Static IP address pricing and policy by UK business broadband provider</caption>
+            <thead>
+              <tr className="bg-slate-50">
+                {['Provider', 'Static IP policy', 'Typical cost'].map((heading) => (
+                  <th key={heading} scope="col" className="border border-slate-200 px-4 py-3 text-left font-semibold text-slate-700">{heading}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row" className="border border-slate-200 px-4 py-3 text-left font-semibold">Zen Internet</th><td className="border border-slate-200 px-4 py-3">Free static IPv4 as standard on every business plan</td><td className="border border-slate-200 px-4 py-3">£0</td></tr>
+              <tr><th scope="row" className="border border-slate-200 px-4 py-3 text-left font-semibold">TalkTalk Business</th><td className="border border-slate-200 px-4 py-3">Reported free on Business Full Fibre (FTTP) packages</td><td className="border border-slate-200 px-4 py-3">£0 on FTTP</td></tr>
+              <tr><th scope="row" className="border border-slate-200 px-4 py-3 text-left font-semibold">Virgin Media Business</th><td className="border border-slate-200 px-4 py-3">Can supply one static IP on request at the time of ordering; independent reporting suggests some higher fibre tiers include more than one</td><td className="border border-slate-200 px-4 py-3">Confirm at order</td></tr>
+              <tr><th scope="row" className="border border-slate-200 px-4 py-3 text-left font-semibold">BT Business</th><td className="border border-slate-200 px-4 py-3">Add-on on Essential; included on higher tiers such as Halo</td><td className="border border-slate-200 px-4 py-3">Around £5/month + VAT</td></tr>
+              <tr><th scope="row" className="border border-slate-200 px-4 py-3 text-left font-semibold">Sky Business</th><td className="border border-slate-200 px-4 py-3">Add-on on entry tiers; independent reporting suggests it is included on the Ultimate tier</td><td className="border border-slate-200 px-4 py-3">Around £5/month + VAT</td></tr>
+              <tr><th scope="row" className="border border-slate-200 px-4 py-3 text-left font-semibold">Vodafone Business</th><td className="border border-slate-200 px-4 py-3">On request on Essential; included as standard on Pro, up to eight addresses available</td><td className="border border-slate-200 px-4 py-3">Around £5/month + VAT</td></tr>
+            </tbody>
+          </table>
+        </div>
         <p>
-          There is no single UK price. Some business broadband packages include one address,
-          while others charge an add-on or reserve it for a higher tier. On 14 August 2026, BT
-          Business listed one static IP at <strong>£5 per month excluding VAT</strong> on its
-          Essential plan and included it with Enhanced. Zen Internet includes a free static IP as
-          standard on every plan, residential or business, a genuine differentiator against
-          providers that charge separately or reserve it for a higher tier. Vodafone Business splits by tier: its Essential plan offers a static IP on request at around £5
-          a month plus VAT, while its Pro tier includes one as standard, and up to eight can be
-          ordered for a fixed price if several are needed. These are provider examples, not a
-          promise that the same terms are available at every address.
+          Treat every figure in this table as a starting point, not a quote. Where we could confirm a policy only through independent reporting rather than the provider&apos;s own current pricing page, we have flagged it as such above, and you should still ask the provider directly to confirm the live price and whether the specific package quoted to you is behind CGNat by default.
         </p>
         <p>
           Compare the full minimum-term cost. Moving to a dearer package solely to obtain an
@@ -2309,29 +3427,35 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
           smallest group that needs it.
         </p>
 
-        <h2>What to ask a provider before ordering</h2>
-        <ul>
-          <li>Is the address a static public IPv4 address, and is IPv6 also available?</li>
-          <li>Is one address included, or what is the monthly price excluding and including VAT?</li>
-          <li>Will the address stay with the service after a package change or premises move?</li>
-          <li>Does the supplied router support a single address, port forwarding and any ordered address block?</li>
-          <li>Who will configure the firewall, VPN and services that use it?</li>
-          <li>What fault-response commitment and backup connection does the broadband package provide?</li>
-        </ul>
+        <h2>Five questions to ask before paying for a static IP</h2>
+        <ol>
+          <li><strong>What system requires it, specifically?</strong> Ask the application supplier or IT administrator to name the exact allowlist, VPN or hosted service that needs a fixed address, rather than buying one speculatively.</li>
+          <li><strong>Is the address a static public IPv4 address, and is IPv6 also available?</strong> A local network setting or an IPv6-only address will not satisfy an IPv4 allowlist requirement.</li>
+          <li><strong>What is the monthly price excluding and including VAT, and is one address included at your tier?</strong> Business prices are commonly quoted excluding VAT.</li>
+          <li><strong>Will the address stay with the service after a package change or premises move?</strong> Some providers reissue a new address in either case.</li>
+          <li><strong>What fault-response commitment and backup connection does the package provide?</strong> A static IP does not substitute for a resilience or support upgrade.</li>
+        </ol>
 
         <h2>The practical decision</h2>
         <p>
           Ask the application supplier or IT administrator to state exactly why a fixed public
-          address is required. If the answer is allowlisting, an inbound VPN or an on-site service,
-          include static IP support in the broadband shortlist. If there is no defined use, choose
-          on availability, total cost, upload speed and support instead.
+          address is required. If the answer is allowlisting, an inbound VPN, business VoIP or an
+          on-site service, include static IP support in the broadband shortlist. If there is no
+          defined use, choose on availability, total cost, upload speed and support instead. Our{' '}
+          <Link href="/guides/small-office-broadband-setup-uk">small office broadband setup guide</Link>{' '}
+          and <Link href="/guides/leased-line-cost-uk-explained">leased line cost guide</Link> cover
+          the wider connectivity decisions that often come up alongside a static IP request.
         </p>
       </>
     ),
     faqs: [
       {
         question: 'Does a small business need a static IP address?',
-        answer: 'Only if a system must consistently recognise or reach the business connection. Common reasons include an IP-allowlisted portal, an on-site VPN gateway or securely managed equipment at the premises. A small firm that only uses cloud applications, hosted email, video calls and ordinary web services will normally work perfectly well with a dynamic IP address.',
+        answer: 'Only if a system must consistently recognise or reach the business connection. Common reasons include an IP-allowlisted portal, an on-site VPN gateway, business VoIP routing or securely managed equipment at the premises. A small firm that only uses cloud applications, hosted email, video calls and ordinary web services will normally work perfectly well with a dynamic IP address.',
+      },
+      {
+        question: 'Which UK broadband providers offer static IP?',
+        answer: 'Zen Internet includes a free static IPv4 address as standard on every business plan, and TalkTalk Business is reported to include one free on its Full Fibre (FTTP) packages. BT Business, Sky Business and Vodafone Business typically charge around £5 a month plus VAT on entry tiers, or include one on a higher tier, while Virgin Media Business can supply one on request at the time of ordering. Confirm the current policy for your exact package before ordering.',
       },
       {
         question: 'Does a static IP make business broadband faster or more reliable?',
@@ -2339,7 +3463,11 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
       },
       {
         question: 'How much is a static IP on UK business broadband?',
-        answer: 'It may be included, charged monthly or available only with a higher package. BT Business listed one static IP for £5 per month excluding VAT on its Essential plan when checked on 14 August 2026, while Enhanced included it. Treat that as a dated provider example and compare the full contract cost on the live quote.',
+        answer: 'Typically £0 to around £10 a month plus VAT, depending on the provider and tier. Zen Internet includes one free as standard, TalkTalk Business is reported to include one free on Full Fibre, and BT Business, Sky Business and Vodafone Business typically charge around £5 a month plus VAT on entry tiers when checked on 20 September 2026. Treat these as dated provider examples and compare the full contract cost on the live quote.',
+      },
+      {
+        question: 'What is CGNat and does it stop me getting a static IP?',
+        answer: 'Carrier-grade network address translation (CGNat) is where a provider shares one public IPv4 address across several customer connections, so unsolicited inbound connections do not reliably reach your router. It does not stop you buying a static IP; it means the entry-level package you were quoted may need to be upgraded or have a dedicated address added before an allowlisted service, VPN or self-hosted system will work.',
       },
       {
         question: 'Is a static IP address secure?',
@@ -2356,16 +3484,13 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
     body: (
       <>
         <p className="text-lg">
-          The right student broadband deal is determined by the <strong>property</strong>, not just
-          the university city. First check whether internet is included in your accommodation. If
-          you need your own connection, use the full address to compare networks and choose a
-          minimum term that ends no later than your tenancy.
+          <strong>The right student broadband deal is determined by the property, not just the university city, but EE, Vodafone, Sky and Virgin Media all now sell dedicated student broadband from around £20 to £26 a month, checked via Student Beans, UNiDAYS or GoCertify.</strong> First check whether internet is included in your accommodation. If you need your own connection, use the full address to compare networks and choose a minimum term that ends no later than your tenancy.
         </p>
 
         <div className="rounded-xl border border-amber-200 bg-amber-50 p-5">
           <p className="mb-0 text-sm">
             <strong>Offer and availability check:</strong> contract options and network information
-            on this page were checked on 14 August 2026. Deals can change and availability varies
+            on this page were checked on 20 September 2026. Deals can change and availability varies
             by building, so confirm the contract summary, setup cost and installation date before
             ordering.
           </p>
@@ -2410,6 +3535,10 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
           </table>
         </div>
 
+        <p>
+          Students moving into central Newcastle can use the <Link href="/postcode/ne1">NE1 broadband deals and coverage guide</Link> to compare district evidence, building checks and contract costs before entering the complete flat address with a provider.
+        </p>
+
         <h2>Do you need to buy broadband at all?</h2>
         <p>
           UCAS says university halls usually include broadband, although inclusions vary. Private
@@ -2425,12 +3554,39 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
           settled before anyone signs.
         </p>
 
+        <h2>Student discount codes: Student Beans, UNiDAYS and GoCertify</h2>
+        <p>
+          Several providers now sell student-specific broadband at a discount that is unlocked
+          through a third-party verification platform rather than a code typed at checkout. EE and
+          Vodafone both accept Student Beans and UNiDAYS; Vodafone also accepts GoCertify. Each
+          platform checks that you are enrolled at a UK educational institution, usually through a
+          .ac.uk email address or uploaded student documentation, before releasing the discounted
+          price and any reward card or voucher. Create the verification account before you start
+          the broadband order, since an incomplete check can hold up activation.
+        </p>
+        <p>
+          On 20 September 2026, EE listed student broadband from £22.99 a month on 12- or 24-month
+          contracts, with a £30 upfront fee, a reward card worth £50 to £70 depending on the speed
+          tier ordered, and a stated price rise to £26.99 in March 2027 and £30.99 in March 2028.
+          Vodafone listed 5G home broadband from £20 a month for its 50Mbps tier and £21 a month for
+          150Mbps on a 12-month term, each with a further £2 a month off for students and an extra
+          £2 off if you also hold an active Vodafone mobile contract, rising to £23.50 and £24.50 a
+          month respectively on 1 April 2027; Vodafone separately advertises up to £200 in switching
+          credit for new broadband customers. Stating the exact post-discount price and date up
+          front, rather than only in the terms, makes it easier to judge the real cost across a full
+          course rather than just the headline first-year figure. Treat every figure as a dated
+          snapshot rather than a live quote, and re-check the provider&apos;s own page before ordering.
+        </p>
+
         <h2>12-month student broadband or a rolling deal?</h2>
         <h3>Choose 12 months for a full academic-year tenancy</h3>
         <p>
           A 12-month deal is usually the cleaner match when the household will occupy the property
-          for a full year. Virgin Media&apos;s current student page advertises 12-month contracts with
-          no setup cost for eligible students with an academic email address. Eligibility,
+          for a full year. On 20 September 2026, Virgin Media&apos;s student page listed M125 from
+          £25.99 a month, M500 from £28.99 a month and Gig1 from £29.99 a month on 12-month terms,
+          each requiring a valid .ac.uk email address and with no setup cost for eligible students.
+          Sky separately markets its Full Fibre 150, 300 and 900 tiers to students, though its own
+          page did not state a specific student discount at the time of checking. Eligibility,
           availability and the live contract summary still need checking before purchase.
         </p>
         <h3>Choose rolling broadband for uncertain or shorter stays</h3>
@@ -2440,12 +3596,15 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
           and KCOM currently lists no-contract Roll packages for eligible Hull-area postcodes.
           Flexibility may cost more, so compare the total amount for the months you expect to use it.
         </p>
-        <h3>Consider mobile broadband as a temporary bridge</h3>
+        <h3>Consider 5G or mobile broadband as an alternative or a bridge</h3>
         <p>
           A phone hotspot or 4G or 5G router can cover the period before fixed broadband is
-          installed. Check indoor coverage, the data allowance and the cancellation terms first.
-          It may be practical for one person, but performance can fluctuate and a busy shared house
-          may use a large amount of data.
+          installed, but Vodafone&apos;s 12-month 5G home broadband student plan is a genuine
+          alternative to fixed fibre for a household that does not need the fastest tier, not only a
+          short-term bridge. Either way, check indoor 5G signal at the exact address, the data
+          allowance and the cancellation terms first. Our <Link href="/guides/best-5g-home-broadband-uk">5G home broadband guide</Link> covers
+          how it compares with fixed fibre in more detail. Performance can still fluctuate, and a
+          busy shared house may use a large amount of data.
         </p>
 
         <h2>How city network differences affect your shortlist</h2>
@@ -2454,7 +3613,16 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
           and local full-fibre networks, and some operators serve particular buildings rather than
           every street. London students may see Community Fibre at some addresses, while Hull has
           the locally distinctive KCOM network. Elsewhere, a CityFibre-built connection may be sold
-          by one of several retail providers rather than by CityFibre itself.
+          by one of several retail providers rather than by CityFibre itself: in Luton, for example,
+          BroadbandPicker&apos;s <Link href="/postcode/lu1">LU1 broadband deals guide</Link> covers
+          CityFibre&apos;s confirmed rollout there and which retail providers currently sell over it.
+          In Oxford, a citywide full-fibre rollout announcement does not mean most eligible homes
+          have actually switched; BroadbandPicker&apos;s <Link href="/postcode/ox1">OX1 broadband
+          deals guide</Link> covers Openreach&apos;s own confirmed uptake figures for the city. In
+          Cardiff, dated business-focused full-fibre projects do not necessarily translate into
+          residential deals; BroadbandPicker&apos;s <Link href="/postcode/cf10">CF10 broadband deals
+          guide</Link> explains the distinction between Cardiff&apos;s city-centre business
+          infrastructure and household broadband coverage.
         </p>
         <p>
           City-level percentages are not a substitute for an address check. Ofcom&apos;s 2025 data also
@@ -2515,6 +3683,14 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         question: 'What happens to student broadband when the tenancy ends?',
         answer: 'Contact the provider before moving and follow the notice and equipment-return rules in your contract. Leaving during a minimum term may trigger an early termination charge, while moving the service can sometimes begin a new term. Do not assume the account ends with the tenancy. Keep proof of cancellation and agree how housemates will divide the final bill.',
       },
+      {
+        question: 'What is Student Beans or UNiDAYS for broadband?',
+        answer: 'Student Beans, UNiDAYS and GoCertify are third-party verification platforms that confirm you are enrolled at a UK educational institution, usually through a .ac.uk email address or student documentation. EE and Vodafone both use Student Beans and UNiDAYS, and Vodafone also accepts GoCertify, to unlock student broadband pricing and any reward card or voucher. Create the verification account before starting the broadband order to avoid delaying activation.',
+      },
+      {
+        question: 'How much does EE or Vodafone student broadband cost?',
+        answer: 'On 20 September 2026, EE listed student broadband from £22.99 a month with a £30 upfront fee and a reward card worth £50 to £70 depending on speed, while Vodafone listed 5G home broadband from £20 a month for 50Mbps and £21 a month for 150Mbps on a 12-month term, with a further £2 a month student discount. Treat these as dated examples and confirm the live price for your exact address before ordering.',
+      },
     ],
   },
 
@@ -2522,16 +3698,13 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
     body: (
       <>
         <p className="text-lg">
-          A good <strong>small office broadband setup</strong> is more than a fast package. It is a
-          documented connection, router and backup arrangement that still lets staff work when
-          Wi-Fi is busy or the main line fails. Plan it before move-in, then test it with the
-          applications and devices the office actually uses.
+          <strong>A good small office broadband setup is more than a fast package: it is choosing the right connection type, planning the network for near-term growth, and setting up a tested backup, because business fibre packages typically add a service-level repair commitment that residential broadband does not.</strong> Plan it before move-in, then test it with the applications and devices the office actually uses.
         </p>
 
         <div className="rounded-xl border border-amber-200 bg-amber-50 p-5">
           <p className="mb-0 text-sm">
             <strong>Information check:</strong> regulator, cyber security and provider guidance on
-            this page was verified on 15 August 2026. Availability, support commitments and backup
+            this page was verified on 20 September 2026. Availability, support commitments and backup
             features vary by address and package. Confirm them in the written contract before
             ordering.
           </p>
@@ -2540,7 +3713,7 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         <h2>Small office broadband setup checklist</h2>
         <ol>
           <li>List the cloud services, calls, tills and other systems that stop when internet access fails.</li>
-          <li>Count normal and peak users, including visitors and personal devices allowed on the network.</li>
+          <li>Count normal and peak users, including visitors and personal devices allowed on the network, and add headroom for near-term growth such as a new starter or a second phone system rather than sizing only for today.</li>
           <li>Check fixed and mobile coverage at the complete office address.</li>
           <li>Get expected download and upload speeds, the minimum term and support commitments in writing.</li>
           <li>Agree the router, cabling and wireless access-point locations before the installation visit.</li>
@@ -2549,18 +3722,49 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
           <li>Record the network layout, provider contacts and recovery steps for the people responsible.</li>
         </ol>
 
+        <h2>Choose the connection type: full fibre, standard fibre or 5G</h2>
+        <p>
+          UK business broadband is sold over three main connection types, and the right one depends
+          on the workload, the building and how quickly the office needs to be online. Full fibre
+          (FTTP), sold by providers including BT Business and Zen Internet and by full-fibre altnets
+          in some areas, runs fibre optic cable directly to the premises and gives the fastest,
+          most stable speeds for heavy cloud use and video calls. Standard business fibre (FTTC)
+          mixes fibre with the older copper cabinet-to-building run; it is more widely available and
+          cheaper, and suits light browsing and basic office tasks where FTTP is not yet available.
+          5G or 4G mobile business broadband, sold by providers including Three Business and EE
+          Business, needs no drilling or engineer visit and can be online the same day, making it a
+          genuine primary option for a fast-moving or short-lease office, not only a backup.
+        </p>
+        <p>
+          Three Business, for example, currently advertises unlimited-data 5G broadband with average
+          download speeds around 150Mbps, no engineer visit, a 30-day money-back guarantee and
+          next-working-day delivery on eligible orders, though its price rises by £1.60 a month
+          excluding VAT each April. Treat that as one dated provider example, not a universal 5G
+          figure, and check indoor signal at the exact desk before relying on it as the only
+          connection.
+        </p>
+
         <h2>Choose the connection around the work</h2>
         <p>
           Start with what happens at the busiest point of the day. Video meetings and sending large
           files depend on upload performance as well as download speed. Cloud telephony, payment
           systems and remote desktops make interruption more costly. Ask the provider for the
           service available at the exact premises rather than relying on a national headline speed.
+          If the office still uses a landline for calls, plan the move to digital, router-based
+          telephony ahead of the January 2027 PSTN switch-off; our <Link href="/guides/pstn-switch-off-small-business-uk">PSTN switch-off guide for small businesses</Link> covers
+          the deadline, alarms, card terminals and testing in detail.
         </p>
         <p>
           Ofcom advises businesses to compare service levels as well as price. A business package
           may offer priority support, a repair commitment, a static IP option or resilience features,
-          but the bundle varies. Read the service level wording carefully: response time, target fix
-          time and guaranteed restoration are not interchangeable promises.
+          but the bundle varies. BT Business, for example, states that its Pro-tier Prompt Care
+          service aims to fix faults reported before 21:00 by the next working day, with compensation
+          of a week&apos;s rental credit for each day it runs late, up to 12 days; treat that as one
+          dated provider example of what a service-level commitment can look like, not a promise
+          every package makes. Read the service level wording carefully: response time, target fix
+          time and guaranteed restoration are not interchangeable promises. If a system needs a
+          fixed, identifiable address rather than just a fast connection, our <Link href="/guides/static-ip-business-broadband-explained">static IP business broadband guide</Link> covers
+          when that add-on is actually needed and what it costs.
         </p>
 
         <h2>Plan the router, Wi-Fi and cabling</h2>
@@ -2584,8 +3788,8 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
           If clients or visitors need internet access, use a separate guest network when the router
           or managed Wi-Fi system provides one. Keep router administration available only to the
           people who manage the network. Change any default administration credentials, apply
-          firmware and software updates, keep the firewall enabled and record who is responsible
-          for reviewing the setup.
+          firmware and software updates, use WPA3 encryption where the router and devices support
+          it, keep the firewall enabled and record who is responsible for reviewing the setup.
         </p>
         <p>
           Broadband resilience is not a data backup. NCSC guidance says organisations should copy
@@ -2659,7 +3863,15 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
       },
       {
         question: 'How should guest Wi-Fi be set up in a small office?',
-        answer: 'Use a separate guest network if the router or managed Wi-Fi system supports one, and do not give visitors access to the staff network or router administration. Use a suitable guest password, review it when necessary and keep the router updated. Ask a network professional for help if the office handles sensitive systems or the supplied router cannot provide the required separation.',
+        answer: 'Use a separate guest network if the router or managed Wi-Fi system supports one, and do not give visitors access to the staff network or router administration. Use a suitable guest password, use WPA3 encryption where supported, review it when necessary and keep the router updated. Ask a network professional for help if the office handles sensitive systems or the supplied router cannot provide the required separation.',
+      },
+      {
+        question: 'What is a good SLA for business broadband repairs?',
+        answer: 'A useful service-level agreement states an exact target fix time and what happens if the provider misses it, not just a general promise of priority support. BT Business, for example, states that its Pro-tier Prompt Care service aims to fix faults reported before 21:00 by the next working day, with a week\'s rental credit for each day it runs late, up to 12 days. Compare the exact wording and compensation terms across providers rather than assuming every business package includes the same commitment.',
+      },
+      {
+        question: 'Should a small office use 5G broadband instead of a fixed line?',
+        answer: 'It can be a genuine primary option, not only a backup, especially for a fast-moving office or a short lease where drilling and an engineer visit are impractical. Three Business, for example, currently advertises unlimited-data 5G broadband with no engineer visit and a 30-day money-back guarantee. Test indoor signal at the exact desk first, and check the data allowance and any scheduled price rise before relying on it as the only connection.',
       },
     ],
   },
@@ -2668,16 +3880,13 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
     body: (
       <>
         <p className="text-lg">
-          <strong>The practical answer:</strong> a landlord does not automatically have to supply
-          broadband merely because a property is rented or is an HMO. Decide whether the landlord
-          or tenants will hold the provider contract, put the payment arrangement in the tenancy
-          agreement, obtain any installation permission and test Wi-Fi throughout the property.
+          <strong>The practical answer: a landlord does not automatically have to supply broadband merely because a property is rented or is an HMO, and since the Renters&apos; Rights Act abolished fixed-term tenancies in England from 1 May 2026, a broadband contract can no longer be assumed to end neatly with the tenancy.</strong> Decide whether the landlord or tenants will hold the provider contract, put the payment arrangement in the tenancy agreement, obtain any installation permission and test Wi-Fi throughout the property.
         </p>
 
         <div className="rounded-xl border border-amber-200 bg-amber-50 p-5">
           <p className="mb-0 text-sm">
             <strong>Information check:</strong> housing, regulator and provider guidance on this
-            page was verified on 15 August 2026. HMO licensing and tenancy rules vary across the UK
+            page was verified on 20 September 2026. HMO licensing and tenancy rules vary across the UK
             and by local authority. Check the rules for the property and take legal advice where
             the tenancy or licence conditions are unclear.
           </p>
@@ -2714,6 +3923,26 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
           or charged separately, but included bills must be set out in the tenancy agreement. The
           wider UK position and the wording needed for a particular tenancy can differ, so do not
           treat an informal advert saying &ldquo;bills included&rdquo; as the operating plan.
+        </p>
+
+        <h2>The Renters&apos; Rights Act changed how tenancy and broadband terms align</h2>
+        <p>
+          From 1 May 2026, fixed-term assured shorthold tenancies in England were abolished under
+          the Renters&apos; Rights Act. Every tenancy is now a periodic tenancy with no fixed end date,
+          so a landlord can no longer assume a household will simply leave when a 12-month tenancy
+          &ldquo;ends&rdquo; and neatly hand back a broadband contract at the same time. A tenant can
+          now give notice and leave at a point the landlord cannot fix in advance, while the
+          property could equally stay occupied by the same household for years.
+        </p>
+        <p>
+          This makes the choice between a landlord-held rolling or flexible broadband contract and a
+          long fixed-term deal more consequential than before. A landlord-held account that
+          continues regardless of who currently lives in the room avoids repeatedly matching a
+          broadband minimum term to a tenancy date that no longer exists in the same way. Where
+          tenants hold their own contract, be explicit in the tenancy agreement about who pays any
+          early-exit charge if they leave before a fixed broadband term ends, since the tenancy
+          itself no longer has a comparable fixed end point to point to; our <Link href="/guides/broadband-contract-end-rights">broadband contract end rights guide</Link> covers
+          exit charges and end-of-contract notices in more detail.
         </p>
 
         <h2>What the tenancy agreement should cover</h2>
@@ -2754,9 +3983,12 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         </p>
         <p>
           Agree the cable route, entry point, equipment position and responsibility for making good
-          before work starts. Keep the written approval and installation record with the property
-          documents. Leave fixed network equipment such as an Openreach ONT at the property when
-          tenants change, and follow the relevant provider&apos;s instructions for removable equipment.
+          before work starts. Cabling that passes through a fire door, a protected escape route or a
+          compartment wall needs a competent installer who understands the property&apos;s fire safety
+          requirements, not a DIY run of cable under a door. Keep the written approval and
+          installation record with the property documents. Leave fixed network equipment such as an
+          Openreach ONT at the property when tenants change, and follow the relevant provider&apos;s
+          instructions for removable equipment.
         </p>
 
         <h2>Plan HMO Wi-Fi room by room</h2>
@@ -2779,18 +4011,53 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
           fix a weak connection.
         </p>
 
-        <h2>Keep the account secure and manageable</h2>
+        <h2>Segment the network between unrelated tenants</h2>
+        <p>
+          A single shared Wi-Fi password on a standard consumer router exposes every tenant&apos;s
+          devices to every other tenant on the same network, a real privacy and security risk between
+          people who are not one household. The National Residential Landlords Association recommends
+          per-room network separation using commercial-grade access points and managed switches rather
+          than one flat shared network, specifically to stop tenants&apos; devices and traffic being
+          visible to each other. This also narrows a landlord&apos;s own exposure: if one tenant misuses
+          the connection, a segmented network makes it easier to isolate and address than a single
+          shared password covering the whole building.
+        </p>
         <p>
           Use a landlord or management email address that will remain available when tenants leave.
           Store the provider account number, contract end date, equipment list, router administration
           details and fault process securely. Give residents the Wi-Fi credentials they need without
-          sharing the provider login or router administration password.
+          sharing the provider login or router administration password, change shared credentials
+          after a difficult handover, and keep router software updated.
         </p>
         <p>
-          Change shared Wi-Fi credentials when necessary, especially after a difficult handover, and
-          keep router software updated. If the property uses smart locks, alarms or other managed
-          equipment, separate them from resident or guest access where the network supports it and
-          document what stops working during a broadband or power failure.
+          If the property uses smart locks, alarms or other managed equipment, separate them from
+          resident or guest access where the network supports it and document what stops working
+          during a broadband or power failure. Our <Link href="/guides/small-office-broadband-setup-uk">small office broadband setup guide</Link> covers
+          the same segmentation and WPA3 principles for a shared building network in more technical
+          detail.
+        </p>
+
+        <h2>Specialist HMO broadband providers vs standard residential</h2>
+        <p>
+          Standard residential broadband packages are not designed around several unrelated tenants,
+          multiple floors, fire doors and a large number of connected devices. Specialist landlord
+          broadband providers exist specifically for this: Landlord Broadband, an NRLA-partnered
+          service, offers professionally cabled and networked systems ranging from mesh Wi-Fi for a
+          smaller HMO up to full apartment-block networks, a 24/7 UK-based tenant support desk and a
+          published no-dead-zone coverage guarantee for qualifying installations, though it does not
+          publish fixed prices and instead offers a free property assessment. Virgin Media Business
+          separately sells a multi-property package aimed at landlords and letting agents with
+          consolidated billing and account management across several rental sites.
+        </p>
+        <p>
+          Before moving an HMO onto a business broadband contract to get a service genuinely designed
+          for multiple tenants, check what protection you would lose. Independent reporting suggests
+          only a minority of UK providers apply Ofcom&apos;s residential fairness commitments,
+          including minimum service guarantees and rights if speed underperforms, to their business
+          contracts. A purpose-built multi-tenant HMO product or a specialist landlord broadband
+          service can be a safer middle ground than either an ordinary shared residential contract
+          used well beyond its intended household size, or a standard business contract that quietly
+          drops residential-grade protections.
         </p>
 
         <h2>Manage tenant changes and contract endings</h2>
@@ -2804,7 +4071,8 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
           If tenants hold the contract, the named customer should follow the provider&apos;s moving or
           cancellation process and return any required equipment. Do not assume a new occupier can
           take over another person&apos;s account. Confirm the provider&apos;s process early enough to avoid
-          an unwanted cancellation, overlapping order or gap in service.
+          an unwanted cancellation, overlapping order or gap in service; our <Link href="/guides/how-to-switch-broadband-uk">UK broadband switching guide</Link> covers
+          the One Touch Switch process a new occupier would use to move to a different provider.
         </p>
 
         <h2>Landlord and HMO broadband checklist</h2>
@@ -2841,6 +4109,14 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         question: 'Should a landlord hold the broadband account for an HMO?',
         answer: 'It can be the cleaner option when broadband is included and individual room tenancies change at different times. The landlord then controls renewals, faults and equipment, but also carries responsibility to the provider. Use a durable management email, restrict account access, document the service offered and plan how residents report problems without sharing administration credentials.',
       },
+      {
+        question: 'How has the Renters’ Rights Act changed broadband planning for HMOs?',
+        answer: 'Since 1 May 2026, fixed-term assured shorthold tenancies in England have been abolished and replaced with periodic tenancies that have no fixed end date. A landlord can no longer assume a broadband contract will naturally end when a fixed tenancy term does, since tenancies themselves no longer have one. A landlord-held rolling or flexible broadband contract, or a clear tenancy clause on who covers an early-exit charge, matters more than it did before.',
+      },
+      {
+        question: 'Do I need a business broadband contract for an HMO?',
+        answer: 'Not necessarily. A business contract can offer a service genuinely designed for multiple tenants, but independent reporting suggests only a minority of UK providers extend Ofcom’s residential fairness commitments, including minimum service guarantees, to their business contracts. Compare a specialist landlord broadband product or a purpose-built multi-tenant package against a standard business contract before assuming either automatically suits an HMO.',
+      },
     ],
   },
 
@@ -2857,9 +4133,11 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         <div className="rounded-xl border border-amber-200 bg-amber-50 p-5">
           <p className="mb-0 text-sm">
             <strong>Price check:</strong> provider offers and independent estimates on this page
-            were verified on 16 August 2026. They use different locations, speeds and contract
-            assumptions, so we report them separately and do not calculate a combined average.
-            Confirm VAT, installation, annual changes and the full order terms before signing.
+            were verified on 16 August 2026, with BT&apos;s BTnet entry price and a third
+            independent guide re-checked on 27 September 2026. They use different locations,
+            speeds and contract assumptions, so we report them separately and do not calculate a
+            combined average. Confirm VAT, installation, annual changes and the full order terms
+            before signing.
           </p>
         </div>
 
@@ -2912,7 +4190,9 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
           Independent guides can help with early budgeting, but their populations and methods are
           not interchangeable. AMVIA&apos;s August 2026 guide reports indicative fully managed,
           symmetric prices by area and includes especially low on-net offers. Selectra&apos;s August
-          2026 guide gives broader typical SME estimates excluding VAT. We have not combined them.
+          2026 guide gives broader typical SME estimates excluding VAT. Leased Line Comparison&apos;s
+          2026 guide gives a third, separately-sourced range by exact bandwidth. We have not combined
+          any of them.
         </p>
         <div className="overflow-x-auto">
           <table className="w-full text-sm border-collapse">
@@ -2936,6 +4216,12 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
                 <td className="px-4 py-3 text-slate-700">£350 to £700</td>
                 <td className="px-4 py-3 text-slate-600">Indicative 2026 monthly prices excluding VAT</td>
               </tr>
+              <tr className="border-b border-slate-100">
+                <td className="px-4 py-3 font-semibold text-slate-900">Leased Line Comparison, major-city range</td>
+                <td className="px-4 py-3 text-slate-700">£139 to £280</td>
+                <td className="px-4 py-3 text-slate-700">£139 to £490</td>
+                <td className="px-4 py-3 text-slate-600">2026 pricing guide; also quotes 10Gb from £650, rising to thousands, and a general £139 to £700 range for an average-size business</td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -2943,6 +4229,24 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
           The gap is evidence that &ldquo;average leased line cost&rdquo; needs a methodology, not that
           one source should be silently preferred. A business in an on-net city building may see
           an unusually low offer, while a site needing new construction can cost much more.
+        </p>
+
+        <h2>Bearer size and ordered speed: a common source of quote confusion</h2>
+        <p>
+          A leased line quote often separates two numbers: the <strong>bearer</strong>, meaning the
+          maximum physical capacity of the fibre installed at the premises, and the speed you
+          actually order and pay for on top of it. BT&apos;s own BTnet page, re-checked on 27
+          September 2026, advertises &ldquo;30 or 50 Mbps over a 1Gbps service&rdquo; as its entry
+          configuration, the same distinction already reflected in the price table above.
+          Ordering a lower speed on a higher-capacity bearer is a genuine way to reduce the monthly
+          rental now while keeping the option to increase the ordered speed later, usually without
+          new construction, cabling or a fresh installation charge. Always ask a supplier to state
+          both the bearer size and the committed speed separately, and confirm in writing whether a
+          future upgrade needs a new order, a new survey or simply a change to the existing circuit.
+          Our{' '}
+          <Link href="/guides/static-ip-business-broadband-explained">static IP business broadband
+          guide</Link>{' '}covers a related connectivity decision worth checking alongside a leased
+          line quote.
         </p>
 
         <h2>What changes the quote at your premises?</h2>
@@ -2994,10 +4298,11 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
         </p>
         <p>
           Put a realistic hourly cost on an outage and list the workloads that need guaranteed
-          bandwidth. Then compare a leased line with business FTTP plus a tested backup. There is no
-          universal winner: the leased line buys dedicated performance and contractual support,
-          while FTTP can buy far more headline speed per pound where shared capacity and its support
-          terms are acceptable.
+          bandwidth. Then compare a leased line with{' '}
+          <Link href="/guides/best-business-broadband-providers-uk">business FTTP</Link> plus a
+          tested backup. There is no universal winner: the leased line buys dedicated performance
+          and contractual support, while FTTP can buy far more headline speed per pound where shared
+          capacity and its support terms are acceptable.
         </p>
 
         <h2>How to compare leased line quotes</h2>
@@ -3033,6 +4338,10 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
       {
         question: 'Is a leased line worth it for a small business?',
         answer: 'It depends on the cost of downtime and the need for guaranteed symmetric bandwidth. A leased line can suit a firm that relies on cloud systems, large uploads, internet calls or customer transactions and needs a specific repair commitment. If ordinary business FTTP meets the workload and a mobile backup keeps essential work running, that combination may offer better value. There is no universal winner.',
+      },
+      {
+        question: 'What does "bearer size" mean for a leased line?',
+        answer: 'The bearer is the maximum physical capacity of the fibre installed at the premises; the ordered speed is the smaller amount of that capacity you actually pay to use. BT’s own BTnet page, re-checked on 27 September 2026, advertises 30 or 50 Mbps over a 1Gbps bearer as its entry configuration. Ordering below the bearer’s full capacity can lower the monthly rental now while leaving room to increase the ordered speed later, usually without new construction. Ask the supplier to confirm the bearer size and committed speed separately and how a future upgrade would be handled.',
       },
     ],
   },
@@ -3477,10 +4786,11 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
 
         <h2>What is mesh Wi-Fi and how does it work?</h2>
         <p>A mesh network uses a main router and one or more connected nodes to provide a shared Wi-Fi name around the property. Compatible devices can move between nodes while the system steers them towards an appropriate access point and band. This differs from a basic extender, which may create a separate network name or repeat an already weak signal with less coordinated roaming.</p>
-        <p>Nodes communicate through backhaul. Wireless backhaul uses Wi-Fi, which is convenient but consumes radio capacity and weakens when nodes are too far apart. Ethernet backhaul connects nodes by cable and normally provides the fastest, most stable result. Tri-band systems can use a 6GHz or additional band for backhaul, but thick walls and floors still reduce performance. Mesh improves distribution inside the home; it cannot make the broadband line itself faster.</p>
+        <p>Nodes communicate through backhaul. Wireless backhaul uses Wi-Fi, which is convenient but consumes radio capacity and weakens when nodes are too far apart. Ethernet backhaul connects nodes by cable and normally provides the fastest, most stable result. Tri-band systems can use a 6GHz or additional band for backhaul, but thick walls and floors still reduce performance. Mesh improves distribution inside the home; it cannot make the broadband line itself faster. Use our guide to <Link href="/guides/fix-wifi-dead-spots-uk">diagnose and fix a Wi-Fi dead spot</Link> before choosing how many nodes to buy.</p>
 
         <h2>Wi-Fi 6, Wi-Fi 6E or Wi-Fi 7?</h2>
         <p>Wi-Fi 6 is enough for many UK homes and can offer excellent coverage with compatible devices. Wi-Fi 6E adds the 6GHz band, creating more clean capacity at short range. Wi-Fi 7 adds features including Multi-Link Operation and wider channels, with much higher potential throughput. Those advances matter most with new client devices, fast full fibre, congested homes and multi-gigabit wired ports.</p>
+        <p>Read our <Link href="/guides/wifi-7-explained-uk">plain-English Wi-Fi 7 guide</Link> for the UK spectrum limits, compatibility checks and an upgrade decision table before paying extra for a Wi-Fi 7 mesh.</p>
         <p>Future-proofing has limits. A Wi-Fi 7 mesh cannot give an older Wi-Fi 5 laptop Wi-Fi 7 performance, and a 100Mbps broadband line remains a 100Mbps line. For a normal two-person home on 100 to 300Mbps broadband, a good Wi-Fi 6 system may be better value. For a gigabit connection expected to remain in service for years, Wi-Fi 7 and 2.5Gbps ports are easier to justify.</p>
 
         <h2>How many mesh nodes do you need?</h2>
@@ -4122,7 +5432,9 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
           cheaper for light viewers, while a genuine bundle can suit homes already paying for live
           sport, cinema or premium channels. See our full{' '}
           <Link href="/guides/best-broadband-and-tv-deals">broadband and TV deals comparison</Link>
-          {' '}for a year-round view, not just the Black Friday window.
+          {' '}for a year-round view, or check the{' '}
+          <Link href="/guides/cheapest-way-to-watch-sky-sports-uk">cheapest ways to watch Sky Sports and TNT Sports</Link>{' '}
+          before committing to a sports bundle.
         </p>
 
         <h2>What to check before ordering</h2>
@@ -4201,6 +5513,335 @@ const guideContent: Record<string, { body: React.ReactNode; faqs: { question: st
       },
     ],
   },
+
+  'cheapest-way-to-watch-sky-sports-uk': {
+    body: (
+      <>
+        <p><strong>Start with the sport, not the bundle.</strong> Sky Sports and TNT Sports hold different UK rights, so the cheapest legal option is the smallest commitment that carries the competitions you will actually watch. NOW provides Sky Sports without Sky TV, while TNT Sports moved from discovery+ to HBO Max in 2026. A NOW or HBO Max login still needs a line that can hold the picture at kick-off. Size that separately in our <Link href="/guides/best-broadband-for-streaming">broadband for streaming guide</Link>.</p>
+
+        <div className="rounded-xl border border-amber-200 bg-amber-50 p-5">
+          <p className="mb-0 text-sm"><strong>Price check, 14 September 2026:</strong> prices were checked on 14 September 2026 and are public UK prices, not address-specific quotes. Promotions, retention offers and pay-TV bundles change. Confirm the checkout total, minimum term, picture quality, device limit and any scheduled rise before paying.</p>
+        </div>
+
+        <h2>Cheapest Sky Sports and TNT Sports options at a glance</h2>
+        <div className="overflow-x-auto" role="region" aria-label="Sky Sports and TNT Sports price comparison" tabIndex={0}>
+          <table className="w-full min-w-[46rem] text-sm border-collapse">
+            <caption className="pb-3 text-left text-sm text-slate-600">Public prices checked on 14 September 2026. A Saver price is a commitment, even when billed monthly.</caption>
+            <thead><tr className="bg-slate-50">{['Route', 'Price', 'Commitment', 'What it covers', 'Best use'].map((heading) => <th scope="col" key={heading} className="border border-slate-200 px-4 py-3 text-left font-semibold text-slate-700">{heading}</th>)}</tr></thead>
+            <tbody>
+              <tr><td className="border border-slate-200 px-4 py-3 font-semibold">NOW Sports Day</td><td className="border border-slate-200 px-4 py-3">£14.99 once</td><td className="border border-slate-200 px-4 py-3">24 hours</td><td className="border border-slate-200 px-4 py-3">All 12 Sky Sports channels and Sky Sports+ streams</td><td className="border border-slate-200 px-4 py-3">One match, race or tournament day</td></tr>
+              <tr><td className="border border-slate-200 px-4 py-3 font-semibold">NOW Sports Saver</td><td className="border border-slate-200 px-4 py-3">£27.99 a month</td><td className="border border-slate-200 px-4 py-3">Check the displayed Saver term</td><td className="border border-slate-200 px-4 py-3">Sky Sports without Sky TV</td><td className="border border-slate-200 px-4 py-3">Regular Sky Sports viewing</td></tr>
+              <tr><td className="border border-slate-200 px-4 py-3 font-semibold">NOW Sports Flexible</td><td className="border border-slate-200 px-4 py-3">£34.99 a month</td><td className="border border-slate-200 px-4 py-3">Rolling 30 days</td><td className="border border-slate-200 px-4 py-3">Sky Sports without a long minimum term</td><td className="border border-slate-200 px-4 py-3">A month or two of sport</td></tr>
+              <tr><td className="border border-slate-200 px-4 py-3 font-semibold">HBO Max TNT Sports Saver</td><td className="border border-slate-200 px-4 py-3">£25.99 a month</td><td className="border border-slate-200 px-4 py-3">12 monthly payments</td><td className="border border-slate-200 px-4 py-3">TNT Sports 1, 2, 3 and 4 in Full HD</td><td className="border border-slate-200 px-4 py-3">A full season of TNT Sports</td></tr>
+              <tr><td className="border border-slate-200 px-4 py-3 font-semibold">HBO Max TNT Sports monthly</td><td className="border border-slate-200 px-4 py-3">£30.99 a month</td><td className="border border-slate-200 px-4 py-3">Monthly</td><td className="border border-slate-200 px-4 py-3">TNT Sports without an entertainment plan</td><td className="border border-slate-200 px-4 py-3">Short seasonal runs</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Cheapest way to watch Sky Sports for your viewing pattern</h2>
+        <p>The cheapest way to watch Sky Sports for one event is the <a href="https://www.nowtv.com/membership/watch-sky-sports" target="_blank" rel="noopener noreferrer">official £14.99 NOW Sports Day Membership</a>. It starts immediately, lasts 24 hours and does not renew. Schedule the start carefully if an event spans midnight or two days because the clock cannot be paused.</p>
+        <p>For regular viewing, MoneySavingExpert listed the NOW Sports Saver Membership at £27.99 a month when checked for this guide. That costs £335.88 across 12 payments. The flexible £34.99 membership costs £419.88 if left running for a year, but costs less when used for nine months or fewer. This break-even check is more useful than comparing monthly labels alone.</p>
+        <p>NOW Sports is Sky Sports without Sky TV: you do not need a satellite dish, Sky broadband or a base entertainment package. It includes all 12 live channels and Sky Sports+ streams. The standard picture is not the whole quality story, however. NOW says Boost adds Full HD and two simultaneous streams, while Ultra Boost adds selected 4K content and three streams. Include that add-on only if your screen, connection and chosen event support it.</p>
+
+        <h2>NOW Sports day pass or month pass?</h2>
+        <p>A day pass works for one event in a month. Two £14.99 passes cost £29.98, already more than a £27.99 Saver month, while three cost £44.97 and exceed the £34.99 flexible month. Choose the month option if you expect two or more separate viewing days and the current monthly offer covers them.</p>
+        <ul>
+          <li><strong>One viewing day:</strong> buy the £14.99 Day Membership.</li>
+          <li><strong>Two or more days in 30 days:</strong> compare the live Saver and flexible month prices.</li>
+          <li><strong>A full season:</strong> multiply every Saver payment and check when it changes to the standard rolling price.</li>
+          <li><strong>4K or household sharing:</strong> add the relevant Boost cost before calling either route cheaper.</li>
+        </ul>
+
+        <h2>Cheapest way to watch TNT Sports</h2>
+        <p>TNT Sports now streams through HBO Max in the UK. <a href="https://help.hbomax.com/gb/Answer/Detail/000002547" target="_blank" rel="noopener noreferrer">HBO Max lists standalone TNT Sports at £30.99 monthly or £25.99 a month for 12 months</a>. The Saver total is £311.88. It saves £60 over 12 rolling monthly payments, but the remaining instalments stay payable if you stop watching early.</p>
+        <p>The standalone plan carries TNT Sports 1, 2, 3 and 4, allows two sports streams at once and provides Full HD. You do not have to buy an HBO entertainment tier. If you want both, HBO Max also sells combined plans, but separating the sport price prevents an entertainment bundle from looking cheaper than it is.</p>
+        <p>Existing BT, EE, Sky or Virgin Media customers may have TNT Sports inside an eligible package or as an add-on. Compare only the incremental sports price if you would keep that base service anyway. If a bundle requires broadband or TV you do not otherwise want, compare its whole monthly bill and contract term against direct HBO Max.</p>
+
+        <h2>Sky Sports vs NOW Sports: which costs less?</h2>
+        <p>NOW is usually the clearer low-cost choice for Sky Sports alone because it removes the base Sky TV charge. Sky’s published offer checked for this guide charged £22 extra a month for Sky Sports on a new 24-month Sky TV term, with base Sky Stream or Glass TV from £18 a month. That makes the starting combined bill at least £40 a month before optional extras, although it also buys a broader TV service.</p>
+        <p>Sky can still be better value for a household already paying for its entertainment channels, recording features or Stream equipment. Compare the full 24-month schedule because the official offer says standard pricing applies later and prices may change. <a href="https://www.ofcom.org.uk/phones-and-broadband/saving-money/telecoms-price-rises-what-are-your-rights" target="_blank" rel="noopener noreferrer">Ofcom requires specified pay-TV contract rises to be shown upfront in pounds and pence</a>.</p>
+
+        <h2>How to watch Premier League football cheaply in the UK</h2>
+        <p>Premier League rights are split between Sky Sports and TNT Sports, so first check which broadcaster shows your club’s confirmed fixtures. A NOW day pass is sensible for one Sky match; a NOW month suits a run of Sky fixtures; TNT Sports requires its monthly or Saver plan. Paying for both all year is only justified if your must-watch list genuinely crosses both services.</p>
+        <p>Use free-to-air coverage where available for other competitions and highlights, but do not assume a single paid subscription includes every match. NOW explicitly says its Sports Membership does not include TNT Sports, and Box Office events are separate. Our <Link href="/guides/best-broadband-and-tv-deals">broadband and TV deals comparison</Link> is the next step if you want sport, entertainment and broadband on one bill.</p>
+
+        <h2>A four-step sports rights check before subscribing</h2>
+        <ol>
+          <li><strong>List the competitions:</strong> write down only the leagues, races or tournaments you expect to watch during the next three months.</li>
+          <li><strong>Match each rightsholder:</strong> check the official competition and broadcaster schedules because rights and selected fixtures can change.</li>
+          <li><strong>Count viewing months:</strong> compare day passes, flexible months and the full unpaid balance of any Saver commitment.</li>
+          <li><strong>Add viewing extras:</strong> include Full HD or 4K upgrades, a base TV package and any stated in-contract rise.</li>
+        </ol>
+
+        <h2>Our verdict</h2>
+        <p>We would buy a NOW day pass for one Sky Sports event, NOW Saver for sustained Sky viewing when the commitment matches the season, and standalone TNT Sports through HBO Max for Champions League or other TNT-led viewing. We would not take a combined pay-TV contract solely for sport unless its full bill beats those direct routes and its extra channels are genuinely useful.</p>
+      </>
+    ),
+    faqs: [
+      { question: 'What is the cheapest way to watch Sky Sports without Sky?', answer: 'A £14.99 NOW Sports Day Membership is the cheapest public option for one event. For regular viewing, the NOW Sports Saver price observed on 14 September 2026 was £27.99 a month, while the fully flexible month was £34.99. NOW includes all 12 Sky Sports channels without Sky TV, Sky broadband or a satellite dish, but higher picture quality can cost extra.' },
+      { question: 'Is a NOW Sports day pass cheaper than a month pass?', answer: 'A NOW Sports Day Membership is cheaper only for one viewing day in a month. Two £14.99 passes cost £29.98, more than the £27.99 Saver monthly price observed for this guide. Three day passes cost £44.97, more than the £34.99 flexible month. Check the live monthly offer and commitment before buying because promotional prices can change.' },
+      { question: 'Can I watch TNT Sports with NOW Sports?', answer: 'No. NOW states that a Sports Membership does not include TNT Sports. NOW carries Sky Sports, while TNT Sports moved to HBO Max in the UK in 2026. HBO Max listed standalone TNT Sports at £30.99 monthly or £25.99 a month for 12 months on 14 September 2026, so watching competitions split across both broadcasters requires two subscriptions or an eligible pay-TV bundle.' },
+      { question: 'What is the cheapest way to watch TNT Sports?', answer: 'For a full year, HBO Max’s standalone TNT Sports Saver plan is cheaper at £25.99 a month for 12 months, totalling £311.88. For a shorter spell, the £30.99 rolling monthly plan can cost less overall because there is no remaining annual balance. Both prices were verified from HBO Max on 14 September 2026 and include TNT Sports without an entertainment plan.' },
+      { question: 'What is the cheapest way to watch Premier League football in the UK?', answer: 'For one Sky-selected Premier League match, use a £14.99 NOW Sports Day Membership. For several Sky fixtures in a month, compare NOW’s Saver and flexible monthly plans. TNT Sports shows a separate selection and has no day pass, so use its HBO Max monthly plan only for months containing fixtures you want, unless a 12-month Saver commitment costs less for your season.' },
+      { question: 'Do I need a TV Licence to watch Sky Sports or TNT Sports?', answer: 'Yes, UK viewers need a TV Licence to watch or record live television on any channel or streaming service, including live sport on NOW, Sky or HBO Max. The subscription fee does not include the licence. The rule also applies when watching live on a phone, laptop or tablet, so include that separate household cost where you do not already hold a licence.' },
+    ],
+  },
+
+  'esim-explained-uk': {
+    body: (
+      <>
+        <p><strong>An eSIM is a rewritable SIM built into a compatible phone and is the digital replacement for the removable plastic SIM card, not a different type of mobile service.</strong> Your network downloads a secure profile that identifies your account. Once activated, the line can make calls, receive texts and use mobile data in the same way as a physical SIM on the same plan and network.</p>
+        <p>The practical gain is that you can activate or move a supported line without waiting for a card in the post. Many compatible phones can also store several profiles and run two lines at once. That can keep work and personal numbers on one phone, or keep a UK number available for calls and security codes while a separate travel eSIM handles data abroad. The exact number of stored and active profiles depends on the handset.</p>
+
+        <h2>How an eSIM works</h2>
+        <p>SIM stands for Subscriber Identity Module. A SIM holds the credentials used to authenticate a subscription with a mobile network. With a physical SIM, those credentials are stored on a removable chip. With an eSIM, the embedded chip remains in the device and an operator profile is installed remotely under the GSMA&apos;s consumer eSIM specification.</p>
+        <ol>
+          <li><strong>You choose an eligible plan.</strong> The mobile provider links an eSIM profile to your order or existing account.</li>
+          <li><strong>The profile reaches the phone securely.</strong> This may happen through the provider&apos;s app, a one-use QR code, an activation link or a supported phone-to-phone transfer.</li>
+          <li><strong>The phone downloads it over Wi-Fi or mobile data.</strong> The profile is stored on the embedded SIM hardware.</li>
+          <li><strong>You label and activate the line.</strong> On a dual-SIM phone, you also choose which line handles calls, messages and mobile data.</li>
+          <li><strong>The network authenticates the subscription.</strong> From then on, the eSIM line behaves like the equivalent physical SIM plan.</li>
+        </ol>
+        <p>An eSIM does not inherently improve signal, speed or coverage. Those still depend on the mobile network, local mast capacity, radio bands, handset and plan. Changing the SIM format while staying on the same network and tariff should not create a stronger signal.</p>
+
+        <h2>Does my phone support eSIM?</h2>
+        <p>Check the phone itself before relying on a model-family list, because regional variants and network software can differ. On an iPhone, open <strong>Settings, Mobile Service</strong> and look for <strong>Add eSIM</strong>. On a Pixel, open <strong>Settings, Network and Internet, SIMs</strong> and look for <strong>Add SIM</strong>. Samsung normally places the option under <strong>Settings, Connections, SIM manager</strong>.</p>
+        <div className="rounded-xl border border-sky-200 bg-sky-50 p-5">
+          <h3 className="font-bold text-slate-900">Three checks before you buy</h3>
+          <ul>
+            <li><strong>Handset check:</strong> dial <strong>*#06#</strong> and look for an EID, or find an Add eSIM option in settings. An EID is the identifier for the embedded SIM hardware.</li>
+            <li><strong>Network check:</strong> confirm that the provider supports your exact device and plan type. Phone, tablet and smartwatch eligibility may be different.</li>
+            <li><strong>Lock check:</strong> if the eSIM is from another network, confirm that the handset is unlocked. A compatible but network-locked phone can still reject it.</li>
+          </ul>
+        </div>
+        <p>Apple&apos;s UK support and Google&apos;s Pixel help pages maintain model and setup guidance. Older devices, imported variants and some network-supplied models can be exceptions, so use the manufacturer&apos;s page and the chosen network&apos;s compatibility checker together.</p>
+
+        <h2>eSIM versus physical SIM</h2>
+        <div className="overflow-x-auto" role="region" aria-label="eSIM and physical SIM comparison" tabIndex={0}>
+          <table className="w-full min-w-[680px] border-collapse text-sm">
+            <caption className="pb-3 text-left text-sm text-slate-600">The better format depends on your phone, transfer needs and preferred recovery route.</caption>
+            <thead><tr className="bg-slate-50"><th className="border border-slate-200 px-4 py-3 text-left">Decision point</th><th className="border border-slate-200 px-4 py-3 text-left">eSIM</th><th className="border border-slate-200 px-4 py-3 text-left">Physical SIM</th></tr></thead>
+            <tbody>
+              <tr><td className="border border-slate-200 px-4 py-3 font-semibold">Activation</td><td className="border border-slate-200 px-4 py-3">Downloaded by app, QR code, link or supported transfer, usually with an internet connection</td><td className="border border-slate-200 px-4 py-3">Insert the correct card size into the tray</td></tr>
+              <tr><td className="border border-slate-200 px-4 py-3 font-semibold">Changing phone</td><td className="border border-slate-200 px-4 py-3">Transfer digitally where supported, otherwise request a fresh profile or QR code</td><td className="border border-slate-200 px-4 py-3">Move the card if both phones accept the same size</td></tr>
+              <tr><td className="border border-slate-200 px-4 py-3 font-semibold">Two lines</td><td className="border border-slate-200 px-4 py-3">Can add a second profile without a second tray on a compatible dual-SIM phone</td><td className="border border-slate-200 px-4 py-3">Needs a second tray or combination with an eSIM</td></tr>
+              <tr><td className="border border-slate-200 px-4 py-3 font-semibold">Loss or theft</td><td className="border border-slate-200 px-4 py-3">Cannot be pulled out of the phone, but the account and device still need securing</td><td className="border border-slate-200 px-4 py-3">Can be removed and placed in another phone unless account protections stop it</td></tr>
+              <tr><td className="border border-slate-200 px-4 py-3 font-semibold">Recovery</td><td className="border border-slate-200 px-4 py-3">May require provider access, identity checks and Wi-Fi if the phone fails</td><td className="border border-slate-200 px-4 py-3">Often works immediately in a spare compatible unlocked phone</td></tr>
+              <tr><td className="border border-slate-200 px-4 py-3 font-semibold">Best fit</td><td className="border border-slate-200 px-4 py-3">Fast remote setup, dual lines and travel data</td><td className="border border-slate-200 px-4 py-3">Older phones, frequent swaps and simple offline recovery</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>We would choose eSIM for a compatible everyday phone if the network offers a clear self-service replacement route. We would keep a physical SIM where the line must move quickly between several devices, or where access to the provider account and reliable Wi-Fi during recovery cannot be assumed.</p>
+
+        <h2>Which UK providers support eSIM?</h2>
+        <p>All four UK mobile network operators, <strong>EE, O2, Three and Vodafone</strong>, publish consumer eSIM support. Several virtual networks also offer it, but availability is not a permanent yes-or-no fact across every product. A provider may support phones but not watches, new customers but not every existing tariff, or pay monthly but only selected pay-as-you-go routes.</p>
+        <p>As checked on 15 September 2026, EE offers eSIM with eligible pay-monthly devices and SIM-only orders; O2 states support for eligible Pay Monthly, SIM Only and Pay As You Go customers; Three offers eSIM with Three Your Way plans and replacement routes in My3 or its app; and Vodafone offers all SIM-only plans as eSIM plus Pay as you go Plus. Recheck the provider&apos;s official eligibility page at checkout because these product rules can change.</p>
+        <p>If an eSIM is part of a combined home and mobile offer, compare the two contracts separately before linking them. Our <Link href="/guides/broadband-and-mobile-bundle-discounts-uk">UK broadband and mobile bundle guide</Link> explains how EE One, Vodafone Together and Virgin Media O2 Volt eligibility can affect the overall saving.</p>
+
+        <h2>How to set up an eSIM safely</h2>
+        <ol>
+          <li><strong>Check compatibility and unlock status.</strong> Confirm the exact handset, software version, network and plan before paying.</li>
+          <li><strong>Keep the current line active.</strong> You may need it to receive an account security code. Do not delete its profile at the start.</li>
+          <li><strong>Connect to trusted Wi-Fi.</strong> Charge the phone, install current software and display a QR code on a second screen if that is the provider&apos;s method.</li>
+          <li><strong>Add the mobile plan.</strong> On iPhone use Settings, Mobile Service, Add eSIM. On Pixel use Settings, Network and Internet, SIMs, Add SIM, Set up an eSIM. Samsung wording varies by model.</li>
+          <li><strong>Name each line.</strong> Labels such as Personal, Work or Travel reduce the chance of choosing the wrong data connection.</li>
+          <li><strong>Set the defaults deliberately.</strong> Choose the line for calls, texts and mobile data. Turn off data switching if you do not want the phone to use the other line automatically.</li>
+          <li><strong>Test before deleting anything.</strong> Make a call, send a text, receive a security code and use mobile data with Wi-Fi switched off.</li>
+        </ol>
+        <p>A provider QR code may be single-use. Do not post it, forward it casually or throw away the old activation information until setup succeeds. If activation fails, stop repeated scans and follow the provider&apos;s replacement process. Deleting a profile does not necessarily cancel the contract, and cancelling a contract is not the same action as removing an eSIM from a phone.</p>
+
+        <h2>How to switch your number to an eSIM</h2>
+        <p>Changing from a physical SIM to an eSIM on the same network is normally a SIM replacement, not a mobile-provider switch. Use the provider&apos;s app, online account, device conversion option or support route. Your existing number and tariff should move to the new profile once the replacement activates, but confirm this in the order summary.</p>
+        <p>When moving to a different UK network, first order an eligible eSIM plan. Use a PAC if you want to keep the number or a STAC if you want the old number closed without porting it. The new provider handles the number transfer after receiving the code. Keep the old line and eSIM profile until the transfer completes, then test incoming calls and texts because number ports can finish at a different time from initial eSIM activation.</p>
+        <p>Mobile number porting is separate from changing a fixed connection. If you are also moving your home service, our <Link href="/guides/how-to-switch-broadband-uk">UK broadband switching guide</Link> explains One Touch Switch, exit charges and how to avoid cancelling the old broadband too early.</p>
+        <p>Moving the same eSIM to a new phone depends on both devices and the network. Apple Quick Transfer and supported Android transfers can move a line during device setup, while other cases require a replacement profile. Backing up the phone does not guarantee that the mobile plan itself will restore, so check the network&apos;s transfer instructions before wiping or trading in the old handset.</p>
+
+        <h2>Using an eSIM for travel</h2>
+        <p>A travel eSIM is usually a separate short-term plan downloaded before or during a trip. Many are data-only, so they do not replace the UK phone number for ordinary calls and SMS. A dual-SIM handset can keep the UK line on for incoming calls or security texts while directing mobile data through the travel plan.</p>
+        <p>Check the destination network, data allowance, validity start, tethering rules, local phone-number inclusion and support route before buying. Some plans begin when installed; others begin only when they first connect abroad. To avoid an unexpected UK-network roaming bill, select the travel eSIM for mobile data, disable data roaming on the UK line and check whether receiving calls or texts abroad carries a charge. The independent MoneySavingExpert guide also warns that activation policies and roaming settings differ between travel eSIM providers.</p>
+
+        <h2>Common eSIM problems and recovery steps</h2>
+        <ul>
+          <li><strong>No Add eSIM option:</strong> update the phone, confirm the regional model and check that the network has not restricted the device.</li>
+          <li><strong>QR code will not scan:</strong> increase the brightness on the second screen, try manual activation details if supplied, or request a replacement rather than sharing the code.</li>
+          <li><strong>Profile installed but no service:</strong> restart the phone, confirm the line is switched on, choose it for mobile data and check the provider&apos;s activation status.</li>
+          <li><strong>Calls work but data does not:</strong> verify the selected data line, roaming setting where required and any provider APN instructions.</li>
+          <li><strong>Old phone unavailable:</strong> secure the lost device and account, then ask the network for a replacement eSIM. Do not assume a cloud backup contains an active network profile.</li>
+        </ul>
+        <p>Use the mobile provider&apos;s official support route for activation and account recovery. Apple, Google and Samsung can explain handset settings, but only the network can issue or replace the subscriber profile.</p>
+      </>
+    ),
+    faqs: [
+      { question: 'What is an eSIM?', answer: 'An eSIM is a rewritable SIM built into a compatible phone, tablet or watch. Instead of inserting a plastic card, you download a secure mobile-network profile through an app, QR code, activation link or supported device transfer. It performs the same authentication job as a physical SIM and can provide calls, texts and data on an eligible plan.' },
+      { question: 'Does an eSIM give better signal than a physical SIM?', answer: 'No. On the same phone, network and tariff, an eSIM does not inherently improve mobile signal, speed or coverage. It changes how the network profile is installed, not the radio connection. Coverage still depends on the operator, local masts, congestion, radio bands, building materials and handset. Compare networks for your location rather than choosing a SIM format for stronger reception.' },
+      { question: 'How do I know whether my phone supports eSIM?', answer: 'Look in the phone settings for Add eSIM or Add SIM, or dial *#06# and check whether an EID appears. Then confirm the exact regional handset model and plan on the chosen network&apos;s compatibility page. An eSIM-capable phone can still be unsuitable if it is locked to another network or the provider does not support that device or tariff.' },
+      { question: 'Can I keep my number when I change to eSIM?', answer: 'Yes, in normal cases. Converting a physical SIM to an eSIM with the same provider should move the existing number to the replacement profile. If you change UK network, give the new provider a PAC to port the number. Keep the old line active until the transfer completes, then test incoming calls, outgoing calls, texts and mobile data before deleting the old profile.' },
+      { question: 'Which UK mobile networks offer eSIM?', answer: 'EE, O2, Three and Vodafone all publish eSIM support, and several virtual networks offer it too. Eligibility still varies by device, plan, customer type and product: phone, smartwatch, pay monthly and pay-as-you-go support may not match. Check the provider&apos;s official eSIM page and your exact handset at checkout rather than relying on a permanent network list.' },
+      { question: 'Can I use an eSIM and a physical SIM at the same time?', answer: 'Many dual-SIM phones can run an eSIM and a physical SIM together, but the number of profiles stored and lines active depends on the model. You can usually label the lines and choose separate defaults for calls, texts and mobile data. This is useful for work and personal numbers or for retaining a UK number while a travel eSIM supplies data.' },
+      { question: 'What happens if I delete my eSIM?', answer: 'Deleting an eSIM removes its network profile from that device but does not necessarily cancel the mobile contract. You may need the provider to issue a replacement profile or QR code before the line works again. Contact the network through its official account or support route, complete its identity checks, and do not assume the original QR code can be reused.' },
+    ],
+  },
+
+  'broadband-and-mobile-bundle-discounts-uk': {
+    body: (
+      <>
+        <p><strong>Broadband and mobile deals can cut the combined bill, but start by pricing both services separately.</strong> A linked deal is a saving only when the combined minimum-term cost is lower for services you would have chosen anyway. The three main UK schemes work differently: EE One discounts or boosts eligible mobile plans, Vodafone Together applies plan-specific savings, and Virgin Media O2 Volt adds speed, data and roaming benefits rather than one universal cash reduction. Compare the full cost with separate deals before joining.</p>
+        <p>Offers and eligibility were checked on 14 September 2026. Prices can vary by address, plan and customer status, so use the figures below as a current explanation of each scheme rather than a quote for your household.</p>
+
+        <h2>UK broadband and mobile discounts at a glance</h2>
+        <div className="overflow-x-auto" role="region" aria-label="Broadband and mobile bundle scheme comparison" tabIndex={0}>
+          <table className="w-full min-w-[48rem] border-collapse text-sm">
+            <caption className="pb-3 text-left text-sm text-slate-600">Major linked broadband and mobile schemes checked on 14 September 2026.</caption>
+            <thead><tr className="bg-slate-50">{['Scheme', 'Who provides it', 'Main benefit', 'Eligibility check', 'What happens if you leave'].map((heading) => <th scope="col" key={heading} className="border border-slate-200 px-4 py-3 text-left font-semibold text-slate-700">{heading}</th>)}</tr></thead>
+            <tbody>
+              <tr><td className="border border-slate-200 px-4 py-3 font-semibold">EE One</td><td className="border border-slate-200 px-4 py-3">EE broadband and EE mobile</td><td className="border border-slate-200 px-4 py-3">Up to £20 a month off eligible new or upgraded mobile plans, plus unlimited-data boosts on eligible existing plans</td><td className="border border-slate-200 px-4 py-3">Services must be eligible and linked to the same EE account</td><td className="border border-slate-200 px-4 py-3">Mobile savings and data boosts are removed if eligibility ends</td></tr>
+              <tr><td className="border border-slate-200 px-4 py-3 font-semibold">Vodafone Together</td><td className="border border-slate-200 px-4 py-3">Vodafone broadband and Vodafone mobile</td><td className="border border-slate-200 px-4 py-3">Plan-specific monthly discounts when two or more eligible services are held</td><td className="border border-slate-200 px-4 py-3">Qualifying UK plans bought through Vodafone; exact saving depends on the combination</td><td className="border border-slate-200 px-4 py-3">The linked discount can stop when a qualifying plan ends</td></tr>
+              <tr><td className="border border-slate-200 px-4 py-3 font-semibold">Virgin Media O2 Volt</td><td className="border border-slate-200 px-4 py-3">Virgin Media broadband and O2 Pay Monthly mobile</td><td className="border border-slate-200 px-4 py-3">Broadband speed and mobile-data boosts, plus eligible WiFi and roaming benefits</td><td className="border border-slate-200 px-4 py-3">Eligible services registered at the same household address</td><td className="border border-slate-200 px-4 py-3">Volt benefits depend on retaining eligible services</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Is a broadband and mobile bundle worth it?</h2>
+        <p>A broadband and mobile bundle is worth it when both networks suit your address, the included mobile data fits your usage and the full combined cost beats the best separate options. Ofcom says buying services together is often cheaper, but also warns that bundles can be less flexible. Convenience and one account are useful, but they do not turn an expensive plan into good value. Some bundles add a streaming perk on top, such as limited-time Disney+ access on eligible mobile plans; check our <Link href="/guides/best-streaming-services-uk">best streaming services in the UK comparison</Link> before assuming a bundled app replaces a subscription you would otherwise pay for.</p>
+        <p>We would start with Vodafone Together for a household that already wants Vodafone broadband and several mobile plans, EE One where EE mobile coverage and unlimited data matter, and Volt where a Virgin Media speed boost or extra O2 data replaces something the household would otherwise buy. We would choose separate providers if a cheaper broadband network and a low-cost SIM save more after every scheduled rise.</p>
+
+        <h2>EE Together discount: what replaced it?</h2>
+        <p>The current scheme is <a href="https://ee.co.uk/ee-one" target="_blank" rel="noopener noreferrer">EE One</a>, not EE Together. EE says customers with eligible EE Broadband and EE Pay Monthly mobile on the same account can receive an unlimited-data boost on qualifying existing mobile plans and up to £20 a month off eligible new or upgraded mobile plans. Plans below the stated eligibility threshold and services such as Pay As You Go are excluded.</p>
+        <p>The relationship matters because the benefit is conditional. EE says cancelling broadband or mobile removes EE One eligibility, mobile savings and unlimited-data boosts. Its current short terms also state that some EE One mobile prices increase when broadband is cancelled. Read the individual contract summary for the actual replacement price before treating the discount as a permanent saving.</p>
+
+        <h2>Vodafone broadband and mobile discount explained</h2>
+        <p><a href="https://www.vodafone.co.uk/broadband-sim-only-deals" target="_blank" rel="noopener noreferrer">Vodafone Together</a> gives eligible customers discounts for holding two or more qualifying Pay Monthly mobile or home broadband plans. The live table checked for this guide showed savings up to £4 a month when broadband was added to an eligible mobile plan, with larger plan-specific savings on some added mobile services. Those figures are not one flat discount for every customer.</p>
+        <p>Vodafone&apos;s displayed examples use 24-month plans and show pounds-and-pence increases on future dates. Compare every scheduled monthly payment, not only the starting figure. Confirm that each chosen plan qualifies, whether another promotion can be combined with Together and what price applies when one linked service is cancelled or reaches its minimum-term end first.</p>
+
+        <h2>Virgin Media O2 Volt benefits explained</h2>
+        <p><a href="https://www.virginmedia.com/virgin-media-o2" target="_blank" rel="noopener noreferrer">Virgin Media O2 Volt</a> links eligible Virgin Media broadband with O2 Pay Monthly mobile at the same address. Virgin Media says benefits are normally added automatically within 14 days once account addresses match. Eligible customers can receive an upgrade to the next available broadband speed tier and extra O2 mobile data, subject to the scheme&apos;s limits and available tiers.</p>
+        <p>Volt is not best described as a universal bill discount. Its value comes from benefits you would otherwise pay for, such as a faster broadband tier or more mobile data. If your current speed and allowance already cover normal use, count those upgrades as £0 in your comparison. The household may have separate Virgin Media and O2 contracts, bills and end dates even though the benefits are linked.</p>
+
+        <h2>What about a BT broadband and mobile bundle?</h2>
+        <p>BT Group now presents its main consumer broadband-and-mobile combination through EE One. A search for a BT broadband and mobile bundle can still surface older BT Mobile material, but current buyers should compare EE Broadband and EE Mobile terms rather than assume a historic BT discount still applies. BT and EE belong to the same group, yet the brand, account eligibility and contract named at checkout determine the benefit.</p>
+        <p>If you already have BT Broadband, ask for a written quote and check whether it requires moving broadband to EE or starting a separate EE mobile agreement. Compare that route against renewing BT broadband alone and buying a SIM separately. Do not rely on group ownership as proof that two independently held services will qualify for EE One.</p>
+
+        <h2>Broadband and mobile bundle cost worksheet</h2>
+        <p>The useful comparison is the first-year and whole-contract cost after benefits, not the biggest percentage shown in an advert. This two-horizon check is common on strong international comparison pages but was uncommon across the UK bundle guides reviewed for this page.</p>
+        <div className="overflow-x-auto" role="region" aria-label="Broadband and mobile bundle cost worksheet" tabIndex={0}>
+          <table className="w-full min-w-[42rem] border-collapse text-sm">
+            <caption className="pb-3 text-left text-sm text-slate-600">Fill in the bundle and separate-deal columns using written checkout prices for the same service period.</caption>
+            <thead><tr className="bg-slate-50">{['Cost or value', 'Linked bundle', 'Separate providers'].map((heading) => <th scope="col" key={heading} className="border border-slate-200 px-4 py-3 text-left font-semibold text-slate-700">{heading}</th>)}</tr></thead>
+            <tbody>
+              {[
+                ['Broadband payments in months 1 to 12', '£___', '£___'],
+                ['Mobile airtime payments in months 1 to 12', '£___', '£___'],
+                ['Setup, delivery and activation', '£___', '£___'],
+                ['Guaranteed credits or cash discounts', 'minus £___', 'minus £___'],
+                ['Value of speed or data you would otherwise buy', 'minus £___', 'minus £___'],
+                ['First-year total', '£___', '£___'],
+                ['Full minimum-term total after scheduled rises', '£___', '£___'],
+              ].map(([item, bundle, separate]) => <tr key={item}><th scope="row" className="border border-slate-200 px-4 py-3 text-left font-semibold text-slate-700">{item}</th><td className="border border-slate-200 px-4 py-3">{bundle}</td><td className="border border-slate-200 px-4 py-3">{separate}</td></tr>)}
+            </tbody>
+          </table>
+        </div>
+        <p>For example, do not subtract £10 for extra data if you normally use 8GB and both plans already include 20GB. Do subtract a £4 monthly cash discount that applies for all 24 months, but check whether scheduled price rises affect the underlying plan. Keep benefits and money separate so an unused perk cannot hide a higher bill.</p>
+
+        <h2>Five checks before combining your contracts</h2>
+        <ol>
+          <li><strong>Check both networks:</strong> verify fixed broadband at the exact address and mobile coverage where each person uses the phone, including indoors.</li>
+          <li><strong>Align the dates:</strong> record the minimum-term end date for broadband, mobile airtime and any handset finance. They may not end together.</li>
+          <li><strong>Read the exit result:</strong> write down the price and benefit changes if either linked service is cancelled.</li>
+          <li><strong>Compare the same usage:</strong> use the broadband speed and mobile allowance you need, not a larger bundled tier simply because it is discounted.</li>
+          <li><strong>Keep the contract summaries:</strong> Ofcom says bundled services should receive a written contract summary of up to three pages showing charges, term and cancellation process.</li>
+        </ol>
+
+        <h2>Switching broadband and mobile without losing value</h2>
+        <p>Broadband and mobile normally switch through separate regulated processes. For fixed broadband, order from the provider you are joining and it should coordinate One Touch Switch where applicable. To keep one mobile number, <a href="https://www.ofcom.org.uk/phones-and-broadband/switching-provider/switching-mobile" target="_blank" rel="noopener noreferrer">Ofcom says to text PAC to 65075</a> and give the code to the new network. A PAC is valid for 30 days.</p>
+        <p>Before starting either switch, ask what happens to the linked discount. Moving one service may remove benefits immediately while the other contract continues at a higher price. Our <Link href="/guides/how-to-switch-broadband-uk">UK broadband switching guide</Link> explains One Touch Switch and exit charges, while the <Link href="/guides/broadband-contract-end-rights">contract end rights guide</Link> covers end-of-contract notices and linked services. If the mobile line is digital, use our <Link href="/guides/esim-explained-uk">eSIM setup and number-transfer guide</Link> before deleting its existing profile.</p>
+
+        <h2>Our verdict on broadband and mobile deals</h2>
+        <p>There is no universal cheapest bundle. EE One is the strongest starting point for eligible households that value EE coverage and unlimited data, Vodafone Together deserves the first calculation for multiple Vodafone plans, and Volt can be valuable when its speed or data boost replaces a paid upgrade. In every case, choose the linked scheme only after its full minimum-term cost beats suitable separate deals.</p>
+      </>
+    ),
+    faqs: [
+      { question: 'Can I get a discount for having broadband and mobile together?', answer: 'Yes. EE One, Vodafone Together and Virgin Media O2 Volt link eligible UK broadband and mobile services, but the reward differs. EE and Vodafone advertise plan-specific savings, while Volt mainly adds broadband speed and mobile-data benefits. Check the exact account, plan and address rules, then compare the full minimum-term cost with broadband and mobile bought separately.' },
+      { question: 'What happened to the EE Together discount?', answer: 'EE now calls its linked household scheme EE One. Eligible EE Broadband and Pay Monthly mobile services on the same account can receive unlimited-data boosts and savings of up to £20 a month on qualifying new or upgraded mobile plans. Eligibility exclusions apply, and EE says the benefits are removed if the qualifying broadband or mobile service ends.' },
+      { question: 'How much is the Vodafone broadband and mobile discount?', answer: 'Vodafone Together does not give every household one identical discount. Its public table checked on 14 September 2026 showed up to £4 a month off when eligible broadband was added to a qualifying mobile plan, with different savings for added mobile plans. Confirm the checkout combination, scheduled price rises and whether another promotion can be used at the same time.' },
+      { question: 'What do Virgin Media O2 Volt customers get?', answer: 'Eligible Virgin Media broadband and O2 Pay Monthly customers at the same address can receive Volt benefits such as a boost to the next available broadband speed tier, extra O2 mobile data and qualifying WiFi or roaming benefits. Benefits are normally applied after address matching. They are not a universal cash discount, so count only upgrades your household would otherwise buy.' },
+      { question: 'Is there a BT broadband and mobile bundle?', answer: 'BT Group currently directs its main consumer broadband-and-mobile benefits through EE One. Do not assume an old BT Mobile discount or a separately held BT Broadband account automatically qualifies. Ask whether the offer requires EE Broadband, which accounts must be linked and what happens to each price if one service ends, then compare BT broadband plus a separate SIM.' },
+      { question: 'Is it cheaper to bundle broadband and mobile?', answer: 'It can be, but a discount does not guarantee the lowest combined bill. Add every broadband and mobile payment, setup fee and scheduled rise across the minimum term, then subtract guaranteed credits and only the benefits you would otherwise pay for. Compare that total with suitable address-specific broadband and SIM-only deals from separate providers before accepting the bundle.' },
+    ],
+  },
+
+  'best-streaming-services-uk': {
+    body: (
+      <>
+        <p><strong>No single streaming service currently covers everything a UK household wants, and prices keep moving: Netflix&apos;s cheapest Standard with adverts plan rose from £5.99 to £7.99 a month on 3 September 2026.</strong> Netflix remains the best all-round choice for most households, Amazon Prime Video suits anyone already paying for Prime delivery, Disney+ suits families, and subscribing to all five major paid services at once currently costs £30.95 a month combined, before any broadband bundle discount.</p>
+        <p>Streaming prices and line-ups change often, so treat every figure below as a snapshot verified on 20 September 2026, and check the provider&apos;s own pricing page before you commit.</p>
+
+        <h2>Best streaming services in the UK at a glance</h2>
+        <div role="region" aria-label="Streaming services at a glance" tabIndex={0} className="overflow-x-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2">
+          <table className="w-full min-w-[640px] border-collapse text-sm">
+            <caption className="sr-only">UK streaming services compared by price and best use</caption>
+            <thead>
+              <tr className="bg-slate-50">
+                {['Service', 'Cheapest price', 'Best for'].map((heading) => (
+                  <th key={heading} scope="col" className="border border-slate-200 px-4 py-3 text-left font-semibold text-slate-700">{heading}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row" className="border border-slate-200 px-4 py-3 text-left font-semibold">Netflix</th><td className="border border-slate-200 px-4 py-3">£7.99/month (Standard with adverts)</td><td className="border border-slate-200 px-4 py-3">Best overall catalogue</td></tr>
+              <tr><th scope="row" className="border border-slate-200 px-4 py-3 text-left font-semibold">Amazon Prime Video</th><td className="border border-slate-200 px-4 py-3">£8.99/month (with adverts)</td><td className="border border-slate-200 px-4 py-3">Best value if you already pay for Prime</td></tr>
+              <tr><th scope="row" className="border border-slate-200 px-4 py-3 text-left font-semibold">Disney+</th><td className="border border-slate-200 px-4 py-3">£4.99/month (with adverts)</td><td className="border border-slate-200 px-4 py-3">Best for families</td></tr>
+              <tr><th scope="row" className="border border-slate-200 px-4 py-3 text-left font-semibold">NOW Entertainment Membership</th><td className="border border-slate-200 px-4 py-3">£9.99/month (with adverts)</td><td className="border border-slate-200 px-4 py-3">Best no-contract Sky-style entertainment</td></tr>
+              <tr><th scope="row" className="border border-slate-200 px-4 py-3 text-left font-semibold">Discovery+</th><td className="border border-slate-200 px-4 py-3">£3.99/month (Basic)</td><td className="border border-slate-200 px-4 py-3">Best value factual and reality TV</td></tr>
+              <tr><th scope="row" className="border border-slate-200 px-4 py-3 text-left font-semibold">Paramount+</th><td className="border border-slate-200 px-4 py-3">£4.99/month (with adverts)</td><td className="border border-slate-200 px-4 py-3">Best for kids&apos; shows and film franchises</td></tr>
+              <tr><th scope="row" className="border border-slate-200 px-4 py-3 text-left font-semibold">Apple TV+</th><td className="border border-slate-200 px-4 py-3">£8.99/month</td><td className="border border-slate-200 px-4 py-3">Best for original prestige drama</td></tr>
+              <tr><th scope="row" className="border border-slate-200 px-4 py-3 text-left font-semibold">BBC iPlayer, ITVX, Channel 4, My5</th><td className="border border-slate-200 px-4 py-3">Free (TV Licence needed for live TV and iPlayer)</td><td className="border border-slate-200 px-4 py-3">Best free UK catch-up</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>How we compare streaming services in the UK</h2>
+        <p>Streaming services compared side by side on one factor alone can be misleading, so we weigh up four things together: the cheapest genuine monthly price, how deep and current the content library is, whether the cheapest tier carries adverts, and whether a broadband, mobile or pay-TV provider already bundles or discounts it. Netflix&apos;s <a href="https://www.moneysavingexpert.com/news/2026/09/netflix-hiking-prices-again/" target="_blank" rel="noopener noreferrer">price rise to £7.99 a month, reported by MoneySavingExpert on 8 September 2026</a>, is a reminder that the cheapest option today is not guaranteed to stay cheapest, so revisit this comparison before renewing an annual plan.</p>
+
+        <h2>Which streaming service is best for you?</h2>
+        <ul>
+          <li><strong>Best overall: Netflix.</strong> The largest and most talked-about original catalogue, now £7.99 a month on the cheapest ad-supported tier after the September 2026 rise.</li>
+          <li><strong>Best for families: Disney+.</strong> Disney, Pixar, Marvel and Star Wars content in one library from £4.99 a month, with parental controls built in.</li>
+          <li><strong>Best value if you already pay for Prime: Amazon Prime Video.</strong> Included with an existing Amazon Prime membership, so it can be effectively free on top of a subscription many households already hold.</li>
+          <li><strong>Best value factual and reality TV: Discovery+.</strong> The cheapest standalone paid tier in this comparison, at £3.99 a month for its Basic entertainment package.</li>
+          <li><strong>Best no-contract Sky-style entertainment: NOW.</strong> NOW&apos;s Entertainment Membership brings Sky-style channels and box sets without a Sky dish or long contract, at £9.99 a month with adverts.</li>
+        </ul>
+
+        <h2>What is the cheapest streaming service in the UK?</h2>
+        <p>Among paid services, Discovery+ Basic is currently the cheapest standalone option at £3.99 a month, with Disney+ and Paramount+ close behind at £4.99 a month on their ad-supported tiers. If cost matters more than any single service, the genuinely free options, BBC iPlayer, ITVX, Channel 4 and My5, cost nothing at all, though a TV Licence is still required to watch live television on any channel or to use BBC iPlayer.</p>
+        <p>The cheapest route for a multi-service household is often not paying for each app separately. Several services are effectively bundled with your broadband, mobile or pay-TV package: Sky Signature includes Netflix Standard with adverts, some O2 mobile plans include Disney+ for a limited period, and Sky Cinema customers can receive Paramount+ at no extra charge. Check our <Link href="/guides/best-broadband-and-tv-deals">broadband and TV deals guide</Link> and <Link href="/guides/broadband-and-mobile-bundle-discounts-uk">broadband and mobile bundle guide</Link> before paying full price for a service your existing package may already include.</p>
+
+        <h2>How many streaming services do you actually need?</h2>
+        <p><a href="https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/multi-sector/media-nations/2026/media-nations-2026-uk-report.pdf?v=423157" target="_blank" rel="noopener noreferrer">Ofcom&apos;s Media Nations 2026 report, published 29 July 2026, found that 70% of UK households had at least one paid streaming subscription</a> in the first quarter of the year, only two percentage points higher than in 2022. Ofcom describes household streaming take-up as having largely plateaued after its rapid pandemic-era growth, and separately found Netflix and BBC iPlayer are the two services UK viewers most often name as their first choice when they sit down to watch something.</p>
+        <p>Most households do not need every service running at once. A practical starting point is one broad entertainment service such as Netflix or Prime Video, plus one specialist service that matches a genuine household interest, such as Disney+ for young children or Discovery+ for factual and reality shows. Rotating a service on and off between key releases, rather than holding every subscription permanently, is a simple way to avoid paying for content nobody in the household is currently watching.</p>
+
+        <h2>The true cost of subscribing to every major streaming service</h2>
+        <p>Add up the cheapest ad-supported tier of the five biggest paid UK services, Netflix, Amazon Prime Video, Disney+, Discovery+ and Paramount+, and if you subscribed to all five at once the combined bill is £30.95 a month: £7.99 plus £8.99 plus £4.99 plus £3.99 plus £4.99. That is before NOW, Apple TV+ or a pay-TV package are added on top, and before any broadband or mobile bundle discount is applied.</p>
+        <p>Seeing that £30.95 total written out in one place is the clearest way to judge whether a household is genuinely getting value from every subscription it holds, or quietly paying for four services while only ever opening one.</p>
+
+        <h2>Streaming services bundled with your broadband and mobile</h2>
+        <p>UK broadband, mobile and pay-TV providers increasingly fold streaming into their own packages rather than leaving customers to buy each app separately. Sky bundles Netflix into Sky Signature and offers Paramount+ free to Sky Cinema customers; Virgin Media&apos;s TV packages include access to several apps through its set-top box; and some EE and O2 mobile plans have included limited-time access to Disney+. Our <Link href="/guides/broadband-and-mobile-bundle-discounts-uk">broadband and mobile bundle discounts guide</Link> compares EE One, Vodafone Together and Virgin Media O2 Volt in detail, and our <Link href="/compare">broadband comparison tool</Link> shows which providers serving your address currently bundle a streaming service.</p>
+
+        <h2>Free ways to watch TV in the UK without a subscription</h2>
+        <p>BBC iPlayer, ITVX, Channel 4 and My5 remain free to use and carry no monthly fee. A TV Licence is still required to watch live television on any channel or service, or to use BBC iPlayer, regardless of whether the picture arrives through an aerial or broadband. If your household is trying to reduce paid subscriptions rather than replace an aerial, our <Link href="/guides/freely-and-fetch-tv-explained-uk">Freely TV explainer</Link> covers how free UK channels can be combined with on-demand catch-up over broadband instead of a satellite dish or extra set-top box.</p>
+
+        <h2>Our recommendation</h2>
+        <p>Start with one broad paid service, Netflix at £7.99 a month for the widest catalogue or Prime Video if the household already pays for Prime, then add a single specialist service that matches a genuine interest rather than subscribing to all five at £30.95 a month. Check whether your broadband, mobile or pay-TV package already includes or discounts a service before paying full price again, and revisit this comparison whenever a price changes, since Netflix&apos;s September 2026 rise shows the cheapest plan today will not necessarily stay that way.</p>
+      </>
+    ),
+    faqs: [
+      { question: 'Which streaming service is best in the UK?', answer: 'Netflix is the best all-round choice for most UK households thanks to its catalogue size and volume of original shows, now £7.99 a month on its cheapest ad-supported tier after the September 2026 price rise. Disney+ is best for families, Amazon Prime Video is best value if you already pay for Prime, and Discovery+ is the cheapest standalone paid option at £3.99 a month.' },
+      { question: 'How do UK streaming services compare on price?', answer: 'Streaming services compared on their cheapest ad-supported tier currently run from £3.99 a month (Discovery+ Basic) up to £9.99 a month (NOW Entertainment Membership), with Disney+ and Paramount+ at £4.99, Netflix at £7.99 and Amazon Prime Video and Apple TV+ both at £8.99. BBC iPlayer, ITVX, Channel 4 and My5 remain free, though a TV Licence is separately required for live television and iPlayer.' },
+      { question: 'What is the cheapest streaming service in the UK?', answer: 'Discovery+ Basic is currently the cheapest standalone paid streaming service in the UK at £3.99 a month. Disney+ and Paramount+ follow closely at £4.99 a month each on their ad-supported tiers. The genuinely free options, BBC iPlayer, ITVX, Channel 4 and My5, cost nothing, but a TV Licence is still required for live television and BBC iPlayer.' },
+      { question: 'How many streaming services do I need?', answer: 'Ofcom&apos;s Media Nations 2026 report found 70% of UK households have at least one paid streaming subscription, a figure that has largely plateaued since 2022. Most households do not need more than one broad service, such as Netflix or Prime Video, plus one specialist service matching a genuine interest, rather than holding every major subscription at once.' },
+      { question: 'Can I bundle streaming services with my broadband?', answer: 'Yes, in some cases. Sky includes Netflix Standard with adverts in Sky Signature and gives Paramount+ free to Sky Cinema customers, while some EE and O2 mobile plans have included limited-time Disney+ access. Check our broadband and mobile bundle discounts guide and broadband comparison tool to see what your current or prospective provider actually includes before paying for a service separately.' },
+      { question: 'Is it worth subscribing to every streaming service?', answer: 'Usually not. Subscribing to all five major paid services, Netflix, Amazon Prime Video, Disney+, Discovery+ and Paramount+, at their cheapest tiers currently costs £30.95 a month combined. Most households get better value rotating one or two services that match what they actually watch rather than paying for all five permanently.' },
+    ],
+  },
 }
 
 export default async function GuidePage({
@@ -4238,6 +5879,50 @@ export default async function GuidePage({
         source.href.startsWith('http') ? source.href : `https://broadbandpicker.co.uk${source.href}`
       ),
   })
+
+  const movingHowToJsonLd =
+    slug === 'moving-house-broadband-checklist-uk'
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'HowTo',
+          name: 'Moving house broadband checklist UK',
+          description:
+            'Check the new address, decide whether to transfer or place a new order, book dates, pack the router, leave any Openreach fibre box, then stop the old line only after the new one works.',
+          totalTime: 'P28D',
+          step: [
+            {
+              '@type': 'HowToStep',
+              position: 1,
+              name: 'Check the new address',
+              text: 'As soon as you know the new postcode, check which providers and connection types can serve that exact property.',
+            },
+            {
+              '@type': 'HowToStep',
+              position: 2,
+              name: 'Decide transfer, new order or leave',
+              text: 'Ask whether your current provider can serve the new home, what fee applies, and whether the remaining term continues.',
+            },
+            {
+              '@type': 'HowToStep',
+              position: 3,
+              name: 'Book two to four weeks ahead',
+              text: 'Use the provider home-move process or place a new order. One Touch Switch is for changing provider at your current address, not for overlapping two homes.',
+            },
+            {
+              '@type': 'HowToStep',
+              position: 4,
+              name: 'Pack the right kit',
+              text: 'Take the provider router. Leave any Openreach optical network terminal or fibre modem that belongs to the old property.',
+            },
+            {
+              '@type': 'HowToStep',
+              position: 5,
+              name: 'Go live, then stop the old line',
+              text: 'Plug in on moving day, test the connection, and only then end the old service unless a stop date is already set.',
+            },
+          ],
+        }
+      : null
 
   const switchHowToJsonLd =
     slug === 'how-to-switch-broadband-uk'
@@ -4326,6 +6011,8 @@ export default async function GuidePage({
     year: 'numeric',
   })
 
+  const hero = guideHero(guide)
+
   const commercial = getCommercialGuide(slug)
   if (commercial && slug === 'best-broadband-and-tv-deals') {
     const tvProviderSlugs = Array.from(new Set(tvBundleOptions.map((bundle) => bundle.providerSlug)))
@@ -4372,12 +6059,24 @@ export default async function GuidePage({
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <article>
       <JsonLd data={articleStructuredData} />
       <JsonLd data={faqJsonLd} />
       {switchHowToJsonLd ? <JsonLd data={switchHowToJsonLd} /> : null}
+      {movingHowToJsonLd ? <JsonLd data={movingHowToJsonLd} /> : null}
       {tvBundleProductJsonLd ? <JsonLd data={tvBundleProductJsonLd} /> : null}
 
+      <PageHeroBanner
+        title={guide.title}
+        kicker={guideHeroKicker(guide)}
+        lede={firstSentence(guide.excerpt)}
+        image={hero.image}
+        imageAlt={hero.imageAlt}
+        accent={hero.accent}
+        ctas={DEFAULT_GUIDE_CTAS}
+      />
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <BreadcrumbNav
         items={[
           { name: 'Home', href: '/' },
@@ -4386,16 +6085,6 @@ export default async function GuidePage({
           { name: guide.title, href: `/guides/${slug}` },
         ]}
       />
-
-      <h1 className="text-3xl font-extrabold text-slate-900 mb-3">{guide.title}</h1>
-
-      {category && (
-        <div className="mb-4">
-          <span className="inline-flex rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-xs font-semibold text-sky-700">
-            {category.label}
-          </span>
-        </div>
-      )}
 
       <div className="flex flex-wrap items-center gap-4 text-sm text-slate-500 mb-8 pb-6 border-b border-slate-200">
         <span>Updated {updatedDate}</span>
@@ -4560,6 +6249,7 @@ export default async function GuidePage({
             ))}
         </div>
       </div>
-    </div>
+      </div>
+    </article>
   )
 }

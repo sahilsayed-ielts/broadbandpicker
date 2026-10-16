@@ -49,7 +49,7 @@ export function contentTypeForPath(pathname: string) {
   if (pathname.startsWith('/providers/compare/')) return 'comparison'
   if (pathname.startsWith('/providers/')) return 'provider'
   if (pathname.startsWith('/guides/')) return 'guide'
-  if (pathname.startsWith('/tools/') || pathname === '/speed-test') return 'tool'
+  if (pathname === '/tools' || pathname.startsWith('/tools/')) return 'tool'
   return 'other'
 }
 

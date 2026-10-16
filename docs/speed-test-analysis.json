@@ -1,0 +1,94 @@
+{
+  "generated": "2026-09-16T15:56:17.198211+00:00",
+  "page": "https://broadbandpicker.co.uk/speed-test",
+  "rank1_methods": {
+    "Ookla Speedtest": {
+      "url": "https://www.speedtest.net/",
+      "uk_role": "Usual Google UK rank 1 for internet speed test",
+      "how_it_works": [
+        "Picks a nearby dedicated test server by ping, not the page origin.",
+        "Uses several parallel TCP connections to fill the pipe after slow start.",
+        "Reports a weighted high-percentile speed (modified trimean / 90th-percentile style), not bytes/total-time.",
+        "Measures idle latency, then download, then upload; can show loaded latency and experience ratings."
+      ]
+    },
+    "thinkbroadband": {
+      "url": "https://www.thinkbroadband.com/speedtest",
+      "uk_role": "Long-running UK specialist checker",
+      "how_it_works": [
+        "UK-hosted test aimed at ADSL through gigabit FTTP.",
+        "Runs about 20 to 60 seconds so the line can saturate.",
+        "Tells people to use Ethernet when diagnosing a fault.",
+        "Logs results for national statistics; treats the number as an indication, not a line certificate."
+      ]
+    },
+    "Uswitch": {
+      "url": "https://www.uswitch.com/broadband/speedtest/",
+      "uk_role": "High-ranking UK comparison-site checker",
+      "how_it_works": [
+        "HTTPS download of a small probe, then a larger payload sized to the connection.",
+        "Upload uses several packets at once to fill upload capacity.",
+        "UK servers; result is a snapshot, then a compare-deals next step."
+      ]
+    },
+    "Cloudflare": {
+      "url": "https://speed.cloudflare.com/",
+      "uk_role": "Anycast quality test used as a professional benchmark",
+      "how_it_works": [
+        "Measures unloaded and loaded latency, download, upload and packet loss.",
+        "Uses Cloudflare's edge so the server is close to the user.",
+        "Saturates with concurrent transfers rather than one short file."
+      ]
+    }
+  },
+  "client_and_server_gaps": {
+    "multi_stream": true,
+    "warmup_discard": true,
+    "percentile_or_trimean": true,
+    "identity_encoding": true,
+    "loaded_latency": true,
+    "london_region": true,
+    "nested_parallel_ping_bug": false,
+    "single_10mb_download": false
+  },
+  "endpoint_lab": {
+    "base": "https://broadbandpicker.co.uk",
+    "checks": [
+      {
+        "name": "ping",
+        "status": 204,
+        "cache_control": "no-store, no-transform",
+        "samples_ms": [
+          205.6,
+          205.7,
+          223.9,
+          102.1,
+          593.4,
+          107.8
+        ],
+        "median_ms": 205.64999999999998,
+        "passed": true
+      },
+      {
+        "name": "download_1mb",
+        "status": 200,
+        "bytes": 1048576,
+        "elapsed_s": 0.648,
+        "single_stream_mbps": 12.95,
+        "content_encoding": "identity",
+        "cache_control": "no-store, no-transform",
+        "vercel_id": "lhr1::lhr1::p646p-1789574179520-b9f1365a9f63",
+        "entropy_first_64k": 7.9972,
+        "compressible": false,
+        "passed": true
+      },
+      {
+        "name": "upload_1mb",
+        "status": 200,
+        "elapsed_s": 0.751,
+        "cache_control": "no-store, no-transform",
+        "passed": true
+      }
+    ]
+  }
+}

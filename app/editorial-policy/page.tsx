@@ -3,6 +3,10 @@ import Link from 'next/link'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
 import { JsonLd } from '@/lib/jsonLd'
 import { organizationRef } from '@/lib/siteSchema'
+import PageHeroBanner from '@/components/PageHeroBanner'
+import { DEFAULT_GUIDE_CTAS, hubHero } from '@/lib/pageHero'
+
+const HERO = hubHero()
 
 export const metadata: Metadata = {
   title: { absolute: 'Editorial Policy | BroadbandPicker' },
@@ -31,17 +35,24 @@ const jsonLd = {
 
 export default function EditorialPolicyPage() {
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div>
       <JsonLd data={jsonLd} />
-
+      <PageHeroBanner
+        title="Editorial Policy"
+        kicker="Company"
+        lede="The principles that govern how we produce content, how we handle commercial relationships, and how we maintain independence from the providers we write about."
+        image={HERO.image}
+        imageAlt={HERO.imageAlt}
+        accent={HERO.accent}
+        ctas={DEFAULT_GUIDE_CTAS}
+      />
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <BreadcrumbNav
         items={[
           { name: 'Home', href: '/' },
           { name: 'Editorial policy', href: '/editorial-policy' },
         ]}
       />
-
-      <h1 className="text-3xl font-extrabold text-slate-900 mb-2">Editorial Policy</h1>
       <p className="text-sm text-slate-500 mb-8">Last updated: June 2026</p>
 
       <p className="text-slate-700 leading-relaxed mb-10">
@@ -197,6 +208,7 @@ export default function EditorialPolicyPage() {
           </h3>
           <p className="text-xs text-slate-500">Data sources, scoring methodology, and review process.</p>
         </Link>
+      </div>
       </div>
     </div>
   )

@@ -25,9 +25,7 @@ export interface SavedDeal {
   savedAt: string
 }
 
-export function dealId(providerSlug: string, packageName: string): string {
-  return `${providerSlug}::${packageName}`
-}
+export { dealId } from '@/lib/dealId'
 
 function readAll(): SavedDeal[] {
   if (typeof window === 'undefined') return []

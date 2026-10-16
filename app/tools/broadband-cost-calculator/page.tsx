@@ -5,6 +5,10 @@ import BroadbandCostCalculator from '@/components/BroadbandCostCalculator'
 import PostcodeContextBar from '@/components/PostcodeContextBar'
 import { JsonLd } from '@/lib/jsonLd'
 import { softwareApplicationJsonLd } from '@/lib/siteSchema'
+import PageHeroBanner from '@/components/PageHeroBanner'
+import { DEFAULT_GUIDE_CTAS, categoryHero } from '@/lib/pageHero'
+
+const HERO = categoryHero('deals-and-pricing')
 
 const PAGE_URL = 'https://broadbandpicker.co.uk/tools/broadband-cost-calculator'
 const REVIEWED_DATE = '2026-08-21'
@@ -81,28 +85,28 @@ export default function BroadbandCostCalculatorPage() {
   return (
     <main className="bg-white">
       <JsonLd data={jsonLd} />
+      <PageHeroBanner
+        title="Broadband cost calculator"
+        kicker="Free UK broadband cost tool"
+        lede="Enter a deal's advertised price, contract length, setup fee and any cashback to see its true average monthly cost and cost per Mbps, so you can compare packages fairly, not just by headline price."
+        image={HERO.image}
+        imageAlt={HERO.imageAlt}
+        accent={HERO.accent}
+        ctas={DEFAULT_GUIDE_CTAS}
+      />
 
-      <section className="bg-slate-950 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-14">
-          <div className="[&_nav_span]:text-slate-300 [&_nav_a]:text-slate-400 [&_nav_a:hover]:text-white">
-            <BreadcrumbNav items={[{ name: 'Home', href: '/' }, { name: 'Broadband cost calculator', href: '/tools/broadband-cost-calculator' }]} />
-          </div>
-          <header className="text-center max-w-3xl mx-auto mt-4">
-            <p className="text-sky-400 text-sm font-semibold uppercase tracking-widest">Free UK broadband cost tool</p>
-            <h1 className="text-4xl sm:text-5xl font-extrabold mt-3">Broadband cost calculator</h1>
-            <p className="text-slate-300 mt-4 text-lg leading-relaxed">
-              Enter a deal&apos;s advertised price, contract length, setup fee and any cashback to see its true
-              average monthly cost and cost per Mbps — so you can compare packages fairly, not just by headline price.
-            </p>
-            <p className="text-slate-400 mt-3 text-sm">Free to use · No registration · Reviewed {REVIEWED_DATE}</p>
-          </header>
-          <div className="mt-10">
-            <BroadbandCostCalculator />
-          </div>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 text-slate-700">
+        <BreadcrumbNav
+          items={[
+            { name: 'Home', href: '/' },
+            { name: 'Tools', href: '/tools' },
+            { name: 'Broadband cost calculator', href: '/tools/broadband-cost-calculator' },
+          ]}
+        />
+        <p className="mb-6 text-sm text-slate-500">Free to use · No registration · Reviewed {REVIEWED_DATE}</p>
+        <div className="mb-10">
+          <BroadbandCostCalculator />
         </div>
-      </section>
-
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14 text-slate-700">
         <PostcodeContextBar />
         <section aria-labelledby="quick-answer" className="rounded-2xl border border-sky-200 bg-sky-50 p-6 sm:p-8">
           <h2 id="quick-answer" className="text-2xl font-bold text-slate-900">Why the headline price is not the true cost</h2>

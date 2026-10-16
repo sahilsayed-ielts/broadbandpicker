@@ -1,6 +1,10 @@
 {
-  "generatedAt": "2026-08-30",
+  "generatedAt": "2026-10-16",
   "brands": [
+    {
+      "slug": "brkox",
+      "name": "BRKOX"
+    },
     {
       "slug": "broadband-genie",
       "name": "Broadband Genie"
@@ -12,6 +16,10 @@
     {
       "slug": "highland-broadband",
       "name": "Highland Broadband"
+    },
+    {
+      "slug": "onestream",
+      "name": "Onestream"
     },
     {
       "slug": "talktalk-phone-and-broadband",

@@ -2,11 +2,15 @@
 
 ## Short answer
 
-Open **X (keep), Instagram, TikTok, LinkedIn, and a YouTube channel** now.
+This is a **day-zero launch**. No channel has a real post history. Handles may exist (X is already in the site footer) but treat every profile as empty: no pin, no grid, no followers, no 'we've been posting'.
+
+Open **X, Instagram, TikTok, LinkedIn, and YouTube** on day 0 (setup). Do not post until the first 9 Instagram frames exist so a stranger landing from the website sees a brand, not a blank.
 
 Add **Facebook + WhatsApp Channel** in month 2.
 
-Treat **Pinterest** as a later evergreen dump. **Reddit** as a human, not a mascot. **Skip Snapchat and Bluesky** until the P0 channels are a habit.
+Treat **Pinterest** as a later evergreen dump (movers, checklists). **Reddit** as a human, not a mascot. **Skip Snapchat and Bluesky**.
+
+This is not a vibes list. Ofcom 2025–26 monthly reach among UK 18+: YouTube ~67%, Facebook & Messenger ~66%, WhatsApp ~63%, Instagram ~56%, Reddit ~42%, TikTok ~39%, X and LinkedIn ~28% each. Half of users lurk — design for screenshots and tags. Specialist broadband affiliates barely post at all (see `10-competitor-social.md`). Sources: `08-web-research.md`.
 
 X already exists as @broadbandPicker on the site. That is the only live consumer channel today. The current X calendar in `docs/branding-and-marketing/` is too polite to get you retweets. Keep the account; change the voice.
 
@@ -35,13 +39,13 @@ If you only have hours, the order is:
 
 | | |
 |---|---|
-| **Priority** | P0 — already live, keep and sharpen |
-| **Open an account?** | Yes now |
+| **Priority** | P0 — claim today, post as if empty (footer link exists, zero content) |
+| **Open an account?** | Yes now. Treat as unlaunched. |
 | **Handle** | `@broadbandPicker` |
-| **Why this channel** | Where UK broadband rage, Ofcom news, outages and journalist chatter already live. Best channel for quote-tweets, one-liners, and being the funny account that still knows the rules. Footer already points here. |
+| **Why this channel** | The site footer already points here, so journalists and affiliate managers who Google us will land on an empty-looking profile unless we pin something sharp on day 1. UK broadband rage, Ofcom news and 7pm complainers already live on X. Best cold-start channel for polls and one-liners that do not need followers. |
 | **Audience** | Switchers, tech-adjacent adults, journalists, altnet watchers, complainers at 7pm. |
 | **Content** | Sarcastic one-liners, polls, quote remixes, outage colour commentary, deal 'public health warnings'. |
-| **Cadence** | 5–7 posts/week + real-time when a provider or Ofcom does something stupid. |
+| **Cadence** | 5-7 posts/week. UK peak: Tue-Thu 08:00-09:30 and 17:30-19:00 Europe/London. Design stills by 17:00 two working days before. |
 | **Success looks like** | Profile clicks, quote-tweets, follows from journalists, branded search lift. |
 | **Affiliate / provider value** | Industry people lurk here. A sharp account is a walking media kit. |
 
@@ -52,10 +56,10 @@ If you only have hours, the order is:
 | **Priority** | P0 — open this week |
 | **Open an account?** | Yes now |
 | **Handle** | `@broadbandpicker` |
-| **Why this channel** | Reels are the UK meme engine. Stories build habit. Carousels teach without feeling like a guide. This is how BroadbandPicker stops looking like a spreadsheet and starts looking like a brand people screenshot to their group chat. |
-| **Audience** | 25–40, renters, young families, students' older siblings, 'I pay the bill' people. |
-| **Content** | Reels, Stories, meme posts, quote cards, 7-slide carousels, sticker polls. |
-| **Cadence** | 4 Reels/week, 1 feed post/weekday, Stories on posting days. |
+| **Why this channel** | The professional shopfront. Providers, Awin reviewers and bill-payers judge the grid in three seconds. Educational carousels, a finished bio and branded highlights make BroadbandPicker look like a publisher. Jokes live on X and TikTok, not in the first 9 tiles. |
+| **Audience** | 25–40 bill-payers, renters, young families, plus ISP/affiliate people who lurk. |
+| **Content** | Professional carousels, explainer Reels, weekday Story series, branded highlights. Bio + first 9 planned as a 3x3. |
+| **Cadence** | Feed Tue-Thu 12:00 or 18:00 UK. Reels 18:30-20:00 weekdays. Stories 19:00. Design feed/Reel stills 2 working days before; Stories the day before 12:00. |
 | **Success looks like** | Shares, saves, sticker replies, profile visits, link-in-bio clicks to postcode checker. |
 | **Affiliate / provider value** | A living visual identity. Providers judge professionalism in 3 seconds. |
 
@@ -69,7 +73,7 @@ If you only have hours, the order is:
 | **Why this channel** | Discovery graph, not friend graph. A 12-second joke about buffering during the football will find people who have never heard of a comparison site. Students, first-time switchers, and 'my dad still pays £40 for 30 Mbps' kids live here. |
 | **Audience** | 16–34 UK, students, HMO flatshares, first adult bills. |
 | **Content** | Native vertical sketches, POV, green-screen rants, fake TfL/weather warnings. |
-| **Cadence** | 1/day for 30 days, then 5/week. Recycle the best as IG Reels 24h later. |
+| **Cadence** | 1/day for 30 days, then 5/week. Post 19:00 UK weeknights, 11:30 weekends. Film/cover by 17:00 the day before. Recycle as IG Reels 24h later, not before. |
 | **Success looks like** | Watch-through, comments, stitches, follows, traffic via link in bio / Spark Ads later. |
 | **Affiliate / provider value** | Reach numbers you can put in an affiliate deck. 'We made broadband funny' is a pitch. |
 

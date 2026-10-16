@@ -1,0 +1,392 @@
+<title>BroadbandPicker Authority Plan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: single reading column (max 860px) with wide tables scrolling inside their own boxes; priority encoded as chips */
+:root{
+  --bg:#f7f9fb; --surface:#ffffff; --ink:#0f172a; --ink-2:#3b4a5e; --muted:#64748b;
+  --line:#dde4ec; --accent:#0369a1; --accent-soft:#e3f1fa;
+  --p0:#b42318; --p0-bg:#fdecea; --p1:#9a5b00; --p1-bg:#fdf3e1; --p2:#1f6f43; --p2-bg:#e6f4ec;
+  --bar:#0284c7; --bar-dim:#9fd0ea;
+  --f-display:"Archivo", "Helvetica Neue", Arial, sans-serif;
+  --f-body:"Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0b1220; --surface:#121b2d; --ink:#e6edf5; --ink-2:#b5c2d3; --muted:#8696ab;
+  --line:#24324a; --accent:#5cb8ec; --accent-soft:#12324a;
+  --p0:#ff8a7a; --p0-bg:#3a1714; --p1:#f2bb5c; --p1-bg:#33260f; --p2:#6fd39b; --p2-bg:#10301f;
+  --bar:#38a9e3; --bar-dim:#1e4f6e; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0b1220; --surface:#121b2d; --ink:#e6edf5; --ink-2:#b5c2d3; --muted:#8696ab;
+  --line:#24324a; --accent:#5cb8ec; --accent-soft:#12324a;
+  --p0:#ff8a7a; --p0-bg:#3a1714; --p1:#f2bb5c; --p1-bg:#33260f; --p2:#6fd39b; --p2-bg:#10301f;
+  --bar:#38a9e3; --bar-dim:#1e4f6e; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:17px/1.6 var(--f-body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:40px 80px}
+.wrap{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:56px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.15;margin:0}
+h1{font-size:clamp(30px,5vw,44px);font-weight:800;letter-spacing:-.01em}
+h2{font-size:26px;font-weight:700}
+h3{font-size:19px;font-weight:700}
+p{margin:0;max-width:68ch}
+section{display:flex;flex-direction:column;gap:18px}
+.eyebrow{font:600 12px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.lede{font-size:19px;color:var(--ink-2)}
+.meta{font:13px/1.5 var(--f-mono);color:var(--muted)}
+a{color:var(--accent)}
+code,.mono{font-family:var(--f-mono);font-size:.86em}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:4px}
+.stat b{font:700 28px/1.1 var(--f-display);font-variant-numeric:tabular-nums}
+.stat span{font-size:14px;color:var(--ink-2)}
+.alert{border:1px solid var(--p0);background:var(--p0-bg);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:12px}
+.alert h2{color:var(--p0);font-size:22px}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:600 12px/1.3 var(--f-mono);text-transform:uppercase;letter-spacing:.06em;color:var(--muted);background:var(--bg)}
+tr:last-child td{border-bottom:0}
+td.n{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap;font-family:var(--f-mono);font-size:14px}
+tr.us td{background:var(--accent-soft);font-weight:600}
+.chip{display:inline-block;font:600 11px/1 var(--f-mono);padding:4px 7px;border-radius:999px;letter-spacing:.04em;white-space:nowrap}
+.p0{color:var(--p0);background:var(--p0-bg)} .p1{color:var(--p1);background:var(--p1-bg)} .p2{color:var(--p2);background:var(--p2-bg)}
+.who{font:600 11px/1 var(--f-mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.items{display:flex;flex-direction:column;gap:14px}
+.item{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.item header{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.item h3{flex:1 1 260px;font-size:17px}
+.item p,.item li{font-size:15.5px;color:var(--ink-2)}
+.item ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px}
+.why{font-size:14px;color:var(--muted)}
+.chart{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;position:relative}
+.chart svg{width:100%;height:auto;display:block}
+.chart text{fill:var(--muted);font:12px var(--f-mono)}
+.chart .val{fill:var(--ink);font-weight:600}
+.chart rect.b{fill:var(--bar)} .chart rect.b.dim{fill:var(--bar-dim)}
+.chart rect.hit{fill:transparent;cursor:default}
+.chart line{stroke:var(--line)}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--bg);font:12px/1.4 var(--f-mono);padding:6px 8px;border-radius:6px;white-space:nowrap}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.cols>div{min-width:0}
+.dont{border-left:3px solid var(--p0);padding:2px 0 2px 14px}
+ol.steps{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 16px}
+summary{cursor:pointer;font-weight:600}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+
+<header style="display:flex;flex-direction:column;gap:14px">
+  <span class="eyebrow">SEO research · domain authority · 16 October 2026</span>
+  <h1>BroadbandPicker Authority Plan</h1>
+  <p class="lede">Google already trusts our content enough to show it about 400,000 times a quarter. What it doesn't have yet is evidence that other people trust us: almost nobody links to us, searches for us by name or comes back. This plan covers how the UK broadband leaders built that trust, what we can copy cheaply, and the quick wins to do first.</p>
+  <p class="meta">Data: Google Search Console and GA4 (17 Jul to 14 Oct 2026 unless stated), Tranco top-1M list (Oct 2026), live site checks on 16 Oct, web research. Source script: scripts/research_domain_authority.py. Raw data: docs/domain-authority-research/2026-10-16-authority-data.json</p>
+</header>
+
+<div class="alert" id="emergency">
+  <span class="eyebrow" style="color:var(--p0)">Fix this before anything else</span>
+  <h2>17 pages that Google ranks are returning “page not found” right now</h2>
+  <p>The 14 October deploys were built from a clean copy of the code on GitHub. These pages exist on our computer but were never committed, so that deploy quietly deleted them from the live site. They include our second-best page for clicks and our best landing page in GA4 (the speed test). Each day they stay down, Google is more likely to drop them from the index and lose the rankings they had built up.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Page (all 404 on 16 Oct)</th><th class="n">Clicks 90d</th><th class="n">Impressions 90d</th></tr></thead>
+    <tbody>
+      <tr><td>/guides/cheapest-way-to-watch-sky-sports-uk</td><td class="n">47</td><td class="n">6,303</td></tr>
+      <tr><td>/guides/broadband-and-mobile-bundle-discounts-uk</td><td class="n">15</td><td class="n">10,461</td></tr>
+      <tr><td>/tools/speed-test (top GA4 landing page, 63 sessions)</td><td class="n">10</td><td class="n">6,282</td></tr>
+      <tr><td>/guides/landline-switch-off-explained-uk</td><td class="n">6</td><td class="n">632</td></tr>
+      <tr><td>/guides/telecare-alarms-landline-switch-off-uk</td><td class="n">6</td><td class="n">326</td></tr>
+      <tr><td>/guides/replace-isp-router-uk</td><td class="n">5</td><td class="n">481</td></tr>
+      <tr><td>/guides/wifi-7-explained-uk</td><td class="n">4</td><td class="n">529</td></tr>
+      <tr><td>/guides/digital-voice-explained-uk</td><td class="n">3</td><td class="n">692</td></tr>
+      <tr><td>/guides/freely-and-fetch-tv-explained-uk</td><td class="n">3</td><td class="n">509</td></tr>
+      <tr><td>/guides/does-a-vpn-slow-your-internet</td><td class="n">2</td><td class="n">401</td></tr>
+      <tr><td>/guides/fix-wifi-dead-spots-uk</td><td class="n">2</td><td class="n">227</td></tr>
+      <tr><td>/guides/gta-6-broadband-uk</td><td class="n">2</td><td class="n">378</td></tr>
+      <tr><td>/guides/moving-house-broadband-checklist-uk</td><td class="n">2</td><td class="n">470</td></tr>
+      <tr><td>/guides/pstn-switch-off-small-business-uk</td><td class="n">1</td><td class="n">178</td></tr>
+      <tr><td>/providers/connect-fibre</td><td class="n">1</td><td class="n">789</td></tr>
+      <tr><td>/guides/esim-explained-uk</td><td class="n">0</td><td class="n">1,214</td></tr>
+      <tr><td>/guides/what-broadband-speed-do-i-need</td><td class="n">0</td><td class="n">685</td></tr>
+    </tbody>
+  </table></div>
+  <p>The <strong>/tools</strong> hub and the <strong>/alerts</strong> email sign-up page are also missing live. Both are already built.</p>
+  <p><strong>Fix:</strong> commit the working tree (about 300 changed files, so I review them in groups first), build, check every URL above returns 200, then push. I also add a check that runs after each deploy and fails it if any URL that earned a Search Console click in the last 90 days stops returning 200, so this can't happen again unnoticed. <strong>I need your go-ahead to deploy.</strong></p>
+</div>
+
+<section id="data">
+  <span class="eyebrow">What the data says</span>
+  <h2>Strong content signals, almost no trust signals</h2>
+  <div class="stats">
+    <div class="stat"><b>~1,150</b><span>Google clicks in 90 days, up from 19 in the 90 days before</span></div>
+    <div class="stat"><b>16</b><span>impressions for “broadband picker” in 90 days. Hardly anyone searches for us by name yet</span></div>
+    <div class="stat"><b>2</b><span>visits from links on other websites in 90 days (GA4 Referral)</span></div>
+    <div class="stat"><b>16%</b><span>of all visits came from ChatGPT and other AI assistants (143 sessions)</span></div>
+    <div class="stat"><b>~11%</b><span>of visitors came back (84 returning vs 705 new users)</span></div>
+    <div class="stat"><b>81%</b><span>of query impressions sit at position 21 or lower (page 3+)</span></div>
+  </div>
+
+  <div class="chart" id="clicksChart">
+    <h3 style="margin-bottom:10px;font-size:16px">Google clicks per month</h3>
+    <svg viewBox="0 0 600 230" role="img" aria-label="Monthly Google clicks: June 9, July 10, August 107, September 648, October to the 14th 389">
+      <line x1="40" y1="190" x2="590" y2="190"/>
+      <line x1="40" y1="140" x2="590" y2="140" stroke-dasharray="2 4"/>
+      <line x1="40" y1="90" x2="590" y2="90" stroke-dasharray="2 4"/>
+      <line x1="40" y1="40" x2="590" y2="40" stroke-dasharray="2 4"/>
+      <text x="34" y="194" text-anchor="end">0</text>
+      <text x="34" y="144" text-anchor="end">200</text>
+      <text x="34" y="94" text-anchor="end">400</text>
+      <text x="34" y="44" text-anchor="end">600</text>
+    </svg>
+    <p class="meta" style="margin-top:8px">October covers 1 to 14 Oct only (lighter bar). Source: GSC, all searches, web.</p>
+    <div class="tip" hidden></div>
+  </div>
+
+  <div class="cols">
+    <div class="item">
+      <h3>Why domain authority is the bottleneck</h3>
+      <p>Moz DA and Ahrefs DR are third-party scores based mostly on how many trusted sites link to you. Google uses its own version of the same idea. With 2 referral visits in a quarter and no branded demand, our authority is close to zero. That's why our big “best X deals” guides sit at an average position of 45: Google ranks money pages from MoneySuperMarket, Uswitch and MSE first because many sites link to them.</p>
+    </div>
+    <div class="item">
+      <h3>Where we already win</h3>
+      <p>Pages with less competition from big brands already rank: provider-vs-provider pages average position 13.8, the satisfaction research page 6.2, postcode pages 17.8. ChatGPT already recommends us, sending 139 visits. Engagement is high too (86% engaged sessions, about 3 minutes per visit). The content is good enough. What it lacks is outside endorsement.</p>
+    </div>
+  </div>
+</section>
+
+<section id="competitors">
+  <span class="eyebrow">How the leaders built authority</span>
+  <h2>In this niche, the most trusted sites are tools, data and news</h2>
+  <p>Tranco is a free, research-grade ranking of the top million websites by popularity. Lower is better. We aren't in the top million yet, which is normal for a site this age. The useful part is the pattern: <strong>thinkbroadband</strong> (speed test, maps, forums) and <strong>ISPreview</strong> (daily news) rank well above pure deal sites like Broadband Genie or broadband.co.uk.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Site</th><th class="n">Tranco rank</th><th>How it earns links and repeat visits</th><th>What we copy</th></tr></thead>
+    <tbody>
+      <tr><td>MoneySavingExpert</td><td class="n">12,246</td><td>Weekly email it says reaches about 9.1 million people; forums; a famous named founder</td><td>Weekly deals email, plus a named, visible person</td></tr>
+      <tr><td>Uswitch</td><td class="n">27,120</td><td>Commissioned Opinium surveys turned into press releases; an annual “Broadband Excellence” badge that providers display and link to; awards; a price-rise calculator</td><td>An annual provider award built from our own data; a price-rise calculator</td></tr>
+      <tr><td>thinkbroadband</td><td class="n">62,614</td><td>Speed test, coverage maps and forums. People bookmark it and forums link to it</td><td>A better speed test with shareable results</td></tr>
+      <tr><td>ISPreview</td><td class="n">85,460</td><td>Daily industry news. It writes up other sites' studies, which makes it the gatekeeper for coverage</td><td>Pitch our data studies to ISPreview</td></tr>
+      <tr><td>bestbroadbanddeals.co.uk</td><td class="n">143,946</td><td>Deal lists and guides</td><td>Nothing new</td></tr>
+      <tr><td>Cable.co.uk</td><td class="n">151,633</td><td>Annual “Worldwide broadband price” league table (200+ countries), covered every year by The Register, ISPreview, Silicon UK and Computeractive</td><td>One repeatable annual data study with a ranking</td></tr>
+      <tr><td>Broadband Choices</td><td class="n">204,235</td><td>Comparison tables and guides</td><td>Nothing new</td></tr>
+      <tr><td>broadband.co.uk / Broadband Genie</td><td class="n">424,051 / 528,602</td><td>A named research lead (Alex Tofts) on every study; satisfaction survey and awards; quoted in the Guardian, Sun and Mail</td><td>A named spokesperson and a methodology page for each study</td></tr>
+      <tr><td>SpeedGeo (small speed-test site)</td><td class="n">not ranked</td><td>Quarterly “fastest ISP” reports from its own speed-test results, covered by ISPreview</td><td>Proof a small site can do this with test data</td></tr>
+      <tr class="us"><td>BroadbandPicker</td><td class="n">not in top 1M</td><td>2 referral visits in 90 days</td><td></td></tr>
+    </tbody>
+  </table></div>
+  <p class="why">Comparethemarket (6,572), MoneySuperMarket (12,781), Which? (11,111), Confused (34,500) and GoCompare (49,696) win with TV advertising budgets we can't match, so they aren't in the table. Which? also runs a price-rise calculator.</p>
+  <p>The consistent lesson: <strong>every leader owns at least one thing journalists cite or people come back to</strong>, such as a dataset, a tool, a ranking or an email. Deal tables on their own don't earn links. Our plan is to build three or four of these assets and promote them properly.</p>
+</section>
+
+<section id="quickwins">
+  <span class="eyebrow">Quick wins · next 30 days</span>
+  <h2>Ten things that pay back fast</h2>
+  <div class="items">
+
+    <div class="item"><header><span class="chip p0">P0 · week 1</span><span class="who">Claude, after your go-ahead</span><h3>1. Restore the 17 missing pages, /tools and /alerts, and add the deploy check</h3></header>
+      <p>See the box at the top. Then ask Google to re-crawl the five biggest pages through URL Inspection.</p></div>
+
+    <div class="item"><header><span class="chip p0">P0 · week 1</span><span class="who">Claude</span><h3>2. Get Google to re-read both sitemaps</h3></header>
+      <p>Search Console's last read shows 202 URLs in the main sitemap (122 live today) and only 60 in the postcode sitemap (2,832 live). Resubmit both so Google stops crawling dead URLs and finds the live ones.</p></div>
+
+    <div class="item"><header><span class="chip p0">P0 · week 1</span><span class="who">Claude</span><h3>3. Rewrite titles and descriptions where we rank but don't get clicked</h3></header>
+      <ul>
+        <li><strong>/providers/giffgaff</strong>: position 5, 13,132 impressions, 0.14% click rate. About 600 clicks missed in 90 days. People search “giffgaff broadband price / sale / offer”, so the title should promise this month's prices and offers.</li>
+        <li><strong>/postcode/da1</strong> (Dartford): “broadband deals in dartford” has 8,036 impressions at position 10.1 and 0 clicks. Name Dartford in the title and H1.</li>
+        <li>Provider-vs-provider pages at positions 5 to 8 with click rates under 1.5%: ee-vs-talktalk, plusnet-vs-ee, ee-vs-sky, sky-vs-talktalk, community-fibre-vs-hyperoptic, virgin-media-vs-vodafone, plusnet-vs-sky. Put the verdict in the title (“which is cheaper in 2026”).</li>
+        <li>/research/uk-broadband-customer-satisfaction: position 6.2, 0.23% click rate.</li>
+      </ul>
+      <p class="why">More clicks on the same rankings also tells Google the result is useful.</p></div>
+
+    <div class="item"><header><span class="chip p1">P1 · week 2</span><span class="who">Claude</span><h3>4. Push “striking distance” queries onto page one</h3></header>
+      <p>These queries sit at positions 4 to 20 with real demand. Small content and internal-link improvements usually move them: giffgaff broadband (several variants, about 3,000 impressions combined), Zen Internet (about 900 including misspellings), Connect Fibre (340, currently a 404), Community Fibre vs Hyperoptic (377), and town queries for Canterbury, Nottingham, Stevenage, Reading and Southall. Link to each from the homepage, the deals page and related guides.</p></div>
+
+    <div class="item"><header><span class="chip p1">P1 · week 2</span><span class="who">You (10 min) + Claude</span><h3>5. Set up Bing Webmaster Tools to get a free backlink list</h3></header>
+      <p>Bing Webmaster Tools shows backlinks for your own site and for competitors at no cost. Bing also powers Yahoo, which sent us 41 visits, and feeds ChatGPT search. You sign in and import the Search Console property; I then pull the competitor link lists and turn them into an outreach list. Also export Search Console's Links report once a month to track progress.</p></div>
+
+    <div class="item"><header><span class="chip p1">P1 · week 2</span><span class="who">You</span><h3>6. Claim the free profile links every real business has</h3></header>
+      <p>Trustpilot business page, Crunchbase, LinkedIn company page (done), Companies House-matched details on /about, an Awin publisher profile, X/Bluesky/Facebook profiles linking to the site. Each one is a small but genuine trust signal, and Google uses them to confirm we are a real organisation.</p></div>
+
+    <div class="item"><header><span class="chip p1">P1 · weeks 2–4</span><span class="who">You decide, Claude builds</span><h3>7. Put a named person on the site</h3></header>
+      <p>Every leader has a face: Martin Lewis, Alex Tofts. Journalists quote people, not brands. Google's quality raters look for real authorship. We need one named editor or spokesperson with an author page, a photo, a short bio and a LinkedIn profile. It could be you. <strong>This is your decision.</strong></p></div>
+
+    <div class="item"><header><span class="chip p1">P1 · ongoing</span><span class="who">Spokesperson, 20 min/day</span><h3>8. Answer journalist requests</h3></header>
+      <p>UK journalists post requests for expert comment on X under #journorequest. SourceBottle and Qwoted (free tier) carry similar requests. Broadband questions come up weekly: price rises, switching, landline switch-off, social tariffs. I draft the answers from our own data. Expect 1 to 3 quality press links a month once the spokesperson exists.</p></div>
+
+    <div class="item"><header><span class="chip p1">P1 · weeks 3–4</span><span class="who">Claude drafts, you send</span><h3>9. Get our guides listed on resource pages</h3></header>
+      <p>Councils, housing associations, food banks, libraries and digital-inclusion charities keep “help with bills” and “digital switchover” pages. Our social tariffs, benefits-broadband, landline switch-off and telecare guides fit those pages directly. A link from a .gov.uk or charity site is among the most trusted links a site can earn. I build a list of about 100 local pages that already link to similar guides, plus a short polite email template.</p></div>
+
+    <div class="item"><header><span class="chip p2">P2 · week 4</span><span class="who">Claude</span><h3>10. Offer the altnets we review a “Reviewed on BroadbandPicker” badge</h3></header>
+      <p>Smaller providers such as Connect Fibre, Zzoomm, Trooli, Community Fibre, Cuckoo and Toob love third-party praise and often have “press / reviews” pages. A simple badge linking back to our review is exactly how Uswitch's accreditation spreads, at our scale. We award it only where the review actually supports it.</p></div>
+  </div>
+</section>
+
+<section id="assets">
+  <span class="eyebrow">Linkable tools and data · months 1 to 6</span>
+  <h2>Build things people bookmark, share and cite</h2>
+  <p>Ranked by how likely each is to earn links, return visits and AI citations for the effort involved. Each one reuses data or code we already have.</p>
+  <div class="items">
+
+    <div class="item"><header><span class="chip p0">Build by Dec 2026</span><h3>A. 2027 broadband price-rise checker</h3></header>
+      <p>The user picks a provider, enters their monthly price and contract start date, and sees the exact £ rise due in April 2027 and what they would pay over the rest of the contract. They then see cheaper deals with no mid-contract rise (we already have that guide and the structured price-rise data). Rises are now set in pounds and pence under Ofcom's 2025 rules, so the maths is exact.</p>
+      <p class="why">Why: Uswitch and Which? both run one, and the press covers price rises every January to April. A results card shared on WhatsApp (“my bill goes up £36 in April”) brings people back to the page. A companion “Price rise tracker 2027” table is something journalists cite. Timing matters: it has to be live and indexed before January.</p></div>
+
+    <div class="item"><header><span class="chip p0">Month 1–2</span><h3>B. Full fibre league table from Ofcom open data</h3></header>
+      <p>Ofcom's Connected Nations data is free under the Open Government Licence and includes local authority and constituency files. We rank every council area and constituency on full fibre and gigabit coverage and on change since last year, publish one page per area, and link those into our postcode hubs.</p>
+      <p class="why">Why: this is the Cable.co.uk model scaled to the UK. Local papers reliably cover “our town ranks 280th of 361”, MPs share constituency rankings, and each area page is a natural link target that strengthens the postcode section. Repeat it every spring and winter when Ofcom updates the data.</p></div>
+
+    <div class="item"><header><span class="chip p1">Month 2</span><h3>C. Speed test 2.0 with shareable results, then a quarterly speed report</h3></header>
+      <p>Restore the speed test first. Then add a results card (“You got 72 Mbps. Typical on your plan: 67 Mbps”), a “Is this normal for my provider and area?” comparison, and anonymous logging of postcode district, ISP and result. Once we have enough tests, publish a quarterly “Fastest broadband providers and towns” report.</p>
+      <p class="why">Why: SpeedGeo gets ISPreview coverage this way. We completed 105 tests in 90 days, which is too few to publish. A report needs thousands per quarter, so it comes after the shareable version grows usage. Until then, B gives us the data story.</p></div>
+
+    <div class="item"><header><span class="chip p1">Month 2</span><h3>D. Monthly UK Broadband Price Index</h3></header>
+      <p>Our deal sync (<code>deals:sync</code>) already records prices. We keep a monthly snapshot of the cheapest deal per speed tier (100, 500, 900 Mbps, gigabit), plus averages, and publish a chart and short commentary on the first working day of each month.</p>
+      <p class="why">Why: nobody else publishes a simple public time series like this. Cost-of-living reporters need exactly this number. Every month we re-pitch it, and AI assistants cite pages with dated statistics.</p></div>
+
+    <div class="item"><header><span class="chip p1">Month 2–3</span><h3>E. Social tariff and help-with-bills finder</h3></header>
+      <p>Answer three or four questions (benefits received, postcode, needs) and see every social tariff you qualify for, with price, speed and how to apply. Printable for advisers.</p>
+      <p class="why">Why: this makes the resource outreach in quick win 9 much stronger. Councils and charities link to tools far more readily than to articles. It also matches Ofcom's push on social tariff awareness.</p></div>
+
+    <div class="item"><header><span class="chip p1">Month 3</span><h3>F. Contract-end reminder and deal alerts by email</h3></header>
+      <p>“Email me 30 days before my contract ends, with the best deals then.” Build it on the newsletter system that is already coded (Supabase double opt-in, unsubscribe). Add price-drop emails for deals people have already saved.</p>
+      <p class="why">Why: this is the MSE pattern. It is the most direct fix for our 11% return rate and brings people back at the moment they are ready to switch, which is when they click affiliate links.</p></div>
+
+    <div class="item"><header><span class="chip p2">Month 3–4</span><h3>G. Landline switch-off and telecare checker</h3></header>
+      <p>Tells households (especially older people and carers) whether their alarm, landline phone or fax is affected by the move to digital phone lines, what to do, and what it costs. Builds on the guides currently offline.</p>
+      <p class="why">Why: the deadline drives search demand, and Age UK branches, councils and carers' groups link to useful explainers.</p></div>
+
+    <div class="item"><header><span class="chip p2">Month 4–6</span><h3>H. Annual “BroadbandPicker Awards” from our own data</h3></header>
+      <p>Categories such as best value full fibre, fewest price rises and best customer service, based on our satisfaction research, price index and reviews, with the methodology published. Winners get a badge.</p>
+      <p class="why">Why: Uswitch's accreditation shows providers announce awards and link to them (YouFibre published its own news story about it). We need 6+ months of index data first so the awards are credible.</p></div>
+
+    <div class="item"><header><span class="chip p2">Later</span><h3>I. Embeddable widgets</h3></header>
+      <p>A “Check full fibre in your area” or speed test widget for community groups, estate agents and local news sites, with a plain branded credit link.</p>
+      <p class="why">Google treats keyword-stuffed widget links as unnatural, so the credit must be branded and we accept nofollow. The aim is reach and brand searches, not link juice.</p></div>
+  </div>
+</section>
+
+<section id="retention">
+  <span class="eyebrow">Return visits and sharing</span>
+  <h2>Turn one-off visitors into repeat visitors</h2>
+  <p>Brand searches, returning visitors and shares are signals Google can't easily separate from authority. We currently convert almost none of our traffic into them.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Mechanic</th><th>Status today</th><th>Action</th></tr></thead>
+    <tbody>
+      <tr><td>Weekly deals email</td><td>Sign-up box live on homepage; /alerts page missing live; 1 sign-up event in 90 days</td><td>Restore /alerts. Add the box to every guide end and postcode result. Lead with the incentive: “Price drops and new deals for your area, every Friday”.</td></tr>
+      <tr><td>Saved deals</td><td>Live (stored in the browser)</td><td>Offer “email me if this deal drops in price” on save.</td></tr>
+      <tr><td>Share buttons</td><td>WhatsApp/copy only on the TV guide pilot</td><td>Add to every tool result and comparison page. Each needs an Open Graph image showing the actual result.</td></tr>
+      <tr><td>“Send this comparison”</td><td>Not built</td><td>Shareable compare-basket link for housemates and partners (switching is usually a joint decision).</td></tr>
+      <tr><td>Contract-end reminder</td><td>Not built</td><td>Asset F above.</td></tr>
+      <tr><td>Monthly index and quarterly reports</td><td>Not built</td><td>Assets B to D give people a reason to come back on a predictable date.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="geo">
+  <span class="eyebrow">AI assistants</span>
+  <h2>ChatGPT is already our second-biggest channel</h2>
+  <p>143 visits (16%) came from AI assistants, nearly all from ChatGPT, with 92% engaged. AI assistants prefer to cite pages with original, dated numbers and clear methodology, which is exactly what assets A to E produce. Each data page should open with a two-sentence summary that contains the key figure and date, include a methodology section, and use Dataset structured data (already used on the research pages). Keep the AI Overview check from the page-build rules on every new asset.</p>
+</section>
+
+<section id="avoid">
+  <span class="eyebrow">What we will not do</span>
+  <h2>Shortcuts that would damage the site</h2>
+  <div class="cols">
+    <div class="dont"><p><strong>Buying links or guest posts.</strong> UK digital PR links cost hundreds of pounds each for a reason. Sold links on link farms are what Google's spam updates (March and June 2026) target, and a penalty would wipe out the affiliate income.</p></div>
+    <div class="dont"><p><strong>Thousands of near-identical pages.</strong> About 2,360 postcode district pages are thin templates. The separate postcode plan sets them to noindex while keeping them live. Thin pages at scale drag down how Google rates the whole domain.</p></div>
+    <div class="dont"><p><strong>Fake reviews or star ratings.</strong> We already refuse to add review schema we can't back up. Keep it that way.</p></div>
+    <div class="dont"><p><strong>Publishing on other sites to borrow their authority.</strong> Google's site reputation abuse policy targets affiliate deal pages placed on news and other trusted domains.</p></div>
+  </div>
+</section>
+
+<section id="roadmap">
+  <span class="eyebrow">Timeline</span>
+  <h2>Order of work</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>When</th><th>Work</th></tr></thead>
+    <tbody>
+      <tr><td>Week 1</td><td>Restore missing pages and add the deploy check (1). Resubmit sitemaps (2). Snippet rewrites (3).</td></tr>
+      <tr><td>Weeks 2–4</td><td>Striking-distance pages (4). Bing Webmaster Tools (5). Profiles (6). Named spokesperson (7). Start journalist requests (8). Resource outreach list (9). Altnet badge (10).</td></tr>
+      <tr><td>Month 2</td><td>Price-rise checker live and pitched (A). Ofcom full fibre league table (B). Price index starts (D). Speed test sharing (C).</td></tr>
+      <tr><td>Month 3</td><td>Social tariff finder (E). Contract-end reminders and price-drop emails (F). First price index press round. January price-rise season push.</td></tr>
+      <tr><td>Months 4–6</td><td>Landline switch-off checker (G). Spring Ofcom refresh of the league table. First quarterly speed report if test volume allows (C). Awards planning (H).</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="kpis">
+  <span class="eyebrow">How we measure it</span>
+  <h2>Targets</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Measure</th><th>Source</th><th class="n">Now</th><th class="n">3 months</th><th class="n">6 months</th></tr></thead>
+    <tbody>
+      <tr><td>Linking websites (referring domains)</td><td>Bing WMT / GSC Links export</td><td class="n">baseline in week 2</td><td class="n">+25</td><td class="n">+75</td></tr>
+      <tr><td>Branded impressions per 90 days</td><td>GSC</td><td class="n">16</td><td class="n">300</td><td class="n">1,500</td></tr>
+      <tr><td>Referral visits per 90 days</td><td>GA4</td><td class="n">2</td><td class="n">150</td><td class="n">600</td></tr>
+      <tr><td>Returning users share</td><td>GA4</td><td class="n">11%</td><td class="n">18%</td><td class="n">25%</td></tr>
+      <tr><td>Email subscribers</td><td>Supabase</td><td class="n">~0</td><td class="n">300</td><td class="n">1,500</td></tr>
+      <tr><td>AI assistant visits per 90 days</td><td>GA4</td><td class="n">143</td><td class="n">350</td><td class="n">800</td></tr>
+      <tr><td>Google clicks per 90 days</td><td>GSC</td><td class="n">~1,150</td><td class="n">2,500</td><td class="n">6,000</td></tr>
+    </tbody>
+  </table></div>
+  <p class="why">Targets are my estimates for a site of this age using honest tactics, not forecasts. I re-run scripts/research_domain_authority.py monthly to track them.</p>
+</section>
+
+<section id="decisions">
+  <span class="eyebrow">What I need from you</span>
+  <h2>Four decisions</h2>
+  <ol class="steps">
+    <li><strong>Approve the deploy</strong> that restores the 17 missing pages, /tools and /alerts. This is urgent.</li>
+    <li><strong>Choose a named spokesperson and author.</strong> It can be you. A real name with a photo and a LinkedIn profile works best, because journalists and Google both check.</li>
+    <li><strong>Set up Bing Webmaster Tools</strong> (10 minutes, needs your Microsoft account) and export Search Console's Links report once.</li>
+    <li><strong>Optional budget:</strong> a commissioned consumer survey (Opinium/OnePoll style) adds a strong press angle to the price-rise checker in January. Get a quote before deciding. Everything else in this plan works without it.</li>
+  </ol>
+</section>
+
+<details>
+  <summary>Sources</summary>
+  <ul style="margin-top:10px;display:flex;flex-direction:column;gap:4px;font-size:15px">
+    <li><a href="https://tranco-list.eu/">Tranco top-1M list</a></li>
+    <li><a href="https://moneysavingexpert.com/site/about-the-site/">MSE: about the site (weekly email reach)</a></li>
+    <li><a href="https://www.uswitch.com/media-centre/2026/07/smaller-names-big-speeds-13-broadband-providers-earn-uswitchs-excellence-badge-for-2026/">Uswitch Broadband Excellence 2026</a> and <a href="https://www.youfibre.com/news/uswitch-broadband-excellence-2026/">YouFibre's own announcement</a></li>
+    <li><a href="https://www.ispreview.co.uk/index.php/2026/04/study-claims-uk-price-hikes-increased-broadband-isp-switching-by-24-percent.html">ISPreview on Uswitch/Opinium switching study</a></li>
+    <li><a href="https://www.ispreview.co.uk/index.php/2024/05/study-uk-falls-to-rank-96th-cheapest-in-the-world-for-broadband.html">ISPreview on Cable.co.uk price league</a>, <a href="https://www.theregister.com/2020/01/21/global_broadband_pricing_league_table_2020/">The Register</a>, <a href="https://silicon.co.uk/networks/uk-63rd-cheapest-broadband-225079">Silicon UK</a></li>
+    <li><a href="https://www.broadband.co.uk/about/team/alex-tofts">broadband.co.uk: Alex Tofts</a></li>
+    <li><a href="https://www.ispreview.co.uk/index.php/2026/07/speedgeo-q2-2026-study-rank-virgin-media-fastest-for-uk-broadband-and-three-for-mobile.html">ISPreview on SpeedGeo Q2 2026</a></li>
+    <li><a href="https://www.which.co.uk/news/article/broadband-and-mobile-price-rise-calculator-afYhe2O15tct">Which? price rise calculator</a></li>
+    <li><a href="https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/connected-nations-2025/data-downloads-2025">Ofcom Connected Nations data downloads</a></li>
+    <li><a href="https://developers.google.com/search/blog/2026/08/update-site-reputation-policy">Google: site reputation policy update (Aug 2026)</a></li>
+    <li><a href="https://www.buzzstream.com/blog/haro-alternatives/">BuzzStream: HARO alternatives</a>, <a href="https://whito.co.uk/research/link-building-costs-uk/">UK link-building costs</a></li>
+  </ul>
+</details>
+
+</div>
+
+<script>
+(function(){
+  var data=[["Jun",9],["Jul",10],["Aug",107],["Sep",648],["Oct*",389]];
+  var root=document.getElementById('clicksChart');
+  var svg=root.querySelector('svg'),tip=root.querySelector('.tip');
+  var NS='http://www.w3.org/2000/svg',x0=60,step=106,w=56,base=190,scale=150/600;
+  data.forEach(function(d,i){
+    var h=d[1]*scale,x=x0+i*step,y=base-h;
+    var r=document.createElementNS(NS,'rect');
+    r.setAttribute('class','b'+(i===4?' dim':''));
+    r.setAttribute('x',x);r.setAttribute('y',y);r.setAttribute('width',w);r.setAttribute('height',Math.max(h,1));r.setAttribute('rx',4);
+    svg.appendChild(r);
+    var v=document.createElementNS(NS,'text');v.setAttribute('class','val');v.setAttribute('x',x+w/2);v.setAttribute('y',y-6);v.setAttribute('text-anchor','middle');v.textContent=d[1];svg.appendChild(v);
+    var l=document.createElementNS(NS,'text');l.setAttribute('x',x+w/2);l.setAttribute('y',210);l.setAttribute('text-anchor','middle');l.textContent=d[0];svg.appendChild(l);
+    var hit=document.createElementNS(NS,'rect');hit.setAttribute('class','hit');hit.setAttribute('x',x-20);hit.setAttribute('y',20);hit.setAttribute('width',w+40);hit.setAttribute('height',195);
+    hit.addEventListener('mousemove',function(e){
+      var b=root.getBoundingClientRect();tip.hidden=false;
+      tip.textContent=d[0].replace('*',' (1–14)')+' 2026: '+d[1]+' clicks';
+      tip.style.left=Math.min(e.clientX-b.left+12,b.width-170)+'px';tip.style.top=(e.clientY-b.top-30)+'px';
+    });
+    hit.addEventListener('mouseleave',function(){tip.hidden=true});
+    svg.appendChild(hit);
+  });
+})();
+</script>

@@ -35,11 +35,10 @@ function pageType(pathname: string): string {
   if (pathname === '/') return 'homepage'
   if (pathname === '/compare') return 'comparison_hub'
   if (pathname === '/deals') return 'deals_hub'
-  if (pathname === '/speed-test') return 'tool'
   if (pathname.startsWith('/providers/compare/')) return 'provider_comparison'
   if (pathname.startsWith('/providers/')) return 'provider_page'
   if (pathname.startsWith('/guides/')) return 'guide'
-  if (pathname.startsWith('/tools/')) return 'tool'
+  if (pathname === '/tools' || pathname.startsWith('/tools/')) return 'tool'
   return 'other'
 }
 

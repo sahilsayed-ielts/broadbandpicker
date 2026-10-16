@@ -1,119 +1,35 @@
 {
-  "generated": "2026-09-06",
-  "slug": "providers/compare",
-  "url": "https://broadbandpicker.co.uk/providers/compare",
-  "title": "Compare",
-  "cluster": "Provider vs comparison",
-  "page_type": "Comparison directory",
-  "data_file": "data/provider-comparisons.ts",
-  "template": "app/providers/compare/page.tsx",
-  "interface": "ProviderComparison",
+  "generated": "2026-09-27",
+  "slug": "guides/leased-line-cost-uk-explained",
+  "url": "https://broadbandpicker.co.uk/guides/leased-line-cost-uk-explained",
+  "title": "Leased Line Cost Uk Explained",
+  "cluster": "Business broadband",
+  "page_type": "Guide",
+  "data_file": "data/guides.ts",
+  "template": "app/guides/[slug]/page.tsx",
+  "interface": "GuideMetadata",
   "keywords": [
     {
-      "keyword": "broadband provider comparisons",
-      "volume": null,
-      "difficulty": null,
-      "cpc": null,
-      "intent": "Researched navigational comparison",
+      "keyword": "leased line cost uk",
+      "volume": 720,
+      "difficulty": 30,
+      "cpc": 18.4,
+      "intent": "B2B commercial",
       "role": "primary",
-      "recommended_slot": "title/h1/excerpt",
-      "source": "Researched primary-keyword decision (current-page-research.json)"
-    },
-    {
-      "keyword": "compare broadband providers head to head",
-      "volume": null,
-      "difficulty": null,
-      "cpc": null,
-      "intent": "Navigational comparison",
-      "role": "secondary",
-      "recommended_slot": "H1, 'Which page should I use?' section, directory intro",
-      "source": "Researched secondary-keyword decision"
-    },
-    {
-      "keyword": "broadband provider vs provider",
-      "volume": null,
-      "difficulty": null,
-      "cpc": null,
-      "intent": "Navigational comparison",
-      "role": "secondary",
-      "recommended_slot": "Directory group headings, pair finder, coverage map",
-      "source": "Researched secondary-keyword decision"
-    },
-    {
-      "keyword": "which is better bt or sky broadband",
-      "volume": null,
-      "difficulty": null,
-      "cpc": null,
-      "intent": "Comparison decision",
-      "role": "secondary",
-      "recommended_slot": "FAQ 'Which is better, BT or Sky broadband?', directory card, pair finder result",
-      "source": "Researched secondary-keyword decision"
-    },
-    {
-      "keyword": "compare two broadband providers",
-      "volume": null,
-      "difficulty": null,
-      "cpc": null,
-      "intent": "Navigational comparison",
-      "role": "secondary",
-      "recommended_slot": "Pair finder ('Choose two providers'), coverage map, /compare deferral",
-      "source": "Researched secondary-keyword decision"
-    },
-    {
-      "keyword": "broadband head to head comparison",
-      "volume": null,
-      "difficulty": null,
-      "cpc": null,
-      "intent": "Navigational comparison",
-      "role": "secondary",
-      "recommended_slot": "H1, byline ('head-to-head guides'), directory",
-      "source": "Researched secondary-keyword decision"
-    },
-    {
-      "keyword": "hyperoptic vs vodafone broadband",
-      "volume": null,
-      "difficulty": null,
-      "cpc": null,
-      "intent": "Pairwise comparison, no dedicated page",
-      "role": "secondary",
-      "recommended_slot": "Head-to-head coverage map",
-      "source": "Researched secondary-keyword decision"
+      "recommended_slot": "title/excerpt",
+      "source": "Curated keyword dataset"
     }
   ],
   "provider_prerequisites": [],
   "missing_provider_prerequisites": [],
   "brief": "/Users/sahilrafiqsayed/broadbandpicker/docs/page-build-pipeline-brief.md",
   "build_mode": "complete_existing_page",
-  "keyword_mapping_note": "Primary keyword taken from the reviewed research file.",
-  "primary_keyword_mode": "researched",
   "content_format": {
-    "id": "comparison_directory",
-    "primary_task": "Find and open the right provider head-to-head comparison, or move to the all-provider tool when no shortlist exists yet",
-    "default_decision_aid": "a crawlable matchup directory plus an accessible provider-pair finder that resolves to the nearest useful comparison"
+    "id": "editorial_explainer",
+    "primary_task": "Understand the topic and make an informed broadband decision",
+    "default_decision_aid": "answer-first summary, examples and a static decision table"
   },
-  "performance_brief": {
-    "source": "docs/weekly-seo-intelligence.json",
-    "generated_at": "2026-09-06T12:17:41.339619+00:00",
-    "clicks": 0.0,
-    "impressions": 41.0,
-    "ctr": 0.0,
-    "position": 12.75609756097561,
-    "impression_change_pct": 100.0,
-    "sessions": 0,
-    "engagement_rate": null,
-    "affiliate_clicks": 0,
-    "ai_referral_visits": 0,
-    "score": 62.8,
-    "category": "Quick ranking win",
-    "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
-    "top_queries": [
-      "hyperoptic vs vodafone broadband",
-      "compare landline and broadband packages",
-      "yes iwould",
-      "vodafone vs talktalk broadband",
-      "virgin media vs sky vs vodafone comparison"
-    ]
-  },
+  "performance_brief": null,
   "build_strategy": {
     "serp_feature_classification": true,
     "information_gain_required": true,
@@ -125,6 +41,18 @@
       28,
       56,
       90
+    ]
+  },
+  "research_gate": {
+    "run_id": "0d4d8381-22a3-4e2d-9690-ce84bc67dd16",
+    "prepared_at": "2026-09-27T21:56:15.292508+00:00",
+    "required_before": "compile_and_deploy",
+    "applies_to": "every_new_page_and_existing_page_update",
+    "required_outputs": [
+      "fresh_page_level_keyword_mapping",
+      "live_uk_serp_intent_research",
+      "uk_and_international_ux_ui_benchmarks",
+      "final_section_by_section_content_structure"
     ]
   },
   "benchmark_strategy": {
@@ -141,36 +69,68 @@
   },
   "orchestrated_ux_geo_requirements": [
     {
+      "page_type": "guide",
+      "label": "Editorial guide",
       "priority": "P1",
       "feature": "GEO: be quotable in the AI answer",
-      "evidence": "1 of 8 sampled provider review queries show an AI Overview; BroadbandPicker is cited in 0. Domains that do get cited: reddit.com, uswitch.com, www-staging.brsk.co.uk, youfibre.com. AI referral visits to this type in GA4: 0."
+      "evidence": "2 of 8 sampled editorial guide queries show an AI Overview; BroadbandPicker is cited in 0. Domains that do get cited: bt.com, comparethemarket.com, confused.com, ee.co.uk, hyperoptic.com, moneysupermarket.com, openreach.com, plus.net, sky.com, uswitch.com, virginmedia.com.",
+      "gsc": "AI referral visits to this type in GA4: 4.",
+      "our_pages": [
+        "https://broadbandpicker.co.uk/guides/best-phone-and-broadband-deals",
+        "https://broadbandpicker.co.uk/guides/best-full-fibre-broadband-uk",
+        "https://broadbandpicker.co.uk/guides/best-business-broadband-providers-uk",
+        "https://broadbandpicker.co.uk/guides/broadband-help-if-you-claim-benefits-uk",
+        "https://broadbandpicker.co.uk/guides/broadband-social-tariffs-uk",
+        "https://broadbandpicker.co.uk/guides/best-rolling-monthly-broadband-deals",
+        "https://broadbandpicker.co.uk/guides/best-mesh-wifi-for-your-broadband-router",
+        "https://broadbandpicker.co.uk/guides/broadband-and-mobile-bundle-discounts-uk"
+      ],
+      "ai_cited_domains": [
+        "bt.com",
+        "comparethemarket.com",
+        "confused.com",
+        "ee.co.uk",
+        "hyperoptic.com",
+        "moneysupermarket.com",
+        "openreach.com",
+        "plus.net",
+        "sky.com",
+        "uswitch.com",
+        "virginmedia.com"
+      ]
     }
   ],
-  "priority_evidence": {
-    "selected_by": "Weekly GSC/GA4 intelligence",
-    "score": 62.8,
-    "reason": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
-    "metrics": {
-      "clicks": 0.0,
-      "impressions": 41.0,
-      "ctr": 0.0,
-      "position": 12.75609756097561,
-      "sessions": 0,
-      "ai_referral_visits": 0
-    },
-    "top_queries": [
-      "hyperoptic vs vodafone broadband",
-      "compare landline and broadband packages",
-      "yes iwould",
-      "vodafone vs talktalk broadband",
-      "virgin media vs sky vs vodafone comparison"
-    ]
-  },
   "mandatory_recommended_actions": [
     {
+      "page_type": "guide",
+      "label": "Editorial guide",
       "priority": "P1",
       "feature": "GEO: be quotable in the AI answer",
-      "evidence": "1 of 8 sampled provider review queries show an AI Overview; BroadbandPicker is cited in 0. Domains that do get cited: reddit.com, uswitch.com, www-staging.brsk.co.uk, youfibre.com. AI referral visits to this type in GA4: 0."
+      "evidence": "2 of 8 sampled editorial guide queries show an AI Overview; BroadbandPicker is cited in 0. Domains that do get cited: bt.com, comparethemarket.com, confused.com, ee.co.uk, hyperoptic.com, moneysupermarket.com, openreach.com, plus.net, sky.com, uswitch.com, virginmedia.com.",
+      "gsc": "AI referral visits to this type in GA4: 4.",
+      "our_pages": [
+        "https://broadbandpicker.co.uk/guides/best-phone-and-broadband-deals",
+        "https://broadbandpicker.co.uk/guides/best-full-fibre-broadband-uk",
+        "https://broadbandpicker.co.uk/guides/best-business-broadband-providers-uk",
+        "https://broadbandpicker.co.uk/guides/broadband-help-if-you-claim-benefits-uk",
+        "https://broadbandpicker.co.uk/guides/broadband-social-tariffs-uk",
+        "https://broadbandpicker.co.uk/guides/best-rolling-monthly-broadband-deals",
+        "https://broadbandpicker.co.uk/guides/best-mesh-wifi-for-your-broadband-router",
+        "https://broadbandpicker.co.uk/guides/broadband-and-mobile-bundle-discounts-uk"
+      ],
+      "ai_cited_domains": [
+        "bt.com",
+        "comparethemarket.com",
+        "confused.com",
+        "ee.co.uk",
+        "hyperoptic.com",
+        "moneysupermarket.com",
+        "openreach.com",
+        "plus.net",
+        "sky.com",
+        "uswitch.com",
+        "virginmedia.com"
+      ]
     }
   ]
 }

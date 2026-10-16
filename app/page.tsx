@@ -3,7 +3,6 @@ import Link from 'next/link'
 import PostcodeChecker from '@/components/PostcodeChecker'
 import ReturningVisitorBanner from '@/components/ReturningVisitorBanner'
 import DealTable from '@/components/DealTable'
-import NewsletterSignup from '@/components/NewsletterSignup'
 import HomepageLogoRail from '@/components/HomepageLogoRail'
 import SocialProofCounter from '@/components/SocialProofCounter'
 import ScrollReveal from '@/components/ScrollReveal'
@@ -309,9 +308,6 @@ export default function HomePage() {
           </div>
         </ScrollReveal>
       </section>
-
-      {/* Email alerts */}
-      <NewsletterSignup variant="inline" source="homepage" />
 
       {/* How it works */}
       <section className="relative overflow-hidden bg-white py-14 border-y border-slate-200">

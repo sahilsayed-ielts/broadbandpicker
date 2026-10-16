@@ -100,45 +100,50 @@ def audit() -> list[Check]:
         possible=8,
     )
 
-    has_cmp_claim = bool(re.search(r"IAB|TCF|certified CMP|__tcfapi", cookie, re.I))
+    has_cmp_claim = bool(
+        re.search(r"googlefc|IAB TCF|certified CMP|__tcfapi|showRevocationMessage", layout + cookie + read("lib/googlefc.ts") + read("lib/adsense.ts"), re.I)
+    )
     add(
         checks,
         area="Consent",
         control="Google-certified CMP with IAB TCF",
         status="PASS" if has_cmp_claim else "FAIL",
         priority="Done" if has_cmp_claim else "P0",
-        evidence="TCF/CMP integration detected." if has_cmp_claim else "The custom banner stores a local accepted/declined value; no TCF CMP integration is present.",
-        action="Configure Google's European regulations message or another Google-certified CMP before requesting personalised ads in the UK.",
+        evidence="Google Funding Choices / IAB TCF CMP 300 is wired through the site consent bar." if has_cmp_claim else "The custom banner stores a local accepted/declined value; no TCF CMP integration is present.",
+        action="Publish the European regulations message in AdSense Privacy & messaging, with Do not consent on, English (UK), and the privacy policy URL.",
         points=12 if has_cmp_claim else 0,
         possible=12,
     )
 
-    ad_privacy_terms = ["advertising cookies", "personalised ads", "ad technology", "Google AdSense"]
+    ad_privacy_terms = ["advertising cookies", "personalised ads", "Google AdSense", "Ads Settings", "third-party vendors, including Google"]
     found_terms = [term for term in ad_privacy_terms if term.lower() in privacy.lower()]
+    cookie_policy = read("app/cookie-policy/page.tsx")
+    cookie_ready = "advertising cookies" in cookie_policy.lower() and "ads settings" in cookie_policy.lower()
     contradictory = "do not use advertising cookies" in privacy.lower()
-    privacy_ready = len(found_terms) >= 2 and not contradictory
+    privacy_ready = len(found_terms) >= 4 and cookie_ready and not contradictory
     add(
         checks,
         area="Consent",
         control="Advertising privacy disclosures",
         status="PASS" if privacy_ready else "FAIL",
         priority="Done" if privacy_ready else "P0",
-        evidence=("Advertising disclosures detected." if privacy_ready else "Privacy policy currently says advertising cookies are not used and does not describe AdSense data processing."),
-        action="Before ads go live, describe Google advertising, cookies/local storage, consent choices, vendors, data use and withdrawal controls.",
+        evidence=("Privacy and cookie policies describe Google ads, cookies and Ads Settings opt-out." if privacy_ready else f"Missing required AdSense privacy terms: {', '.join(term for term in ad_privacy_terms if term.lower() not in privacy.lower()) or 'cookie-policy advertising section'}."),
+        action="Keep Google's required advertising disclosures in the privacy and cookie policies, including Ads Settings opt-out.",
         points=10 if privacy_ready else 0,
         possible=10,
     )
 
-    ads_txt = exists("public/ads.txt")
+    ads_txt = read("public/ads.txt")
+    ads_txt_ok = "google.com" in ads_txt and "pub-9056289061141918" in ads_txt and "DIRECT" in ads_txt
     add(
         checks,
         area="Monetisation",
         control="Authorised Digital Sellers file",
-        status="PASS" if ads_txt else "READY LATER",
-        priority="Done" if ads_txt else "P1",
-        evidence="public/ads.txt exists." if ads_txt else "No public/ads.txt exists; the publisher line is only available after AdSense supplies the account ID.",
-        action="After account creation, add Google's exact ads.txt line and verify /ads.txt publicly.",
-        points=4 if ads_txt else 2,
+        status="PASS" if ads_txt_ok else "FAIL",
+        priority="Done" if ads_txt_ok else "P0",
+        evidence="public/ads.txt authorises Google with pub-9056289061141918." if ads_txt_ok else "ads.txt is missing or does not contain the AdSense publisher line.",
+        action="Keep https://broadbandpicker.co.uk/ads.txt as google.com, pub-9056289061141918, DIRECT, f08c47fec0942fa0.",
+        points=4 if ads_txt_ok else 0,
         possible=4,
     )
 
@@ -216,16 +221,51 @@ def audit() -> list[Check]:
         possible=8,
     )
 
+    account_meta = "google-adsense-account" in layout
+    adsense_tag = "adsbygoogle.js" in layout or "ADSENSE_SCRIPT_SRC" in layout
+    ad_gate = "pauseAdRequests" in read("lib/adsense.ts") and exists("components/AdSenseRequestGate.tsx")
+    placement_ok = account_meta and adsense_tag and ad_gate
     add(
         checks,
         area="UX",
         control="Controlled ad placement plan",
-        status="NOT IMPLEMENTED",
-        priority="P1",
-        evidence="No AdSense implementation was detected, which is appropriate before approval.",
-        action="Start with restrained in-article units on informational guides. Exclude homepage, comparison, deals, provider, postcode, tool and legal pages; avoid overlays initially.",
-        points=2,
+        status="PASS" if placement_ok else "FAIL",
+        priority="Done" if placement_ok else "P0",
+        evidence=(
+            "AdSense and Funding Choices load for consent; ad requests stay paused except on /guides and /research."
+            if placement_ok
+            else "AdSense JS is missing, or ad requests are not gated to editorial pages."
+        ),
+        action="Keep display ads off homepage, deals, compare, provider, postcode, tool and legal pages. Leave Auto ads off or excluded on those URLs in AdSense.",
+        points=6 if placement_ok else 0,
         possible=6,
+    )
+
+    postcode_page = read("app/postcode/[area]/page.tsx")
+    postcode_sitemap = read("app/postcode/sitemap.ts")
+    district_file = ROOT / "data" / "postcode-district-coverage.json"
+    district_count = 0
+    if district_file.exists():
+        try:
+            district_count = len((json.loads(district_file.read_text(encoding="utf-8")).get("districts") or {}))
+        except json.JSONDecodeError:
+            district_count = 0
+    curated_count = len(re.findall(r"prefix:\s*'", read("data/postcodes.ts")))
+    thin_cluster = "getAllDistrictCoveragePrefixes" in postcode_sitemap or "dynamicParams = false" not in postcode_page
+    add(
+        checks,
+        area="Content",
+        control="No thin auto-generated landing cluster",
+        status="FAIL" if thin_cluster else "PASS",
+        priority="P0" if thin_cluster else "Done",
+        evidence=(
+            f"{district_count} Ofcom district records exist, but only {curated_count} curated postcode pages are indexable and unknown districts 404."
+            if not thin_cluster
+            else f"Postcode sitemap or dynamic params still expose templated district pages from {district_count} Ofcom records. That is the main low-value-content pattern."
+        ),
+        action="Keep only curated postcode-area pages in the sitemap and 404 unknown districts. Do not republish cloned national-deal templates.",
+        points=0 if thin_cluster else 12,
+        possible=12,
     )
 
     return checks
@@ -254,7 +294,7 @@ def render_report(checks: list[Check]) -> str:
         "",
         "## Executive finding",
         "",
-        "The site has a strong trust-page and editorial foundation. Do not activate AdSense yet: the current cookie banner is not a Google-certified TCF CMP, and the privacy policy states that advertising cookies are not used. Resolve consent and privacy controls, complete the manual Search Console review, then apply. Preserve affiliate conversion by limiting display ads to selected informational content.",
+        "AdSense has already verified ownership and flagged the site for low-value content. The fix is inventory quality: do not index cloned postcode templates, keep Google ads off commercial and thin screens, disclose advertising cookies, and wait for recrawl before requesting review. A Google-certified TCF CMP is still required before personalised ads in the UK.",
         "",
         "## Audit",
         "",
@@ -268,7 +308,7 @@ def render_report(checks: list[Check]) -> str:
     lines.extend(["", "## Ordered implementation plan", ""])
     actions = [
         ("1", "Consent and legal", "Choose Google's CMP or another certified TCF CMP; design equal accept/reject choices and a persistent privacy-choice control. Draft updated privacy/cookie disclosures, but publish them when the advertising implementation is ready so the policy remains factually accurate."),
-        ("2", "Production quality audit", "Crawl every sitemap URL. Fix errors, thin/duplicative pages, unsupported claims, placeholders, broken links, missing metadata and stale prices. Ensure all pages work on mobile."),
+        ("2", "Remove low-value inventory", "Keep only curated postcode-area pages indexable. Unknown Ofcom districts must 404 and stay out of the sitemap. Do not pad pages with filler copy."),
         ("3", "Search Console evidence", "Verify domain ownership, submit the sitemap, inspect indexing, manual actions, security issues and Core Web Vitals. Record at least 28 days of genuine acquisition and landing-page data."),
         ("4", "Apply to AdSense", "Use the legal payee/entity details that match the bank and tax records. Add broadbandpicker.co.uk and complete Google's verification steps."),
         ("5", "Authorisation", "When Google provides the publisher ID, add its exact ads.txt record at /ads.txt and verify it in AdSense."),
@@ -304,9 +344,13 @@ def render_report(checks: list[Check]) -> str:
         "## Primary Google references",
         "",
         "- Eligibility: https://support.google.com/adsense/answer/9724",
+        "- Make sure your site's pages are ready: https://support.google.com/adsense/answer/7299563",
+        "- Required privacy content: https://support.google.com/adsense/answer/1348695",
         "- UK/EEA certified CMP requirement: https://support.google.com/adsense/answer/13554116",
         "- European regulations messages: https://support.google.com/adsense/answer/10961068",
         "- Auto Ads page exclusions: https://support.google.com/adsense/answer/9262311",
+        "- ads.txt: https://support.google.com/adsense/answer/12171612",
+        "- Spam and thin content: https://developers.google.com/search/docs/essentials/spam-policies",
         "",
     ])
     return "\n".join(lines)

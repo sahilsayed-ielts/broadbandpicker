@@ -475,13 +475,13 @@ export const providerComparisons: ProviderComparison[] = [
     metaDescription:
       'Compare Virgin Media vs Vodafone broadband on speed, network type, pricing, setup fees, coverage, and which provider offers better value in 2026.',
     excerpt:
-      'Virgin Media and Vodafone can both look attractive on paper, but they compete differently. Virgin Media sells high-speed cable where available, while Vodafone often competes as a lower-cost FTTP and bundle-value option.',
+      'Virgin Media broadband starts from £33 a month for speeds up to 1,130 Mbps on its own cable network; Vodafone starts from £25 a month for speeds up to 910 Mbps, mostly over Openreach fibre. Virgin Media usually wins on top-end speed and network independence from Openreach; Vodafone usually wins on price and mobile-bundle value. Check postcode availability before choosing either.',
     publishDate: '2026-06-21',
-    updatedDate: '2026-06-21',
+    updatedDate: '2026-09-04',
     bestForA: 'Higher-speed homes in Virgin-covered areas',
     bestForB: 'Sharper pricing and mobile bundle-led value',
     winner:
-      'Virgin Media often wins where you want more speed and its cable network is available, while Vodafone is usually the stronger value option for price-led households and mobile bundle customers.',
+      'Start with Virgin Media if your address can get its cable network and your household genuinely uses speeds above 500 Mbps: its top package runs to 1,130 Mbps against Vodafone\'s 910 Mbps ceiling, though Virgin adds a £35 setup fee Vodafone does not charge. Start with Vodafone if price and an 18-versus-24-month contract trade-off do not bother you, or if bundling Vodafone mobile improves the deal further.',
     intro: [
       'This is a classic speed-versus-value comparison. Virgin Media’s case is built around its cable footprint and stronger widely-available speed tiers. Vodafone’s case is built around value, simpler FTTP economics, and mobile bundling.',
       'Because they operate on different network strengths, the right answer changes quickly depending on postcode and what your household actually needs.',
@@ -532,6 +532,11 @@ export const providerComparisons: ProviderComparison[] = [
         question: 'Why might Vodafone still win even if Virgin Media is faster?',
         answer:
           'Because not every household needs the higher speed ceiling. If Vodafone offers enough performance for your home at a lower cost, it can be the smarter overall choice.',
+      },
+      {
+        question: 'Which provider has the best speed upgrade path, Virgin Media or Vodafone?',
+        answer:
+          'Virgin Media has more upgrade headroom today: its top package reaches 1,130 Mbps against Vodafone\'s 910 Mbps ceiling, so a household that outgrows a lower tier has further to climb on Virgin\'s cable network. Vodafone\'s FTTP tiers upgrade in smaller, cheaper steps. Check which specific tiers are orderable at your address before assuming either upgrade path is available.',
       },
     ],
     sources: [
@@ -637,78 +642,137 @@ export const providerComparisons: ProviderComparison[] = [
     slug: 'hyperoptic-vs-community-fibre',
     providerA: 'hyperoptic',
     providerB: 'community-fibre',
-    title: 'Hyperoptic vs Community Fibre: Which Full-Fibre Provider Is Better?',
-    metaTitle: 'Hyperoptic vs Community Fibre 2026 | Full Fibre Compared',
+    title: 'Hyperoptic vs Community Fibre: Who Should You Choose in 2026?',
+    metaTitle: 'Hyperoptic vs Community Fibre 2026 | Who Wins in London?',
     metaDescription:
-      'Compare Hyperoptic vs Community Fibre on pricing, symmetrical speeds, customer satisfaction, coverage, and who each London-focused full-fibre provider suits best.',
+      'Hyperoptic vs Community Fibre compared on coverage, 24-month cost and who should choose each. Community Fibre is cheaper in London; Hyperoptic reaches 64 towns.',
     excerpt:
-      'Hyperoptic and Community Fibre are two of the most attractive full-fibre providers in urban areas. Both offer symmetrical speeds and strong customer sentiment, so this comparison is about local fit, pricing, and package style more than basic technology.',
+      'Hyperoptic vs Community Fibre is a coverage-first choice rather than a universal winner. Community Fibre is London-focused, with Essential 35 Mbps from £12.50 a month open to anyone and a 5 Gig top tier Hyperoptic does not sell. Hyperoptic currently advertises 150 Mb from £19 a month on 24-month terms, with a £4 rise every April, and is available in 64 UK towns and cities. If both reach your building in London, Community Fibre is usually the better-value starting point; outside London, only Hyperoptic is in play.',
     publishDate: '2026-06-21',
-    updatedDate: '2026-06-21',
-    bestForA: 'Apartment buildings and symmetrical full-fibre in wired developments',
-    bestForB: 'London households wanting top-value full fibre and strong customer satisfaction',
+    updatedDate: '2026-09-06',
+    bestForA: 'Homes outside London, rolling monthly 1 Gb, or Fair Fibre from £13 on qualifying benefits',
+    bestForB: 'London homes that can order it, Essential 35 from £12.50, and 5 Gig',
     winner:
-      'Community Fibre often edges the value conversation in London, while Hyperoptic remains a superb choice where your building is already wired and you want symmetrical full fibre from a trusted urban specialist.',
+      'There is no universal winner. Outside London, Community Fibre does not build, so Hyperoptic is the only one of the two that can serve you, and only if your building is already on its network. Inside London, where both are wired into the same building, Community Fibre is the better-value starting point: Essential 35 Mbps from £12.50 a month is open to anyone, setup is free, the April rise on current 24-month plans is £3 rather than Hyperoptic’s £4, and the 5 Gig tier is faster than Hyperoptic’s 1 Gb cap. Choose Hyperoptic for rolling monthly 1 Gb, a shorter commitment, Fair Fibre from £13 on qualifying benefits, or any address outside the Community Fibre footprint.',
+    factSnapshot: {
+      providerA: {
+        fromPrice: '£17/mo (500 Mb promo)',
+        maxSpeed: '1 Gb (900 Mb typical peak wired)',
+        coverage: '64 UK towns and cities',
+        trustpilot: '4.5/5 (as of 8 Apr 2026)',
+        contract: '24 months typical; rolling monthly on selected 1 Gb',
+        setupFee: 'Confirm at checkout',
+      },
+      providerB: {
+        fromPrice: '£12.50/mo (Essential 35)',
+        maxSpeed: '5 Gig',
+        coverage: 'London, plus parts of Surrey and Sussex',
+        trustpilot: 'Around 4.7/5',
+        contract: '12, 18 or 24 months',
+        setupFee: 'Free',
+      },
+    },
     intro: [
-      'This is a premium GEO query because it is highly specific, urban, and decision-led. Users searching this comparison are usually close to conversion and already understand that both providers are strong.',
-      'That means the page has to help with the last-mile decision: which provider is better in your building, your street, or your exact postcode?',
+      'Hyperoptic and Community Fibre both run their own full-fibre networks rather than reselling Openreach, so the first filter is the building, not the brand. Hyperoptic’s homepage on 6 September 2026 listed 64 UK towns and cities, and Reuters reported 2 million homes passed on 24 July 2026. Community Fibre remains a London-centred network with partial expansion into Surrey and Sussex, around 1.4 million homes and 450,000 customers as of May 2026 according to ISPreview.',
+      'On like-for-like 150 Mbps 24-month terms, Hyperoptic advertised 150 Mb from £19 a month with a £4 rise every April. Community Fibre’s matching £19 intro with a £3 April rise costs £522 over 24 months against Hyperoptic’s £544. Community Fibre also still publishes Essential 35 Mbps from £12.50 a month with no benefits test. Hyperoptic’s own 500 Mb promo from £17 a month is cheaper than its 150 Mb plan, so check the live 500 Mb price before assuming 150 Mb is the value pick.',
+      'We do not treat Trustpilot, Ofcom satisfaction and complaints as one score. Hyperoptic showed 4.5 on Trustpilot as of 8 April 2026 and was named a Which? Great Value Provider in March 2026. Community Fibre’s Trustpilot score is around 4.7, and Ofcom’s 2025 satisfaction figure was 92% against an 84% average. Hyperoptic does not have a named-table Ofcom complaints rate in the Q1 2026 release we use for the majors, so we do not invent one.',
     ],
     verdict: [
-      'Choose Hyperoptic if your building is already wired and you want a proven symmetrical full-fibre option with very strong customer sentiment.',
-      'Choose Community Fibre if you are in its footprint and want one of the sharpest price-to-speed propositions in the London market.',
+      'Choose Community Fibre if both networks already reach your London building and you want the lower 24-month cost, Essential 35 Mbps from £12.50 a month, free setup, or 5 Gig.',
+      'Choose Hyperoptic if you live outside London, need rolling monthly 1 Gb, want Fair Fibre from £13 a month on qualifying benefits, or your building is already wired for Hyperoptic and Community Fibre is not.',
     ],
     keyDifferences: [
       {
-        label: 'Coverage style',
+        label: 'Coverage',
         detail:
-          'Hyperoptic is heavily building- and development-led, while Community Fibre is more London-network-footprint led.',
+          'Hyperoptic currently lists 64 UK towns and cities and had passed 2 million homes by July 2026. Community Fibre is London-focused, with only parts of Surrey and Sussex beyond the capital. Outside London, this is usually not a two-horse race.',
       },
       {
-        label: 'Customer perception',
+        label: 'Price and 24-month cost',
         detail:
-          'Both score strongly, but Community Fibre has the edge in the current dataset on customer satisfaction.',
+          'On a like-for-like 150 Mbps 24-month intro of £19, Community Fibre totals £522 once its £3 April rise is included, against Hyperoptic’s £544 with a £4 April rise. Community Fibre Essential starts at £12.50. Hyperoptic also advertised 500 Mb from £17 a month on 6 September 2026.',
       },
       {
-        label: 'Price-to-speed value',
+        label: 'Top speed',
         detail:
-          'Both are excellent, but Community Fibre often looks slightly stronger on value-driven comparison queries.',
+          'Community Fibre sells 5 Gig. Hyperoptic’s residential cap is 1 Gb, with 900 Mb typical at peak on one wired device. At 150 Mbps and 1 Gb both are symmetrical on current core plans; do not use older claims that Community Fibre 150 Mbps has a 15 Mbps upload.',
       },
       {
-        label: 'Decision factor',
+        label: 'Contracts and price rises',
         detail:
-          'In many cases, the true answer is simply which one is available in your exact building or street right now.',
+          'Hyperoptic is advertising 24-month terms on 150 Mb and 500 Mb, rolling monthly 1 Gb until 5 October 2026, and a 30-day decide window. Community Fibre offers 12, 18 and 24 months. Current Community Fibre 24-month plans rise by £3 each April; Hyperoptic states £4 every April.',
+      },
+      {
+        label: 'Low-cost and social tariffs',
+        detail:
+          'Community Fibre Essential 35 Mbps from £12.50 a month is open to anyone. Hyperoptic Fair Fibre starts at £13 a month for 150 Mb, monthly rolling, but only for qualifying benefits at certain locations, on terms from 24 April 2026.',
+      },
+      {
+        label: 'Customer evidence',
+        detail:
+          'Both sit well above typical national-ISP Trustpilot scores. Hyperoptic 4.5 as of 8 April 2026; Community Fibre around 4.7. Community Fibre also has a separate Ofcom 2025 satisfaction figure of 92% versus 84%. We do not invent an Ofcom complaints rate for Hyperoptic.',
       },
     ],
     faqs: [
       {
         question: 'Which is better, Hyperoptic or Community Fibre?',
         answer:
-          'Both are excellent urban full-fibre choices. Community Fibre often looks slightly stronger on value in London, while Hyperoptic is a superb option where your building is already wired and ready to go.',
+          'Neither is a universal winner. Outside London, Community Fibre does not build, so only Hyperoptic can be in play, and only if your building is already wired. Inside London, Community Fibre is usually the better-value starting point where both are available: Essential 35 Mbps from £12.50 a month is open to anyone, and 5 Gig is faster than Hyperoptic’s 1 Gb cap. Choose Hyperoptic for rolling monthly 1 Gb, a shorter term, or Fair Fibre from £13 if you qualify.',
       },
       {
-        question: 'Do Hyperoptic and Community Fibre both offer symmetrical speeds?',
+        question: 'Is Community Fibre cheaper than Hyperoptic?',
         answer:
-          'Yes. Both providers are known for symmetrical full-fibre packages, which means upload speed can match download speed on many tiers.',
+          'In London, usually yes on a like-for-like 24-month 150 Mbps path. Using prices checked on 6 September 2026, a £19 intro with Community Fibre’s £3 April rise totals £522 over 24 months, against Hyperoptic’s £544 with a £4 April rise. Essential 35 Mbps from £12.50 is cheaper still. Hyperoptic’s 500 Mb promo from £17 can undercut its own 150 Mb plan, so confirm live checkout prices at your building.',
       },
       {
-        question: 'Who has better customer reviews, Hyperoptic or Community Fibre?',
+        question: 'Which is faster, Hyperoptic or Community Fibre?',
         answer:
-          'Both perform strongly, but Community Fibre has the higher customer satisfaction score in the current BroadbandPicker dataset.',
+          'Community Fibre is faster at the top of the range because it sells 5 Gig and Hyperoptic’s residential cap is 1 Gb, with 900 Mb typical at peak on one wired device. At 150 Mbps and 1 Gb both currently advertise symmetrical full fibre. Older claims that Community Fibre 150 Mbps has only 15 Mbps upload do not match the current published tiers. Real-world Wi-Fi will usually cap a 5 Gig line well below the headline.',
       },
       {
-        question: 'What matters most when comparing Hyperoptic and Community Fibre?',
+        question: 'Do Hyperoptic and Community Fibre use the same network?',
         answer:
-          'Availability matters most. These providers are both strong enough that the practical decision often comes down to which one can serve your exact address today.',
+          'No. Both run their own full-fibre networks, independent of Openreach and of each other. That is why availability is building-specific even inside a served postcode. A switch between them is a new physical connection if the gaining network is not already in the property, even though both take part in Ofcom’s One Touch Switch process for the losing service.',
+      },
+      {
+        question: 'Can I get Hyperoptic or Community Fibre outside London?',
+        answer:
+          'Hyperoptic currently lists 64 UK towns and cities and had passed 2 million homes by July 2026, but it still has to be wired into your building. Community Fibre remains London-focused, with only parts of Surrey and Sussex beyond the capital. If you live elsewhere in the UK, Community Fibre is not a realistic option and this comparison collapses to whether Hyperoptic already serves the property.',
+      },
+      {
+        question: 'Do Hyperoptic and Community Fibre have social tariffs?',
+        answer:
+          'Yes, with different rules. Community Fibre Essential 35 Mbps from £12.50 a month is open to all new customers with no benefits check, on a 12-month term and no mid-contract rise. Hyperoptic Fair Fibre starts at £13 a month for 150 Mb, monthly rolling, for people on qualifying benefits at certain locations, on terms from 24 April 2026. Fair Fibre is the stronger speed-for-price social option if you qualify; Essential is the more open low-cost tier in London.',
       },
     ],
     sources: [
       {
-        label: 'BroadbandPicker provider reviews',
-        href: 'https://broadbandpicker.co.uk/providers',
+        label: 'Hyperoptic homepage pricing, towns and typical peak speeds',
+        href: 'https://www.hyperoptic.com/',
       },
       {
-        label: 'BroadbandPicker methodology',
-        href: 'https://broadbandpicker.co.uk/how-we-review-broadband',
+        label: 'Hyperoptic Fair Fibre social tariff',
+        href: 'https://www.hyperoptic.com/home-broadband/social-tariff',
+      },
+      {
+        label: 'Reuters: Hyperoptic reaches 2 million homes, 24 July 2026',
+        href: 'https://www.reuters.com/business/media-telecom/uks-hyperoptic-shifts-focus-customer-growth-after-reaching-2-million-homes-2026-07-24/',
+      },
+      {
+        label: 'Community Fibre Essential 35 Mbps',
+        href: 'https://communityfibre.co.uk/35-mbps',
+      },
+      {
+        label: 'thinkbroadband: Community Fibre April 2027 rise moved to £3',
+        href: 'https://www.thinkbroadband.com/news/community-fibre-25-off-promotion-for-may-2026-but-2027-increase-up-from-2-to-3-month',
+      },
+      {
+        label: 'ISPreview: Community Fibre 1.4 million homes and 450,000 customers, May 2026',
+        href: 'https://www.ispreview.co.uk/index.php/2026/06/altnet-isp-community-fibre-cuts-price-of-1gbps-uk-broadband-to-just-20.html',
+      },
+      {
+        label: 'Uswitch Community Fibre deals, September 2026',
+        href: 'https://www.uswitch.com/broadband/providers/community_fibre/',
       },
     ],
   },
@@ -1220,78 +1284,135 @@ export const providerComparisons: ProviderComparison[] = [
     slug: 'plusnet-vs-sky',
     providerA: 'plusnet',
     providerB: 'sky',
-    title: 'Plusnet vs Sky Broadband: Straightforward Value or Better Family Fit?',
-    metaTitle: 'Plusnet vs Sky Broadband 2026 | Compare Price, Support and Bundles',
+    title: 'Plusnet vs Sky Broadband: Which Is Better in 2026?',
+    metaTitle: 'Plusnet vs Sky Broadband 2026: Price, Speed, Router and Complaints',
     metaDescription:
-      'Compare Plusnet vs Sky broadband on price, contracts, setup fees, TV bundle value, and customer fit to see which provider is better for your home in 2026.',
+      'Plusnet vs Sky broadband compared on verified 2026 prices, full fibre speeds, setup fees, routers and Ofcom complaints, plus who each provider is right for.',
     excerpt:
-      'Plusnet and Sky are both strong mainstream options, but they appeal in different ways. Plusnet is the simpler value-focused choice, while Sky is often the better family and TV-bundle fit.',
+      'Plusnet and Sky both run on the Openreach network, so the top broadband speed available at your address is usually the same. Plusnet is the lower price on most full fibre tiers, has no setup fee and holds the best Ofcom complaints record of any major UK provider at four per 100,000 in early 2026. Sky costs a little more but adds an included phone line, a Wi-Fi 6 router option and discounted Sky TV. Check both at your postcode before deciding.',
     publishDate: '2026-06-21',
-    updatedDate: '2026-06-21',
-    bestForA: 'Straightforward value, transparent pricing, and UK support',
-    bestForB: 'TV bundles, family homes, and simpler mainstream switching',
+    updatedDate: '2026-09-06',
+    bestForA: 'A broadband-only home that wants the lower price and the best complaints record',
+    bestForB: 'Homes that want an included phone line, a Wi-Fi 6 router option or Sky TV on one bill',
     winner:
-      'Sky is often the better all-round family option, while Plusnet is a very strong choice for households that want cleaner value without paying for a wider entertainment ecosystem.',
+      'There is no single winner. Plusnet is the better value pick for a broadband-only home: it is cheaper on the entry and mid full fibre tiers, charges no setup fee and has the lowest Ofcom complaint rate of any major provider. Sky is the better fit if you want a landline included, the option of a Wi-Fi 6 router with a speed guarantee, or Sky TV on the same bill. Because both use Openreach, run a postcode check to confirm the exact speeds and prices at your address before you choose.',
+    factSnapshot: {
+      providerA: { fromPrice: '£21.99/mo', maxSpeed: '900 Mbps (FTTP)', coverage: '~96% (Openreach)', trustpilot: '2.0/5', contract: '24 months', setupFee: '£0' },
+      providerB: { fromPrice: '£23.00/mo', maxSpeed: '900 Mbps (FTTP)', coverage: '~95% (Openreach), plus CityFibre in some areas', trustpilot: '2.7/5', contract: '24 months', setupFee: '£0 currently advertised' },
+    },
     intro: [
-      'Plusnet vs Sky is a useful comparison because both sit in the mainstream part of the market without trying to be premium speed leaders. The real difference is in positioning. Plusnet focuses on straightforward value and transparent support. Sky focuses on mainstream family fit, TV integration, and low-friction switching.',
-      'That means the best choice depends on whether your home wants simple broadband value or a broader household bundle proposition.',
+      'Plusnet and Sky both sell broadband over the Openreach network, so the line quality and the top speed available at a given address are largely the same whichever you pick. The real differences are the monthly price, the extras each includes, and how each one handles price rises during the contract.',
+      'Plusnet has narrowed to a value-focused, broadband-only brand: no landline, no TV, the lowest headline prices among the major providers, and the best Ofcom complaints record. Sky is a broader home-services brand that bundles a phone line as standard and can add discounted Sky TV, a Wi-Fi 6 router and a whole-home speed guarantee.',
+      'This comparison uses prices verified on 6 September 2026, a tier-by-tier price table, the two price-rise schedules side by side, and Ofcom Q1 2026 complaints data, so the choice comes down to evidence rather than brand familiarity.',
     ],
     verdict: [
-      'Choose Plusnet if you want straightforward pricing, a simpler offer, and a good-value mid-market broadband package.',
-      'Choose Sky if TV bundles, family-friendly packaging, and no setup fee are stronger priorities for your household.',
+      'Choose Plusnet if you want the lower monthly price on the entry and mid full fibre tiers, no setup fee, the strongest independently measured complaints record, and a price rise schedule fixed at sign-up. It suits a broadband-only home that does not need a landline or TV.',
+      'Choose Sky if you still use a home phone, want Sky TV or Netflix discounted on one bill, or want a Wi-Fi 6 router and a whole-home speed guarantee as a supported add-on. Sky is usually a pound or two more per month on matching tiers.',
+      'Because both run on Openreach, confirm the exact speeds and the current price at your postcode with each provider before ordering, since address-level offers can differ from these national figures.',
     ],
     keyDifferences: [
       {
-        label: 'Bundle fit',
+        label: 'Price per speed tier',
         detail:
-          'Sky is much stronger for entertainment-led households because of its TV ecosystem, while Plusnet stays focused on simple broadband value.',
+          'Verified on 6 September 2026, Plusnet Full Fibre started at £21.99 a month and its mid tiers ran £22.99 to £27.99, against roughly £23 to £27 for the closest Sky plans. Sky is only slightly cheaper near 900 Mbps, at about £28 against Plusnet\'s £29.99, where Plusnet\'s reward card can close the gap. A common claim that Sky is cheaper across most speeds does not hold for the entry and mid tiers.',
       },
       {
-        label: 'Price shape',
+        label: 'Setup fee and upfront cost',
         detail:
-          'Plusnet is slightly cheaper at entry level, but Sky can justify the difference for households that value bundle convenience and brand familiarity.',
+          'Plusnet charges no setup or activation fee on any current package. Sky usually advertises no setup fee too, but a router delivery and activation charge can apply outside a promotional period, so check the Sky checkout total rather than assuming it will be waived.',
       },
       {
-        label: 'Support style',
+        label: 'Price rises during the contract',
         detail:
-          'Plusnet often appeals to buyers who want straightforward UK-based support, while Sky feels more like a broad mainstream home-services brand.',
+          'Plusnet applies a flat £4 a month rise every March, including March 2027 and March 2028 for new customers, and discloses it at the point of sale. Sky applied a flat £3 a month rise from April 2026, but for customers already in contract its terms only say prices "may rise" in later years without fixing a figure. Both follow Ofcom\'s January 2025 ban on inflation-linked percentage rises.',
       },
       {
-        label: 'Best household fit',
+        label: 'Phone line, TV and extras',
         detail:
-          'Plusnet suits utility-first homes; Sky suits homes where broadband and entertainment decisions are tied together.',
+          'Sky includes a landline and pay-as-you-go calls on every plan and can add discounted Sky TV, Sky Stream or Netflix to the same bill. Plusnet is broadband only, with no landline for new customers and no TV option since 2021. You can still watch Sky content on Plusnet broadband through Sky Stream or NOW, but without the bundle discount.',
+      },
+      {
+        label: 'Router and home Wi-Fi',
+        detail:
+          'Plusnet supplies the Hub Two, a Wi-Fi 5 router with no bundled mesh. Sky\'s standard hub is a step up, and its optional Wi-Fi 6 Max Hub adds a whole-home speed guarantee for about £3 a month, so covering a larger home is a supported add-on rather than a separate purchase.',
+      },
+      {
+        label: 'Customer service and complaints',
+        detail:
+          'Ofcom\'s Q1 2026 complaints data recorded Plusnet at 4 complaints per 100,000 customers, the lowest of any major UK provider, with Sky second at 5, both below the industry average of 6. Plusnet\'s support is UK-based from Sheffield. Sky scored 63% for complaint-handling satisfaction in Ofcom\'s 2024 survey, above the 58% average.',
       },
     ],
     faqs: [
       {
         question: 'Which is cheaper, Plusnet or Sky broadband?',
         answer:
-          'Plusnet is slightly cheaper in the current BroadbandPicker dataset, which is one of its strongest advantages for value-led households.',
+          'Plusnet is cheaper on most tiers. Verified on 6 September 2026, Plusnet Full Fibre started at £21.99 a month and its mid tiers ran £22.99 to £27.99, while the closest Sky full fibre plans were about £23 to £27. Sky is only slightly cheaper near 900 Mbps, at roughly £28 against Plusnet\'s £29.99, and a Plusnet reward card can offset that.',
       },
       {
-        question: 'Is Sky better than Plusnet broadband?',
+        question: 'Is Sky broadband better than Plusnet?',
         answer:
-          'Sky is often better for family homes and TV-bundle buyers, while Plusnet is often better for households that just want straightforward broadband value.',
+          'It depends on what you need. Sky is better if you want an included landline, discounted Sky TV, or a Wi-Fi 6 router with a whole-home guarantee. Plusnet is better for a broadband-only home that wants the lower price and the strongest Ofcom complaints record. Neither is faster, because both use the Openreach network.',
       },
       {
-        question: 'Should I choose Plusnet or Sky for a simple broadband-only home?',
+        question: 'Which is faster, Plusnet or Sky?',
         answer:
-          'Plusnet is often the cleaner choice if you mainly care about straightforward broadband pricing and support without the wider TV ecosystem.',
+          'Neither is faster at the same address. Both sell over Openreach, so the top speed and line quality at your property are set by the fibre available there, not the brand. Both offer full fibre from around 74 Mbps up to about 900 Mbps. Plusnet quotes slightly higher average upload speeds on some tiers; Sky quotes higher minimum download guarantees.',
       },
       {
-        question: 'Why would someone choose Sky over Plusnet?',
+        question: 'Which has better customer service, Plusnet or Sky?',
         answer:
-          'Usually for TV bundles, family familiarity, no setup fee, and the convenience of a broader mainstream household proposition.',
+          'Both are strong and Plusnet is marginally ahead on the independent measure. Ofcom\'s Q1 2026 data put Plusnet at 4 complaints per 100,000 customers, the lowest of any major provider, with Sky second at 5, against an industry average of 6. Plusnet\'s support is UK-based from Sheffield.',
+      },
+      {
+        question: 'Is Sky broadband more reliable than Plusnet?',
+        answer:
+          'Reliability at a given address depends on the Openreach line rather than the provider, because both use the same network. On Ofcom\'s complaints data, the one measure applied the same way to every provider, Plusnet and Sky are the two best performers among the majors. Sky publishes higher minimum speed guarantees on its full fibre tiers.',
+      },
+      {
+        question: 'Does Plusnet or Sky raise prices during the contract?',
+        answer:
+          'Both do. Plusnet applies a flat £4 a month rise every March, disclosed at sign-up, with rises scheduled for March 2027 and March 2028. Sky applied a flat £3 a month rise from April 2026, but for in-contract customers its terms only say prices "may rise" in later years without fixing a figure. Both follow Ofcom\'s ban on inflation-linked rises.',
+      },
+      {
+        question: 'Can I get Sky TV without choosing Sky broadband?',
+        answer:
+          'Yes. Sky Stream and NOW deliver Sky channels over any broadband connection, so you can keep Plusnet for internet and stream Sky content separately. What you cannot do is bundle them onto one bill or get the combined broadband and TV discount, which needs Sky broadband as well.',
+      },
+      {
+        question: 'Should I switch from Sky to Plusnet?',
+        answer:
+          'Switch to Plusnet if you want a lower bill and do not use a Sky landline or Sky TV. Both run on Openreach, so a move normally uses Ofcom\'s One Touch Switch process with no gap in service. Check any early exit charge on your Sky contract first, and confirm the Plusnet price and speed at your postcode before ordering.',
+      },
+      {
+        question: 'Do Plusnet and Sky use the same network?',
+        answer:
+          'Mostly yes. Both sell broadband over the Openreach network, so the available speed and line quality at a given address are usually identical. Sky also sells some plans on the CityFibre network in certain areas, which can offer multi-gigabit speeds where available. Plusnet is Openreach only.',
       },
     ],
     sources: [
       {
-        label: 'BroadbandPicker provider reviews',
-        href: 'https://broadbandpicker.co.uk/providers',
+        label: 'Ofcom: telecoms and pay-TV complaints fall to a record low (Q1 2026, verified 6 September 2026)',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/service-quality/ofcom-telecoms-and-pay-tv-complaints-fall-to-record-low',
       },
       {
-        label: 'BroadbandPicker methodology',
-        href: 'https://broadbandpicker.co.uk/how-we-review-broadband',
+        label: 'Ofcom: ban on mid-contract price rises linked to inflation (verified 6 September 2026)',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/bills-and-charges/ofcom-bans-mid-contract-price-rises-linked-to-inflation',
+      },
+      {
+        label: 'Plusnet: broadband deals and Full Fibre pricing (verified 6 September 2026)',
+        href: 'https://www.plus.net/broadband/',
+      },
+      {
+        label: 'Sky: broadband deals and packages (verified 6 September 2026)',
+        href: 'https://www.sky.com/broadband',
+      },
+      {
+        label: 'Uswitch: Plusnet broadband packages and pricing (corroboration, verified 6 September 2026)',
+        href: 'https://www.uswitch.com/broadband/providers/plusnet/',
+      },
+      {
+        label: 'Uswitch: Sky broadband packages and pricing (corroboration, verified 6 September 2026)',
+        href: 'https://www.uswitch.com/broadband/providers/sky/',
       },
     ],
   },
@@ -1381,70 +1502,75 @@ export const providerComparisons: ProviderComparison[] = [
     title: 'BT vs Plusnet Broadband: Which Is Better in 2026?',
     metaTitle: 'BT vs Plusnet Broadband 2026 | Price, Speed and Service',
     metaDescription:
-      'Compare BT vs Plusnet broadband deals on price, speed, contract length, setup fees and customer reviews using facts verified on 15 August 2026.',
+      'BT vs Plusnet broadband compared on real price, speed guarantees and Ofcom complaints data verified on 20 September 2026. Plusnet is cheaper; BT has the stronger speed floor.',
     excerpt:
-      'BT vs Plusnet broadband is a close comparison because both offer full-fibre speeds up to 900 Mbps on 24-month deals. Plusnet has the lower verified starting price, while BT has no upfront cost and the stronger Trustpilot score in this dated snapshot. The better choice depends on the deals available at your address and which trade-offs matter to you.',
+      'BT vs Plusnet broadband both run on the same Openreach network, but Plusnet starts cheaper at £21.99 a month against BT\'s £23.99, and Ofcom\'s Q1 2026 data ranked Plusnet the best of any major UK provider for complaints, the opposite of what their Trustpilot scores alone suggest. BT counters with a stronger minimum-speed guarantee and TV, phone and Wi-Fi mesh bundles Plusnet does not offer.',
     publishDate: '2026-08-15',
-    updatedDate: '2026-08-15',
-    bestForA: 'Households that value no upfront cost and stronger current Trustpilot feedback',
-    bestForB: 'Households seeking the lower verified starting monthly price',
+    updatedDate: '2026-09-20',
+    bestForA: 'Households that want TV, phone and Wi-Fi mesh bundles plus a stronger minimum-speed guarantee',
+    bestForB: 'Households that want the lower price and the best Ofcom complaints record of any major UK provider',
     winner:
-      'There is no universal winner. Plusnet starts cheaper in this verified snapshot, while BT has no upfront cost and a markedly stronger Trustpilot score. Check the total contract cost and the exact speeds offered at your address before choosing.',
+      'There is no universal winner. Plusnet is cheaper on every equivalent speed tier and currently has the best Ofcom complaints record of any major UK provider, despite a lower Trustpilot score. BT costs more but adds a stronger minimum-speed guarantee on its fastest tier, TV and phone bundles, and Wi-Fi mesh add-ons Plusnet does not sell. Check the total contract cost and the exact speeds offered at your address before choosing.',
     intro: [
-      'BT and Plusnet advertise the same top download speed and typical 24-month term in this snapshot, so headline speed alone does not settle the comparison. Availability and speed estimates are address-specific, and the package shown after a postcode check may differ from the national headline offer.',
-      'Ofcom advises shoppers to compare the monthly price, speed, contract length, connection fees and what happens after the initial term. That approach is especially useful here because Plusnet has the lower starting monthly price but a £20 upfront charge, while BT starts higher with no upfront cost.',
+      'BT and Plusnet both sell broadband over the Openreach network, so line quality and the top speed available at a given address are largely the same regardless of which is chosen. Plusnet, part of BT Group, is consistently the cheaper of the two by roughly £2 a month across equivalent full-fibre tiers, verified on 20 September 2026.',
+      'Ofcom advises shoppers to compare service quality as well as price. That matters here specifically because BT and Plusnet\'s public review scores point in the opposite direction to Ofcom\'s own complaints data: BT has the higher Trustpilot score, but Plusnet has the better regulator-verified complaints record.',
     ],
     verdict: [
-      'Choose BT if the lack of an upfront charge and its stronger current Trustpilot rating are worth more to you than the lower starting monthly price.',
-      'Choose Plusnet if its £24.99 starting price is available at your address and the total contract cost works better for your budget after including the £20 activation fee and scheduled price changes.',
+      'Choose BT if a stronger minimum-speed guarantee on the gigabit tier, a TV or phone bundle, or a Wi-Fi mesh add-on genuinely matters to your household.',
+      'Choose Plusnet if the lower monthly price and the best Ofcom complaints record of any major UK provider matter more than bundled extras.',
     ],
     keyDifferences: [
       {
-        label: 'Price and upfront cost',
+        label: 'Price and setup fee',
         detail:
-          'For BT vs Plusnet broadband deals verified on 15 August 2026, BT started at £27.99 a month with no upfront cost. Plusnet started at £24.99 a month with a £20 one-off activation fee. Compare the full 24-month cost and stated annual price changes, not only the first monthly payment.',
+          'Verified on 20 September 2026, Plusnet starts at £21.99 a month (Full Fibre 74) with no activation fee on BroadbandPicker\'s own dated review, while Plus.net\'s own site currently states a £9.99 one-off activation fee; check the live order summary for the fee that applies to your order. BT starts at £23.99 a month (Full Fibre 150) with a £30 upfront setup fee, offset by reward cards worth up to £140 if claimed. Compare the full 24-month cost, not just the first monthly payment.',
       },
       {
-        label: 'Speed',
+        label: 'Minimum speed guarantee',
         detail:
-          'The BT vs Plusnet broadband speed ceiling is the same in their published ranges, with both advertising packages up to 900 Mbps. Your available package and personal speed estimate depend on your address, so neither provider is automatically faster in every home.',
+          'Both advertise full-fibre packages up to 900 Mbps, but their gigabit-tier minimum guaranteed speed differs: independent reporting puts BT\'s floor at around 700 Mbps against Plusnet\'s 500 Mbps on the equivalent tier. A guaranteed minimum matters more than the advertised maximum if the connection ever underperforms.',
       },
       {
-        label: 'Coverage and availability',
+        label: 'Bundles and extras',
         detail:
-          'BT vs Plusnet broadband coverage cannot be reduced to a reliable universal percentage for an individual home. Both providers require an address check to show available technology, packages and estimated speeds, so use each postcode checker before comparing offers.',
+          'BT sells TV bundles (BT TV, EE and NOW add-ons), a digital voice landline option and a Complete Wi-Fi mesh add-on. Plusnet is a broadband-only provider with no integrated TV or landline bundle and a simpler router without mesh support. Choose BT if a genuine bundle need exists; choose Plusnet if you only want broadband.',
       },
       {
-        label: 'Customer feedback',
+        label: 'Ofcom complaints vs Trustpilot',
         detail:
-          'The dated Trustpilot snapshot shows BT at 4.1/5 from 35,822 reviews and Plusnet at 1.7/5 from 12,523 reviews. These are broad public-review signals rather than measures of network performance at your address, and both scores and review counts can change.',
+          'Ofcom\'s Q1 2026 complaints data ranked Plusnet the best of any major UK broadband provider, while BT ranked third-worst, though improving on the previous quarter. This is the opposite of their Trustpilot scores, where BT\'s primary page shows around 4.0/5 against Plusnet\'s roughly 2.0/5. Trustpilot reflects self-selected public reviews; Ofcom\'s figures are independently verified complaint volumes, and the two measure different things.',
       },
     ],
     faqs: [
       {
         question: 'Which is cheaper, BT or Plusnet broadband?',
         answer:
-          'Plusnet had the lower verified starting price on 15 August 2026 at £24.99 a month, compared with BT at £27.99 a month. Plusnet also showed a £20 activation fee, while BT showed no upfront cost. Compare the total cost across the full 24-month term, including stated price rises, before deciding which deal is cheaper for you.',
+          'Plusnet is cheaper on every equivalent full-fibre tier, verified on 20 September 2026: from £21.99 a month against BT\'s £23.99 for a comparable entry tier, a gap of roughly £2 to £3 a month that continues across the higher tiers. Compare the total 24-month cost, including each provider\'s setup fee and scheduled annual price rise, before deciding which is genuinely cheaper for your household.',
       },
       {
         question: 'Is BT or Plusnet broadband faster?',
         answer:
-          'Neither has a higher published maximum in this comparison. BT and Plusnet both advertised full-fibre packages up to 900 Mbps when checked on 15 August 2026. The fastest package you can order and the speed estimate you receive depend on your address, so run both postcode checks and compare the personalised results.',
+          'Both advertise full-fibre packages up to 900 Mbps, so neither has a higher published maximum. BT states a stronger minimum guaranteed speed on its gigabit tier, around 700 Mbps against Plusnet\'s 500 Mbps floor, which matters more than the advertised maximum if a connection underperforms. The fastest package actually available depends on your address, so run both postcode checks and compare the personalised estimates.',
       },
       {
-        question: 'What do BT vs Plusnet broadband reviews show?',
+        question: 'Is Plusnet being phased out?',
         answer:
-          'The Trustpilot figures supplied for the 15 August 2026 snapshot were 4.1/5 from 35,822 reviews for BT and 1.7/5 from 12,523 reviews for Plusnet. That gives BT the stronger public-review signal at that date, but reviews reflect individual experiences and should be considered alongside Ofcom information, contract terms and local availability.',
+          'No, Plusnet broadband continues to operate as a BT Group brand. The searches behind this question are usually about the separate UK-wide PSTN landline switch-off by January 2027, when Plusnet, like BT and every other provider, is moving home phone customers from traditional landlines to Digital Voice. Our PSTN switch-off guide and Digital Voice explainer cover what that change actually involves.',
+      },
+      {
+        question: 'What do Ofcom and Trustpilot show about BT and Plusnet?',
+        answer:
+          'They point in different directions. Ofcom\'s Q1 2026 complaints report ranked Plusnet the best of any major UK provider and BT third-worst, though BT improved on the previous quarter. Trustpilot, a self-selected public review site, currently shows the opposite pattern, with BT around 4.0/5 and Plusnet around 2.0/5. Treat Ofcom\'s figures as the more representative measure of typical service experience, and Trustpilot as a supplementary, self-selected signal.',
       },
       {
         question: 'Do BT and Plusnet broadband have setup fees?',
         answer:
-          'BT advertised no upfront cost on its starting deal when verified on 15 August 2026. Plusnet advertised a £20 one-off activation fee, making the first-month total £44.99 on its £24.99 starting offer. Check the live order summary because providers can change promotions and installation requirements may vary by property.',
+          'BT currently charges a £30 upfront setup fee, though reward cards worth up to £140 can offset it if claimed. Plusnet\'s own site currently states a £9.99 one-off activation fee. Check the live order summary at checkout, since setup fees and reward-card offers change and can vary by promotion.',
       },
       {
         question: 'Which is better, BT or Plusnet broadband?',
         answer:
-          'BT may suit you better if no upfront cost and the stronger current Trustpilot score are priorities. Plusnet may suit you better if its lower starting monthly price produces the better total cost for your address. There is no universal winner because availability, personal speed estimates, installation needs and package pricing vary by home.',
+          'Plusnet suits households that want the lower price and the best Ofcom complaints record of any major UK provider. BT suits households that want a stronger minimum-speed guarantee on the fastest tier, or a genuine TV, phone or Wi-Fi mesh bundle. There is no universal winner; check availability and the total contract cost at your address before choosing.',
       },
     ],
     sources: [
@@ -1453,12 +1579,16 @@ export const providerComparisons: ProviderComparison[] = [
         href: 'https://www.bt.com/broadband',
       },
       {
-        label: 'Plusnet broadband deals, verified 15 August 2026',
+        label: 'Plusnet broadband deals and current activation fee, verified 20 September 2026',
         href: 'https://www.plus.net/broadband/',
       },
       {
-        label: 'Plusnet broadband setup FAQs, verified 15 August 2026',
-        href: 'https://www.plus.net/broadband/general-faqs/',
+        label: 'Plusnet: are landlines being phased out, verified 20 September 2026',
+        href: 'https://www.plus.net/broadband/discover/are-landlines-being-phased-out/',
+      },
+      {
+        label: 'Choose.co.uk: independent Plusnet vs BT comparison, updated 16 April 2026, verified 20 September 2026',
+        href: 'https://www.choose.co.uk/broadband/guide/plusnet-vs-bt/',
       },
       {
         label: 'BT Trustpilot profile, verified 15 August 2026',
@@ -1479,20 +1609,20 @@ export const providerComparisons: ProviderComparison[] = [
     ],
     factSnapshot: {
       providerA: {
-        fromPrice: 'From £27.99/month',
+        fromPrice: 'From £23.99/month',
         maxSpeed: 'Up to 900 Mbps',
         coverage: 'Check your address',
-        trustpilot: '4.1/5 from 35,822 reviews',
+        trustpilot: '~4.0/5',
         contract: '24 months',
-        setupFee: '£0 upfront',
+        setupFee: '£30 upfront',
       },
       providerB: {
-        fromPrice: 'From £24.99/month',
+        fromPrice: 'From £21.99/month',
         maxSpeed: 'Up to 900 Mbps',
         coverage: 'Check your address',
-        trustpilot: '1.7/5 from 12,523 reviews',
+        trustpilot: '~2.0/5',
         contract: '24 months',
-        setupFee: '£20 upfront',
+        setupFee: '£9.99 upfront',
       },
     },
   },
@@ -1599,7 +1729,7 @@ export const providerComparisons: ProviderComparison[] = [
     excerpt:
       'EE vs TalkTalk broadband has no universal winner. TalkTalk is the cheaper entry choice on the standard offers checked on 29 August 2026, at £25 a month with no setup fee versus EE at £26.99 plus £30 upfront. EE is the stronger choice for current Ofcom complaints evidence, Wi-Fi 7 hardware and speeds above 900 Mbps where available.',
     publishDate: '2026-08-16',
-    updatedDate: '2026-08-29',
+    updatedDate: '2026-09-20',
     bestForA: 'Current service evidence, Wi-Fi 7 and speeds above 900 Mbps where available',
     bestForB: 'The lower standard entry cost and no setup fee',
     winner:
@@ -1669,6 +1799,11 @@ export const providerComparisons: ProviderComparison[] = [
         detail:
           'EE uses Openreach for its main range. TalkTalk can supply service over Openreach or CityFibre, depending on the address. The physical network affects available upload speeds, installation and package choice. Ofcom\'s One Touch Switch process covers residential switches between participating providers, but keep the old service active until the new connection date is confirmed.',
       },
+      {
+        label: 'Company ownership',
+        detail:
+          'EE and TalkTalk are not the same company and have no shared ownership. EE is part of BT Group, alongside the BT and Plusnet brands. TalkTalk is an independent, privately owned UK company: Toscafund Asset Management agreed a £1.1 billion deal to take TalkTalk private in December 2020, completed in March 2021, and the company was delisted from the London Stock Exchange. Confusion sometimes arises because both are major UK broadband brands, but no takeover or merger between the two has taken place.',
+      },
     ],
     faqs: [
       {
@@ -1711,6 +1846,21 @@ export const providerComparisons: ProviderComparison[] = [
         answer:
           'Consider switching from TalkTalk to EE if EE offers a suitable guaranteed speed at your address and its stronger current Ofcom complaints record or Wi-Fi 7 router justifies the higher cost. Stay with or choose TalkTalk if its £25 Full Fibre 150 offer is available and saving on monthly and setup costs matters more. Check exit fees and the final contract summary first.',
       },
+      {
+        question: 'Are EE and TalkTalk the same company?',
+        answer:
+          'No, EE and TalkTalk are unrelated companies with no shared ownership. EE is part of BT Group, the same group that owns the BT and Plusnet brands. TalkTalk is an independent, privately owned UK company, taken private by Toscafund Asset Management in a deal completed in March 2021. The two brands compete against each other rather than sharing infrastructure ownership, though both sell services partly over the Openreach network.',
+      },
+      {
+        question: 'Has TalkTalk been taken over?',
+        answer:
+          'Yes, but not by EE, BT or another broadband rival. TalkTalk agreed a £1.1 billion takeover by investment firm Toscafund in December 2020, which completed in March 2021 and took the company private, delisting it from the London Stock Exchange. There has been no further change of ownership since, and TalkTalk remains a separate, independently owned competitor to EE.',
+      },
+      {
+        question: 'What happened to Shell Energy Broadband customers?',
+        answer:
+          'Shell Energy Broadband stopped operating as its own service and TalkTalk took over management of former Shell Energy broadband customers\' accounts, following a deal announced in 2024. Former Shell Energy customers now manage their service, billing and support through TalkTalk rather than EE. Our Shell Energy broadband migration guide covers the account change and what to check if you were a Shell Energy customer.',
+      },
     ],
     sources: [
       {
@@ -1744,6 +1894,14 @@ export const providerComparisons: ProviderComparison[] = [
       {
         label: 'TalkTalk Trustpilot profile, verified 29 August 2026',
         href: 'https://uk.trustpilot.com/review/www.talktalk.co.uk',
+      },
+      {
+        label: 'BBC News: TalkTalk agrees £1.1bn Toscafund takeover, verified 20 September 2026',
+        href: 'https://www.bbc.co.uk/news/business-54461226',
+      },
+      {
+        label: 'TalkTalk: information for former Shell Energy broadband customers, verified 20 September 2026',
+        href: 'https://www.talktalk.co.uk/shell-energy',
       },
     ],
   },

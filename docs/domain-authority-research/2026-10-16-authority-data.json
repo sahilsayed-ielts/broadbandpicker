@@ -1,0 +1,2036 @@
+{
+  "generated": "2026-10-16",
+  "window": {
+    "start": "2026-07-17",
+    "end": "2026-10-14"
+  },
+  "prior_window": {
+    "start": "2026-04-18",
+    "end": "2026-07-16"
+  },
+  "gsc_monthly": [
+    {
+      "month": "2026-06",
+      "clicks": 9,
+      "impressions": 12675,
+      "avg_position": 39.7
+    },
+    {
+      "month": "2026-07",
+      "clicks": 10,
+      "impressions": 13073,
+      "avg_position": 45.2
+    },
+    {
+      "month": "2026-08",
+      "clicks": 107,
+      "impressions": 97634,
+      "avg_position": 52.2
+    },
+    {
+      "month": "2026-09",
+      "clicks": 648,
+      "impressions": 188059,
+      "avg_position": 33.4
+    },
+    {
+      "month": "2026-10",
+      "clicks": 389,
+      "impressions": 103122,
+      "avg_position": 31.1
+    }
+  ],
+  "gsc_brand_monthly": [
+    {
+      "month": "2026-09",
+      "clicks": 6,
+      "impressions": 6
+    },
+    {
+      "month": "2026-10",
+      "clicks": 1,
+      "impressions": 2
+    }
+  ],
+  "gsc_queries": {
+    "total_queries": 19327,
+    "brand": {
+      "clicks": 7,
+      "impressions": 16,
+      "queries": 1
+    },
+    "non_brand": {
+      "clicks": 137,
+      "impressions": 304665,
+      "queries": 19326
+    },
+    "brand_share_of_clicks_pct": 4.9,
+    "brand_queries": [
+      {
+        "query": "broadband picker",
+        "clicks": 7,
+        "impressions": 16,
+        "position": 1
+      }
+    ],
+    "position_buckets": {
+      "1-3": {
+        "queries": 2773,
+        "impressions": 11819,
+        "clicks": 32
+      },
+      "11-20": {
+        "queries": 1462,
+        "impressions": 20935,
+        "clicks": 26
+      },
+      "21-50": {
+        "queries": 5139,
+        "impressions": 96244,
+        "clicks": 26
+      },
+      "4-10": {
+        "queries": 3540,
+        "impressions": 26364,
+        "clicks": 52
+      },
+      "51+": {
+        "queries": 6413,
+        "impressions": 149319,
+        "clicks": 8
+      }
+    },
+    "striking_distance": [
+      {
+        "query": "broadband deals in dartford",
+        "impressions": 8036,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 10.1
+      },
+      {
+        "query": "giffgaff broadband best price",
+        "impressions": 603,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 7.2
+      },
+      {
+        "query": "giffgaff broadband sale",
+        "impressions": 558,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 6.6
+      },
+      {
+        "query": "zen internet",
+        "impressions": 464,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 16.0
+      },
+      {
+        "query": "giffgaff broadband prices",
+        "impressions": 414,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 5.5
+      },
+      {
+        "query": "connect fibre",
+        "impressions": 340,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 9.2
+      },
+      {
+        "query": "broadband deals in canterbury",
+        "impressions": 314,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 11.4
+      },
+      {
+        "query": "yes",
+        "impressions": 280,
+        "clicks": 3,
+        "ctr": 1.07,
+        "position": 5.0
+      },
+      {
+        "query": "broadband deals nottingham",
+        "impressions": 261,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 17.2
+      },
+      {
+        "query": "giffgaff broadband offer",
+        "impressions": 232,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 6.7
+      },
+      {
+        "query": "giffgaff broadband offers",
+        "impressions": 220,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 7.2
+      },
+      {
+        "query": "giffgaff broadband deals",
+        "impressions": 219,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 7.8
+      },
+      {
+        "query": "broadband deals in stevenage",
+        "impressions": 216,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 12.4
+      },
+      {
+        "query": "bt68",
+        "impressions": 199,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 10.5
+      },
+      {
+        "query": "broadband deals in reading",
+        "impressions": 195,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 16.2
+      },
+      {
+        "query": "giffgaff broadband compare",
+        "impressions": 195,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 10.1
+      },
+      {
+        "query": "community fibre vs hyperoptic",
+        "impressions": 191,
+        "clicks": 1,
+        "ctr": 0.52,
+        "position": 8.0
+      },
+      {
+        "query": "giffgaff broadband promo",
+        "impressions": 188,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 7.4
+      },
+      {
+        "query": "hyperoptic vs community fibre",
+        "impressions": 186,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 8.7
+      },
+      {
+        "query": "www bt com broadband",
+        "impressions": 175,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 5.9
+      },
+      {
+        "query": "giffgaff broadband reviews",
+        "impressions": 174,
+        "clicks": 1,
+        "ctr": 0.57,
+        "position": 8.7
+      },
+      {
+        "query": "broadband deals in nottingham",
+        "impressions": 164,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 14.5
+      },
+      {
+        "query": "zrn internet",
+        "impressions": 164,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 6.5
+      },
+      {
+        "query": "cheapest way to get sky sports",
+        "impressions": 163,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 12.0
+      },
+      {
+        "query": "giffgaff broadband deal",
+        "impressions": 162,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 8.0
+      },
+      {
+        "query": "giffgaff broadband",
+        "impressions": 161,
+        "clicks": 1,
+        "ctr": 0.62,
+        "position": 10.1
+      },
+      {
+        "query": "zen-internet",
+        "impressions": 156,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 7.1
+      },
+      {
+        "query": "the best fibre broadband",
+        "impressions": 154,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 16.7
+      },
+      {
+        "query": "zzen internet",
+        "impressions": 153,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 6.1
+      },
+      {
+        "query": "broadband deals in southall",
+        "impressions": 150,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 8.5
+      },
+      {
+        "query": "broadband deals in brighton",
+        "impressions": 142,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 16.7
+      },
+      {
+        "query": "broadband deals in romford",
+        "impressions": 138,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 11.9
+      },
+      {
+        "query": "zne internet",
+        "impressions": 135,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 6.6
+      },
+      {
+        "query": "giffgaff broadband savings",
+        "impressions": 128,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 8.5
+      },
+      {
+        "query": "e home broadband & tv - [channel partnerships]",
+        "impressions": 127,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 8.3
+      },
+      {
+        "query": "broadband deals in luton",
+        "impressions": 126,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 19.3
+      },
+      {
+        "query": "best mesh wifi",
+        "impressions": 123,
+        "clicks": 3,
+        "ctr": 2.44,
+        "position": 14.2
+      },
+      {
+        "query": "best uk fibre broadband",
+        "impressions": 122,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 16.1
+      },
+      {
+        "query": "broadband deals in guildford",
+        "impressions": 120,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 16.2
+      },
+      {
+        "query": "yes please",
+        "impressions": 117,
+        "clicks": 1,
+        "ctr": 0.85,
+        "position": 5.3
+      },
+      {
+        "query": "broadband without credit check",
+        "impressions": 113,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 19.4
+      },
+      {
+        "query": "best wifi mesh system uk 2026",
+        "impressions": 110,
+        "clicks": 3,
+        "ctr": 2.73,
+        "position": 9.6
+      },
+      {
+        "query": "plusnet vs sky broadband",
+        "impressions": 108,
+        "clicks": 1,
+        "ctr": 0.93,
+        "position": 9.6
+      },
+      {
+        "query": "broadband deals in enfield",
+        "impressions": 103,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 15.7
+      },
+      {
+        "query": "compare the broadband market",
+        "impressions": 102,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 5.5
+      },
+      {
+        "query": "show me broadband comparison sites that highlight customer service ratings and complaint stats by provider",
+        "impressions": 102,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 5.0
+      },
+      {
+        "query": "which comparison sites let me filter by no in contract price hikes",
+        "impressions": 100,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 6.7
+      },
+      {
+        "query": "broadband ombudsman",
+        "impressions": 99,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 14.4
+      },
+      {
+        "query": "cheapest way to watch sky sports",
+        "impressions": 99,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 9.5
+      },
+      {
+        "query": "what are the top-rated broadband and tv deals for sports in 2026",
+        "impressions": 99,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 6.5
+      },
+      {
+        "query": "broadband comparison website that shows speed guarantees and setup fees",
+        "impressions": 98,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 5.2
+      },
+      {
+        "query": "what broadband comparison website is most accurate for postcode level availability and install dates",
+        "impressions": 98,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 9.6
+      },
+      {
+        "query": "ee home broadband & tv - [channel partnerships] promo",
+        "impressions": 93,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 9.8
+      },
+      {
+        "query": "giffgaff broadband discount",
+        "impressions": 93,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 9.1
+      },
+      {
+        "query": "giff gaff broadband",
+        "impressions": 92,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 8.0
+      },
+      {
+        "query": "speedtest",
+        "impressions": 87,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 8.7
+      },
+      {
+        "query": "plusnet vs ee broadband",
+        "impressions": 83,
+        "clicks": 1,
+        "ctr": 1.2,
+        "position": 8.8
+      },
+      {
+        "query": "broadband deals without phone line",
+        "impressions": 83,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 6.6
+      },
+      {
+        "query": "bt broadband & tv cashback",
+        "impressions": 79,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 9.4
+      },
+      {
+        "query": "speedtest internet",
+        "impressions": 78,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 4.7
+      }
+    ]
+  },
+  "gsc_queries_prior": {
+    "total_queries": 926,
+    "brand": {
+      "clicks": 0,
+      "impressions": 0,
+      "queries": 0
+    },
+    "non_brand": {
+      "clicks": 0,
+      "impressions": 19847,
+      "queries": 926
+    },
+    "position_buckets": {
+      "1-3": {
+        "queries": 3,
+        "impressions": 3,
+        "clicks": 0
+      },
+      "11-20": {
+        "queries": 11,
+        "impressions": 3908,
+        "clicks": 0
+      },
+      "21-50": {
+        "queries": 394,
+        "impressions": 8662,
+        "clicks": 0
+      },
+      "4-10": {
+        "queries": 8,
+        "impressions": 16,
+        "clicks": 0
+      },
+      "51+": {
+        "queries": 510,
+        "impressions": 7258,
+        "clicks": 0
+      }
+    }
+  },
+  "gsc_pages": {
+    "pages_with_impressions": 2484,
+    "pages_with_clicks": 353,
+    "by_type": {
+      "guide": {
+        "pages": 103,
+        "clicks": 402,
+        "impressions": 229973,
+        "avg_position": 45.5
+      },
+      "postcode": {
+        "pages": 2296,
+        "clicks": 425,
+        "impressions": 47027,
+        "avg_position": 17.8
+      },
+      "provider_review": {
+        "pages": 25,
+        "clicks": 111,
+        "impressions": 44655,
+        "avg_position": 21.9
+      },
+      "provider_vs": {
+        "pages": 37,
+        "clicks": 161,
+        "impressions": 26754,
+        "avg_position": 13.8
+      },
+      "tool": {
+        "pages": 4,
+        "clicks": 22,
+        "impressions": 17792,
+        "avg_position": 57.6
+      },
+      "deals_hub": {
+        "pages": 1,
+        "clicks": 0,
+        "impressions": 9511,
+        "avg_position": 50.6
+      },
+      "compare": {
+        "pages": 2,
+        "clicks": 2,
+        "impressions": 8897,
+        "avg_position": 44.1
+      },
+      "homepage": {
+        "pages": 2,
+        "clicks": 19,
+        "impressions": 4777,
+        "avg_position": 33.8
+      },
+      "provider_deals": {
+        "pages": 4,
+        "clicks": 1,
+        "impressions": 4705,
+        "avg_position": 56.5
+      },
+      "research": {
+        "pages": 2,
+        "clicks": 8,
+        "impressions": 3740,
+        "avg_position": 8.4
+      },
+      "trust": {
+        "pages": 8,
+        "clicks": 0,
+        "impressions": 852,
+        "avg_position": 12.9
+      }
+    },
+    "low_ctr_pages": [
+      {
+        "page": "/providers/giffgaff",
+        "impressions": 13132,
+        "clicks": 18,
+        "ctr": 0.14,
+        "expected_ctr": 5,
+        "position": 5.0,
+        "missed_clicks_est": 638
+      },
+      {
+        "page": "/postcode/da1",
+        "impressions": 8640,
+        "clicks": 6,
+        "ctr": 0.07,
+        "expected_ctr": 1.9,
+        "position": 9.9,
+        "missed_clicks_est": 158
+      },
+      {
+        "page": "/providers/compare/ee-vs-talktalk",
+        "impressions": 2310,
+        "clicks": 32,
+        "ctr": 1.39,
+        "expected_ctr": 5,
+        "position": 5.1,
+        "missed_clicks_est": 83
+      },
+      {
+        "page": "/providers/compare/plusnet-vs-ee",
+        "impressions": 2557,
+        "clicks": 13,
+        "ctr": 0.51,
+        "expected_ctr": 3.2,
+        "position": 6.7,
+        "missed_clicks_est": 68
+      },
+      {
+        "page": "/research/uk-broadband-customer-satisfaction",
+        "impressions": 1742,
+        "clicks": 4,
+        "ctr": 0.23,
+        "expected_ctr": 4,
+        "position": 6.2,
+        "missed_clicks_est": 65
+      },
+      {
+        "page": "/providers/compare/ee-vs-sky",
+        "impressions": 2747,
+        "clicks": 29,
+        "ctr": 1.06,
+        "expected_ctr": 3.2,
+        "position": 6.9,
+        "missed_clicks_est": 58
+      },
+      {
+        "page": "/providers/compare/sky-vs-talktalk",
+        "impressions": 842,
+        "clicks": 5,
+        "ctr": 0.59,
+        "expected_ctr": 5,
+        "position": 5.2,
+        "missed_clicks_est": 37
+      },
+      {
+        "page": "/providers/compare/community-fibre-vs-hyperoptic",
+        "impressions": 1154,
+        "clicks": 8,
+        "ctr": 0.69,
+        "expected_ctr": 3.2,
+        "position": 6.5,
+        "missed_clicks_est": 28
+      },
+      {
+        "page": "/providers/compare/bt-vs-hyperoptic",
+        "impressions": 812,
+        "clicks": 5,
+        "ctr": 0.62,
+        "expected_ctr": 4,
+        "position": 6.4,
+        "missed_clicks_est": 27
+      },
+      {
+        "page": "/providers/compare/virgin-media-vs-vodafone",
+        "impressions": 1246,
+        "clicks": 5,
+        "ctr": 0.4,
+        "expected_ctr": 2.6,
+        "position": 7.6,
+        "missed_clicks_est": 27
+      },
+      {
+        "page": "/providers/compare/plusnet-vs-sky",
+        "impressions": 1278,
+        "clicks": 9,
+        "ctr": 0.7,
+        "expected_ctr": 2.6,
+        "position": 7.5,
+        "missed_clicks_est": 24
+      },
+      {
+        "page": "/guides/starlink-vs-fibre-broadband-uk",
+        "impressions": 905,
+        "clicks": 14,
+        "ctr": 1.55,
+        "expected_ctr": 4,
+        "position": 6.0,
+        "missed_clicks_est": 22
+      },
+      {
+        "page": "/providers/cuckoo",
+        "impressions": 898,
+        "clicks": 8,
+        "ctr": 0.89,
+        "expected_ctr": 2.6,
+        "position": 8.2,
+        "missed_clicks_est": 15
+      },
+      {
+        "page": "/providers/compare/bt-vs-talktalk",
+        "impressions": 1171,
+        "clicks": 7,
+        "ctr": 0.6,
+        "expected_ctr": 1.9,
+        "position": 9.9,
+        "missed_clicks_est": 15
+      },
+      {
+        "page": "/postcode/se1",
+        "impressions": 358,
+        "clicks": 3,
+        "ctr": 0.84,
+        "expected_ctr": 5,
+        "position": 5.4,
+        "missed_clicks_est": 14
+      },
+      {
+        "page": "/providers/connect-fibre",
+        "impressions": 789,
+        "clicks": 1,
+        "ctr": 0.13,
+        "expected_ctr": 1.9,
+        "position": 9.9,
+        "missed_clicks_est": 13
+      },
+      {
+        "page": "/providers/compare/talktalk-vs-plusnet",
+        "impressions": 447,
+        "clicks": 2,
+        "ctr": 0.45,
+        "expected_ctr": 3.2,
+        "position": 6.7,
+        "missed_clicks_est": 12
+      },
+      {
+        "page": "/providers/pine-media",
+        "impressions": 597,
+        "clicks": 1,
+        "ctr": 0.17,
+        "expected_ctr": 2.2,
+        "position": 9.0,
+        "missed_clicks_est": 12
+      },
+      {
+        "page": "/postcode/rm1",
+        "impressions": 585,
+        "clicks": 1,
+        "ctr": 0.17,
+        "expected_ctr": 2.2,
+        "position": 9.5,
+        "missed_clicks_est": 11
+      },
+      {
+        "page": "/providers/youfibre",
+        "impressions": 660,
+        "clicks": 1,
+        "ctr": 0.15,
+        "expected_ctr": 1.9,
+        "position": 9.6,
+        "missed_clicks_est": 11
+      },
+      {
+        "page": "/guides/telecare-alarms-landline-switch-off-uk",
+        "impressions": 326,
+        "clicks": 6,
+        "ctr": 1.84,
+        "expected_ctr": 5,
+        "position": 4.9,
+        "missed_clicks_est": 10
+      },
+      {
+        "page": "/guides/gta-6-broadband-uk",
+        "impressions": 378,
+        "clicks": 2,
+        "ctr": 0.53,
+        "expected_ctr": 3.2,
+        "position": 7.3,
+        "missed_clicks_est": 10
+      },
+      {
+        "page": "/providers/compare/bt-vs-vodafone",
+        "impressions": 437,
+        "clicks": 2,
+        "ctr": 0.46,
+        "expected_ctr": 2.6,
+        "position": 7.7,
+        "missed_clicks_est": 9
+      },
+      {
+        "page": "/providers/compare/hyperoptic-vs-community-fibre",
+        "impressions": 474,
+        "clicks": 1,
+        "ctr": 0.21,
+        "expected_ctr": 2.2,
+        "position": 8.7,
+        "missed_clicks_est": 9
+      },
+      {
+        "page": "/guides/does-a-vpn-slow-your-internet",
+        "impressions": 401,
+        "clicks": 2,
+        "ctr": 0.5,
+        "expected_ctr": 2.6,
+        "position": 8.1,
+        "missed_clicks_est": 8
+      },
+      {
+        "page": "/postcode/ub1",
+        "impressions": 319,
+        "clicks": 2,
+        "ctr": 0.63,
+        "expected_ctr": 3.2,
+        "position": 7.5,
+        "missed_clicks_est": 8
+      },
+      {
+        "page": "/providers/compare/talktalk-vs-now-broadband",
+        "impressions": 310,
+        "clicks": 0,
+        "ctr": 0,
+        "expected_ctr": 2.6,
+        "position": 8.1,
+        "missed_clicks_est": 8
+      },
+      {
+        "page": "/postcode/ct1",
+        "impressions": 460,
+        "clicks": 1,
+        "ctr": 0.22,
+        "expected_ctr": 1.9,
+        "position": 9.9,
+        "missed_clicks_est": 7
+      },
+      {
+        "page": "/guides/landline-switch-off-explained-uk",
+        "impressions": 632,
+        "clicks": 6,
+        "ctr": 0.95,
+        "expected_ctr": 1.9,
+        "position": 9.9,
+        "missed_clicks_est": 6
+      },
+      {
+        "page": "/postcode/w5",
+        "impressions": 200,
+        "clicks": 4,
+        "ctr": 2.0,
+        "expected_ctr": 5,
+        "position": 5.5,
+        "missed_clicks_est": 6
+      }
+    ],
+    "top_pages_by_clicks": [
+      {
+        "page": "/guides/best-broadband-and-tv-deals",
+        "clicks": 78,
+        "impressions": 74879,
+        "position": 49.7
+      },
+      {
+        "page": "/guides/best-mesh-wifi-for-your-broadband-router",
+        "clicks": 59,
+        "impressions": 4928,
+        "position": 24.9
+      },
+      {
+        "page": "/guides/cheapest-way-to-watch-sky-sports-uk",
+        "clicks": 47,
+        "impressions": 6303,
+        "position": 15.4
+      },
+      {
+        "page": "/guides/broadband-deals-with-no-mid-contract-price-rise",
+        "clicks": 33,
+        "impressions": 2010,
+        "position": 8.6
+      },
+      {
+        "page": "/providers/compare/ee-vs-talktalk",
+        "clicks": 32,
+        "impressions": 2310,
+        "position": 5.1
+      },
+      {
+        "page": "/providers/compare/ee-vs-sky",
+        "clicks": 29,
+        "impressions": 2747,
+        "position": 6.9
+      },
+      {
+        "page": "/",
+        "clicks": 19,
+        "impressions": 4776,
+        "position": 33.8
+      },
+      {
+        "page": "/providers/giffgaff",
+        "clicks": 18,
+        "impressions": 13132,
+        "position": 5.0
+      },
+      {
+        "page": "/postcode/e1",
+        "clicks": 16,
+        "impressions": 510,
+        "position": 5.2
+      },
+      {
+        "page": "/guides/broadband-and-mobile-bundle-discounts-uk",
+        "clicks": 15,
+        "impressions": 10461,
+        "position": 52.1
+      },
+      {
+        "page": "/guides/best-full-fibre-broadband-uk",
+        "clicks": 14,
+        "impressions": 17728,
+        "position": 43.4
+      },
+      {
+        "page": "/guides/starlink-vs-fibre-broadband-uk",
+        "clicks": 14,
+        "impressions": 905,
+        "position": 6.0
+      },
+      {
+        "page": "/providers/compare/plusnet-vs-ee",
+        "clicks": 13,
+        "impressions": 2557,
+        "position": 6.7
+      },
+      {
+        "page": "/postcode/london",
+        "clicks": 12,
+        "impressions": 3393,
+        "position": 32.9
+      },
+      {
+        "page": "/providers/gigaclear",
+        "clicks": 12,
+        "impressions": 1079,
+        "position": 17.7
+      },
+      {
+        "page": "/providers/onestream",
+        "clicks": 12,
+        "impressions": 1578,
+        "position": 12.1
+      },
+      {
+        "page": "/guides/cheapest-broadband-uk",
+        "clicks": 11,
+        "impressions": 2383,
+        "position": 33.6
+      },
+      {
+        "page": "/providers/compare",
+        "clicks": 11,
+        "impressions": 1995,
+        "position": 35.0
+      },
+      {
+        "page": "/providers/compare/sky-vs-virgin-media",
+        "clicks": 11,
+        "impressions": 2622,
+        "position": 17.4
+      },
+      {
+        "page": "/guides/best-rolling-monthly-broadband-deals",
+        "clicks": 10,
+        "impressions": 4142,
+        "position": 37.1
+      },
+      {
+        "page": "/guides/broadband-complaints-and-ombudsman-uk",
+        "clicks": 10,
+        "impressions": 4345,
+        "position": 18.0
+      },
+      {
+        "page": "/postcode/cr0",
+        "clicks": 10,
+        "impressions": 473,
+        "position": 8.6
+      },
+      {
+        "page": "/postcode/edinburgh",
+        "clicks": 10,
+        "impressions": 1167,
+        "position": 21.3
+      },
+      {
+        "page": "/postcode/n1",
+        "clicks": 10,
+        "impressions": 338,
+        "position": 6.5
+      },
+      {
+        "page": "/tools/speed-test",
+        "clicks": 10,
+        "impressions": 6282,
+        "position": 45.5
+      }
+    ]
+  },
+  "gsc_countries": [
+    {
+      "key": "gbr",
+      "clicks": 1076,
+      "impressions": 354057,
+      "position": 39.7
+    },
+    {
+      "key": "usa",
+      "clicks": 7,
+      "impressions": 15414,
+      "position": 13.8
+    },
+    {
+      "key": "bra",
+      "clicks": 1,
+      "impressions": 1946,
+      "position": 18.5
+    },
+    {
+      "key": "nld",
+      "clicks": 4,
+      "impressions": 1872,
+      "position": 8.6
+    },
+    {
+      "key": "ind",
+      "clicks": 2,
+      "impressions": 1628,
+      "position": 31.7
+    },
+    {
+      "key": "deu",
+      "clicks": 2,
+      "impressions": 1462,
+      "position": 12.3
+    },
+    {
+      "key": "ita",
+      "clicks": 2,
+      "impressions": 892,
+      "position": 21.7
+    },
+    {
+      "key": "fra",
+      "clicks": 4,
+      "impressions": 651,
+      "position": 21.2
+    },
+    {
+      "key": "esp",
+      "clicks": 7,
+      "impressions": 646,
+      "position": 22.5
+    },
+    {
+      "key": "arg",
+      "clicks": 0,
+      "impressions": 511,
+      "position": 19.1
+    },
+    {
+      "key": "irl",
+      "clicks": 4,
+      "impressions": 500,
+      "position": 17.1
+    },
+    {
+      "key": "can",
+      "clicks": 1,
+      "impressions": 463,
+      "position": 12.8
+    },
+    {
+      "key": "tur",
+      "clicks": 2,
+      "impressions": 436,
+      "position": 38.0
+    },
+    {
+      "key": "vnm",
+      "clicks": 1,
+      "impressions": 404,
+      "position": 44.8
+    },
+    {
+      "key": "bgd",
+      "clicks": 0,
+      "impressions": 324,
+      "position": 35.1
+    }
+  ],
+  "gsc_devices": [
+    {
+      "key": "DESKTOP",
+      "clicks": 475,
+      "impressions": 231495,
+      "position": 37.5
+    },
+    {
+      "key": "MOBILE",
+      "clicks": 639,
+      "impressions": 158782,
+      "position": 38.2
+    },
+    {
+      "key": "TABLET",
+      "clicks": 36,
+      "impressions": 3505,
+      "position": 10.7
+    }
+  ],
+  "gsc_search_appearance": [
+    {
+      "key": "PRODUCT_SNIPPETS",
+      "clicks": 25,
+      "impressions": 8583,
+      "position": 36.5
+    },
+    {
+      "key": "REVIEW_SNIPPET",
+      "clicks": 0,
+      "impressions": 103,
+      "position": 54.0
+    },
+    {
+      "key": "TRANSLATED_RESULT",
+      "clicks": 0,
+      "impressions": 6,
+      "position": 20.8
+    }
+  ],
+  "gsc_sitemaps": [
+    {
+      "path": "https://broadbandpicker.co.uk/sitemap.xml",
+      "lastDownloaded": "2026-10-13T11:01:54.434Z",
+      "isPending": false,
+      "errors": "0",
+      "warnings": "0",
+      "submitted": 202
+    },
+    {
+      "path": "https://broadbandpicker.co.uk/postcode/sitemap.xml",
+      "lastDownloaded": "2026-10-13T00:49:18.741Z",
+      "isPending": false,
+      "errors": "0",
+      "warnings": "0",
+      "submitted": 60
+    }
+  ],
+  "ga4": {
+    "totals": [
+      {
+        "sessions": 881,
+        "totalUsers": 706,
+        "newUsers": 690,
+        "engagementRate": 0.856,
+        "averageSessionDuration": 190.888,
+        "screenPageViews": 2658
+      }
+    ],
+    "channels": [
+      {
+        "sessionDefaultChannelGroup": "Organic Search",
+        "sessions": 607,
+        "engagedSessions": 516,
+        "totalUsers": 481
+      },
+      {
+        "sessionDefaultChannelGroup": "AI Assistant",
+        "sessions": 143,
+        "engagedSessions": 131,
+        "totalUsers": 128
+      },
+      {
+        "sessionDefaultChannelGroup": "Direct",
+        "sessions": 110,
+        "engagedSessions": 91,
+        "totalUsers": 83
+      },
+      {
+        "sessionDefaultChannelGroup": "Unassigned",
+        "sessions": 10,
+        "engagedSessions": 6,
+        "totalUsers": 10
+      },
+      {
+        "sessionDefaultChannelGroup": "Organic Social",
+        "sessions": 8,
+        "engagedSessions": 8,
+        "totalUsers": 8
+      },
+      {
+        "sessionDefaultChannelGroup": "Referral",
+        "sessions": 2,
+        "engagedSessions": 2,
+        "totalUsers": 2
+      }
+    ],
+    "referrals": [
+      {
+        "sessionSource": "chatgpt.com",
+        "sessionMedium": "ai-assistant",
+        "sessions": 139,
+        "engagedSessions": 127
+      },
+      {
+        "sessionSource": "uk.search.yahoo.com",
+        "sessionMedium": "referral",
+        "sessions": 39,
+        "engagedSessions": 29
+      },
+      {
+        "sessionSource": "search.google.com",
+        "sessionMedium": "referral",
+        "sessions": 33,
+        "engagedSessions": 19
+      },
+      {
+        "sessionSource": "(not set)",
+        "sessionMedium": "(not set)",
+        "sessions": 4,
+        "engagedSessions": 0
+      },
+      {
+        "sessionSource": "m.facebook.com",
+        "sessionMedium": "referral",
+        "sessions": 4,
+        "engagedSessions": 4
+      },
+      {
+        "sessionSource": "copilot.com",
+        "sessionMedium": "ai-assistant",
+        "sessions": 3,
+        "engagedSessions": 3
+      },
+      {
+        "sessionSource": "facebook.com",
+        "sessionMedium": "referral",
+        "sessions": 3,
+        "engagedSessions": 3
+      },
+      {
+        "sessionSource": "copilot.com",
+        "sessionMedium": "(not set)",
+        "sessions": 2,
+        "engagedSessions": 2
+      },
+      {
+        "sessionSource": "gemini",
+        "sessionMedium": "(not set)",
+        "sessions": 2,
+        "engagedSessions": 2
+      },
+      {
+        "sessionSource": "emea.search.yahoo.com",
+        "sessionMedium": "referral",
+        "sessions": 1,
+        "engagedSessions": 1
+      },
+      {
+        "sessionSource": "instagram",
+        "sessionMedium": "social",
+        "sessions": 1,
+        "engagedSessions": 1
+      },
+      {
+        "sessionSource": "perplexity",
+        "sessionMedium": "(not set)",
+        "sessions": 1,
+        "engagedSessions": 1
+      },
+      {
+        "sessionSource": "perplexity.ai",
+        "sessionMedium": "ai-assistant",
+        "sessions": 1,
+        "engagedSessions": 1
+      },
+      {
+        "sessionSource": "rd.search.yahoo.com",
+        "sessionMedium": "referral",
+        "sessions": 1,
+        "engagedSessions": 1
+      },
+      {
+        "sessionSource": "teams.public.onecdn.static.microsoft",
+        "sessionMedium": "referral",
+        "sessions": 1,
+        "engagedSessions": 1
+      },
+      {
+        "sessionSource": "ui.awin.com",
+        "sessionMedium": "referral",
+        "sessions": 1,
+        "engagedSessions": 1
+      }
+    ],
+    "new_vs_returning": [
+      {
+        "newVsReturning": "new",
+        "totalUsers": 705,
+        "sessions": 706,
+        "engagementRate": 0.993
+      },
+      {
+        "newVsReturning": "returning",
+        "totalUsers": 84,
+        "sessions": 132,
+        "engagementRate": 0.402
+      },
+      {
+        "newVsReturning": "(not set)",
+        "totalUsers": 27,
+        "sessions": 42,
+        "engagementRate": 0
+      }
+    ],
+    "events": [
+      {
+        "eventName": "page_view",
+        "eventCount": 2658,
+        "totalUsers": 705
+      },
+      {
+        "eventName": "user_engagement",
+        "eventCount": 1351,
+        "totalUsers": 693
+      },
+      {
+        "eventName": "session_start",
+        "eventCount": 864,
+        "totalUsers": 692
+      },
+      {
+        "eventName": "first_visit",
+        "eventCount": 690,
+        "totalUsers": 690
+      },
+      {
+        "eventName": "postcode_submit",
+        "eventCount": 280,
+        "totalUsers": 173
+      },
+      {
+        "eventName": "form_start",
+        "eventCount": 213,
+        "totalUsers": 171
+      },
+      {
+        "eventName": "outbound_provider_click",
+        "eventCount": 204,
+        "totalUsers": 114
+      },
+      {
+        "eventName": "click",
+        "eventCount": 195,
+        "totalUsers": 104
+      },
+      {
+        "eventName": "speed_test_started",
+        "eventCount": 112,
+        "totalUsers": 79
+      },
+      {
+        "eventName": "speed_test_completed",
+        "eventCount": 105,
+        "totalUsers": 76
+      },
+      {
+        "eventName": "speed_test_location",
+        "eventCount": 83,
+        "totalUsers": 79
+      },
+      {
+        "eventName": "deal_sort_changed",
+        "eventCount": 70,
+        "totalUsers": 41
+      },
+      {
+        "eventName": "scroll",
+        "eventCount": 68,
+        "totalUsers": 49
+      },
+      {
+        "eventName": "deal_filter_changed",
+        "eventCount": 26,
+        "totalUsers": 11
+      },
+      {
+        "eventName": "ai_referral_visit",
+        "eventCount": 22,
+        "totalUsers": 22
+      },
+      {
+        "eventName": "compare_shortlist_added",
+        "eventCount": 20,
+        "totalUsers": 11
+      },
+      {
+        "eventName": "speed_test_compare_clicked",
+        "eventCount": 9,
+        "totalUsers": 9
+      },
+      {
+        "eventName": "tv_bundle_filter_change",
+        "eventCount": 9,
+        "totalUsers": 5
+      },
+      {
+        "eventName": "tv_bundle_tool_started",
+        "eventCount": 5,
+        "totalUsers": 5
+      },
+      {
+        "eventName": "compare_basket_viewed",
+        "eventCount": 3,
+        "totalUsers": 3
+      },
+      {
+        "eventName": "ee_talktalk_comparison_completed",
+        "eventCount": 3,
+        "totalUsers": 2
+      },
+      {
+        "eventName": "compare_shortlist_removed",
+        "eventCount": 2,
+        "totalUsers": 2
+      },
+      {
+        "eventName": "ee_talktalk_comparison_started",
+        "eventCount": 2,
+        "totalUsers": 2
+      },
+      {
+        "eventName": "speed_test_failed",
+        "eventCount": 2,
+        "totalUsers": 2
+      },
+      {
+        "eventName": "tv_bundle_sort_change",
+        "eventCount": 2,
+        "totalUsers": 2
+      },
+      {
+        "eventName": "contact_form_submit",
+        "eventCount": 1,
+        "totalUsers": 1
+      },
+      {
+        "eventName": "guide_hero_need",
+        "eventCount": 1,
+        "totalUsers": 1
+      },
+      {
+        "eventName": "m1_compare_deals_clicked",
+        "eventCount": 1,
+        "totalUsers": 1
+      },
+      {
+        "eventName": "m1_plan_comparison_completed",
+        "eventCount": 1,
+        "totalUsers": 1
+      },
+      {
+        "eventName": "newsletter_signup_request",
+        "eventCount": 1,
+        "totalUsers": 1
+      }
+    ],
+    "landing_pages": [
+      {
+        "landingPage": "/tools/speed-test",
+        "sessions": 63,
+        "engagementRate": 0.889,
+        "newUsers": 51
+      },
+      {
+        "landingPage": "(not set)",
+        "sessions": 42,
+        "engagementRate": 0.048,
+        "newUsers": 0
+      },
+      {
+        "landingPage": "/guides/best-mesh-wifi-for-your-broadband-router",
+        "sessions": 40,
+        "engagementRate": 0.975,
+        "newUsers": 38
+      },
+      {
+        "landingPage": "/guides/cheapest-broadband-uk",
+        "sessions": 35,
+        "engagementRate": 0.857,
+        "newUsers": 29
+      },
+      {
+        "landingPage": "/guides/best-broadband-and-tv-deals",
+        "sessions": 34,
+        "engagementRate": 0.971,
+        "newUsers": 25
+      },
+      {
+        "landingPage": "/",
+        "sessions": 29,
+        "engagementRate": 0.655,
+        "newUsers": 12
+      },
+      {
+        "landingPage": "/guides/best-broadband-providers-uk",
+        "sessions": 24,
+        "engagementRate": 0.917,
+        "newUsers": 22
+      },
+      {
+        "landingPage": "/compare",
+        "sessions": 17,
+        "engagementRate": 0.706,
+        "newUsers": 11
+      },
+      {
+        "landingPage": "/guides/best-rolling-monthly-broadband-deals",
+        "sessions": 17,
+        "engagementRate": 1,
+        "newUsers": 17
+      },
+      {
+        "landingPage": "/guides/broadband-deals-with-no-mid-contract-price-rise",
+        "sessions": 17,
+        "engagementRate": 1,
+        "newUsers": 16
+      },
+      {
+        "landingPage": "/guides/cheapest-way-to-watch-sky-sports-uk",
+        "sessions": 17,
+        "engagementRate": 0.882,
+        "newUsers": 15
+      },
+      {
+        "landingPage": "/guides/satellite-broadband-uk",
+        "sessions": 15,
+        "engagementRate": 1,
+        "newUsers": 14
+      },
+      {
+        "landingPage": "/guides/landline-switch-off-explained-uk",
+        "sessions": 14,
+        "engagementRate": 0.786,
+        "newUsers": 11
+      },
+      {
+        "landingPage": "/guides/broadband-without-phone-line",
+        "sessions": 12,
+        "engagementRate": 0.917,
+        "newUsers": 11
+      },
+      {
+        "landingPage": "/providers/compare/plusnet-vs-ee",
+        "sessions": 11,
+        "engagementRate": 0.636,
+        "newUsers": 7
+      },
+      {
+        "landingPage": "/postcode/e1",
+        "sessions": 10,
+        "engagementRate": 1,
+        "newUsers": 9
+      },
+      {
+        "landingPage": "/postcode/london",
+        "sessions": 9,
+        "engagementRate": 1,
+        "newUsers": 8
+      },
+      {
+        "landingPage": "/providers/compare/ee-vs-talktalk",
+        "sessions": 9,
+        "engagementRate": 0.889,
+        "newUsers": 8
+      },
+      {
+        "landingPage": "/guides/best-full-fibre-broadband-uk",
+        "sessions": 8,
+        "engagementRate": 1,
+        "newUsers": 7
+      },
+      {
+        "landingPage": "/guides/best-streaming-services-uk",
+        "sessions": 8,
+        "engagementRate": 1,
+        "newUsers": 6
+      },
+      {
+        "landingPage": "/guides/broadband-help-if-you-claim-benefits-uk",
+        "sessions": 8,
+        "engagementRate": 0.875,
+        "newUsers": 7
+      },
+      {
+        "landingPage": "/guides/broadband-social-tariffs-uk",
+        "sessions": 8,
+        "engagementRate": 1,
+        "newUsers": 8
+      },
+      {
+        "landingPage": "/guides/starlink-vs-fibre-broadband-uk",
+        "sessions": 8,
+        "engagementRate": 0.625,
+        "newUsers": 5
+      },
+      {
+        "landingPage": "/postcode/w5",
+        "sessions": 8,
+        "engagementRate": 1,
+        "newUsers": 8
+      },
+      {
+        "landingPage": "/providers/compare/ee-vs-sky",
+        "sessions": 8,
+        "engagementRate": 1,
+        "newUsers": 6
+      },
+      {
+        "landingPage": "/guides/how-to-switch-broadband-uk",
+        "sessions": 7,
+        "engagementRate": 0.143,
+        "newUsers": 1
+      },
+      {
+        "landingPage": "/postcode/cr0",
+        "sessions": 7,
+        "engagementRate": 0.857,
+        "newUsers": 5
+      },
+      {
+        "landingPage": "/providers/compare/community-fibre-vs-hyperoptic",
+        "sessions": 7,
+        "engagementRate": 1,
+        "newUsers": 5
+      },
+      {
+        "landingPage": "/providers/giffgaff",
+        "sessions": 7,
+        "engagementRate": 0.857,
+        "newUsers": 6
+      },
+      {
+        "landingPage": "/guides/best-broadband-for-gaming-uk",
+        "sessions": 6,
+        "engagementRate": 1,
+        "newUsers": 6
+      },
+      {
+        "landingPage": "/guides/broadband-and-mobile-bundle-discounts-uk",
+        "sessions": 6,
+        "engagementRate": 1,
+        "newUsers": 6
+      },
+      {
+        "landingPage": "/postcode/so14",
+        "sessions": 6,
+        "engagementRate": 1,
+        "newUsers": 5
+      },
+      {
+        "landingPage": "/tools/broadband-match",
+        "sessions": 6,
+        "engagementRate": 0.5,
+        "newUsers": 2
+      },
+      {
+        "landingPage": "/guides/best-5g-home-broadband-uk",
+        "sessions": 5,
+        "engagementRate": 0.8,
+        "newUsers": 4
+      },
+      {
+        "landingPage": "/postcode/cb4",
+        "sessions": 5,
+        "engagementRate": 0.4,
+        "newUsers": 1
+      },
+      {
+        "landingPage": "/postcode/n1",
+        "sessions": 5,
+        "engagementRate": 1,
+        "newUsers": 5
+      },
+      {
+        "landingPage": "/postcode/se1",
+        "sessions": 5,
+        "engagementRate": 0.8,
+        "newUsers": 3
+      },
+      {
+        "landingPage": "/postcode/ub1",
+        "sessions": 5,
+        "engagementRate": 1,
+        "newUsers": 5
+      },
+      {
+        "landingPage": "/providers/community-fibre",
+        "sessions": 5,
+        "engagementRate": 0.8,
+        "newUsers": 4
+      },
+      {
+        "landingPage": "/providers/compare/hyperoptic-vs-youfibre",
+        "sessions": 5,
+        "engagementRate": 1,
+        "newUsers": 4
+      },
+      {
+        "landingPage": "/providers/onestream",
+        "sessions": 5,
+        "engagementRate": 1,
+        "newUsers": 4
+      },
+      {
+        "landingPage": "/guides/best-business-broadband-providers-uk",
+        "sessions": 4,
+        "engagementRate": 1,
+        "newUsers": 4
+      },
+      {
+        "landingPage": "/postcode/bn1",
+        "sessions": 4,
+        "engagementRate": 0.75,
+        "newUsers": 3
+      },
+      {
+        "landingPage": "/postcode/bs1",
+        "sessions": 4,
+        "engagementRate": 1,
+        "newUsers": 4
+      },
+      {
+        "landingPage": "/postcode/e15",
+        "sessions": 4,
+        "engagementRate": 0.75,
+        "newUsers": 3
+      },
+      {
+        "landingPage": "/postcode/gu1",
+        "sessions": 4,
+        "engagementRate": 1,
+        "newUsers": 3
+      },
+      {
+        "landingPage": "/postcode/kt1",
+        "sessions": 4,
+        "engagementRate": 1,
+        "newUsers": 4
+      },
+      {
+        "landingPage": "/postcode/m1",
+        "sessions": 4,
+        "engagementRate": 0.5,
+        "newUsers": 2
+      },
+      {
+        "landingPage": "/postcode/manchester",
+        "sessions": 4,
+        "engagementRate": 1,
+        "newUsers": 4
+      },
+      {
+        "landingPage": "/postcode/ne1",
+        "sessions": 4,
+        "engagementRate": 1,
+        "newUsers": 4
+      },
+      {
+        "landingPage": "/postcode/rg9",
+        "sessions": 4,
+        "engagementRate": 0.25,
+        "newUsers": 1
+      },
+      {
+        "landingPage": "/providers/compare",
+        "sessions": 4,
+        "engagementRate": 0.75,
+        "newUsers": 3
+      },
+      {
+        "landingPage": "/providers/compare/hyperoptic-vs-community-fibre",
+        "sessions": 4,
+        "engagementRate": 1,
+        "newUsers": 4
+      },
+      {
+        "landingPage": "/providers/compare/sky-vs-talktalk",
+        "sessions": 4,
+        "engagementRate": 1,
+        "newUsers": 3
+      },
+      {
+        "landingPage": "/tools/broadband-cost-calculator",
+        "sessions": 4,
+        "engagementRate": 1,
+        "newUsers": 4
+      },
+      {
+        "landingPage": "/guides/best-broadband-for-students",
+        "sessions": 3,
+        "engagementRate": 1,
+        "newUsers": 1
+      },
+      {
+        "landingPage": "/guides/broadband-price-rises-2026",
+        "sessions": 3,
+        "engagementRate": 1,
+        "newUsers": 3
+      },
+      {
+        "landingPage": "/guides/digital-voice-explained-uk",
+        "sessions": 3,
+        "engagementRate": 1,
+        "newUsers": 2
+      },
+      {
+        "landingPage": "/guides/gta-6-broadband-uk",
+        "sessions": 3,
+        "engagementRate": 1,
+        "newUsers": 2
+      },
+      {
+        "landingPage": "/guides/no-credit-check-broadband-uk",
+        "sessions": 3,
+        "engagementRate": 1,
+        "newUsers": 3
+      }
+    ],
+    "tools_and_research": [
+      {
+        "landingPage": "/tools/speed-test",
+        "sessionDefaultChannelGroup": "Organic Search",
+        "sessions": 55,
+        "engagementRate": 0.891
+      },
+      {
+        "landingPage": "/tools/broadband-cost-calculator",
+        "sessionDefaultChannelGroup": "Organic Search",
+        "sessions": 4,
+        "engagementRate": 1
+      },
+      {
+        "landingPage": "/tools/broadband-match",
+        "sessionDefaultChannelGroup": "Direct",
+        "sessions": 4,
+        "engagementRate": 0.5
+      },
+      {
+        "landingPage": "/tools/speed-test",
+        "sessionDefaultChannelGroup": "AI Assistant",
+        "sessions": 4,
+        "engagementRate": 1
+      },
+      {
+        "landingPage": "/tools/speed-test",
+        "sessionDefaultChannelGroup": "Direct",
+        "sessions": 4,
+        "engagementRate": 0.75
+      },
+      {
+        "landingPage": "/tools/broadband-match",
+        "sessionDefaultChannelGroup": "Organic Search",
+        "sessions": 2,
+        "engagementRate": 0.5
+      },
+      {
+        "landingPage": "/broadband-glossary",
+        "sessionDefaultChannelGroup": "Organic Search",
+        "sessions": 1,
+        "engagementRate": 1
+      },
+      {
+        "landingPage": "/research/broadband-customer-service-rankings-uk",
+        "sessionDefaultChannelGroup": "Organic Search",
+        "sessions": 1,
+        "engagementRate": 0
+      },
+      {
+        "landingPage": "/research/uk-broadband-customer-satisfaction",
+        "sessionDefaultChannelGroup": "Organic Search",
+        "sessions": 1,
+        "engagementRate": 1
+      }
+    ],
+    "devices": [
+      {
+        "deviceCategory": "mobile",
+        "sessions": 592,
+        "engagementRate": 0.875
+      },
+      {
+        "deviceCategory": "desktop",
+        "sessions": 274,
+        "engagementRate": 0.814
+      },
+      {
+        "deviceCategory": "tablet",
+        "sessions": 14,
+        "engagementRate": 0.857
+      }
+    ],
+    "countries": [
+      {
+        "country": "United Kingdom",
+        "sessions": 825
+      },
+      {
+        "country": "United States",
+        "sessions": 17
+      },
+      {
+        "country": "Netherlands",
+        "sessions": 4
+      },
+      {
+        "country": "France",
+        "sessions": 3
+      },
+      {
+        "country": "Germany",
+        "sessions": 3
+      },
+      {
+        "country": "Spain",
+        "sessions": 3
+      },
+      {
+        "country": "Canada",
+        "sessions": 2
+      },
+      {
+        "country": "Ireland",
+        "sessions": 2
+      },
+      {
+        "country": "Mexico",
+        "sessions": 2
+      },
+      {
+        "country": "Pakistan",
+        "sessions": 2
+      }
+    ]
+  },
+  "tranco": {
+    "source": "https://tranco-list.eu/top-1m.csv.zip",
+    "list_size": 1000000,
+    "ranks": {
+      "uswitch.com": 27120,
+      "moneysavingexpert.com": 12246,
+      "broadbandchoices.co.uk": 204235,
+      "cable.co.uk": 151633,
+      "broadband.co.uk": 424051,
+      "broadbandgenie.co.uk": 528602,
+      "choose.co.uk": null,
+      "ispreview.co.uk": 85460,
+      "thinkbroadband.com": 62614,
+      "comparethemarket.com": 6572,
+      "moneysupermarket.com": 12781,
+      "confused.com": 34500,
+      "gocompare.com": 49696,
+      "which.co.uk": 11111,
+      "money.co.uk": 73118,
+      "bestbroadbanddeals.co.uk": 143946,
+      "broadbanddeals.co.uk": null,
+      "techradar.com": 2339,
+      "forbes.com": 213,
+      "independent.co.uk": 739,
+      "broadbandpicker.co.uk": null
+    }
+  }
+}

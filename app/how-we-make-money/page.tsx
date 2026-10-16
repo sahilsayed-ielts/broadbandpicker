@@ -3,6 +3,10 @@ import Link from 'next/link'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
 import { JsonLd } from '@/lib/jsonLd'
 import { organizationRef } from '@/lib/siteSchema'
+import PageHeroBanner from '@/components/PageHeroBanner'
+import { DEFAULT_GUIDE_CTAS, hubHero } from '@/lib/pageHero'
+
+const HERO = hubHero()
 
 export const metadata: Metadata = {
   title: 'How BroadbandPicker Makes Money | Commercial Disclosure',
@@ -31,17 +35,24 @@ const jsonLd = {
 
 export default function HowWeMakeMoneyPage() {
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div>
       <JsonLd data={jsonLd} />
-
+      <PageHeroBanner
+        title="How BroadbandPicker Makes Money"
+        kicker="Commercial disclosure"
+        lede="We earn a commission when you sign up through a link. That does not buy a higher rank."
+        image={HERO.image}
+        imageAlt={HERO.imageAlt}
+        accent={HERO.accent}
+        ctas={DEFAULT_GUIDE_CTAS}
+      />
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <BreadcrumbNav
         items={[
           { name: 'Home', href: '/' },
           { name: 'How we make money', href: '/how-we-make-money' },
         ]}
       />
-
-      <h1 className="text-3xl font-extrabold text-slate-900 mb-2">How BroadbandPicker Makes Money</h1>
       <p className="text-sm text-slate-500 mb-8">Last updated: June 2026</p>
 
       {/* Summary box */}
@@ -200,6 +211,7 @@ export default function HowWeMakeMoneyPage() {
           </h3>
           <p className="text-xs text-slate-500">Our independence standards and publishing guidelines.</p>
         </Link>
+      </div>
       </div>
     </div>
   )

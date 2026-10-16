@@ -13,7 +13,7 @@ from __future__ import annotations
 
 import json
 import re
-from datetime import datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 from urllib.error import HTTPError, URLError
@@ -21,6 +21,19 @@ from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE = "https://broadbandpicker.co.uk"
+
+try:
+    from generate_weekly_seo_intelligence import (
+        DEFAULT_CREDENTIALS as GSC_DEFAULT_CREDENTIALS,
+        GoogleClient,
+        SITE as GSC_SITE,
+        gsc_query,
+    )
+except ImportError:  # GSC is optional for --skip-gsc runs
+    GSC_DEFAULT_CREDENTIALS = Path("/Users/sahilrafiqsayed/broadbandpicker-ga4-credentials.json")
+    GoogleClient = None
+    GSC_SITE = "sc-domain:broadbandpicker.co.uk"
+    gsc_query = None
 OUT_MD = ROOT / "docs" / "site-technical-seo-geo-diagnosis.md"
 OUT_JSON = ROOT / "docs" / "site-technical-seo-geo-diagnosis.json"
 USER_AGENT = (
@@ -119,6 +132,8 @@ def http_get(url: str, timeout: int = 18, max_bytes: int = 700_000) -> dict[str,
         "canonical": "",
         "has_faq": False,
         "excerpt": "",
+        "word_count": 0,
+        "noindex": False,
     }
     try:
         request = Request(
@@ -161,9 +176,37 @@ def http_get(url: str, timeout: int = 18, max_bytes: int = 700_000) -> dict[str,
             flags=re.I,
         )
     row["canonical"] = canon.group(1) if canon else ""
+    row["noindex"] = bool(re.search(r'<meta[^>]+name=["\']robots["\'][^>]+content=["\'][^"\']*noindex', body, flags=re.I))
+    visible = re.sub(r"<script[\s\S]*?</script>|<style[\s\S]*?</style>|<[^>]+>", " ", body, flags=re.I)
+    row["word_count"] = len(re.findall(r"\b\w[\w'-]*\b", visible))
     row["loc_count"] = body.count("<loc>")
     row["excerpt"] = re.sub(r"\s+", " ", body)[:400]
     return row
+
+
+def review_discovered_urls(urls: list[str]) -> dict[str, Any]:
+    reviews = []
+    for url in unique(urls):
+        row = http_get(url, timeout=22)
+        issues = []
+        if row["status"] != 200:
+            issues.append("not-200")
+        if row.get("noindex"):
+            issues.append("noindex")
+        if not row.get("canonical"):
+            issues.append("missing-canonical")
+        elif row["canonical"].rstrip("/") != url.rstrip("/"):
+            issues.append("canonical-mismatch")
+        if row.get("word_count", 0) < 500 and url.rstrip("/") not in {SITE + "/feed.xml", SITE + "/llms.txt", SITE + "/llms-full.txt"}:
+            issues.append("thin-visible-content")
+        if not row.get("schema_types"):
+            issues.append("no-structured-data")
+        if issues:
+            action = "fix before indexing"
+        else:
+            action = "add internal links and request indexing after sitemap confirmation"
+        reviews.append({"url": url, "action": action, "issues": issues, **row})
+    return {"urls": reviews, "summary": {"count": len(reviews), "issue_counts": {k: sum(k in r["issues"] for r in reviews) for k in ["not-200", "noindex", "missing-canonical", "canonical-mismatch", "thin-visible-content", "no-structured-data"]}}}
 
 
 def scan_workspace_schema() -> dict[str, Any]:
@@ -888,9 +931,105 @@ def load_previous_competitor_fetches() -> list[dict[str, Any]]:
     return rows if isinstance(rows, list) else []
 
 
+def _gsc_totals(rows: list[dict[str, Any]]) -> dict[str, float]:
+    clicks = sum(float(r.get("clicks", 0) or 0) for r in rows)
+    impressions = sum(float(r.get("impressions", 0) or 0) for r in rows)
+    weighted_position = sum(float(r.get("position", 0) or 0) * float(r.get("impressions", 0) or 0) for r in rows)
+    return {"clicks": clicks, "impressions": impressions, "ctr": clicks / impressions if impressions else 0.0,
+            "position": weighted_position / impressions if impressions else 0.0}
+
+
+def _gsc_page_map(rows: list[dict[str, Any]]) -> dict[str, dict[str, float]]:
+    out: dict[str, dict[str, float]] = {}
+    for row in rows:
+        keys = row.get("keys") or []
+        if not keys:
+            continue
+        page = str(keys[0]).split("?", 1)[0].rstrip("/") or SITE
+        item = out.setdefault(page, {"clicks": 0.0, "impressions": 0.0, "position_weight": 0.0})
+        impressions = float(row.get("impressions", 0) or 0)
+        item["clicks"] += float(row.get("clicks", 0) or 0)
+        item["impressions"] += impressions
+        item["position_weight"] += float(row.get("position", 0) or 0) * impressions
+    for item in out.values():
+        item["ctr"] = item["clicks"] / item["impressions"] if item["impressions"] else 0.0
+        item["position"] = item.pop("position_weight") / item["impressions"] if item["impressions"] else 0.0
+    return out
+
+
+def run_gsc_diagnosis(credentials: Path, days: int = 28) -> dict[str, Any]:
+    """Fetch Search Analytics data and turn it into page/query priorities."""
+    if GoogleClient is None or gsc_query is None:
+        raise RuntimeError("Google API helpers unavailable")
+    end = date.today() - timedelta(days=2)
+    start = end - timedelta(days=days - 1)
+    previous_end = start - timedelta(days=1)
+    previous_start = previous_end - timedelta(days=days - 1)
+    client = GoogleClient(credentials)
+    current_pages = gsc_query(client, start, end, ["page"])
+    previous_pages = gsc_query(client, previous_start, previous_end, ["page"])
+    current_queries = gsc_query(client, start, end, ["page", "query"])
+    current = _gsc_page_map(current_pages)
+    previous = _gsc_page_map(previous_pages)
+    opportunities = []
+    for page, metrics in current.items():
+        prior = previous.get(page, {})
+        impressions = metrics["impressions"]
+        position = metrics["position"]
+        ctr = metrics["ctr"]
+        if impressions < 20:
+            continue
+        if position <= 12 and ctr < 0.03:
+            kind, reason = "CTR/snippet", "high visibility but weak click-through"
+        elif 4 <= position <= 20:
+            kind, reason = "ranking lift", "page-one/near-page-one impressions can become clicks"
+        elif position > 20 and impressions >= 100:
+            kind, reason = "content/intent", "demand exists but the page is not yet competitive"
+        else:
+            continue
+        opportunities.append({"page": page, "opportunity": kind, "reason": reason, **metrics,
+                              "previous_clicks": prior.get("clicks", 0),
+                              "previous_impressions": prior.get("impressions", 0),
+                              "previous_position": prior.get("position", 0)})
+    opportunities.sort(key=lambda r: (-r["impressions"], r["position"]))
+    query_rows = sorted(current_queries, key=lambda r: float(r.get("impressions", 0) or 0), reverse=True)
+    return {
+        "window": {"current": [str(start), str(end)], "previous": [str(previous_start), str(previous_end)]},
+        "summary": {"current": _gsc_totals(current_pages), "previous": _gsc_totals(previous_pages)},
+        "pages": opportunities[:100],
+        "top_queries": [{"page": (r.get("keys") or [""])[0], "query": (r.get("keys") or ["", ""])[1],
+                         "clicks": r.get("clicks", 0), "impressions": r.get("impressions", 0),
+                         "ctr": r.get("ctr", 0), "position": r.get("position", 0)} for r in query_rows[:100]],
+        "limitation": "Search Analytics does not expose the Page indexing report buckets (404, discovered-not-indexed, crawled-not-indexed); validate those in GSC Page indexing/URL Inspection.",
+    }
+
+
+def gsc_markdown(gsc: dict[str, Any]) -> str:
+    s = gsc["summary"]["current"]
+    p = gsc["summary"]["previous"]
+    def pct(a, b): return ((a - b) / b * 100) if b else None
+    click_change = pct(s['clicks'], p['clicks'])
+    click_change_text = f"{click_change:+.1f}%" if click_change is not None else "n/a"
+    lines = ["\n## Search Console performance diagnosis", "", f"Window: `{gsc['window']['current'][0]}` to `{gsc['window']['current'][1]}` (compared with prior 28 days).", "",
+             f"- Clicks: **{s['clicks']:.0f}** (change: {click_change_text})",
+             f"- Impressions: **{s['impressions']:.0f}**", f"- CTR: **{s['ctr']:.2%}**", f"- Weighted average position: **{s['position']:.1f}**", "",
+             "### Highest-impact page opportunities", "", "| Page | Action | Impressions | CTR | Position | Why |", "|---|---|---:|---:|---:|---|"]
+    for r in gsc["pages"][:30]:
+        lines.append(f"| `{r['page']}` | {r['opportunity']} | {r['impressions']:.0f} | {r['ctr']:.2%} | {r['position']:.1f} | {r['reason']} |")
+    lines += ["", "### Top page/query demand", "", "| Page | Query | Impressions | CTR | Position |", "|---|---|---:|---:|---:|"]
+    for r in gsc["top_queries"][:30]:
+        lines.append(f"| `{r['page']}` | {r['query']} | {float(r['impressions']):.0f} | {float(r['ctr']):.2%} | {float(r['position']):.1f} |")
+    lines += ["", f"> **Indexing limitation:** {gsc['limitation']}"]
+    return "\n".join(lines) + "\n"
+
+
 def run_site_diagnosis(
     *,
     skip_web: bool = False,
+    skip_gsc: bool = False,
+    gsc_credentials: Path = GSC_DEFAULT_CREDENTIALS,
+    gsc_days: int = 28,
+    discovered_urls: list[str] | None = None,
     competitor_fetches: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     schema_scan = scan_workspace_schema()
@@ -922,6 +1061,13 @@ def run_site_diagnosis(
     )
     templates = recommended_schema_by_template()
     actions = technical_actions(signals, live, schema_scan)
+    gsc = None
+    if not skip_gsc:
+        try:
+            gsc = run_gsc_diagnosis(gsc_credentials, gsc_days)
+        except Exception as exc:
+            gsc = {"error": str(exc), "limitation": "GSC pull failed; check credentials/scopes."}
+    discovered_review = review_discovered_urls(discovered_urls or []) if discovered_urls else None
     payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "site": SITE,
@@ -936,13 +1082,23 @@ def run_site_diagnosis(
             "Schema and crawl work make citation and rich results possible. "
             "They do not by themselves rank position 1 for head terms."
         ),
+        "gsc_diagnosis": gsc,
+        "discovered_not_indexed_review": discovered_review,
     }
     OUT_MD.parent.mkdir(parents=True, exist_ok=True)
     OUT_JSON.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    OUT_MD.write_text(
-        markdown_diagnosis(signals, schema_scan, live, actions, templates, competitor_schema),
-        encoding="utf-8",
-    )
+    markdown = markdown_diagnosis(signals, schema_scan, live, actions, templates, competitor_schema)
+    if gsc and "error" not in gsc:
+        markdown += gsc_markdown(gsc)
+    else:
+        markdown += f"\n## Search Console performance diagnosis\n\nGSC pull unavailable: `{(gsc or {}).get('error', 'skipped')}`\n"
+    if discovered_review:
+        markdown += "\n## Discovered but currently not indexed URL review\n\n"
+        markdown += f"Reviewed **{discovered_review['summary']['count']}** URLs from the GSC export. Issue counts: " + ", ".join(f"{k}={v}" for k, v in discovered_review['summary']['issue_counts'].items()) + ".\n\n"
+        markdown += "| URL | Status | Words | Canonical | Issues | Next action |\n|---|---:|---:|---|---|---|\n"
+        for r in discovered_review["urls"]:
+            markdown += f"| `{r['url']}` | {r['status']} | {r['word_count']} | `{r['canonical'] or 'missing'}` | {', '.join(r['issues']) or 'none'} | {r['action']} |\n"
+    OUT_MD.write_text(markdown, encoding="utf-8")
     return payload
 
 
@@ -951,8 +1107,15 @@ def main() -> int:
 
     parser = argparse.ArgumentParser(description="Diagnose BroadbandPicker technical SEO and GEO.")
     parser.add_argument("--skip-web", action="store_true")
+    parser.add_argument("--skip-gsc", action="store_true")
+    parser.add_argument("--credentials", type=Path, default=GSC_DEFAULT_CREDENTIALS)
+    parser.add_argument("--gsc-days", type=int, default=28)
+    parser.add_argument("--indexation-urls", type=Path, help="newline-delimited GSC discovered-not-indexed URL export")
     args = parser.parse_args()
-    payload = run_site_diagnosis(skip_web=args.skip_web)
+    urls = []
+    if args.indexation_urls and args.indexation_urls.is_file():
+        urls = [line.strip() for line in args.indexation_urls.read_text(encoding="utf-8").splitlines() if line.strip() and not line.startswith("#")]
+    payload = run_site_diagnosis(skip_web=args.skip_web, skip_gsc=args.skip_gsc, gsc_credentials=args.credentials, gsc_days=args.gsc_days, discovered_urls=urls)
     print(f"Schema files: {payload['schema_scan']['file_count']}")
     print(f"P0 missing: {', '.join(payload['p0_missing']) or 'none'}")
     print(f"Wrote {OUT_MD.relative_to(ROOT)}")

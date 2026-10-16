@@ -1,6 +1,6 @@
 # Site technical SEO + GEO diagnosis
 
-Generated 2026-08-31.
+Generated 2026-09-28.
 Site: https://broadbandpicker.co.uk
 Produced by `scripts/plan_homepage_seo_geo.py` (site-diagnosis pass).
 
@@ -20,9 +20,9 @@ majors leave thin (switch, social tariffs, postcode, provider vs provider).
 
 ## Snapshot
 
-- Guides in dataset: 46
-- Providers in dataset: 24
-- Schema types declared in source: WebPage, FAQPage, Question, Answer, HowTo, HowToStep, AdministrativeArea, Country, Dataset, PropertyValue, ContactPage, Organization, ContactPoint, DefinedTermSet, DefinedTerm, ItemList, ListItem, CollectionPage, Service, AboutPage, BreadcrumbList, ImageObject, WebSite, SearchAction, Article, Offer, Product, Brand, UnitPriceSpecification, QuantitativeValue, OfferCatalog
+- Guides in dataset: 62
+- Providers in dataset: 25
+- Schema types declared in source: WebPage, FAQPage, Question, Answer, HowTo, HowToStep, ContactPage, Organization, ContactPoint, CollectionPage, WebSite, ItemList, ListItem, DefinedTermSet, DefinedTerm, AboutPage, BreadcrumbList, Product, Brand, Offer, Article, Service, Country, AdministrativeArea, Dataset, PropertyValue, ImageObject, SearchAction, UnitPriceSpecification, QuantitativeValue, OfferCatalog
 - JSON-LD files missing `<` sanitise: 0
 - Organization JSON-LD in layout: True
 - `/llms.txt` in repo: True
@@ -32,11 +32,39 @@ majors leave thin (switch, social tariffs, postcode, provider vs provider).
 
 ## Live page probe
 
-Skipped (`--skip-web`) or no successful fetches.
+| Page | HTTP | Canonical | JSON-LD blocks | Schema types |
+|---|---|---|---|---|
+| Homepage | 200 | https://broadbandpicker.co.uk | 10 | Organization, ImageObject, Country, ContactPoint, WebSite, SearchAction, WebPage, FAQPage, Question, Answer, HowTo, HowToStep, ItemList, ListItem, Product, Brand, Offer, UnitPriceSpecification, QuantitativeValue |
+| Deals | 200 | https://broadbandpicker.co.uk/deals | 10 | Organization, ImageObject, Country, ContactPoint, WebSite, SearchAction, ItemList, ListItem, Product, Brand, Offer, UnitPriceSpecification, QuantitativeValue, OfferCatalog, Service, CollectionPage, BreadcrumbList |
+| Compare | 200 | https://broadbandpicker.co.uk/compare | 6 | Organization, ImageObject, Country, ContactPoint, WebSite, SearchAction, CollectionPage, ItemList, ListItem, FAQPage, Question, Answer, BreadcrumbList |
+| Providers hub | 200 | https://broadbandpicker.co.uk/providers | 8 | Organization, ImageObject, Country, ContactPoint, WebSite, SearchAction, ItemList, ListItem, CollectionPage, BreadcrumbList |
+| Provider (BT) | 200 | https://broadbandpicker.co.uk/providers/bt | 10 | Organization, ImageObject, Country, ContactPoint, WebSite, SearchAction, Article, WebPage, Service, FAQPage, Question, Answer, Product, Brand, Offer, UnitPriceSpecification, BreadcrumbList, ListItem |
+| Provider vs provider | 200 | https://broadbandpicker.co.uk/providers/compare/ee-vs-talktalk | 8 | Organization, ImageObject, Country, ContactPoint, WebSite, SearchAction, Article, WebPage, FAQPage, Question, Answer, BreadcrumbList, ListItem |
+| Guide (switch) | 200 | https://broadbandpicker.co.uk/guides/how-to-switch-broadband-uk | 10 | Organization, ImageObject, Country, ContactPoint, WebSite, SearchAction, Article, WebPage, FAQPage, Question, Answer, HowTo, HowToStep, BreadcrumbList, ListItem |
+| Guide (cheapest) | 200 | https://broadbandpicker.co.uk/guides/cheapest-broadband-uk | 8 | Organization, ImageObject, Country, ContactPoint, WebSite, SearchAction, Article, WebPage, FAQPage, Question, Answer, BreadcrumbList, ListItem |
+| Postcode (London) | 200 | https://broadbandpicker.co.uk/postcode/london | 6 | Organization, ImageObject, Country, ContactPoint, WebSite, SearchAction, CollectionPage, FAQPage, Question, Answer, AdministrativeArea, BreadcrumbList, ListItem |
+| Postcode hub | 200 | https://broadbandpicker.co.uk/postcode | 6 | Organization, ImageObject, Country, ContactPoint, WebSite, SearchAction, CollectionPage, FAQPage, Question, Answer, BreadcrumbList, ListItem |
+| About | 200 | https://broadbandpicker.co.uk/about | 6 | Organization, ImageObject, Country, ContactPoint, WebSite, SearchAction, AboutPage, BreadcrumbList, ListItem |
+| How we make money | 200 | https://broadbandpicker.co.uk/how-we-make-money | 6 | Organization, ImageObject, Country, ContactPoint, WebSite, SearchAction, WebPage, BreadcrumbList, ListItem |
+| How we review | 200 | https://broadbandpicker.co.uk/how-we-review-broadband | 6 | Organization, ImageObject, Country, ContactPoint, WebSite, SearchAction, WebPage, BreadcrumbList, ListItem |
+| Editorial policy | 200 | https://broadbandpicker.co.uk/editorial-policy | 6 | Organization, ImageObject, Country, ContactPoint, WebSite, SearchAction, WebPage, BreadcrumbList, ListItem |
+| Research (satisfaction) | 200 | https://broadbandpicker.co.uk/research/uk-broadband-customer-satisfaction | 6 | Organization, ImageObject, Country, ContactPoint, WebSite, SearchAction, Dataset, FAQPage, Question, Answer, BreadcrumbList, ListItem |
+| Glossary | 200 | https://broadbandpicker.co.uk/broadband-glossary | 6 | Organization, ImageObject, Country, ContactPoint, WebSite, SearchAction, DefinedTermSet, DefinedTerm, BreadcrumbList, ListItem |
+| Speed test | 200 | https://broadbandpicker.co.uk/tools/speed-test | 6 | Organization, ImageObject, Country, ContactPoint, WebSite, SearchAction, Offer, WebPage, FAQPage, Question, Answer, BreadcrumbList, ListItem |
+| Broadband Match | 200 | https://broadbandpicker.co.uk/tools/broadband-match | 6 | Organization, ImageObject, Country, ContactPoint, WebSite, SearchAction, Offer, WebPage, FAQPage, Question, Answer, BreadcrumbList, ListItem |
+| Cost calculator | 200 | https://broadbandpicker.co.uk/tools/broadband-cost-calculator | 6 | Organization, ImageObject, Country, ContactPoint, WebSite, SearchAction, Offer, WebPage, FAQPage, Question, Answer, BreadcrumbList, ListItem |
 
 ### Technical URLs
 
-Skipped.
+- `/robots.txt` HTTP 200
+- `/sitemap.xml` HTTP 200, <loc> sample 200
+- `/ads.txt` HTTP 200
+- `/llms.txt` HTTP 200
+- `/llms-full.txt` HTTP 200
+- `/rss.xml` HTTP 404
+- `/feed.xml` HTTP 200
+- `/manifest.webmanifest` HTTP 404
+- `/logo.png` HTTP 200
 
 ### Competitor schema types seen this run
 
@@ -142,25 +170,32 @@ That is the gap: sitewide publisher entity + citeable HTML + honest Offer data.
 ## JSON-LD currently in source
 
 - `app/about/page.tsx`: AboutPage
+- `app/alerts/page.tsx`: WebPage, WebSite, FAQPage, Question, Answer
+- `app/alerts/weekly/page.tsx`: Article, Organization
 - `app/broadband-glossary/page.tsx`: DefinedTermSet, DefinedTerm
 - `app/compare/page.tsx`: ItemList, ListItem, CollectionPage, Organization, FAQPage, Question, Answer, BreadcrumbList
 - `app/contact/page.tsx`: ContactPage, Organization, ContactPoint
 - `app/deals/page.tsx`: CollectionPage
 - `app/editorial-policy/page.tsx`: WebPage
-- `app/guides/[slug]/page.tsx`: HowTo, HowToStep, FAQPage, Question, Answer
+- `app/guides/[slug]/page.tsx`: HowTo, HowToStep, FAQPage, Question, Answer, ItemList, ListItem, Product, Brand, Offer
 - `app/how-we-make-money/page.tsx`: WebPage
 - `app/how-we-review-broadband/page.tsx`: WebPage
 - `app/page.tsx`: WebPage, FAQPage, Question, Answer, HowTo, HowToStep
 - `app/postcode/[area]/page.tsx`: WebPage, FAQPage, Question, Answer, AdministrativeArea, Country, Dataset, PropertyValue
 - `app/providers/[slug]/page.tsx`: Service, Country, Organization, FAQPage, Question, Answer
 - `app/providers/compare/[slug]/page.tsx`: FAQPage, Question, Answer
-- `app/providers/compare/page.tsx`: ItemList, ListItem
+- `app/providers/compare/page.tsx`: CollectionPage, Organization, ItemList, ListItem, FAQPage, Question, Answer, BreadcrumbList
 - `app/providers/page.tsx`: ItemList, ListItem, CollectionPage
-- `app/speed-test/page.tsx`: FAQPage, Question, Answer
 - `app/tools/broadband-cost-calculator/page.tsx`: FAQPage, Question, Answer
 - `app/tools/broadband-match/page.tsx`: FAQPage, Question, Answer
+- `app/tools/page.tsx`: CollectionPage, WebSite, ItemList, ListItem
+- `app/tools/speed-test/page.tsx`: FAQPage, Question, Answer
 - `components/BreadcrumbNav.tsx`: BreadcrumbList, ListItem
+- `components/Gta6BroadbandGuide.tsx`: FAQPage, Question, Answer, HowTo, HowToStep
 - `components/PrioritySeoPage.tsx`: FAQPage, Question, Answer, AdministrativeArea, Country
+- `components/StreamingBroadbandGuide.tsx`: FAQPage, Question, Answer, HowTo, HowToStep
+- `components/WhatBroadbandSpeedGuide.tsx`: FAQPage, Question, Answer, HowTo, HowToStep
+- `components/Wifi7ExplainedGuide.tsx`: FAQPage, Question, Answer, HowTo, HowToStep
 - `lib/dealSchema.ts`: ItemList, ListItem, Product, Brand, Offer, Organization, UnitPriceSpecification, QuantitativeValue, Country, OfferCatalog, Service
 - `lib/siteSchema.ts`: Organization, ImageObject, Country, ContactPoint, WebSite, SearchAction, Article, WebPage, Offer
 
@@ -194,7 +229,7 @@ quotation. Do them before adding exotic types.
 | T12 | done | Add HowTo JSON-LD to the switch guide (the query is how-to, the homepage HowTo is only a teaser). | how to switch broadband is a primary GEO query. The dedicated guide should carry HowTo steps that match the visible HTML, plus FAQPage. | `app/guides/[slug]/page.tsx when slug is how-to-switch-broadband-uk` |
 | T13 | done | Add Place / AdministrativeArea on postcode pages, plus Dataset on coverage stats. | broadband in [town] and AI answers about coverage need a geo entity, not only a WebPage title. Ofcom-derived percentages belong in Dataset (variableMeasured, citation Ofcom) so models can quote a number with a date. | `app/postcode/[area]/page.tsx` |
 | T14 | done | Upgrade tools from WebApplication-only to SoftwareApplication with price 0. | Speed test, Broadband Match and the cost calculator are free software. SoftwareApplication with isAccessibleForFree and offers.price 0 is the type Google and LLMs expect for a tool. | `app/speed-test/page.tsx, app/tools/broadband-match/page.tsx, app/tools/broadband-cost-calculator/page.tsx` |
-| T15 | done | Add ContactPage + ContactPoint. Expand sameAs when LinkedIn and YouTube exist. | Organization.sameAs is currently X and Instagram. Knowledge panels and LLM publisher resolution use sameAs. Do not add empty profiles. | `layout Organization graph, app/contact/page.tsx` |
+| T15 | done | Add ContactPage + ContactPoint. Expand sameAs when LinkedIn and YouTube exist. | Knowledge panels and LLM publisher resolution use sameAs. Do not add empty profiles. LinkedIn company URL is live. Skip TikTok and YouTube until those accounts exist. | `layout Organization graph, app/contact/page.tsx, footer social pills` |
 | T16 | done | Set a default Open Graph image and twitter:card summary_large_image in the layout. | Most templates have no twitter card and no og:image. ChatGPT, Slack, LinkedIn and iMessage unfurl empty. Use /logo.png or a 1200x630 branded comparison card. | `app/layout.tsx metadata.openGraph.images + metadata.twitter` |
 | T17 | done | Ship an RSS or Atom feed of guides and research, listed in llms.txt. | Perplexity and some research crawlers still discover publishers via feeds. A /guides.xml of title, url, dateModified, first paragraph is enough. | `app/guides.xml/route.ts or app/feed.xml/route.ts` |
 | T18 | partial | Add a Person author only when a named editor exists. Until then keep Organization author with url /about. | Fake Person schema is worse than an organisation byline. When a named reviewer ships, give them /about#[slug], jobTitle, sameAs, and a visible byline that matches the JSON-LD. | `app/about/page.tsx, then Article.author` |
@@ -234,7 +269,8 @@ instead of repeating a thinner Organization.
       "areaServed": { "@type": "Country", "name": "United Kingdom" },
       "sameAs": [
         "https://x.com/broadbandPicker",
-        "https://www.instagram.com/broadbandpicker/"
+        "https://www.instagram.com/broadbandpicker/",
+        "https://www.linkedin.com/company/broadband-picker/"
       ],
       "publishingPrinciples": "https://broadbandpicker.co.uk/editorial-policy",
       "ethicsPolicy": "https://broadbandpicker.co.uk/how-we-review-broadband",
@@ -321,3 +357,108 @@ Use these pages when citing BroadbandPicker:
 - Manual: ask ChatGPT, Gemini and Perplexity "compare UK broadband deals for
   a London postcode" and "is BroadbandPicker independent" after the
   Organization graph and llms.txt have been live for a crawl cycle.
+
+## Search Console performance diagnosis
+
+Window: `2026-08-30` to `2026-09-26` (compared with prior 28 days).
+
+- Clicks: **557** (change: +533.0%)
+- Impressions: **176043**
+- CTR: **0.32%**
+- Weighted average position: **35.3**
+
+### Highest-impact page opportunities
+
+| Page | Action | Impressions | CTR | Position | Why |
+|---|---|---:|---:|---:|---|
+| `https://broadbandpicker.co.uk/guides/best-broadband-and-tv-deals` | content/intent | 31773 | 0.14% | 43.4 | demand exists but the page is not yet competitive |
+| `https://broadbandpicker.co.uk/guides/best-phone-and-broadband-deals` | content/intent | 21394 | 0.01% | 53.0 | demand exists but the page is not yet competitive |
+| `https://broadbandpicker.co.uk/speed-test` | content/intent | 7591 | 0.00% | 67.0 | demand exists but the page is not yet competitive |
+| `https://broadbandpicker.co.uk/deals` | content/intent | 7012 | 0.00% | 47.0 | demand exists but the page is not yet competitive |
+| `https://broadbandpicker.co.uk/providers/giffgaff` | CTR/snippet | 6548 | 0.09% | 5.5 | high visibility but weak click-through |
+| `https://broadbandpicker.co.uk/postcode/da1` | CTR/snippet | 6302 | 0.02% | 10.0 | high visibility but weak click-through |
+| `https://broadbandpicker.co.uk/guides/best-full-fibre-broadband-uk` | content/intent | 6295 | 0.05% | 49.6 | demand exists but the page is not yet competitive |
+| `https://broadbandpicker.co.uk/compare` | content/intent | 5318 | 0.02% | 43.3 | demand exists but the page is not yet competitive |
+| `https://broadbandpicker.co.uk/tools/speed-test` | content/intent | 4052 | 0.22% | 33.6 | demand exists but the page is not yet competitive |
+| `https://broadbandpicker.co.uk/guides/broadband-complaints-and-ombudsman-uk` | ranking lift | 3163 | 0.25% | 19.8 | page-one/near-page-one impressions can become clicks |
+| `https://broadbandpicker.co.uk/guides/best-business-broadband-providers-uk` | content/intent | 3083 | 0.10% | 66.2 | demand exists but the page is not yet competitive |
+| `https://broadbandpicker.co.uk/guides/broadband-help-if-you-claim-benefits-uk` | content/intent | 2677 | 0.26% | 56.4 | demand exists but the page is not yet competitive |
+| `https://broadbandpicker.co.uk/guides/broadband-social-tariffs-uk` | content/intent | 2051 | 0.20% | 60.2 | demand exists but the page is not yet competitive |
+| `https://broadbandpicker.co.uk/guides/best-rolling-monthly-broadband-deals` | content/intent | 2022 | 0.35% | 36.9 | demand exists but the page is not yet competitive |
+| `https://broadbandpicker.co.uk/guides/cheapest-way-to-watch-sky-sports-uk` | ranking lift | 1984 | 1.21% | 13.1 | page-one/near-page-one impressions can become clicks |
+| `https://broadbandpicker.co.uk/guides/best-mesh-wifi-for-your-broadband-router` | content/intent | 1896 | 1.27% | 25.5 | demand exists but the page is not yet competitive |
+| `https://broadbandpicker.co.uk/guides/broadband-and-mobile-bundle-discounts-uk` | content/intent | 1841 | 0.43% | 22.5 | demand exists but the page is not yet competitive |
+| `https://broadbandpicker.co.uk/providers/bt` | content/intent | 1691 | 0.00% | 39.9 | demand exists but the page is not yet competitive |
+| `https://broadbandpicker.co.uk/providers/talktalk` | content/intent | 1586 | 0.19% | 36.9 | demand exists but the page is not yet competitive |
+| `https://broadbandpicker.co.uk/providers/compare/ee-vs-sky` | CTR/snippet | 1539 | 1.30% | 7.0 | high visibility but weak click-through |
+| `https://broadbandpicker.co.uk/providers/compare/sky-vs-virgin-media` | ranking lift | 1510 | 0.40% | 18.2 | page-one/near-page-one impressions can become clicks |
+| `https://broadbandpicker.co.uk/guides/best-broadband-for-students` | content/intent | 1507 | 0.13% | 53.1 | demand exists but the page is not yet competitive |
+| `https://broadbandpicker.co.uk/guides/broadband-deals-with-no-mid-contract-price-rise` | CTR/snippet | 1499 | 1.33% | 8.2 | high visibility but weak click-through |
+| `https://broadbandpicker.co.uk/providers/toob` | ranking lift | 1384 | 0.43% | 14.2 | page-one/near-page-one impressions can become clicks |
+| `https://broadbandpicker.co.uk/providers/brsk` | content/intent | 1379 | 0.29% | 26.7 | demand exists but the page is not yet competitive |
+| `https://broadbandpicker.co.uk/providers/compare/plusnet-vs-ee` | CTR/snippet | 1345 | 0.74% | 6.3 | high visibility but weak click-through |
+| `https://broadbandpicker.co.uk/providers/compare` | content/intent | 1244 | 0.56% | 37.0 | demand exists but the page is not yet competitive |
+| `https://broadbandpicker.co.uk/postcode/manchester` | content/intent | 1208 | 0.00% | 45.2 | demand exists but the page is not yet competitive |
+| `https://broadbandpicker.co.uk/guides/black-friday-broadband-deals-uk` | content/intent | 1145 | 0.09% | 20.4 | demand exists but the page is not yet competitive |
+| `https://broadbandpicker.co.uk/postcode/london` | content/intent | 1144 | 0.26% | 28.7 | demand exists but the page is not yet competitive |
+
+### Top page/query demand
+
+| Page | Query | Impressions | CTR | Position |
+|---|---|---:|---:|---:|
+| `https://broadbandpicker.co.uk/postcode/da1` | broadband deals in dartford | 6101 | 0.00% | 10.1 |
+| `https://broadbandpicker.co.uk/guides/best-full-fibre-broadband-uk` | fibre broadband | 784 | 0.00% | 74.3 |
+| `https://broadbandpicker.co.uk/guides/best-full-fibre-broadband-uk` | fibre optic broadband | 723 | 0.00% | 79.9 |
+| `https://broadbandpicker.co.uk/guides/best-broadband-and-tv-deals` | best broadband and tv deals | 677 | 0.00% | 53.7 |
+| `https://broadbandpicker.co.uk/guides/best-broadband-and-tv-deals` | compare broadband and tv | 660 | 0.00% | 50.4 |
+| `https://broadbandpicker.co.uk/guides/best-broadband-and-tv-deals` | tv and broadband deals | 649 | 0.00% | 60.6 |
+| `https://broadbandpicker.co.uk/guides/best-broadband-and-tv-deals` | broadband and tv deals | 630 | 0.00% | 67.3 |
+| `https://broadbandpicker.co.uk/guides/best-broadband-and-tv-deals` | tv package deals | 615 | 0.00% | 78.4 |
+| `https://broadbandpicker.co.uk/guides/best-full-fibre-broadband-uk` | best fibre broadband | 591 | 0.00% | 18.2 |
+| `https://broadbandpicker.co.uk/guides/best-broadband-and-tv-deals` | best tv and broadband deals | 586 | 0.00% | 75.6 |
+| `https://broadbandpicker.co.uk/speed-test` | how to check wifi speed | 553 | 0.00% | 3.0 |
+| `https://broadbandpicker.co.uk/speed-test` | how to test internet speed | 491 | 0.00% | 3.2 |
+| `https://broadbandpicker.co.uk/providers/giffgaff` | giffgaff broadband best price | 459 | 0.00% | 7.3 |
+| `https://broadbandpicker.co.uk/guides/best-broadband-and-tv-deals` | best broadband | 367 | 0.00% | 22.7 |
+| `https://broadbandpicker.co.uk/guides/best-full-fibre-broadband-uk` | full fibre broadband | 343 | 0.00% | 51.1 |
+| `https://broadbandpicker.co.uk/deals` | best broadband | 342 | 0.00% | 32.0 |
+| `https://broadbandpicker.co.uk/compare` | internet comparison | 336 | 0.00% | 53.4 |
+| `https://broadbandpicker.co.uk/guides/best-broadband-and-tv-deals` | tv packages | 323 | 0.00% | 85.6 |
+| `https://broadbandpicker.co.uk/guides/best-phone-and-broadband-deals` | unlimited phone calls and broadband packages | 296 | 0.00% | 49.3 |
+| `https://broadbandpicker.co.uk/providers/giffgaff` | giffgaff broadband sale | 296 | 0.00% | 6.1 |
+| `https://broadbandpicker.co.uk/deals` | internet deals | 293 | 0.00% | 49.4 |
+| `https://broadbandpicker.co.uk/guides/best-rolling-monthly-broadband-deals` | monthly broadband | 272 | 0.00% | 26.9 |
+| `https://broadbandpicker.co.uk/deals` | broadband deals | 251 | 0.00% | 44.8 |
+| `https://broadbandpicker.co.uk/providers/giffgaff` | giffgaff broadband prices | 234 | 0.00% | 6.4 |
+| `https://broadbandpicker.co.uk/guides/best-phone-and-broadband-deals` | home phone and broadband | 207 | 0.00% | 53.0 |
+| `https://broadbandpicker.co.uk/providers/brsk` | brsk broadband | 199 | 0.00% | 44.7 |
+| `https://broadbandpicker.co.uk/providers/compare` | internet comparison | 199 | 0.00% | 67.8 |
+| `https://broadbandpicker.co.uk/guides/best-full-fibre-broadband-uk` | full fibre | 196 | 0.00% | 68.9 |
+| `https://broadbandpicker.co.uk/providers/brsk` | brsk | 195 | 0.00% | 51.7 |
+| `https://broadbandpicker.co.uk/guides/best-phone-and-broadband-deals` | best phone and broadband | 188 | 0.00% | 24.9 |
+
+> **Indexing limitation:** Search Analytics does not expose the Page indexing report buckets (404, discovered-not-indexed, crawled-not-indexed); validate those in GSC Page indexing/URL Inspection.
+
+## Discovered but currently not indexed URL review
+
+Reviewed **17** URLs from the GSC export. Issue counts: not-200=0, noindex=0, missing-canonical=3, canonical-mismatch=0, thin-visible-content=0, no-structured-data=3.
+
+| URL | Status | Words | Canonical | Issues | Next action |
+|---|---:|---:|---|---|---|
+| `https://broadbandpicker.co.uk/feed.xml` | 200 | 4584 | `missing` | missing-canonical, no-structured-data | fix before indexing |
+| `https://broadbandpicker.co.uk/guides/best-broadband-for-gaming-uk` | 200 | 2065 | `https://broadbandpicker.co.uk/guides/best-broadband-for-gaming-uk` | none | add internal links and request indexing after sitemap confirmation |
+| `https://broadbandpicker.co.uk/guides/best-broadband-for-rural-areas-uk` | 200 | 1746 | `https://broadbandpicker.co.uk/guides/best-broadband-for-rural-areas-uk` | none | add internal links and request indexing after sitemap confirmation |
+| `https://broadbandpicker.co.uk/guides/best-broadband-providers-uk` | 200 | 2187 | `https://broadbandpicker.co.uk/guides/best-broadband-providers-uk` | none | add internal links and request indexing after sitemap confirmation |
+| `https://broadbandpicker.co.uk/guides/best-streaming-services-uk` | 200 | 2529 | `https://broadbandpicker.co.uk/guides/best-streaming-services-uk` | none | add internal links and request indexing after sitemap confirmation |
+| `https://broadbandpicker.co.uk/guides/broadband-deals-under-20` | 200 | 1696 | `https://broadbandpicker.co.uk/guides/broadband-deals-under-20` | none | add internal links and request indexing after sitemap confirmation |
+| `https://broadbandpicker.co.uk/guides/broadband-price-rises-2026` | 200 | 1938 | `https://broadbandpicker.co.uk/guides/broadband-price-rises-2026` | none | add internal links and request indexing after sitemap confirmation |
+| `https://broadbandpicker.co.uk/guides/freely-and-fetch-tv-explained-uk` | 200 | 2416 | `https://broadbandpicker.co.uk/guides/freely-and-fetch-tv-explained-uk` | none | add internal links and request indexing after sitemap confirmation |
+| `https://broadbandpicker.co.uk/llms-full.txt` | 200 | 206 | `missing` | missing-canonical, no-structured-data | fix before indexing |
+| `https://broadbandpicker.co.uk/llms.txt` | 200 | 336 | `missing` | missing-canonical, no-structured-data | fix before indexing |
+| `https://broadbandpicker.co.uk/postcode/b15` | 200 | 1484 | `https://broadbandpicker.co.uk/postcode/b15` | none | add internal links and request indexing after sitemap confirmation |
+| `https://broadbandpicker.co.uk/providers/compare/bt-vs-virgin-media` | 200 | 1967 | `https://broadbandpicker.co.uk/providers/compare/bt-vs-virgin-media` | none | add internal links and request indexing after sitemap confirmation |
+| `https://broadbandpicker.co.uk/providers/compare/ee-vs-vodafone` | 200 | 1638 | `https://broadbandpicker.co.uk/providers/compare/ee-vs-vodafone` | none | add internal links and request indexing after sitemap confirmation |
+| `https://broadbandpicker.co.uk/providers/compare/sky-vs-vodafone` | 200 | 1762 | `https://broadbandpicker.co.uk/providers/compare/sky-vs-vodafone` | none | add internal links and request indexing after sitemap confirmation |
+| `https://broadbandpicker.co.uk/providers/connect-fibre` | 200 | 2971 | `https://broadbandpicker.co.uk/providers/connect-fibre` | none | add internal links and request indexing after sitemap confirmation |
+| `https://broadbandpicker.co.uk/providers/shell-energy` | 200 | 3503 | `https://broadbandpicker.co.uk/providers/shell-energy` | none | add internal links and request indexing after sitemap confirmation |
+| `https://broadbandpicker.co.uk/tools` | 200 | 726 | `https://broadbandpicker.co.uk/tools` | none | add internal links and request indexing after sitemap confirmation |

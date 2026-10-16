@@ -1,8 +1,8 @@
 {
-  "generated": "2026-08-09",
-  "score": 54,
-  "possible": 92,
-  "percent": 59,
+  "generated": "2026-10-13",
+  "score": 90,
+  "possible": 104,
+  "percent": 87,
   "checks": [
     {
       "area": "Trust",
@@ -27,31 +27,31 @@
     {
       "area": "Consent",
       "control": "Google-certified CMP with IAB TCF",
-      "status": "FAIL",
-      "priority": "P0",
-      "evidence": "The custom banner stores a local accepted/declined value; no TCF CMP integration is present.",
-      "action": "Configure Google's European regulations message or another Google-certified CMP before requesting personalised ads in the UK.",
-      "points": 0,
+      "status": "PASS",
+      "priority": "Done",
+      "evidence": "Google Funding Choices / IAB TCF CMP 300 is wired through the site consent bar.",
+      "action": "Publish the European regulations message in AdSense Privacy & messaging, with Do not consent on, English (UK), and the privacy policy URL.",
+      "points": 12,
       "possible": 12
     },
     {
       "area": "Consent",
       "control": "Advertising privacy disclosures",
-      "status": "FAIL",
-      "priority": "P0",
-      "evidence": "Privacy policy currently says advertising cookies are not used and does not describe AdSense data processing.",
-      "action": "Before ads go live, describe Google advertising, cookies/local storage, consent choices, vendors, data use and withdrawal controls.",
-      "points": 0,
+      "status": "PASS",
+      "priority": "Done",
+      "evidence": "Privacy and cookie policies describe Google ads, cookies and Ads Settings opt-out.",
+      "action": "Keep Google's required advertising disclosures in the privacy and cookie policies, including Ads Settings opt-out.",
+      "points": 10,
       "possible": 10
     },
     {
       "area": "Monetisation",
       "control": "Authorised Digital Sellers file",
-      "status": "READY LATER",
-      "priority": "P1",
-      "evidence": "No public/ads.txt exists; the publisher line is only available after AdSense supplies the account ID.",
-      "action": "After account creation, add Google's exact ads.txt line and verify /ads.txt publicly.",
-      "points": 2,
+      "status": "PASS",
+      "priority": "Done",
+      "evidence": "public/ads.txt authorises Google with pub-9056289061141918.",
+      "action": "Keep https://broadbandpicker.co.uk/ads.txt as google.com, pub-9056289061141918, DIRECT, f08c47fec0942fa0.",
+      "points": 4,
       "possible": 4
     },
     {
@@ -59,7 +59,7 @@
       "control": "Substantial original site structure",
       "status": "PASS",
       "priority": "Done",
-      "evidence": "Detected approximately 33 guide records and 12 provider records, plus original tools and policy pages.",
+      "evidence": "Detected approximately 62 guide records and 25 provider records, plus original tools and policy pages.",
       "action": "Manually review every indexed page for usefulness, accuracy, complete prose and a clear purpose; remove or noindex weak duplicates.",
       "points": 12,
       "possible": 12
@@ -67,11 +67,11 @@
     {
       "area": "Content",
       "control": "No visible placeholder or unfinished content",
-      "status": "PASS",
-      "priority": "Done",
-      "evidence": "Detected 0 placeholder/TODO-style source references; some may be internal identifiers rather than visible copy.",
+      "status": "REVIEW",
+      "priority": "P1",
+      "evidence": "Detected 3 placeholder/TODO-style source references; some may be internal identifiers rather than visible copy.",
       "action": "Review each match and remove visible placeholders, invented deals and unfinished sections before submission.",
-      "points": 8,
+      "points": 4,
       "possible": 8
     },
     {
@@ -89,7 +89,7 @@
       "control": "Canonical metadata coverage",
       "status": "REVIEW",
       "priority": "P1",
-      "evidence": "Detected 21 canonical references, but runtime coverage cannot be guaranteed through static inspection.",
+      "evidence": "Detected 97 canonical references, but runtime coverage cannot be guaranteed through static inspection.",
       "action": "Crawl production and confirm one indexable canonical, title, description and H1 per intended landing page.",
       "points": 4,
       "possible": 6
@@ -107,12 +107,22 @@
     {
       "area": "UX",
       "control": "Controlled ad placement plan",
-      "status": "NOT IMPLEMENTED",
-      "priority": "P1",
-      "evidence": "No AdSense implementation was detected, which is appropriate before approval.",
-      "action": "Start with restrained in-article units on informational guides. Exclude homepage, comparison, deals, provider, postcode, tool and legal pages; avoid overlays initially.",
-      "points": 2,
+      "status": "PASS",
+      "priority": "Done",
+      "evidence": "AdSense and Funding Choices load for consent; ad requests stay paused except on /guides and /research.",
+      "action": "Keep display ads off homepage, deals, compare, provider, postcode, tool and legal pages. Leave Auto ads off or excluded on those URLs in AdSense.",
+      "points": 6,
       "possible": 6
+    },
+    {
+      "area": "Content",
+      "control": "No thin auto-generated landing cluster",
+      "status": "PASS",
+      "priority": "Done",
+      "evidence": "2818 Ofcom district records exist, but only 50 curated postcode pages are indexable and unknown districts 404.",
+      "action": "Keep only curated postcode-area pages in the sitemap and 404 unknown districts. Do not republish cloned national-deal templates.",
+      "points": 12,
+      "possible": 12
     }
   ]
 }

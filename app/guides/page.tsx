@@ -2,6 +2,10 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { guideCategories, guides } from '@/data/guides'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
+import PageHeroBanner from '@/components/PageHeroBanner'
+import { DEFAULT_GUIDE_CTAS, hubHero } from '@/lib/pageHero'
+
+const HUB = hubHero()
 
 export const metadata: Metadata = {
   title: { absolute: 'Broadband Guides & Advice | BroadbandPicker' },
@@ -12,24 +16,29 @@ export const metadata: Metadata = {
     title: 'Broadband Guides & Advice | BroadbandPicker',
     description: 'Expert broadband guides — how to switch, what speeds you need, and more.',
     url: 'https://broadbandpicker.co.uk/guides',
+    images: [{ url: `https://broadbandpicker.co.uk${HUB.image}`, width: 1600, height: 900, alt: HUB.imageAlt }],
   },
 }
 
 export default function GuidesPage() {
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div>
+      <PageHeroBanner
+        title="Broadband Guides"
+        kicker="Advice and explainers"
+        lede="Everything you need to know about choosing, switching, and getting the most out of your broadband connection."
+        image={HUB.image}
+        imageAlt={HUB.imageAlt}
+        accent={HUB.accent}
+        ctas={DEFAULT_GUIDE_CTAS}
+      />
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <BreadcrumbNav
         items={[
           { name: 'Home', href: '/' },
           { name: 'Guides', href: '/guides' },
         ]}
       />
-
-      <h1 className="text-3xl font-extrabold text-slate-900 mb-2">Broadband Guides</h1>
-      <p className="text-slate-600 mb-8 max-w-2xl">
-        Everything you need to know about choosing, switching, and getting the most out of your
-        broadband connection.
-      </p>
 
       <section className="mb-10" aria-labelledby="new-guides">
         <h2 id="new-guides" className="text-xl font-bold text-slate-900 mb-4">New specialist guides</h2>
@@ -44,6 +53,24 @@ export default function GuidesPage() {
               <p className="text-sm text-slate-600 mt-2">{description}</p>
             </Link>
           ))}
+        </div>
+      </section>
+
+      <section className="mb-10 rounded-xl border border-sky-200 bg-sky-50 p-6" aria-labelledby="popular-guides">
+        <h2 id="popular-guides" className="text-xl font-bold text-slate-900 mb-2">Popular broadband questions</h2>
+        <p className="text-sm text-slate-600 mb-4">Start with a focused guide, then check availability and compare the providers that can serve your address.</p>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 text-sm">
+          {[
+            ['/guides/best-broadband-for-gaming-uk', 'Best broadband for gaming'],
+            ['/guides/best-broadband-for-rural-areas-uk', 'Best rural broadband'],
+            ['/guides/best-broadband-providers-uk', 'Best broadband providers'],
+            ['/guides/best-streaming-services-uk', 'Best streaming services'],
+            ['/guides/broadband-deals-under-20', 'Broadband deals under £20'],
+            ['/guides/broadband-price-rises-2026', 'Broadband price rises'],
+            ['/guides/freely-and-fetch-tv-explained-uk', 'Freely and Fetch TV explained'],
+            ['/postcode/b15', 'Broadband in B15'],
+            ['/tools', 'Free broadband tools'],
+          ].map(([href, label]) => <Link key={href} href={href} className="font-semibold text-sky-700 hover:underline">{label} →</Link>)}
         </div>
       </section>
 
@@ -129,6 +156,7 @@ export default function GuidesPage() {
         >
           Compare broadband deals
         </Link>
+      </div>
       </div>
     </div>
   )

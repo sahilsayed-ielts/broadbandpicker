@@ -1,0 +1,1065 @@
+{
+  "generated_at": "2026-09-06T13:39:22.544190+00:00",
+  "current_window": {
+    "start": "2026-08-07",
+    "end": "2026-09-03"
+  },
+  "previous_window": {
+    "start": "2026-07-10",
+    "end": "2026-08-06"
+  },
+  "summary": {
+    "gsc_impressions": 107857.0,
+    "gsc_impression_change_pct": 537.1,
+    "gsc_clicks": 169.0,
+    "gsc_click_change_pct": 1200.0,
+    "classified_impressions": 93475,
+    "conversational_impression_share": 0.132,
+    "conversational_change_pp": 5.2,
+    "ai_referral_visits": 2.0,
+    "clusters_ranked": 12,
+    "clusters_total": 17
+  },
+  "serp_meta": {
+    "mode": "cache",
+    "queries_run": 0,
+    "searches_left": null,
+    "cache_files": [
+      "2026-09-01-raw.json",
+      "2026-09-04-page-ux-raw.json",
+      "2026-09-06-geo-growth-strategy.json"
+    ]
+  },
+  "cluster_league": [
+    {
+      "cluster_key": "phone-and-broadband",
+      "cluster_label": "Phone + broadband & line rental",
+      "growth_score": 90.7,
+      "impressions": 18279,
+      "prev_impressions": 116,
+      "impression_change_pct": 15657.8,
+      "clicks": 0,
+      "avg_position": 50.7,
+      "query_count": 589,
+      "conversational_share": 0.262,
+      "new_query_share": 0.942,
+      "dominant_intent": "commercial-investigation",
+      "dominant_journey_stage": "consideration",
+      "existing_coverage": [
+        "/guides/best-phone-and-broadband-deals",
+        "/deals"
+      ]
+    },
+    {
+      "cluster_key": "general-broadband",
+      "cluster_label": "General broadband (unclustered)",
+      "growth_score": 88.6,
+      "impressions": 20615,
+      "prev_impressions": 4163,
+      "impression_change_pct": 395.2,
+      "clicks": 2,
+      "avg_position": 58.5,
+      "query_count": 2789,
+      "conversational_share": 0.077,
+      "new_query_share": 0.8,
+      "dominant_intent": "informational",
+      "dominant_journey_stage": "awareness",
+      "existing_coverage": [
+        "/guides/broadband-speeds-explained",
+        "/guides/broadband-without-phone-line",
+        "/guides/broadband-for-existing-customers",
+        "/guides/student-broadband-by-university-city",
+        "/guides/no-credit-check-broadband-uk",
+        "/postcode",
+        "/research/uk-broadband-customer-satisfaction",
+        "/research/broadband-customer-service-rankings-uk",
+        "/guides/satellite-broadband-uk",
+        "/postcode/london",
+        "/postcode/sheffield",
+        "/postcode/edinburgh",
+        "/postcode/glasgow",
+        "/postcode/liverpool",
+        "/postcode/leeds",
+        "/postcode/bristol",
+        "/postcode/birmingham",
+        "/postcode/manchester"
+      ]
+    },
+    {
+      "cluster_key": "deals-and-pricing",
+      "cluster_label": "Deals, price & cost",
+      "growth_score": 87.9,
+      "impressions": 18838,
+      "prev_impressions": 4222,
+      "impression_change_pct": 346.2,
+      "clicks": 3,
+      "avg_position": 49.8,
+      "query_count": 1850,
+      "conversational_share": 0.078,
+      "new_query_share": 0.808,
+      "dominant_intent": "transactional",
+      "dominant_journey_stage": "decision",
+      "existing_coverage": [
+        "/guides/best-broadband-deals-uk",
+        "/guides/broadband-deals-under-20",
+        "/guides/broadband-deals-with-cashback",
+        "/guides/broadband-deals-with-no-setup-fee",
+        "/guides/best-rolling-monthly-broadband-deals",
+        "/guides/cheapest-broadband-uk",
+        "/guides/january-broadband-deals-uk",
+        "/guides/black-friday-broadband-deals-uk",
+        "/deals"
+      ]
+    },
+    {
+      "cluster_key": "tv-bundles",
+      "cluster_label": "Broadband + TV bundles",
+      "growth_score": 87.7,
+      "impressions": 15803,
+      "prev_impressions": 3128,
+      "impression_change_pct": 405.2,
+      "clicks": 0,
+      "avg_position": 66.6,
+      "query_count": 737,
+      "conversational_share": 0.156,
+      "new_query_share": 0.609,
+      "dominant_intent": "commercial-investigation",
+      "dominant_journey_stage": "consideration",
+      "existing_coverage": [
+        "/guides/best-broadband-and-tv-deals",
+        "/deals"
+      ]
+    },
+    {
+      "cluster_key": "postcode-local",
+      "cluster_label": "Postcode & local availability",
+      "growth_score": 77.2,
+      "impressions": 4122,
+      "prev_impressions": 936,
+      "impression_change_pct": 340.4,
+      "clicks": 1,
+      "avg_position": 19.6,
+      "query_count": 171,
+      "conversational_share": 0.08,
+      "new_query_share": 0.684,
+      "dominant_intent": "transactional",
+      "dominant_journey_stage": "decision",
+      "existing_coverage": [
+        "/postcode",
+        "/compare"
+      ]
+    },
+    {
+      "cluster_key": "full-fibre-explainer",
+      "cluster_label": "Full fibre / technology explainers",
+      "growth_score": 76.7,
+      "impressions": 3734,
+      "prev_impressions": 888,
+      "impression_change_pct": 320.5,
+      "clicks": 0,
+      "avg_position": 56.5,
+      "query_count": 310,
+      "conversational_share": 0.105,
+      "new_query_share": 0.655,
+      "dominant_intent": "informational",
+      "dominant_journey_stage": "awareness",
+      "existing_coverage": [
+        "/guides/full-fibre-broadband-explained",
+        "/guides/best-full-fibre-broadband-uk",
+        "/guides/fttp-vs-fttc-explained"
+      ]
+    },
+    {
+      "cluster_key": "provider-review",
+      "cluster_label": "Single-provider reviews & navigational",
+      "growth_score": 76.2,
+      "impressions": 2786,
+      "prev_impressions": 127,
+      "impression_change_pct": 2093.7,
+      "clicks": 0,
+      "avg_position": 53.1,
+      "query_count": 573,
+      "conversational_share": 0.18,
+      "new_query_share": 0.941,
+      "dominant_intent": "commercial-investigation",
+      "dominant_journey_stage": "decision",
+      "existing_coverage": [
+        "/providers"
+      ]
+    },
+    {
+      "cluster_key": "best-broadband-shortlist",
+      "cluster_label": "Best broadband / provider shortlist",
+      "growth_score": 73.6,
+      "impressions": 2736,
+      "prev_impressions": 496,
+      "impression_change_pct": 451.6,
+      "clicks": 0,
+      "avg_position": 47.2,
+      "query_count": 26,
+      "conversational_share": 0.008,
+      "new_query_share": 0.385,
+      "dominant_intent": "commercial-investigation",
+      "dominant_journey_stage": "consideration",
+      "existing_coverage": [
+        "/guides/best-broadband-providers-uk",
+        "/compare",
+        "/providers",
+        "/deals"
+      ]
+    },
+    {
+      "cluster_key": "business-broadband",
+      "cluster_label": "Business & landlord broadband",
+      "growth_score": 71.3,
+      "impressions": 1862,
+      "prev_impressions": 309,
+      "impression_change_pct": 502.6,
+      "clicks": 0,
+      "avg_position": 80.5,
+      "query_count": 167,
+      "conversational_share": 0.04,
+      "new_query_share": 0.665,
+      "dominant_intent": "commercial-investigation",
+      "dominant_journey_stage": "consideration",
+      "existing_coverage": [
+        "/guides/static-ip-business-broadband-explained",
+        "/guides/small-office-broadband-setup-uk",
+        "/guides/broadband-for-landlords-and-hmos-uk",
+        "/guides/leased-line-cost-uk-explained",
+        "/guides/best-business-broadband-providers-uk"
+      ]
+    },
+    {
+      "cluster_key": "provider-comparison",
+      "cluster_label": "Provider-vs-provider comparisons",
+      "growth_score": 69.4,
+      "impressions": 391,
+      "prev_impressions": 2,
+      "impression_change_pct": 19450.0,
+      "clicks": 1,
+      "avg_position": 41.4,
+      "query_count": 91,
+      "conversational_share": 0.76,
+      "new_query_share": 0.989,
+      "dominant_intent": "commercial-investigation",
+      "dominant_journey_stage": "decision",
+      "existing_coverage": [
+        "/guides/starlink-vs-fibre-broadband-uk",
+        "/providers/compare/bt-vs-sky",
+        "/providers/compare/bt-vs-virgin-media",
+        "/providers/compare/sky-vs-vodafone",
+        "/providers/compare/ee-vs-bt",
+        "/providers/compare/talktalk-vs-now-broadband",
+        "/providers/compare/virgin-media-vs-vodafone",
+        "/providers/compare/sky-vs-virgin-media",
+        "/providers/compare/hyperoptic-vs-community-fibre",
+        "/providers/compare/bt-vs-vodafone",
+        "/providers/compare/ee-vs-sky",
+        "/providers/compare/bt-vs-talktalk",
+        "/providers/compare/ee-vs-vodafone",
+        "/providers/compare/sky-vs-talktalk",
+        "/providers/compare/plusnet-vs-bt",
+        "/providers/compare/plusnet-vs-sky",
+        "/providers/compare/vodafone-vs-talktalk",
+        "/providers/compare/bt-vs-plusnet",
+        "/providers/compare/hyperoptic-vs-youfibre",
+        "/providers/compare/ee-vs-talktalk",
+        "/providers/compare/virgin-media-vs-sky",
+        "/providers/compare/talktalk-vs-plusnet",
+        "/providers/compare/zzoomm-vs-hyperoptic",
+        "/providers/compare/community-fibre-vs-hyperoptic",
+        "/providers/compare/trooli-vs-zzoomm",
+        "/providers/compare/national-broadband-vs-highland-broadband",
+        "/providers/compare/bt-vs-hyperoptic",
+        "/providers/compare/plusnet-vs-ee",
+        "/providers/compare/toob-vs-giffgaff",
+        "/providers/compare"
+      ]
+    },
+    {
+      "cluster_key": "speed-troubleshooting",
+      "cluster_label": "Speed advice & troubleshooting",
+      "growth_score": 68.7,
+      "impressions": 1248,
+      "prev_impressions": 39,
+      "impression_change_pct": 3100.0,
+      "clicks": 0,
+      "avg_position": 80.2,
+      "query_count": 238,
+      "conversational_share": 0.026,
+      "new_query_share": 0.95,
+      "dominant_intent": "informational",
+      "dominant_journey_stage": "retention",
+      "existing_coverage": [
+        "/speed-test",
+        "/tools/broadband-cost-calculator"
+      ]
+    },
+    {
+      "cluster_key": "altnet",
+      "cluster_label": "Altnet / alternative networks",
+      "growth_score": 68.2,
+      "impressions": 1282,
+      "prev_impressions": 269,
+      "impression_change_pct": 376.6,
+      "clicks": 0,
+      "avg_position": 46.4,
+      "query_count": 270,
+      "conversational_share": 0.016,
+      "new_query_share": 0.93,
+      "dominant_intent": "commercial-investigation",
+      "dominant_journey_stage": "consideration",
+      "existing_coverage": []
+    },
+    {
+      "cluster_key": "switching-and-rights",
+      "cluster_label": "Switching & consumer rights",
+      "growth_score": 66.5,
+      "impressions": 385,
+      "prev_impressions": 10,
+      "impression_change_pct": 3750.0,
+      "clicks": 0,
+      "avg_position": 35.0,
+      "query_count": 144,
+      "conversational_share": 0.532,
+      "new_query_share": 0.965,
+      "dominant_intent": "informational",
+      "dominant_journey_stage": "retention",
+      "existing_coverage": [
+        "/guides/how-to-switch-broadband-uk",
+        "/guides/broadband-complaints-and-ombudsman-uk",
+        "/guides/broadband-deals-with-no-mid-contract-price-rise",
+        "/guides/broadband-price-rises-2026",
+        "/guides/can-i-leave-broadband-early-after-price-rise",
+        "/guides/broadband-moving-house",
+        "/guides/one-touch-switching-explained",
+        "/guides/broadband-contract-end-rights"
+      ]
+    },
+    {
+      "cluster_key": "best-for-use-case",
+      "cluster_label": "Best-for use-case comparisons",
+      "growth_score": 59.7,
+      "impressions": 258,
+      "prev_impressions": 60,
+      "impression_change_pct": 330.0,
+      "clicks": 0,
+      "avg_position": 63.9,
+      "query_count": 38,
+      "conversational_share": 0.264,
+      "new_query_share": 0.816,
+      "dominant_intent": "commercial-investigation",
+      "dominant_journey_stage": "consideration",
+      "existing_coverage": [
+        "/guides/best-broadband-for-working-from-home",
+        "/guides/best-broadband-for-students",
+        "/guides/best-broadband-for-streaming",
+        "/guides/best-broadband-for-gaming-uk",
+        "/guides/best-broadband-for-rural-areas-uk"
+      ]
+    },
+    {
+      "cluster_key": "social-tariffs-affordability",
+      "cluster_label": "Social tariffs & affordability",
+      "growth_score": 56.8,
+      "impressions": 748,
+      "prev_impressions": 0,
+      "impression_change_pct": 100.0,
+      "clicks": 0,
+      "avg_position": 68.4,
+      "query_count": 108,
+      "conversational_share": 0.074,
+      "new_query_share": 1.0,
+      "dominant_intent": "informational",
+      "dominant_journey_stage": "consideration",
+      "existing_coverage": [
+        "/guides/broadband-social-tariffs-uk",
+        "/guides/broadband-help-if-you-claim-benefits-uk"
+      ]
+    },
+    {
+      "cluster_key": "router-wifi",
+      "cluster_label": "Routers, Wi-Fi & home coverage",
+      "growth_score": 54.4,
+      "impressions": 162,
+      "prev_impressions": 3,
+      "impression_change_pct": 5300.0,
+      "clicks": 0,
+      "avg_position": 49.5,
+      "query_count": 68,
+      "conversational_share": 0.031,
+      "new_query_share": 0.985,
+      "dominant_intent": "informational",
+      "dominant_journey_stage": "awareness",
+      "existing_coverage": [
+        "/guides/best-mesh-wifi-for-your-broadband-router"
+      ]
+    },
+    {
+      "cluster_key": "mobile-5g-home",
+      "cluster_label": "5G / 4G home & no-landline broadband",
+      "growth_score": 48.8,
+      "impressions": 226,
+      "prev_impressions": 0,
+      "impression_change_pct": 100.0,
+      "clicks": 0,
+      "avg_position": 41.2,
+      "query_count": 28,
+      "conversational_share": 0.111,
+      "new_query_share": 1.0,
+      "dominant_intent": "commercial-investigation",
+      "dominant_journey_stage": "consideration",
+      "existing_coverage": [
+        "/guides/best-5g-home-broadband-uk"
+      ]
+    }
+  ],
+  "recommendations": [
+    {
+      "record_type": "Refresh existing",
+      "cluster_key": "phone-and-broadband",
+      "cluster_label": "Phone + broadband & line rental",
+      "page_type": "guide",
+      "intent": "commercial-investigation",
+      "journey_stage": "consideration",
+      "impressions": 18279,
+      "impression_change_pct": 15657.8,
+      "conversational_share": 0.262,
+      "avg_position": 50.7,
+      "growth_score": 90.7,
+      "ai_overview_signal": "AI Overview on 2/2 probe queries",
+      "bp_cited": "no",
+      "existing_coverage": [
+        "/guides/best-phone-and-broadband-deals",
+        "/deals"
+      ],
+      "recommended_url": "/guides/best-phone-and-broadband-deals",
+      "working_title": "Add AI-answer blocks to /guides/best-phone-and-broadband-deals (+1 more in cluster)",
+      "primary_queries": [
+        "unlimited phone calls and broadband packages",
+        "home phone and broadband",
+        "best phone and broadband"
+      ],
+      "secondary_queries": [
+        "compare broadband and phone",
+        "broadband and line rental deals",
+        "phone and broadband",
+        "best phone and broadband deals",
+        "broadband and landline deals"
+      ],
+      "rising_queries": [
+        "unlimited phone calls and broadband packages (+336)",
+        "home phone and broadband (+271)",
+        "best phone and broadband (+249)",
+        "compare broadband and phone (+223)",
+        "broadband and line rental deals (+221)"
+      ],
+      "paa_to_answer": [
+        "Are there any deals available for broadband and unlimited landline calls?",
+        "How much should I be paying for broadband and landline?",
+        "Does Tesco offer the cheapest unlimited phone calls and broadband packages?",
+        "Which broadband and phone providers are the best in the UK?",
+        "What are the best broadband, TV, and phone deals in the UK, including line rental?",
+        "Do broadband deals include landline rental?",
+        "How much should I pay for broadband and line rental?",
+        "Which companies offer broadband and landline deals?"
+      ],
+      "related_prompts": [
+        "Unlimited phone calls and broadband packages UK",
+        "Martin Lewis best broadband and landline deals",
+        "Cheapest unlimited phone calls and broadband packages",
+        "Best unlimited phone calls and broadband packages",
+        "Unlimited phone calls and broadband packages tesco",
+        "Unlimited phone calls and broadband packages virgin",
+        "Unlimited phone calls and broadband packages virgin media",
+        "Martin Lewis best broadband and landline deals for pensioners"
+      ],
+      "affiliate_partners": [
+        "TalkTalk Phone and Broadband"
+      ],
+      "affiliate_readiness": "Attach a tracked CTA for TalkTalk Phone and Broadband (live Awin programme); keep the editorial answer provider-neutral.",
+      "geo_block_spec": "40-70 word direct answer to the primary question, one supporting comparison table with dated figures, and named external sources (Ofcom / provider).",
+      "internal_links": [
+        "/compare",
+        "/deals"
+      ],
+      "priority_score": 105.8
+    },
+    {
+      "record_type": "Refresh existing",
+      "cluster_key": "tv-bundles",
+      "cluster_label": "Broadband + TV bundles",
+      "page_type": "guide",
+      "intent": "commercial-investigation",
+      "journey_stage": "consideration",
+      "impressions": 15803,
+      "impression_change_pct": 405.2,
+      "conversational_share": 0.156,
+      "avg_position": 66.6,
+      "growth_score": 87.7,
+      "ai_overview_signal": "not measured this run",
+      "bp_cited": "n/a",
+      "existing_coverage": [
+        "/guides/best-broadband-and-tv-deals",
+        "/deals"
+      ],
+      "recommended_url": "/guides/best-broadband-and-tv-deals",
+      "working_title": "Add AI-answer blocks to /guides/best-broadband-and-tv-deals (+1 more in cluster)",
+      "primary_queries": [
+        "best broadband and tv deals",
+        "compare broadband and tv",
+        "broadband and tv deals"
+      ],
+      "secondary_queries": [
+        "tv and broadband deals",
+        "tv package deals",
+        "best tv and broadband deals",
+        "tv packages",
+        "compare tv packages"
+      ],
+      "rising_queries": [
+        "best broadband and tv deals (+552)",
+        "broadband and tv deals (+535)",
+        "compare broadband and tv (+529)",
+        "tv and broadband deals (+526)",
+        "tv package deals (+517)"
+      ],
+      "paa_to_answer": [],
+      "related_prompts": [],
+      "affiliate_partners": [
+        "TalkTalk Phone and Broadband"
+      ],
+      "affiliate_readiness": "Attach a tracked CTA for TalkTalk Phone and Broadband (live Awin programme); keep the editorial answer provider-neutral.",
+      "geo_block_spec": "40-70 word answer on the cheapest genuine broadband+TV route now, a table of bundle, channels, broadband speed and total monthly cost, and dated pricing.",
+      "internal_links": [
+        "/compare",
+        "/deals",
+        "/guides/best-broadband-and-tv-deals"
+      ],
+      "priority_score": 87.7
+    },
+    {
+      "record_type": "Refresh existing",
+      "cluster_key": "business-broadband",
+      "cluster_label": "Business & landlord broadband",
+      "page_type": "guide",
+      "intent": "commercial-investigation",
+      "journey_stage": "consideration",
+      "impressions": 1862,
+      "impression_change_pct": 502.6,
+      "conversational_share": 0.04,
+      "avg_position": 80.5,
+      "growth_score": 71.3,
+      "ai_overview_signal": "not measured this run",
+      "bp_cited": "n/a",
+      "existing_coverage": [
+        "/guides/static-ip-business-broadband-explained",
+        "/guides/small-office-broadband-setup-uk",
+        "/guides/broadband-for-landlords-and-hmos-uk",
+        "/guides/leased-line-cost-uk-explained",
+        "/guides/best-business-broadband-providers-uk"
+      ],
+      "recommended_url": "/guides/best-business-broadband-providers-uk",
+      "working_title": "Add AI-answer blocks to /guides/best-business-broadband-providers-uk (+4 more in cluster)",
+      "primary_queries": [
+        "business broadband provider",
+        "business broadband providers",
+        "best business broadband"
+      ],
+      "secondary_queries": [
+        "best business broadband deals",
+        "reliable business broadband",
+        "business broadband comparison",
+        "uk business broadband",
+        "reliable business broadband nottingham"
+      ],
+      "rising_queries": [
+        "business broadband provider (+132)",
+        "best business broadband (+124)",
+        "business broadband providers (+120)",
+        "best business broadband deals (+60)",
+        "business broadband comparison (+56)"
+      ],
+      "paa_to_answer": [],
+      "related_prompts": [],
+      "affiliate_partners": [
+        "TalkTalk Phone and Broadband"
+      ],
+      "affiliate_readiness": "Attach a tracked CTA for TalkTalk Phone and Broadband (live Awin programme); keep the editorial answer provider-neutral.",
+      "geo_block_spec": "40-70 word answer contrasting business vs consumer broadband on SLA, static IP and support, a specs table by provider, and named sources for leased-line install times and pricing.",
+      "internal_links": [
+        "/compare",
+        "/deals",
+        "/guides/best-business-broadband-providers-uk"
+      ],
+      "priority_score": 71.3
+    },
+    {
+      "record_type": "New page",
+      "cluster_key": "altnet",
+      "cluster_label": "Altnet / alternative networks",
+      "page_type": "guide",
+      "intent": "commercial-investigation",
+      "journey_stage": "consideration",
+      "impressions": 1282,
+      "impression_change_pct": 376.6,
+      "conversational_share": 0.016,
+      "avg_position": 46.4,
+      "growth_score": 68.2,
+      "ai_overview_signal": "not measured this run",
+      "bp_cited": "n/a",
+      "existing_coverage": [],
+      "recommended_url": "/guides/brsk-broadband-uk",
+      "working_title": "Brsk broadband (UK)",
+      "primary_queries": [
+        "brsk broadband",
+        "brsk",
+        "brsk internet"
+      ],
+      "secondary_queries": [
+        "hyperoptic prices",
+        "brsk reviews",
+        "hyperoptic",
+        "hyperoptic broadband",
+        "hyperoptic internet"
+      ],
+      "rising_queries": [
+        "brsk broadband (+111)",
+        "brsk (+99)",
+        "brsk internet (+60)",
+        "brsk reviews (+55)",
+        "trooli discount code (+28)"
+      ],
+      "paa_to_answer": [],
+      "related_prompts": [],
+      "affiliate_partners": [
+        "Connect Fibre",
+        "Zzoomm",
+        "Highland Broadband"
+      ],
+      "affiliate_readiness": "Attach a tracked CTA for Connect Fibre (live Awin programme); keep the editorial answer provider-neutral.",
+      "geo_block_spec": "40-70 word answer on what an altnet is and the trade-offs, a table of the main UK altnets by footprint, top speed and price, and a postcode-availability pointer.",
+      "internal_links": [
+        "/compare",
+        "/deals",
+        "/postcode",
+        "/guides/best-full-fibre-broadband-uk"
+      ],
+      "priority_score": 68.2
+    },
+    {
+      "record_type": "Refresh existing",
+      "cluster_key": "deals-and-pricing",
+      "cluster_label": "Deals, price & cost",
+      "page_type": "guide",
+      "intent": "transactional",
+      "journey_stage": "decision",
+      "impressions": 18838,
+      "impression_change_pct": 346.2,
+      "conversational_share": 0.078,
+      "avg_position": 49.8,
+      "growth_score": 87.9,
+      "ai_overview_signal": "not measured this run",
+      "bp_cited": "n/a",
+      "existing_coverage": [
+        "/guides/best-broadband-deals-uk",
+        "/guides/broadband-deals-under-20",
+        "/guides/broadband-deals-with-cashback",
+        "/guides/broadband-deals-with-no-setup-fee",
+        "/guides/best-rolling-monthly-broadband-deals",
+        "/guides/cheapest-broadband-uk",
+        "/guides/january-broadband-deals-uk",
+        "/guides/black-friday-broadband-deals-uk",
+        "/deals"
+      ],
+      "recommended_url": "/guides/best-broadband-deals-uk",
+      "working_title": "Add AI-answer blocks to /guides/best-broadband-deals-uk (+8 more in cluster)",
+      "primary_queries": [
+        "best broadband deals uk",
+        "compare broadband deals",
+        "broadband telephone deals"
+      ],
+      "secondary_queries": [
+        "broadband deals compare",
+        "best internet and phone deals",
+        "best phone broadband deals",
+        "broadband price comparison",
+        "phone & broadband deals"
+      ],
+      "rising_queries": [
+        "best broadband deals uk (+291)",
+        "broadband telephone deals (+200)",
+        "compare broadband deals (+167)",
+        "best internet and phone deals (+148)",
+        "best phone broadband deals (+142)"
+      ],
+      "paa_to_answer": [],
+      "related_prompts": [],
+      "affiliate_partners": [
+        "Sky ROI"
+      ],
+      "affiliate_readiness": "Informational only for now — relevant programmes (Sky ROI) are still pending. Ship the answer, add a CTA when one is approved.",
+      "geo_block_spec": "40-70 word answer naming the current best-value deal and its true monthly cost after any mid-contract rise, a ranked deals table with dates, and the methodology link.",
+      "internal_links": [
+        "/compare",
+        "/deals",
+        "/guides/best-broadband-deals-uk"
+      ],
+      "priority_score": 60.9
+    },
+    {
+      "record_type": "Refresh existing",
+      "cluster_key": "postcode-local",
+      "cluster_label": "Postcode & local availability",
+      "page_type": "postcode",
+      "intent": "transactional",
+      "journey_stage": "decision",
+      "impressions": 4122,
+      "impression_change_pct": 340.4,
+      "conversational_share": 0.08,
+      "avg_position": 19.6,
+      "growth_score": 77.2,
+      "ai_overview_signal": "not measured this run",
+      "bp_cited": "n/a",
+      "existing_coverage": [
+        "/postcode",
+        "/compare"
+      ],
+      "recommended_url": "/postcode",
+      "working_title": "Add AI-answer blocks to /postcode (+1 more in cluster)",
+      "primary_queries": [
+        "broadband deals in dartford",
+        "broadband deals in canterbury",
+        "broadband deals in reading"
+      ],
+      "secondary_queries": [
+        "broadband in my area",
+        "broadband deals in my area",
+        "broadband deals in nottingham",
+        "broadband deals in luton",
+        "best broadband deals in my area"
+      ],
+      "rising_queries": [
+        "broadband deals in dartford (+1766)",
+        "broadband deals in reading (+105)",
+        "broadband in my area (+97)",
+        "broadband deals in my area (+86)",
+        "broadband deals in nottingham (+80)"
+      ],
+      "paa_to_answer": [],
+      "related_prompts": [],
+      "affiliate_partners": [
+        "Sky ROI"
+      ],
+      "affiliate_readiness": "Informational only for now — relevant programmes (Sky ROI) are still pending. Ship the answer, add a CTA when one is approved.",
+      "geo_block_spec": "40-70 word answer on how to check availability and what is typically available in the area, a table of providers, technology and speed for the location, and a live postcode-checker link.",
+      "internal_links": [
+        "/compare",
+        "/deals",
+        "/postcode"
+      ],
+      "priority_score": 57.9
+    },
+    {
+      "record_type": "Refresh existing",
+      "cluster_key": "full-fibre-explainer",
+      "cluster_label": "Full fibre / technology explainers",
+      "page_type": "guide",
+      "intent": "informational",
+      "journey_stage": "awareness",
+      "impressions": 3734,
+      "impression_change_pct": 320.5,
+      "conversational_share": 0.105,
+      "avg_position": 56.5,
+      "growth_score": 76.7,
+      "ai_overview_signal": "not measured this run",
+      "bp_cited": "n/a",
+      "existing_coverage": [
+        "/guides/full-fibre-broadband-explained",
+        "/guides/best-full-fibre-broadband-uk",
+        "/guides/fttp-vs-fttc-explained"
+      ],
+      "recommended_url": "/guides/best-full-fibre-broadband-uk",
+      "working_title": "Add AI-answer blocks to /guides/best-full-fibre-broadband-uk (+2 more in cluster)",
+      "primary_queries": [
+        "fibre optic broadband",
+        "full fibre broadband",
+        "full fibre"
+      ],
+      "secondary_queries": [
+        "best full fibre broadband deals",
+        "best full fibre broadband",
+        "full fibre broadband providers",
+        "fttp providers",
+        "compare full fibre broadband"
+      ],
+      "rising_queries": [
+        "fibre optic broadband (+590)",
+        "full fibre broadband (+266)",
+        "full fibre (+217)",
+        "best full fibre broadband (+110)",
+        "best full fibre broadband deals (+110)"
+      ],
+      "paa_to_answer": [],
+      "related_prompts": [],
+      "affiliate_partners": [],
+      "affiliate_readiness": "Informational only — no relevant broadband affiliate programme is live. Use the page for topical authority, internal links to /compare and monetisable pages.",
+      "geo_block_spec": "40-70 word plain-English definition, an FTTP vs FTTC vs cable comparison table, an Openreach / altnet coverage figure with date, and a diagram-style bullet list of how the connection reaches the home.",
+      "internal_links": [
+        "/compare",
+        "/deals",
+        "/guides/full-fibre-broadband-explained",
+        "/guides/fttp-vs-fttc-explained"
+      ],
+      "priority_score": 44.2
+    },
+    {
+      "record_type": "Refresh existing",
+      "cluster_key": "best-broadband-shortlist",
+      "cluster_label": "Best broadband / provider shortlist",
+      "page_type": "best-for",
+      "intent": "commercial-investigation",
+      "journey_stage": "consideration",
+      "impressions": 2736,
+      "impression_change_pct": 451.6,
+      "conversational_share": 0.008,
+      "avg_position": 47.2,
+      "growth_score": 73.6,
+      "ai_overview_signal": "not measured this run",
+      "bp_cited": "n/a",
+      "existing_coverage": [
+        "/guides/best-broadband-providers-uk",
+        "/compare",
+        "/providers",
+        "/deals"
+      ],
+      "recommended_url": "/guides/best-broadband-providers-uk",
+      "working_title": "Add AI-answer blocks to /guides/best-broadband-providers-uk (+3 more in cluster)",
+      "primary_queries": [
+        "fibre broadband",
+        "best fibre broadband",
+        "best broadband"
+      ],
+      "secondary_queries": [
+        "broadband comparison uk",
+        "compare broadband uk",
+        "best fibre broadband provider",
+        "broadband comparison",
+        "best fibre broadband uk"
+      ],
+      "rising_queries": [
+        "fibre broadband (+549)",
+        "best fibre broadband (+484)",
+        "best broadband (+455)",
+        "compare broadband uk (+92)",
+        "broadband comparison (+91)"
+      ],
+      "paa_to_answer": [],
+      "related_prompts": [],
+      "affiliate_partners": [],
+      "affiliate_readiness": "Informational only — no relevant broadband affiliate programme is live. Use the page for topical authority, internal links to /compare and monetisable pages.",
+      "geo_block_spec": "40-70 word direct answer to the primary question, one supporting comparison table with dated figures, and named external sources (Ofcom / provider).",
+      "internal_links": [
+        "/compare",
+        "/deals"
+      ],
+      "priority_score": 39.4
+    },
+    {
+      "record_type": "Refresh existing",
+      "cluster_key": "provider-comparison",
+      "cluster_label": "Provider-vs-provider comparisons",
+      "page_type": "provider-vs",
+      "intent": "commercial-investigation",
+      "journey_stage": "decision",
+      "impressions": 391,
+      "impression_change_pct": 19450.0,
+      "conversational_share": 0.76,
+      "avg_position": 41.4,
+      "growth_score": 69.4,
+      "ai_overview_signal": "AI Overview on 2/2 probe queries",
+      "bp_cited": "no",
+      "existing_coverage": [
+        "/guides/starlink-vs-fibre-broadband-uk",
+        "/providers/compare/bt-vs-sky",
+        "/providers/compare/bt-vs-virgin-media",
+        "/providers/compare/sky-vs-vodafone",
+        "/providers/compare/ee-vs-bt",
+        "/providers/compare/talktalk-vs-now-broadband",
+        "/providers/compare/virgin-media-vs-vodafone",
+        "/providers/compare/sky-vs-virgin-media",
+        "/providers/compare/hyperoptic-vs-community-fibre",
+        "/providers/compare/bt-vs-vodafone",
+        "/providers/compare/ee-vs-sky",
+        "/providers/compare/bt-vs-talktalk",
+        "/providers/compare/ee-vs-vodafone",
+        "/providers/compare/sky-vs-talktalk",
+        "/providers/compare/plusnet-vs-bt",
+        "/providers/compare/plusnet-vs-sky",
+        "/providers/compare/vodafone-vs-talktalk",
+        "/providers/compare/bt-vs-plusnet",
+        "/providers/compare/hyperoptic-vs-youfibre",
+        "/providers/compare/ee-vs-talktalk",
+        "/providers/compare/virgin-media-vs-sky",
+        "/providers/compare/talktalk-vs-plusnet",
+        "/providers/compare/zzoomm-vs-hyperoptic",
+        "/providers/compare/community-fibre-vs-hyperoptic",
+        "/providers/compare/trooli-vs-zzoomm",
+        "/providers/compare/national-broadband-vs-highland-broadband",
+        "/providers/compare/bt-vs-hyperoptic",
+        "/providers/compare/plusnet-vs-ee",
+        "/providers/compare/toob-vs-giffgaff",
+        "/providers/compare"
+      ],
+      "recommended_url": "/providers/compare/sky-vs-virgin-media",
+      "working_title": "Add AI-answer blocks to /providers/compare/sky-vs-virgin-media (+29 more in cluster)",
+      "primary_queries": [
+        "sky vs virgin",
+        "sky or virgin",
+        "virgin vs sky"
+      ],
+      "secondary_queries": [
+        "sky vs virgin broadband",
+        "virgin or sky",
+        "virgin media vs sky",
+        "sky or virgin broadband",
+        "is ee broadband better than talktalk"
+      ],
+      "rising_queries": [
+        "sky vs virgin (+31)",
+        "sky or virgin (+30)",
+        "virgin vs sky (+28)",
+        "sky vs virgin broadband (+27)",
+        "virgin or sky (+27)"
+      ],
+      "paa_to_answer": [
+        "Is Sky or Virgin TV better?",
+        "Is it worth switching from Sky to Virgin?",
+        "What channels does Sky have that Virgin doesn't?",
+        "Is Virgin TV cheaper than Sky?",
+        "Is it worth switching from Virgin to Sky?",
+        "What are the disadvantages of Virgin Media?",
+        "Who is the best TV provider in the UK?"
+      ],
+      "related_prompts": [],
+      "affiliate_partners": [
+        "Sky ROI"
+      ],
+      "affiliate_readiness": "Informational only for now — relevant programmes (Sky ROI) are still pending. Ship the answer, add a CTA when one is approved.",
+      "geo_block_spec": "40-70 word verdict on which provider wins and for whom, a head-to-head table (real current price, Ofcom complaints, coverage, Trustpilot, contract), and dated sources.",
+      "internal_links": [
+        "/compare",
+        "/deals",
+        "/providers"
+      ],
+      "priority_score": 39.0
+    },
+    {
+      "record_type": "Refresh existing",
+      "cluster_key": "provider-review",
+      "cluster_label": "Single-provider reviews & navigational",
+      "page_type": "provider-review",
+      "intent": "commercial-investigation",
+      "journey_stage": "decision",
+      "impressions": 2786,
+      "impression_change_pct": 2093.7,
+      "conversational_share": 0.18,
+      "avg_position": 53.1,
+      "growth_score": 76.2,
+      "ai_overview_signal": "not measured this run",
+      "bp_cited": "n/a",
+      "existing_coverage": [
+        "/providers/bt",
+        "/providers/ee",
+        "/providers/virgin-media",
+        "/providers"
+      ],
+      "recommended_url": "/providers/bt",
+      "working_title": "Add AI-answer blocks to /providers/bt (+3 more in cluster)",
+      "primary_queries": [
+        "ee broadband",
+        "bt broadband",
+        "zen broadband"
+      ],
+      "secondary_queries": [
+        "ee packages",
+        "zen internet",
+        "giffgaff broadband compare",
+        "now broadband",
+        "zen internet broadband"
+      ],
+      "rising_queries": [
+        "ee broadband (+134)",
+        "bt broadband (+88)",
+        "zen broadband (+79)",
+        "ee packages (+76)",
+        "zen internet (+64)"
+      ],
+      "paa_to_answer": [],
+      "related_prompts": [],
+      "affiliate_partners": [],
+      "affiliate_readiness": "Informational only — no relevant broadband affiliate programme is live. Use the page for topical authority, internal links to /compare and monetisable pages.",
+      "geo_block_spec": "40-70 word verdict on the provider with its standout strength and weakness, a fact box (price, speed, coverage, Ofcom complaints, Trustpilot, contract) and dated sources.",
+      "internal_links": [
+        "/compare",
+        "/deals"
+      ],
+      "priority_score": 38.1
+    },
+    {
+      "record_type": "Refresh existing",
+      "cluster_key": "speed-troubleshooting",
+      "cluster_label": "Speed advice & troubleshooting",
+      "page_type": "tool",
+      "intent": "informational",
+      "journey_stage": "retention",
+      "impressions": 1248,
+      "impression_change_pct": 3100.0,
+      "conversational_share": 0.026,
+      "avg_position": 80.2,
+      "growth_score": 68.7,
+      "ai_overview_signal": "not measured this run",
+      "bp_cited": "n/a",
+      "existing_coverage": [
+        "/speed-test",
+        "/tools/broadband-cost-calculator"
+      ],
+      "recommended_url": "/speed-test",
+      "working_title": "Add AI-answer blocks to /speed-test (+1 more in cluster)",
+      "primary_queries": [
+        "internet speed test",
+        "broadband speed test",
+        "broadband internet speed test"
+      ],
+      "secondary_queries": [
+        "broadband speed test uk",
+        "ping test uk",
+        "internet speed test uk",
+        "speed test broadband",
+        "uk broadband speed test"
+      ],
+      "rising_queries": [
+        "internet speed test (+117)",
+        "broadband speed test (+82)",
+        "broadband internet speed test (+51)",
+        "broadband speed test uk (+44)",
+        "ping test uk (+39)"
+      ],
+      "paa_to_answer": [],
+      "related_prompts": [],
+      "affiliate_partners": [
+        "Zen Internet"
+      ],
+      "affiliate_readiness": "Informational only for now — relevant programmes (Zen Internet) are still pending. Ship the answer, add a CTA when one is approved.",
+      "geo_block_spec": "40-70 word answer with a concrete Mbps recommendation by household size / activity, an interactive or tabular speed calculator, and named Ofcom average-speed data with date.",
+      "internal_links": [
+        "/compare",
+        "/deals",
+        "/speed-test",
+        "/tools/broadband-cost-calculator"
+      ],
+      "priority_score": 34.4
+    }
+  ]
+}

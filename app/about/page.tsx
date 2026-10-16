@@ -4,6 +4,10 @@ import { providers } from '@/data/providers'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
 import { JsonLd } from '@/lib/jsonLd'
 import { organizationRef, SITE_URL } from '@/lib/siteSchema'
+import PageHeroBanner from '@/components/PageHeroBanner'
+import { DEFAULT_GUIDE_CTAS, hubHero } from '@/lib/pageHero'
+
+const HERO = hubHero()
 
 export const metadata: Metadata = {
   title: { absolute: 'About BroadbandPicker — How We Compare Broadband Deals' },
@@ -25,16 +29,24 @@ const aboutJsonLd = {
 
 export default function AboutPage() {
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div>
       <JsonLd data={aboutJsonLd} />
+      <PageHeroBanner
+        title="About BroadbandPicker"
+        kicker="Company"
+        lede="Independent UK broadband comparison. Rankings are not sold."
+        image={HERO.image}
+        imageAlt={HERO.imageAlt}
+        accent={HERO.accent}
+        ctas={DEFAULT_GUIDE_CTAS}
+      />
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <BreadcrumbNav
         items={[
           { name: 'Home', href: '/' },
           { name: 'About', href: '/about' },
         ]}
       />
-
-      <h1 className="text-3xl font-extrabold text-slate-900 mb-4">About BroadbandPicker</h1>
 
       <div className="prose prose-slate max-w-none space-y-6 text-slate-700 leading-relaxed">
         <p>
@@ -131,6 +143,7 @@ export default function AboutPage() {
             Terms of use
           </Link>
         </div>
+      </div>
       </div>
     </div>
   )

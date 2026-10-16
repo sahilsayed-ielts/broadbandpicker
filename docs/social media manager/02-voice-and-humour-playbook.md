@@ -69,12 +69,13 @@ If a post does not ask for a human behaviour, it is a poster. Posters rarely tra
 
 ## Design rules of thumb
 
+- Copy is pub-dry sarcasm. Pictures are plush, niche, minimal — navy/sky, huge margins, geometric wifi arcs. Full spec: `06-visual-design-system.md`.
 - Joke is native. Brand is the end card.
 - Burned-in captions always (Reels/TikTok are watched muted).
 - Safe zones: keep type out of the bottom 250px (UI chrome).
 - Wifi-mark from the logo SVG, not a random stock wifi icon.
 - End card: navy field, sky mark, one URL, no QR codes unless print.
-- Meme fonts for memes. Inter for anything that looks like the company.
+- Inter ExtraBold for anything that looks like the company. Frame meme fonts on a navy card so the grid still looks expensive.
 
 ## When to be serious
 

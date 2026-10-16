@@ -1,5 +1,9 @@
 import type { Metadata } from 'next'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
+import PageHeroBanner from '@/components/PageHeroBanner'
+import { DEFAULT_GUIDE_CTAS, hubHero } from '@/lib/pageHero'
+
+const HERO = hubHero()
 
 export const metadata: Metadata = {
   title: { absolute: 'Terms of Use | BroadbandPicker' },
@@ -11,16 +15,24 @@ export default function TermsPage() {
   const year = new Date().getFullYear()
 
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div>
+      <PageHeroBanner
+        title="Terms of Use"
+        kicker="Legal"
+        lede="Terms of use for BroadbandPicker.co.uk, a free UK broadband comparison service."
+        image={HERO.image}
+        imageAlt={HERO.imageAlt}
+        accent={HERO.accent}
+        ctas={DEFAULT_GUIDE_CTAS}
+      />
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <BreadcrumbNav
         items={[
           { name: 'Home', href: '/' },
           { name: 'Terms of use', href: '/terms' },
         ]}
       />
-
-      <h1 className="text-3xl font-extrabold text-slate-900 mb-2">Terms of Use</h1>
-      <p className="text-sm text-slate-500 mb-8">Last updated: 9 August 2026</p>
+      <p className="text-sm text-slate-500 mb-8">Last updated: 19 September 2026</p>
 
       <div className="space-y-6 text-slate-700 leading-relaxed [&_h2]:text-xl [&_h2]:font-bold [&_h2]:text-slate-900 [&_h2]:mt-8 [&_h2]:mb-3">
         <p>
@@ -49,6 +61,14 @@ export default function TermsPage() {
           BroadbandPicker earns commission from providers when you click through and sign up via
           our site. This is disclosed throughout the site. Our editorial rankings and reviews are
           not influenced by affiliate relationships.
+        </p>
+
+        <h2>Email alerts</h2>
+        <p>
+          If you sign up for deal alerts you must use an email address you control, tick the
+          consent box, and confirm the address. You can unsubscribe from every message. Alerts
+          are information from BroadbandPicker. They are not a broadband contract and they do not
+          replace checking a deal with the provider.
         </p>
 
         <h2>Intellectual property</h2>
@@ -84,6 +104,7 @@ export default function TermsPage() {
         </p>
 
         <p className="text-sm text-slate-500 pt-4">&copy; {year} BroadbandPicker.co.uk</p>
+      </div>
       </div>
     </div>
   )

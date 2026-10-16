@@ -5,9 +5,17 @@ import CiteableAnswer from '@/components/CiteableAnswer'
 import OnThisPageNav from '@/components/OnThisPageNav'
 import ProviderPairFinder, { type PairFinderComparison } from '@/components/ProviderPairFinder'
 import TrackedLink from '@/components/TrackedLink'
+import AffiliateCTA from '@/components/AffiliateCTA'
 import { providerComparisons } from '@/data/provider-comparisons'
 import { providers } from '@/data/providers'
+import { getAffiliatePartner } from '@/data/affiliatePartners'
 import { JsonLd } from '@/lib/jsonLd'
+import PageHeroBanner from '@/components/PageHeroBanner'
+import { DEFAULT_GUIDE_CTAS, categoryHero } from '@/lib/pageHero'
+
+const HERO = categoryHero('providers-and-comparisons')
+
+const broadbandGenie = getAffiliatePartner('broadband-genie')
 
 const BASE_URL = 'https://broadbandpicker.co.uk'
 const PAGE_URL = `${BASE_URL}/providers/compare`
@@ -237,9 +245,18 @@ export default function ProviderCompareHubPage() {
   })
 
   return (
-    <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
+    <div>
       <JsonLd data={structuredData} />
-
+      <PageHeroBanner
+        title="Broadband Provider Comparisons: Every UK Head-to-Head"
+        kicker="Head-to-head"
+        lede="This directory lists every BroadbandPicker head-to-head broadband provider comparison, grouped by the network each provider uses."
+        image={HERO.image}
+        imageAlt={HERO.imageAlt}
+        accent={HERO.accent}
+        ctas={DEFAULT_GUIDE_CTAS}
+      />
+      <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
       <BreadcrumbNav
         items={[
           { name: 'Home', href: '/' },
@@ -247,10 +264,6 @@ export default function ProviderCompareHubPage() {
           { name: 'Compare providers', href: '/providers/compare' },
         ]}
       />
-
-      <h1 className="mb-3 text-3xl font-extrabold text-slate-900 sm:text-4xl">
-        Broadband Provider Comparisons: Every UK Head-to-Head
-      </h1>
 
       <CiteableAnswer>
         This directory lists every BroadbandPicker head-to-head broadband provider comparison,
@@ -395,6 +408,23 @@ export default function ProviderCompareHubPage() {
           </TrackedLink>{' '}
           lets you put two providers side by side against the whole market and check your postcode.
         </p>
+        {broadbandGenie ? (
+          <p className="mt-3 text-sm text-slate-500">
+            Still no match? {broadbandGenie.name} is{' '}
+            <AffiliateCTA
+              href={broadbandGenie.affiliateUrl}
+              providerName={broadbandGenie.name}
+              providerSlug={broadbandGenie.slug}
+              placement="providers_compare_coverage_wider_market"
+              label="an independent comparison site with wider coverage"
+              ariaLabel="Compare the wider broadband market at Broadband Genie (affiliate link: we may earn a commission)"
+              size="sm"
+              variant="outline"
+              className="align-baseline"
+            />
+            . That is an affiliate link and we may earn a commission from it.
+          </p>
+        ) : null}
       </section>
 
       <section id="methodology" className="mb-12 scroll-mt-24">
@@ -531,6 +561,7 @@ export default function ProviderCompareHubPage() {
           </Link>
         </p>
       </section>
+      </div>
     </div>
   )
 }

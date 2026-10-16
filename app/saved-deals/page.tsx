@@ -1,6 +1,10 @@
 import type { Metadata } from 'next'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
 import SavedDealsClient from '@/components/SavedDealsClient'
+import PageHeroBanner from '@/components/PageHeroBanner'
+import { DEFAULT_GUIDE_CTAS, categoryHero } from '@/lib/pageHero'
+
+const HERO = categoryHero('deals-and-pricing')
 
 export const metadata: Metadata = {
   title: 'Your Saved Deals | BroadbandPicker',
@@ -11,13 +15,20 @@ export const metadata: Metadata = {
 
 export default function SavedDealsPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8">
+    <div>
+      <PageHeroBanner
+        title="Your saved deals"
+        kicker="This device only"
+        lede="Saved on this device only. Nothing is sent to us or shared. Clearing your browser data clears this list."
+        image={HERO.image}
+        imageAlt={HERO.imageAlt}
+        accent={HERO.accent}
+        ctas={DEFAULT_GUIDE_CTAS}
+      />
+      <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8">
       <BreadcrumbNav items={[{ name: 'Home', href: '/' }, { name: 'Saved deals', href: '/saved-deals' }]} />
-      <h1 className="mb-2 text-3xl font-extrabold text-slate-900">Your saved deals</h1>
-      <p className="mb-8 text-slate-600">
-        Saved on this device only — nothing is sent to us or shared. Clearing your browser data clears this list.
-      </p>
       <SavedDealsClient />
+      </div>
     </div>
   )
 }

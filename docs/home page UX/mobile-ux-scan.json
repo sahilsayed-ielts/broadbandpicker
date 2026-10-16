@@ -1,19 +1,274 @@
 {
-  "generated": "2026-08-23",
-  "method": "Static HTTP fetch with a mobile Safari user agent, HTML/CSS-text pattern analysis. This cannot render or measure an actual mobile layout at any viewport width \u2014 it detects markup and CSS signals that correlate with mobile-friendly patterns (viewport meta, sticky bottom CTA classes, hamburger menu markers, tel: links, media query density), not visual confirmation.",
-  "pages": [
+  "generated": "2026-09-15T15:54:38+00:00",
+  "method": "Mobile Safari user-agent HTML/CSS scan of UK broadband affiliate hubs, fetch of Google Search Central / web.dev guidance, SerpAPI UK searches for user complaints and People Also Ask, plus a source-file audit of BroadbandPicker templates. This cannot screenshot 375/768/1280 layouts. Blocked pages are recorded, not invented.",
+  "google_guidance": [
+    {
+      "title": "Mobile-first indexing",
+      "url": "https://developers.google.com/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing",
+      "status": 200,
+      "excerpt": "Mobile-first Indexing Best Practices | Google Search Central &nbsp;|&nbsp; Documentation &nbsp;|&nbsp; Google for Developers { \"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{ \"@type\": \"ListItem\", \"position\": 1, \"name\": \"Search Central\", \"item\": \"https://developers.google.com/search\" },{ \"@type\": \"ListItem\", \"position\": 2, \"name\": \"Documentation\", \"item\": \"https://developers.google.com/search/docs\" },{ \"@type\": \"ListItem\", \"position\": 3, \"name\": \"Mobile-first Indexing Best Practices | Google Search Central\", \"item\": \"https://developers.google.com/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing\" }] } Skip to main content Google Search ",
+      "limitation": ""
+    },
+    {
+      "title": "Avoid intrusive interstitials",
+      "url": "https://developers.google.com/search/docs/appearance/avoid-intrusive-interstitials",
+      "status": 200,
+      "excerpt": "Interstitials and dialogs | Google Search Central &nbsp;|&nbsp; Documentation &nbsp;|&nbsp; Google for Developers { \"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{ \"@type\": \"ListItem\", \"position\": 1, \"name\": \"Search Central\", \"item\": \"https://developers.google.com/search\" },{ \"@type\": \"ListItem\", \"position\": 2, \"name\": \"Documentation\", \"item\": \"https://developers.google.com/search/docs\" },{ \"@type\": \"ListItem\", \"position\": 3, \"name\": \"Interstitials and dialogs | Google Search Central\", \"item\": \"https://developers.google.com/search/docs/appearance/avoid-intrusive-interstitials\" }] } Skip to main content Google Search Central Documentation SEO fundamentals In",
+      "limitation": ""
+    },
+    {
+      "title": "Core Web Vitals",
+      "url": "https://developers.google.com/search/docs/appearance/page-experience",
+      "status": 200,
+      "excerpt": "Understanding Google Page Experience | Google Search Central &nbsp;|&nbsp; Documentation &nbsp;|&nbsp; Google for Developers { \"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{ \"@type\": \"ListItem\", \"position\": 1, \"name\": \"Search Central\", \"item\": \"https://developers.google.com/search\" },{ \"@type\": \"ListItem\", \"position\": 2, \"name\": \"Documentation\", \"item\": \"https://developers.google.com/search/docs\" },{ \"@type\": \"ListItem\", \"position\": 3, \"name\": \"Understanding Google Page Experience | Google Search Central\", \"item\": \"https://developers.google.com/search/docs/appearance/page-experience\" }] } Skip to main content Google Search Central Documentation SEO fundame",
+      "limitation": ""
+    },
+    {
+      "title": "Responsive web design basics",
+      "url": "https://web.dev/articles/responsive-web-design-basics",
+      "status": 200,
+      "excerpt": "Responsive web design basics &nbsp;|&nbsp; Articles &nbsp;|&nbsp; web.dev { \"@context\": \"https://schema.org\", \"@type\": \"Article\", \"dateModified\": \"2019-02-12\", \"headline\": \"Responsive web design basics\" } { \"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{ \"@type\": \"ListItem\", \"position\": 1, \"name\": \"Articles\", \"item\": \"https://web.dev/articles\" },{ \"@type\": \"ListItem\", \"position\": 2, \"name\": \"Responsive web design basics\", \"item\": \"https://web.dev/articles/responsive-web-design-basics\" }] } Skip to main content Resources Web Platform Dive into the web platform, at your pace. HTML CSS JavaScript User experience Learn how to build better user experiences. Perf",
+      "limitation": ""
+    },
+    {
+      "title": "Tap target size",
+      "url": "https://web.dev/articles/accessible-tap-targets",
+      "status": 200,
+      "excerpt": "Accessible tap targets &nbsp;|&nbsp; web.dev { \"@context\": \"https://schema.org\", \"@type\": \"Article\", \"dateModified\": \"2020-03-31\", \"headline\": \"Accessible tap targets\" } Skip to main content Resources Web Platform Dive into the web platform, at your pace. HTML CSS JavaScript User experience Learn how to build better user experiences. Performance Accessibility Identity Learn Get up to speed on web development. Learn HTML Learn CSS Learn JavaScript Learn AI Learn Performance Learn Accessibility More courses Additional resources Explore content collections, patterns, and more. AI and the web Explore PageSpeed Insights Podcasts &amp; shows Developer Newsletter About web.dev Discover Baseline How",
+      "limitation": ""
+    }
+  ],
+  "people_talk": [
+    {
+      "query": "google mobile first indexing comparison websites",
+      "organic": [
+        {
+          "title": "Mobile-first Indexing Best Practices | Google Search Central",
+          "link": "https://developers.google.com/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing",
+          "snippet": "Google uses the mobile version of a site's content, crawled with the smartphone agent, for indexing and ranking. This is called mobile-first indexing."
+        },
+        {
+          "title": "Mobile-First Indexing: What It Means & Best Practices",
+          "link": "https://www.semrush.com/blog/mobile-first-indexiing/",
+          "snippet": "Mobile-first indexing means Google's web crawler prioritizes indexing the mobile version of a website's content over its desktop counterpart."
+        },
+        {
+          "title": "Understanding Google's Mobile-First Indexing",
+          "link": "https://majordigital.com/articles/mobile-first-indexing",
+          "snippet": "Essentially, Google will be testing your mobile site pages and scoring them based on speed, usability and stability. What does mobile-first indexing mean for my ..."
+        },
+        {
+          "title": "Mobile-First Indexing in 2026: What It Is & How to Prepare",
+          "link": "https://www.nostra.ai/blogs-collection/everything-you-need-to-know-about-googles-mobile-first-indexing",
+          "snippet": "Mobile-first indexing means Google ranks your site by its mobile version. What changed, how to check your store, and the fixes that matter ..."
+        },
+        {
+          "title": "Mobile First Indexing - Google - ConCom Website Design",
+          "link": "https://www.concomwebdesign.uk/blog/mobile-first-indexing-google",
+          "snippet": "Mobile-first indexing means Google predominantly uses the mobile version of the content for indexing and ranking. ConCom Website design can help you ..."
+        },
+        {
+          "title": "Mobile-first indexing and how it affects SEO",
+          "link": "https://www.verbolia.com/blog/mobile-first-indexing-and-how-it-affects-seo/",
+          "snippet": "Mobile-first indexing is a method used by Google to crawl web pages with mobile versions as a priority. The mobile version serves as both a starting point for ..."
+        }
+      ],
+      "people_also_ask": [
+        "How to rank a website on Google First Page?",
+        "Who is no. 1 in the Google Search list?",
+        "Is mobile-first design still relevant?",
+        "How many websites are indexed by Google?"
+      ]
+    },
+    {
+      "query": "UK broadband comparison site mobile UX",
+      "organic": [
+        {
+          "title": "Compare Broadband Deals September 2026",
+          "link": "https://www.moneysavingexpert.com/compare-broadband-deals/",
+          "snippet": "Compare broadband, landline and TV deals. Compare broadband deals Includes 35 of the biggest firms, plus special deals we've found or arranged. ..."
+        },
+        {
+          "title": "Broadband Deals: Compare in September 2026",
+          "link": "https://www.uswitch.com/broadband/",
+          "snippet": "Compare a range of broadband deals including fibre broadband and TV bundles with Uswitch. Find our best offers from Sky, Virgin Media, BT, ..."
+        },
+        {
+          "title": "Broadband, TV, Landline & Mobile Comparison ...",
+          "link": "https://www.broadbandchoices.co.uk/",
+          "snippet": "Compare broadband deals from top providers including BT, Sky, Virgin, TalkTalk, and more, using our impartial Ofcom-accredited comparison tool."
+        },
+        {
+          "title": "Compare Cheap Broadband Deals - September 2026",
+          "link": "https://www.comparethemarket.com/broadband/",
+          "snippet": "Compare broadband deals from trusted providers like Sky, BT and more. Explore our latest broadband offers to see if you could save up to £20 a month."
+        },
+        {
+          "title": "Use an Ofcom-accredited price comparison site to find the ...",
+          "link": "https://www.ofcom.org.uk/phones-and-broadband/saving-money/price-comparison",
+          "snippet": "Use our mobile and broadband checker to check what services are available to you. Find out how a cheaper social tariff broadband or phone ..."
+        },
+        {
+          "title": "Compare broadband, digital TV & landline packages in your ...",
+          "link": "https://broadband.which.co.uk/",
+          "snippet": "Start by entering your postcode to compare the deals available for your home. · Use the filters to choose a broadband package that offers the speed you want."
+        }
+      ],
+      "people_also_ask": []
+    },
+    {
+      "query": "comparison table unusable on mobile reddit",
+      "organic": [
+        {
+          "title": "Do you find it inexcusable how bad Reddit's app and ...",
+          "link": "https://www.reddit.com/r/webdev/comments/18yfzfc/do_you_find_it_inexcusable_how_bad_reddits_app/",
+          "snippet": "Like it’s 2024 these are multi-billion dollar tech giants whose sole purpose is UIX and this is the best they’re giving us? Same goes for many ..."
+        },
+        {
+          "title": "Reddit no longer letting me browse on my phone without ...",
+          "link": "https://www.reddit.com/r/help/comments/1sudaup/reddit_no_longer_letting_me_browse_on_my_phone/",
+          "snippet": "I only login to Reddit on my laptop. On my phone I just browse the home screen - it's my way of not doomscrolling. Suddenly it won't let me."
+        },
+        {
+          "title": "Reddit Is Blocking Its Mobile Site for Some Users, but ...",
+          "link": "https://lifehacker.com/tech/reddit-is-blocking-its-mobile-site-but-theres-a-fix",
+          "snippet": "Reddit is currently blocking some users from accessing its mobile site. The company is testing a pop-up forcing users to download its app."
+        },
+        {
+          "title": "It's a problem on mobile, because old-reddit isn't ...",
+          "link": "https://news.ycombinator.com/item?id=35636572",
+          "snippet": "The new interface simply doesn't bring any noteworthy value in comparison while being more annoying to use. ... The new reddit is so bad I'm sort ..."
+        },
+        {
+          "title": "Reddit seems to be blocking mobile web now",
+          "link": "https://www.reddit.com/r/enshittification/comments/1sudcbj/reddit_seems_to_be_blocking_mobile_web_now/",
+          "snippet": "Switch to Microsoft Edge on iOS and install the Ublockorigin extension. Enable all the filter lists. It does a good job of stripping all the ..."
+        },
+        {
+          "title": "Reddit on Mobile Web Browser no longer allowed?!",
+          "link": "https://www.reddit.com/r/reddithelp/comments/1sz4neg/reddit_on_mobile_web_browser_no_longer_allowed/",
+          "snippet": "I do not want to install the Reddit App, and I've been happily browsing reddit via web browser on my phone, however today there's a new popup for the Reddit ..."
+        }
+      ],
+      "people_also_ask": [
+        "Why is Reddit no longer working on my mobile device?",
+        "How do you turn off the NSFW filter on Reddit?",
+        "Where did the NSFW suggestions go in the Reddit app?",
+        "What is the best Reddit app for browsing NSFW content?"
+      ]
+    },
+    {
+      "query": "uswitch mobile website postcode checker",
+      "organic": [
+        {
+          "title": "Check Broadband In My Area - Postcode Checker",
+          "link": "https://www.uswitch.com/broadband/postcode_checker/",
+          "snippet": "Enter your postcode: Enter your postcode and address into the box on our Uswitch broadband page to see what home broadband is available in your area. · Select ..."
+        },
+        {
+          "title": "Mobile Phone Deals & Contracts September 2026",
+          "link": "https://www.uswitch.com/mobiles/",
+          "snippet": "Broadband speed test · Broadband postcode checker · Broadband guides · Broadband social tariffs · Broadband outages · Broadband news · Broadband ..."
+        },
+        {
+          "title": "Uswitch.com - We Put U First - Uswitch",
+          "link": "https://www.uswitch.com/",
+          "snippet": "Compare and switch broadband deals, mobile phone deals, car & home insurance, gas and electricity suppliers, credit cards, boiler cover & more."
+        },
+        {
+          "title": "Broadband and mobile coverage checker",
+          "link": "https://www.ofcom.org.uk/phones-and-broadband/coverage-and-speeds/ofcom-checker",
+          "snippet": "Enter a postcode to view mobile coverage by provider, or availability of broadband services (standard, superfast and ultrafast)."
+        },
+        {
+          "title": "Best mobile network coverage in the UK",
+          "link": "https://www.uswitch.com/mobiles/guides/mobile-phone-coverage/",
+          "snippet": "How to check mobile coverage where you live · Check multiple locations. Your home, workplace and commute matter more than your postcode alone."
+        },
+        {
+          "title": "TV Postcode & Availability Checker in the UK",
+          "link": "https://www.uswitch.com/tv/postcode_checker/",
+          "snippet": "Type in your postcode: Enter your postcode and address into the box on our Uswitch TV deals page to see what TV services are available in your area. Select your ..."
+        }
+      ],
+      "people_also_ask": [
+        "Is Uswitch mobile legit?",
+        "How can I check broadband availability in my postcode?",
+        "Is Uswitch free to use?",
+        "What are the best mobile Wi-Fi deals right now?"
+      ]
+    },
+    {
+      "query": "best mobile experience affiliate comparison site broadband UK",
+      "organic": [
+        {
+          "title": "Broadband Deals: Compare in September 2026",
+          "link": "https://www.uswitch.com/broadband/",
+          "snippet": "Compare a range of broadband deals including fibre broadband and TV bundles with Uswitch. Find our best offers from Sky, Virgin Media, BT, ..."
+        },
+        {
+          "title": "Compare Broadband Deals September 2026",
+          "link": "https://www.moneysavingexpert.com/compare-broadband-deals/",
+          "snippet": "Compare broadband, landline and TV deals with MoneySavingExpert. Enter your postcode to see available packages and check if you could save ..."
+        },
+        {
+          "title": "Broadband, TV, Landline & Mobile Comparison ...",
+          "link": "https://www.broadbandchoices.co.uk/",
+          "snippet": "Compare broadband deals from top providers including BT, Sky, Virgin, TalkTalk, and more, using our impartial Ofcom-accredited comparison tool."
+        },
+        {
+          "title": "Compare Broadband Deals - September 2026",
+          "link": "https://www.moneysupermarket.com/broadband/",
+          "snippet": "Compare broadband deals with MoneySuperMarket and earn a £20 reward when you switch. SuperSaveClub terms and conditions apply."
+        },
+        {
+          "title": "Compare broadband deals from £12.50 per month",
+          "link": "https://www.gocompare.com/broadband/",
+          "snippet": "At Go.Compare, you can compare more than 400 broadband deals from 31 reputable providers. And you can use our filters to find deals that offer ..."
+        },
+        {
+          "title": "Compare broadband, digital TV & landline packages in your ...",
+          "link": "https://broadband.which.co.uk/",
+          "snippet": "Compare broadband, TV and landline phone packages and buy today with Which? Switch Broadband. Enter your postcode to explore broadband deals in your area."
+        }
+      ],
+      "people_also_ask": [
+        "What is the best website to compare broadband deals?",
+        "What is the best mobile broadband in the UK?",
+        "What are the best broadband and mobile phone deals in the UK?",
+        "Who is the most reliable broadband provider in the UK?"
+      ]
+    },
+    {
+      "query": "google tap targets viewport Core Web Vitals ranking",
+      "error": "HTTPSConnectionPool(host='serpapi.com', port=443): Read timed out. (read timeout=40)"
+    },
+    {
+      "query": "site:reddit.com broadband comparison website on phone",
+      "error": "HTTPSConnectionPool(host='serpapi.com', port=443): Read timed out. (read timeout=40)"
+    },
+    {
+      "query": "choose.co.uk vs uswitch mobile deals table",
+      "error": "HTTPSConnectionPool(host='serpapi.com', port=443): Read timed out. (read timeout=40)"
+    }
+  ],
+  "competitors": [
     {
       "name": "Uswitch broadband hub",
       "url": "https://www.uswitch.com/broadband/",
+      "intent": "deals_hub",
       "status": 200,
       "notes": "",
       "has_viewport_meta": true,
       "viewport_content": "width=device-width",
       "has_apple_touch_icon": true,
+      "has_theme_color": true,
       "has_hamburger_signal": true,
       "has_sticky_bottom_cta_signal": false,
+      "has_postcode_form_signal": true,
+      "has_scrollable_table_signal": true,
       "tel_link_count": 0,
-      "stylesheet_count": 20,
+      "stylesheet_count": 22,
       "media_query_count": 41,
       "inline_style_media_query_count": 39,
       "touch_target_padding_signal": true
@@ -21,29 +276,37 @@
     {
       "name": "Uswitch BT review",
       "url": "https://www.uswitch.com/broadband/reviews/bt/",
+      "intent": "provider_review",
       "status": 200,
       "notes": "",
       "has_viewport_meta": true,
       "viewport_content": "width=device-width,initial-scale=1",
       "has_apple_touch_icon": true,
+      "has_theme_color": true,
       "has_hamburger_signal": true,
       "has_sticky_bottom_cta_signal": false,
+      "has_postcode_form_signal": true,
+      "has_scrollable_table_signal": true,
       "tel_link_count": 0,
-      "stylesheet_count": 16,
-      "media_query_count": 29,
+      "stylesheet_count": 20,
+      "media_query_count": 33,
       "inline_style_media_query_count": 120,
       "touch_target_padding_signal": true
     },
     {
       "name": "broadband.co.uk deals",
       "url": "https://www.broadband.co.uk/broadband/deals/",
+      "intent": "deals_hub",
       "status": 200,
       "notes": "",
       "has_viewport_meta": true,
       "viewport_content": "width=device-width, initial-scale=1.0",
       "has_apple_touch_icon": false,
+      "has_theme_color": true,
       "has_hamburger_signal": true,
       "has_sticky_bottom_cta_signal": false,
+      "has_postcode_form_signal": true,
+      "has_scrollable_table_signal": false,
       "tel_link_count": 0,
       "stylesheet_count": 1,
       "media_query_count": 36,
@@ -51,15 +314,39 @@
       "touch_target_padding_signal": false
     },
     {
+      "name": "broadband.co.uk compare",
+      "url": "https://www.broadband.co.uk/",
+      "intent": "homepage",
+      "status": 200,
+      "notes": "",
+      "has_viewport_meta": true,
+      "viewport_content": "width=device-width, initial-scale=1.0",
+      "has_apple_touch_icon": false,
+      "has_theme_color": true,
+      "has_hamburger_signal": true,
+      "has_sticky_bottom_cta_signal": false,
+      "has_postcode_form_signal": true,
+      "has_scrollable_table_signal": false,
+      "tel_link_count": 0,
+      "stylesheet_count": 1,
+      "media_query_count": 39,
+      "inline_style_media_query_count": 0,
+      "touch_target_padding_signal": false
+    },
+    {
       "name": "choose.co.uk broadband",
       "url": "https://www.choose.co.uk/broadband/",
+      "intent": "deals_hub",
       "status": 200,
       "notes": "",
       "has_viewport_meta": true,
       "viewport_content": "width=device-width, initial-scale=1",
       "has_apple_touch_icon": false,
+      "has_theme_color": false,
       "has_hamburger_signal": true,
       "has_sticky_bottom_cta_signal": true,
+      "has_postcode_form_signal": false,
+      "has_scrollable_table_signal": true,
       "tel_link_count": 0,
       "stylesheet_count": 1,
       "media_query_count": 114,
@@ -67,20 +354,422 @@
       "touch_target_padding_signal": true
     },
     {
-      "name": "MoneySavingExpert cheap broadband guide",
+      "name": "MoneySavingExpert cheap broadband",
       "url": "https://www.moneysavingexpert.com/phones/cheap-broadband/",
+      "intent": "guide",
       "status": 403,
       "notes": "Non-200 or empty response (403)",
       "has_viewport_meta": false,
       "viewport_content": "",
       "has_apple_touch_icon": false,
+      "has_theme_color": false,
       "has_hamburger_signal": false,
       "has_sticky_bottom_cta_signal": false,
+      "has_postcode_form_signal": false,
+      "has_scrollable_table_signal": false,
       "tel_link_count": 0,
       "stylesheet_count": 0,
       "media_query_count": 0,
       "inline_style_media_query_count": 0,
       "touch_target_padding_signal": false
+    },
+    {
+      "name": "broadbandchoices hub",
+      "url": "https://www.broadbandchoices.co.uk/",
+      "intent": "homepage",
+      "status": 403,
+      "notes": "Non-200 or empty response (403)",
+      "has_viewport_meta": false,
+      "viewport_content": "",
+      "has_apple_touch_icon": false,
+      "has_theme_color": false,
+      "has_hamburger_signal": false,
+      "has_sticky_bottom_cta_signal": false,
+      "has_postcode_form_signal": false,
+      "has_scrollable_table_signal": false,
+      "tel_link_count": 0,
+      "stylesheet_count": 0,
+      "media_query_count": 0,
+      "inline_style_media_query_count": 0,
+      "touch_target_padding_signal": false
+    },
+    {
+      "name": "cable.co.uk broadband",
+      "url": "https://www.cable.co.uk/broadband/",
+      "intent": "deals_hub",
+      "status": 200,
+      "notes": "",
+      "has_viewport_meta": true,
+      "viewport_content": "width=device-width, initial-scale=1",
+      "has_apple_touch_icon": true,
+      "has_theme_color": false,
+      "has_hamburger_signal": false,
+      "has_sticky_bottom_cta_signal": true,
+      "has_postcode_form_signal": true,
+      "has_scrollable_table_signal": false,
+      "tel_link_count": 8,
+      "stylesheet_count": 0,
+      "media_query_count": 0,
+      "inline_style_media_query_count": 21,
+      "touch_target_padding_signal": true
     }
+  ],
+  "own_pages": [
+    {
+      "name": "Homepage",
+      "url": "https://broadbandpicker.co.uk/",
+      "intent": "homepage",
+      "status": 200,
+      "notes": "",
+      "has_viewport_meta": true,
+      "viewport_content": "width=device-width, initial-scale=1",
+      "has_apple_touch_icon": true,
+      "has_theme_color": false,
+      "has_hamburger_signal": true,
+      "has_sticky_bottom_cta_signal": false,
+      "has_postcode_form_signal": true,
+      "has_scrollable_table_signal": true,
+      "tel_link_count": 0,
+      "stylesheet_count": 1,
+      "media_query_count": 14,
+      "inline_style_media_query_count": 0,
+      "touch_target_padding_signal": true
+    },
+    {
+      "name": "Deals hub",
+      "url": "https://broadbandpicker.co.uk/deals",
+      "intent": "deals_hub",
+      "status": 200,
+      "notes": "",
+      "has_viewport_meta": true,
+      "viewport_content": "width=device-width, initial-scale=1",
+      "has_apple_touch_icon": true,
+      "has_theme_color": false,
+      "has_hamburger_signal": true,
+      "has_sticky_bottom_cta_signal": false,
+      "has_postcode_form_signal": true,
+      "has_scrollable_table_signal": true,
+      "tel_link_count": 0,
+      "stylesheet_count": 1,
+      "media_query_count": 14,
+      "inline_style_media_query_count": 0,
+      "touch_target_padding_signal": true
+    },
+    {
+      "name": "Compare tool",
+      "url": "https://broadbandpicker.co.uk/compare",
+      "intent": "compare",
+      "status": 200,
+      "notes": "",
+      "has_viewport_meta": true,
+      "viewport_content": "width=device-width, initial-scale=1",
+      "has_apple_touch_icon": true,
+      "has_theme_color": false,
+      "has_hamburger_signal": true,
+      "has_sticky_bottom_cta_signal": false,
+      "has_postcode_form_signal": true,
+      "has_scrollable_table_signal": true,
+      "tel_link_count": 0,
+      "stylesheet_count": 1,
+      "media_query_count": 14,
+      "inline_style_media_query_count": 0,
+      "touch_target_padding_signal": true
+    },
+    {
+      "name": "Provider review",
+      "url": "https://broadbandpicker.co.uk/providers/bt",
+      "intent": "provider_review",
+      "status": 200,
+      "notes": "",
+      "has_viewport_meta": true,
+      "viewport_content": "width=device-width, initial-scale=1",
+      "has_apple_touch_icon": true,
+      "has_theme_color": false,
+      "has_hamburger_signal": true,
+      "has_sticky_bottom_cta_signal": false,
+      "has_postcode_form_signal": true,
+      "has_scrollable_table_signal": true,
+      "tel_link_count": 0,
+      "stylesheet_count": 1,
+      "media_query_count": 14,
+      "inline_style_media_query_count": 0,
+      "touch_target_padding_signal": true
+    },
+    {
+      "name": "Provider vs",
+      "url": "https://broadbandpicker.co.uk/providers/compare/hyperoptic-vs-community-fibre",
+      "intent": "provider_vs",
+      "status": 200,
+      "notes": "",
+      "has_viewport_meta": true,
+      "viewport_content": "width=device-width, initial-scale=1",
+      "has_apple_touch_icon": true,
+      "has_theme_color": false,
+      "has_hamburger_signal": true,
+      "has_sticky_bottom_cta_signal": false,
+      "has_postcode_form_signal": true,
+      "has_scrollable_table_signal": true,
+      "tel_link_count": 0,
+      "stylesheet_count": 1,
+      "media_query_count": 14,
+      "inline_style_media_query_count": 0,
+      "touch_target_padding_signal": true
+    },
+    {
+      "name": "London hub",
+      "url": "https://broadbandpicker.co.uk/postcode/london",
+      "intent": "postcode",
+      "status": 200,
+      "notes": "",
+      "has_viewport_meta": true,
+      "viewport_content": "width=device-width, initial-scale=1",
+      "has_apple_touch_icon": true,
+      "has_theme_color": false,
+      "has_hamburger_signal": true,
+      "has_sticky_bottom_cta_signal": false,
+      "has_postcode_form_signal": true,
+      "has_scrollable_table_signal": true,
+      "tel_link_count": 0,
+      "stylesheet_count": 1,
+      "media_query_count": 14,
+      "inline_style_media_query_count": 0,
+      "touch_target_padding_signal": true
+    }
+  ],
+  "source_audit": {
+    "missing_viewport_export": [],
+    "inputs_without_16px_class": [],
+    "tables_without_labelled_scroll": [],
+    "sort_or_cta_under_44px": [
+      "components/DealTable.tsx",
+      "components/CookieBanner.tsx"
+    ],
+    "content_hidden_on_mobile": [],
+    "cookie_or_sticky_without_safe_area": []
+  },
+  "pages": [
+    {
+      "name": "Uswitch broadband hub",
+      "url": "https://www.uswitch.com/broadband/",
+      "intent": "deals_hub",
+      "status": 200,
+      "notes": "",
+      "has_viewport_meta": true,
+      "viewport_content": "width=device-width",
+      "has_apple_touch_icon": true,
+      "has_theme_color": true,
+      "has_hamburger_signal": true,
+      "has_sticky_bottom_cta_signal": false,
+      "has_postcode_form_signal": true,
+      "has_scrollable_table_signal": true,
+      "tel_link_count": 0,
+      "stylesheet_count": 22,
+      "media_query_count": 41,
+      "inline_style_media_query_count": 39,
+      "touch_target_padding_signal": true
+    },
+    {
+      "name": "Uswitch BT review",
+      "url": "https://www.uswitch.com/broadband/reviews/bt/",
+      "intent": "provider_review",
+      "status": 200,
+      "notes": "",
+      "has_viewport_meta": true,
+      "viewport_content": "width=device-width,initial-scale=1",
+      "has_apple_touch_icon": true,
+      "has_theme_color": true,
+      "has_hamburger_signal": true,
+      "has_sticky_bottom_cta_signal": false,
+      "has_postcode_form_signal": true,
+      "has_scrollable_table_signal": true,
+      "tel_link_count": 0,
+      "stylesheet_count": 20,
+      "media_query_count": 33,
+      "inline_style_media_query_count": 120,
+      "touch_target_padding_signal": true
+    },
+    {
+      "name": "broadband.co.uk deals",
+      "url": "https://www.broadband.co.uk/broadband/deals/",
+      "intent": "deals_hub",
+      "status": 200,
+      "notes": "",
+      "has_viewport_meta": true,
+      "viewport_content": "width=device-width, initial-scale=1.0",
+      "has_apple_touch_icon": false,
+      "has_theme_color": true,
+      "has_hamburger_signal": true,
+      "has_sticky_bottom_cta_signal": false,
+      "has_postcode_form_signal": true,
+      "has_scrollable_table_signal": false,
+      "tel_link_count": 0,
+      "stylesheet_count": 1,
+      "media_query_count": 36,
+      "inline_style_media_query_count": 0,
+      "touch_target_padding_signal": false
+    },
+    {
+      "name": "broadband.co.uk compare",
+      "url": "https://www.broadband.co.uk/",
+      "intent": "homepage",
+      "status": 200,
+      "notes": "",
+      "has_viewport_meta": true,
+      "viewport_content": "width=device-width, initial-scale=1.0",
+      "has_apple_touch_icon": false,
+      "has_theme_color": true,
+      "has_hamburger_signal": true,
+      "has_sticky_bottom_cta_signal": false,
+      "has_postcode_form_signal": true,
+      "has_scrollable_table_signal": false,
+      "tel_link_count": 0,
+      "stylesheet_count": 1,
+      "media_query_count": 39,
+      "inline_style_media_query_count": 0,
+      "touch_target_padding_signal": false
+    },
+    {
+      "name": "choose.co.uk broadband",
+      "url": "https://www.choose.co.uk/broadband/",
+      "intent": "deals_hub",
+      "status": 200,
+      "notes": "",
+      "has_viewport_meta": true,
+      "viewport_content": "width=device-width, initial-scale=1",
+      "has_apple_touch_icon": false,
+      "has_theme_color": false,
+      "has_hamburger_signal": true,
+      "has_sticky_bottom_cta_signal": true,
+      "has_postcode_form_signal": false,
+      "has_scrollable_table_signal": true,
+      "tel_link_count": 0,
+      "stylesheet_count": 1,
+      "media_query_count": 114,
+      "inline_style_media_query_count": 83,
+      "touch_target_padding_signal": true
+    },
+    {
+      "name": "MoneySavingExpert cheap broadband",
+      "url": "https://www.moneysavingexpert.com/phones/cheap-broadband/",
+      "intent": "guide",
+      "status": 403,
+      "notes": "Non-200 or empty response (403)",
+      "has_viewport_meta": false,
+      "viewport_content": "",
+      "has_apple_touch_icon": false,
+      "has_theme_color": false,
+      "has_hamburger_signal": false,
+      "has_sticky_bottom_cta_signal": false,
+      "has_postcode_form_signal": false,
+      "has_scrollable_table_signal": false,
+      "tel_link_count": 0,
+      "stylesheet_count": 0,
+      "media_query_count": 0,
+      "inline_style_media_query_count": 0,
+      "touch_target_padding_signal": false
+    },
+    {
+      "name": "broadbandchoices hub",
+      "url": "https://www.broadbandchoices.co.uk/",
+      "intent": "homepage",
+      "status": 403,
+      "notes": "Non-200 or empty response (403)",
+      "has_viewport_meta": false,
+      "viewport_content": "",
+      "has_apple_touch_icon": false,
+      "has_theme_color": false,
+      "has_hamburger_signal": false,
+      "has_sticky_bottom_cta_signal": false,
+      "has_postcode_form_signal": false,
+      "has_scrollable_table_signal": false,
+      "tel_link_count": 0,
+      "stylesheet_count": 0,
+      "media_query_count": 0,
+      "inline_style_media_query_count": 0,
+      "touch_target_padding_signal": false
+    },
+    {
+      "name": "cable.co.uk broadband",
+      "url": "https://www.cable.co.uk/broadband/",
+      "intent": "deals_hub",
+      "status": 200,
+      "notes": "",
+      "has_viewport_meta": true,
+      "viewport_content": "width=device-width, initial-scale=1",
+      "has_apple_touch_icon": true,
+      "has_theme_color": false,
+      "has_hamburger_signal": false,
+      "has_sticky_bottom_cta_signal": true,
+      "has_postcode_form_signal": true,
+      "has_scrollable_table_signal": false,
+      "tel_link_count": 8,
+      "stylesheet_count": 0,
+      "media_query_count": 0,
+      "inline_style_media_query_count": 21,
+      "touch_target_padding_signal": true
+    }
+  ],
+  "recommendations": [
+    {
+      "priority": "P0",
+      "action": "Export an explicit Next.js viewport with width=device-width, initial-scale=1, viewport-fit=cover and theme-color.",
+      "why": "Google mobile-first indexing uses the mobile document. Competitors all send a viewport meta. Next injects a default, but an explicit export plus theme-color matches Google and installed-PWA chrome.",
+      "files": "app/layout.tsx"
+    },
+    {
+      "priority": "P0",
+      "action": "Keep 16px (or larger) on postcode and other text inputs on phones so iOS does not zoom the page.",
+      "why": "User reports and Google tap/zoom guidance: inputs under 16px trigger automatic zoom and wreck LCP/INP on iPhone. Affiliate postcode checkers fail this constantly.",
+      "files": "components/PostcodeChecker.tsx, app/globals.css"
+    },
+    {
+      "priority": "P0",
+      "action": "Stop hiding the trust line on phones. Show a one-line mobile version of Rankings are not sold.",
+      "why": "Mobile-first indexing ranks the mobile DOM. Hiding the independence line below sm: means Googlebot-smartphone never sees it in the header. Footer copy is not a substitute for above-the-fold trust on a comparison site.",
+      "files": "app/layout.tsx"
+    },
+    {
+      "priority": "P1",
+      "action": "Render deal rows as stacked cards below the md breakpoint, with the same price, speed, contract and Get Deal data as the desktop table.",
+      "why": "6 competitor hubs send a viewport; tables still dominate. Reddit and comparison-UX threads repeatedly call wide tables unusable on a phone. Google wants the same content, not a different dataset. Cards plus a labelled scroll region is the Choose/Uswitch-style adaptation without cloning their layout.",
+      "files": "components/DealTable.tsx"
+    },
+    {
+      "priority": "P1",
+      "action": "Make sort chips and cookie buttons at least 44px tall, and pad the cookie bar for the iPhone home indicator.",
+      "why": "Google's accessible tap-target article and Core Web Vitals INP both punish small bottom-of-screen buttons. Cookie bars sit on the thumb zone.",
+      "files": "components/DealTable.tsx, components/CookieBanner.tsx"
+    },
+    {
+      "priority": "P1",
+      "action": "Stack the postcode field and Find Deals button on very small screens, and add labelled overflow regions on remaining comparison tables.",
+      "why": "5 competitor pages surface a postcode control in the mobile HTML. A single-row checker overflows at 320px. Comparison tables already scroll; they still need role=region and an accessible name.",
+      "files": "components/PostcodeChecker.tsx, app/providers/compare/[slug]/page.tsx"
+    },
+    {
+      "priority": "P2",
+      "action": "Do not add a sticky bottom Get Deal bar on every page. Keep conversion in the hero and table. A sitewide sticky bar would fight the cookie banner and fail Google's interstitial guidance.",
+      "why": "Only 2 scanned competitor pages even signal a sticky bottom CTA. Choose had the signal; Uswitch and broadband.co.uk did not. Intrusive bars are a known ranking and UX risk.",
+      "files": "No new sticky bar"
+    },
+    {
+      "priority": "P2",
+      "action": "Keep the hamburger until lg so tablet widths get the same task-first nav, with the postcode checker inside the menu.",
+      "why": "5 competitor pages signal a mobile menu. Hover dropdowns fail on touch tablets.",
+      "files": "components/MobileNav.tsx, components/MainNav.tsx"
+    },
+    {
+      "priority": "note",
+      "action": "Record access limits instead of inventing layouts.",
+      "why": "This script cannot screenshot 375/768/1280 viewports. MoneySavingExpert and some hubs 403 bot fetches. Reddit threads are snippets unless the page is open.",
+      "files": "docs/home page UX/mobile-ux-scan.json"
+    }
+  ],
+  "intents_covered": [
+    "check postcode / deals near me",
+    "compare two providers",
+    "read a provider review",
+    "understand switching or social tariffs",
+    "tap Get Deal without zooming or covering the button"
   ]
 }

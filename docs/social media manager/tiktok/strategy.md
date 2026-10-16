@@ -5,8 +5,10 @@ TikTok is how strangers meet BroadbandPicker. Play native or do not play.
 ## Account
 
 - Name: BroadbandPicker
-- Bio: British broadband, minus the small print energy. https://broadbandpicker.co.uk
+- Bio: UK broadband comparison. Postcode first. Rankings not sold.
+- Website: https://broadbandpicker.co.uk
 - Photo: logo icon
+- Full paste fields: `../profiles-all.md`
 - Post vertical only. No watermarks from other apps (film IG *after* TikTok, not before).
 
 ## Cadence

@@ -1,0 +1,193 @@
+{
+  "generated_at": "2026-10-13T19:16:52.390033+00:00",
+  "period_days": 7,
+  "ga4_property_id": "551202232",
+  "event_name": "outbound_provider_click",
+  "rows": [
+    {
+      "advertiser": "Broadband Genie",
+      "relationship": "Joined",
+      "slug": "broadband-genie",
+      "clicks": 2
+    },
+    {
+      "advertiser": "Connect Fibre",
+      "relationship": "Joined",
+      "slug": "connect-fibre",
+      "clicks": 0
+    },
+    {
+      "advertiser": "Highland Broadband",
+      "relationship": "Joined",
+      "slug": "highland-broadband",
+      "clicks": 0
+    },
+    {
+      "advertiser": "Onestream",
+      "relationship": "Joined",
+      "slug": "onestream",
+      "clicks": 0
+    },
+    {
+      "advertiser": "TalkTalk Phone and Broadband",
+      "relationship": "Joined",
+      "slug": "talktalk",
+      "clicks": 0
+    },
+    {
+      "advertiser": "Zzoomm",
+      "relationship": "Joined",
+      "slug": "zzoomm",
+      "clicks": 0
+    },
+    {
+      "advertiser": "Community Fibre",
+      "relationship": "Pending",
+      "slug": "community-fibre",
+      "clicks": 3
+    },
+    {
+      "advertiser": "NOW Powered By Sky",
+      "relationship": "Pending",
+      "slug": "sky",
+      "clicks": 2
+    },
+    {
+      "advertiser": "Virgin Media",
+      "relationship": "Pending",
+      "slug": "virgin-media",
+      "clicks": 2
+    },
+    {
+      "advertiser": "Hyperoptic B2C",
+      "relationship": "Pending",
+      "slug": "hyperoptic",
+      "clicks": 1
+    },
+    {
+      "advertiser": "Cuckoo Broadband",
+      "relationship": "Pending",
+      "slug": "cuckoo",
+      "clicks": 0
+    },
+    {
+      "advertiser": "giffgaff",
+      "relationship": "Pending",
+      "slug": "giffgaff",
+      "clicks": 0
+    },
+    {
+      "advertiser": "Gigaclear",
+      "relationship": "Pending",
+      "slug": "gigaclear",
+      "clicks": 0
+    },
+    {
+      "advertiser": "MoneySupermarket Broadband",
+      "relationship": "Pending",
+      "slug": "moneysupermarket-broadband",
+      "clicks": 0
+    },
+    {
+      "advertiser": "National Broadband",
+      "relationship": "Pending",
+      "slug": "national-broadband",
+      "clicks": 0
+    },
+    {
+      "advertiser": "Pine Media Broadband",
+      "relationship": "Pending",
+      "slug": "pine-media",
+      "clicks": 0
+    },
+    {
+      "advertiser": "Sky",
+      "relationship": "Pending",
+      "slug": "sky",
+      "clicks": 0
+    },
+    {
+      "advertiser": "Sky Business",
+      "relationship": "Pending",
+      "slug": "sky",
+      "clicks": 0
+    },
+    {
+      "advertiser": "Sky ROI",
+      "relationship": "Pending",
+      "slug": "sky",
+      "clicks": 0
+    },
+    {
+      "advertiser": "Trooli Full Fibre Broadband",
+      "relationship": "Pending",
+      "slug": "trooli",
+      "clicks": 0
+    },
+    {
+      "advertiser": "Zen Internet",
+      "relationship": "Pending",
+      "slug": "zen-internet",
+      "clicks": 0
+    },
+    {
+      "advertiser": "Zen Internet Business",
+      "relationship": "Pending",
+      "slug": "zen-internet",
+      "clicks": 0
+    },
+    {
+      "advertiser": "Plusnet Broadband",
+      "relationship": "Rejected",
+      "slug": "plusnet",
+      "clicks": 7
+    },
+    {
+      "advertiser": "toob",
+      "relationship": "Rejected",
+      "slug": "toob",
+      "clicks": 3
+    },
+    {
+      "advertiser": "BT Broadband",
+      "relationship": "Rejected",
+      "slug": "bt",
+      "clicks": 2
+    },
+    {
+      "advertiser": "EE Home Broadband",
+      "relationship": "Rejected",
+      "slug": "ee",
+      "clicks": 2
+    },
+    {
+      "advertiser": "BT Business Broadband",
+      "relationship": "Rejected",
+      "slug": "bt",
+      "clicks": 0
+    },
+    {
+      "advertiser": "DAZN UK",
+      "relationship": "Rejected",
+      "slug": "dazn-uk",
+      "clicks": 0
+    },
+    {
+      "advertiser": "Vodafone Ltd",
+      "relationship": "Rejected",
+      "slug": "vodafone",
+      "clicks": 0
+    },
+    {
+      "advertiser": "World Businesses for Sale",
+      "relationship": "Prospect",
+      "slug": "world-businesses-for-sale",
+      "clicks": 0
+    }
+  ],
+  "unmatched_provider_slugs": {
+    "brsk": 1
+  },
+  "not_set_clicks": 0,
+  "note": "Provider-level custom dimensions are not retroactive; not-set clicks cannot be assigned reliably."
+}

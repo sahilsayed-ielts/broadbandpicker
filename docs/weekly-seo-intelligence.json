@@ -1,886 +1,3972 @@
 {
-  "generated_at": "2026-08-25T21:02:40.387960+00:00",
+  "generated_at": "2026-09-25T22:04:55.913401+00:00",
   "current_window": {
-    "start": "2026-07-26",
-    "end": "2026-08-22"
+    "start": "2026-08-26",
+    "end": "2026-09-22"
   },
   "previous_window": {
-    "start": "2026-06-28",
-    "end": "2026-07-25"
+    "start": "2026-07-29",
+    "end": "2026-08-25"
   },
   "summary": {
-    "gsc_clicks": 35.0,
-    "gsc_impressions": 61881.0,
-    "ga4_organic_sessions": 0,
-    "ai_referral_visits": 0,
-    "pages_scored": 80,
-    "anomalous_query_rows_excluded": 1
+    "gsc_clicks": 346.0,
+    "previous_gsc_clicks": 55.0,
+    "gsc_click_change_pct": 529.1,
+    "gsc_impressions": 119789.0,
+    "previous_gsc_impressions": 71458.0,
+    "gsc_impression_change_pct": 67.6,
+    "ga4_organic_sessions": 183.0,
+    "previous_ga4_organic_sessions": 7.0,
+    "ga4_organic_session_change_pct": 2514.3,
+    "ai_referral_visits": 10.0,
+    "pages_scored": 2003,
+    "anomalous_query_rows_excluded": 10
   },
   "next_five": [
     {
-      "page": "/postcode/da1",
+      "page": "/postcode/london",
+      "clicks": 3.0,
+      "impressions": 1066.0,
+      "ctr": 0.0028142589118198874,
+      "position": 29.29924953095685,
+      "previous_clicks": 2.0,
+      "previous_impressions": 1679.0,
+      "click_change_pct": 50.0,
+      "impression_change_pct": -36.5,
+      "previous_ctr": 0.0011911852293031567,
+      "ctr_change_pp": 0.16,
+      "previous_position": 40.41870160810006,
+      "position_change": 11.12,
+      "sessions": 2.0,
+      "previous_sessions": 0,
+      "session_change_pct": 100.0,
+      "engaged_sessions": 2.0,
+      "engagement_rate": 1.0,
+      "previous_engagement_rate": null,
+      "key_events": 2.0,
+      "previous_key_events": 0,
+      "affiliate_clicks": 2.0,
+      "previous_affiliate_clicks": 0,
+      "ai_referral_visits": 0,
+      "previous_ai_referral_visits": 0,
+      "last_content_update": "2026-08-01",
+      "updated_by_current_pipeline": false,
+      "days_since_content_update": 55,
+      "priority_eligible": true,
+      "suppression_reason": null,
+      "score": 81.2,
+      "category": "Page-two opportunity",
+      "recommended_action": "Expand missing subtopics for the leading queries, improve topical internal links and validate intent alignment.",
+      "top_queries": [
+        "internet providers london",
+        "broadband london providers",
+        "broadband providers london",
+        "london broadband providers",
+        "broadband services london"
+      ]
+    },
+    {
+      "page": "/postcode/cr0",
+      "clicks": 5.0,
+      "impressions": 189.0,
+      "ctr": 0.026455026455026454,
+      "position": 9.222222222222221,
+      "previous_clicks": 0,
+      "previous_impressions": 0,
+      "click_change_pct": 100.0,
+      "impression_change_pct": 100.0,
+      "previous_ctr": 0,
+      "ctr_change_pp": 2.65,
+      "previous_position": 0,
+      "position_change": 0.0,
+      "sessions": 2.0,
+      "previous_sessions": 0,
+      "session_change_pct": 100.0,
+      "engaged_sessions": 2.0,
+      "engagement_rate": 1.0,
+      "previous_engagement_rate": null,
+      "key_events": 4.0,
+      "previous_key_events": 0,
+      "affiliate_clicks": 4.0,
+      "previous_affiliate_clicks": 0,
+      "ai_referral_visits": 0,
+      "previous_ai_referral_visits": 0,
+      "last_content_update": null,
+      "updated_by_current_pipeline": false,
+      "days_since_content_update": null,
+      "priority_eligible": true,
+      "suppression_reason": null,
+      "score": 73.2,
+      "category": "Quick ranking win",
+      "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
+      "top_queries": [
+        "broadband deals in croydon",
+        "best internet provider croydon",
+        "full fibre broadband in croydon",
+        "fibre broadband in croydon",
+        "broadband in croydon"
+      ]
+    },
+    {
+      "page": "/about",
+      "clicks": 0.0,
+      "impressions": 648.0,
+      "ctr": 0.0,
+      "position": 10.0,
+      "previous_clicks": 0,
+      "previous_impressions": 0,
+      "click_change_pct": null,
+      "impression_change_pct": 100.0,
+      "previous_ctr": 0,
+      "ctr_change_pp": 0.0,
+      "previous_position": 0,
+      "position_change": 0.0,
+      "sessions": 0,
+      "previous_sessions": 0,
+      "session_change_pct": null,
+      "engaged_sessions": 0,
+      "engagement_rate": null,
+      "previous_engagement_rate": null,
+      "key_events": 0,
+      "previous_key_events": 0,
+      "affiliate_clicks": 0,
+      "previous_affiliate_clicks": 0,
+      "ai_referral_visits": 0,
+      "previous_ai_referral_visits": 0,
+      "last_content_update": null,
+      "updated_by_current_pipeline": false,
+      "days_since_content_update": null,
+      "priority_eligible": true,
+      "suppression_reason": null,
+      "score": 72.4,
+      "category": "Quick ranking win",
+      "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
+      "top_queries": [
+        "broadband comparison",
+        "compare broadband",
+        "compare the broadband market",
+        "broadband comparison uk",
+        "compare broadband prices"
+      ]
+    },
+    {
+      "page": "/providers/compare/vodafone-vs-talktalk",
       "clicks": 1.0,
-      "impressions": 913.0,
-      "ctr": 0.001095290251916758,
-      "position": 9.46002190580504,
-      "previous_clicks": 1.0,
-      "previous_impressions": 291.0,
-      "impression_change_pct": 213.7,
-      "sessions": 0,
-      "engaged_sessions": 0,
-      "engagement_rate": null,
-      "key_events": 0,
-      "affiliate_clicks": 0,
-      "ai_referral_visits": 0,
-      "score": 62.3,
-      "category": "Quick ranking win",
-      "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
-      "top_queries": [
-        "broadband deals in dartford"
-      ]
-    },
-    {
-      "page": "/postcode/m1",
-      "clicks": 0.0,
-      "impressions": 56.0,
-      "ctr": 0.0,
-      "position": 12.875,
-      "previous_clicks": 0.0,
-      "previous_impressions": 68.0,
-      "impression_change_pct": -17.6,
-      "sessions": 0,
-      "engaged_sessions": 0,
-      "engagement_rate": null,
-      "key_events": 0,
-      "affiliate_clicks": 0,
-      "ai_referral_visits": 0,
-      "score": 59.4,
-      "category": "Quick ranking win",
-      "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
-      "top_queries": [
-        "m1 broadband",
-        "cheap broadband deals manchester",
-        "m1 wifi broadband",
-        "m1 internet plan",
-        "m1 internet broadband"
-      ]
-    },
-    {
-      "page": "/postcode/ng1",
-      "clicks": 0.0,
-      "impressions": 132.0,
-      "ctr": 0.0,
-      "position": 13.643939393939394,
+      "impressions": 82.0,
+      "ctr": 0.012195121951219513,
+      "position": 7.341463414634147,
       "previous_clicks": 0,
       "previous_impressions": 0,
+      "click_change_pct": 100.0,
       "impression_change_pct": 100.0,
-      "sessions": 0,
-      "engaged_sessions": 0,
-      "engagement_rate": null,
-      "key_events": 0,
-      "affiliate_clicks": 0,
+      "previous_ctr": 0,
+      "ctr_change_pp": 1.22,
+      "previous_position": 0,
+      "position_change": 0.0,
+      "sessions": 1.0,
+      "previous_sessions": 0,
+      "session_change_pct": 100.0,
+      "engaged_sessions": 1.0,
+      "engagement_rate": 1.0,
+      "previous_engagement_rate": null,
+      "key_events": 1.0,
+      "previous_key_events": 0,
+      "affiliate_clicks": 1.0,
+      "previous_affiliate_clicks": 0,
       "ai_referral_visits": 0,
-      "score": 55.4,
+      "previous_ai_referral_visits": 0,
+      "last_content_update": "2026-06-21",
+      "updated_by_current_pipeline": false,
+      "days_since_content_update": 96,
+      "priority_eligible": true,
+      "suppression_reason": null,
+      "score": 70.3,
       "category": "Quick ranking win",
       "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
       "top_queries": [
-        "broadband deals nottingham",
-        "broadband deals in nottingham",
-        "broadband deals nottinghamshire",
-        "internet deals nottingham",
-        "cheapest broadband nottingham"
+        "vodafone vs talktalk broadband",
+        "talk talk"
       ]
     },
     {
-      "page": "/postcode/rg1",
-      "clicks": 0.0,
-      "impressions": 126.0,
-      "ctr": 0.0,
-      "position": 14.904761904761905,
+      "page": "/postcode/n1",
+      "clicks": 4.0,
+      "impressions": 80.0,
+      "ctr": 0.05,
+      "position": 9.0125,
       "previous_clicks": 0,
       "previous_impressions": 0,
+      "click_change_pct": 100.0,
       "impression_change_pct": 100.0,
-      "sessions": 0,
-      "engaged_sessions": 0,
-      "engagement_rate": null,
-      "key_events": 0,
+      "previous_ctr": 0,
+      "ctr_change_pp": 5.0,
+      "previous_position": 0,
+      "position_change": 0.0,
+      "sessions": 1.0,
+      "previous_sessions": 0,
+      "session_change_pct": 100.0,
+      "engaged_sessions": 1.0,
+      "engagement_rate": 1.0,
+      "previous_engagement_rate": null,
+      "key_events": 0.0,
+      "previous_key_events": 0,
       "affiliate_clicks": 0,
+      "previous_affiliate_clicks": 0,
       "ai_referral_visits": 0,
-      "score": 55.3,
+      "previous_ai_referral_visits": 0,
+      "last_content_update": null,
+      "updated_by_current_pipeline": false,
+      "days_since_content_update": null,
+      "priority_eligible": true,
+      "suppression_reason": null,
+      "score": 70.2,
       "category": "Quick ranking win",
       "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
       "top_queries": [
-        "broadband deals in reading",
-        "broadband in reading",
-        "broadband deals reading",
-        "broadband reading",
-        "cheapest"
-      ]
-    },
-    {
-      "page": "/postcode/ct1",
-      "clicks": 0.0,
-      "impressions": 120.0,
-      "ctr": 0.0,
-      "position": 9.866666666666667,
-      "previous_clicks": 1.0,
-      "previous_impressions": 100.0,
-      "impression_change_pct": 20.0,
-      "sessions": 0,
-      "engaged_sessions": 0,
-      "engagement_rate": null,
-      "key_events": 0,
-      "affiliate_clicks": 0,
-      "ai_referral_visits": 0,
-      "score": 55.1,
-      "category": "Quick ranking win",
-      "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
-      "top_queries": [
-        "broadband deals in canterbury"
+        "n1 7sx",
+        "n1 3be",
+        "n1 1pf",
+        "full fibre broadband in islington",
+        "fibre broadband in islington"
       ]
     }
   ],
   "opportunities": [
     {
-      "page": "/postcode/da1",
-      "clicks": 1.0,
-      "impressions": 913.0,
-      "ctr": 0.001095290251916758,
-      "position": 9.46002190580504,
-      "previous_clicks": 1.0,
-      "previous_impressions": 291.0,
-      "impression_change_pct": 213.7,
-      "sessions": 0,
-      "engaged_sessions": 0,
-      "engagement_rate": null,
-      "key_events": 0,
-      "affiliate_clicks": 0,
-      "ai_referral_visits": 0,
-      "score": 62.3,
-      "category": "Quick ranking win",
-      "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
-      "top_queries": [
-        "broadband deals in dartford"
-      ]
-    },
-    {
-      "page": "/postcode/m1",
-      "clicks": 0.0,
-      "impressions": 56.0,
-      "ctr": 0.0,
-      "position": 12.875,
-      "previous_clicks": 0.0,
-      "previous_impressions": 68.0,
-      "impression_change_pct": -17.6,
-      "sessions": 0,
-      "engaged_sessions": 0,
-      "engagement_rate": null,
-      "key_events": 0,
-      "affiliate_clicks": 0,
-      "ai_referral_visits": 0,
-      "score": 59.4,
-      "category": "Quick ranking win",
-      "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
-      "top_queries": [
-        "m1 broadband",
-        "cheap broadband deals manchester",
-        "m1 wifi broadband",
-        "m1 internet plan",
-        "m1 internet broadband"
-      ]
-    },
-    {
-      "page": "/postcode/ng1",
-      "clicks": 0.0,
-      "impressions": 132.0,
-      "ctr": 0.0,
-      "position": 13.643939393939394,
-      "previous_clicks": 0,
-      "previous_impressions": 0,
-      "impression_change_pct": 100.0,
-      "sessions": 0,
-      "engaged_sessions": 0,
-      "engagement_rate": null,
-      "key_events": 0,
-      "affiliate_clicks": 0,
-      "ai_referral_visits": 0,
-      "score": 55.4,
-      "category": "Quick ranking win",
-      "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
-      "top_queries": [
-        "broadband deals nottingham",
-        "broadband deals in nottingham",
-        "broadband deals nottinghamshire",
-        "internet deals nottingham",
-        "cheapest broadband nottingham"
-      ]
-    },
-    {
-      "page": "/postcode/rg1",
-      "clicks": 0.0,
-      "impressions": 126.0,
-      "ctr": 0.0,
-      "position": 14.904761904761905,
-      "previous_clicks": 0,
-      "previous_impressions": 0,
-      "impression_change_pct": 100.0,
-      "sessions": 0,
-      "engaged_sessions": 0,
-      "engagement_rate": null,
-      "key_events": 0,
-      "affiliate_clicks": 0,
-      "ai_referral_visits": 0,
-      "score": 55.3,
-      "category": "Quick ranking win",
-      "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
-      "top_queries": [
-        "broadband deals in reading",
-        "broadband in reading",
-        "broadband deals reading",
-        "broadband reading",
-        "cheapest"
-      ]
-    },
-    {
-      "page": "/postcode/ct1",
-      "clicks": 0.0,
-      "impressions": 120.0,
-      "ctr": 0.0,
-      "position": 9.866666666666667,
-      "previous_clicks": 1.0,
-      "previous_impressions": 100.0,
-      "impression_change_pct": 20.0,
-      "sessions": 0,
-      "engaged_sessions": 0,
-      "engagement_rate": null,
-      "key_events": 0,
-      "affiliate_clicks": 0,
-      "ai_referral_visits": 0,
-      "score": 55.1,
-      "category": "Quick ranking win",
-      "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
-      "top_queries": [
-        "broadband deals in canterbury"
-      ]
-    },
-    {
-      "page": "/providers/compare/ee-vs-talktalk",
-      "clicks": 2.0,
-      "impressions": 107.0,
-      "ctr": 0.018691588785046728,
-      "position": 8.317757009345794,
-      "previous_clicks": 0,
-      "previous_impressions": 0,
-      "impression_change_pct": 100.0,
-      "sessions": 0,
-      "engaged_sessions": 0,
-      "engagement_rate": null,
-      "key_events": 0,
-      "affiliate_clicks": 0,
-      "ai_referral_visits": 0,
-      "score": 54.7,
-      "category": "Quick ranking win",
-      "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
-      "top_queries": [
-        "is ee broadband better than talktalk",
-        "are talktalk and ee the same",
-        "who is dido harding",
-        "talktalk.co.uk/homesafe",
-        "talktalk uswitch"
-      ]
-    },
-    {
-      "page": "/postcode/rm1",
-      "clicks": 0.0,
-      "impressions": 94.0,
-      "ctr": 0.0,
-      "position": 9.574468085106384,
-      "previous_clicks": 0,
-      "previous_impressions": 0,
-      "impression_change_pct": 100.0,
-      "sessions": 0,
-      "engaged_sessions": 0,
-      "engagement_rate": null,
-      "key_events": 0,
-      "affiliate_clicks": 0,
-      "ai_referral_visits": 0,
-      "score": 54.2,
-      "category": "Quick ranking win",
-      "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
-      "top_queries": [
-        "broadband deals in romford",
-        "broadband deals romford",
-        "internet deals romford",
-        "best internet provider romford",
-        "whats the best broadband in my area"
-      ]
-    },
-    {
-      "page": "/guides/broadband-deals-with-cashback",
-      "clicks": 0.0,
-      "impressions": 91.0,
-      "ctr": 0.0,
-      "position": 14.54945054945055,
-      "previous_clicks": 0.0,
-      "previous_impressions": 75.0,
-      "impression_change_pct": 21.3,
-      "sessions": 0,
-      "engaged_sessions": 0,
-      "engagement_rate": null,
-      "key_events": 0,
-      "affiliate_clicks": 0,
-      "ai_referral_visits": 0,
-      "score": 54.1,
-      "category": "Quick ranking win",
-      "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
-      "top_queries": [
-        "compare broadband providers with cashback",
-        "broadband price rises with cashback",
-        "compare internet providers with cashback",
-        "broadband switching deals with cashback",
-        "where should i look for broadband deals that offer extra perks?"
-      ]
-    },
-    {
-      "page": "/postcode/bs1",
-      "clicks": 1.0,
-      "impressions": 105.0,
-      "ctr": 0.009523809523809525,
-      "position": 21.933333333333334,
-      "previous_clicks": 1.0,
-      "previous_impressions": 149.0,
-      "impression_change_pct": -29.5,
-      "sessions": 0,
-      "engaged_sessions": 0,
-      "engagement_rate": null,
-      "key_events": 0,
-      "affiliate_clicks": 0,
-      "ai_referral_visits": 0,
-      "score": 53.6,
-      "category": "Page-two opportunity",
-      "recommended_action": "Expand missing subtopics for the leading queries, improve topical internal links and validate intent alignment.",
-      "top_queries": [
-        "broadband deals bristol",
-        "broadband deals in bristol",
-        "best broadband deals bristol",
-        "best broadband deals in bristol"
-      ]
-    },
-    {
-      "page": "/postcode/e1",
-      "clicks": 1.0,
-      "impressions": 77.0,
-      "ctr": 0.012987012987012988,
-      "position": 4.870129870129871,
-      "previous_clicks": 1.0,
-      "previous_impressions": 53.0,
-      "impression_change_pct": 45.3,
-      "sessions": 0,
-      "engaged_sessions": 0,
-      "engagement_rate": null,
-      "key_events": 0,
-      "affiliate_clicks": 0,
-      "ai_referral_visits": 0,
-      "score": 53.5,
-      "category": "Quick ranking win",
-      "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
-      "top_queries": [
-        "yes please",
-        "ee whitechapel",
-        "e1"
-      ]
-    },
-    {
-      "page": "/postcode/ne1",
-      "clicks": 0.0,
-      "impressions": 97.0,
-      "ctr": 0.0,
-      "position": 23.11340206185567,
-      "previous_clicks": 0.0,
-      "previous_impressions": 142.0,
-      "impression_change_pct": -31.7,
-      "sessions": 0,
-      "engaged_sessions": 0,
-      "engagement_rate": null,
-      "key_events": 0,
-      "affiliate_clicks": 0,
-      "ai_referral_visits": 0,
-      "score": 53.3,
-      "category": "Page-two opportunity",
-      "recommended_action": "Expand missing subtopics for the leading queries, improve topical internal links and validate intent alignment.",
-      "top_queries": [
-        "broadband deals newcastle",
-        "broadband deals in newcastle",
-        "broadband newcastle",
-        "broadband deals north tyneside",
-        "best broadband deals newcastle"
-      ]
-    },
-    {
-      "page": "/postcode/bn1",
-      "clicks": 1.0,
-      "impressions": 73.0,
-      "ctr": 0.0136986301369863,
-      "position": 11.493150684931507,
-      "previous_clicks": 0,
-      "previous_impressions": 0,
-      "impression_change_pct": 100.0,
-      "sessions": 0,
-      "engaged_sessions": 0,
-      "engagement_rate": null,
-      "key_events": 0,
-      "affiliate_clicks": 0,
-      "ai_referral_visits": 0,
-      "score": 53.3,
-      "category": "Quick ranking win",
-      "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
-      "top_queries": [
-        "broadband deals in brighton",
-        "broadband deals brighton"
-      ]
-    },
-    {
-      "page": "/postcode/gu1",
-      "clicks": 1.0,
-      "impressions": 65.0,
-      "ctr": 0.015384615384615385,
-      "position": 11.646153846153846,
-      "previous_clicks": 0,
-      "previous_impressions": 0,
-      "impression_change_pct": 100.0,
-      "sessions": 0,
-      "engaged_sessions": 0,
-      "engagement_rate": null,
-      "key_events": 0,
-      "affiliate_clicks": 0,
-      "ai_referral_visits": 0,
-      "score": 52.9,
-      "category": "Quick ranking win",
-      "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
-      "top_queries": [
-        "broadband deals in guildford"
-      ]
-    },
-    {
-      "page": "/postcode/ha1",
-      "clicks": 0.0,
-      "impressions": 60.0,
-      "ctr": 0.0,
-      "position": 8.533333333333333,
-      "previous_clicks": 0.0,
-      "previous_impressions": 36.0,
-      "impression_change_pct": 66.7,
-      "sessions": 0,
-      "engaged_sessions": 0,
-      "engagement_rate": null,
-      "key_events": 0,
-      "affiliate_clicks": 0,
-      "ai_referral_visits": 0,
-      "score": 52.6,
-      "category": "Quick ranking win",
-      "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
-      "top_queries": [
-        "broadband deals in harrow",
-        "ha1 4bh",
-        "ha1",
-        "broadband"
-      ]
-    },
-    {
-      "page": "/guides/broadband-deals-with-no-setup-fee",
-      "clicks": 0.0,
-      "impressions": 548.0,
-      "ctr": 0.0,
-      "position": 26.255474452554743,
-      "previous_clicks": 0,
-      "previous_impressions": 0,
-      "impression_change_pct": 100.0,
-      "sessions": 0,
-      "engaged_sessions": 0,
-      "engagement_rate": null,
-      "key_events": 0,
-      "affiliate_clicks": 0,
-      "ai_referral_visits": 0,
-      "score": 52.5,
-      "category": "Page-two opportunity",
-      "recommended_action": "Expand missing subtopics for the leading queries, improve topical internal links and validate intent alignment.",
-      "top_queries": [
-        "broadband deals no upfront cost",
-        "broadband no upfront cost",
-        "broadband and tv deals no upfront cost",
-        "broadband no upfront costs",
-        "broadband no setup fee"
-      ]
-    },
-    {
-      "page": "/postcode/w5",
-      "clicks": 0.0,
-      "impressions": 56.0,
-      "ctr": 0.0,
-      "position": 6.732142857142857,
-      "previous_clicks": 0.0,
-      "previous_impressions": 54.0,
-      "impression_change_pct": 3.7,
-      "sessions": 0,
-      "engaged_sessions": 0,
-      "engagement_rate": null,
-      "key_events": 0,
-      "affiliate_clicks": 0,
-      "ai_referral_visits": 0,
-      "score": 52.4,
-      "category": "Quick ranking win",
-      "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
-      "top_queries": []
-    },
-    {
-      "page": "/postcode/se1",
-      "clicks": 0.0,
-      "impressions": 53.0,
-      "ctr": 0.0,
-      "position": 6.037735849056604,
-      "previous_clicks": 0,
-      "previous_impressions": 0,
-      "impression_change_pct": 100.0,
-      "sessions": 0,
-      "engaged_sessions": 0,
-      "engagement_rate": null,
-      "key_events": 0,
-      "affiliate_clicks": 0,
-      "ai_referral_visits": 0,
-      "score": 52.2,
-      "category": "Quick ranking win",
-      "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
-      "top_queries": [
-        "find the best broadband deals in southwark under \u00a330 a month.",
-        "find the best broadband deals in southwark under \u00a325 a month.",
-        "fibre broadband in southwark"
-      ]
-    },
-    {
-      "page": "/",
+      "page": "/postcode/london",
       "clicks": 3.0,
-      "impressions": 3283.0,
-      "ctr": 0.0009137983551629607,
-      "position": 31.699664940603107,
+      "impressions": 1066.0,
+      "ctr": 0.0028142589118198874,
+      "position": 29.29924953095685,
       "previous_clicks": 2.0,
-      "previous_impressions": 6775.0,
-      "impression_change_pct": -51.5,
+      "previous_impressions": 1679.0,
+      "click_change_pct": 50.0,
+      "impression_change_pct": -36.5,
+      "previous_ctr": 0.0011911852293031567,
+      "ctr_change_pp": 0.16,
+      "previous_position": 40.41870160810006,
+      "position_change": 11.12,
+      "sessions": 2.0,
+      "previous_sessions": 0,
+      "session_change_pct": 100.0,
+      "engaged_sessions": 2.0,
+      "engagement_rate": 1.0,
+      "previous_engagement_rate": null,
+      "key_events": 2.0,
+      "previous_key_events": 0,
+      "affiliate_clicks": 2.0,
+      "previous_affiliate_clicks": 0,
+      "ai_referral_visits": 0,
+      "previous_ai_referral_visits": 0,
+      "last_content_update": "2026-08-01",
+      "updated_by_current_pipeline": false,
+      "days_since_content_update": 55,
+      "priority_eligible": true,
+      "suppression_reason": null,
+      "score": 81.2,
+      "category": "Page-two opportunity",
+      "recommended_action": "Expand missing subtopics for the leading queries, improve topical internal links and validate intent alignment.",
+      "top_queries": [
+        "internet providers london",
+        "broadband london providers",
+        "broadband providers london",
+        "london broadband providers",
+        "broadband services london"
+      ]
+    },
+    {
+      "page": "/postcode/cr0",
+      "clicks": 5.0,
+      "impressions": 189.0,
+      "ctr": 0.026455026455026454,
+      "position": 9.222222222222221,
+      "previous_clicks": 0,
+      "previous_impressions": 0,
+      "click_change_pct": 100.0,
+      "impression_change_pct": 100.0,
+      "previous_ctr": 0,
+      "ctr_change_pp": 2.65,
+      "previous_position": 0,
+      "position_change": 0.0,
+      "sessions": 2.0,
+      "previous_sessions": 0,
+      "session_change_pct": 100.0,
+      "engaged_sessions": 2.0,
+      "engagement_rate": 1.0,
+      "previous_engagement_rate": null,
+      "key_events": 4.0,
+      "previous_key_events": 0,
+      "affiliate_clicks": 4.0,
+      "previous_affiliate_clicks": 0,
+      "ai_referral_visits": 0,
+      "previous_ai_referral_visits": 0,
+      "last_content_update": null,
+      "updated_by_current_pipeline": false,
+      "days_since_content_update": null,
+      "priority_eligible": true,
+      "suppression_reason": null,
+      "score": 73.2,
+      "category": "Quick ranking win",
+      "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
+      "top_queries": [
+        "broadband deals in croydon",
+        "best internet provider croydon",
+        "full fibre broadband in croydon",
+        "fibre broadband in croydon",
+        "broadband in croydon"
+      ]
+    },
+    {
+      "page": "/about",
+      "clicks": 0.0,
+      "impressions": 648.0,
+      "ctr": 0.0,
+      "position": 10.0,
+      "previous_clicks": 0,
+      "previous_impressions": 0,
+      "click_change_pct": null,
+      "impression_change_pct": 100.0,
+      "previous_ctr": 0,
+      "ctr_change_pp": 0.0,
+      "previous_position": 0,
+      "position_change": 0.0,
       "sessions": 0,
+      "previous_sessions": 0,
+      "session_change_pct": null,
       "engaged_sessions": 0,
       "engagement_rate": null,
+      "previous_engagement_rate": null,
       "key_events": 0,
+      "previous_key_events": 0,
       "affiliate_clicks": 0,
+      "previous_affiliate_clicks": 0,
       "ai_referral_visits": 0,
-      "score": 51.8,
+      "previous_ai_referral_visits": 0,
+      "last_content_update": null,
+      "updated_by_current_pipeline": false,
+      "days_since_content_update": null,
+      "priority_eligible": true,
+      "suppression_reason": null,
+      "score": 72.4,
+      "category": "Quick ranking win",
+      "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
+      "top_queries": [
+        "broadband comparison",
+        "compare broadband",
+        "compare the broadband market",
+        "broadband comparison uk",
+        "compare broadband prices"
+      ]
+    },
+    {
+      "page": "/providers/compare/vodafone-vs-talktalk",
+      "clicks": 1.0,
+      "impressions": 82.0,
+      "ctr": 0.012195121951219513,
+      "position": 7.341463414634147,
+      "previous_clicks": 0,
+      "previous_impressions": 0,
+      "click_change_pct": 100.0,
+      "impression_change_pct": 100.0,
+      "previous_ctr": 0,
+      "ctr_change_pp": 1.22,
+      "previous_position": 0,
+      "position_change": 0.0,
+      "sessions": 1.0,
+      "previous_sessions": 0,
+      "session_change_pct": 100.0,
+      "engaged_sessions": 1.0,
+      "engagement_rate": 1.0,
+      "previous_engagement_rate": null,
+      "key_events": 1.0,
+      "previous_key_events": 0,
+      "affiliate_clicks": 1.0,
+      "previous_affiliate_clicks": 0,
+      "ai_referral_visits": 0,
+      "previous_ai_referral_visits": 0,
+      "last_content_update": "2026-06-21",
+      "updated_by_current_pipeline": false,
+      "days_since_content_update": 96,
+      "priority_eligible": true,
+      "suppression_reason": null,
+      "score": 70.3,
+      "category": "Quick ranking win",
+      "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
+      "top_queries": [
+        "vodafone vs talktalk broadband",
+        "talk talk"
+      ]
+    },
+    {
+      "page": "/postcode/n1",
+      "clicks": 4.0,
+      "impressions": 80.0,
+      "ctr": 0.05,
+      "position": 9.0125,
+      "previous_clicks": 0,
+      "previous_impressions": 0,
+      "click_change_pct": 100.0,
+      "impression_change_pct": 100.0,
+      "previous_ctr": 0,
+      "ctr_change_pp": 5.0,
+      "previous_position": 0,
+      "position_change": 0.0,
+      "sessions": 1.0,
+      "previous_sessions": 0,
+      "session_change_pct": 100.0,
+      "engaged_sessions": 1.0,
+      "engagement_rate": 1.0,
+      "previous_engagement_rate": null,
+      "key_events": 0.0,
+      "previous_key_events": 0,
+      "affiliate_clicks": 0,
+      "previous_affiliate_clicks": 0,
+      "ai_referral_visits": 0,
+      "previous_ai_referral_visits": 0,
+      "last_content_update": null,
+      "updated_by_current_pipeline": false,
+      "days_since_content_update": null,
+      "priority_eligible": true,
+      "suppression_reason": null,
+      "score": 70.2,
+      "category": "Quick ranking win",
+      "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
+      "top_queries": [
+        "n1 7sx",
+        "n1 3be",
+        "n1 1pf",
+        "full fibre broadband in islington",
+        "fibre broadband in islington"
+      ]
+    },
+    {
+      "page": "/providers/sky/deals",
+      "clicks": 0.0,
+      "impressions": 59.0,
+      "ctr": 0.0,
+      "position": 16.152542372881356,
+      "previous_clicks": 0.0,
+      "previous_impressions": 648.0,
+      "click_change_pct": null,
+      "impression_change_pct": -90.9,
+      "previous_ctr": 0.0,
+      "ctr_change_pp": 0.0,
+      "previous_position": 42.592592592592595,
+      "position_change": 26.44,
+      "sessions": 0,
+      "previous_sessions": 0,
+      "session_change_pct": null,
+      "engaged_sessions": 0,
+      "engagement_rate": null,
+      "previous_engagement_rate": null,
+      "key_events": 0,
+      "previous_key_events": 0,
+      "affiliate_clicks": 0,
+      "previous_affiliate_clicks": 0,
+      "ai_referral_visits": 0,
+      "previous_ai_referral_visits": 0,
+      "last_content_update": null,
+      "updated_by_current_pipeline": false,
+      "days_since_content_update": null,
+      "priority_eligible": true,
+      "suppression_reason": null,
+      "score": 66.2,
+      "category": "Page-two opportunity",
+      "recommended_action": "Expand missing subtopics for the leading queries, improve topical internal links and validate intent alignment.",
+      "top_queries": [
+        "sky switch broadband provider deals",
+        "sky rates uk",
+        "sky broadband deals 2022",
+        "sky phone and broadband offers",
+        "sky broadband deals uk 2026"
+      ]
+    },
+    {
+      "page": "/speed-test",
+      "clicks": 0.0,
+      "impressions": 8978.0,
+      "ctr": 0.0,
+      "position": 69.27934952105146,
+      "previous_clicks": 1.0,
+      "previous_impressions": 613.0,
+      "click_change_pct": -100.0,
+      "impression_change_pct": 1364.6,
+      "previous_ctr": 0.0016313213703099511,
+      "ctr_change_pp": -0.16,
+      "previous_position": 75.54486133768353,
+      "position_change": 6.27,
+      "sessions": 0,
+      "previous_sessions": 1.0,
+      "session_change_pct": -100.0,
+      "engaged_sessions": 0,
+      "engagement_rate": null,
+      "previous_engagement_rate": 1.0,
+      "key_events": 0,
+      "previous_key_events": 0.0,
+      "affiliate_clicks": 0,
+      "previous_affiliate_clicks": 0,
+      "ai_referral_visits": 0,
+      "previous_ai_referral_visits": 0,
+      "last_content_update": null,
+      "updated_by_current_pipeline": false,
+      "days_since_content_update": null,
+      "priority_eligible": true,
+      "suppression_reason": null,
+      "score": 65.6,
+      "category": "Monitor",
+      "recommended_action": "Monitor until the page accumulates enough demand or behavioural evidence for a confident intervention.",
+      "top_queries": [
+        "how to check wifi speed",
+        "how to test internet speed",
+        "broadband speed test",
+        "check my internet speed",
+        "test internet speed"
+      ]
+    },
+    {
+      "page": "/postcode/cb1",
+      "clicks": 3.0,
+      "impressions": 51.0,
+      "ctr": 0.058823529411764705,
+      "position": 9.03921568627451,
+      "previous_clicks": 0,
+      "previous_impressions": 0,
+      "click_change_pct": 100.0,
+      "impression_change_pct": 100.0,
+      "previous_ctr": 0,
+      "ctr_change_pp": 5.88,
+      "previous_position": 0,
+      "position_change": 0.0,
+      "sessions": 0,
+      "previous_sessions": 0,
+      "session_change_pct": null,
+      "engaged_sessions": 0,
+      "engagement_rate": null,
+      "previous_engagement_rate": null,
+      "key_events": 0,
+      "previous_key_events": 0,
+      "affiliate_clicks": 0,
+      "previous_affiliate_clicks": 0,
+      "ai_referral_visits": 0,
+      "previous_ai_referral_visits": 0,
+      "last_content_update": null,
+      "updated_by_current_pipeline": false,
+      "days_since_content_update": null,
+      "priority_eligible": true,
+      "suppression_reason": null,
+      "score": 63.7,
+      "category": "Quick ranking win",
+      "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
+      "top_queries": [
+        "broadband deals in cambridge",
+        "broadband deals cambridge",
+        "yes please.",
+        "cb1 2fx"
+      ]
+    },
+    {
+      "page": "/postcode/e2",
+      "clicks": 2.0,
+      "impressions": 51.0,
+      "ctr": 0.0392156862745098,
+      "position": 4.137254901960784,
+      "previous_clicks": 0,
+      "previous_impressions": 0,
+      "click_change_pct": 100.0,
+      "impression_change_pct": 100.0,
+      "previous_ctr": 0,
+      "ctr_change_pp": 3.92,
+      "previous_position": 0,
+      "position_change": 0.0,
+      "sessions": 0,
+      "previous_sessions": 0,
+      "session_change_pct": null,
+      "engaged_sessions": 0,
+      "engagement_rate": null,
+      "previous_engagement_rate": null,
+      "key_events": 0,
+      "previous_key_events": 0,
+      "affiliate_clicks": 0,
+      "previous_affiliate_clicks": 0,
+      "ai_referral_visits": 0,
+      "previous_ai_referral_visits": 0,
+      "last_content_update": null,
+      "updated_by_current_pipeline": false,
+      "days_since_content_update": null,
+      "priority_eligible": true,
+      "suppression_reason": null,
+      "score": 63.7,
+      "category": "Quick ranking win",
+      "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
+      "top_queries": [
+        "what broadband comparison website is most accurate for postcode level availability and install dates",
+        "e2 9ra",
+        "broadband bill"
+      ]
+    },
+    {
+      "page": "/guides",
+      "clicks": 0.0,
+      "impressions": 193.0,
+      "ctr": 0.0,
+      "position": 15.103626943005182,
+      "previous_clicks": 0.0,
+      "previous_impressions": 28.0,
+      "click_change_pct": null,
+      "impression_change_pct": 589.3,
+      "previous_ctr": 0.0,
+      "ctr_change_pp": 0.0,
+      "previous_position": 36.75,
+      "position_change": 21.65,
+      "sessions": 0,
+      "previous_sessions": 0,
+      "session_change_pct": null,
+      "engaged_sessions": 0,
+      "engagement_rate": null,
+      "previous_engagement_rate": null,
+      "key_events": 0,
+      "previous_key_events": 0,
+      "affiliate_clicks": 0,
+      "previous_affiliate_clicks": 0,
+      "ai_referral_visits": 0,
+      "previous_ai_referral_visits": 0,
+      "last_content_update": null,
+      "updated_by_current_pipeline": false,
+      "days_since_content_update": null,
+      "priority_eligible": true,
+      "suppression_reason": null,
+      "score": 63.3,
+      "category": "Page-two opportunity",
+      "recommended_action": "Expand missing subtopics for the leading queries, improve topical internal links and validate intent alignment.",
+      "top_queries": [
+        "compare broadband uk",
+        "broadband switch deals",
+        "home broadband deals uk",
+        "compare wifi deals",
+        "switch broadband deals"
+      ]
+    },
+    {
+      "page": "/compare",
+      "clicks": 1.0,
+      "impressions": 5411.0,
+      "ctr": 0.00018480872297172427,
+      "position": 43.526520051746445,
+      "previous_clicks": 0,
+      "previous_impressions": 0,
+      "click_change_pct": 100.0,
+      "impression_change_pct": 100.0,
+      "previous_ctr": 0,
+      "ctr_change_pp": 0.02,
+      "previous_position": 0,
+      "position_change": 0.0,
+      "sessions": 1.0,
+      "previous_sessions": 1.0,
+      "session_change_pct": 0.0,
+      "engaged_sessions": 1.0,
+      "engagement_rate": 1.0,
+      "previous_engagement_rate": 0.0,
+      "key_events": 0.0,
+      "previous_key_events": 0.0,
+      "affiliate_clicks": 2.0,
+      "previous_affiliate_clicks": 0,
+      "ai_referral_visits": 0,
+      "previous_ai_referral_visits": 0,
+      "last_content_update": null,
+      "updated_by_current_pipeline": false,
+      "days_since_content_update": null,
+      "priority_eligible": true,
+      "suppression_reason": null,
+      "score": 62.8,
       "category": "Monitor",
       "recommended_action": "Monitor until the page accumulates enough demand or behavioural evidence for a confident intervention.",
       "top_queries": [
         "internet comparison",
+        "broadband comparison",
+        "compare broadband",
         "compare broadband deals",
-        "broadband deals compare",
-        "compare broadband packages",
-        "broadband price comparison"
+        "compare internet providers"
       ]
     },
     {
-      "page": "/postcode/en1",
-      "clicks": 0.0,
-      "impressions": 43.0,
-      "ctr": 0.0,
-      "position": 14.13953488372093,
-      "previous_clicks": 0,
-      "previous_impressions": 0,
-      "impression_change_pct": 100.0,
-      "sessions": 0,
-      "engaged_sessions": 0,
-      "engagement_rate": null,
-      "key_events": 0,
-      "affiliate_clicks": 0,
-      "ai_referral_visits": 0,
-      "score": 51.5,
-      "category": "Quick ranking win",
-      "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
-      "top_queries": [
-        "broadband deals in enfield"
-      ]
-    },
-    {
-      "page": "/postcode/nw1",
-      "clicks": 0.0,
-      "impressions": 40.0,
-      "ctr": 0.0,
-      "position": 4.9,
-      "previous_clicks": 0,
-      "previous_impressions": 0,
-      "impression_change_pct": 100.0,
-      "sessions": 0,
-      "engaged_sessions": 0,
-      "engagement_rate": null,
-      "key_events": 0,
-      "affiliate_clicks": 0,
-      "ai_referral_visits": 0,
-      "score": 51.2,
-      "category": "Quick ranking win",
-      "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
-      "top_queries": []
-    },
-    {
-      "page": "/postcode/ub1",
-      "clicks": 0.0,
-      "impressions": 40.0,
-      "ctr": 0.0,
-      "position": 8.025,
-      "previous_clicks": 0,
-      "previous_impressions": 0,
-      "impression_change_pct": 100.0,
-      "sessions": 0,
-      "engaged_sessions": 0,
-      "engagement_rate": null,
-      "key_events": 0,
-      "affiliate_clicks": 0,
-      "ai_referral_visits": 0,
-      "score": 51.2,
-      "category": "Quick ranking win",
-      "recommended_action": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
-      "top_queries": [
-        "broadband deals in southall",
-        "yes",
-        "and cheapest"
-      ]
-    },
-    {
-      "page": "/guides/best-broadband-and-tv-deals",
-      "clicks": 11.0,
-      "impressions": 18477.0,
-      "ctr": 0.0005953347404881745,
-      "position": 61.46468582562104,
-      "previous_clicks": 0,
-      "previous_impressions": 0,
-      "impression_change_pct": 100.0,
-      "sessions": 0,
-      "engaged_sessions": 0,
-      "engagement_rate": null,
-      "key_events": 0,
-      "affiliate_clicks": 0,
-      "ai_referral_visits": 0,
-      "score": 51.0,
-      "category": "Monitor",
-      "recommended_action": "Monitor until the page accumulates enough demand or behavioural evidence for a confident intervention.",
-      "top_queries": [
-        "best broadband and tv deals",
-        "compare broadband and tv",
-        "broadband and tv deals",
-        "tv package deals",
-        "tv and broadband deals"
-      ]
-    },
-    {
-      "page": "/guides/best-phone-and-broadband-deals",
-      "clicks": 0.0,
-      "impressions": 14411.0,
-      "ctr": 0.0,
-      "position": 50.85365345916314,
-      "previous_clicks": 0,
-      "previous_impressions": 0,
-      "impression_change_pct": 100.0,
-      "sessions": 0,
-      "engaged_sessions": 0,
-      "engagement_rate": null,
-      "key_events": 0,
-      "affiliate_clicks": 0,
-      "ai_referral_visits": 0,
-      "score": 50.1,
-      "category": "Monitor",
-      "recommended_action": "Monitor until the page accumulates enough demand or behavioural evidence for a confident intervention.",
-      "top_queries": [
-        "unlimited phone calls and broadband packages",
-        "home phone and broadband",
-        "broadband and line rental deals",
-        "best phone and broadband",
-        "compare broadband and phone"
-      ]
-    },
-    {
-      "page": "/guides/cheapest-broadband-uk",
+      "page": "/tools/broadband-cost-calculator",
       "clicks": 2.0,
-      "impressions": 907.0,
-      "ctr": 0.002205071664829107,
-      "position": 37.60529217199559,
+      "impressions": 402.0,
+      "ctr": 0.004975124378109453,
+      "position": 26.23134328358209,
       "previous_clicks": 0.0,
-      "previous_impressions": 2246.0,
-      "impression_change_pct": -59.6,
+      "previous_impressions": 11.0,
+      "click_change_pct": 100.0,
+      "impression_change_pct": 3554.5,
+      "previous_ctr": 0.0,
+      "ctr_change_pp": 0.5,
+      "previous_position": 13.090909090909092,
+      "position_change": -13.14,
       "sessions": 0,
+      "previous_sessions": 0,
+      "session_change_pct": null,
       "engaged_sessions": 0,
       "engagement_rate": null,
+      "previous_engagement_rate": null,
       "key_events": 0,
+      "previous_key_events": 0,
       "affiliate_clicks": 0,
+      "previous_affiliate_clicks": 0,
       "ai_referral_visits": 0,
-      "score": 47.3,
-      "category": "Monitor",
-      "recommended_action": "Monitor until the page accumulates enough demand or behavioural evidence for a confident intervention.",
-      "top_queries": [
-        "cheap broadband deals uk",
-        "cheapest broadband uk",
-        "cheapest broadband",
-        "cheap broadband uk",
-        "cheapest uk broadband"
-      ]
-    },
-    {
-      "page": "/postcode/lu1",
-      "clicks": 0.0,
-      "impressions": 128.0,
-      "ctr": 0.0,
-      "position": 15.546875,
-      "previous_clicks": 0,
-      "previous_impressions": 0,
-      "impression_change_pct": 100.0,
-      "sessions": 0,
-      "engaged_sessions": 0,
-      "engagement_rate": null,
-      "key_events": 0,
-      "affiliate_clicks": 0,
-      "ai_referral_visits": 0,
-      "score": 47.3,
+      "previous_ai_referral_visits": 0,
+      "last_content_update": null,
+      "updated_by_current_pipeline": false,
+      "days_since_content_update": null,
+      "priority_eligible": true,
+      "suppression_reason": null,
+      "score": 62.8,
       "category": "Page-two opportunity",
       "recommended_action": "Expand missing subtopics for the leading queries, improve topical internal links and validate intent alignment.",
       "top_queries": [
-        "broadband deals in luton",
-        "broadband deals luton",
-        "broadband luton",
-        "internet providers luton",
-        "broadband deals near me"
+        "average broadband price uk",
+        "average price of broadband uk",
+        "average cost of wifi per month uk",
+        "wifi costs per month uk",
+        "average broadband cost uk"
       ]
     },
     {
-      "page": "/guides/best-full-fibre-broadband-uk",
-      "clicks": 2.0,
-      "impressions": 6039.0,
-      "ctr": 0.0003311806590495115,
-      "position": 50.102500413975825,
-      "previous_clicks": 0,
-      "previous_impressions": 0,
-      "impression_change_pct": 100.0,
-      "sessions": 0,
-      "engaged_sessions": 0,
-      "engagement_rate": null,
-      "key_events": 0,
-      "affiliate_clicks": 0,
-      "ai_referral_visits": 0,
-      "score": 47.0,
-      "category": "Monitor",
-      "recommended_action": "Monitor until the page accumulates enough demand or behavioural evidence for a confident intervention.",
-      "top_queries": [
-        "fibre broadband",
-        "fibre optic broadband",
-        "best fibre broadband",
-        "full fibre broadband",
-        "best fibre broadband deals"
-      ]
-    },
-    {
-      "page": "/postcode/so14",
+      "page": "/broadband-glossary",
       "clicks": 1.0,
-      "impressions": 104.0,
-      "ctr": 0.009615384615384616,
-      "position": 26.423076923076923,
+      "impressions": 73.0,
+      "ctr": 0.0136986301369863,
+      "position": 15.753424657534246,
       "previous_clicks": 0,
       "previous_impressions": 0,
+      "click_change_pct": 100.0,
       "impression_change_pct": 100.0,
-      "sessions": 0,
-      "engaged_sessions": 0,
-      "engagement_rate": null,
-      "key_events": 0,
+      "previous_ctr": 0,
+      "ctr_change_pp": 1.37,
+      "previous_position": 0,
+      "position_change": 0.0,
+      "sessions": 1.0,
+      "previous_sessions": 0,
+      "session_change_pct": 100.0,
+      "engaged_sessions": 1.0,
+      "engagement_rate": 1.0,
+      "previous_engagement_rate": null,
+      "key_events": 0.0,
+      "previous_key_events": 0,
       "affiliate_clicks": 0,
+      "previous_affiliate_clicks": 0,
       "ai_referral_visits": 0,
-      "score": 46.6,
+      "previous_ai_referral_visits": 0,
+      "last_content_update": null,
+      "updated_by_current_pipeline": false,
+      "days_since_content_update": null,
+      "priority_eligible": true,
+      "suppression_reason": null,
+      "score": 61.9,
       "category": "Page-two opportunity",
       "recommended_action": "Expand missing subtopics for the leading queries, improve topical internal links and validate intent alignment.",
       "top_queries": [
-        "broadband deals in southampton",
-        "broadband deals southampton",
-        "broadband company southampton",
-        "internet providers southampton",
-        "fibre broadband southampton"
+        "part fibre broadband",
+        "download speeds explained",
+        "broadband line",
+        "understand broadband bill",
+        "types of broadband internet"
       ]
     },
     {
-      "page": "/postcode/l1",
+      "page": "/providers",
       "clicks": 0.0,
-      "impressions": 77.0,
+      "impressions": 954.0,
       "ctr": 0.0,
-      "position": 26.25974025974026,
-      "previous_clicks": 0,
-      "previous_impressions": 0,
-      "impression_change_pct": 100.0,
+      "position": 47.94025157232704,
+      "previous_clicks": 0.0,
+      "previous_impressions": 1183.0,
+      "click_change_pct": null,
+      "impression_change_pct": -19.4,
+      "previous_ctr": 0.0,
+      "ctr_change_pp": 0.0,
+      "previous_position": 47.956043956043956,
+      "position_change": 0.02,
       "sessions": 0,
+      "previous_sessions": 0,
+      "session_change_pct": null,
       "engaged_sessions": 0,
       "engagement_rate": null,
+      "previous_engagement_rate": null,
       "key_events": 0,
+      "previous_key_events": 0,
       "affiliate_clicks": 0,
+      "previous_affiliate_clicks": 0,
       "ai_referral_visits": 0,
-      "score": 45.5,
+      "previous_ai_referral_visits": 0,
+      "last_content_update": null,
+      "updated_by_current_pipeline": false,
+      "days_since_content_update": null,
+      "priority_eligible": true,
+      "suppression_reason": null,
+      "score": 58.8,
+      "category": "Monitor",
+      "recommended_action": "Monitor until the page accumulates enough demand or behavioural evidence for a confident intervention.",
+      "top_queries": [
+        "broadband reviews",
+        "best broadband",
+        "best broadband reviews",
+        "best home broadband",
+        "best broadband for home"
+      ]
+    },
+    {
+      "page": "/deals",
+      "clicks": 0.0,
+      "impressions": 6942.0,
+      "ctr": 0.0,
+      "position": 46.91486603284356,
+      "previous_clicks": 0.0,
+      "previous_impressions": 249.0,
+      "click_change_pct": null,
+      "impression_change_pct": 2688.0,
+      "previous_ctr": 0.0,
+      "ctr_change_pp": 0.0,
+      "previous_position": 47.89558232931727,
+      "position_change": 0.98,
+      "sessions": 0,
+      "previous_sessions": 0,
+      "session_change_pct": null,
+      "engaged_sessions": 0,
+      "engagement_rate": null,
+      "previous_engagement_rate": null,
+      "key_events": 0,
+      "previous_key_events": 0,
+      "affiliate_clicks": 0,
+      "previous_affiliate_clicks": 0,
+      "ai_referral_visits": 0,
+      "previous_ai_referral_visits": 0,
+      "last_content_update": null,
+      "updated_by_current_pipeline": false,
+      "days_since_content_update": null,
+      "priority_eligible": true,
+      "suppression_reason": null,
+      "score": 58.7,
+      "category": "Monitor",
+      "recommended_action": "Monitor until the page accumulates enough demand or behavioural evidence for a confident intervention.",
+      "top_queries": [
+        "best broadband",
+        "internet deals",
+        "broadband deals",
+        "cheap broadband deals uk",
+        "broadband offers"
+      ]
+    },
+    {
+      "page": "/postcode/sl1",
+      "clicks": 0.0,
+      "impressions": 93.0,
+      "ctr": 0.0,
+      "position": 18.462365591397848,
+      "previous_clicks": 0,
+      "previous_impressions": 0,
+      "click_change_pct": null,
+      "impression_change_pct": 100.0,
+      "previous_ctr": 0,
+      "ctr_change_pp": 0.0,
+      "previous_position": 0,
+      "position_change": 0.0,
+      "sessions": 0,
+      "previous_sessions": 0,
+      "session_change_pct": null,
+      "engaged_sessions": 0,
+      "engagement_rate": null,
+      "previous_engagement_rate": null,
+      "key_events": 0,
+      "previous_key_events": 0,
+      "affiliate_clicks": 0,
+      "previous_affiliate_clicks": 0,
+      "ai_referral_visits": 0,
+      "previous_ai_referral_visits": 0,
+      "last_content_update": null,
+      "updated_by_current_pipeline": false,
+      "days_since_content_update": null,
+      "priority_eligible": true,
+      "suppression_reason": null,
+      "score": 57.7,
       "category": "Page-two opportunity",
       "recommended_action": "Expand missing subtopics for the leading queries, improve topical internal links and validate intent alignment.",
       "top_queries": [
-        "broadband deals liverpool",
-        "broadband comparison liverpool",
-        "internet deals liverpool",
-        "broadband deals in liverpool",
-        "best broadband deals liverpool"
+        "broadband deals in slough",
+        "broadband deals slough",
+        "slough broadband",
+        "broadband slough",
+        "internet providers slough"
+      ]
+    },
+    {
+      "page": "/how-we-review-broadband",
+      "clicks": 0.0,
+      "impressions": 44.0,
+      "ctr": 0.0,
+      "position": 17.34090909090909,
+      "previous_clicks": 0,
+      "previous_impressions": 0,
+      "click_change_pct": null,
+      "impression_change_pct": 100.0,
+      "previous_ctr": 0,
+      "ctr_change_pp": 0.0,
+      "previous_position": 0,
+      "position_change": 0.0,
+      "sessions": 0,
+      "previous_sessions": 0,
+      "session_change_pct": null,
+      "engaged_sessions": 0,
+      "engagement_rate": null,
+      "previous_engagement_rate": null,
+      "key_events": 0,
+      "previous_key_events": 0,
+      "affiliate_clicks": 0,
+      "previous_affiliate_clicks": 0,
+      "ai_referral_visits": 0,
+      "previous_ai_referral_visits": 0,
+      "last_content_update": null,
+      "updated_by_current_pipeline": false,
+      "days_since_content_update": null,
+      "priority_eligible": true,
+      "suppression_reason": null,
+      "score": 55.2,
+      "category": "Page-two opportunity",
+      "recommended_action": "Expand missing subtopics for the leading queries, improve topical internal links and validate intent alignment.",
+      "top_queries": [
+        "compare broadband uk",
+        "broadband comparisons",
+        "best broadband reviews",
+        "uk broadband providers ranked",
+        "reviews of broadband providers"
+      ]
+    },
+    {
+      "page": "/postcode/mk1",
+      "clicks": 0.0,
+      "impressions": 44.0,
+      "ctr": 0.0,
+      "position": 26.022727272727273,
+      "previous_clicks": 0,
+      "previous_impressions": 0,
+      "click_change_pct": null,
+      "impression_change_pct": 100.0,
+      "previous_ctr": 0,
+      "ctr_change_pp": 0.0,
+      "previous_position": 0,
+      "position_change": 0.0,
+      "sessions": 0,
+      "previous_sessions": 0,
+      "session_change_pct": null,
+      "engaged_sessions": 0,
+      "engagement_rate": null,
+      "previous_engagement_rate": null,
+      "key_events": 0,
+      "previous_key_events": 0,
+      "affiliate_clicks": 0,
+      "previous_affiliate_clicks": 0,
+      "ai_referral_visits": 0,
+      "previous_ai_referral_visits": 0,
+      "last_content_update": null,
+      "updated_by_current_pipeline": false,
+      "days_since_content_update": null,
+      "priority_eligible": true,
+      "suppression_reason": null,
+      "score": 55.2,
+      "category": "Page-two opportunity",
+      "recommended_action": "Expand missing subtopics for the leading queries, improve topical internal links and validate intent alignment.",
+      "top_queries": [
+        "broadband deals in milton keynes",
+        "broadband deals milton keynes",
+        "milton keynes broadband",
+        "broadband in milton keynes",
+        "internet providers milton keynes"
+      ]
+    },
+    {
+      "page": "/tools/speed-test",
+      "clicks": 2.0,
+      "impressions": 496.0,
+      "ctr": 0.004032258064516129,
+      "position": 69.07862903225806,
+      "previous_clicks": 0,
+      "previous_impressions": 0,
+      "click_change_pct": 100.0,
+      "impression_change_pct": 100.0,
+      "previous_ctr": 0,
+      "ctr_change_pp": 0.4,
+      "previous_position": 0,
+      "position_change": 0.0,
+      "sessions": 2.0,
+      "previous_sessions": 0,
+      "session_change_pct": 100.0,
+      "engaged_sessions": 2.0,
+      "engagement_rate": 1.0,
+      "previous_engagement_rate": null,
+      "key_events": 0.0,
+      "previous_key_events": 0,
+      "affiliate_clicks": 0,
+      "previous_affiliate_clicks": 0,
+      "ai_referral_visits": 1.0,
+      "previous_ai_referral_visits": 0,
+      "last_content_update": null,
+      "updated_by_current_pipeline": false,
+      "days_since_content_update": null,
+      "priority_eligible": true,
+      "suppression_reason": null,
+      "score": 54.5,
+      "category": "Monitor",
+      "recommended_action": "Monitor until the page accumulates enough demand or behavioural evidence for a confident intervention.",
+      "top_queries": [
+        "internet speed",
+        "broadband speed",
+        "broadband speed checker",
+        "ping test uk",
+        "internet speed test"
+      ]
+    },
+    {
+      "page": "/tools/broadband-match",
+      "clicks": 2.0,
+      "impressions": 30.0,
+      "ctr": 0.06666666666666667,
+      "position": 31.733333333333334,
+      "previous_clicks": 0,
+      "previous_impressions": 0,
+      "click_change_pct": 100.0,
+      "impression_change_pct": 100.0,
+      "previous_ctr": 0,
+      "ctr_change_pp": 6.67,
+      "previous_position": 0,
+      "position_change": 0.0,
+      "sessions": 2.0,
+      "previous_sessions": 0,
+      "session_change_pct": 100.0,
+      "engaged_sessions": 1.0,
+      "engagement_rate": 0.5,
+      "previous_engagement_rate": null,
+      "key_events": 2.0,
+      "previous_key_events": 0,
+      "affiliate_clicks": 2.0,
+      "previous_affiliate_clicks": 0,
+      "ai_referral_visits": 0,
+      "previous_ai_referral_visits": 0,
+      "last_content_update": null,
+      "updated_by_current_pipeline": false,
+      "days_since_content_update": null,
+      "priority_eligible": true,
+      "suppression_reason": null,
+      "score": 49.9,
+      "category": "Monitor",
+      "recommended_action": "Monitor until the page accumulates enough demand or behavioural evidence for a confident intervention.",
+      "top_queries": [
+        "internet speed comparison",
+        "compare broadband speed",
+        "what speed internet can i get",
+        "what speed broadband can i get",
+        "what internet speed can i get"
+      ]
+    },
+    {
+      "page": "/postcode/bt1",
+      "clicks": 0.0,
+      "impressions": 513.0,
+      "ctr": 0.0,
+      "position": 51.07797270955166,
+      "previous_clicks": 0,
+      "previous_impressions": 0,
+      "click_change_pct": null,
+      "impression_change_pct": 100.0,
+      "previous_ctr": 0,
+      "ctr_change_pp": 0.0,
+      "previous_position": 0,
+      "position_change": 0.0,
+      "sessions": 0,
+      "previous_sessions": 0,
+      "session_change_pct": null,
+      "engaged_sessions": 0,
+      "engagement_rate": null,
+      "previous_engagement_rate": null,
+      "key_events": 0,
+      "previous_key_events": 0,
+      "affiliate_clicks": 0,
+      "previous_affiliate_clicks": 0,
+      "ai_referral_visits": 0,
+      "previous_ai_referral_visits": 0,
+      "last_content_update": null,
+      "updated_by_current_pipeline": false,
+      "days_since_content_update": null,
+      "priority_eligible": true,
+      "suppression_reason": null,
+      "score": 49.6,
+      "category": "Monitor",
+      "recommended_action": "Monitor until the page accumulates enough demand or behavioural evidence for a confident intervention.",
+      "top_queries": [
+        "broadband deals ni",
+        "broadband belfast",
+        "compare broadband ni",
+        "fastest broadband in my area",
+        "broadband deals belfast"
+      ]
+    },
+    {
+      "page": "/postcode/s1",
+      "clicks": 2.0,
+      "impressions": 85.0,
+      "ctr": 0.023529411764705882,
+      "position": 44.2,
+      "previous_clicks": 0,
+      "previous_impressions": 0,
+      "click_change_pct": 100.0,
+      "impression_change_pct": 100.0,
+      "previous_ctr": 0,
+      "ctr_change_pp": 2.35,
+      "previous_position": 0,
+      "position_change": 0.0,
+      "sessions": 2.0,
+      "previous_sessions": 0,
+      "session_change_pct": 100.0,
+      "engaged_sessions": 2.0,
+      "engagement_rate": 1.0,
+      "previous_engagement_rate": null,
+      "key_events": 1.0,
+      "previous_key_events": 0,
+      "affiliate_clicks": 1.0,
+      "previous_affiliate_clicks": 0,
+      "ai_referral_visits": 0,
+      "previous_ai_referral_visits": 0,
+      "last_content_update": null,
+      "updated_by_current_pipeline": false,
+      "days_since_content_update": null,
+      "priority_eligible": true,
+      "suppression_reason": null,
+      "score": 48.4,
+      "category": "Monitor",
+      "recommended_action": "Monitor until the page accumulates enough demand or behavioural evidence for a confident intervention.",
+      "top_queries": [
+        "broadband deals sheffield",
+        "broadband deals in sheffield",
+        "broadband sheffield",
+        "best broadband deals sheffield",
+        "internet providers sheffield"
+      ]
+    },
+    {
+      "page": "/how-we-make-money",
+      "clicks": 0.0,
+      "impressions": 19.0,
+      "ctr": 0.0,
+      "position": 5.2105263157894735,
+      "previous_clicks": 0.0,
+      "previous_impressions": 35.0,
+      "click_change_pct": null,
+      "impression_change_pct": -45.7,
+      "previous_ctr": 0.0,
+      "ctr_change_pp": 0.0,
+      "previous_position": 11.685714285714285,
+      "position_change": 6.48,
+      "sessions": 0,
+      "previous_sessions": 0,
+      "session_change_pct": null,
+      "engaged_sessions": 0,
+      "engagement_rate": null,
+      "previous_engagement_rate": null,
+      "key_events": 0,
+      "previous_key_events": 0,
+      "affiliate_clicks": 0,
+      "previous_affiliate_clicks": 0,
+      "ai_referral_visits": 0,
+      "previous_ai_referral_visits": 0,
+      "last_content_update": null,
+      "updated_by_current_pipeline": false,
+      "days_since_content_update": null,
+      "priority_eligible": true,
+      "suppression_reason": null,
+      "score": 48.4,
+      "category": "Monitor",
+      "recommended_action": "Monitor until the page accumulates enough demand or behavioural evidence for a confident intervention.",
+      "top_queries": [
+        "evaluate the financial services comparison company moneysavingexpert on best broadband",
+        "are broadband review sites actually trustworthy?"
       ]
     },
     {
       "page": "/providers/virgin-media/deals",
-      "clicks": 1.0,
-      "impressions": 2404.0,
-      "ctr": 0.00041597337770382697,
-      "position": 60.52953410981697,
-      "previous_clicks": 0,
-      "previous_impressions": 0,
-      "impression_change_pct": 100.0,
+      "clicks": 0.0,
+      "impressions": 17.0,
+      "ctr": 0.0,
+      "position": 31.941176470588236,
+      "previous_clicks": 1.0,
+      "previous_impressions": 2404.0,
+      "click_change_pct": -100.0,
+      "impression_change_pct": -99.3,
+      "previous_ctr": 0.00041597337770382697,
+      "ctr_change_pp": -0.04,
+      "previous_position": 60.52953410981697,
+      "position_change": 28.59,
       "sessions": 0,
+      "previous_sessions": 0,
+      "session_change_pct": null,
       "engaged_sessions": 0,
       "engagement_rate": null,
+      "previous_engagement_rate": null,
       "key_events": 0,
+      "previous_key_events": 0,
       "affiliate_clicks": 0,
+      "previous_affiliate_clicks": 0,
       "ai_referral_visits": 0,
-      "score": 43.7,
+      "previous_ai_referral_visits": 0,
+      "last_content_update": null,
+      "updated_by_current_pipeline": false,
+      "days_since_content_update": null,
+      "priority_eligible": true,
+      "suppression_reason": null,
+      "score": 48.0,
       "category": "Monitor",
       "recommended_action": "Monitor until the page accumulates enough demand or behavioural evidence for a confident intervention.",
       "top_queries": [
-        "virgin media deals",
-        "virgin media offers",
-        "virgin broadband deals",
-        "virgin media packages",
-        "virgin media broadband deals"
+        "virgin media broadband and tv packages 2026",
+        "virgin tv broadband package deals"
       ]
     },
     {
-      "page": "/guides/broadband-speeds-explained",
+      "page": "/postcode",
       "clicks": 0.0,
-      "impressions": 326.0,
+      "impressions": 279.0,
       "ctr": 0.0,
-      "position": 57.91104294478528,
+      "position": 30.50179211469534,
       "previous_clicks": 0.0,
-      "previous_impressions": 626.0,
-      "impression_change_pct": -47.9,
+      "previous_impressions": 44.0,
+      "click_change_pct": null,
+      "impression_change_pct": 534.1,
+      "previous_ctr": 0.0,
+      "ctr_change_pp": 0.0,
+      "previous_position": 24.045454545454547,
+      "position_change": -6.46,
       "sessions": 0,
+      "previous_sessions": 0,
+      "session_change_pct": null,
       "engaged_sessions": 0,
       "engagement_rate": null,
+      "previous_engagement_rate": null,
       "key_events": 0,
+      "previous_key_events": 0,
       "affiliate_clicks": 0,
+      "previous_affiliate_clicks": 0,
       "ai_referral_visits": 0,
-      "score": 43.6,
+      "previous_ai_referral_visits": 0,
+      "last_content_update": "2026-08-01",
+      "updated_by_current_pipeline": false,
+      "days_since_content_update": 55,
+      "priority_eligible": true,
+      "suppression_reason": null,
+      "score": 47.5,
       "category": "Monitor",
       "recommended_action": "Monitor until the page accumulates enough demand or behavioural evidence for a confident intervention.",
       "top_queries": [
-        "broadband speeds explained",
-        "what is broadband speed",
-        "broadband speeds",
-        "broadband speed explained",
-        "what is a good broadband speed mbps"
+        "postcode broadband",
+        "broadband postcode",
+        "broadband by postcode",
+        "broadband providers by postcode",
+        "broadband area checker postcode"
       ]
+    },
+    {
+      "page": "/providers/ee/deals",
+      "clicks": 0.0,
+      "impressions": 10.0,
+      "ctr": 0.0,
+      "position": 10.4,
+      "previous_clicks": 0.0,
+      "previous_impressions": 402.0,
+      "click_change_pct": null,
+      "impression_change_pct": -97.5,
+      "previous_ctr": 0.0,
+      "ctr_change_pp": 0.0,
+      "previous_position": 38.646766169154226,
+      "position_change": 28.25,
+      "sessions": 0,
+      "previous_sessions": 0,
+      "session_change_pct": null,
+      "engaged_sessions": 0,
+      "engagement_rate": null,
+      "previous_engagement_rate": null,
+      "key_events": 0,
+      "previous_key_events": 0,
+      "affiliate_clicks": 0,
+      "previous_affiliate_clicks": 0,
+      "ai_referral_visits": 0,
+      "previous_ai_referral_visits": 0,
+      "last_content_update": null,
+      "updated_by_current_pipeline": false,
+      "days_since_content_update": null,
+      "priority_eligible": true,
+      "suppression_reason": null,
+      "score": 46.3,
+      "category": "Monitor",
+      "recommended_action": "Monitor until the page accumulates enough demand or behavioural evidence for a confident intervention.",
+      "top_queries": []
+    },
+    {
+      "page": "/postcode/rg9",
+      "clicks": 2.0,
+      "impressions": 7.0,
+      "ctr": 0.2857142857142857,
+      "position": 11.0,
+      "previous_clicks": 0,
+      "previous_impressions": 0,
+      "click_change_pct": 100.0,
+      "impression_change_pct": 100.0,
+      "previous_ctr": 0,
+      "ctr_change_pp": 28.57,
+      "previous_position": 0,
+      "position_change": 0.0,
+      "sessions": 1.0,
+      "previous_sessions": 0,
+      "session_change_pct": 100.0,
+      "engaged_sessions": 0.0,
+      "engagement_rate": 0.0,
+      "previous_engagement_rate": null,
+      "key_events": 0.0,
+      "previous_key_events": 0,
+      "affiliate_clicks": 0,
+      "previous_affiliate_clicks": 0,
+      "ai_referral_visits": 0,
+      "previous_ai_referral_visits": 0,
+      "last_content_update": null,
+      "updated_by_current_pipeline": false,
+      "days_since_content_update": null,
+      "priority_eligible": true,
+      "suppression_reason": null,
+      "score": 45.2,
+      "category": "Content improvement",
+      "recommended_action": "Improve answer-first copy, section hierarchy, evidence, comparison usefulness and mobile reading flow.",
+      "top_queries": [
+        "current provider is sky"
+      ]
+    },
+    {
+      "page": "/postcode/po1",
+      "clicks": 1.0,
+      "impressions": 24.0,
+      "ctr": 0.041666666666666664,
+      "position": 5.625,
+      "previous_clicks": 0,
+      "previous_impressions": 0,
+      "click_change_pct": 100.0,
+      "impression_change_pct": 100.0,
+      "previous_ctr": 0,
+      "ctr_change_pp": 4.17,
+      "previous_position": 0,
+      "position_change": 0.0,
+      "sessions": 1.0,
+      "previous_sessions": 0,
+      "session_change_pct": 100.0,
+      "engaged_sessions": 1.0,
+      "engagement_rate": 1.0,
+      "previous_engagement_rate": null,
+      "key_events": 0.0,
+      "previous_key_events": 0,
+      "affiliate_clicks": 0,
+      "previous_affiliate_clicks": 0,
+      "ai_referral_visits": 0,
+      "previous_ai_referral_visits": 0,
+      "last_content_update": null,
+      "updated_by_current_pipeline": false,
+      "days_since_content_update": null,
+      "priority_eligible": true,
+      "suppression_reason": null,
+      "score": 44.2,
+      "category": "Monitor",
+      "recommended_action": "Monitor until the page accumulates enough demand or behavioural evidence for a confident intervention.",
+      "top_queries": [
+        "po1",
+        "broadband deals portsmouth"
+      ]
+    },
+    {
+      "page": "/postcode/sp4",
+      "clicks": 1.0,
+      "impressions": 22.0,
+      "ctr": 0.045454545454545456,
+      "position": 8.09090909090909,
+      "previous_clicks": 0,
+      "previous_impressions": 0,
+      "click_change_pct": 100.0,
+      "impression_change_pct": 100.0,
+      "previous_ctr": 0,
+      "ctr_change_pp": 4.55,
+      "previous_position": 0,
+      "position_change": 0.0,
+      "sessions": 1.0,
+      "previous_sessions": 0,
+      "session_change_pct": 100.0,
+      "engaged_sessions": 1.0,
+      "engagement_rate": 1.0,
+      "previous_engagement_rate": null,
+      "key_events": 0.0,
+      "previous_key_events": 0,
+      "affiliate_clicks": 0,
+      "previous_affiliate_clicks": 0,
+      "ai_referral_visits": 0,
+      "previous_ai_referral_visits": 0,
+      "last_content_update": null,
+      "updated_by_current_pipeline": false,
+      "days_since_content_update": null,
+      "priority_eligible": true,
+      "suppression_reason": null,
+      "score": 43.9,
+      "category": "Monitor",
+      "recommended_action": "Monitor until the page accumulates enough demand or behavioural evidence for a confident intervention.",
+      "top_queries": [
+        "broadband deals near spalding"
+      ]
+    },
+    {
+      "page": "/postcode/cm17",
+      "clicks": 2.0,
+      "impressions": 17.0,
+      "ctr": 0.11764705882352941,
+      "position": 5.352941176470588,
+      "previous_clicks": 0,
+      "previous_impressions": 0,
+      "click_change_pct": 100.0,
+      "impression_change_pct": 100.0,
+      "previous_ctr": 0,
+      "ctr_change_pp": 11.76,
+      "previous_position": 0,
+      "position_change": 0.0,
+      "sessions": 3.0,
+      "previous_sessions": 0,
+      "session_change_pct": 100.0,
+      "engaged_sessions": 3.0,
+      "engagement_rate": 1.0,
+      "previous_engagement_rate": null,
+      "key_events": 3.0,
+      "previous_key_events": 0,
+      "affiliate_clicks": 3.0,
+      "previous_affiliate_clicks": 0,
+      "ai_referral_visits": 0,
+      "previous_ai_referral_visits": 0,
+      "last_content_update": null,
+      "updated_by_current_pipeline": false,
+      "days_since_content_update": null,
+      "priority_eligible": true,
+      "suppression_reason": null,
+      "score": 43.0,
+      "category": "Monitor",
+      "recommended_action": "Monitor until the page accumulates enough demand or behavioural evidence for a confident intervention.",
+      "top_queries": [
+        "no credit check broadband uk"
+      ]
+    }
+  ],
+  "content_change_measurement": [
+    {
+      "change_id": "content-2026-09-21-e7c45bd1",
+      "change_date": "2026-09-21",
+      "path": "/postcode/bristol",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15820171943",
+        "title": "Content refresh: /postcode/bristol"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-22",
+            "end": "2026-09-18"
+          },
+          "clicks": 0,
+          "impressions": 122,
+          "ctr": 0,
+          "position": 57.40163934426229
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-24",
+            "end": "2026-09-20"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 0.0,
+        "impressions": 84.0,
+        "ctr": 0.0,
+        "position": 46.63095238095238,
+        "sessions": 2.0,
+        "engagement_rate": 1.0,
+        "key_events": 0.0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 0.0,
+      "impression_change": -38.0,
+      "position_change": 10.770686963309913,
+      "session_change": 2.0
+    },
+    {
+      "change_id": "content-2026-09-21-bfb5ae35",
+      "change_date": "2026-09-21",
+      "path": "/postcode/birmingham",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15820297333",
+        "title": "Content refresh: /postcode/birmingham"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-22",
+            "end": "2026-09-18"
+          },
+          "clicks": 0,
+          "impressions": 296,
+          "ctr": 0,
+          "position": 37.71283783783784
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-24",
+            "end": "2026-09-20"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 2.0,
+        "impressions": 382.0,
+        "ctr": 0.005235602094240838,
+        "position": 36.60471204188482,
+        "sessions": 0,
+        "engagement_rate": null,
+        "key_events": 0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 2.0,
+      "impression_change": 86.0,
+      "position_change": 1.108125795953022,
+      "session_change": 0.0
+    },
+    {
+      "change_id": "content-2026-09-21-eaf15233",
+      "change_date": "2026-09-21",
+      "path": "/postcode/manchester",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15820421309",
+        "title": "Content refresh: /postcode/manchester"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-22",
+            "end": "2026-09-18"
+          },
+          "clicks": 0,
+          "impressions": 1232,
+          "ctr": 0,
+          "position": 49.8474025974026
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-24",
+            "end": "2026-09-20"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 0.0,
+        "impressions": 1282.0,
+        "ctr": 0.0,
+        "position": 46.96801872074883,
+        "sessions": 0,
+        "engagement_rate": null,
+        "key_events": 0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 0.0,
+      "impression_change": 50.0,
+      "position_change": 2.879383876653769,
+      "session_change": 0.0
+    },
+    {
+      "change_id": "content-2026-09-21-43fc3c00",
+      "change_date": "2026-09-21",
+      "path": "/postcode/bristol",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15820445160",
+        "title": "Content refresh: /postcode/bristol"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-22",
+            "end": "2026-09-18"
+          },
+          "clicks": 0,
+          "impressions": 122,
+          "ctr": 0,
+          "position": 57.40163934426229
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-24",
+            "end": "2026-09-20"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 0.0,
+        "impressions": 84.0,
+        "ctr": 0.0,
+        "position": 46.63095238095238,
+        "sessions": 2.0,
+        "engagement_rate": 1.0,
+        "key_events": 0.0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 0.0,
+      "impression_change": -38.0,
+      "position_change": 10.770686963309913,
+      "session_change": 2.0
+    },
+    {
+      "change_id": "content-2026-09-20-6190d5d9",
+      "change_date": "2026-09-20",
+      "path": "/guides/static-ip-business-broadband-explained",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15812350977",
+        "title": "Content refresh: /guides/static-ip-business-broadband-explai"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-21",
+            "end": "2026-09-17"
+          },
+          "clicks": 1,
+          "impressions": 199,
+          "ctr": 0.005025125628140704,
+          "position": 30.195979899497488
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-23",
+            "end": "2026-09-19"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 1.0,
+        "impressions": 176.0,
+        "ctr": 0.005681818181818182,
+        "position": 19.931818181818183,
+        "sessions": 0,
+        "engagement_rate": null,
+        "key_events": 0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 0.0,
+      "impression_change": -23.0,
+      "position_change": 10.264161717679304,
+      "session_change": 0.0
+    },
+    {
+      "change_id": "content-2026-09-20-0735963a",
+      "change_date": "2026-09-20",
+      "path": "/postcode/edinburgh",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15812481351",
+        "title": "Content refresh: /postcode/edinburgh"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-21",
+            "end": "2026-09-17"
+          },
+          "clicks": 0,
+          "impressions": 82,
+          "ctr": 0,
+          "position": 20.670731707317074
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-23",
+            "end": "2026-09-19"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 4.0,
+        "impressions": 174.0,
+        "ctr": 0.022988505747126436,
+        "position": 15.580459770114942,
+        "sessions": 0,
+        "engagement_rate": null,
+        "key_events": 0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 4.0,
+      "impression_change": 92.0,
+      "position_change": 5.090271937202132,
+      "session_change": 0.0
+    },
+    {
+      "change_id": "content-2026-09-20-ebdfa915",
+      "change_date": "2026-09-20",
+      "path": "/guides/student-broadband-by-university-city",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15812922950",
+        "title": "Content refresh: /guides/student-broadband-by-university-cit"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-21",
+            "end": "2026-09-17"
+          },
+          "clicks": 0,
+          "impressions": 53,
+          "ctr": 0,
+          "position": 14.320754716981131
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-23",
+            "end": "2026-09-19"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 0.0,
+        "impressions": 144.0,
+        "ctr": 0.0,
+        "position": 20.77777777777778,
+        "sessions": 0,
+        "engagement_rate": null,
+        "key_events": 0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 0.0,
+      "impression_change": 91.0,
+      "position_change": -6.457023060796647,
+      "session_change": 0.0
+    },
+    {
+      "change_id": "content-2026-09-20-f6c10461",
+      "change_date": "2026-09-20",
+      "path": "/guides/small-office-broadband-setup-uk",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15812927628",
+        "title": "Content refresh: /guides/small-office-broadband-setup-uk"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-21",
+            "end": "2026-09-17"
+          },
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 2
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-23",
+            "end": "2026-09-19"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 0.0,
+        "impressions": 2.0,
+        "ctr": 0.0,
+        "position": 1.5,
+        "sessions": 0,
+        "engagement_rate": null,
+        "key_events": 0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 0.0,
+      "impression_change": 1.0,
+      "position_change": 0.5,
+      "session_change": 0.0
+    },
+    {
+      "change_id": "content-2026-09-20-4b65b396",
+      "change_date": "2026-09-20",
+      "path": "/providers/compare/bt-vs-plusnet",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15813037828",
+        "title": "Content refresh: /providers/compare/bt-vs-plusnet"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-21",
+            "end": "2026-09-17"
+          },
+          "clicks": 0,
+          "impressions": 81,
+          "ctr": 0,
+          "position": 25.567901234567902
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-23",
+            "end": "2026-09-19"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 0.0,
+        "impressions": 118.0,
+        "ctr": 0.0,
+        "position": 24.940677966101696,
+        "sessions": 0,
+        "engagement_rate": null,
+        "key_events": 0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 0.0,
+      "impression_change": 37.0,
+      "position_change": 0.6272232684662065,
+      "session_change": 0.0
+    },
+    {
+      "change_id": "content-2026-09-20-7697000e",
+      "change_date": "2026-09-20",
+      "path": "/postcode/glasgow",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15813076519",
+        "title": "Content refresh: /postcode/glasgow"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-21",
+            "end": "2026-09-17"
+          },
+          "clicks": 3,
+          "impressions": 570,
+          "ctr": 0.005263157894736842,
+          "position": 36.06140350877193
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-23",
+            "end": "2026-09-19"
+          },
+          "sessions": 2.0,
+          "engaged_sessions": 2.0,
+          "key_events": 3.0
+        }
+      },
+      "current": {
+        "clicks": 3.0,
+        "impressions": 686.0,
+        "ctr": 0.004373177842565598,
+        "position": 32.16618075801749,
+        "sessions": 1.0,
+        "engagement_rate": 1.0,
+        "key_events": 2.0,
+        "affiliate_clicks": 3.0,
+        "ai_referral_visits": 1.0
+      },
+      "click_change": 0.0,
+      "impression_change": 116.0,
+      "position_change": 3.895222750754442,
+      "session_change": -1.0
+    },
+    {
+      "change_id": "content-2026-09-20-926e40fe",
+      "change_date": "2026-09-20",
+      "path": "/postcode/liverpool",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15813111496",
+        "title": "Content refresh: /postcode/liverpool"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-21",
+            "end": "2026-09-17"
+          },
+          "clicks": 0,
+          "impressions": 274,
+          "ctr": 0,
+          "position": 54.18613138686131
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-23",
+            "end": "2026-09-19"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 0.0,
+        "impressions": 182.0,
+        "ctr": 0.0,
+        "position": 48.89010989010989,
+        "sessions": 0,
+        "engagement_rate": null,
+        "key_events": 0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 0.0,
+      "impression_change": -92.0,
+      "position_change": 5.296021496751422,
+      "session_change": 0.0
+    },
+    {
+      "change_id": "content-2026-09-20-098ab31e",
+      "change_date": "2026-09-20",
+      "path": "/guides/broadband-for-landlords-and-hmos-uk",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15813326775",
+        "title": "Content refresh: /guides/broadband-for-landlords-and-hmos-uk"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-21",
+            "end": "2026-09-17"
+          },
+          "clicks": 1,
+          "impressions": 219,
+          "ctr": 0.0045662100456621,
+          "position": 14.968036529680365
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-23",
+            "end": "2026-09-19"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 0.0,
+        "impressions": 1.0,
+        "ctr": 0.0,
+        "position": 1.0,
+        "sessions": 0,
+        "engagement_rate": null,
+        "key_events": 0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": -1.0,
+      "impression_change": -218.0,
+      "position_change": 13.968036529680365,
+      "session_change": 0.0
+    },
+    {
+      "change_id": "content-2026-09-20-f6d37bb2",
+      "change_date": "2026-09-20",
+      "path": "/postcode/leeds",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15813332337",
+        "title": "Content refresh: /postcode/leeds"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-21",
+            "end": "2026-09-17"
+          },
+          "clicks": 0,
+          "impressions": 307,
+          "ctr": 0,
+          "position": 46.09120521172638
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-23",
+            "end": "2026-09-19"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 0.0,
+        "impressions": 439.0,
+        "ctr": 0.0,
+        "position": 43.99772209567198,
+        "sessions": 1.0,
+        "engagement_rate": 1.0,
+        "key_events": 0.0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 0.0,
+      "impression_change": 132.0,
+      "position_change": 2.0934831160544007,
+      "session_change": 1.0
+    },
+    {
+      "change_id": "content-2026-09-20-8f747cfe",
+      "change_date": "2026-09-20",
+      "path": "/providers/compare/ee-vs-talktalk",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15813521425",
+        "title": "Content refresh: /providers/compare/ee-vs-talktalk"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-21",
+            "end": "2026-09-17"
+          },
+          "clicks": 10,
+          "impressions": 545,
+          "ctr": 0.01834862385321101,
+          "position": 5.994495412844037
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-23",
+            "end": "2026-09-19"
+          },
+          "sessions": 4.0,
+          "engaged_sessions": 4.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 11.0,
+        "impressions": 567.0,
+        "ctr": 0.019400352733686066,
+        "position": 5.477954144620811,
+        "sessions": 5.0,
+        "engagement_rate": 1.0,
+        "key_events": 0.0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 1.0,
+      "impression_change": 22.0,
+      "position_change": 0.516541268223226,
+      "session_change": 1.0
+    },
+    {
+      "change_id": "content-2026-09-19-0c9e2dbb",
+      "change_date": "2026-09-19",
+      "path": "/guides/pstn-switch-off-small-business-uk",
+      "change_type": "new_page",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15807206075",
+        "title": "New page: /guides/pstn-switch-off-small-business-uk"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-20",
+            "end": "2026-09-16"
+          },
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": null
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-22",
+            "end": "2026-09-18"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 0.0,
+        "impressions": 55.0,
+        "ctr": 0.0,
+        "position": 4.472727272727273,
+        "sessions": 1.0,
+        "engagement_rate": 1.0,
+        "key_events": 0.0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 0.0,
+      "impression_change": 55.0,
+      "position_change": null,
+      "session_change": 1.0
+    },
+    {
+      "change_id": "content-2026-09-17-53b066e6",
+      "change_date": "2026-09-17",
+      "path": "/guides/moving-house-broadband-checklist-uk",
+      "change_type": "new_page",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15798980468",
+        "title": "New page: /guides/moving-house-broadband-checklist-uk"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-18",
+            "end": "2026-09-14"
+          },
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": null
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-20",
+            "end": "2026-09-16"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 1.0,
+        "impressions": 29.0,
+        "ctr": 0.034482758620689655,
+        "position": 20.20689655172414,
+        "sessions": 0,
+        "engagement_rate": null,
+        "key_events": 0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 1.0,
+      "impression_change": 29.0,
+      "position_change": null,
+      "session_change": 0.0
+    },
+    {
+      "change_id": "content-2026-09-15-9a6ff288",
+      "change_date": "2026-09-15",
+      "path": "/guides/telecare-alarms-landline-switch-off-uk",
+      "change_type": "new_page",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15781012254",
+        "title": "New page: /guides/telecare-alarms-landline-switch-off-uk"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-16",
+            "end": "2026-09-12"
+          },
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": null
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-18",
+            "end": "2026-09-14"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 2.0,
+        "impressions": 79.0,
+        "ctr": 0.02531645569620253,
+        "position": 4.506329113924051,
+        "sessions": 0,
+        "engagement_rate": null,
+        "key_events": 0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 2.0,
+      "impression_change": 79.0,
+      "position_change": null,
+      "session_change": 0.0
+    },
+    {
+      "change_id": "content-2026-09-15-8ddc846f",
+      "change_date": "2026-09-15",
+      "path": "/guides/esim-explained-uk",
+      "change_type": "new_page",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15783061265",
+        "title": "New page: /guides/esim-explained-uk"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-16",
+            "end": "2026-09-12"
+          },
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": null
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-18",
+            "end": "2026-09-14"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 0.0,
+        "impressions": 281.0,
+        "ctr": 0.0,
+        "position": 39.387900355871885,
+        "sessions": 0,
+        "engagement_rate": null,
+        "key_events": 0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 0.0,
+      "impression_change": 281.0,
+      "position_change": null,
+      "session_change": 0.0
+    },
+    {
+      "change_id": "content-2026-09-15-07c9b768",
+      "change_date": "2026-09-15",
+      "path": "/guides/replace-isp-router-uk",
+      "change_type": "new_page",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15783211513",
+        "title": "New page: /guides/replace-isp-router-uk"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-16",
+            "end": "2026-09-12"
+          },
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": null
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-18",
+            "end": "2026-09-14"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 1.0,
+        "impressions": 134.0,
+        "ctr": 0.007462686567164179,
+        "position": 10.373134328358208,
+        "sessions": 0,
+        "engagement_rate": null,
+        "key_events": 0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 1.0,
+      "impression_change": 134.0,
+      "position_change": null,
+      "session_change": 0.0
+    },
+    {
+      "change_id": "content-2026-09-14-46a62b0c",
+      "change_date": "2026-09-14",
+      "path": "/guides/digital-voice-explained-uk",
+      "change_type": "new_page",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15774309227",
+        "title": "New page: /guides/digital-voice-explained-uk"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-15",
+            "end": "2026-09-11"
+          },
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": null
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-17",
+            "end": "2026-09-13"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 1.0,
+        "impressions": 225.0,
+        "ctr": 0.0044444444444444444,
+        "position": 20.26222222222222,
+        "sessions": 1.0,
+        "engagement_rate": 1.0,
+        "key_events": 0.0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 1.0,
+      "impression_change": 225.0,
+      "position_change": null,
+      "session_change": 1.0
+    },
+    {
+      "change_id": "content-2026-09-14-65fae423",
+      "change_date": "2026-09-14",
+      "path": "/guides/does-a-vpn-slow-your-internet",
+      "change_type": "new_page",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15775670933",
+        "title": "New page: /guides/does-a-vpn-slow-your-internet"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-15",
+            "end": "2026-09-11"
+          },
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": null
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-17",
+            "end": "2026-09-13"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 2.0,
+        "impressions": 119.0,
+        "ctr": 0.01680672268907563,
+        "position": 9.579831932773109,
+        "sessions": 0,
+        "engagement_rate": null,
+        "key_events": 0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 2.0,
+      "impression_change": 119.0,
+      "position_change": null,
+      "session_change": 0.0
+    },
+    {
+      "change_id": "content-2026-09-14-eb34c937",
+      "change_date": "2026-09-14",
+      "path": "/guides/fix-wifi-dead-spots-uk",
+      "change_type": "new_page",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15776097073",
+        "title": "New page: /guides/fix-wifi-dead-spots-uk"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-15",
+            "end": "2026-09-11"
+          },
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": null
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-17",
+            "end": "2026-09-13"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 1.0,
+        "impressions": 68.0,
+        "ctr": 0.014705882352941176,
+        "position": 7.5,
+        "sessions": 0,
+        "engagement_rate": null,
+        "key_events": 0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 1.0,
+      "impression_change": 68.0,
+      "position_change": null,
+      "session_change": 0.0
+    },
+    {
+      "change_id": "content-2026-09-14-236843f7",
+      "change_date": "2026-09-14",
+      "path": "/guides/cheapest-way-to-watch-sky-sports-uk",
+      "change_type": "new_page",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15776237033",
+        "title": "New page: /guides/cheapest-way-to-watch-sky-sports-uk"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-15",
+            "end": "2026-09-11"
+          },
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": null
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-17",
+            "end": "2026-09-13"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 1.0,
+        "impressions": 5.0,
+        "ctr": 0.2,
+        "position": 1.0,
+        "sessions": 1.0,
+        "engagement_rate": 0.0,
+        "key_events": 0.0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 1.0,
+      "impression_change": 5.0,
+      "position_change": null,
+      "session_change": 1.0
+    },
+    {
+      "change_id": "content-2026-09-14-70b0e4ec",
+      "change_date": "2026-09-14",
+      "path": "/guides/broadband-and-mobile-bundle-discounts-uk",
+      "change_type": "new_page",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15777507000",
+        "title": "New page: /guides/broadband-and-mobile-bundle-discounts-uk"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-15",
+            "end": "2026-09-11"
+          },
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": null
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-17",
+            "end": "2026-09-13"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 8.0,
+        "impressions": 1402.0,
+        "ctr": 0.005706134094151213,
+        "position": 23.178316690442227,
+        "sessions": 3.0,
+        "engagement_rate": 1.0,
+        "key_events": 0.0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 8.0,
+      "impression_change": 1402.0,
+      "position_change": null,
+      "session_change": 3.0
+    },
+    {
+      "change_id": "content-2026-09-11-238b1a4b",
+      "change_date": "2026-09-11",
+      "path": "/guides/wifi-7-explained-uk",
+      "change_type": "new_page",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15761342753",
+        "title": "New page: /guides/wifi-7-explained-uk"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-12",
+            "end": "2026-09-08"
+          },
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": null
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-14",
+            "end": "2026-09-10"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 2.0,
+        "impressions": 209.0,
+        "ctr": 0.009569377990430622,
+        "position": 11.4688995215311,
+        "sessions": 0,
+        "engagement_rate": null,
+        "key_events": 0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 2.0,
+      "impression_change": 209.0,
+      "position_change": null,
+      "session_change": 0.0
+    },
+    {
+      "change_id": "content-2026-09-11-07d86b4b",
+      "change_date": "2026-09-11",
+      "path": "/guides/landline-switch-off-explained-uk",
+      "change_type": "new_page",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15762785003",
+        "title": "New page: /guides/landline-switch-off-explained-uk"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-12",
+            "end": "2026-09-08"
+          },
+          "clicks": 0,
+          "impressions": 0,
+          "ctr": 0,
+          "position": null
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-14",
+            "end": "2026-09-10"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 4.0,
+        "impressions": 210.0,
+        "ctr": 0.01904761904761905,
+        "position": 7.7,
+        "sessions": 2.0,
+        "engagement_rate": 0.5,
+        "key_events": 2.0,
+        "affiliate_clicks": 2.0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 4.0,
+      "impression_change": 210.0,
+      "position_change": null,
+      "session_change": 2.0
+    },
+    {
+      "change_id": "content-2026-09-06-815a6b7b",
+      "change_date": "2026-09-06",
+      "path": "/research/uk-broadband-customer-satisfaction",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15728157868",
+        "title": "Content refresh: /research/uk-broadband-customer-satisfactio"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "clicks": 0,
+          "impressions": 54,
+          "ctr": 0,
+          "position": 12.12962962962963
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-09",
+            "end": "2026-09-05"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 0.0,
+        "impressions": 358.0,
+        "ctr": 0.0,
+        "position": 7.874301675977653,
+        "sessions": 0,
+        "engagement_rate": null,
+        "key_events": 0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 0.0,
+      "impression_change": 304.0,
+      "position_change": 4.255327953651976,
+      "session_change": 0.0
+    },
+    {
+      "change_id": "content-2026-09-06-d47b586b",
+      "change_date": "2026-09-06",
+      "path": "/providers/compare/plusnet-vs-sky",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15728673918",
+        "title": "Content refresh: /providers/compare/plusnet-vs-sky"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "clicks": 0,
+          "impressions": 53,
+          "ctr": 0,
+          "position": 9.283018867924529
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-09",
+            "end": "2026-09-05"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 1.0,
+        "impressions": 495.0,
+        "ctr": 0.00202020202020202,
+        "position": 8.244444444444444,
+        "sessions": 0,
+        "engagement_rate": null,
+        "key_events": 0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 1.0,
+      "impression_change": 442.0,
+      "position_change": 1.0385744234800853,
+      "session_change": 0.0
+    },
+    {
+      "change_id": "content-2026-09-06-6eccbf77",
+      "change_date": "2026-09-06",
+      "path": "/providers/compare/hyperoptic-vs-community-fibre",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15728682637",
+        "title": "Content refresh: /providers/compare/hyperoptic-vs-community-"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "clicks": 0,
+          "impressions": 48,
+          "ctr": 0,
+          "position": 7.395833333333333
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-09",
+            "end": "2026-09-05"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 1.0,
+        "impressions": 231.0,
+        "ctr": 0.004329004329004329,
+        "position": 8.805194805194805,
+        "sessions": 0,
+        "engagement_rate": null,
+        "key_events": 0,
+        "affiliate_clicks": 1.0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 1.0,
+      "impression_change": 183.0,
+      "position_change": -1.4093614718614722,
+      "session_change": 0.0
+    },
+    {
+      "change_id": "content-2026-09-06-e90f2838",
+      "change_date": "2026-09-06",
+      "path": "/providers/compare",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15729007468",
+        "title": "Content refresh: /providers/compare"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "clicks": 0,
+          "impressions": 41,
+          "ctr": 0,
+          "position": 12.75609756097561
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-09",
+            "end": "2026-09-05"
+          },
+          "sessions": 6.0,
+          "engaged_sessions": 6.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 5.0,
+        "impressions": 923.0,
+        "ctr": 0.005417118093174431,
+        "position": 37.13434452871073,
+        "sessions": 1.0,
+        "engagement_rate": 1.0,
+        "key_events": 0.0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 5.0,
+      "impression_change": 882.0,
+      "position_change": -24.378246967735116,
+      "session_change": -5.0
+    },
+    {
+      "change_id": "content-2026-09-04-da626da4",
+      "change_date": "2026-09-04",
+      "path": "/postcode/sheffield",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15718342273",
+        "title": "Content refresh: /postcode/sheffield"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 0,
+          "impressions": 18,
+          "ctr": 0,
+          "position": 35.27777777777778
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 0.0,
+        "impressions": 33.0,
+        "ctr": 0.0,
+        "position": 23.757575757575758,
+        "sessions": 0,
+        "engagement_rate": null,
+        "key_events": 0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 0.0,
+      "impression_change": 15.0,
+      "position_change": 11.52020202020202,
+      "session_change": 0.0
+    },
+    {
+      "change_id": "content-2026-09-04-ad652356",
+      "change_date": "2026-09-04",
+      "path": "/postcode/ha1",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15719869706",
+        "title": "Content refresh: /postcode/ha1"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 1,
+          "impressions": 95,
+          "ctr": 0.010526315789473684,
+          "position": 9.642105263157895
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 1.0,
+          "engaged_sessions": 1.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 2.0,
+        "impressions": 81.0,
+        "ctr": 0.024691358024691357,
+        "position": 8.197530864197532,
+        "sessions": 1.0,
+        "engagement_rate": 1.0,
+        "key_events": 0.0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 1.0,
+      "impression_change": -14.0,
+      "position_change": 1.4445743989603628,
+      "session_change": 0.0
+    },
+    {
+      "change_id": "content-2026-09-04-cbb58f0d",
+      "change_date": "2026-09-04",
+      "path": "/postcode/se1",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15720383148",
+        "title": "Content refresh: /postcode/se1"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 1,
+          "impressions": 92,
+          "ctr": 0.010869565217391304,
+          "position": 5.565217391304348
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 2.0,
+          "engaged_sessions": 2.0,
+          "key_events": 1.0
+        }
+      },
+      "current": {
+        "clicks": 1.0,
+        "impressions": 134.0,
+        "ctr": 0.007462686567164179,
+        "position": 5.544776119402985,
+        "sessions": 1.0,
+        "engagement_rate": 1.0,
+        "key_events": 0.0,
+        "affiliate_clicks": 1.0,
+        "ai_referral_visits": 1.0
+      },
+      "click_change": 0.0,
+      "impression_change": 42.0,
+      "position_change": 0.02044127190136269,
+      "session_change": -1.0
+    },
+    {
+      "change_id": "content-2026-09-04-8c5026da",
+      "change_date": "2026-09-04",
+      "path": "/postcode/sw1",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15720641377",
+        "title": "Content refresh: /postcode/sw1"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 1,
+          "impressions": 40,
+          "ctr": 0.025,
+          "position": 6.725
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 2.0,
+          "engaged_sessions": 2.0,
+          "key_events": 4.0
+        }
+      },
+      "current": {
+        "clicks": 1.0,
+        "impressions": 59.0,
+        "ctr": 0.01694915254237288,
+        "position": 11.508474576271187,
+        "sessions": 1.0,
+        "engagement_rate": 1.0,
+        "key_events": 4.0,
+        "affiliate_clicks": 4.0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 0.0,
+      "impression_change": 19.0,
+      "position_change": -4.783474576271187,
+      "session_change": -1.0
+    },
+    {
+      "change_id": "content-2026-09-04-ba282baf",
+      "change_date": "2026-09-04",
+      "path": "/providers/compare/virgin-media-vs-vodafone",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15720821933",
+        "title": "Content refresh: /providers/compare/virgin-media-vs-vodafone"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 1,
+          "impressions": 138,
+          "ctr": 0.007246376811594203,
+          "position": 7.630434782608695
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 3.0,
+        "impressions": 648.0,
+        "ctr": 0.004629629629629629,
+        "position": 7.717592592592593,
+        "sessions": 0,
+        "engagement_rate": null,
+        "key_events": 0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 2.0,
+      "impression_change": 510.0,
+      "position_change": -0.08715780998389722,
+      "session_change": 0.0
+    },
+    {
+      "change_id": "content-2026-09-04-e6043756",
+      "change_date": "2026-09-04",
+      "path": "/postcode/e1",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15721030824",
+        "title": "Content refresh: /postcode/e1"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 2,
+          "impressions": 95,
+          "ctr": 0.021052631578947368,
+          "position": 4.589473684210526
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 2.0,
+          "engaged_sessions": 2.0,
+          "key_events": 4.0
+        }
+      },
+      "current": {
+        "clicks": 8.0,
+        "impressions": 159.0,
+        "ctr": 0.050314465408805034,
+        "position": 4.477987421383648,
+        "sessions": 3.0,
+        "engagement_rate": 1.0,
+        "key_events": 0.0,
+        "affiliate_clicks": 3.0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 6.0,
+      "impression_change": 64.0,
+      "position_change": 0.11148626282687868,
+      "session_change": 1.0
+    },
+    {
+      "change_id": "content-2026-09-04-996bbc0b",
+      "change_date": "2026-09-04",
+      "path": "/postcode/ub1",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15721115316",
+        "title": "Content refresh: /postcode/ub1"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 0,
+          "impressions": 79,
+          "ctr": 0,
+          "position": 8.088607594936708
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 1.0,
+        "impressions": 123.0,
+        "ctr": 0.008130081300813009,
+        "position": 6.634146341463414,
+        "sessions": 1.0,
+        "engagement_rate": 1.0,
+        "key_events": 2.0,
+        "affiliate_clicks": 2.0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 1.0,
+      "impression_change": 44.0,
+      "position_change": 1.4544612534732932,
+      "session_change": 1.0
+    },
+    {
+      "change_id": "content-2026-09-04-32fea5e7",
+      "change_date": "2026-09-04",
+      "path": "/postcode/en1",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15721175154",
+        "title": "Content refresh: /postcode/en1"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 0,
+          "impressions": 77,
+          "ctr": 0,
+          "position": 12.883116883116884
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 1.0,
+        "impressions": 79.0,
+        "ctr": 0.012658227848101266,
+        "position": 11.367088607594937,
+        "sessions": 0,
+        "engagement_rate": null,
+        "key_events": 0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 1.0,
+      "impression_change": 2.0,
+      "position_change": 1.516028275521947,
+      "session_change": 0.0
+    },
+    {
+      "change_id": "content-2026-09-04-1c9b0de8",
+      "change_date": "2026-09-04",
+      "path": "/postcode/nw1",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15721259903",
+        "title": "Content refresh: /postcode/nw1"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 2,
+          "impressions": 73,
+          "ctr": 0.0273972602739726,
+          "position": 5.8493150684931505
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 2.0,
+        "impressions": 73.0,
+        "ctr": 0.0273972602739726,
+        "position": 5.465753424657534,
+        "sessions": 1.0,
+        "engagement_rate": 1.0,
+        "key_events": 0.0,
+        "affiliate_clicks": 2.0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 0.0,
+      "impression_change": 0.0,
+      "position_change": 0.3835616438356162,
+      "session_change": 1.0
+    },
+    {
+      "change_id": "content-2026-09-04-282decba",
+      "change_date": "2026-09-04",
+      "path": "/postcode/w5",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15721313429",
+        "title": "Content refresh: /postcode/w5"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 1,
+          "impressions": 62,
+          "ctr": 0.016129032258064516,
+          "position": 6.048387096774194
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 2.0,
+        "impressions": 58.0,
+        "ctr": 0.034482758620689655,
+        "position": 4.706896551724138,
+        "sessions": 2.0,
+        "engagement_rate": 1.0,
+        "key_events": 3.0,
+        "affiliate_clicks": 4.0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 1.0,
+      "impression_change": -4.0,
+      "position_change": 1.341490545050056,
+      "session_change": 2.0
+    },
+    {
+      "change_id": "content-2026-09-04-c0570959",
+      "change_date": "2026-09-04",
+      "path": "/postcode/so14",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15721363466",
+        "title": "Content refresh: /postcode/so14"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 1,
+          "impressions": 194,
+          "ctr": 0.005154639175257732,
+          "position": 22.02577319587629
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 0.0,
+        "impressions": 213.0,
+        "ctr": 0.0,
+        "position": 23.44600938967136,
+        "sessions": 0,
+        "engagement_rate": null,
+        "key_events": 0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": -1.0,
+      "impression_change": 19.0,
+      "position_change": -1.4202361937950698,
+      "session_change": 0.0
+    },
+    {
+      "change_id": "content-2026-09-04-de7a91b4",
+      "change_date": "2026-09-04",
+      "path": "/postcode/lu1",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15721424336",
+        "title": "Content refresh: /postcode/lu1"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 0,
+          "impressions": 156,
+          "ctr": 0,
+          "position": 15.397435897435898
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 0.0,
+        "impressions": 130.0,
+        "ctr": 0.0,
+        "position": 17.084615384615386,
+        "sessions": 0,
+        "engagement_rate": null,
+        "key_events": 0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 0.0,
+      "impression_change": -26.0,
+      "position_change": -1.6871794871794883,
+      "session_change": 0.0
+    },
+    {
+      "change_id": "content-2026-09-04-39fe9760",
+      "change_date": "2026-09-04",
+      "path": "/postcode/l1",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15721404977",
+        "title": "Content refresh: /postcode/l1"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 0,
+          "impressions": 148,
+          "ctr": 0,
+          "position": 26.64864864864865
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 0.0,
+        "impressions": 123.0,
+        "ctr": 0.0,
+        "position": 26.30081300813008,
+        "sessions": 0,
+        "engagement_rate": null,
+        "key_events": 0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 0.0,
+      "impression_change": -25.0,
+      "position_change": 0.34783564051856786,
+      "session_change": 0.0
+    },
+    {
+      "change_id": "content-2026-09-04-a46799e0",
+      "change_date": "2026-09-04",
+      "path": "/postcode/ls2",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15721481766",
+        "title": "Content refresh: /postcode/ls2"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 2,
+          "impressions": 109,
+          "ctr": 0.01834862385321101,
+          "position": 45.71559633027523
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 1.0,
+          "engaged_sessions": 1.0,
+          "key_events": 1.0
+        }
+      },
+      "current": {
+        "clicks": 2.0,
+        "impressions": 189.0,
+        "ctr": 0.010582010582010581,
+        "position": 30.64021164021164,
+        "sessions": 1.0,
+        "engagement_rate": 1.0,
+        "key_events": 1.0,
+        "affiliate_clicks": 1.0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 0.0,
+      "impression_change": 80.0,
+      "position_change": 15.075384690063593,
+      "session_change": 0.0
+    },
+    {
+      "change_id": "content-2026-09-04-455dd706",
+      "change_date": "2026-09-04",
+      "path": "/postcode/b1",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15721577177",
+        "title": "Content refresh: /postcode/b1"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 0,
+          "impressions": 58,
+          "ctr": 0,
+          "position": 34.96551724137931
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 1.0,
+        "impressions": 123.0,
+        "ctr": 0.008130081300813009,
+        "position": 31.16260162601626,
+        "sessions": 0,
+        "engagement_rate": null,
+        "key_events": 0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 1.0,
+      "impression_change": 65.0,
+      "position_change": 3.802915615363048,
+      "session_change": 0.0
+    },
+    {
+      "change_id": "content-2026-09-04-b33fd7d3",
+      "change_date": "2026-09-04",
+      "path": "/postcode/cv1",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15721611114",
+        "title": "Content refresh: /postcode/cv1"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 0,
+          "impressions": 38,
+          "ctr": 0,
+          "position": 6.5
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 2.0,
+        "impressions": 66.0,
+        "ctr": 0.030303030303030304,
+        "position": 6.666666666666667,
+        "sessions": 1.0,
+        "engagement_rate": 1.0,
+        "key_events": 0.0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 2.0,
+      "impression_change": 28.0,
+      "position_change": -0.16666666666666696,
+      "session_change": 1.0
+    },
+    {
+      "change_id": "content-2026-09-04-3595bcc2",
+      "change_date": "2026-09-04",
+      "path": "/postcode/l8",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15721666227",
+        "title": "Content refresh: /postcode/l8"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 1,
+          "impressions": 39,
+          "ctr": 0.02564102564102564,
+          "position": 6.128205128205129
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 0.0,
+        "impressions": 44.0,
+        "ctr": 0.0,
+        "position": 4.181818181818182,
+        "sessions": 0,
+        "engagement_rate": null,
+        "key_events": 0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": -1.0,
+      "impression_change": 5.0,
+      "position_change": 1.946386946386947,
+      "session_change": 0.0
+    },
+    {
+      "change_id": "content-2026-09-04-b089a0df",
+      "change_date": "2026-09-04",
+      "path": "/postcode/g1",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15721615969",
+        "title": "Content refresh: /postcode/g1"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 0,
+          "impressions": 33,
+          "ctr": 0,
+          "position": 26.181818181818183
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 1.0,
+        "impressions": 94.0,
+        "ctr": 0.010638297872340425,
+        "position": 23.882978723404257,
+        "sessions": 0,
+        "engagement_rate": null,
+        "key_events": 0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 1.0,
+      "impression_change": 61.0,
+      "position_change": 2.2988394584139265,
+      "session_change": 0.0
+    },
+    {
+      "change_id": "content-2026-09-04-2cf52daa",
+      "change_date": "2026-09-04",
+      "path": "/postcode/bs3",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15721684915",
+        "title": "Content refresh: /postcode/bs3"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 2,
+          "impressions": 33,
+          "ctr": 0.06060606060606061,
+          "position": 6.787878787878788
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 2.0,
+        "impressions": 36.0,
+        "ctr": 0.05555555555555555,
+        "position": 5.694444444444445,
+        "sessions": 0,
+        "engagement_rate": null,
+        "key_events": 0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 0.0,
+      "impression_change": 3.0,
+      "position_change": 1.0934343434343434,
+      "session_change": 0.0
+    },
+    {
+      "change_id": "content-2026-09-04-627fdd8d",
+      "change_date": "2026-09-04",
+      "path": "/postcode/ox1",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15721697939",
+        "title": "Content refresh: /postcode/ox1"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 0,
+          "impressions": 21,
+          "ctr": 0,
+          "position": 9.238095238095237
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 0.0,
+        "impressions": 115.0,
+        "ctr": 0.0,
+        "position": 15.382608695652173,
+        "sessions": 0,
+        "engagement_rate": null,
+        "key_events": 0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 0.0,
+      "impression_change": 94.0,
+      "position_change": -6.144513457556936,
+      "session_change": 0.0
+    },
+    {
+      "change_id": "content-2026-09-04-e822ba1f",
+      "change_date": "2026-09-04",
+      "path": "/postcode/ls1",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15721760141",
+        "title": "Content refresh: /postcode/ls1"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-05",
+            "end": "2026-09-01"
+          },
+          "clicks": 0,
+          "impressions": 18,
+          "ctr": 0,
+          "position": 23.27777777777778
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-07",
+            "end": "2026-09-03"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 0.0,
+        "impressions": 64.0,
+        "ctr": 0.0,
+        "position": 29.796875,
+        "sessions": 0,
+        "engagement_rate": null,
+        "key_events": 0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 0.0,
+      "impression_change": 46.0,
+      "position_change": -6.519097222222221,
+      "session_change": 0.0
+    },
+    {
+      "change_id": "content-2026-09-04-0fbab8f1",
+      "change_date": "2026-09-04",
+      "path": "/postcode/cf10",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15721904203",
+        "title": "Content refresh: /postcode/cf10"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-06",
+            "end": "2026-09-02"
+          },
+          "clicks": 0,
+          "impressions": 16,
+          "ctr": 0,
+          "position": 31.1875
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-08",
+            "end": "2026-09-04"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 0.0,
+        "impressions": 94.0,
+        "ctr": 0.0,
+        "position": 36.755319148936174,
+        "sessions": 0,
+        "engagement_rate": null,
+        "key_events": 0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 0.0,
+      "impression_change": 78.0,
+      "position_change": -5.567819148936174,
+      "session_change": 0.0
+    },
+    {
+      "change_id": "content-2026-09-04-4dce2c06",
+      "change_date": "2026-09-04",
+      "path": "/postcode/sg1",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15721784669",
+        "title": "Content refresh: /postcode/sg1"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-06",
+            "end": "2026-09-02"
+          },
+          "clicks": 0,
+          "impressions": 35,
+          "ctr": 0,
+          "position": 9.857142857142858
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-08",
+            "end": "2026-09-04"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 1.0,
+        "impressions": 193.0,
+        "ctr": 0.0051813471502590676,
+        "position": 10.279792746113989,
+        "sessions": 1.0,
+        "engagement_rate": 1.0,
+        "key_events": 0.0,
+        "affiliate_clicks": 0,
+        "ai_referral_visits": 0
+      },
+      "click_change": 1.0,
+      "impression_change": 158.0,
+      "position_change": -0.4226498889711312,
+      "session_change": 1.0
+    },
+    {
+      "change_id": "content-2026-09-04-6e5f59e4",
+      "change_date": "2026-09-04",
+      "path": "/postcode/le1",
+      "change_type": "content_refresh",
+      "ga4_annotation": {
+        "name": "properties/551202232/reportingDataAnnotations/15721933124",
+        "title": "Content refresh: /postcode/le1"
+      },
+      "baseline": {
+        "gsc": {
+          "window": {
+            "start": "2026-08-06",
+            "end": "2026-09-02"
+          },
+          "clicks": 0,
+          "impressions": 9,
+          "ctr": 0,
+          "position": 69.55555555555556
+        },
+        "ga4": {
+          "window": {
+            "start": "2026-08-08",
+            "end": "2026-09-04"
+          },
+          "sessions": 0.0,
+          "engaged_sessions": 0.0,
+          "key_events": 0.0
+        }
+      },
+      "current": {
+        "clicks": 0.0,
+        "impressions": 167.0,
+        "ctr": 0.0,
+        "position": 51.35329341317365,
+        "sessions": 0,
+        "engagement_rate": null,
+        "key_events": 0,
+        "affiliate_clicks": 1.0,
+        "ai_referral_visits": 1.0
+      },
+      "click_change": 0.0,
+      "impression_change": 158.0,
+      "position_change": 18.202262142381905,
+      "session_change": 0.0
+    }
+  ],
+  "search_appearance": [
+    {
+      "appearance": "REVIEW_SNIPPET",
+      "clicks": 0.0,
+      "impressions": 12.0,
+      "ctr": 0.0,
+      "position": 35.083333333333336
+    },
+    {
+      "appearance": "TRANSLATED_RESULT",
+      "clicks": 0.0,
+      "impressions": 1.0,
+      "ctr": 0.0,
+      "position": 10.0
+    },
+    {
+      "appearance": "PRODUCT_SNIPPETS",
+      "clicks": 8.0,
+      "impressions": 4688.0,
+      "ctr": 0.0017064846416382253,
+      "position": 39.73570819112628
     }
   ]
 }

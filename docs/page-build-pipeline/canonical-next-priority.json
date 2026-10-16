@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-06T16:30:00.332151+00:00",
+  "generated_at": "2026-09-25T22:05:10.698263+00:00",
   "selection_policy": [
     "Eligible GSC/GA4 opportunities with measurable demand, average position 1-30, and no current-pipeline suppression",
     "High-impression pages ranking below position 30 stay in the strategic analytics queue but cannot displace a nearer-term rankable opportunity",
@@ -10,290 +10,273 @@
     "Page-type UX/GEO findings become mandatory build requirements, not a separate competing queue"
   ],
   "next_priority": {
-    "path": "/tools/broadband-cost-calculator",
-    "title": "/tools/broadband-cost-calculator",
-    "score": 56.0,
+    "path": "/postcode/london",
+    "title": "/postcode/london",
+    "score": 81.2,
     "source": "Weekly GSC/GA4 intelligence",
     "source_rank": 1,
     "reason": "Expand missing subtopics for the leading queries, improve topical internal links and validate intent alignment.",
     "metrics": {
-      "clicks": 1.0,
-      "impressions": 60.0,
-      "ctr": 0.016666666666666666,
-      "position": 22.066666666666666,
-      "sessions": 0,
+      "clicks": 3.0,
+      "impressions": 1066.0,
+      "ctr": 0.0028142589118198874,
+      "position": 29.29924953095685,
+      "sessions": 2.0,
       "ai_referral_visits": 0
     },
     "top_queries": [
-      "mid contract price rise calculator",
-      "average broadband cost uk",
-      "wifi costs per month uk",
-      "average broadband price uk",
-      "average cost of wifi per month uk"
+      "internet providers london",
+      "broadband london providers",
+      "broadband providers london",
+      "london broadband providers",
+      "broadband services london"
     ],
-    "url": "https://broadbandpicker.co.uk/tools/broadband-cost-calculator",
-    "page_type": "tool",
+    "url": "https://broadbandpicker.co.uk/postcode/london",
+    "page_type": "postcode",
     "ux_geo_requirements": [
       {
-        "priority": "P2",
+        "priority": "P0",
         "feature": "GEO: be quotable in the AI answer",
-        "evidence": "0 of 8 sampled interactive tool queries show an AI Overview; BroadbandPicker is cited in 0. Domains that do get cited: n/a. AI referral visits to this type in GA4: 0."
+        "evidence": "4 of 8 sampled postcode and local queries show an AI Overview; BroadbandPicker is cited in 0. Domains that do get cited: broadband.co.uk, broadbandcompared.co.uk, fibrecompare.com, gocompare.com, uswitch.com. AI referral visits to this type in GA4: 4."
       }
     ]
   },
   "shortlist": [
     {
-      "path": "/tools/broadband-cost-calculator",
-      "title": "/tools/broadband-cost-calculator",
-      "score": 56.0,
+      "path": "/postcode/london",
+      "title": "/postcode/london",
+      "score": 81.2,
       "source": "Weekly GSC/GA4 intelligence",
       "source_rank": 1,
       "reason": "Expand missing subtopics for the leading queries, improve topical internal links and validate intent alignment.",
       "metrics": {
-        "clicks": 1.0,
-        "impressions": 60.0,
-        "ctr": 0.016666666666666666,
-        "position": 22.066666666666666,
-        "sessions": 0,
+        "clicks": 3.0,
+        "impressions": 1066.0,
+        "ctr": 0.0028142589118198874,
+        "position": 29.29924953095685,
+        "sessions": 2.0,
         "ai_referral_visits": 0
       },
       "top_queries": [
-        "mid contract price rise calculator",
-        "average broadband cost uk",
-        "wifi costs per month uk",
-        "average broadband price uk",
-        "average cost of wifi per month uk"
+        "internet providers london",
+        "broadband london providers",
+        "broadband providers london",
+        "london broadband providers",
+        "broadband services london"
       ],
-      "url": "https://broadbandpicker.co.uk/tools/broadband-cost-calculator",
-      "page_type": "tool",
+      "url": "https://broadbandpicker.co.uk/postcode/london",
+      "page_type": "postcode",
       "ux_geo_requirements": [
         {
-          "priority": "P2",
+          "priority": "P0",
           "feature": "GEO: be quotable in the AI answer",
-          "evidence": "0 of 8 sampled interactive tool queries show an AI Overview; BroadbandPicker is cited in 0. Domains that do get cited: n/a. AI referral visits to this type in GA4: 0."
+          "evidence": "4 of 8 sampled postcode and local queries show an AI Overview; BroadbandPicker is cited in 0. Domains that do get cited: broadband.co.uk, broadbandcompared.co.uk, fibrecompare.com, gocompare.com, uswitch.com. AI referral visits to this type in GA4: 4."
         }
       ]
     },
     {
-      "path": "/guides/best-broadband-and-tv-deals",
-      "title": "/guides/best-broadband-and-tv-deals",
-      "score": 100.0,
-      "source": "Live content-depth/GEO audit",
-      "source_rank": 2,
-      "reason": "Audited refresh opportunity",
+      "path": "/postcode/cr0",
+      "title": "/postcode/cr0",
+      "score": 73.2,
+      "source": "Weekly GSC/GA4 intelligence",
+      "source_rank": 1,
+      "reason": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
       "metrics": {
-        "word_count": 2457,
-        "mapped_volume": 12100,
-        "ai_feature_impressions": 1295,
-        "checked_date": "2026-09-01"
-      }
+        "clicks": 5.0,
+        "impressions": 189.0,
+        "ctr": 0.026455026455026454,
+        "position": 9.222222222222221,
+        "sessions": 2.0,
+        "ai_referral_visits": 0
+      },
+      "top_queries": [
+        "broadband deals in croydon",
+        "best internet provider croydon",
+        "full fibre broadband in croydon",
+        "fibre broadband in croydon",
+        "broadband in croydon"
+      ]
     },
     {
-      "path": "/guides/best-full-fibre-broadband-uk",
-      "title": "/guides/best-full-fibre-broadband-uk",
-      "score": 89.0,
-      "source": "Live content-depth/GEO audit",
-      "source_rank": 2,
-      "reason": "Audited refresh opportunity",
+      "path": "/about",
+      "title": "/about",
+      "score": 72.4,
+      "source": "Weekly GSC/GA4 intelligence",
+      "source_rank": 1,
+      "reason": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
       "metrics": {
-        "word_count": 1703,
-        "mapped_volume": 2900,
-        "ai_feature_impressions": 512,
-        "checked_date": "2026-08-24"
-      }
+        "clicks": 0.0,
+        "impressions": 648.0,
+        "ctr": 0.0,
+        "position": 10.0,
+        "sessions": 0,
+        "ai_referral_visits": 0
+      },
+      "top_queries": [
+        "broadband comparison",
+        "compare broadband",
+        "compare the broadband market",
+        "broadband comparison uk",
+        "compare broadband prices"
+      ]
     },
     {
-      "path": "/guides/best-business-broadband-providers-uk",
-      "title": "/guides/best-business-broadband-providers-uk",
-      "score": 82.4,
-      "source": "Live content-depth/GEO audit",
-      "source_rank": 2,
-      "reason": "below 1200-word depth floor for a guide page",
+      "path": "/providers/compare/vodafone-vs-talktalk",
+      "title": "/providers/compare/vodafone-vs-talktalk",
+      "score": 70.3,
+      "source": "Weekly GSC/GA4 intelligence",
+      "source_rank": 1,
+      "reason": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
       "metrics": {
-        "word_count": 1080,
-        "mapped_volume": 2900,
-        "ai_feature_impressions": 142,
-        "checked_date": "2026-08-24"
-      }
+        "clicks": 1.0,
+        "impressions": 82.0,
+        "ctr": 0.012195121951219513,
+        "position": 7.341463414634147,
+        "sessions": 1.0,
+        "ai_referral_visits": 0
+      },
+      "top_queries": [
+        "vodafone vs talktalk broadband",
+        "talk talk"
+      ]
     },
     {
-      "path": "/guides/best-5g-home-broadband-uk",
-      "title": "/guides/best-5g-home-broadband-uk",
-      "score": 71.0,
-      "source": "Live content-depth/GEO audit",
-      "source_rank": 2,
-      "reason": "below 1200-word depth floor for a guide page",
+      "path": "/postcode/n1",
+      "title": "/postcode/n1",
+      "score": 70.2,
+      "source": "Weekly GSC/GA4 intelligence",
+      "source_rank": 1,
+      "reason": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
       "metrics": {
-        "word_count": 1132,
-        "mapped_volume": 4400,
-        "ai_feature_impressions": 30,
-        "checked_date": "2026-08-24"
-      }
+        "clicks": 4.0,
+        "impressions": 80.0,
+        "ctr": 0.05,
+        "position": 9.0125,
+        "sessions": 1.0,
+        "ai_referral_visits": 0
+      },
+      "top_queries": [
+        "n1 7sx",
+        "n1 3be",
+        "n1 1pf",
+        "full fibre broadband in islington",
+        "fibre broadband in islington"
+      ]
     },
     {
-      "path": "/guides/best-phone-and-broadband-deals",
-      "title": "/guides/best-phone-and-broadband-deals",
-      "score": 67.8,
-      "source": "Live content-depth/GEO audit",
-      "source_rank": 2,
-      "reason": "below 1200-word depth floor for a guide page",
+      "path": "/providers/sky/deals",
+      "title": "/providers/sky/deals",
+      "score": 66.2,
+      "source": "Weekly GSC/GA4 intelligence",
+      "source_rank": 1,
+      "reason": "Expand missing subtopics for the leading queries, improve topical internal links and validate intent alignment.",
       "metrics": {
-        "word_count": 1000,
-        "mapped_volume": 29600,
-        "ai_feature_impressions": 14,
-        "checked_date": "2026-08-24"
-      }
+        "clicks": 0.0,
+        "impressions": 59.0,
+        "ctr": 0.0,
+        "position": 16.152542372881356,
+        "sessions": 0,
+        "ai_referral_visits": 0
+      },
+      "top_queries": [
+        "sky switch broadband provider deals",
+        "sky rates uk",
+        "sky broadband deals 2022",
+        "sky phone and broadband offers",
+        "sky broadband deals uk 2026"
+      ]
     },
     {
-      "path": "/guides/cheapest-broadband-uk",
-      "title": "/guides/cheapest-broadband-uk",
-      "score": 66.0,
-      "source": "Live content-depth/GEO audit",
-      "source_rank": 2,
-      "reason": "Audited refresh opportunity",
-      "metrics": {
-        "word_count": 1465,
-        "mapped_volume": 19400,
-        "ai_feature_impressions": 130,
-        "checked_date": "2026-08-24"
-      }
-    },
-    {
-      "path": "/guides/satellite-broadband-uk",
-      "title": "/guides/satellite-broadband-uk",
-      "score": 53.2,
-      "source": "Live content-depth/GEO audit",
-      "source_rank": 2,
-      "reason": "below 1200-word depth floor for a guide page",
-      "metrics": {
-        "word_count": 1065,
-        "mapped_volume": 2400,
-        "ai_feature_impressions": 21,
-        "checked_date": "2026-08-24"
-      }
-    },
-    {
-      "path": "/guides/broadband-social-tariffs-uk",
-      "title": "/guides/broadband-social-tariffs-uk",
-      "score": 49.0,
-      "source": "Live content-depth/GEO audit",
-      "source_rank": 2,
-      "reason": "below 1200-word depth floor for a guide page",
-      "metrics": {
-        "word_count": 1198,
-        "mapped_volume": 2400,
-        "ai_feature_impressions": 0,
-        "checked_date": "2026-08-24"
-      }
-    },
-    {
-      "path": "/guides/best-broadband-for-working-from-home",
-      "title": "/guides/best-broadband-for-working-from-home",
-      "score": 45.2,
-      "source": "Live content-depth/GEO audit",
-      "source_rank": 2,
-      "reason": "below 1200-word depth floor for a guide page",
-      "metrics": {
-        "word_count": 1020,
-        "mapped_volume": 1900,
-        "ai_feature_impressions": 6,
-        "checked_date": "2026-08-24"
-      }
-    }
-  ],
-  "recently_updated_suppressed": [
-    {
-      "path": "/research/uk-broadband-customer-satisfaction",
-      "title": "/research/uk-broadband-customer-satisfaction",
+      "path": "/postcode/cb1",
+      "title": "/postcode/cb1",
       "score": 63.7,
       "source": "Weekly GSC/GA4 intelligence",
       "source_rank": 1,
       "reason": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
       "metrics": {
-        "clicks": 0.0,
-        "impressions": 54.0,
-        "ctr": 0.0,
-        "position": 12.12962962962963,
+        "clicks": 3.0,
+        "impressions": 51.0,
+        "ctr": 0.058823529411764705,
+        "position": 9.03921568627451,
         "sessions": 0,
         "ai_referral_visits": 0
       },
       "top_queries": [
-        "uk broadband providers customer satisfaction",
-        "do broadband review scores vary by region?",
-        "broadband customer satisfaction"
-      ],
-      "suppression_reason": "Updated 2026-09-06; inside 28-day measurement window"
+        "broadband deals in cambridge",
+        "broadband deals cambridge",
+        "yes please.",
+        "cb1 2fx"
+      ]
     },
     {
-      "path": "/providers/compare/plusnet-vs-sky",
-      "title": "/providers/compare/plusnet-vs-sky",
-      "score": 63.6,
+      "path": "/postcode/e2",
+      "title": "/postcode/e2",
+      "score": 63.7,
       "source": "Weekly GSC/GA4 intelligence",
       "source_rank": 1,
       "reason": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
       "metrics": {
-        "clicks": 0.0,
-        "impressions": 53.0,
-        "ctr": 0.0,
-        "position": 9.283018867924529,
+        "clicks": 2.0,
+        "impressions": 51.0,
+        "ctr": 0.0392156862745098,
+        "position": 4.137254901960784,
         "sessions": 0,
         "ai_referral_visits": 0
       },
       "top_queries": [
-        "plusnet vs sky broadband",
-        "sky vs plusnet broadband",
-        "sky broadband vs plusnet",
-        "plusnet vs sky",
-        "plusnet or sky broadband"
-      ],
-      "suppression_reason": "Updated 2026-09-06; inside 28-day measurement window"
+        "what broadband comparison website is most accurate for postcode level availability and install dates",
+        "e2 9ra",
+        "broadband bill"
+      ]
     },
     {
-      "path": "/providers/compare/hyperoptic-vs-community-fibre",
-      "title": "/providers/compare/hyperoptic-vs-community-fibre",
+      "path": "/guides",
+      "title": "/guides",
       "score": 63.3,
       "source": "Weekly GSC/GA4 intelligence",
       "source_rank": 1,
-      "reason": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
+      "reason": "Expand missing subtopics for the leading queries, improve topical internal links and validate intent alignment.",
       "metrics": {
         "clicks": 0.0,
-        "impressions": 48.0,
+        "impressions": 193.0,
         "ctr": 0.0,
-        "position": 7.395833333333333,
+        "position": 15.103626943005182,
         "sessions": 0,
         "ai_referral_visits": 0
       },
       "top_queries": [
-        "community fibre vs hyperoptic",
-        "hyperoptic vs community fibre",
-        "community fibre or hyperoptic"
-      ],
-      "suppression_reason": "Updated 2026-09-06; inside 28-day measurement window"
+        "compare broadband uk",
+        "broadband switch deals",
+        "home broadband deals uk",
+        "compare wifi deals",
+        "switch broadband deals"
+      ]
     },
     {
-      "path": "/providers/compare",
-      "title": "/providers/compare",
+      "path": "/tools/broadband-cost-calculator",
+      "title": "/tools/broadband-cost-calculator",
       "score": 62.8,
       "source": "Weekly GSC/GA4 intelligence",
       "source_rank": 1,
-      "reason": "Strengthen the title/snippet, answer the leading queries directly, add internal links and refresh supporting evidence.",
+      "reason": "Expand missing subtopics for the leading queries, improve topical internal links and validate intent alignment.",
       "metrics": {
-        "clicks": 0.0,
-        "impressions": 41.0,
-        "ctr": 0.0,
-        "position": 12.75609756097561,
+        "clicks": 2.0,
+        "impressions": 402.0,
+        "ctr": 0.004975124378109453,
+        "position": 26.23134328358209,
         "sessions": 0,
         "ai_referral_visits": 0
       },
       "top_queries": [
-        "hyperoptic vs vodafone broadband",
-        "compare landline and broadband packages",
-        "yes iwould",
-        "vodafone vs talktalk broadband",
-        "virgin media vs sky vs vodafone comparison"
-      ],
-      "suppression_reason": "Updated 2026-09-06; inside 28-day measurement window"
-    },
+        "average broadband price uk",
+        "average price of broadband uk",
+        "average cost of wifi per month uk",
+        "wifi costs per month uk",
+        "average broadband cost uk"
+      ]
+    }
+  ],
+  "recently_updated_suppressed": [
     {
       "path": "/postcode/sheffield",
       "title": "Broadband providers in Sheffield: coverage and best deals",
@@ -305,6 +288,117 @@
         "monthly_volume": 590
       },
       "suppression_reason": "Updated 2026-09-04; inside 28-day measurement window"
+    },
+    {
+      "path": "/postcode/edinburgh",
+      "title": "Broadband providers in Edinburgh: coverage and best deals",
+      "score": 65.8,
+      "source": "Keyword-mapped new-page gap",
+      "source_rank": 3,
+      "reason": "Highest-scoring researched content gap not confirmed live.",
+      "metrics": {
+        "monthly_volume": 720
+      },
+      "suppression_reason": "Updated 2026-09-20; inside 28-day measurement window"
+    },
+    {
+      "path": "/postcode/glasgow",
+      "title": "Broadband providers in Glasgow: coverage and best deals",
+      "score": 65.5,
+      "source": "Keyword-mapped new-page gap",
+      "source_rank": 3,
+      "reason": "Highest-scoring researched content gap not confirmed live.",
+      "metrics": {
+        "monthly_volume": 880
+      },
+      "suppression_reason": "Updated 2026-09-20; inside 28-day measurement window"
+    },
+    {
+      "path": "/postcode/bristol",
+      "title": "Broadband providers in Bristol: coverage and best deals",
+      "score": 64.9,
+      "source": "Keyword-mapped new-page gap",
+      "source_rank": 3,
+      "reason": "Highest-scoring researched content gap not confirmed live.",
+      "metrics": {
+        "monthly_volume": 1300
+      },
+      "suppression_reason": "Updated 2026-09-21; inside 28-day measurement window"
+    },
+    {
+      "path": "/postcode/liverpool",
+      "title": "Broadband providers in Liverpool: coverage and best deals",
+      "score": 65.5,
+      "source": "Keyword-mapped new-page gap",
+      "source_rank": 3,
+      "reason": "Highest-scoring researched content gap not confirmed live.",
+      "metrics": {
+        "monthly_volume": 880
+      },
+      "suppression_reason": "Updated 2026-09-20; inside 28-day measurement window"
+    },
+    {
+      "path": "/postcode/birmingham",
+      "title": "Broadband providers in Birmingham: coverage and best deals",
+      "score": 64.5,
+      "source": "Keyword-mapped new-page gap",
+      "source_rank": 3,
+      "reason": "Highest-scoring researched content gap not confirmed live.",
+      "metrics": {
+        "monthly_volume": 1600
+      },
+      "suppression_reason": "Updated 2026-09-21; inside 28-day measurement window"
+    },
+    {
+      "path": "/postcode/manchester",
+      "title": "Broadband providers in Manchester: coverage and best deals",
+      "score": 64.2,
+      "source": "Keyword-mapped new-page gap",
+      "source_rank": 3,
+      "reason": "Highest-scoring researched content gap not confirmed live.",
+      "metrics": {
+        "monthly_volume": 1900
+      },
+      "suppression_reason": "Updated 2026-09-21; inside 28-day measurement window"
+    },
+    {
+      "path": "/postcode/leeds",
+      "title": "Broadband providers in Leeds: coverage and best deals",
+      "score": 65.1,
+      "source": "Keyword-mapped new-page gap",
+      "source_rank": 3,
+      "reason": "Highest-scoring researched content gap not confirmed live.",
+      "metrics": {
+        "monthly_volume": 1000
+      },
+      "suppression_reason": "Updated 2026-09-20; inside 28-day measurement window"
+    },
+    {
+      "path": "/postcode/bristol",
+      "title": "Broadband providers in Bristol: coverage and best deals",
+      "score": 64.9,
+      "source": "Master tracker pending page",
+      "source_rank": 4,
+      "reason": "Highest remaining researched page-build priority in the master tracker.",
+      "suppression_reason": "Updated 2026-09-21; inside 28-day measurement window"
+    },
+    {
+      "path": "/postcode/birmingham",
+      "title": "Broadband providers in Birmingham: coverage and best deals",
+      "score": 64.5,
+      "source": "Master tracker pending page",
+      "source_rank": 4,
+      "reason": "Highest remaining researched page-build priority in the master tracker.",
+      "suppression_reason": "Updated 2026-09-21; inside 28-day measurement window"
+    },
+    {
+      "path": "/postcode/manchester",
+      "title": "Broadband providers in Manchester: coverage and best deals",
+      "score": 64.2,
+      "source": "Master tracker pending page",
+      "source_rank": 4,
+      "reason": "Highest remaining researched page-build priority in the master tracker.",
+      "suppression_reason": "Updated 2026-09-21; inside 28-day measurement window"
     }
   ]
 }

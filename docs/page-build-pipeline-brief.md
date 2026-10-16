@@ -149,6 +149,15 @@ The script validates this file against the current slug and rendered page;
 missing research, thin mapping or insufficient secondary-query coverage stops
 deployment.
 
+Every invocation that builds a new page or updates an existing page receives a unique
+`research_gate.run_id` and `prepared_at` timestamp in `next-page.json`. The completed
+`current-page-research.json` must repeat that exact run ID, record a timezone-aware
+`completed_at` after preparation, and confirm all four required outputs: fresh page-level keyword
+mapping, live UK SERP-intent research, UK/international UX and UI benchmarks, and the final
+section-by-section content structure. Research from an earlier run, research older than 24 hours,
+or a file with any incomplete output blocks compilation and deployment. This also applies when
+`--use-existing-draft` is selected: an existing draft never exempts the page from fresh research.
+
 The same competitor review must record useful content, UX, UI, functional,
 trust and citation patterns for each ranking page. Adopt the strongest
 task-relevant patterns through BroadbandPicker's own accessible design system,
@@ -162,6 +171,25 @@ or speculative features do not count.
 Rankings and AI citations are outcomes, not facts the research can attribute to
 one design pattern. The pipeline targets first-page usefulness and citability
 but never promises Google, AI Overview or LLM placement.
+
+**3.1 — Three-set design benchmarking, required every build.** Research must
+separate (a) at least three same-topic UK organic leaders, (b) pages cited by
+the live AI Overview when one appears, and (c) at least two same-topic pages
+outside the UK selected for useful UX, information architecture, interaction or
+citation design. International references exist to find proven ideas that are
+not yet common in the UK set. They must be adapted to UK terminology,
+regulation, evidence and reader expectations.
+
+Save a section-by-section layout blueprint and a benchmark synthesis in the
+page research JSON. The synthesis must document at least three adopted patterns
+and one useful international pattern shown to be uncommon in the reviewed UK
+set. Each pattern needs source evidence, the user need, its BroadbandPicker
+adaptation, an originality guard and visible validation terms. The rendered
+page validator checks those terms. Never reproduce the wording, branding,
+visual identity or distinctive layout of one source; combine evidence across
+sources into an original page using the existing design system. When a page is
+blocked or only a snippet is available, record that limitation and do not infer
+its unseen UX.
 
 For every entity involved (each provider; each claim in a guide topic):
 

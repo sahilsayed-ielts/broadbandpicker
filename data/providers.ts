@@ -3246,6 +3246,163 @@ const baseProviders: Provider[] = [
     awinProgramId: '99387',
   },
   {
+    slug: 'connect-fibre',
+    name: 'Connect Fibre',
+    logo: '/logos/connect-fibre.svg',
+    affiliateUrl:
+      'https://www.awin1.com/cread.php?awinmid=114602&awinaffid=2942019&ued=https%3A%2F%2Fwww.connectfibre.co.uk%2F',
+    speeds: [
+      { download: 250, upload: 250, type: 'FTTP' },
+      { download: 500, upload: 500, type: 'FTTP' },
+      { download: 1000, upload: 1000, type: 'FTTP' },
+      { download: 2000, upload: 2000, type: 'FTTP' },
+    ],
+    monthlyPriceFrom: 25.0,
+    contractLengths: [24],
+    setupFee: 0,
+    trustpilotScore: 4.9,
+    coveragePercent: 1,
+    highlights: [
+      'Builds its own symmetrical full-fibre network across small towns and villages in the Midlands, the East of England and parts of South Yorkshire',
+      'Every residential tier is symmetrical, from 250 Mbps up to 2,000 Mbps upload and download, with a TP-Link Wi-Fi 7 router included as standard',
+      'Markets no mid-contract price rises, alongside an Essentials social tariff at £20 a month for households on eligible benefits',
+    ],
+    pros: [
+      'Free standard installation and no setup fee on the standard range',
+      'Symmetrical upload and download speeds on every tier, including the 250 Mbps entry plan',
+      'A genuine social tariff, Essentials at £20 a month, for households receiving qualifying benefits',
+      'A strong customer-review record, with a Trustpilot rating between 4.8 and 5.0 out of 5 across dated snapshots in 2026',
+    ],
+    cons: [
+      'A small, strictly regional footprint, so most postcode checks outside its build areas will find nothing',
+      'Only a 24-month contract on the main range, with a 12-month option priced higher and only a legacy Basic 50 plan on rolling monthly terms',
+      'No landline included on the base packages; a phone add-on costs roughly £10 to £15 a month',
+      'The published price book carries no explicit price-lock clause even though marketing says there are no mid-contract rises, so confirm the exact wording before ordering',
+    ],
+    excerpt:
+      'Connect Fibre is a full-fibre altnet building its own symmetrical FTTP network across small towns and villages in Cambridgeshire, Derbyshire, Essex, Nottinghamshire, north-east Staffordshire and two Sheffield suburb clusters. Residential plans run from 250 Mbps to 2,000 Mbps, priced from about £25 a month on a 24-month contract with free standard installation and a Wi-Fi 7 router. It markets no mid-contract price rises and offers an Essentials social tariff at £20 a month for eligible benefit recipients. Coverage is narrow, so a postcode check with Connect Fibre is essential before assuming it applies.',
+    contentSections: [
+      {
+        heading: 'Connect Fibre Deals in September 2026',
+        paragraphs: [
+          'Connect Fibre\'s residential range is built around four symmetrical full-fibre tiers on a 24-month contract. Its published price book, effective 8 January 2026, and independent listings checked in September 2026 place the 24-month prices at around £25 a month for 250 Mbps, £29 for 500 Mbps, £29 for 1,000 Mbps and about £39 to £45 a month for the 2,000 Mbps Fibre2000 tier. The two fastest tiers are the ones where dated sources disagree most, so confirm the current figure for Fibre2000 directly before comparing it against a rival.',
+          'A 12-month contract is available on the main tiers at a higher monthly price, and a legacy Basic 50 plan is sold on rolling one and three-month terms that can be cancelled at any time. Standard installation is free, with non-standard installs quoted separately, and there is no upfront setup fee on the standard range.',
+          'A phone line is not included on the base packages. Connect Fibre sells it as an optional add-on for roughly £10 to £15 a month, so a household that still needs a landline should add that cost when comparing Connect Fibre against a provider that bundles calls.',
+        ],
+      },
+      {
+        heading: 'Connect Fibre Coverage: Where Is It Available?',
+        paragraphs: [
+          'Connect Fibre builds and runs its own fibre-to-the-premises network rather than reselling Openreach, and its footprint is narrow and specific. Its coverage page lists small towns and villages rather than cities: parts of Cambridgeshire such as Bluntisham, Colne, Earith, Needingworth and Sutton; a spread of Derbyshire and South Derbyshire locations including Bolsover, Creswell, Killamarsh, Wirksworth, Ashbourne and Ashby-de-la-Zouch; Essex towns such as Hadleigh, Hockley, Rayleigh and Thundersley and South Woodham Ferrers; Carlton in Lindrick and Edwinstowe in Nottinghamshire; and a cluster in north-east Staffordshire around Abbots Bromley and Kidsgrove.',
+          'In South Yorkshire the build maps directly onto two Sheffield postcode areas: S17, covering Dore, Totley and Bradway, and S8, covering Beauchief, Greenhill, Lowedges, Norton and Woodseats. Nottingham, Leicester and Coventry are not on the list. Because the network is being extended, a location appearing on a rollout announcement is not proof that a specific street can order today.',
+          'The practical takeaway is that Connect Fibre is a regional option, not a national one. Most postcode checks outside these areas will find no service, so run the checker before assuming a Connect Fibre price or plan is relevant to a given address.',
+        ],
+      },
+      {
+        heading: 'Symmetrical Speeds and the Wi-Fi 7 Router',
+        paragraphs: [
+          'Every residential tier is symmetrical, so upload matches download at 250, 500, 1,000 and 2,000 Mbps. That is a real advantage over a part-fibre or cable connection, where upload speed is typically a fraction of the download figure, and it matters for video calls, cloud backups, large file uploads and home working.',
+          'The 250 Mbps entry tier already covers everyday streaming, browsing and several devices in use at once, with far more upload headroom than most rivals offer at a comparable price. The 2,000 Mbps Fibre2000 tier is a specialist choice: outside a heavy multi-user or small-business setup, very few home devices can use speeds much above 1,000 Mbps on a single connection.',
+          'A TP-Link Wi-Fi 7 router is included as standard, upgrading to a Wi-Fi 7 Pro unit on Fibre2000. As with any fibre service, the quoted speed describes what reaches the router; performance in a specific room still depends on distance, walls and interference, which a mesh add-on is designed to address.',
+        ],
+      },
+      {
+        heading: 'Contract Terms and Price Rises',
+        paragraphs: [
+          'Connect Fibre\'s marketing states that its prices do not rise mid-contract, which would set it apart from the major Openreach retailers that now apply a flat annual increase. Its published price book, however, does not contain an explicit price-lock clause, and the invitation it sent to affiliates referred to prices being fixed to a specific future year that the public pricing does not confirm. Until that wording is clear on the order page, treat the no-rise claim as a marketing position to verify at checkout rather than a documented contractual guarantee.',
+          'The main range is sold only on a 24-month term. A 12-month option exists at a higher monthly price, and the legacy Basic 50 plan is the only genuinely flexible choice, on rolling one and three-month terms. A household that may move within two years, or that wants the freedom to leave without an early-termination charge, should weigh that against the headline saving on the 24-month price.',
+          'Because Connect Fibre runs its own network, a switch usually means a new fibre connection being installed rather than a same-day handover on an existing line, so keep any current broadband running until the Connect Fibre service is confirmed working.',
+        ],
+      },
+      {
+        heading: 'The Essentials Social Tariff',
+        paragraphs: [
+          'Connect Fibre offers a social tariff called Essentials at £20 a month for households where someone receives a qualifying means-tested benefit, sold on a 24-month term with a Wi-Fi 6 router. It sits outside the standard four-tier range.',
+          'Social tariffs are widely under-claimed because customers do not know to ask for them, so anyone on Universal Credit, Pension Credit or a similar benefit in a Connect Fibre area should check eligibility directly rather than defaulting to the standard price. Ofcom publishes a current list of social tariffs across providers for comparison.',
+          'As with the standard range, availability of the Essentials tariff still depends on Connect Fibre having built its network at the address, so the postcode check comes first.',
+        ],
+      },
+      {
+        heading: 'Connect Fibre Customer Service and Reviews',
+        paragraphs: [
+          'Connect Fibre\'s customer-review record is a consistent strength. Dated Trustpilot snapshots in 2026 placed it between 4.8 out of 5 from around 2,200 reviews and 5.0 out of 5 from around 2,477 reviews, with the large majority of reviews at five stars. The exact live figure moves as the review count grows, so check Trustpilot directly rather than treating a single number as fixed.',
+          'Recent reviews focus heavily on the installation experience, with customers naming engineers and praising the professionalism of the process. That is a reasonable early proxy for service quality, but it says less about long-term fault handling and renewal pricing, since most reviewers have not yet reached that stage.',
+          'Connect Fibre states that its engineers and support team are UK-based. Given the 24-month contract, the renewal and any price-change experience two years in matters more than usual, and that evidence will only build as the earliest customer cohorts reach their renewal date.',
+        ],
+      },
+      {
+        heading: 'Is Connect Fibre Any Good?',
+        paragraphs: [
+          'For a household inside one of Connect Fibre\'s build areas, it is a strong option: symmetrical speeds at every tier, a Wi-Fi 7 router as standard, free installation, a genuine social tariff and a well-rated installation experience are all substantive benefits rather than marketing claims.',
+          'The two things to pin down before ordering are the exact price-rise wording, since the no-rise claim is not spelled out in the published price book, and the current Fibre2000 price, which varies between sources. Both are quick checks on the order page.',
+          'Outside its footprint, Connect Fibre is simply not an option, so the postcode check is the first and most important step. It suits a settled household that wants fast symmetrical fibre and is comfortable with a 24-month commitment more than a short-term tenant or anyone who needs a bundled landline.',
+        ],
+      },
+    ],
+    faqItems: [
+      {
+        question: 'Where is Connect Fibre broadband available?',
+        answer:
+          'Connect Fibre has built its own full-fibre network in small towns and villages across Cambridgeshire, Derbyshire and South Derbyshire, Essex, Nottinghamshire and north-east Staffordshire, plus the Sheffield S17 and S8 postcode areas. It is not available in most cities, including Nottingham, Leicester and Coventry, so a postcode check is essential before assuming it applies to an address.',
+      },
+      {
+        question: 'How much does Connect Fibre cost?',
+        answer:
+          'On a 24-month contract, dated sources in September 2026 place Connect Fibre at around £25 a month for 250 Mbps, £29 for 500 and 1,000 Mbps, and about £39 to £45 a month for the 2,000 Mbps Fibre2000 tier. Standard installation is free and there is no setup fee on the standard range. An Essentials social tariff is £20 a month for eligible benefit recipients.',
+      },
+      {
+        question: 'Does Connect Fibre increase prices during the contract?',
+        answer:
+          'Connect Fibre markets its plans as having no mid-contract price rises, which would differ from the major Openreach retailers. Its published price book does not contain an explicit price-lock clause, so confirm the exact wording on the order page before relying on the claim for a full 24-month cost comparison.',
+      },
+      {
+        question: 'Are Connect Fibre upload speeds the same as download?',
+        answer:
+          'Yes. Every residential Connect Fibre tier is symmetrical, so upload matches download at 250, 500, 1,000 or 2,000 Mbps. That is an advantage over part-fibre and cable connections, where upload is usually a fraction of the download speed.',
+      },
+    ],
+    reviewedDate: '2026-09-06',
+    pricingVerifiedDate: '2026-09-06',
+    reviewSources: [
+      {
+        label: 'Connect Fibre price book',
+        href: 'https://www.connectfibre.co.uk/price-book',
+        note: 'Primary source for the residential tier lineup, 24-month prices, the Essentials social tariff and free standard installation, effective 8 January 2026, checked 2026-09-06.',
+      },
+      {
+        label: 'Connect Fibre coverage checker and network areas',
+        href: 'https://www.connectfibre.co.uk/',
+        note: 'Used for the town and village footprint, including the Sheffield S17 and S8 clusters, checked 2026-08-30 and re-checked 2026-09-06.',
+      },
+      {
+        label: 'Switchity: Connect Fibre broadband deals',
+        href: 'https://switchity.co.uk/broadband-providers/connect-fibre/',
+        note: 'Independent listing used to corroborate 24-month pricing, the no-setup-fee position, the no-mid-contract-rise claim and a Trustpilot figure of 4.8 out of 5 from around 2,200 reviews, checked 1 September 2026.',
+      },
+      {
+        label: 'Connect Fibre public Trustpilot profile',
+        href: 'https://uk.trustpilot.com/review/connectfibre.co.uk',
+        note: 'Customer-sentiment reference. Dated 2026 snapshots ranged from 4.8 out of 5 to 5.0 out of 5; used as context, not as a controlled reliability survey.',
+      },
+      {
+        label: 'Ofcom: current list of broadband social tariffs',
+        href: 'https://www.ofcom.org.uk/phones-and-broadband/saving-money/social-tariffs',
+        note: 'Regulatory reference for comparing the Connect Fibre Essentials social tariff against other providers.',
+      },
+      {
+        label: 'Awin Connect Fibre advertiser programme',
+        href: 'https://ui.awin.com/merchant-profile-terms/114602',
+        note: 'BroadbandPicker holds a joined relationship with this programme; the affiliate link above is a live publisher-specific Awin tracking link, verified 2026-09-06.',
+      },
+      {
+        label: 'BroadbandPicker review methodology',
+        href: '/how-we-review-broadband',
+        note: 'Explains how price, speed, coverage, customer experience and use-case fit are weighed.',
+      },
+    ],
+    awinProgramId: '114602',
+  },
+  {
     slug: 'cuckoo',
     name: 'Cuckoo',
     logo: '/logos/cuckoo.svg',

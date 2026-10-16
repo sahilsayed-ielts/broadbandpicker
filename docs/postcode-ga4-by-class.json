@@ -1,0 +1,26 @@
+{
+  "curated": {
+    "sessions": 130,
+    "engaged": 122,
+    "organic": 68,
+    "outbound_provider_click": 47,
+    "postcode_submit": 8,
+    "pages_with_visits": 38
+  },
+  "city": {
+    "sessions": 41,
+    "engaged": 38,
+    "organic": 30,
+    "postcode_submit": 1,
+    "pages_with_visits": 8
+  },
+  "district": {
+    "sessions": 247,
+    "engaged": 223,
+    "organic": 144,
+    "outbound_provider_click": 78,
+    "postcode_submit": 57,
+    "pages_with_visits": 202
+  },
+  "window": "2026-07-17 to 2026-10-14"
+}

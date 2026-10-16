@@ -19,6 +19,9 @@ The script:
 5. Diagnoses the overall site (every template, robots, sitemap, JSON-LD,
    LLM crawlers) and writes a prioritised technical backlog for rankings,
    AI Overviews and LLM citations.
+6. Runs page-category UX analysis (`analyze_page_type_ux`) against first-page
+   UK competitors so deals, provider, vs, guide, postcode and tool templates
+   get CTR recommendations, not just the homepage.
 
 Usage:
     python3 scripts/plan_homepage_seo_geo.py
@@ -49,6 +52,7 @@ from urllib.request import Request, urlopen
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from diagnose_site_seo_geo import run_site_diagnosis  # noqa: E402
+from analyze_page_type_ux import run_page_type_ux  # noqa: E402
 
 OUT_DIR = ROOT / "docs" / "home page UX"
 SITE = "https://broadbandpicker.co.uk"
@@ -1077,6 +1081,10 @@ def main() -> int:
     print(f"Site schema files: {diagnosis['schema_scan']['file_count']}")
     print(f"P0 missing: {', '.join(diagnosis['p0_missing']) or 'none'}")
     print(f"Wrote docs/site-technical-seo-geo-diagnosis.md")
+
+    ux = run_page_type_ux(skip_web=args.skip_web, out_dir=out)
+    print(f"Page-type UX: {ux.get('ok', 0)}/{ux.get('n', 0)} pages · {len(ux.get('recommendations') or [])} CTR recs")
+    print(f"Wrote {(out / 'page-category-ux-ctr-plan.md').relative_to(ROOT)}")
     return 0
 
 

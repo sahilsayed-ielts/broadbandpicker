@@ -1,0 +1,132 @@
+[
+  {
+    "id": 2205162748,
+    "url": "https://broadbandpicker.co.uk/",
+    "advertiserId": 12213,
+    "publisherId": 2942019,
+    "commissionSharingPublisherId": null,
+    "commissionSharingSelectedRatePublisherId": null,
+    "campaign": null,
+    "siteName": "https://broadbandpicker.co.uk/",
+    "commissionStatus": "pending",
+    "commissionAmount": {
+      "amount": 30.0,
+      "currency": "GBP"
+    },
+    "saleAmount": {
+      "amount": 1.0,
+      "currency": "GBP"
+    },
+    "ipHash": "0",
+    "customerCountry": null,
+    "clickRefs": {
+      "clickRef": "compare_disclosure_wider_market"
+    },
+    "clickDate": "2026-09-19T13:46:00",
+    "transactionDate": "2026-09-19T14:13:00",
+    "validationDate": null,
+    "type": "Commission group transaction",
+    "declineReason": null,
+    "voucherCodeUsed": false,
+    "voucherCode": null,
+    "lapseTime": 1620,
+    "amendDate": null,
+    "amended": false,
+    "amendReason": null,
+    "oldSaleAmount": null,
+    "oldCommissionAmount": null,
+    "clickDevice": null,
+    "transactionDevice": null,
+    "customerAcquisition": null,
+    "publisherUrl": null,
+    "advertiserCountry": "GB",
+    "orderRef": null,
+    "customParameters": null,
+    "transactionParts": [
+      {
+        "commissionGroupId": 188677,
+        "amount": 1.0,
+        "commissionAmount": 30.0,
+        "advertiserCost": null,
+        "commissionGroupCode": "DEFAULT",
+        "commissionGroupName": "Default",
+        "trackedParts": null
+      }
+    ],
+    "paidToPublisher": false,
+    "paymentId": 0,
+    "transactionQueryId": 0,
+    "trackedCurrencyAmount": null,
+    "originalSaleAmount": null,
+    "advertiserCost": {
+      "amount": null,
+      "currency": null
+    },
+    "basketProducts": null
+  },
+  {
+    "id": 2205162725,
+    "url": "https://broadbandpicker.co.uk/",
+    "advertiserId": 12213,
+    "publisherId": 2942019,
+    "commissionSharingPublisherId": null,
+    "commissionSharingSelectedRatePublisherId": null,
+    "campaign": null,
+    "siteName": "https://broadbandpicker.co.uk/",
+    "commissionStatus": "pending",
+    "commissionAmount": {
+      "amount": 30.0,
+      "currency": "GBP"
+    },
+    "saleAmount": {
+      "amount": 1.0,
+      "currency": "GBP"
+    },
+    "ipHash": "0",
+    "customerCountry": null,
+    "clickRefs": {
+      "clickRef": "compare_disclosure_wider_market"
+    },
+    "clickDate": "2026-09-09T20:35:00",
+    "transactionDate": "2026-09-20T16:40:00",
+    "validationDate": null,
+    "type": "Commission group transaction",
+    "declineReason": null,
+    "voucherCodeUsed": false,
+    "voucherCode": null,
+    "lapseTime": 936300,
+    "amendDate": null,
+    "amended": false,
+    "amendReason": null,
+    "oldSaleAmount": null,
+    "oldCommissionAmount": null,
+    "clickDevice": null,
+    "transactionDevice": null,
+    "customerAcquisition": null,
+    "publisherUrl": null,
+    "advertiserCountry": "GB",
+    "orderRef": null,
+    "customParameters": null,
+    "transactionParts": [
+      {
+        "commissionGroupId": 188677,
+        "amount": 1.0,
+        "commissionAmount": 30.0,
+        "advertiserCost": null,
+        "commissionGroupCode": "DEFAULT",
+        "commissionGroupName": "Default",
+        "trackedParts": null
+      }
+    ],
+    "paidToPublisher": false,
+    "paymentId": 0,
+    "transactionQueryId": 0,
+    "trackedCurrencyAmount": null,
+    "originalSaleAmount": null,
+    "advertiserCost": {
+      "amount": null,
+      "currency": null
+    },
+    "basketProducts": null
+  }
+]

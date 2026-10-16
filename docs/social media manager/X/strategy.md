@@ -6,10 +6,12 @@ The website already points here. UK broadband discourse already lives here. Jour
 
 ## Bio, pin, profile
 
-- **Bio:** UK broadband comparison. We mock the loyalty tax. Then we help you leave it. https://broadbandpicker.co.uk
+- **Bio:** Independent UK broadband comparison. Postcode first. Rankings are not sold.
+- **Website field:** https://broadbandpicker.co.uk (do not also put the URL in the bio)
 - **Location:** United Kingdom
-- **Pin:** a Keep Calm / hostage-loyalty post, not a corporate intro.
-- **Avatar:** logo icon PNG.
+- **Pin:** IG-009 / a postcode-first tile, or X-001 once the grid exists
+- **Avatar:** logo icon PNG, 400x400, circle crop
+- Full paste fields: `../profiles-all.md`
 
 ## Cadence
 
@@ -40,4 +42,4 @@ Usually none. Occasionally #UKBroadband. Never a pile.
 
 ## Posts
 
-36 ideas are written out in `posts.md` with full copy and design briefs.
+49 ideas are written out in `posts.md` with full copy and design briefs.

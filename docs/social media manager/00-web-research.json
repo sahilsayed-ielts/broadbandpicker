@@ -1,0 +1,1317 @@
+{
+  "generated_at": "2026-08-31T16:59:16+00:00",
+  "skipped": false,
+  "curated": {
+    "as_of": "2026-08",
+    "uk_social_reach_pct_18plus_monthly": {
+      "YouTube": 66.9,
+      "Facebook & Messenger": 66.1,
+      "WhatsApp": 63.4,
+      "Instagram": 55.6,
+      "Reddit": 42.4,
+      "TikTok": 39.4,
+      "X": 27.8,
+      "LinkedIn": 27.8,
+      "Pinterest": 18.0,
+      "Snapchat": 16.0,
+      "Threads": 5.9,
+      "Bluesky": 3.9,
+      "source": "Ofcom Online Nations 2025, as compiled by Dan Slee / Datawrapper"
+    },
+    "ofcom_media": {
+      "adult_social_users_pct": 89,
+      "social_users_16_34_pct": 97,
+      "actively_post_share_comment_pct": 49,
+      "actively_post_share_comment_pct_2024": 61,
+      "adults_online_hours_per_day": 4.5,
+      "youtube_uk_ad_users_m": 55.5,
+      "facebook_uk_ad_users_m": 38.8,
+      "tiktok_uk_ad_users_18plus_m": 26.8,
+      "implication": "Half of UK social users now lurk. Design for screenshots, tags, saves and shares — not for people who will write a paragraph."
+    },
+    "broadband_market": {
+      "one_touch_switch_launched": "2024-09-12",
+      "residential_switches_since_ots": "2 million+",
+      "social_tariff_options": "30+",
+      "social_tariff_price_band": "£12.50–£24 / month",
+      "social_tariff_takeup_jun_2025": 532000,
+      "eligible_unaware_oct_2025_pct": 70,
+      "eligible_takeup_pct": "<9%",
+      "full_fibre_homes_pct_approx": "80%+",
+      "source": "Ofcom Pricing and Consumer Engagement 2025/26; Telecoms Consumer Charter 2026"
+    },
+    "affiliate_and_ads": {
+      "awin": "Manual publisher review. Live, content-rich site beats a parked domain. Advertisers check promotional type, audience fit, brand-safety of neighbouring content, and whether similar ISPs already work with you. Social following is a supporting signal, not a substitute for the site. Comparison sites are an official Awin publisher type.",
+      "asa_cap": "Affiliate links or codes in social copy make that post an ad. Label specific deal posts #ad / #affiliate, upfront. Organic jokes with no outbound deal link are brand content, but any hard claim ('cheapest in the UK', a named speed, a named price) still needs to be qualified and dated. Brand and affiliate are jointly on the hook."
+    },
+    "competitor_gap": "Uswitch, MoneySuperMarket, Compare the Market, broadbandchoices and choose.co.uk talk like comparison engines. MoneySavingExpert talks like a consumer champion. Which? talks like a lab. None of them run a consistently funny, design-led UK broadband brand on TikTok. Instagram is the professional shopfront: providers judge the grid in three seconds. Which? has already called out ISPs for barely posting about social tariffs. X and TikTok take the sarcasm. Instagram takes the publisher look.",
+    "sources": [
+      "https://www.ofcom.org.uk/media-use-and-attitudes/online-habits/from-apps-to-ai-search-how-the-uk-goes-online-in-2025",
+      "https://www.ofcom.org.uk/media-use-and-attitudes/media-habits-adults/passive-social-media-use-ai-companionship-and-online-side-hustles-uk-adults-media-and-online-lives-revealed",
+      "https://datareportal.com/reports/digital-2026-united-kingdom",
+      "https://www.asa.org.uk/news/get-yourself-affiliated-with-the-rules-on-affiliate-marketing.html",
+      "https://www.asa.org.uk/advice-online/remit-social-media.html",
+      "https://advertiser-success.awin.com/s/article/How-do-I-decide-which-publishers-to-approve-onto-my-programme",
+      "https://www.awin.com/gb/publishers/other-partner-types",
+      "https://www.gov.uk/government/publications/telecoms-consumer-charter/telecoms-consumer-charter"
+    ]
+  },
+  "fetches": [
+    {
+      "url": "https://broadbandpicker.co.uk/",
+      "ok": true,
+      "status": 200,
+      "title": "Compare Broadband Deals UK | BroadbandPicker",
+      "excerpt": "Compare Broadband Deals UK | BroadbandPicker\n\nIndependent UK broadband comparison. Rankings are not sold.\n\nHow we make money\nHow we review\n\nBroadbandPicker\nUK broadband\n\ncomparison\nCompare\nDeals\nProviders\nAll providers\nEvery major UK broadband provider reviewed\nProvider vs provider\nHead-to-head comparisons\nPopular providers\n\nBT\nSky\nVirgin Media\nEE\n\nIn your area\nFind your area\nReal Ofcom-backed coverage for any UK postcode\nPopular areas\n\nLondon\nManchester\nBirmingham\nGlasgow\nLeeds\n\nGuides\nDeals and Pricing\n\nBest deals, cheapest packages, bundles, and pricing traps to avoid.\n\nBest Broadband Deals in the UK Right Now\n\nBroadband Deals With No Mid-Contract Price Rise UK 2026\n\nBest Broadband and TV Deals in the UK for 2026\n\nSwitching and Rights\n\nSwitching rules, contract exits, price rises, and broadband consumer rights.\n\nHow to Switch Broadband Provider in the UK (2026)\n\nBroadband Complaints and Ombudsman: Your UK Rights\n\nBroadband Price Rises 2026: Every Provider Explained\n\nTechnology and Speeds\n\nFull fibre, FTTC, upload speeds, latency, and how broadband technology works.\n\nFull Fibre Broadband Explained: Is FTTP Worth It?\n\nBroadband Speeds Explained: What Speed Do You Actually Need?\n\nBroadband Without a Phone Line UK 2026: Your Full Options\n\nProviders and Comparisons\n\nProvider rankings, trade-offs, and who each broadband brand is best for.\n\nBest Broadband Providers UK 2026: Ranked and Reviewed\n\nUse Cases and Lifestyle\n\nBroadband for gaming, home working, moving house, and day-to-day needs.\n\nBest Broadband for Working From Home UK 2026\n\nBest Broadband for Students UK 2026\n\nBest Broadband for Streaming UK 2026\n\nAffordability\n\nSocial tariffs, budget broadband, and routes to lower monthly bills.\n\nBroadband Social Tariffs UK 2026: Who Qualifies and How to Apply\n\nCheaper Broadband If You Claim Benefits: Social Tariffs Explained\n\nNo Credit Check Broadband in the UK: Options and What to Expect\n\nBrowse all\n40\nguides →\n\nTools\nBroadband Match\nGet a personalised, ranked recommendation\nSpeed Test\nCheck your current connection speed\nCost Calculator\nTrue monthly cost, not just the headline price\n\nFind Deals\n\nOpen navigation menu\n\nCheck broadband in your area\n\nFind Deals\n\nCompare\nDeals\n\nProviders\nAll providers\nProvider vs provider\nBT\nSky\nVirgin Media\nEE\n\nIn your area\nFind your area\nLondon\nManchester\nBirmingham\nGlasgow\nLeeds\n\nGuides\nDeals and Pricing\nSwitching and Rights\nTechnology and Speeds\nProviders and Comparisons\nUse Cases and Lifestyle\nAffordability\nBrowse all guides →\n\n",
+      "bytes": 272353,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:16+00:00",
+      "social_links": [
+        "https://x.com/broadbandPicker",
+        "https://www.instagram.com/broadbandpicker/",
+        "https://www.linkedin.com/company/broadband-picker/"
+      ],
+      "og_title": "Compare Broadband Deals UK | BroadbandPicker",
+      "og_description": "Find the cheapest fibre and full-fibre deals available at your address in seconds.",
+      "key": "own_home",
+      "label": "BroadbandPicker homepage"
+    },
+    {
+      "url": "https://broadbandpicker.co.uk/about",
+      "ok": true,
+      "status": 200,
+      "title": "About BroadbandPicker — How We Compare Broadband Deals",
+      "excerpt": "About BroadbandPicker — How We Compare Broadband Deals\n\nIndependent UK broadband comparison. Rankings are not sold.\n\nHow we make money\nHow we review\n\nBroadbandPicker\nUK broadband\n\ncomparison\nCompare\nDeals\nProviders\nAll providers\nEvery major UK broadband provider reviewed\nProvider vs provider\nHead-to-head comparisons\nPopular providers\n\nBT\nSky\nVirgin Media\nEE\n\nIn your area\nFind your area\nReal Ofcom-backed coverage for any UK postcode\nPopular areas\n\nLondon\nManchester\nBirmingham\nGlasgow\nLeeds\n\nGuides\nDeals and Pricing\n\nBest deals, cheapest packages, bundles, and pricing traps to avoid.\n\nBest Broadband Deals in the UK Right Now\n\nBroadband Deals With No Mid-Contract Price Rise UK 2026\n\nBest Broadband and TV Deals in the UK for 2026\n\nSwitching and Rights\n\nSwitching rules, contract exits, price rises, and broadband consumer rights.\n\nHow to Switch Broadband Provider in the UK (2026)\n\nBroadband Complaints and Ombudsman: Your UK Rights\n\nBroadband Price Rises 2026: Every Provider Explained\n\nTechnology and Speeds\n\nFull fibre, FTTC, upload speeds, latency, and how broadband technology works.\n\nFull Fibre Broadband Explained: Is FTTP Worth It?\n\nBroadband Speeds Explained: What Speed Do You Actually Need?\n\nBroadband Without a Phone Line UK 2026: Your Full Options\n\nProviders and Comparisons\n\nProvider rankings, trade-offs, and who each broadband brand is best for.\n\nBest Broadband Providers UK 2026: Ranked and Reviewed\n\nUse Cases and Lifestyle\n\nBroadband for gaming, home working, moving house, and day-to-day needs.\n\nBest Broadband for Working From Home UK 2026\n\nBest Broadband for Students UK 2026\n\nBest Broadband for Streaming UK 2026\n\nAffordability\n\nSocial tariffs, budget broadband, and routes to lower monthly bills.\n\nBroadband Social Tariffs UK 2026: Who Qualifies and How to Apply\n\nCheaper Broadband If You Claim Benefits: Social Tariffs Explained\n\nNo Credit Check Broadband in the UK: Options and What to Expect\n\nBrowse all\n40\nguides →\n\nTools\nBroadband Match\nGet a personalised, ranked recommendation\nSpeed Test\nCheck your current connection speed\nCost Calculator\nTrue monthly cost, not just the headline price\n\nFind Deals\n\nOpen navigation menu\n\nCheck broadband in your area\n\nFind Deals\n\nCompare\nDeals\n\nProviders\nAll providers\nProvider vs provider\nBT\nSky\nVirgin Media\nEE\n\nIn your area\nFind your area\nLondon\nManchester\nBirmingham\nGlasgow\nLeeds\n\nGuides\nDeals and Pricing\nSwitching and Rights\nTechnology and Speeds\nProviders and Comparisons\nUse Cases and Lifestyle\nAffordability\nBrowse all ",
+      "bytes": 116696,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:16+00:00",
+      "social_links": [
+        "https://x.com/broadbandPicker",
+        "https://www.instagram.com/broadbandpicker/",
+        "https://www.linkedin.com/company/broadband-picker/"
+      ],
+      "og_title": "About BroadbandPicker — How We Compare Broadband Deals",
+      "og_description": "BroadbandPicker is an independent UK broadband comparison service. Learn how we compare deals, how we make money, and our editorial standards.",
+      "key": "own_about",
+      "label": "BroadbandPicker about"
+    },
+    {
+      "url": "https://broadbandpicker.co.uk/how-we-make-money",
+      "ok": true,
+      "status": 200,
+      "title": "How BroadbandPicker Makes Money | Commercial Disclosure | BroadbandPicker",
+      "excerpt": "How BroadbandPicker Makes Money | Commercial Disclosure | BroadbandPicker\n\nIndependent UK broadband comparison. Rankings are not sold.\n\nHow we make money\nHow we review\n\nBroadbandPicker\nUK broadband\n\ncomparison\nCompare\nDeals\nProviders\nAll providers\nEvery major UK broadband provider reviewed\nProvider vs provider\nHead-to-head comparisons\nPopular providers\n\nBT\nSky\nVirgin Media\nEE\n\nIn your area\nFind your area\nReal Ofcom-backed coverage for any UK postcode\nPopular areas\n\nLondon\nManchester\nBirmingham\nGlasgow\nLeeds\n\nGuides\nDeals and Pricing\n\nBest deals, cheapest packages, bundles, and pricing traps to avoid.\n\nBest Broadband Deals in the UK Right Now\n\nBroadband Deals With No Mid-Contract Price Rise UK 2026\n\nBest Broadband and TV Deals in the UK for 2026\n\nSwitching and Rights\n\nSwitching rules, contract exits, price rises, and broadband consumer rights.\n\nHow to Switch Broadband Provider in the UK (2026)\n\nBroadband Complaints and Ombudsman: Your UK Rights\n\nBroadband Price Rises 2026: Every Provider Explained\n\nTechnology and Speeds\n\nFull fibre, FTTC, upload speeds, latency, and how broadband technology works.\n\nFull Fibre Broadband Explained: Is FTTP Worth It?\n\nBroadband Speeds Explained: What Speed Do You Actually Need?\n\nBroadband Without a Phone Line UK 2026: Your Full Options\n\nProviders and Comparisons\n\nProvider rankings, trade-offs, and who each broadband brand is best for.\n\nBest Broadband Providers UK 2026: Ranked and Reviewed\n\nUse Cases and Lifestyle\n\nBroadband for gaming, home working, moving house, and day-to-day needs.\n\nBest Broadband for Working From Home UK 2026\n\nBest Broadband for Students UK 2026\n\nBest Broadband for Streaming UK 2026\n\nAffordability\n\nSocial tariffs, budget broadband, and routes to lower monthly bills.\n\nBroadband Social Tariffs UK 2026: Who Qualifies and How to Apply\n\nCheaper Broadband If You Claim Benefits: Social Tariffs Explained\n\nNo Credit Check Broadband in the UK: Options and What to Expect\n\nBrowse all\n40\nguides →\n\nTools\nBroadband Match\nGet a personalised, ranked recommendation\nSpeed Test\nCheck your current connection speed\nCost Calculator\nTrue monthly cost, not just the headline price\n\nFind Deals\n\nOpen navigation menu\n\nCheck broadband in your area\n\nFind Deals\n\nCompare\nDeals\n\nProviders\nAll providers\nProvider vs provider\nBT\nSky\nVirgin Media\nEE\n\nIn your area\nFind your area\nLondon\nManchester\nBirmingham\nGlasgow\nLeeds\n\nGuides\nDeals and Pricing\nSwitching and Rights\nTechnology and Speeds\nProviders and Comparisons\nUse Cases and Lifestyle\nAfford",
+      "bytes": 121845,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:16+00:00",
+      "social_links": [
+        "https://x.com/broadbandPicker",
+        "https://www.instagram.com/broadbandpicker/",
+        "https://www.linkedin.com/company/broadband-picker/"
+      ],
+      "og_title": "How BroadbandPicker Makes Money | Commercial Disclosure",
+      "og_description": "Full transparency on how we earn revenue, how affiliate commissions work, and why our editorial independence is never compromised.",
+      "key": "own_money",
+      "label": "How we make money"
+    },
+    {
+      "url": "https://broadbandpicker.co.uk/deals",
+      "ok": true,
+      "status": 200,
+      "title": "Best Broadband Deals UK June 2026 | BroadbandPicker",
+      "excerpt": "Best Broadband Deals UK June 2026 | BroadbandPicker\n\nIndependent UK broadband comparison. Rankings are not sold.\n\nHow we make money\nHow we review\n\nBroadbandPicker\nUK broadband\n\ncomparison\nCompare\nDeals\nProviders\nAll providers\nEvery major UK broadband provider reviewed\nProvider vs provider\nHead-to-head comparisons\nPopular providers\n\nBT\nSky\nVirgin Media\nEE\n\nIn your area\nFind your area\nReal Ofcom-backed coverage for any UK postcode\nPopular areas\n\nLondon\nManchester\nBirmingham\nGlasgow\nLeeds\n\nGuides\nDeals and Pricing\n\nBest deals, cheapest packages, bundles, and pricing traps to avoid.\n\nBest Broadband Deals in the UK Right Now\n\nBroadband Deals With No Mid-Contract Price Rise UK 2026\n\nBest Broadband and TV Deals in the UK for 2026\n\nSwitching and Rights\n\nSwitching rules, contract exits, price rises, and broadband consumer rights.\n\nHow to Switch Broadband Provider in the UK (2026)\n\nBroadband Complaints and Ombudsman: Your UK Rights\n\nBroadband Price Rises 2026: Every Provider Explained\n\nTechnology and Speeds\n\nFull fibre, FTTC, upload speeds, latency, and how broadband technology works.\n\nFull Fibre Broadband Explained: Is FTTP Worth It?\n\nBroadband Speeds Explained: What Speed Do You Actually Need?\n\nBroadband Without a Phone Line UK 2026: Your Full Options\n\nProviders and Comparisons\n\nProvider rankings, trade-offs, and who each broadband brand is best for.\n\nBest Broadband Providers UK 2026: Ranked and Reviewed\n\nUse Cases and Lifestyle\n\nBroadband for gaming, home working, moving house, and day-to-day needs.\n\nBest Broadband for Working From Home UK 2026\n\nBest Broadband for Students UK 2026\n\nBest Broadband for Streaming UK 2026\n\nAffordability\n\nSocial tariffs, budget broadband, and routes to lower monthly bills.\n\nBroadband Social Tariffs UK 2026: Who Qualifies and How to Apply\n\nCheaper Broadband If You Claim Benefits: Social Tariffs Explained\n\nNo Credit Check Broadband in the UK: Options and What to Expect\n\nBrowse all\n40\nguides →\n\nTools\nBroadband Match\nGet a personalised, ranked recommendation\nSpeed Test\nCheck your current connection speed\nCost Calculator\nTrue monthly cost, not just the headline price\n\nFind Deals\n\nOpen navigation menu\n\nCheck broadband in your area\n\nFind Deals\n\nCompare\nDeals\n\nProviders\nAll providers\nProvider vs provider\nBT\nSky\nVirgin Media\nEE\n\nIn your area\nFind your area\nLondon\nManchester\nBirmingham\nGlasgow\nLeeds\n\nGuides\nDeals and Pricing\nSwitching and Rights\nTechnology and Speeds\nProviders and Comparisons\nUse Cases and Lifestyle\nAffordability\nBrowse all gui",
+      "bytes": 671263,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:17+00:00",
+      "social_links": [
+        "https://x.com/broadbandPicker",
+        "https://www.instagram.com/broadbandpicker/",
+        "https://www.linkedin.com/company/broadband-picker/"
+      ],
+      "og_title": "Best Broadband Deals UK June 2026 | BroadbandPicker",
+      "og_description": "Compare all UK broadband deals — filter by speed, price and contract.",
+      "key": "own_deals",
+      "label": "Deals table"
+    },
+    {
+      "url": "https://www.ofcom.org.uk/media-use-and-attitudes/online-habits/from-apps-to-ai-search-how-the-uk-goes-online-in-2025",
+      "ok": true,
+      "status": 200,
+      "title": "From apps to AI search: how the UK goes online in 2025",
+      "excerpt": "From apps to AI search: how the UK goes online in 2025\nSkip to content\n\nhamburger menu\n\nGo Back\n\n×\n\nTopics\nMenu\nAbout Ofcom\n\nOfcom is the regulator for the communications services that we use and rely on each day.\n\nInternet-based services\n\nAs people communicate seamlessly online and offline, we now need to invest our efforts into making digital communications work for everyone\n\nMedia use and attitudes\n\nOfcom wants to understand how adults and children in the UK use media.\n\nOnline safety\n\nUnder the Online Safety Act, Ofcom's job is to make online services safer for the people who use them. We make sure companies have effective systems in place to protect users from harm\n\nPhones and broadband\n\nOfcom is committed to a thriving telecoms sector, where companies can compete fairly and customers benefit from a broad range of services\n\nPost\n\nOfcom's job is to make sure there is a universal postal service.\n\nSpectrum\n\nYou can't see or feel radio spectrum, but we use it every day. Our job is to authorise and manage the use of spectrum in the UK.\n\nTV, radio and on-demand\n\nWe make sure that broadcasters provide quality TV, radio and on-demand programmes that appeal to diverse audiences. We also have rules in place to protect viewers and listeners from harm.\n\nOfcom's work\nMenu\nAdvice for businesses\n\nHow to make the most of communications services as a small business.\n\nAdvice for consumers\n\nHow to make the most of the services you use, and deal with problems.\n\nConsultations and statements\n\nProposals we are consulting on and decisions we've made.\n\nEnforcement\n\nHow we make sure companies follow our rules, to protect customers and promote competition.\n\nInformation for industry\n\nRules, guidance and other information for the industries we regulate.\n\nLicence information\n\nIf you're looking to use certain radio equipment, or broadcast on TV or radio, you'll need a licence from Ofcom.\n\nNews and updates\n\nOur latest news, features, views and information about our work.\n\nResearch, statistics and data\n\nEvidence we gather to inform our work as a regulator.\n\nComplaints\nMenu\nComplaints\n\nComplain about mobile, phone or internet services\n\nComplain about TV, radio or on demand services\n\nComplain about postal services\n\nComplain about wireless interference\n\nComplain about online services, websites or apps\n\nComplain about premium rate services\n\nOfcom may be able to help you complain about or report issues relating to: phone, broadband and postal services; TV, radio and on-demand programmes; i",
+      "bytes": 86411,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:17+00:00",
+      "social_links": [
+        "https://x.com/ofcom",
+        "https://www.facebook.com/ofcom",
+        "https://www.linkedin.com/company/ofcom",
+        "https://www.instagram.com/ofcom.org.uk/",
+        "https://www.tiktok.com/@ofcom.org.uk"
+      ],
+      "og_title": "From apps to AI search: how the UK goes online in 2025",
+      "og_description": "Our latest Online Nation report explores how adults and children in the UK experience life online. From the sites and apps we use every day, to how people feel about what they do and what they encounter online.",
+      "key": "ofcom_online",
+      "label": "Ofcom: how the UK goes online 2025"
+    },
+    {
+      "url": "https://www.ofcom.org.uk/media-use-and-attitudes/media-habits-adults/passive-social-media-use-ai-companionship-and-online-side-hustles-uk-adults-media-and-online-lives-revealed",
+      "ok": true,
+      "status": 200,
+      "title": "Passive social media use, AI companionship, and online side hustles: UK adults’ media and online lives revealed",
+      "excerpt": "Passive social media use, AI companionship, and online side hustles: UK adults’ media and online lives revealed\nSkip to content\n\nhamburger menu\n\nGo Back\n\n×\n\nTopics\nMenu\nAbout Ofcom\n\nOfcom is the regulator for the communications services that we use and rely on each day.\n\nInternet-based services\n\nAs people communicate seamlessly online and offline, we now need to invest our efforts into making digital communications work for everyone\n\nMedia use and attitudes\n\nOfcom wants to understand how adults and children in the UK use media.\n\nOnline safety\n\nUnder the Online Safety Act, Ofcom's job is to make online services safer for the people who use them. We make sure companies have effective systems in place to protect users from harm\n\nPhones and broadband\n\nOfcom is committed to a thriving telecoms sector, where companies can compete fairly and customers benefit from a broad range of services\n\nPost\n\nOfcom's job is to make sure there is a universal postal service.\n\nSpectrum\n\nYou can't see or feel radio spectrum, but we use it every day. Our job is to authorise and manage the use of spectrum in the UK.\n\nTV, radio and on-demand\n\nWe make sure that broadcasters provide quality TV, radio and on-demand programmes that appeal to diverse audiences. We also have rules in place to protect viewers and listeners from harm.\n\nOfcom's work\nMenu\nAdvice for businesses\n\nHow to make the most of communications services as a small business.\n\nAdvice for consumers\n\nHow to make the most of the services you use, and deal with problems.\n\nConsultations and statements\n\nProposals we are consulting on and decisions we've made.\n\nEnforcement\n\nHow we make sure companies follow our rules, to protect customers and promote competition.\n\nInformation for industry\n\nRules, guidance and other information for the industries we regulate.\n\nLicence information\n\nIf you're looking to use certain radio equipment, or broadcast on TV or radio, you'll need a licence from Ofcom.\n\nNews and updates\n\nOur latest news, features, views and information about our work.\n\nResearch, statistics and data\n\nEvidence we gather to inform our work as a regulator.\n\nComplaints\nMenu\nComplaints\n\nComplain about mobile, phone or internet services\n\nComplain about TV, radio or on demand services\n\nComplain about postal services\n\nComplain about wireless interference\n\nComplain about online services, websites or apps\n\nComplain about premium rate services\n\nOfcom may be able to help you complain about or report issues relating to: phone, broadband a",
+      "bytes": 87981,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:17+00:00",
+      "social_links": [
+        "https://x.com/ofcom",
+        "https://www.facebook.com/ofcom",
+        "https://www.linkedin.com/company/ofcom",
+        "https://www.instagram.com/ofcom.org.uk/",
+        "https://www.tiktok.com/@ofcom.org.uk"
+      ],
+      "og_title": "Passive social media use, AI companionship, and online side hustles: UK adults’ media and online lives revealed",
+      "og_description": "New research published today by Ofcom reveals how people in the UK use, understand and feel about the media and online services they interact with in their daily lives.   ",
+      "key": "ofcom_habits",
+      "label": "Ofcom: adults media habits 2026"
+    },
+    {
+      "url": "https://www.asa.org.uk/news/get-yourself-affiliated-with-the-rules-on-affiliate-marketing.html",
+      "ok": true,
+      "status": 200,
+      "title": "Get yourself affiliated with the rules on affiliate marketing - ASA | CAP",
+      "excerpt": "Get yourself affiliated with the rules on affiliate marketing - ASA | CAP\n\nSign in / Sign up\nMenu\n\nHome\n\nAbout ASA and CAP\nPeople\n\nAbout regulation\n\nThe work we do\n\nOur history\n\nOur ad campaign\n\nCareers\n\nSustainability\n\nMeet our Press Team\nLearn more about our Press Team and how to sign up to gain access to embargoed rulings.\n\nCodes and rulings\nAdvertising codes\n\nRulings\n\nIndependent reviews\n\nNon-compliant advertisers\n\nSanctions\n\nTrading Standards referrals\n\nPublished rulings\nOur rulings are a transparent record of our policy on what is and isn’t acceptable in ads.\n\nAdvice and resources\nNews\n\nResource library\n\nCopy Advice\n\nTraining and events\n\nOnline Training\n\nCAP Bitesize\n\nCAP Webinars\n\nResearch at the ASA and CAP\n\nAdvice for businesses\n\nAdviceOnline\nAdviceOnline entries provide guidance on interpreting the UK Code of Non-broadcast Advertising and Direct & Promotional Marketing.\n\nIssues and topics\nSocial and political\nBeliefs and cultural identity\n\nPrivacy and popular culture\n\nCharity, education and Third sector\n\nChildren and the vulnerable\n\nClaims, endorsements and testimonials\n\nGender, sex and relationships\n\nPolitics and public services\n\nSafety and security\n\nLifestyle and living\nAlcohol\n\nClothing, shoes and jewellery\n\nFood, drink and supplements\n\nGambling\n\nHolidays, travel and motoring\n\nHome and garden\n\nSports, leisure and hobbies\n\nVaping, smoking and drugs\n\nMoney and legal\nFinancial products and services\n\nLegal and regulation\n\nPricing and charges\n\nPromotions and competitions\n\nProperty sales and lettings\n\nRecruitment and work\n\nTechnology and environment\nAnimals and farming\n\nAppliances, electronics and machinery\n\nComputers, phones and telecoms\n\nDelivery, construction and logistics\n\nUtilities, energy and environment\n\nHealth and beauty\nBeauty products, grooming and hygiene\n\nCosmetic surgery and procedures\n\nHealth conditions\n\nMedical devices\n\nMedical procedures and services\n\nMedicines, remedies and therapies\n\nWeight and slimming\n\nMedia channel\nPackaging and point of sale\n\nOnline, catch-up TV and radio, in-app and in-game\n\nMailings, email, phone/fax and messaging\n\nCinema\n\nTV and radio (broadcast only)\n\nPoster and other out of home\n\nNewspapers, magazines and printed materials\n\nIssue\nOffensive\n\nCopy Advice Issue\n\nNo Issue\n\nMiscellaneous/Other\n\nMisleading\n\nHarm/Irresponsibility\n\nHarmful\n\nIssues and topics\nHelpful information on the advertising rules and examples of previously published ASA rulings based upon topics, issues and media channels.\n\nMake a complaint\n",
+      "bytes": 51037,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:18+00:00",
+      "social_links": [
+        "http://www.linkedin.com/company/advertising-standards-authority",
+        "https://www.linkedin.com/company/9186879",
+        "https://twitter.com/cap_uk"
+      ],
+      "og_title": "Get yourself affiliated with the rules on affiliate marketing",
+      "og_description": "",
+      "key": "asa_affiliate",
+      "label": "ASA: affiliate marketing rules"
+    },
+    {
+      "url": "https://www.asa.org.uk/advice-online/remit-social-media.html",
+      "ok": true,
+      "status": 200,
+      "title": "Remit: Social media - ASA | CAP",
+      "excerpt": "Remit: Social media - ASA | CAP\n\nSign in / Sign up\nMenu\n\nHome\n\nAbout ASA and CAP\nPeople\n\nAbout regulation\n\nThe work we do\n\nOur history\n\nOur ad campaign\n\nCareers\n\nSustainability\n\nMeet our Press Team\nLearn more about our Press Team and how to sign up to gain access to embargoed rulings.\n\nCodes and rulings\nAdvertising codes\n\nRulings\n\nIndependent reviews\n\nNon-compliant advertisers\n\nSanctions\n\nTrading Standards referrals\n\nPublished rulings\nOur rulings are a transparent record of our policy on what is and isn’t acceptable in ads.\n\nAdvice and resources\nNews\n\nResource library\n\nCopy Advice\n\nTraining and events\n\nOnline Training\n\nCAP Bitesize\n\nCAP Webinars\n\nResearch at the ASA and CAP\n\nAdvice for businesses\n\nAdviceOnline\nAdviceOnline entries provide guidance on interpreting the UK Code of Non-broadcast Advertising and Direct & Promotional Marketing.\n\nIssues and topics\nSocial and political\nBeliefs and cultural identity\n\nPrivacy and popular culture\n\nCharity, education and Third sector\n\nChildren and the vulnerable\n\nClaims, endorsements and testimonials\n\nGender, sex and relationships\n\nPolitics and public services\n\nSafety and security\n\nLifestyle and living\nAlcohol\n\nClothing, shoes and jewellery\n\nFood, drink and supplements\n\nGambling\n\nHolidays, travel and motoring\n\nHome and garden\n\nSports, leisure and hobbies\n\nVaping, smoking and drugs\n\nMoney and legal\nFinancial products and services\n\nLegal and regulation\n\nPricing and charges\n\nPromotions and competitions\n\nProperty sales and lettings\n\nRecruitment and work\n\nTechnology and environment\nAnimals and farming\n\nAppliances, electronics and machinery\n\nComputers, phones and telecoms\n\nDelivery, construction and logistics\n\nUtilities, energy and environment\n\nHealth and beauty\nBeauty products, grooming and hygiene\n\nCosmetic surgery and procedures\n\nHealth conditions\n\nMedical devices\n\nMedical procedures and services\n\nMedicines, remedies and therapies\n\nWeight and slimming\n\nMedia channel\nPackaging and point of sale\n\nOnline, catch-up TV and radio, in-app and in-game\n\nMailings, email, phone/fax and messaging\n\nCinema\n\nTV and radio (broadcast only)\n\nPoster and other out of home\n\nNewspapers, magazines and printed materials\n\nIssue\nOffensive\n\nCopy Advice Issue\n\nNo Issue\n\nMiscellaneous/Other\n\nMisleading\n\nHarm/Irresponsibility\n\nHarmful\n\nIssues and topics\nHelpful information on the advertising rules and examples of previously published ASA rulings based upon topics, issues and media channels.\n\nMake a complaint\nHow we handle complaints\n\nReport an online",
+      "bytes": 59530,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:19+00:00",
+      "social_links": [
+        "http://www.linkedin.com/company/advertising-standards-authority",
+        "https://www.linkedin.com/company/9186879",
+        "https://twitter.com/cap_uk"
+      ],
+      "og_title": "Remit: Social media",
+      "og_description": "",
+      "key": "asa_social",
+      "label": "ASA: social media remit"
+    },
+    {
+      "url": "https://www.awin.com/gb/publishers/other-partner-types",
+      "ok": true,
+      "status": 200,
+      "title": "Coupon, Cashback and Affiliate Partner Programmes | Awin",
+      "excerpt": "Coupon, Cashback and Affiliate Partner Programmes | Awin\nSkip to main content\nSolutions\n\nAdvertisers\n\nTurn partnerships into profit, whether you’re a new brand or scaling fast.\n\nContent creators & influencers\n\nDiscover the brands you love and get paid for promoting them.\n\nAffiliate partners\n\nMonetize more effectively as a media, tech, or other affiliate partner.\n\nAgencies\n\nAccelerate your clients’ growth with tech that simplifies partnerships.\n\nPricing\n\nResources\n\nHelp Center\n\nFind clear answers and tips to optimize your partnerships.\n\nAdvertiser Directory\n\nSearch and connect with brands across every industry.\n\nAgency Certification\n\nGet certified by experts and gain recognition in this program.\n\nMarket insights\n\nStay ahead with the latest trends and actionable insights.\n\nCase Studies\n\nRead success stories from top partnerships.\n\nProduct Releases\n\nCheck out new features and tools designed to boost your performance.\n\nPodcast\n\nGet inspired by insights from successful marketers and brands.\n\nPower 100\n\nMeet the most innovative affiliate partners of 2026.\n\nFAQs\n\nGet quick answers about Awin and affiliate best practices.\n\nAbout us\n\nOur story\n\nLearn about our journey and global community.\n\nCareers\n\nView our available jobs and vacancies.\n\nNewsroom\n\nGet latest updates, events or company news.\n\nGlobal Events Calendar\n\nFind networking events, conferences, and workshops near you.\n\nDiversity, Equity and Inclusion\n\nDiscover how we're building a more inclusive environment.\n\nContact\n\nLogin\nGet started\n\nAffiliate Partners\n\nTurn your traffic into\nincome\n\nWhether you run a coupon site, cashback platform, comparison site, or loyalty programme, we have the tools and brands to help you earn more.\n\nEditorial & Media Sites\n\nTechnology Partners\n\nAffiliate partners\n\nGrow your revenue options\n\nPartnerships for every business type\n\nWe've worked with every type of affiliate partner, and we know what it takes to help each one grow. The right brands, the right tools, and a team that understands your business.\n\nJoin our platform\n\nAll Industries Covered\n\nAccess 30,000+ global brands\n\nYour users are looking for deals, rewards, and recommendations. Find the brands across Retail, Fashion, Travel, Finance, and more that keep them coming back.\n\nFind your perfect brand partner\n\nJoin the world's leading affiliate partners\n\nAdvanced Store\n\nAfterpay\n\nCapital One\n\nGoCertify\n\nIdealo\n\niGraal\n\nKlarna\n\nMéliuz\n\nPayback\n\nRetailMeNot\n\nReward Gateway\n\nTopCashback\n\nYahoo!\n\nZilch\n\nTrue Partner Diversity\n\nWhat",
+      "bytes": 225285,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:19+00:00",
+      "social_links": [
+        "https://www.facebook.com/Awin",
+        "https://www.linkedin.com/company/awin-global/",
+        "https://www.instagram.com/awin/"
+      ],
+      "og_title": "Coupon, Cashback and Affiliate Partner Programmes | Awin",
+      "og_description": "Join Awin as a coupon, cashback, comparison, or loyalty affiliate partner. Access 30,000+ brands and the tools to grow your affiliate income, free to join. ",
+      "key": "awin_compare",
+      "label": "Awin: comparison-site publishers"
+    },
+    {
+      "url": "https://advertiser-success.awin.com/s/article/How-do-I-decide-which-publishers-to-approve-onto-my-programme",
+      "ok": true,
+      "status": 200,
+      "title": "Choosing the right partners for your program",
+      "excerpt": "Choosing the right partners for your program\nDocumentation Index\n\nFetch the complete documentation index at:\nhttps://help.awin.com/llms.txt\n\nUse this file to discover all available pages before exploring further.\n\nHelp articles\n\nDecision trees\n\nSearch\n\nCTRL+K\n\nPress CTRL+K to open search\n\nChoosing the right partners for your program\n\nPublished on Mar 11, 2026\n\nCopy page\nCopy as Markdown for LLMs\nView as Markdown\nView the page as plain text\n\nOpen in ChatGPT\nAsk ChatGPT about this page\nOpen in Claude\nAsk Claude about this page\n\nPrev\nNext\nThis guide explains what to consider when approving or inviting partners to join your program. It covers where to find partner information, how to assess applications, how to research potential partners, and what to do if you decide not to work with a partner.\n\nWhat to consider before approving a partner\n\nBefore approving a partner, think about how they plan to promote your brand. Ask yourself:\n\nWhat promotional methods are you looking for, such as discount codes, influencer marketing, or content reviews?\n\nDoes the partner’s promotional method align with your strategy?\n\nAre you confident in how your brand will be represented?\n\nIf you’re unsure how a partner intends to promote your brand, review:\n\nTheir media pack, which you can request through the Awin dashboard or via email.\n\nTheir website or social media channels for examples of promotional activity.\n\nTheir newsletter, if they publish one.\n\nKeep language simple and helpful and focus on presenting clear benefits for the user.\n\nWhere to find partner information\n\nWhen reviewing partner applications, you can see:\n\nPartner name and profile\n\nPrimary and highlighted promotional types\n\nWebsite URLs\n\nCountry or region\n\nApplication date\n\nClicking into the partner profile gives you more detailed information when available.\n\nTip\n\nUse free tools like\nSimilarweb\nto explore website traffic and engagement metrics\n\nQuestions to ask when reviewing a partner\n\nUse the checklist below to help you decide whether to approve a partner:\n\nDoes the promotional type align with your strategy?\n\nIs their method suitable for your brand?\n\nAre you comfortable being featured next to content on their site?\n\nDoes their audience match your demographic?\n\nAre similar brands or competitors promoted there?\n\nDo any sample links or banners work as expected?\n\nIs the partner based in, or promoting to, your target region?\n\nIf anything is unclear, contact the partner directly to request more information.\n\nIf you don’t w",
+      "bytes": 619286,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:19+00:00",
+      "social_links": [
+        "https://www.facebook.com/Awin",
+        "https://www.linkedin.com/company/awin-global/",
+        "https://www.instagram.com/awin/"
+      ],
+      "og_title": "Choosing the right partners for your program",
+      "og_description": "",
+      "key": "awin_approve",
+      "label": "Awin: how advertisers approve publishers"
+    },
+    {
+      "url": "https://www.gov.uk/government/publications/telecoms-consumer-charter/telecoms-consumer-charter",
+      "ok": true,
+      "status": 200,
+      "title": "Telecoms Consumer Charter - GOV.UK",
+      "excerpt": "Telecoms Consumer Charter - GOV.UK\nCookies on GOV.UK\n\nWe use some essential cookies to make this website work.\n\nWe’d like to set additional cookies to understand how you use GOV.UK, remember your settings and improve government services.\n\nWe also use cookies set by other sites to help us deliver content from their services.\n\nYou have accepted additional cookies.\nYou can\nchange your cookie settings\nat any time.\n\nYou have rejected additional cookies.\nYou can\nchange your cookie settings\nat any time.\n\nAccept additional cookies\nReject additional cookies\nView cookies\n\nHide cookie message\n\nSkip to main content\n\nNavigation menu\n\nMenu\nMenu\n\nServices and information\n\nBenefits\n\nBirths, death, marriages and care\n\nBusiness and self-employed\n\nChildcare and parenting\n\nCitizenship and living in the UK\n\nCrime, justice and the law\n\nDisabled people\n\nDriving and transport\n\nEducation and learning\n\nEmploying people\n\nEnvironment and countryside\n\nHousing and local services\n\nMoney and tax\n\nPassports, travel and living abroad\n\nVisas and immigration\n\nWorking, jobs and pensions\n\nGovernment activity\n\nDepartments\nDepartments, agencies and public bodies\n\nNews\nNews stories, speeches, letters and notices\n\nGuidance and regulation\nDetailed guidance, regulations and rules\n\nResearch and statistics\nReports, analysis and official statistics\n\nPolicy papers and consultations\nConsultations and strategy\n\nTransparency\nData, Freedom of Information releases and corporate reports\n\nSearch GOV.UK\n×\nSearch GOV.UK\n\nSearch\n\nSearch GOV.UK\n\nSearch\n\nHome\n\nBusiness and industry\n\nMedia and communications\n\nCommunications and telecomms\n\nTelecoms Consumer Charter\n\nDepartment for\n\nScience, Innovation\n\n& Technology\n\nPolicy paper\nTelecoms Consumer Charter\n\nUpdated 19 June 2026\n\nThis was published under the\n2024 to 2026 Starmer Labour government\n\nContents\n\nThe Charter\n\nSignatories\n\nPrint this page\n\n© Crown copyright 2026\n\nThis publication is licensed under the terms of the Open Government Licence v3.0 except where otherwise stated. To view this licence, visit\nnationalarchives.gov.uk/doc/open-government-licence/version/3\nor write to the Information Policy Team, The National Archives, Kew, London TW9 4DU, or email:\npsi@nationalarchives.gov.uk\n.\n\nWhere we have identified any third party copyright information you will need to obtain permission from the copyright holders concerned.\n\nThis publication is available at https://www.gov.uk/government/publications/telecoms-consumer-charter/telecoms-consumer-charter\n\nThis Telecoms ",
+      "bytes": 78811,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:19+00:00",
+      "social_links": [],
+      "og_title": "Telecoms Consumer Charter",
+      "og_description": "",
+      "key": "charter",
+      "label": "UK Telecoms Consumer Charter"
+    },
+    {
+      "url": "https://www.uswitch.com/broadband/",
+      "ok": true,
+      "status": 200,
+      "title": "Broadband Deals: Compare in August 2026 - Uswitch",
+      "excerpt": "Broadband Deals: Compare in August 2026 - Uswitch\n\nYour cookie preferences\nWe use cookies and similar technologies. You can use the settings below to accept all cookies (which we recommend to give you the best experience) or to enable specific categories of cookies as explained below. Find out more by reading our\nCookie Policy\n.\n\nAccept all cookies\nSelect cookie preferences\n\nEssential\n\nPerformance\n\nMarketing\n\nFunctionality\n\nSocial\n\nSave my preferences\nAccept all cookies\n\nSkip to main content\nBack to all products\nEnergy\nBack to Energy\nEnergy & utilities\nCompare energy\n\nCompare electricity\n\nCompare green energy\n\nDual fuel energy\n\nCompare solar panel quotes\n\nBoilers\nBoiler cover\n\nNew boilers\n\nBoiler repair\n\nSuppliers\nAll suppliers\n\nBritish Gas\n\nEDF\n\nE.ON Next\n\nOctopus\n\nOVO\n\nScottishPower\n\nGuides & News\nEnergy guides\n\nEnergy news\n\nWho supplies my energy?\n\nHow do I switch energy?\n\nHow does the price cap affect me?\n\nSmart meters explained\n\nHow much is an average energy bill?\n\n100+ energy-saving tips\n\nBroadband & TV\nBack to Broadband & TV\nBroadband\nBroadband deals\n\nFibre broadband deals\n\nBroadband and TV deals\n\nBroadband & home phone deals\n\nBroadband only deals\n\nNo contract broadband deals\n\n12 month broadband deals\n\nWireless broadband deals\n\nFixed price broadband deals\n\nProviders\nBT broadband deals\n\nSky broadband deals\n\nPlusnet broadband deals\n\nVirgin Media broadband deals\n\nVodafone broadband deals\n\nNOW broadband deals\n\nOther broadband providers\n\nGuides & tools\nBroadband speed test\n\nBroadband postcode checker\n\nBroadband guides\n\nBroadband social tariffs\n\nBroadband outages\n\nBroadband news\n\nBroadband provider reviews\n\nTV\nTV deals\n\nTV guides\n\nTV news\n\nSky TV deals\n\nVirgin TV deals\n\nBT TV deals\n\nTV providers\n\nSIM only\nBack to SIM only\nSIM Only deals\nSIM Only deals\n\nUnlimited data SIMs\n\n5G SIM deals\n\n30-day SIM deals\n\nPay as you go SIMs\n\nTravel eSIM deals\n\nProviders\nVodafone SIM Only deals\n\nO2 SIM Only deals\n\nThree SIM Only deals\n\nVOXI SIM Only deals\n\nLebara SIM Only deals\n\nSMARTY SIM Only deals\n\nTesco SIM Only deals\n\ngiffgaff SIM Only deals\n\niD Mobile SIM Only deals\n\nSky Mobile SIM Only deals\n\nTalkmobile SIM Only deals\n\nEE network SIM Only deals\n\nSpusu Mobile SIM Only deals\n\nHonest Mobile SIM Only deals\n\nNews, reviews & guides\nPhone reviews\n\nGuides\n\nPorting your phone number\n\nMobile phone coverage\n\nUnlocking your mobile phone\n\nBest networks for roaming\n\nPUK and phone tracking\n\nMobile phones\nBack to Mobile phones\nPhone deals\nMobile phone deals\n\niPhone deals\n\nSamsung Ga",
+      "bytes": 777769,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:20+00:00",
+      "social_links": [
+        "http://www.twitter.com/ErnestDoku"
+      ],
+      "og_title": "",
+      "og_description": "",
+      "key": "uswitch",
+      "label": "Uswitch broadband hub"
+    },
+    {
+      "url": "https://www.uswitch.com/",
+      "ok": true,
+      "status": 200,
+      "title": "Uswitch.com - We Put U First - Uswitch",
+      "excerpt": "Uswitch.com - We Put U First - Uswitch\n\nYour cookie preferences\nWe use cookies and similar technologies. You can use the settings below to accept all cookies (which we recommend to give you the best experience) or to enable specific categories of cookies as explained below. Find out more by reading our\nCookie Policy\n.\n\nAccept all cookies\nSelect cookie preferences\n\nEssential\n\nPerformance\n\nMarketing\n\nFunctionality\n\nSocial\n\nSave my preferences\nAccept all cookies\n\nSkip to main content\nBack to all products\nEnergy\nBack to Energy\nEnergy & utilities\nCompare energy\n\nCompare electricity\n\nCompare green energy\n\nDual fuel energy\n\nCompare solar panel quotes\n\nBoilers\nBoiler cover\n\nNew boilers\n\nBoiler repair\n\nSuppliers\nAll suppliers\n\nBritish Gas\n\nEDF\n\nE.ON Next\n\nOctopus\n\nOVO\n\nScottishPower\n\nGuides & News\nEnergy guides\n\nEnergy news\n\nWho supplies my energy?\n\nHow do I switch energy?\n\nHow does the price cap affect me?\n\nSmart meters explained\n\nHow much is an average energy bill?\n\n100+ energy-saving tips\n\nBroadband & TV\nBack to Broadband & TV\nBroadband\nBroadband deals\n\nFibre broadband deals\n\nBroadband and TV deals\n\nBroadband & home phone deals\n\nBroadband only deals\n\nNo contract broadband deals\n\n12 month broadband deals\n\nWireless broadband deals\n\nFixed price broadband deals\n\nProviders\nBT broadband deals\n\nSky broadband deals\n\nPlusnet broadband deals\n\nVirgin Media broadband deals\n\nVodafone broadband deals\n\nNOW broadband deals\n\nOther broadband providers\n\nGuides & tools\nBroadband speed test\n\nBroadband postcode checker\n\nBroadband guides\n\nBroadband social tariffs\n\nBroadband outages\n\nBroadband news\n\nBroadband provider reviews\n\nTV\nTV deals\n\nTV guides\n\nTV news\n\nSky TV deals\n\nVirgin TV deals\n\nBT TV deals\n\nTV providers\n\nSIM only\nBack to SIM only\nSIM Only deals\nSIM Only deals\n\nUnlimited data SIMs\n\n5G SIM deals\n\n30-day SIM deals\n\nPay as you go SIMs\n\nTravel eSIM deals\n\nProviders\nVodafone SIM Only deals\n\nO2 SIM Only deals\n\nThree SIM Only deals\n\nVOXI SIM Only deals\n\nLebara SIM Only deals\n\nSMARTY SIM Only deals\n\nTesco SIM Only deals\n\ngiffgaff SIM Only deals\n\niD Mobile SIM Only deals\n\nSky Mobile SIM Only deals\n\nTalkmobile SIM Only deals\n\nEE network SIM Only deals\n\nSpusu Mobile SIM Only deals\n\nHonest Mobile SIM Only deals\n\nNews, reviews & guides\nPhone reviews\n\nGuides\n\nPorting your phone number\n\nMobile phone coverage\n\nUnlocking your mobile phone\n\nBest networks for roaming\n\nPUK and phone tracking\n\nMobile phones\nBack to Mobile phones\nPhone deals\nMobile phone deals\n\niPhone deals\n\nSamsung Galaxy deals\n",
+      "bytes": 700694,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:21+00:00",
+      "social_links": [
+        "https://www.facebook.com/Uswitch/",
+        "https://x.com/UswitchUK/",
+        "https://linkedin.com/company/uswitch/",
+        "https://www.instagram.com/uswitchuk/",
+        "https://www.tiktok.com/@uswitchuk/"
+      ],
+      "og_title": "Uswitch.com - We Put U First - Uswitch",
+      "og_description": "Compare and switch broadband deals, mobile phone deals, car &amp; home insurance, gas and electricity suppliers, credit cards, boiler cover &amp; more.",
+      "key": "uswitch_home",
+      "label": "Uswitch homepage (social links)"
+    },
+    {
+      "url": "https://www.comparethemarket.com/broadband/",
+      "ok": false,
+      "status": 403,
+      "title": "",
+      "excerpt": "",
+      "bytes": 0,
+      "error": "HTTP 403",
+      "fetched_at": "2026-08-31T16:59:21+00:00",
+      "social_links": [],
+      "og_title": "",
+      "og_description": "",
+      "key": "ctm",
+      "label": "Compare the Market broadband"
+    },
+    {
+      "url": "https://www.moneysupermarket.com/broadband/",
+      "ok": false,
+      "status": 403,
+      "title": "",
+      "excerpt": "",
+      "bytes": 0,
+      "error": "HTTP 403",
+      "fetched_at": "2026-08-31T16:59:21+00:00",
+      "social_links": [],
+      "og_title": "",
+      "og_description": "",
+      "key": "msm",
+      "label": "MoneySuperMarket broadband"
+    },
+    {
+      "url": "https://www.gocompare.com/broadband/",
+      "ok": true,
+      "status": 200,
+      "title": "",
+      "excerpt": "Pardon Our Interruption\n\nAs you were browsing something about your browser made us think you were a bot. There are a few reasons this might happen:\n\nYou're a power user moving through this website with super-human speed.\n\nYou've disabled cookies in your web browser.\n\nA third-party browser plugin, such as Ghostery or NoScript, is preventing JavaScript from running. Additional information is available in this\nsupport article\n.\n\nTo regain access, please make sure that cookies and JavaScript are enabled before reloading the page.\n\nPlease stand by\n\nWe're getting everything ready for you. The page is loading, and you'll be on your way in just a few moments.\n\nThanks for your patience!",
+      "bytes": 6183,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:21+00:00",
+      "social_links": [],
+      "og_title": "",
+      "og_description": "",
+      "key": "gocompare",
+      "label": "Go.Compare broadband"
+    },
+    {
+      "url": "https://www.moneysavingexpert.com/broadband-and-tv/cheap-broadband/",
+      "ok": false,
+      "status": 403,
+      "title": "",
+      "excerpt": "",
+      "bytes": 0,
+      "error": "HTTP 403",
+      "fetched_at": "2026-08-31T16:59:21+00:00",
+      "social_links": [],
+      "og_title": "",
+      "og_description": "",
+      "key": "mse",
+      "label": "MoneySavingExpert cheap broadband"
+    },
+    {
+      "url": "https://www.moneysavingexpert.com/",
+      "ok": false,
+      "status": 403,
+      "title": "",
+      "excerpt": "",
+      "bytes": 0,
+      "error": "HTTP 403",
+      "fetched_at": "2026-08-31T16:59:21+00:00",
+      "social_links": [],
+      "og_title": "",
+      "og_description": "",
+      "key": "mse_home",
+      "label": "MoneySavingExpert home"
+    },
+    {
+      "url": "https://www.which.co.uk/reviews/broadband/article/best-cheap-fibre-and-broadband-deals-abddl2F4Vf5B",
+      "ok": true,
+      "status": 200,
+      "title": "Best broadband deals for August 2026: compare prices in your area - Which?",
+      "excerpt": "Best broadband deals for August 2026: compare prices in your area - Which?\nSkip to main content\nBack\n\nMy saved items\n\nMenu\nSearch\nSearch\nClose\nMenu\nClose\n\nMy saved items\n\nLog in\nJoin\n\nMy account\n\nManage Account\n\nAppointments\n\nLog out\n\nClose\n\nSearch\n\nHome\n\nTechnology\n\nBroadband, mobile and TV services\n\nBroadband\n\nBest broadband deals 2026\n\nBy clicking a retailer link you consent to third-party\ncookies\nthat track your onward journey. This enables W? to receive an\naffiliate commission\nif you make a purchase, which supports our mission to be the\nUK's consumer champion\n.\n\n21 Aug 2026\n\nBest broadband deals 2026\n\nLooking for the best broadband deals? Our experts have hand-picked the best value broadband-only, broadband and phone and broadband and TV deals from the cheapest providers\n\nFD\nFaye Dixon\nMarket Analyst\n\nFaye's experience in research and analysis makes her perfectly placed to help consumers understand the deals and providers worth considering in the energy, retail and telecoms markets.\n\nSave article\nIn this article\n\nHow to pick the best broadband deal\n\nFind the best broadband deals in your area\n\nBest broadband deals 2026\n\nOur picks – best all-rounder\n\nOur picks – best value ultra-fast broadband\n\nOur pick – best value for London: Community Fibre 1Gbps\n\nOther broadband-only deals to consider\n\nBest broadband and TV deals\n\nView more links\n\nIf you're coming to the end of your broadband deal or are currently out of contract, it could be a great time to make some savings on your monthly bills.\n\nWe've pulled out what we believe to be the best-value broadband deals from the biggest providers, plus regional deals that could help you save money in your area.\n\nHow to pick the best broadband deal\n\nWe highlight deals we think represent good value for money, but there's more than price to consider. Our reviews explain each provider's approach to price rises, and our\nbroadband comparison service\nclearly indicates how much prices will rise each year.\nYou'll also need to weigh up factors like customer service, speed and reliability. We rate each of these, and attribute an overall customer score to each broadband provider, in our\nregular broadband survey\n.\n\nCan I get a home phone with my broadband deal?\n\nWhile traditional landlines are now being replaced, many broadband providers do offer the option of a home phone setup, and should allow you to retain your phone number. This includes\nSky, Vodafone, BT, Plusnet, Virgin Media, NOW, TalkTalk and Zen.\nYou'll see if this is av",
+      "bytes": 381753,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:21+00:00",
+      "social_links": [
+        "https://www.facebook.com/dialog/share"
+      ],
+      "og_title": "Best broadband deals 2026 - Which?",
+      "og_description": "Looking for the best broadband deals? Our experts have hand-picked the best value broadband-only, broadband and phone and broadband and TV deals from the cheapest providers",
+      "key": "which",
+      "label": "Which? broadband deals"
+    },
+    {
+      "url": "https://www.broadbandchoices.co.uk/",
+      "ok": false,
+      "status": 403,
+      "title": "",
+      "excerpt": "",
+      "bytes": 0,
+      "error": "HTTP 403",
+      "fetched_at": "2026-08-31T16:59:22+00:00",
+      "social_links": [],
+      "og_title": "",
+      "og_description": "",
+      "key": "choices",
+      "label": "broadbandchoices hub"
+    },
+    {
+      "url": "https://www.choose.co.uk/broadband/",
+      "ok": true,
+      "status": 200,
+      "title": "Compare Broadband Deals in the UK | Latest Prices & Offers August 2026",
+      "excerpt": "Compare Broadband Deals in the UK | Latest Prices & Offers August 2026\nBroadband\n\nTV\n\nMobile\n\nNews & Insight\n\nMore\n\nBroadband\n\nHome Broadband\n\nTV & Broadband\n\nBusiness Broadband\n\nBroadband Guides\n\nTV\n\nTV & Broadband\n\nTV Packages\n\nTV Guides\n\nMobile\n\nMobile Phones\n\nMobile SIM Plans\n\nMobile Broadband\n\nMobile Guides\n\nNews & Insight\n\nMore\n\nTech Reviews\n\nInsurance\n\nHome\n>\nBroadband\n> Compare Broadband\n\nCompare Broadband\n\nCheck which broadband deals are available in your area, then compare packages by price, speed and availability - including options for new and switching customers.\n\nEnter your postcode to see what's available in your area\n\nEnter your postcode to see what's available in your area\n\nHow to find the best broadband deal for you\n\nThis broadband comparison is produced and maintained by Choose, under the editorial oversight of\nLyndsey Burton\n, Founder & Managing Director.\n\nHow does Choose compare broadband deals?\n\nChoose aims to help people around the UK better compare broadband deals by offering comprehensive comparison searches and tables.\n\nWe include both broadband only and broadband and phone packages in the search above, which can be filtered based on your own preferences. It's also possible to\ncompare broadband & TV bundles\nwith Choose as well.\n\nThe broadband deals shown are updated regularly to reflect changes in pricing, availability and offers.\n\nDeals are ordered using objective criteria such as price or speed, and never by referral revenue. You can change how results are ordered using the 'sort by' drop-down at the\ntop of the table\n.\n\nThe filter available can also help to find the right deal for you based on the broadband speed you need; whether you want a home phone line and any free calls; the contract term you can commit to; and whether you prefer any particular providers.\n\nWe cover the wider broadband market where we can, so that customers can compare broadband prices from all of the major providers, as well as many location specific full fibre networks, like KCOM in\nHull\nand Community Fibre in\nLondon\n, among others.\n\nOn this page, you can find deals from 30 different home broadband providers, including:\n\n4th Utility\nAirband\nBT\nCommunity Fibre\nCuckoo\nDirect Save Telecom\nFibrus Broadband\nGigaclear\nGoFibre\nHey! Broadband\nHighland Broadband\nHyperoptic\nKCOM\nLightSpeed Broadband\nLightning Fibre\nNOW Broadband\nOnestream\nPlusnet\nQuickline\nRebel Internet\nRise Fibre\nSky\nThe One\nToob\nTrooli\nVirgin Media\nVodafone\nYouFibre\nYour Co-op\nZzoomm\n\nTo see wha",
+      "bytes": 106905,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:22+00:00",
+      "social_links": [
+        "https://x.com/ChooseUK",
+        "https://www.facebook.com/ChooseUK"
+      ],
+      "og_title": "",
+      "og_description": "",
+      "key": "choose",
+      "label": "choose.co.uk broadband"
+    },
+    {
+      "url": "https://www.confused.com/broadband",
+      "ok": true,
+      "status": 200,
+      "title": "Broadband deals – Compare broadband today – Confused.com",
+      "excerpt": "Broadband deals – Compare broadband today – Confused.com\nhome\nConfused.com\nSkip navigation\n\nAsk Confused\nRewards\nSign in\n\nMenu\n\nCar\nCar\ninsurance\n\nTemporary car\ninsurance\n\nLearner driver car\ninsurance\n\nMulti-car\ninsurance\n\nBlack box\ninsurance\n\nYoung driver\ninsurance\n\nElectric car\ninsurance\n\nPay as you go\ninsurance\n\nNew driver car\ninsurance\n\nBreakdown\ncover\n\nEuropean\nbreakdown cover\n\nMotor excess\ninsurance\n\nGap\ninsurance\n\nClose\nGuides & calculators\n\nCar insurance guides\n\nFuel cost calculator\n\nEV-charging points\n\nPetrol prices\n\nMOT status check\n\nCar insurance calculator\n\nAverage car insurance cost\n\nYoung drivers support\n\nHome\nHome\ninsurance\n\nContents\ninsurance\n\nBuildings\ninsurance\n\nTenants\ninsurance\n\nNon-standard home\ninsurance\n\nSecond home\ninsurance\n\nStudent contents\ninsurance\n\nAirbnb\ninsurance\n\nHoliday home\ninsurance\n\nRenovation\ninsurance\n\nClose\nGuides & calculators\n\nContents calculator\n\nRebuild cost calculator\n\nTypes of burglar alarms\n\nUnderstanding types of home insurance\n\nHome insurance guides\n\nStudent hub\n\nTravel\nTravel\ninsurance\n\nSingle-trip travel\ninsurance\n\nAnnual travel\ninsurance\n\nBackpackers travel\ninsurance\n\nBusiness travel\ninsurance\n\nCruise travel\ninsurance\n\nGadget cover\n\nWinter sports travel\ninsurance\n\nMedical travel\ninsurance\n\nFamily travel\ninsurance\n\nGroup travel\ninsurance\n\nOver 70s travel\ninsurance\n\nClose\nGuides & calculators\n\nHoliday budget calculator\n\nPassport checker tool\n\nTourist tax calculator\n\nTravel cancellation cover\n\nTravelling to the USA? Don't forget ESTA\n\nWhat is the ETIAS?\n\nReplacement passports\n\nEmergency travel documents\n\nTravel insurance for non-UK residents\n\nVan\nVan\ninsurance\n\nCourier\ninsurance\n\nGoods in transit\ninsurance\n\nFleet\ninsurance\n\nCommercial van\ninsurance\n\nTemporary van\ninsurance\n\nCaravan\ninsurance\n\nMotorhome\ninsurance\n\nCampervan\ninsurance\n\nVan\nbreakdown cover\n\nClose\nGuides & calculators\n\nVan insurance guides\n\nVan insurance groups\n\nHow to save on van insurance\n\nIs my van insured?\n\nLife\nLife\ninsurance\n\nMortgage life\ninsurance\n\nCritical illness cover\n\nJoint life\ninsurance\n\nIncome protection\ninsurance\n\nHealth\ninsurance\n\nClose\nGuides & calculators\n\nLife insurance calculator\n\nLife insurance guides\n\nA beginners guide to life insurance\n\nHow much life insurance cover do I need?\n\nMotorbike\nMotorbike\ninsurance\n\nQuad\nbike insurance\n\nScooter\ninsurance\n\nImported bike\ninsurance\n\nOff-road\ninsurance\n\nMulti bike\ninsurance\n\nMotorcycle\nbreakdown cover\n\nClose\nGuides & calculators\n\nTypes of motorbikes explained\n\nMotorbike insurance guid",
+      "bytes": 152868,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:22+00:00",
+      "social_links": [
+        "https://www.facebook.com/confused",
+        "https://www.linkedin.com/company/confused-com/"
+      ],
+      "og_title": "Broadband",
+      "og_description": "Compare our best broadband deals from the UK’s top providers. Get quotes for fast, super and ultra-fibre broadband.",
+      "key": "confused",
+      "label": "Confused.com broadband"
+    },
+    {
+      "url": "https://www.broadband.co.uk/broadband",
+      "ok": true,
+      "status": 200,
+      "title": "Best Broadband Deals | BT, Sky, Virgin Media, Vodafone & more",
+      "excerpt": "Best Broadband Deals | BT, Sky, Virgin Media, Vodafone & more\nSkip to main content\n\nMenu\n\nBroadband Deals\n16\nBroadband\n\nAt Broadband Genie, you can save on broadband with the latest offers from the best providers.\n\nPopular deals\n\nAll broadband deals\n\nFull fibre broadband deals\n\nBroadband with no upfront costs\n\nBroadband and TV deals\n\nCheap broadband\n\nShort-term broadband\n\nOther deals\n\nBroadband social tariffs\n\nFixed price broadband deals\n\nBroadband only deals\n\nBroadband with free gifts\n\nBroadband with no credit check\n\nBroadband deals in your area\n\nBroadband Providers\n6\n\nBT broadband deals\n\nSky broadband deals\n\nVirgin Media broadband deals\n\nThree broadband deals\n\nNOW broadband deals\n\nVodafone broadband deals\n\nBroadband Reviews\n13\nBroadband Provider Reviews\n\nWant to know if a provider is right for you? We've got thousands of customer reviews for every major provider, so you can get all the information you need. You can\nsubmit your own review.\n\nTop reviews\n\nBT broadband reviews\n\nSky broadband reviews\n\nVirgin broadband reviews\n\nTalkTalk broadband reviews\n\nVodafone broadband reviews\n\nMore reviews\n\nNOW broadband reviews\n\nPlusnet broadband reviews\n\nEE broadband reviews\n\nThree broadband reviews\n\nOnestream reviews\n\nProviders compared\n3\n\nBT vs Sky broadband\n\nVirgin vs BT broadband\n\nSky vs Virgin broadband\n\nHome Broadband Awards\n\nGuides & Tools\n15\nBroadband help guides\n\nBecome a broadband expert with our help guides.\nTest your broadband speed\nand get a better broadband deal.\n\nTop guides\n\nBroadband price increases\n\nBroadband speed guide\n\nComparing TV Channels\n\nGaming broadband\n\nInstalling full fibre broadband\n\nMore guides\n\nWhat are altnets?\n\nFixed price broadband\n\nHow to stop video buffering\n\nLandline switch-off tips\n\nHow to switch broadband\n\nHelpful Tools\n\nTest your broadband speed\n\nBroadband deals checker\n\nCommunity & More\n\n11\nBroadband Genius Community\n& more\n\nGot a question about anything broadband? Head to our amazing, friendly Community forum for all the answers you need. Plus, other ways to keep in touch.\n\nCommunity\n\nJoin the community\n\nAsk a question\n\nAbout our community\n\nCommunity guidelines\n\nPress & Research\n\nNews\n\nMedia centre & spokespeople\n\nBroadband statistics\n\nBan mid-contract price rises\n\nSocial\n\nYouTube\n\nFacebook\n\nInstagram\n\nExcellent\n4.5 out of 5 based on\n2,066 reviews\n\nHome\n\nBroadband\n\nWe found\n151 deals\nfor you at:\n\nChange\nCurrent provider (optional)\nBT\nEE\nNOW\nPlusnet\nSky\nTalkTalk\nThree\nVirgin Media\nVodafone\nAirband\nBrsk\nCommunity Fibre\nCuckoo\nDire",
+      "bytes": 206776,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:22+00:00",
+      "social_links": [
+        "https://www.facebook.com/BroadbandGenie/",
+        "https://www.instagram.com/broadbandgenie/"
+      ],
+      "og_title": "Best Broadband Deals | BT, Sky, Virgin Media, Vodafone &amp; more",
+      "og_description": "Get a better broadband deal in minutes. Find deals with gift vouchers, save money and get faster speeds. No fuss, easy broadband comparison.",
+      "key": "broadband_co_uk",
+      "label": "broadband.co.uk hub"
+    },
+    {
+      "url": "https://www.topcashback.co.uk/",
+      "ok": true,
+      "status": 200,
+      "title": "TopCashback Official Site | The UK's #1 Cashback Site",
+      "excerpt": "TopCashback Official Site | The UK's #1 Cashback Site\n\nJoin\nLog in\n\nSave more,\nShop smarter,\nGet Cashback.\n\nStart Earning\nMember Log In\n\nUK's leading\nCashback site\n\nTrustpilot\n\n10+\nawards won\n\n25m+\n\nmembers globally\n\nGet Cashback online or in-store...\n\nfrom pizza to plane tickets...\n\npaid how you want, when you want.\n\nSave £100s a year with over 5,500 top brands\n\nStart Earning\n\nI want to know...\n\nHow does TopCashback make money?\n\nWe're simply supported by sponsored adverts and promotions dotted around the site and sometimes retailers will also pay us a bonus if we send a lot of shoppers their way.\n\nWill it cost me anything?\n\nTopCashback is completely free to join, and if you opt for a Classic account then there won't be any charges whatsoever.\nIf you opt for a Plus account, then £5 of your annual cashback earnings will be deducted and you'll receive a range of additional benefits.\n\nHow does cashback work?\n\nWhen you make a purchase from a retailer featured on TopCashback after clicking through from our site, the retailer will give us a commission for sending you to their website. We share this commission with you when you earn money, which we call 'cashback' and is actually paid by the retailer. Then, we'll make your cashback 'payable' for you to withdraw and spend.\n\nWhen will I actually get my cashback?\n\nCashback should appear on your Earnings page within 7 days of your purchase, but it usually isn't ready to withdraw straight away. We need to wait until the retailer's returns period is over before they confirm your cashback, and then once the retailer has paid us the commission for your purchase, we'll make your cashback 'payable' and ready to withdraw and spend.\n\nWhat can I get cashback on?\n\nYou’ll find great cashback rates on everything such as airport parking & car hire, home insurance, mobile phones including the latest iPhones and Samsungs, as well as your favourite fashion and homeware brands. Unlike other UK cashback sites, you can compare cheap broadband deals and insurance policies to find the best offer for you, with cashback on top. Almost all of your online purchases will be eligible; browse over 5,500 retailers to start saving money.\n\nWhat payout methods are available?\n\nWithdrawing your cashback rewards is easy and you can do it in more than 60 different ways, such as to your bank account, PayPal account or as gift card, which can include a bonus of up to 20%. Some of our most popular gift cards include: Virgin Experience Days, Just Eat, Amaz",
+      "bytes": 135145,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:22+00:00",
+      "social_links": [
+        "https://www.facebook.com/topcashback",
+        "https://twitter.com/Top_CashBack",
+        "https://www.instagram.com/top_cashback",
+        "https://www.linkedin.com/company/top-cashback"
+      ],
+      "og_title": "TopCashback.co.uk: The UK’s #1 Cashback & Vouchers Site",
+      "og_description": "TopCashback is the most generous free cashback and voucher website. Save money on purchases through thousands of merchants online and in-store.",
+      "key": "topcashback",
+      "label": "TopCashback (affiliate)"
+    },
+    {
+      "url": "https://datareportal.com/reports/digital-2026-united-kingdom",
+      "ok": true,
+      "status": 200,
+      "title": "Digital 2026: The United Kingdom — DataReportal – Global Digital Insights",
+      "excerpt": "Digital 2026: The United Kingdom — DataReportal – Global Digital Insights\n\n☰\n\nBack\nHOME\nREPORTS\nABOUT\nCONTACT\nNEWSLETTER\n\n☰\nHOME\nREPORTS\nABOUT\nCONTACT\nNEWSLETTER\n\nDigital 2026: The United Kingdom\n\nADVERTISEMENT\n\nNEED THE LATEST DATA?\n\nWe publish regular updates to content in the\nGlobal Digital Reports\nseries.\n\nPlease\nclick here\nto ensure you’re using our latest data for the United Kingdom.\n\nThis page contains all the data, insights, and trends you need to help you understand how people in\nthe United Kingdom\nuse digital devices, online platforms, and connected services in\n2026\n.\n\nIf you want to know whether this is our most recent report on the UK, or if you’re looking for data on digital trends and behaviours in the United Kingdom for other years, you can find\nDataReportal\n’s full collection of (\nfree!\n) reports on the United Kingdom by\nclicking here\n.\n\nYou’ll also find the complete\nDigital 2026\nreport for the United Kingdom in the “\nfull report\n” section towards the bottom of this page, but we’ll start this article by taking a look at the essential headline numbers for the United Kingdom this year.\n\nJust before that, we’d like to say a big thank you to\nMeltwater\nand to\nWe Are Social\nfor their support of this year’s report.\n\nA note on dates\n\nTo align our reporting more closely with our readers’ digital planning cycles, please be aware that we published our\nDigital 2026\nreports at the end of 2025.\n\nAs a result, many of the data points we’ll reference in this article are from late\n2025\n.\n\nFor reassurance, these data points reflect the latest available data in October 2025, so they’re still highly representative of digital adoption and evolving preferences and behaviours in the United Kingdom in 2026.\n\nHowever, because we’ve changed our publication cycle since our Digital 2025 reports, please pay close attention to the dates and time periods stated in this article and in our accompanying Digital 2026 reports, and\navoid\ncalculating values for change over time by referencing data published in our previous reports and articles.\n\nWe’ve included a wealth of figures for change over time within this article, and you’ll find even more within the full report at the bottom of this page.\n\nOK, ready to start exploring the data?\n\nADVERTISEMENT\n\nThe “state of digital” in the United Kingdom in 2026\n\nHere are\nDataReportal\n’s essential headlines for the adoption and use of connected devices and services in the UK in 2026:\n\nA total of\n99.3 million\ncellular mobile connections w",
+      "bytes": 149619,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:23+00:00",
+      "social_links": [
+        "http://www.facebook.com/2008/fbml",
+        "http://www.linkedin.com/company/datareportal",
+        "http://x.com/datareportal",
+        "http://www.facebook.com/datareportal",
+        "http://instagram.com/datareportal"
+      ],
+      "og_title": "Digital 2026: The United Kingdom &mdash; DataReportal – Global Digital Insights",
+      "og_description": "All the data, insights, and trends you need to help you make sense of the “state of digital” in the United Kingdom in 2026, including detailed statistics for internet use, social media use, and mobile use, as well as user numbers for all the top social platforms.",
+      "key": "datareportal",
+      "label": "DataReportal Digital 2026 UK"
+    },
+    {
+      "url": "https://www.marketing-beat.co.uk/2025/08/04/uswitch-appoints-wilderness/",
+      "ok": true,
+      "status": 200,
+      "title": "Uswitch appoints social media agency - Marketing Beat",
+      "excerpt": "Uswitch appoints social media agency - Marketing Beat\n\nHome\n\nNews\nAgencies\n\nBrands\n\nBroadcast\n\nCreative and Campaigns\n\nInnovation and Tech\n\nMarketing Strategy\n\nPeople\n\nResearch and Data\n\nSocial Media\n\nFeatures\nBest in Class\n\nFace to Face\n\nIn Profile\n\nOpinion\n\nThe Good, the Bad and the Ugly\n\nThis Week in Marketing\n\nWhy it Works\n\nResources\n\nWord of Mouth\n\nThe Marketing Labs\n\nNewsletter\n\nAbout Us\nContact\n\nAdvertising\n\nOur other sites\nRetail Gazette\n\nGrocery Gazette\n\nCharged Retail\n\nHome\n\nNews\nAgencies\n\nBrands\n\nBroadcast\n\nCreative and Campaigns\n\nInnovation and Tech\n\nMarketing Strategy\n\nPeople\n\nResearch and Data\n\nSocial Media\n\nFeatures\nBest in Class\n\nFace to Face\n\nIn Profile\n\nMarketing Bites Podcast\n\nOpinion\n\nThis Week in Marketing\nThe Good, the Bad and the Ugly\n\nWhy it Works\n\nResources\n\nWord of Mouth\n\nThe Marketing Labs\n\nFree Newsletter\n\nAbout Us\nContact\n\nAdvertising\n\nOur other sites\nRetail Gazette\n\nGrocery Gazette\n\nCharged Retail\n\nUswitch appoints social media agency\n\n4th August 2025\nTom West\n\nAgencies\nBrands\nNews\n\nPrice comparison service Uswitch has appointed Wilderness ad its new social media agency of record, ahead of a major 25th anniversary campaign breaking in the autumn.\n\nFirst reported in\nCampaign\n, the move will see the Havas Play-owned agency leading\nthe brand’s\norganic social media strategy, with a focus on expanding its presence on TikTok, as well as providing consultancy across\nInstagram\nand Facebook.\n\n“In a time when people are navigating major financial pressures, finding authentic ways to engage and support our audience is critical,” said Charlotte Nunes, brand communications director at Uswitch.\n\nSubscribe to Marketing Beat for free\n\nSign up here to get the latest agency-related news sent straight to your inbox each morning\n\n“Wilderness’ expertise in social transformation and creative storytelling gives us confidence that together we can deliver content that resonates deeply and empowers consumers to take control of their money.”\n\nWilderness’ strategy for the Uswitch account will reportedly be centred around the “major life stages” of the Gen Z and millennial demographic groups.\n\nTom Jarvis, MD of Wilderness added: “If there was ever a moment for Uswitch to strengthen its connection with younger audiences, it’s now.\n\n“Gen Z and millennials are navigating major financial decisions with limited support, but the likes of TikTok offer a powerful platform to deliver honest, practical advice that cuts through all the conflicting messages. We’re pr",
+      "bytes": 220931,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:23+00:00",
+      "social_links": [
+        "https://www.linkedin.com/company/grocery-gazette",
+        "https://twitter.com/GazetteGrocery",
+        "https://www.facebook.com/Grocery-Gazette-100312315629844",
+        "https://www.facebook.com/MarketingBeat/",
+        "https://twitter.com/MarketingBeatUK",
+        "https://www.linkedin.com/company/marketingbeat"
+      ],
+      "og_title": "Uswitch appoints social media agency - Marketing Beat",
+      "og_description": "Uswitch has appointed Wilderness ad its new social media agency of record, ahead of a major 25th anniversary campaign breaking in the autumn.",
+      "key": "uswitch_agency",
+      "label": "Uswitch Wilderness social AOR"
+    },
+    {
+      "url": "https://www.marketingweek.com/moneysupermarket-chatgpt-ppc-marketing-loyalty/",
+      "ok": true,
+      "status": 200,
+      "title": "MoneySuperMarket partners with ChatGPT as PPC costs continue to rise",
+      "excerpt": "MoneySuperMarket partners with ChatGPT as PPC costs continue to rise\n\nNews\n\nInsight\n\nColumnists\n\nAwards\n\nNewsletters\n\nKnowledge Bank\n\nFestival of Marketing\n\nAll sections\n\nLogin\nSubscribe\nSearch\nMenu\n\nMoneySuperMarket says ChatGPT tie-up is ‘just the start’ of its AI investment\n\nThrough its ChatGPT partnership, MoneySuperMarket is looking to be a “structural winner” in the world of AI while simultaneously investing in loyalty and marketing.\n\nBy\nAmrit Virdi\n23 Feb 2026\n12:49 pm\n\nX\n\nFacebook\n\nLinkedIn\n\nThe MONY Group is heading into 2026 with significant investments in AI and loyalty to enhance its customer experience offering.\n\nThe MONY Group is heading into 2026 with significant investments in AI and loyalty to enhance its customer experience offering.\n\nLast week, the group announced that MoneySuperMarket services can be accessed directly within the ChatGPT app, making it the first UK financial services and price comparison service to do so. This is hoped to make advice even faster and more personalised.\n\nIn its preliminary results today (23 February) for the year ending 31 December 2025, MONY Group CEO Peter Duffy said this development is “just the start” of the brand’s tech and data investment, as the team “absolutely recognises that consumers will be going to LLM interfaces to ask and have answered all sorts of broad questions”.\n\nHe claimed the brand will still operate as a “regulated intermediary” on ChatGPT, and the partnership “brings together” the “probabilistic world of ChatGPT” with the “deterministic” and regulated answers MoneySuperMarket can provide.\n\n“This is very much about taking a service that exists on dot-com and app, and taking that into the ChatGPT environment,” said Duffy, adding that he hopes the brand will be a “structural winner in this world of AI”.\n\nThe AI advancements are happening alongside the launch of two new products, Savings by MoneySuperMarket and Price Optimise, another AI tool. Duffy said that, already, it has seen 100 times the level of clickthrough from Price Optimise than it has from the new ChatGPT product.\n\nIncreased marketing spend\n\nThese developments are happening against a backdrop of increased marketing spend for the group.\n\nThe group’s marketing spend for 2025 was £194m, compared to £183m in 2024. Of this spend, 8% (£98m) was spent on online, compared to £91m in 2024. Some 2% (£50m) was spent on cashback and rewards compared to £49m in the year prior, and 8% (£26m) was spent on TV and radio. Additionally, 30% (£",
+      "bytes": 162564,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:25+00:00",
+      "social_links": [
+        "https://twitter.com/marketingweeked",
+        "https://www.linkedin.com/company/marketing-week/",
+        "https://www.facebook.com/marketingweek",
+        "https://www.instagram.com/marketingweeked/"
+      ],
+      "og_title": "MoneySuperMarket partners with ChatGPT as PPC costs continue to rise",
+      "og_description": "Through its ChatGPT partnership, MoneySuperMarket is looking to be a “structural winner” in the world of AI while simultaneously investing in loyalty and marketing.",
+      "key": "msm_chatgpt",
+      "label": "MSM ChatGPT + marketing mix 2026"
+    },
+    {
+      "url": "https://www.independent.co.uk/money/britons-tiktok-nationwide-b2939028.html",
+      "ok": true,
+      "status": 200,
+      "title": "Young adults trust group chats and TikTok more than financial websites – poll | The Independent",
+      "excerpt": "Young adults trust group chats and TikTok more than financial websites – poll | The Independent\nThank you for registering\n\nPlease refresh the page or navigate to another page on the site to be automatically logged in\nPlease refresh your browser to be logged in\n\nJump to content\n\nOpen full menu\n\nUK Edition\n\nUS Edition\nAsia Edition\nEdición en Español\n\nLog in\nLog\nin\n\nNews\n\nPremium\n\nSport\n\nVoices\n\nCulture\n\nLifestyle\n\nIndyBest\n\nTravel\n\nMore\n\nSwipe for next article\n\nMoney\n\nYoung adults trust group chats and TikTok more than financial websites – poll\n\nAlmost three quarters of 18 to 28 year olds (71%) use messaging apps and online groups to find money-saving tips and tricks, a survey found.\n\nJosie Clarke\nMonday 16 March 2026 00:01 GMT\n\nBookmark\n\nBookmark popover\n\nRemoved from bookmarks\n\nClose popover\n\nopen image in gallery\n\nOver a long-term period, automation can help put you in a more financially stable position\n(\nAlamy/PA\n)\n\nSign up to our free money newsletter for investment analysis and expert advice to help you build wealth\n\nSign up to our free money email for help building your wealth\n\nSign up to our free money email for help building your wealth\n\nEmail\n*\n\nSIGN UP\n\nI would like to be emailed about offers, events and updates from The Independent. Read our\nPrivacy notice\n\nAlmost half (43%) of young\nBritons\nsay they trust financial tips shared in their group chats more than those found on financial websites, a survey suggests.\n\nAlmost three quarters of 18 to 28-year-olds (71%) use messaging apps and online groups to find money-saving tips and tricks, the poll for\nNationwide\nfound.\n\nSome 36% use online group chats to find discount codes, supermarket price drops (30%) and restaurant deals (22%), while 82% claim such spaces have directly shaped their money-saving habits.\n\nopen image in gallery\n\nTikTok was favoured by 48% of those surveyed for financial advice (PA)\n(\nPA Archive\n)\n\nThe poll found that 25 to 34-year-olds are aiming to save an average of £7,536 this year.\n\nMethods to save money included cutting back on nights out (37%) and taking on “side hustles” (32%).\n\nOn average, 18 to 28-year-olds had saved up to £512 a year as a result, more than £200 more than their parents.\n\nThe survey found many are also turning to social media for financial advice and practical money-saving strategies, with 48% favouring\nTikTok\n.\n\nRichard Stocker, head of savings at Nationwide, said: “Young people are re-writing the rulebook when it comes to money, and it’s encouraging to see",
+      "bytes": 195276,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:25+00:00",
+      "social_links": [
+        "https://www.facebook.com/TheIndependentOnline",
+        "https://twitter.com/Independent",
+        "https://www.linkedin.com/company/the-independent/jobs/"
+      ],
+      "og_title": "Young adults trust group chats and TikTok more than financial websites – poll",
+      "og_description": "Almost three quarters of 18 to 28 year olds (71%) use messaging apps and online groups to find money-saving tips and tricks, a survey found.",
+      "key": "nationwide_tiktok",
+      "label": "Young UK money advice on TikTok"
+    },
+    {
+      "url": "https://creatorflow.so/blog/instagram-business-account-setup-checklist/",
+      "ok": true,
+      "status": 200,
+      "title": "Instagram Business Account Setup: 12-Step Checklist",
+      "excerpt": "Instagram Business Account Setup: 12-Step Checklist\nCreatorFlow\nSolutions\nLINK\n\nyourshop.link\n\nComment to DM, automatically\nSee how a single reel turns into emails and sales, automatically.\nWatch it work\n\nBy Use Case\n\nComment-to-DM\nAuto-Send Links\nLead Capture\nStory Replies\n\nBy Creator Type\n\nContent Creators\nAffiliate Creators\nCoaches & Educators\nService Businesses\n\nAgencies\n\nPricing\n\nResources\nHow It Works\nFree Tools\nBlog\nHelp Center\nAffiliate Program\n\nLog in\nGet Started Free\n\nCreatorFlow\n\nSolutions\nBy use case\n\nComment-to-DM\nAuto-Send Links\nLead Capture\nStory Replies\nBy creator type\n\nContent Creators\nAffiliate Creators\nCoaches & Educators\nService Businesses\n\nResources\nHow It Works\nFree Tools\nBlog\nHelp Center\nAffiliate Program\n\nAgencies\nPricing\n\nLog in\nGet Started Free\n\nHome\n/\nBlog\n/\nSocial Media Guides\n/\nInstagram Business Account Setup: 12-Step Checklist\nInstagram Business Account Setup: 12-Step Checklist\n\nSwitched to a Business account but not sure what to configure? Set up category, action buttons, Shopping, DM automation, and more. Verified May 2026.\n\nC\nWritten by\nCristian\n\nV\nReviewed by\nVytas\n\nUpdated\nAug 18, 2026\nExpert Verified\n\nTable of Contents\n\nKey Takeaways\n\nInstagram Business Account Setup in 30 Minutes\n\nBefore You Start: Confirm You're On a Professional Account\n\nStep 1: Pick the Right Category\n\nStep 2: Optimize Your Name and Bio\n\nStep 3: Add Contact Buttons (Email, Phone, Directions)\n\nStep 4: Add One Action Button\n\nStep 5: Link Your Facebook Page\n\nStep 6: Open the Professional Dashboard and Set Two Goals\n\nStep 7: Set Up Instagram Shopping (If You Sell Products)\n\nStep 8: Configure Your Bio Link Strategically\n\nStep 9: Connect DM Automation\n\nStep 10: Plan Content Around 2026 Ranking Signals\n\nStep 11: The Reach Drop Myth\n\nStep 12: Avoid These Common Business Account Mistakes\n\nTurn Your Business Profile Into a Lead Engine\n\nFAQ\n\nA proper Instagram Business account setup goes beyond switching account type. After conversion, configure your category, name and bio, contact buttons (email, phone, directions), one action button (Book Now, Reserve, Order Food), link a Facebook Page, open the Professional Dashboard, set up Shopping if eligible, optimize the bio link, and connect DM automation through Meta’s Graph API. None of these are optional if you want the profile to convert.\n\nYou hit “Switch to Business” and Instagram dropped you back on your feed like nothing happened. No checklist. No “here’s what to do next.” Most creators stop there, then wonder ",
+      "bytes": 107768,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:25+00:00",
+      "social_links": [
+        "https://twitter.com/creatorflowso",
+        "https://www.instagram.com/creatorflow.so",
+        "https://www.linkedin.com/company/creatorflow/",
+        "https://x.com/i/grok",
+        "https://www.instagram.com/creatorflow.so/",
+        "https://www.linkedin.com/company/creatorflow-so/"
+      ],
+      "og_title": "Instagram Business Account Setup: 12-Step Checklist",
+      "og_description": "Switched to a Business account but not sure what to configure? Set up category, action buttons, Shopping, DM automation, and more. Verified May 2026.",
+      "key": "ig_setup_checklist",
+      "label": "Instagram business setup checklist 2026"
+    },
+    {
+      "url": "https://magnt.com/instagram-branding-guide",
+      "ok": true,
+      "status": 200,
+      "title": "Instagram Branding Guide (2026) | Magnt",
+      "excerpt": "Instagram Branding Guide (2026) | Magnt\n\nCreate\n✨\nAI Logo Generator\n\nCreate unique logos\n\n📦\nMarketing Assets\n\nSocial & print ready\n\n📖\nBrand Guidelines\n\nComplete brand kit\n\n🌐\nWebsite Builder\n\nLaunch your site\n\nSolutions\nBy Business Type\n\nSmall Businesses\nEntrepreneurs\nMarketing Agencies\nStartups\n\nBy Industry\n\nHealthcare\nRestaurants\nRetail\n\nIndustries\nFeatures\nPricing\nBlog\nResources\nFree Resources\nBrand Audit\nSocial Media Branding\nTemplates\n\nLogin\nGet Started\n\nSocial Media Branding Series\n\nInstagram Branding Guide: Build a Scroll-Stopping Brand Presence\n\nMaster Instagram branding for the world's most visual platform. Learn profile optimization, feed aesthetics, Stories, Reels, and visual identity strategies that make your brand impossible to scroll past.\n\nBy Vik Chadha\n•\nUpdated April 1, 2026\n•\n15 min read\n\nGet Instagram Checklist\nView All Platform Guides\n\nThis guide is part of our\nSocial Media Branding Hub\n\nInstagram\n\nVisual Identity\n\nProfile Optimization\n\nTable of Contents\n\n1. Why Instagram Demands Strong Branding\n2. Profile Optimization\n3. Visual Identity on Instagram\n4. Feed Aesthetic Strategies\n5. Stories & Reels Branding\n6. Brand Voice on Instagram\n7. Hashtag Strategy\n8. Instagram Brand Kit Essentials\n9. Common Mistakes to Avoid\n10. Complete Instagram Branding Checklist\n\nInstagram is the world's most visual social platform with over\n2 billion monthly active users\n. For brands, it's often the first place potential customers discover you—and on Instagram, you have less than a second to make an impression.\n\nStrong Instagram branding isn't just about having a nice-looking feed. It's about creating a consistent, recognizable presence that builds trust and converts followers into customers.\n90% of Instagram users follow at least one business\n, and well-branded accounts see\n2-3x higher engagement rates\n.\n\nWhat You'll Learn\n\nProfile optimization that converts visitors to followers\n\nFeed aesthetic strategies for a cohesive grid\n\nStories and Reels branding without being corporate\n\nInstagram-specific brand voice guidelines\n\nComplete Instagram brand kit checklist\n\nWhy Instagram Demands Strong Branding\n\nInstagram is a visual-first platform where aesthetics matter more than anywhere else. Your brand competes with millions of images daily for attention. Here's why branding is critical:\n\nFirst Impressions\n\nUsers decide to follow within seconds of landing on your profile. A cohesive, professional appearance signals credibility.\n\nGrid = Your Storefront\n\nYour Instagram g",
+      "bytes": 340648,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:25+00:00",
+      "social_links": [
+        "https://twitter.com/vikchadha",
+        "https://www.linkedin.com/company/magnt",
+        "https://www.facebook.com/magnt",
+        "https://x.com/magnt",
+        "https://www.instagram.com/magnthq"
+      ],
+      "og_title": "Instagram Branding Guide (2026)",
+      "og_description": "Master Instagram branding with our complete guide to profile optimization, feed aesthetics, Stories, Reels, and visual identity strategies.",
+      "key": "ig_branding",
+      "label": "Instagram branding guide 2026"
+    },
+    {
+      "url": "https://www.socialmediatoday.com/news/instagram-stresses-the-importance-of-captions/828554/",
+      "ok": true,
+      "status": 200,
+      "title": "Instagram stresses the importance of captions | Social Media Today",
+      "excerpt": "Instagram stresses the importance of captions | Social Media Today\nSkip to main content\nDon't miss tomorrow's social media industry news\n\nLet Social Media Today's free newsletter keep you informed, straight from your inbox.\n\nBy signing up to receive our newsletter, you agree to our\nTerms of Use\nand\nPrivacy Policy\n. You can unsubscribe at anytime.\n\nInforma TechTarget\n|\nCX Dive\n\nMarketing Dive\n\nExplore our brands\nAn Informa TechTarget Publication\n\nLibrary\n\nEvents\n\nPress Releases\n\nTopics\n\nSubscribe\n\nSubscribe\n\nSearch\n\nFacebook\n\nTikTok\n\nInstagram\n\nSnapchat\n\nPinterest\n\nX (Twitter)\n\nLinkedIn\n\nLive Twitter Chat\n\nSMT Experts\n\nBecome a Contributor\n\nAn article from\n\nInstagram stresses the importance of captions\n\nThe platform offered guidance on what makes text compelling and said creators should aim to tell a story or offer useful information.\n\nPublished Aug. 23, 2026\n\nBy\nAndrew Hutchinson\nContent and Social Media Manager\n\nShare\nCopy link\n\nEmail\n\nLinkedIn\n\nX/Twitter\n\nFacebook\n\nPrint\n\nLicense\n\nAdd us on Google\n\nListen to the article\n2 min\nThis audio is auto-generated. Please let us know if you have\nfeedback\n.\n\nInstagram recently shared guidance on how to\nwrite compelling post captions\nso that marketers can maximize interest in their content, and improve the discovery potential of their posts.\n\nVisuals, of course, are Instagram’s main focus, but captions play a key role in providing context, both to human viewers and to Instagram’s sorting systems. That makes captions an important factor in creating effective content.\n\nAs per Instagram: “Captions add relevant context, spark conversation, and tell search engines what your content is about: making them a key part of your content strategy.”\n\nInstagram provided the following tips:\n\nHave a strong opening line: Only the first two lines of the caption will be visible before the “more” CTA, so creators should lead with something compelling. Instagram suggested asking a question, sharing a surprising fact or teasing other elements to drive people to tap the more button.\n\nTell a story: Instagram said the best captions either tell a personal story or provide useful information that the audience will want to save or share. Creators should consider whether viewers would want to screenshot the caption or share it with a friend.\n\nInclude a CTA: Instagram said creators should provide explicit guidance on what they want their audience to do next in the caption. “Invite them to save for later,” the company said. “Direct them to a link ",
+      "bytes": 255727,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:26+00:00",
+      "social_links": [
+        "https://www.instagram.com/p/Db_N-P6kbt2/",
+        "https://www.linkedin.com/company/599586/",
+        "https://www.facebook.com/socmediatoday",
+        "https://twitter.com/socialmedia2day",
+        "https://www.instagram.com/socialmediatoday/"
+      ],
+      "og_title": "",
+      "og_description": "",
+      "key": "ig_captions_meta",
+      "label": "Instagram on captions 2026"
+    },
+    {
+      "url": "https://www.instagram.com/monzo/",
+      "ok": true,
+      "status": 200,
+      "title": "monzo • Instagram photos and videos",
+      "excerpt": "monzo • Instagram photos and videos",
+      "bytes": 727804,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:27+00:00",
+      "social_links": [
+        "https://www.instagram.com/monzo/",
+        "https://instagram.com/_u/monzo/"
+      ],
+      "og_title": "monzo &#x2022; Instagram photos and videos",
+      "og_description": "120K followers, 51 following, 324 posts &#x2013; see Instagram photos and videos from &#064;monzo",
+      "key": "ig_monzo",
+      "label": "Monzo Instagram (professional UK consumer)"
+    },
+    {
+      "url": "https://www.instagram.com/octopusenergy/",
+      "ok": true,
+      "status": 200,
+      "title": "Octopus Energy (@octopusenergy) • Instagram photos and videos",
+      "excerpt": "Octopus Energy (@octopusenergy) • Instagram photos and videos",
+      "bytes": 749362,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:27+00:00",
+      "social_links": [
+        "https://www.instagram.com/octopusenergy/",
+        "https://instagram.com/_u/octopusenergy/"
+      ],
+      "og_title": "Octopus Energy (&#064;octopusenergy) &#x2022; Instagram photos and videos",
+      "og_description": "152K followers, 144 following, 527 posts &#x2013; see Instagram photos and videos from Octopus Energy (&#064;octopusenergy)",
+      "key": "ig_octopus",
+      "label": "Octopus Energy Instagram"
+    },
+    {
+      "url": "https://www.instagram.com/whichuk/",
+      "ok": true,
+      "status": 200,
+      "title": "Which? (@whichuk) • Instagram photos and videos",
+      "excerpt": "Which? (@whichuk) • Instagram photos and videos",
+      "bytes": 733059,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:28+00:00",
+      "social_links": [
+        "https://www.instagram.com/whichuk/",
+        "https://instagram.com/_u/whichuk/"
+      ],
+      "og_title": "Which? (&#064;whichuk) &#x2022; Instagram photos and videos",
+      "og_description": "522K followers, 1,425 following, 2,709 posts &#x2013; see Instagram photos and videos from Which? (&#064;whichuk)",
+      "key": "ig_which",
+      "label": "Which? Instagram"
+    },
+    {
+      "url": "https://www.instagram.com/moneysavingexpert/",
+      "ok": true,
+      "status": 200,
+      "title": "Instagram",
+      "excerpt": "Instagram",
+      "bytes": 620012,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:29+00:00",
+      "social_links": [],
+      "og_title": "",
+      "og_description": "",
+      "key": "ig_mse",
+      "label": "MoneySavingExpert Instagram"
+    },
+    {
+      "url": "https://www.instagram.com/uswitch/",
+      "ok": true,
+      "status": 200,
+      "title": "(@uswitch) • Instagram photos and videos",
+      "excerpt": "(@uswitch) • Instagram photos and videos",
+      "bytes": 722620,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:29+00:00",
+      "social_links": [
+        "https://www.instagram.com/uswitch/",
+        "https://instagram.com/_u/uswitch/"
+      ],
+      "og_title": " (&#064;uswitch) &#x2022; Instagram photos and videos",
+      "og_description": "33 followers, 307 following, 12 posts &#x2013; see Instagram photos and videos from  (&#064;uswitch)",
+      "key": "ig_uswitch",
+      "label": "Uswitch Instagram"
+    },
+    {
+      "url": "https://www.instagram.com/comparethemarket/",
+      "ok": true,
+      "status": 200,
+      "title": "Compare the Market (@comparethemarket) • Instagram photos and videos",
+      "excerpt": "Compare the Market (@comparethemarket) • Instagram photos and videos",
+      "bytes": 701882,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:30+00:00",
+      "social_links": [
+        "https://www.instagram.com/comparethemarket/",
+        "https://instagram.com/_u/comparethemarket/"
+      ],
+      "og_title": "Compare the Market (&#064;comparethemarket) &#x2022; Instagram photos and videos",
+      "og_description": "25K followers, 3 following, 491 posts &#x2013; see Instagram photos and videos from Compare the Market (&#064;comparethemarket)",
+      "key": "ig_ctm",
+      "label": "Compare the Market Instagram"
+    },
+    {
+      "url": "https://www.instagram.com/starlingbank/",
+      "ok": true,
+      "status": 200,
+      "title": "Starling (@starlingbank) • Instagram photos and videos",
+      "excerpt": "Starling (@starlingbank) • Instagram photos and videos",
+      "bytes": 735914,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:31+00:00",
+      "social_links": [
+        "https://www.instagram.com/starlingbank/",
+        "https://instagram.com/_u/starlingbank/"
+      ],
+      "og_title": "Starling (&#064;starlingbank) &#x2022; Instagram photos and videos",
+      "og_description": "51K followers, 171 following, 1,403 posts &#x2013; see Instagram photos and videos from Starling (&#064;starlingbank)",
+      "key": "ig_starling",
+      "label": "Starling Bank Instagram"
+    },
+    {
+      "url": "https://www.instagram.com/virginmedia/",
+      "ok": true,
+      "status": 200,
+      "title": "Virgin Media (@virginmedia) • Instagram photos and videos",
+      "excerpt": "Virgin Media (@virginmedia) • Instagram photos and videos",
+      "bytes": 747538,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:32+00:00",
+      "social_links": [
+        "https://www.instagram.com/virginmedia/",
+        "https://instagram.com/_u/virginmedia/"
+      ],
+      "og_title": "Virgin Media (&#064;virginmedia) &#x2022; Instagram photos and videos",
+      "og_description": "46K followers, 340 following, 1,220 posts &#x2013; see Instagram photos and videos from Virgin Media (&#064;virginmedia)",
+      "key": "ig_virgin",
+      "label": "Virgin Media Instagram"
+    },
+    {
+      "url": "https://www.instagram.com/ee/",
+      "ok": true,
+      "status": 200,
+      "title": "EE (@ee) • Instagram photos and videos",
+      "excerpt": "EE (@ee) • Instagram photos and videos",
+      "bytes": 746312,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:32+00:00",
+      "social_links": [
+        "https://www.instagram.com/ee/",
+        "https://instagram.com/_u/ee/"
+      ],
+      "og_title": "EE (&#064;ee) &#x2022; Instagram photos and videos",
+      "og_description": "103K followers, 80 following, 416 posts &#x2013; see Instagram photos and videos from EE (&#064;ee)",
+      "key": "ig_ee",
+      "label": "EE Instagram"
+    },
+    {
+      "url": "https://www.instagram.com/hyperoptic/",
+      "ok": true,
+      "status": 200,
+      "title": "Hyperoptic (@hyperoptic) • Instagram photos and videos",
+      "excerpt": "Hyperoptic (@hyperoptic) • Instagram photos and videos",
+      "bytes": 726894,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:33+00:00",
+      "social_links": [
+        "https://www.instagram.com/hyperoptic/",
+        "https://instagram.com/_u/hyperoptic/"
+      ],
+      "og_title": "Hyperoptic (&#064;hyperoptic) &#x2022; Instagram photos and videos",
+      "og_description": "5,549 followers, 459 following, 305 posts &#x2013; see Instagram photos and videos from Hyperoptic (&#064;hyperoptic)",
+      "key": "ig_hyperoptic",
+      "label": "Hyperoptic Instagram"
+    },
+    {
+      "url": "https://replysocial.co/blog/x-character-limit-2026",
+      "ok": true,
+      "status": 200,
+      "title": "ReplySocial",
+      "excerpt": "ReplySocial",
+      "bytes": 4489,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:34+00:00",
+      "social_links": [
+        "https://x.com/replysocial"
+      ],
+      "og_title": "ReplySocial",
+      "og_description": "",
+      "key": "x_limits",
+      "label": "X bio and profile limits 2026"
+    },
+    {
+      "url": "https://x.com/WhichUK",
+      "ok": true,
+      "status": 200,
+      "title": "Which? (@WhichUK) / X",
+      "excerpt": "Which? (@WhichUK) / X\n\nLog in or sign up for X\n\nSee what’s happening and join the conversation\n\nContinue with phone\n\nor\n\nLog in with username or email\n\nTerms\n·\nPrivacy\n·\nCookies\n·\nAccessibility\n·\nAds Info\n·\nMore\n© 2026 X Corp.",
+      "bytes": 24187,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:34+00:00",
+      "social_links": [
+        "https://x.com/WhichUK",
+        "https://x.com/sitemap.xml",
+        "https://x.com/tos",
+        "https://x.com/privacy"
+      ],
+      "og_title": "Which? (@WhichUK) on X",
+      "og_description": "Which? is the UK’s consumer champion, here to make life simpler, fairer and safer for everyone.",
+      "key": "x_which",
+      "label": "Which? on X (professional UK consumer)"
+    },
+    {
+      "url": "https://x.com/monzo",
+      "ok": true,
+      "status": 200,
+      "title": "Monzo 🏦 (@monzo) / X",
+      "excerpt": "Monzo 🏦 (@monzo) / X\n\nLog in or sign up for X\n\nSee what’s happening and join the conversation\n\nContinue with phone\n\nor\n\nLog in with username or email\n\nTerms\n·\nPrivacy\n·\nCookies\n·\nAccessibility\n·\nAds Info\n·\nMore\n© 2026 X Corp.",
+      "bytes": 24288,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:35+00:00",
+      "social_links": [
+        "https://x.com/monzo",
+        "https://x.com/sitemap.xml",
+        "https://x.com/tos",
+        "https://x.com/privacy"
+      ],
+      "og_title": "Monzo 🏦 (@monzo) on X",
+      "og_description": "Hi! We&#x27;re only on X for customer support. For anything else, check us out on Instagram or Linkedin.",
+      "key": "x_monzo",
+      "label": "Monzo on X"
+    },
+    {
+      "url": "https://x.com/OctopusEnergy",
+      "ok": true,
+      "status": 200,
+      "title": "Octopus Energy (@OctopusEnergy) / X",
+      "excerpt": "Octopus Energy (@OctopusEnergy) / X\n\nLog in or sign up for X\n\nSee what’s happening and join the conversation\n\nContinue with phone\n\nor\n\nLog in with username or email\n\nTerms\n·\nPrivacy\n·\nCookies\n·\nAccessibility\n·\nAds Info\n·\nMore\n© 2026 X Corp.",
+      "bytes": 24548,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:35+00:00",
+      "social_links": [
+        "https://x.com/OctopusEnergy",
+        "https://x.com/sitemap.xml",
+        "https://x.com/tos",
+        "https://x.com/privacy"
+      ],
+      "og_title": "Octopus Energy (@OctopusEnergy) on X",
+      "og_description": "We believe energy should be better. A better experience for customers, better for the planet, and better value for money.",
+      "key": "x_octopus",
+      "label": "Octopus Energy on X"
+    },
+    {
+      "url": "https://x.com/MoneySavingExp",
+      "ok": true,
+      "status": 200,
+      "title": "MoneySavingExpert (@MoneySavingExp) / X",
+      "excerpt": "MoneySavingExpert (@MoneySavingExp) / X\n\nLog in or sign up for X\n\nSee what’s happening and join the conversation\n\nContinue with phone\n\nor\n\nLog in with username or email\n\nTerms\n·\nPrivacy\n·\nCookies\n·\nAccessibility\n·\nAds Info\n·\nMore\n© 2026 X Corp.",
+      "bytes": 24598,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:35+00:00",
+      "social_links": [
+        "https://x.com/MoneySavingExp",
+        "https://x.com/sitemap.xml",
+        "https://x.com/tos",
+        "https://x.com/privacy"
+      ],
+      "og_title": "MoneySavingExpert (@MoneySavingExp) on X",
+      "og_description": "Founded by @MartinSLewis dedicated to cutting your costs, finding deals, beating the system &amp; fighting your corner. Retweets aren&#x27;t endorsements.",
+      "key": "x_mse",
+      "label": "MoneySavingExpert on X"
+    },
+    {
+      "url": "https://boomp.net/resources/questions/tiktok-bio-character-limit-2026",
+      "ok": true,
+      "status": 200,
+      "title": "TikTok Bio Character Limit 2026: 80 Characters + Every Profile Field | boomp.net",
+      "excerpt": "TikTok Bio Character Limit 2026: 80 Characters + Every Profile Field | boomp.net\n\nFormerly Glow Social\n\nHOW IT WORKS\nSOLUTIONS\nPRICING\nCOMPARE\nVS MARKY\nVS LATER\nVS BUFFER\nVS HOOTSUITE\nVS SPROUT SOCIAL\nVS CHATGPT\nVS LOOMLY\n\nRESOURCES\nBLOG\nDROPS\nAFFORDABLE SOCIAL MEDIA\nABOUT\nMANIFESTO\nRESEARCH\nTOOLS\nAFFILIATES\nHELP CENTER\n\nLOG IN\nFREE FIRST LOOK\n\nHOW IT WORKS\nSOLUTIONS\nPRICING\nCOMPARE\nVS MARKY\nVS LATER\nVS BUFFER\nVS HOOTSUITE\nVS SPROUT SOCIAL\nVS CHATGPT\nVS LOOMLY\n\nRESOURCES\nBLOG\nDROPS\nAFFORDABLE SOCIAL MEDIA\nABOUT\nMANIFESTO\nRESEARCH\nTOOLS\nAFFILIATES\nHELP CENTER\n\nLOG IN\nFREE FIRST LOOK\n\n← Back to Q&A Hub\nTikTok Bio Character Limit 2026: 80 Characters + Every Profile Field\n\nExpert answer\n2 min read\n\nUse\n80 characters\nas the safest TikTok bio planning limit in 2026 unless your own TikTok account clearly shows a longer field. Some accounts and tests may show different limits, but an 80-character bio is the conservative version that will fit cleanly.\n\nWrite the bio so the first 80 characters stand alone: who you help, what you do, and why someone should follow or tap the link.\n\nTikTok Profile Field Limits at a Glance\n\nProfile field\nCharacter limit (2026)\nBio\n80 characters\nNickname (display name)\n30 characters\nUsername\n24 characters\nFor comparison, Instagram bios allow\n150 characters\n- almost double TikTok's. If you are writing bios for both platforms, draft the TikTok version first; the shorter version usually works on Instagram, but not the other way around. Full platform-by-platform limits, including captions, notes, and DMs, are in the\nInstagram, TikTok and social media character limits guide\n.\n\nWhy This Matters\n\nTikTok bios are tiny compared with Instagram bios, so they cannot carry a full brand story. A local business bio should answer one job quickly: \"Is this relevant to me?\" That usually means naming the service, location, or niche before anything clever.\n\nBio limits are also easy to confuse with TikTok's other profile fields. Display name, username, bio text, link, email button, and business contact options are separate pieces of the profile. Do not spend bio characters on details that can live in separate buttons or links.\n\nReal-World Example\n\nA solo hairstylist in Mesa does not need a sentence like \"Helping everyone feel confident and beautiful every single day.\" A stronger TikTok bio is: \"Mesa blonding + lived-in color. New clients book below.\" It fits the safe limit, includes location and service, and points to the next step.\n\nWhat Most People Get Wro",
+      "bytes": 115605,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:36+00:00",
+      "social_links": [
+        "https://www.linkedin.com/company/useboomp/",
+        "https://www.instagram.com/useboomp/"
+      ],
+      "og_title": "TikTok Bio Character Limit 2026: 80 Characters + Every Profile Field",
+      "og_description": "The TikTok bio limit is 80 characters in 2026. See the limits for every TikTok profile field - nickname, username, bio - plus a bio formula that fits.",
+      "key": "tt_bio_limits",
+      "label": "TikTok bio field limits 2026"
+    },
+    {
+      "url": "https://postlen.app/en/blog/youtube-character-limits",
+      "ok": true,
+      "status": 200,
+      "title": "YouTube Character Limits 2026: Titles, Descriptions, Tags & Handles",
+      "excerpt": "YouTube Character Limits 2026: Titles, Descriptions, Tags & Handles\n\n←\nBack to Blog\nYouTube Character Limits 2026: Titles, Descriptions, Tags & Handles\n\n2026-07-02\n\nEvery YouTube character limit in one place — titles, descriptions, tags, channel bios, Shorts, community posts and comments — plus where each field visibly truncates.\n\nEvery YouTube character limit at a glance\n\nYouTube enforces a different limit on almost every text field, and the hard limit is rarely the number that matters. What matters is where the text visibly truncates, because that is the point at which viewers stop reading. The table below lists the hard maximum YouTube will accept, alongside the approximate point where the field gets cut off in the interface.\n\nField\nHard limit\nVisible before truncation\nVideo title\n100 characters\n~60–70 in search results\nVideo description\n5,000 characters\n~157 (about 3 lines)\nTags (combined)\n500 characters total\nNot shown to viewers\nChannel name\n100 characters\nVaries by placement\nChannel description (About)\n1,000 characters\n~100 in the sidebar\nHandle (@name)\n3–30 characters\nFully shown\nPlaylist title\n150 characters\n~50 in grid view\nPlaylist description\n5,000 characters\n~100\nComment\n10,000 characters\n~500 before Read more\nCommunity post\n5,000 characters\n~400\nPoll option\n65 characters\nFully shown\n\nThe gap between the two columns is the single most useful thing to internalise. A 100-character title is technically valid, but roughly a third of it will be invisible in the place where most people decide whether to click.\n\nHow YouTube counts characters\n\nYouTube uses a plain character count. Every character costs exactly one unit, with no weighting and no special cases. This is worth stating explicitly because it differs from X (Twitter), which counts non-Latin characters as two units and forces every URL to a fixed 23-character cost. On YouTube, none of that applies.\n\n•\nJapanese, Chinese, Korean, Cyrillic, Arabic and Greek characters each count as 1.\n\n•\nEmoji count as 1 in most cases, though certain composed emoji (skin-tone or family sequences) are built from multiple code points and can cost more than they appear to.\n\n•\nSpaces, line breaks and punctuation all count as 1.\n\n•\nURLs count their literal length. YouTube does not shorten links, so a long tracking URL genuinely consumes 100+ characters of your description.\n\n•\nHashtags count toward the description limit. YouTube surfaces up to three of them beside the video title, choosing the ones it judges most enga",
+      "bytes": 63445,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:36+00:00",
+      "social_links": [],
+      "og_title": "YouTube Character Limits 2026: Titles, Descriptions, Tags &amp; Handles",
+      "og_description": "Every YouTube character limit in one place — titles, descriptions, tags, channel bios, Shorts, community posts and comments — plus where each field visibly truncates.",
+      "key": "yt_limits",
+      "label": "YouTube channel description limits 2026"
+    },
+    {
+      "url": "https://marketingtoolsprohub.com/blogs/character-counter/social-media-character-limits-2026.html",
+      "ok": true,
+      "status": 200,
+      "title": "Social Media Character Limits 2026: Every Platform, Every Field | MarketingToolsProHub",
+      "excerpt": "Social Media Character Limits 2026: Every Platform, Every Field | MarketingToolsProHub\nFree Cold Email Blueprint:\nDownload Now\n· Used by 2,000+ agencies & freelancers\n\nMarketing\nTools\nProHub\nHome\n\nFree Tools\nAll Tools\n\nMarketing Tools\nUTM Builder\n\nQR Code Generator\n\nBusiness Card Generator\n\nWhatsApp Link Generator\n\nWorld Time Meeting Planner\n\nEmail Tools\nSubject Line Tester\n\nSpintax Generator & Tester\n\nSPF / DKIM / DMARC Tool\n\nMail-Merge Preview\n\nCold Email ROI Calculator\n\nCold Email Spam Score Checker\n\nEmail Permutator\n\nEmail Signature Generator\n\nBusiness Tools\nInvoice Generator\n\nQuote / Estimate Generator\n\nReceipt Maker\n\nGST / VAT / Sales Tax Calculator\n\nProfit Margin & Markup Calculator\n\nImage Tools\nBackground Remover\n\nImage Compressor\n\nImage Resizer & Cropper\n\nImage Converter\n\nFavicon Generator\n\nImage ⇄ PDF\n\nCrop to Circle / Rounded\n\nAdd Watermark to Image\n\nMeme / Caption Generator\n\nSEO Tools\nRobots.txt Generator\n\nSitemap Generator\n\nSERP Preview Tool\n\nPDF Tools\nPDF Toolkit\n\nText Tools\nCharacter Counter\n\nWord Counter\n\nCase Converter\n\nRemove Duplicate Lines\n\nLinkedIn Text Formatter\n\nMedia Tools\nGlobal Radio Player\n\nVideo & Voice to Text\n\nVideo Resizer & Converter\n\nVideo Editor Lite\n\nApollo.io\n\nMailreach\n\nSnov.io\n\nPipedrive\n\nLinkedIn Helper\n\nPremium Software\nExplore All Software\n\nWhatsApp Connect Pro\n\nFacebook Auto Poster\n\nBusiness Lead Extractor\n\nCompare Products\n\nDownload Free Trial\n\nResources\nCold Email Blueprint\n\nBlog\n\nCase Studies\n\nSupport\n\nSoftware Pricing\n\nContact\n\nGet Free Blueprint\n\nHome\n\nBlog\n\nSocial Media Limits\n\nAditi Garsa\n\nContent & SEO Strategist\n\nlinkedin.com/in/aditi-garsa\n\nPublished May 22, 2026 | Last updated: May 2026\n\nVerified Expert\n\nReference\nUpdated May 22, 2026 · 9 min read\n\nSocial Media Character Limits 2026: Every Platform, Every Field\n\nIn the cross-platform content calendar I help clients run, a single launch announcement gets reshaped into 11 distinct versions: a 280-char tweet, a 500-char Threads post, a 220-char LinkedIn headline change, a 2,200-char Instagram caption (truncated at 125), a 4,000-char TikTok caption (truncated at 80), an SMS, a Facebook post, a YouTube description, and three ad-field variants for paid amplification. Each one has a hard limit and a \"visible before truncation\" limit, and they almost never match. This is the reference I built so that one announcement doesn't require a 90-minute panic session every time.\n\nQuick verdict:\nUse our\nfree Character Counter\nwith platform-aware warnings. Top five to memo",
+      "bytes": 52556,
+      "error": "",
+      "fetched_at": "2026-08-31T16:59:36+00:00",
+      "social_links": [],
+      "og_title": "Social Media Character Limits 2026",
+      "og_description": "The complete reference for every platform and every field.",
+      "key": "fb_limits",
+      "label": "Facebook page description limits 2026"
+    }
+  ],
+  "notes": [
+    "Live fetches: 44/49 succeeded.",
+    "BroadbandPicker homepage: ok",
+    "BroadbandPicker about: ok",
+    "How we make money: ok",
+    "Deals table: ok",
+    "Ofcom: how the UK goes online 2025: ok",
+    "Ofcom: adults media habits 2026: ok",
+    "ASA: affiliate marketing rules: ok",
+    "ASA: social media remit: ok",
+    "Awin: comparison-site publishers: ok",
+    "Awin: how advertisers approve publishers: ok",
+    "UK Telecoms Consumer Charter: ok",
+    "Uswitch broadband hub: ok",
+    "Uswitch homepage (social links): ok",
+    "Compare the Market broadband: fail (HTTP 403)",
+    "MoneySuperMarket broadband: fail (HTTP 403)",
+    "Go.Compare broadband: ok",
+    "MoneySavingExpert cheap broadband: fail (HTTP 403)",
+    "MoneySavingExpert home: fail (HTTP 403)",
+    "Which? broadband deals: ok",
+    "broadbandchoices hub: fail (HTTP 403)",
+    "choose.co.uk broadband: ok",
+    "Confused.com broadband: ok",
+    "broadband.co.uk hub: ok",
+    "TopCashback (affiliate): ok",
+    "DataReportal Digital 2026 UK: ok",
+    "Uswitch Wilderness social AOR: ok",
+    "MSM ChatGPT + marketing mix 2026: ok",
+    "Young UK money advice on TikTok: ok",
+    "Instagram business setup checklist 2026: ok",
+    "Instagram branding guide 2026: ok",
+    "Instagram on captions 2026: ok",
+    "Monzo Instagram (professional UK consumer): ok",
+    "Octopus Energy Instagram: ok",
+    "Which? Instagram: ok",
+    "MoneySavingExpert Instagram: ok",
+    "Uswitch Instagram: ok",
+    "Compare the Market Instagram: ok",
+    "Starling Bank Instagram: ok",
+    "Virgin Media Instagram: ok",
+    "EE Instagram: ok",
+    "Hyperoptic Instagram: ok",
+    "X bio and profile limits 2026: ok",
+    "Which? on X (professional UK consumer): ok",
+    "Monzo on X: ok",
+    "Octopus Energy on X: ok",
+    "MoneySavingExpert on X: ok",
+    "TikTok bio field limits 2026: ok",
+    "YouTube channel description limits 2026: ok",
+    "Facebook page description limits 2026: ok",
+    "JS-heavy comparison homepages often return a shell. Treat those excerpts as presence checks, not as a full read — the competitor-landscape scan in docs/ already covers structural UX. Competitor *social* strategy is in competitor_social."
+  ],
+  "competitor_social": [
+    {
+      "brand": "Uswitch",
+      "type": "National comparison (RVU). Broadband + energy + mobiles. Awin/direct.",
+      "goal": "Remain the default compare-and-switch brand; recruit Gen Z/millennials who do not open comparison sites.",
+      "social_move": "Aug 2025: appointed Wilderness as social AOR. Brief is TikTok-first, Instagram/Facebook consultancy, 'major life stages' content. They are paying an agency because organic personality was missing.",
+      "what_they_post": "Deal graphics, 'save £X', life-stage explainers once the agency lands. Historically TV + PPC, not a funny account.",
+      "handles_known": "Site footer typically X/Facebook/YouTube. TikTok being built, not native-born.",
+      "gap_for_us": "They will professionalise TikTok with an agency voice. They will not sound like a mate in a British kitchen. Occupy 'independent and actually funny about broadband' before their anniversary work fills the feed. Do not copy their save-£X red. Look more expensive than them, talk ruder.",
+      "do_not_copy": "Voucher red, 'save up to £395', meerkat energy, agency-smooth life-stage films.",
+      "live_social_links": [
+        "http://www.twitter.com/ErnestDoku",
+        "https://www.facebook.com/Uswitch/",
+        "https://x.com/UswitchUK/",
+        "https://linkedin.com/company/uswitch/",
+        "https://www.instagram.com/uswitchuk/",
+        "https://www.tiktok.com/@uswitchuk/",
+        "https://www.linkedin.com/company/grocery-gazette",
+        "https://twitter.com/GazetteGrocery",
+        "https://www.facebook.com/Grocery-Gazette-100312315629844",
+        "https://www.facebook.com/MarketingBeat/",
+        "https://twitter.com/MarketingBeatUK",
+        "https://www.linkedin.com/company/marketingbeat"
+      ],
+      "live_fetch_notes": [
+        "Uswitch broadband hub: ok",
+        "Uswitch homepage (social links): ok",
+        "Uswitch Wilderness social AOR: ok"
+      ]
+    },
+    {
+      "brand": "MoneySuperMarket / MONY Group",
+      "type": "National comparison + MSE + Quidco. Huge PPC. Affiliate + lead-gen.",
+      "goal": "Defend against AI search eating comparison; SuperSaveClub loyalty; ChatGPT distribution.",
+      "social_move": "2025 marketing spend £194m. PPC costs +21%. They trialled moving mix out of PPC into social with 'initial good results', then still spent the money on brand + PPC. First UK comparison brand inside ChatGPT.",
+      "what_they_post": "Brand films, club/loyalty, generic money-saving. Not broadband-native comedy.",
+      "handles_known": "@moneysupermarket, YouTube, Facebook.",
+      "gap_for_us": "They buy attention. We cannot. We have to earn the first 1,000 followers with comments. Social is a side bet for them; it is the whole brand-build for us. They will never dunk on loyalty tax hard — they sell the same ISPs.",
+      "do_not_copy": "Superhero brand films, club points, 'we've helped UK families save £2.8bn'.",
+      "live_social_links": [
+        "https://twitter.com/marketingweeked",
+        "https://www.linkedin.com/company/marketing-week/",
+        "https://www.facebook.com/marketingweek",
+        "https://www.instagram.com/marketingweeked/"
+      ],
+      "live_fetch_notes": [
+        "MoneySuperMarket broadband: fail 403",
+        "MSM ChatGPT + marketing mix 2026: ok"
+      ]
+    },
+    {
+      "brand": "MoneySavingExpert (Martin Lewis)",
+      "type": "Consumer-champion publisher. Email list is the product. Affiliate on tools.",
+      "goal": "Trust, email sign-ups, 'Martin said so'. Broadband is a tool, not a personality.",
+      "social_move": "Facebook + Martin-as-news. Tips, warnings, TV clips. Almost no TikTok comedy.",
+      "what_they_post": "Top deals, scam warnings, 'do this today'. Authority, not jokes.",
+      "handles_known": "@MoneySavingExp, Facebook/MoneySavingExpert.",
+      "gap_for_us": "Do not compete on authority in week 1. Compete on shareability. When we do social tariffs, match their seriousness — that's the MSE lane we are allowed to borrow, because Which? already proved ISPs don't post it.",
+      "do_not_copy": "Martin-face thumbnails, 'THIS WEEKEND ONLY', email-capture everything.",
+      "live_social_links": [],
+      "live_fetch_notes": [
+        "MoneySavingExpert cheap broadband: fail 403",
+        "MoneySavingExpert home: fail 403"
+      ]
+    },
+    {
+      "brand": "Compare the Market / Go.Compare",
+      "type": "Insurance-first comparison. Broadband is a tab. TV-ad brands.",
+      "goal": "Brand recall (meerkat / Gio Compario), then quote. Social is TV residue.",
+      "social_move": "YouTube ads, character IP, almost no broadband-native organic.",
+      "what_they_post": "Characters, car insurance. Broadband is an afterthought.",
+      "handles_known": "@ComparetheMkt, @gocompare.",
+      "gap_for_us": "They own funny TV. They do not own funny broadband. Stay in our niche.",
+      "do_not_copy": "Mascots. Opera. Meerkats. BroadbandPicker is not a character.",
+      "live_social_links": [],
+      "live_fetch_notes": [
+        "Compare the Market broadband: fail 403",
+        "Go.Compare broadband: ok"
+      ]
+    },
+    {
+      "brand": "Which?",
+      "type": "Subscription consumer champion. Tests, not affiliate-first.",
+      "goal": "Membership. Lab credibility. Policy noise (social tariffs).",
+      "social_move": "X + Facebook as press office. Called out ISPs for not posting social tariffs.",
+      "what_they_post": "Test scores, 'best buy', regulator stories.",
+      "handles_known": "@WhichUK.",
+      "gap_for_us": "Borrow the social-tariff public-service post. Do not borrow the beige. Which? will never make a Keep Calm router poster.",
+      "do_not_copy": "Best Buy roundels, membership CTAs, lab-coat photography.",
+      "live_social_links": [
+        "https://www.facebook.com/dialog/share"
+      ],
+      "live_fetch_notes": [
+        "Which? broadband deals: ok"
+      ]
+    },
+    {
+      "brand": "broadbandchoices / choose.co.uk / broadband.co.uk",
+      "type": "Broadband-specialist affiliate SEO sites. Our closest product comps.",
+      "goal": "Postcode-checker sessions → Awin. Rank for 'cheap broadband'.",
+      "social_move": "Thin or absent. SEO is the channel. Social is a neglected footer icon.",
+      "what_they_post": "Occasional deal graphic, if anything.",
+      "handles_known": "Often a dormant Facebook or X.",
+      "gap_for_us": "Specialist broadband affiliates in the UK almost do not do social. A designed, funny, independent specialist can look like the category leader in 30 days of posting — because nobody else is standing there.",
+      "do_not_copy": "SEO-title posts ('Cheapest Broadband Deals UK 2026'), stacked logos, from-£19 banners.",
+      "live_social_links": [
+        "https://x.com/ChooseUK",
+        "https://www.facebook.com/ChooseUK",
+        "https://www.facebook.com/BroadbandGenie/",
+        "https://www.instagram.com/broadbandgenie/"
+      ],
+      "live_fetch_notes": [
+        "broadbandchoices hub: fail 403",
+        "choose.co.uk broadband: ok",
+        "broadband.co.uk hub: ok"
+      ]
+    },
+    {
+      "brand": "TopCashback / Quidco",
+      "type": "Cashback affiliates. Community + Facebook + app.",
+      "goal": "Clicks on merchant rates. Not a comparison publisher.",
+      "social_move": "Facebook groups, 'hot rates', user community. High engagement, low prestige.",
+      "what_they_post": "Rate alerts, '4% at X'.",
+      "handles_known": "Facebook-first.",
+      "gap_for_us": "Never look like a cashback account. Providers judge that in three seconds and reject Awin applications.",
+      "do_not_copy": "Hot rate banners, emoji stacks, 'click our link'.",
+      "live_social_links": [
+        "https://www.facebook.com/topcashback",
+        "https://twitter.com/Top_CashBack",
+        "https://www.instagram.com/top_cashback",
+        "https://www.linkedin.com/company/top-cashback"
+      ],
+      "live_fetch_notes": [
+        "TopCashback (affiliate): ok"
+      ]
+    }
+  ],
+  "instagram_professional": {
+    "as_of": "2026-08",
+    "live_profiles": [
+      {
+        "key": "ig_setup_checklist",
+        "label": "Instagram business setup checklist 2026",
+        "url": "https://creatorflow.so/blog/instagram-business-account-setup-checklist/",
+        "ok": "yes",
+        "status": "200",
+        "og_title": "Instagram Business Account Setup: 12-Step Checklist",
+        "og_description": "Switched to a Business account but not sure what to configure? Set up category, action buttons, Shopping, DM automation, and more. Verified May 2026.",
+        "excerpt": "Instagram Business Account Setup: 12-Step Checklist\nCreatorFlow\nSolutions\nLINK\n\nyourshop.link\n\nComment to DM, automatically\nSee how a single reel turns into emails and sales, automatically.\nWatch it work\n\nBy Use Case\n\nComment-to-DM\nAuto-Send Links\nLead Capture\nStory Replies\n\nBy Creator Type\n\nContent Creators\nAffiliate Creators\nCoaches & Educators\nService Businesses\n\nAgencies\n\nPricing\n\nResources\nHo"
+      },
+      {
+        "key": "ig_branding",
+        "label": "Instagram branding guide 2026",
+        "url": "https://magnt.com/instagram-branding-guide",
+        "ok": "yes",
+        "status": "200",
+        "og_title": "Instagram Branding Guide (2026)",
+        "og_description": "Master Instagram branding with our complete guide to profile optimization, feed aesthetics, Stories, Reels, and visual identity strategies.",
+        "excerpt": "Instagram Branding Guide (2026) | Magnt\n\nCreate\n✨\nAI Logo Generator\n\nCreate unique logos\n\n📦\nMarketing Assets\n\nSocial & print ready\n\n📖\nBrand Guidelines\n\nComplete brand kit\n\n🌐\nWebsite Builder\n\nLaunch your site\n\nSolutions\nBy Business Type\n\nSmall Businesses\nEntrepreneurs\nMarketing Agencies\nStartups\n\nBy Industry\n\nHealthcare\nRestaurants\nRetail\n\nIndustries\nFeatures\nPricing\nBlog\nResources\nFree Resources\nB"
+      },
+      {
+        "key": "ig_captions_meta",
+        "label": "Instagram on captions 2026",
+        "url": "https://www.socialmediatoday.com/news/instagram-stresses-the-importance-of-captions/828554/",
+        "ok": "yes",
+        "status": "200",
+        "og_title": "",
+        "og_description": "",
+        "excerpt": "Instagram stresses the importance of captions | Social Media Today\nSkip to main content\nDon't miss tomorrow's social media industry news\n\nLet Social Media Today's free newsletter keep you informed, straight from your inbox.\n\nBy signing up to receive our newsletter, you agree to our\nTerms of Use\nand\nPrivacy Policy\n. You can unsubscribe at anytime.\n\nInforma TechTarget\n|\nCX Dive\n\nMarketing Dive\n\nExpl"
+      },
+      {
+        "key": "ig_monzo",
+        "label": "Monzo Instagram (professional UK consumer)",
+        "url": "https://www.instagram.com/monzo/",
+        "ok": "yes",
+        "status": "200",
+        "og_title": "monzo &#x2022; Instagram photos and videos",
+        "og_description": "120K followers, 51 following, 324 posts &#x2013; see Instagram photos and videos from &#064;monzo",
+        "excerpt": "monzo • Instagram photos and videos"
+      },
+      {
+        "key": "ig_octopus",
+        "label": "Octopus Energy Instagram",
+        "url": "https://www.instagram.com/octopusenergy/",
+        "ok": "yes",
+        "status": "200",
+        "og_title": "Octopus Energy (&#064;octopusenergy) &#x2022; Instagram photos and videos",
+        "og_description": "152K followers, 144 following, 527 posts &#x2013; see Instagram photos and videos from Octopus Energy (&#064;octopusenergy)",
+        "excerpt": "Octopus Energy (@octopusenergy) • Instagram photos and videos"
+      },
+      {
+        "key": "ig_which",
+        "label": "Which? Instagram",
+        "url": "https://www.instagram.com/whichuk/",
+        "ok": "yes",
+        "status": "200",
+        "og_title": "Which? (&#064;whichuk) &#x2022; Instagram photos and videos",
+        "og_description": "522K followers, 1,425 following, 2,709 posts &#x2013; see Instagram photos and videos from Which? (&#064;whichuk)",
+        "excerpt": "Which? (@whichuk) • Instagram photos and videos"
+      },
+      {
+        "key": "ig_mse",
+        "label": "MoneySavingExpert Instagram",
+        "url": "https://www.instagram.com/moneysavingexpert/",
+        "ok": "yes",
+        "status": "200",
+        "og_title": "",
+        "og_description": "",
+        "excerpt": "Instagram"
+      },
+      {
+        "key": "ig_uswitch",
+        "label": "Uswitch Instagram",
+        "url": "https://www.instagram.com/uswitch/",
+        "ok": "yes",
+        "status": "200",
+        "og_title": " (&#064;uswitch) &#x2022; Instagram photos and videos",
+        "og_description": "33 followers, 307 following, 12 posts &#x2013; see Instagram photos and videos from  (&#064;uswitch)",
+        "excerpt": "(@uswitch) • Instagram photos and videos"
+      },
+      {
+        "key": "ig_ctm",
+        "label": "Compare the Market Instagram",
+        "url": "https://www.instagram.com/comparethemarket/",
+        "ok": "yes",
+        "status": "200",
+        "og_title": "Compare the Market (&#064;comparethemarket) &#x2022; Instagram photos and videos",
+        "og_description": "25K followers, 3 following, 491 posts &#x2013; see Instagram photos and videos from Compare the Market (&#064;comparethemarket)",
+        "excerpt": "Compare the Market (@comparethemarket) • Instagram photos and videos"
+      },
+      {
+        "key": "ig_starling",
+        "label": "Starling Bank Instagram",
+        "url": "https://www.instagram.com/starlingbank/",
+        "ok": "yes",
+        "status": "200",
+        "og_title": "Starling (&#064;starlingbank) &#x2022; Instagram photos and videos",
+        "og_description": "51K followers, 171 following, 1,403 posts &#x2013; see Instagram photos and videos from Starling (&#064;starlingbank)",
+        "excerpt": "Starling (@starlingbank) • Instagram photos and videos"
+      },
+      {
+        "key": "ig_virgin",
+        "label": "Virgin Media Instagram",
+        "url": "https://www.instagram.com/virginmedia/",
+        "ok": "yes",
+        "status": "200",
+        "og_title": "Virgin Media (&#064;virginmedia) &#x2022; Instagram photos and videos",
+        "og_description": "46K followers, 340 following, 1,220 posts &#x2013; see Instagram photos and videos from Virgin Media (&#064;virginmedia)",
+        "excerpt": "Virgin Media (@virginmedia) • Instagram photos and videos"
+      },
+      {
+        "key": "ig_ee",
+        "label": "EE Instagram",
+        "url": "https://www.instagram.com/ee/",
+        "ok": "yes",
+        "status": "200",
+        "og_title": "EE (&#064;ee) &#x2022; Instagram photos and videos",
+        "og_description": "103K followers, 80 following, 416 posts &#x2013; see Instagram photos and videos from EE (&#064;ee)",
+        "excerpt": "EE (@ee) • Instagram photos and videos"
+      },
+      {
+        "key": "ig_hyperoptic",
+        "label": "Hyperoptic Instagram",
+        "url": "https://www.instagram.com/hyperoptic/",
+        "ok": "yes",
+        "status": "200",
+        "og_title": "Hyperoptic (&#064;hyperoptic) &#x2022; Instagram photos and videos",
+        "og_description": "5,549 followers, 459 following, 305 posts &#x2013; see Instagram photos and videos from Hyperoptic (&#064;hyperoptic)",
+        "excerpt": "Hyperoptic (@hyperoptic) • Instagram photos and videos"
+      }
+    ],
+    "what_professional_accounts_do": [
+      "Business or creator account, not a personal profile. Category set. Email button on.",
+      "Name field is searchable (brand + niche keyword), 30 characters. Handle matches the brand.",
+      "Profile photo is the logo on a clean brand field, 320x320, no words in the circle.",
+      "Bio is three short lines, 150 characters: who you are, the differentiator, one CTA. One CTA only.",
+      "Website field holds the site. Bio does not repeat a long URL.",
+      "Highlights are a mini-site: About, How it works, Switch, Deals, FAQs. Branded covers, one-word titles.",
+      "The first 9 grid tiles are planned as a publisher, not a meme dump. Same palette, same type, same footer.",
+      "Feed mix is educational carousels, one-fact quote cards, and short explainer Reels. Saves beat likes.",
+      "Caption: first two lines do the job before 'more'. Keywords in the caption (Instagram search reads them). Save / link-in-bio as the ask.",
+      "Three to five niche hashtags. No emoji walls, no hashtag soup, no 'link in comments'.",
+      "Reels work muted. First frame is a poster. End card is the brand, not a voucher.",
+      "Stories are weekday habit: polls, this-or-that, one fact, one link sticker."
+    ],
+    "scraped_bios": {
+      "monzo": "Hi, we're Monzo. We're a bank that lives on your phone.",
+      "octopusenergy": "We believe energy should be better. A better experience for you, your wallet, and the planet.",
+      "uswitch_tagline": "We do more to get you a better deal on energy, broadband, mobiles, personal finance, and insurance."
+    },
+    "do_not_copy": [
+      "Uswitch / MSM voucher-red 'save £X' deal tiles.",
+      "Cashback emoji rate alerts.",
+      "SearchSwitchSave-style emoji, hashtag dump and 'mission is simple' About copy.",
+      "Impact-on-white meme pages. Providers judge the grid in three seconds.",
+      "Mascots (meerkats, Gio Compario).",
+      "Linktree of twelve links. One site, one job: the postcode checker."
+    ],
+    "implication": "Instagram is the professional shopfront for BroadbandPicker. X and TikTok can be rude. The IG grid, bio and highlights have to look like Which? crossed with Octopus: calm, useful, independent, navy/sky, no SALE energy.",
+    "sources": [
+      "https://creatorflow.so/blog/instagram-business-account-setup-checklist/",
+      "https://magnt.com/instagram-branding-guide",
+      "https://www.socialmediatoday.com/news/instagram-stresses-the-importance-of-captions/828554/",
+      "https://www.instagram.com/monzo/",
+      "https://www.instagram.com/octopusenergy/"
+    ]
+  }
+}

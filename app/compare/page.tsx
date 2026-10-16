@@ -6,7 +6,15 @@ import BreadcrumbNav from '@/components/BreadcrumbNav'
 import PostcodeChecker from '@/components/PostcodeChecker'
 import PostcodeContextBar from '@/components/PostcodeContextBar'
 import OnThisPageNav from '@/components/OnThisPageNav'
+import AffiliateCTA from '@/components/AffiliateCTA'
+import { getAffiliatePartner } from '@/data/affiliatePartners'
 import { JsonLd } from '@/lib/jsonLd'
+import PageHeroBanner from '@/components/PageHeroBanner'
+import { DEFAULT_GUIDE_CTAS, categoryHero } from '@/lib/pageHero'
+
+const HERO = categoryHero('providers-and-comparisons')
+
+const broadbandGenie = getAffiliatePartner('broadband-genie')
 
 const BASE_URL = 'https://broadbandpicker.co.uk'
 const PAGE_URL = `${BASE_URL}/compare`
@@ -166,6 +174,15 @@ export default function ComparePage() {
   return (
     <main className="bg-white">
       <JsonLd data={structuredData} />
+      <PageHeroBanner
+        title="Compare Broadband Providers in the UK"
+        kicker="Independent UK comparison"
+        lede="Compare UK broadband providers by starting price, maximum speed, contract length, setup fee, estimated coverage and customer rating. Select two or three finalists for a side-by-side comparison, then check your postcode before choosing a deal."
+        image={HERO.image}
+        imageAlt={HERO.imageAlt}
+        accent={HERO.accent}
+        ctas={DEFAULT_GUIDE_CTAS}
+      />
 
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <BreadcrumbNav
@@ -175,27 +192,33 @@ export default function ComparePage() {
           ]}
         />
         <PostcodeContextBar />
-
-        <header className="max-w-4xl">
-          <p className="text-sm font-semibold uppercase tracking-wider text-sky-700">Independent UK comparison</p>
-          <h1 className="mt-2 text-4xl font-extrabold leading-tight text-slate-900 sm:text-5xl">
-            Compare Broadband Providers in the UK
-          </h1>
-          <p className="mt-5 max-w-3xl text-xl leading-relaxed text-slate-600">
-            Compare UK broadband providers by starting price, maximum speed, contract length,
-            setup fee, estimated coverage and customer rating. Select two or three finalists for
-            a side-by-side comparison, then check your postcode before choosing a deal.
-          </p>
-          <p className="mt-4 text-sm text-slate-500">
-            Provider dataset researched and reviewed {verifiedDateLabel} · BroadbandPicker editorial team
-          </p>
-        </header>
+        <p className="mb-8 text-sm text-slate-500">
+          Provider dataset researched and reviewed {verifiedDateLabel} · BroadbandPicker editorial team
+        </p>
 
         <aside className="mt-8 rounded-xl border border-amber-200 bg-amber-50 p-5 text-sm leading-relaxed text-slate-700">
           <strong>Commercial disclosure:</strong> BroadbandPicker may receive commission if you follow
           a provider link and buy a service. Commission does not determine the order of this table or
           the price you pay. This is a provider-level comparison, not a claim that every package is
           available at your address or that we cover the whole market.
+          {broadbandGenie ? (
+            <>
+              {' '}
+              For deals or providers we do not list,{' '}
+              <AffiliateCTA
+                href={broadbandGenie.affiliateUrl}
+                providerName={broadbandGenie.name}
+                providerSlug={broadbandGenie.slug}
+                placement="compare_disclosure_wider_market"
+                label="compare the wider market at Broadband Genie"
+                ariaLabel="Compare the wider broadband market at Broadband Genie (affiliate link: we may earn a commission)"
+                size="sm"
+                variant="outline"
+                className="align-baseline"
+              />
+              , an independent comparison site. We may earn a commission from that link too.
+            </>
+          ) : null}
         </aside>
 
         <section className="mt-8 rounded-2xl border border-sky-200 bg-sky-50 p-6" aria-labelledby="quick-answer">
@@ -369,7 +392,7 @@ export default function ComparePage() {
           </div>
           <p className="mt-4 text-sm text-slate-600">
             Unsure where you fit? Use the <Link href="/tools/broadband-match" className="font-semibold text-sky-700 underline">Broadband Match questionnaire</Link>
-            {' '}or establish a baseline with the <Link href="/speed-test" className="font-semibold text-sky-700 underline">broadband speed test</Link>.
+            {' '}or establish a baseline with the <Link href="/tools/speed-test" className="font-semibold text-sky-700 underline">broadband speed test</Link>.
           </p>
         </section>
 

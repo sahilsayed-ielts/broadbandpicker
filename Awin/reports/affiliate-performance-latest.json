@@ -1,0 +1,62 @@
+{
+  "generated_at": "2026-10-13T19:35:11.389446+00:00",
+  "period_days": 31,
+  "publisher_id": "2942019",
+  "tracking_taxonomy": {
+    "clickRef": "placement",
+    "clickRef2": "source page",
+    "clickRef3": "provider",
+    "clickRef4": "content type",
+    "clickRef5": "CTA label",
+    "clickRef6": "tracking schema version"
+  },
+  "status_totals": {
+    "approved": {
+      "transactions": 0,
+      "commission": 0.0
+    },
+    "pending": {
+      "transactions": 2,
+      "commission": 60.0
+    },
+    "declined": {
+      "transactions": 0,
+      "commission": 0.0
+    },
+    "unknown": {
+      "transactions": 0,
+      "commission": 0.0
+    }
+  },
+  "payment_totals": {
+    "paid": {
+      "transactions": 0,
+      "commission": 0.0
+    },
+    "unpaid": {
+      "transactions": 2,
+      "commission": 60.0
+    }
+  },
+  "note": "Join this conversion data to GA4 outbound_provider_click by page, placement and provider to calculate conversion rate and earnings per click.",
+  "rows": [
+    {
+      "source_page": "unattributed",
+      "placement": "compare_disclosure_wider_market",
+      "provider": "broadband-genie",
+      "transactions": 2,
+      "approved": 0,
+      "pending": 2,
+      "declined": 0,
+      "paid": 0,
+      "unpaid": 2,
+      "sale_amount": 2.0,
+      "commission": 60.0,
+      "approved_commission": 0.0,
+      "pending_commission": 60.0,
+      "declined_commission": 0.0,
+      "paid_commission": 0.0,
+      "unpaid_commission": 60.0
+    }
+  ]
+}

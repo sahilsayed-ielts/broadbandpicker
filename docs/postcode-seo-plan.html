@@ -1,0 +1,460 @@
+<title>Postcode Pages SEO Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one 1080px reading column; data panels and wireframes break out to full column width. */
+:root {
+  --bg: #F6F8FB;
+  --surface: #FFFFFF;
+  --ink: #0F172A;
+  --muted: #526077;
+  --line: #DCE3EC;
+  --sky: #0284C7;
+  --sky-soft: #E0F2FE;
+  --green: #15803D;
+  --green-soft: #DCFCE7;
+  --amber: #B45309;
+  --amber-soft: #FEF3C7;
+  --red: #B91C1C;
+  --red-soft: #FEE2E2;
+  --wire: #EEF2F7;
+  --wire-line: #B8C3D1;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-data: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0B1220; --surface: #111A2B; --ink: #E7EDF5; --muted: #9AA8BC; --line: #24324A;
+    --sky: #38BDF8; --sky-soft: #0C2A40; --green: #4ADE80; --green-soft: #0F2E1C;
+    --amber: #FBBF24; --amber-soft: #33270B; --red: #F87171; --red-soft: #3A1414;
+    --wire: #18233A; --wire-line: #3A4A66; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0B1220; --surface: #111A2B; --ink: #E7EDF5; --muted: #9AA8BC; --line: #24324A;
+  --sky: #38BDF8; --sky-soft: #0C2A40; --green: #4ADE80; --green-soft: #0F2E1C;
+  --amber: #FBBF24; --amber-soft: #33270B; --red: #F87171; --red-soft: #3A1414;
+  --wire: #18233A; --wire-line: #3A4A66; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.6; padding-inline: 16px; padding-block: 0 64px; }
+.wrap { max-width: 1080px; margin: 0 auto; }
+h1, h2, h3 { text-wrap: balance; line-height: 1.2; margin: 0; }
+h1 { font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 800; letter-spacing: -0.02em; }
+h2 { font-size: 1.6rem; font-weight: 750; letter-spacing: -0.01em; }
+h3 { font-size: 1.1rem; font-weight: 650; }
+p { margin: 0; max-width: 68ch; }
+a { color: var(--sky); }
+:focus-visible { outline: 3px solid var(--sky); outline-offset: 2px; }
+.eyebrow { font-family: var(--font-data); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--sky); font-weight: 500; }
+.muted { color: var(--muted); }
+.small { font-size: .875rem; }
+.num { font-family: var(--font-data); font-variant-numeric: tabular-nums; }
+
+header.top { padding-block: 56px 32px; display: grid; gap: 16px; border-bottom: 1px solid var(--line); }
+header.top .lede { font-size: 1.15rem; color: var(--muted); }
+.meta { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: .85rem; color: var(--muted); }
+
+nav.toc { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line); padding-block: 10px; overflow-x: auto; }
+nav.toc ol { list-style: none; display: flex; gap: 18px; margin: 0; padding: 0; white-space: nowrap; font-size: .85rem; }
+nav.toc a { color: var(--muted); text-decoration: none; }
+nav.toc a:hover { color: var(--ink); }
+
+section { padding-block: 48px 8px; display: grid; gap: 20px; }
+section > header { display: grid; gap: 8px; }
+
+.verdict { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--sky); border-radius: 6px; padding: 24px; display: grid; gap: 14px; }
+.verdict p { font-size: 1.05rem; }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
+.stat { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 16px; display: grid; gap: 4px; align-content: start; }
+.stat .v { font-family: var(--font-data); font-size: 1.9rem; font-weight: 500; letter-spacing: -0.02em; }
+.stat .l { font-size: .85rem; color: var(--muted); }
+.stat.bad .v { color: var(--red); }
+.stat.good .v { color: var(--green); }
+
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 20px; display: grid; gap: 14px; min-width: 0; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+.grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+
+/* Bar charts: CSS widths are value / scale max, so marks are to scale */
+.bars { display: grid; gap: 8px; }
+.bar { display: grid; grid-template-columns: 150px 1fr 74px; gap: 10px; align-items: center; font-size: .85rem; }
+.bar .track { height: 18px; background: var(--wire); border-radius: 3px; overflow: hidden; }
+.bar .fill { height: 100%; background: var(--wire-line); }
+.bar.hi .fill { background: var(--sky); }
+.bar.warn .fill { background: var(--red); }
+.bar.ok .fill { background: var(--green); }
+.bar .val { font-family: var(--font-data); text-align: right; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .bar { grid-template-columns: 104px 1fr 62px; font-size: .78rem; } }
+
+.stack { display: flex; height: 34px; border-radius: 4px; overflow: hidden; }
+.stack div { display: grid; place-items: center; font-family: var(--font-data); font-size: .75rem; color: #fff; min-width: 0; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: .8rem; color: var(--muted); }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+
+.tablewrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: .875rem; }
+th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: .75rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); font-weight: 600; }
+td.n, th.n { text-align: right; font-family: var(--font-data); font-variant-numeric: tabular-nums; }
+
+.pill { display: inline-block; font-size: .72rem; font-weight: 600; padding: 2px 8px; border-radius: 99px; white-space: nowrap; }
+.pill.p0 { background: var(--red-soft); color: var(--red); }
+.pill.p1 { background: var(--amber-soft); color: var(--amber); }
+.pill.p2 { background: var(--sky-soft); color: var(--sky); }
+.pill.lead { background: var(--green-soft); color: var(--green); }
+
+/* Wireframes */
+.compare-layouts { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+.lane { display: grid; gap: 6px; }
+.lane .blk { border: 1px dashed var(--wire-line); background: var(--wire); border-radius: 4px; padding: 8px 10px; font-size: .8rem; color: var(--muted); }
+.lane .blk.money { border-style: solid; border-color: var(--sky); background: var(--sky-soft); color: var(--ink); font-weight: 600; }
+.lane .blk.tall { padding-block: 26px; }
+.lane .blk.xtall { padding-block: 60px; }
+
+.wf { border: 1px solid var(--line); border-radius: 8px; background: var(--surface); overflow: hidden; }
+.wf-bar { display: flex; gap: 6px; padding: 8px 12px; border-bottom: 1px solid var(--line); align-items: center; }
+.wf-bar span { width: 9px; height: 9px; border-radius: 50%; background: var(--wire-line); }
+.wf-bar em { margin-left: 8px; font-style: normal; font-family: var(--font-data); font-size: .72rem; color: var(--muted); }
+.wf-body { padding: 16px; display: grid; gap: 10px; }
+.w { border: 1px dashed var(--wire-line); background: var(--wire); border-radius: 4px; padding: 10px 12px; font-size: .8rem; color: var(--muted); display: grid; gap: 6px; min-width: 0; }
+.w b { color: var(--ink); font-weight: 600; }
+.w.money { border: 1.5px solid var(--sky); background: var(--sky-soft); }
+.w.trust { border: 1.5px solid var(--green); background: var(--green-soft); }
+.w-row { display: grid; grid-template-columns: 1fr 280px; gap: 10px; }
+.w-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.w-card { border: 1px solid var(--wire-line); background: var(--surface); border-radius: 4px; padding: 8px; display: grid; gap: 4px; font-size: .74rem; }
+.w-card .chip { justify-self: start; font-size: .66rem; background: var(--green-soft); color: var(--green); padding: 1px 6px; border-radius: 99px; font-weight: 600; }
+.w-card .price { font-family: var(--font-data); color: var(--ink); font-size: .9rem; }
+.w-card .btn { background: var(--sky); color: #fff; text-align: center; border-radius: 3px; padding: 3px; font-weight: 600; }
+.tabs { display: flex; gap: 6px; flex-wrap: wrap; }
+.tabs span { border: 1px solid var(--wire-line); border-radius: 99px; padding: 2px 8px; font-size: .7rem; background: var(--surface); }
+.tabs span.on { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.mob { max-width: 300px; justify-self: center; width: 100%; }
+@media (max-width: 760px) { .w-row { grid-template-columns: 1fr; } .w-cards { grid-template-columns: 1fr; } }
+
+.proto-card { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 24px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 24px; }
+@media (max-width: 760px) { .proto-card { grid-template-columns: 1fr; } }
+.proto-copy { display: grid; gap: 12px; justify-items: start; }
+.open-btn { background: var(--sky); color: #fff; text-decoration: none; font-weight: 700; padding: 12px 20px; border-radius: 8px; }
+.open-btn:hover { filter: brightness(1.08); }
+.proto-shot { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--bg); }
+.ps-bar { display: flex; gap: 6px; align-items: center; padding: 7px 10px; border-bottom: 1px solid var(--line); background: var(--surface); }
+.ps-bar span { width: 8px; height: 8px; border-radius: 50%; background: var(--wire-line); }
+.ps-bar em { margin-left: 6px; font-style: normal; font-family: var(--font-data); font-size: .68rem; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ps-body { padding: 14px; display: grid; gap: 8px; }
+.ps-h1 { height: 14px; width: 75%; background: var(--ink); border-radius: 3px; }
+.ps-line { height: 7px; background: var(--wire-line); border-radius: 3px; }
+.ps-row { display: grid; grid-template-columns: 1.3fr 1fr; gap: 8px; }
+.ps-verdict { border: 1px solid var(--line); border-radius: 6px; padding: 8px; display: grid; gap: 6px; background: var(--surface); }
+.ps-verdict i { height: 8px; background: var(--wire-line); border-radius: 3px; }
+.ps-pc { border: 1px solid var(--sky); background: var(--sky-soft); border-radius: 6px; padding: 8px; display: grid; gap: 6px; }
+.ps-pc b { height: 8px; width: 60%; background: var(--ink); border-radius: 3px; }
+.ps-pc span { height: 14px; background: var(--surface); border-radius: 3px; }
+.ps-chips { display: flex; gap: 5px; }
+.ps-chips span { height: 12px; width: 52px; border: 1px solid var(--wire-line); border-radius: 99px; }
+.ps-chips span:first-child { background: var(--ink); border-color: var(--ink); }
+.ps-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.ps-cards div { border: 1px solid var(--line); border-radius: 6px; padding: 7px; display: grid; gap: 5px; background: var(--surface); }
+.ps-cards em { height: 7px; width: 55%; background: var(--green-soft); border-radius: 99px; }
+.ps-cards strong { height: 12px; width: 70%; background: var(--ink); border-radius: 3px; }
+.ps-cards u { height: 12px; background: var(--sky); border-radius: 3px; }
+.ps-cards div:first-child { border-color: var(--green); }
+.anno { display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; font-size: .9rem; }
+.anno .k { font-family: var(--font-data); font-size: .75rem; background: var(--ink); color: var(--bg); border-radius: 4px; text-align: center; padding: 2px 0; }
+
+.site { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 16px; display: grid; gap: 6px; align-content: start; }
+.site .kind { font-size: .75rem; color: var(--muted); font-family: var(--font-data); }
+
+.callout { border-radius: 6px; padding: 16px 18px; display: grid; gap: 6px; }
+.callout.red { background: var(--red-soft); }
+.callout.amber { background: var(--amber-soft); }
+.callout.green { background: var(--green-soft); }
+.callout h3 { font-size: 1rem; }
+
+.idea { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 16px; display: grid; gap: 8px; align-content: start; }
+.idea .tag { font-family: var(--font-data); font-size: .7rem; color: var(--sky); text-transform: uppercase; letter-spacing: .06em; }
+
+.timeline { display: grid; gap: 0; }
+.phase { display: grid; grid-template-columns: 120px 1fr; gap: 16px; padding-block: 16px; border-top: 1px solid var(--line); }
+.phase .when { font-family: var(--font-data); font-size: .8rem; color: var(--sky); }
+.phase ul { margin: 6px 0 0; padding-left: 18px; display: grid; gap: 4px; font-size: .92rem; }
+@media (max-width: 560px) { .phase { grid-template-columns: 1fr; gap: 4px; } }
+
+ul.plain { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); font-size: .82rem; color: var(--muted); display: grid; gap: 8px; }
+code { font-family: var(--font-data); font-size: .85em; background: var(--wire); padding: 1px 5px; border-radius: 3px; overflow-wrap: anywhere; }
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+html { scroll-behavior: smooth; }
+</style>
+<style>.mermaid{background:transparent;text-align:center;overflow-x:auto}</style>
+
+<div class="wrap">
+<header class="top">
+  <div class="eyebrow">BroadbandPicker · SEO plan · 15 October 2026</div>
+  <h1>Postcode pages: fewer, better, local</h1>
+  <p class="lede">BroadbandPicker publishes 2,832 postcode pages. About 2,770 of them are the same 505-word template with different Ofcom percentages. Google indexes them today, but its guidance on scaled content says this is the kind of inventory that can drag down a whole site. This plan keeps every page that earns clicks, makes those pages genuinely local, and folds the rest into 121 postcode-area hubs.</p>
+  <div class="meta">
+    <span>Search Console: 15 Jul – 12 Oct 2026 (90 days, final data)</span>
+    <span>GA4: 17 Jul – 14 Oct 2026</span>
+    <span>60 pages checked with Google's URL Inspection</span>
+    <span>Scripts: <code>scripts/audit_postcode_pages.py</code>, <code>scripts/audit_structured_data.py</code></span>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Sections">
+  <ol>
+    <li><a href="#decision">Decision</a></li>
+    <li><a href="#found">What we found</a></li>
+    <li><a href="#google">What Google wants</a></li>
+    <li><a href="#architecture">New structure</a></li>
+    <li><a href="#enrich">Making pages local</a></li>
+    <li><a href="#cities">City pages</a></li>
+    <li><a href="#sitemaps">Sitemaps</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#measure">Measurement</a></li>
+    <li><a href="#decisions">Your decisions</a></li>
+  </ol>
+</nav>
+
+<section id="decision">
+  <header>
+    <div class="eyebrow">1 · Decision</div>
+    <h2>Keep 470 postcode pages in Google, consolidate about 2,360</h2>
+  </header>
+  <div class="verdict">
+    <p><strong>A correction first:</strong> postcode pages are not missing from the sitemap. They are in a second sitemap, <code>/postcode/sitemap.xml</code>, which robots.txt points to. It lists 2,832 pages, and Google has indexed every one we sampled.</p>
+    <p><strong>The real issue is quality, not discovery.</strong> 96% of the site's indexable URLs are postcode pages, and the auto-generated ones share 93% of their text. They have no place names, use July 2024 coverage data and show the same 12 national deals. Google's spam policy calls this pattern "scaled content". Today it isn't hurting rankings: these pages sit at a median position of 5.2 for rare exact-postcode searches. But Google's helpful-content signal is applied site-wide, so it's a standing risk to the pages that matter, such as the guides.</p>
+    <p><strong>The plan:</strong> keep and properly localise the 410 district pages that earn demand, plus the 60 city and curated pages. Build 121 postcode-area hubs. Keep the other ~2,360 district pages working for visitors, but tell Google not to index them, and remove them from the sitemap. All 214 clicks those pages earned in 90 days come from pages we keep.</p>
+  </div>
+  <div class="stats">
+    <div class="stat"><span class="v num">2,832</span><span class="l">postcode pages in the postcode sitemap</span></div>
+    <div class="stat bad"><span class="v num">7%</span><span class="l">median unique text on auto-generated district pages</span></div>
+    <div class="stat bad"><span class="v num">93%</span><span class="l">of district pages had no visitor in 90 days (GA4)</span></div>
+    <div class="stat good"><span class="v num">100%</span><span class="l">of district clicks are kept by the 410-page "keep" group</span></div>
+  </div>
+</section>
+
+<section id="found">
+  <header>
+    <div class="eyebrow">2 · What we found</div>
+    <h2>Three kinds of postcode page, performing very differently</h2>
+  </header>
+  <div class="tablewrap panel">
+    <table>
+      <thead><tr><th>Type</th><th class="n">Pages</th><th class="n">Pages with impressions</th><th class="n">Impressions</th><th class="n">Clicks</th><th class="n">Median position</th><th class="n">Words</th><th class="n">Unique text</th><th class="n">Visits (GA4)</th><th class="n">Provider clicks</th></tr></thead>
+      <tbody>
+        <tr><td><strong>City pages</strong> (London, Manchester, … and the /postcode hub)</td><td class="n">10</td><td class="n">10</td><td class="n">11,673</td><td class="n">49</td><td class="n">31.3</td><td class="n">775</td><td class="n">34%</td><td class="n">41</td><td class="n" style="color:var(--red)">0</td></tr>
+        <tr><td><strong>Curated areas</strong> (DA1, BN1, NG1, E1 …)</td><td class="n">50</td><td class="n">49</td><td class="n">22,200</td><td class="n">134</td><td class="n">9.9</td><td class="n">771</td><td class="n">20%</td><td class="n">130</td><td class="n">47</td></tr>
+        <tr><td><strong>Auto-generated districts</strong> (Ofcom data only)</td><td class="n">2,772</td><td class="n">2,222</td><td class="n">11,416</td><td class="n">214</td><td class="n">5.2</td><td class="n">505</td><td class="n" style="color:var(--red)">7%</td><td class="n">247</td><td class="n">78</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="grid2">
+    <div class="panel">
+      <h3>District pages: long tail, thin spread</h3>
+      <p class="small muted">District pages kept at each demand threshold (90 days). Scale: 0 to 2,772 pages.</p>
+      <div class="bars">
+        <div class="bar"><span>Any impression</span><div class="track"><div class="fill" style="width:80.2%"></div></div><span class="val">2,222</span></div>
+        <div class="bar"><span>≥5 impr. or a click</span><div class="track"><div class="fill" style="width:31.6%"></div></div><span class="val">875</span></div>
+        <div class="bar hi"><span>≥10 impr. or a click</span><div class="track"><div class="fill" style="width:14.8%"></div></div><span class="val">410</span></div>
+        <div class="bar"><span>≥20 impr. or a click</span><div class="track"><div class="fill" style="width:8.6%"></div></div><span class="val">239</span></div>
+        <div class="bar"><span>Any click</span><div class="track"><div class="fill" style="width:7.0%"></div></div><span class="val">195</span></div>
+      </div>
+      <p class="small">Every threshold keeps all 214 clicks, because every page with a click is kept. At "10 impressions or a click", 410 pages keep 48% of impressions. The remaining ~1,800 pages with impressions average about 3 each over three months.</p>
+    </div>
+    <div class="panel">
+      <h3>What a district page is today</h3>
+      <ul class="plain small">
+        <li><strong>Identical template:</strong> AB10, TQ2 and WS1 are all exactly 505 words. Only the percentages change.</li>
+        <li><strong>No place names:</strong> AB10 is central Aberdeen, but the page never says so. Searches that reach these pages include "broadband deals Pershore", "Kirkcaldy", "Hornsea" and "Dymock".</li>
+        <li><strong>Old data:</strong> Ofcom coverage dated July 2024, and "prices verified 21 June 2026".</li>
+        <li><strong>The same 12 national deals</strong> everywhere, not filtered to networks that reach the district.</li>
+        <li><strong>Barely linked:</strong> the /postcode hub links to 15 postcode pages. The other ~2,800 are found mainly through the sitemap.</li>
+        <li><strong>But they convert:</strong> 32 provider clicks per 100 visits, among the best on the site, because postcode searchers are ready to buy.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="grid2">
+    <div class="callout amber"><h3>Search Console's sitemap count is stale</h3><p class="small">At its last read (13 October), Search Console counted 60 URLs in the postcode sitemap against 2,832 live. Resubmitting the new, smaller sitemaps fixes the reporting and gives us a clean "indexed vs submitted" figure per group.</p></div>
+    <div class="callout red"><h3>City pages earn no money</h3><p class="small">The 10 hand-written city pages had 11,673 impressions and 41 visits, but zero provider clicks in 90 days. They rank around position 31 for competitive terms like "broadband London". The same deals-first problem as the guides.</p></div>
+  </div>
+</section>
+
+<section id="google">
+  <header>
+    <div class="eyebrow">3 · What Google wants</div>
+    <h2>The rules that decide this</h2>
+  </header>
+  <div class="grid3">
+    <div class="idea"><span class="tag">Spam policy</span><h3>Scaled content abuse</h3><p class="small">Google's spam policies (March 2024) target "many pages generated for the primary purpose of manipulating search rankings and not helping users", however they're made. Swapping a postcode and a few numbers into one template is the textbook example.</p></div>
+    <div class="idea"><span class="tag">Spam policy</span><h3>Doorway pages</h3><p class="small">Google names "pages targeted at specific regions or cities that funnel users to one page" as doorways. District pages that all show the same national deals fit that description. Local, filtered results don't.</p></div>
+    <div class="idea"><span class="tag">Ranking systems</span><h3>Helpfulness is judged site-wide</h3><p class="small">Google says a site with "relatively high amounts of unhelpful content" can see other content perform worse, and that removing unhelpful content can help the rest. With 96% of URLs being thin postcode pages, this is the main risk.</p></div>
+    <div class="idea"><span class="tag">Sitemaps</span><h3>List only pages you want indexed</h3><p class="small">A sitemap should contain canonical, indexable pages, with lastmod changed only when the content really changes. Pages marked noindex shouldn't be in it.</p></div>
+    <div class="idea"><span class="tag">Indexing</span><h3>Use noindex, not robots.txt</h3><p class="small">To keep a page usable but out of results, use a <code>noindex</code> robots meta tag and leave it crawlable. Blocking it in robots.txt stops Google from seeing the noindex. Merge truly duplicate pages with a 301 redirect.</p></div>
+    <div class="idea"><span class="tag">Site structure</span><h3>Link to what matters</h3><p class="small">Pages Google can only find through a sitemap look unimportant. A clear hub → area → district structure with descriptive links tells Google which pages carry weight.</p></div>
+  </div>
+  <p class="small muted">Crawl budget isn't a concern here: Google says it matters mainly for sites with a million-plus URLs. The concern is quality, not crawling.</p>
+</section>
+
+<section id="architecture">
+  <header>
+    <div class="eyebrow">4 · New structure</div>
+    <h2>Hub, 121 area pages, 410 local district pages</h2>
+  </header>
+  <div class="panel">
+    <pre class="mermaid">
+flowchart TD
+  H["/postcode hub<br/>search + UK map of areas"] --> C["10 city pages<br/>London, Manchester ..."]
+  H --> A["121 postcode-area hubs (new)<br/>e.g. /postcode/area/ab · Aberdeen"]
+  A --> K["~470 indexed district pages<br/>50 curated + ~410 with demand<br/>localised, in sitemap"]
+  A -. "table row + link" .-> N["~2,360 other district pages<br/>still work for visitors<br/>noindex, follow · not in sitemap"]
+  K --> D["Deals filtered to networks<br/>that reach the district"]
+  N --> D
+    </pre>
+  </div>
+  <div class="tablewrap panel">
+    <table>
+      <thead><tr><th>Group</th><th class="n">Pages</th><th>In Google?</th><th>In sitemap?</th><th>Change</th></tr></thead>
+      <tbody>
+        <tr><td>/postcode hub + city pages</td><td class="n">10</td><td>Yes</td><td>Yes</td><td>Deals-first layout (section 6). Hub links to every area hub.</td></tr>
+        <tr><td><strong>Postcode-area hubs</strong> (new)</td><td class="n">121</td><td>Yes</td><td>Yes</td><td>One page per area: real town names, a sortable table of every district's coverage, area-level networks and providers, deals.</td></tr>
+        <tr><td>Curated areas</td><td class="n">50</td><td>Yes</td><td>Yes</td><td>Keep. Refresh data. Bring the ~35 without local intel up to the DA1 / BN1 standard over time.</td></tr>
+        <tr><td>Districts with demand (≥10 impr. or a click)</td><td class="n">~410</td><td>Yes</td><td>Yes</td><td>Localise (section 5). Must pass a unique-content check before staying indexable.</td></tr>
+        <tr><td>All other districts</td><td class="n">~2,360</td><td><strong>No</strong> (noindex, follow)</td><td>No</td><td>Still live: postcode searches on the site land here and convert. Linked from their area hub. Re-indexed automatically if they start earning demand.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="grid2">
+    <div class="callout green"><h3>Why noindex rather than delete or redirect</h3><p class="small">The site's own postcode checker sends visitors to these URLs, and they convert at 32 clicks per 100 visits. Deleting them would break that journey. Redirecting would send a WM1 visitor to a page about a different district. Noindex keeps the visitor experience, removes the quality risk, and can be reversed per page.</p></div>
+    <div class="callout amber"><h3>Self-correcting rule</h3><p class="small">A monthly job reruns the audit. A noindexed district that starts earning clicks or visits is promoted: localised, indexed and added to the sitemap. An indexed district with no impressions for 6 months is reviewed.</p></div>
+  </div>
+</section>
+
+<section id="enrich">
+  <header>
+    <div class="eyebrow">5 · Making pages local</div>
+    <h2>What makes an indexed district page worth Google's index</h2>
+    <p class="muted">Each item is either real data we can source and date, or it doesn't go on the page. Nothing is invented to bulk up text.</p>
+  </header>
+  <div class="tablewrap panel">
+    <table>
+      <thead><tr><th>Element</th><th>Source</th><th>Why it helps</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Real place names</strong> in the title, heading and text ("Broadband in Aberdeen city centre (AB10)")</td><td>ONS Postcode Directory (open data): post town and local authority for each district</td><td>Matches how people search ("broadband deals Pershore") and tells readers where they are</td></tr>
+        <tr><td><strong>Current coverage</strong>, with the date</td><td>Latest Ofcom Connected Nations postcode data (we use July 2024)</td><td>Freshness. The headline numbers are the page's core value.</td></tr>
+        <tr><td><strong>Compared with the area and UK</strong> ("Full fibre here is 12 points above the Aberdeen average")</td><td>Calculated from the same Ofcom data</td><td>Turns numbers into an answer. Unique per district without filler.</td></tr>
+        <tr><td><strong>Networks and providers that build here</strong></td><td>Altnet and network footprints we can verify on the operator's own site, dated</td><td>Turns a national list into a local one, avoiding the doorway pattern</td></tr>
+        <tr><td><strong>Deals filtered</strong> to networks present in the district</td><td>Existing deal data plus network presence</td><td>The main thing the visitor came for</td></tr>
+        <tr><td><strong>Nearby districts</strong> and the area hub</td><td>Postcode adjacency within the area</td><td>Internal links and natural next steps</td></tr>
+        <tr><td><strong>Two or three local FAQs</strong> answered from the data ("Can I get full fibre in AB10?")</td><td>Generated from the district's own figures and verified facts</td><td>Matches question searches and AI answers</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout green"><h3>Quality gate before indexing</h3><p class="small">A district page only becomes indexable if <code>scripts/audit_postcode_pages.py</code> measures at least 40% unique text (today: 7%), a real place name, and coverage data under 12 months old. Pages that fail stay noindexed until they pass. Any claim that appears only in an AI Overview needs a primary source first, as with every page build.</p></div>
+</section>
+
+<section id="cities">
+  <header>
+    <div class="eyebrow">6 · City pages</div>
+    <h2>Apply the deals-first lessons to the 10 city pages</h2>
+  </header>
+  <div class="grid2">
+    <div class="panel">
+      <p class="small">City pages get the most impressions per page (London alone: 3,287), but rank around position 31 and produced no provider clicks. They're built on the same article-first template as the guides were.</p>
+      <ul class="plain small">
+        <li>Use the deals-first layout from the TV-guide pilot: verdict, postcode check and deals in the first screen.</li>
+        <li>Link down to every area hub and indexed district in the city (London → E, N, SE, SW, W … hubs).</li>
+        <li>Local evidence: networks building in the city, borough-level coverage, dated.</li>
+        <li>Wait for the TV-guide pilot's 28-day result before rolling out, so we copy what works.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>Top city pages (90 days)</h3>
+      <div class="tablewrap"><table><thead><tr><th>Page</th><th class="n">Impr.</th><th class="n">Clicks</th><th class="n">Pos.</th></tr></thead><tbody>
+        <tr><td>/postcode/london</td><td class="n">3,287</td><td class="n">12</td><td class="n">33.6</td></tr>
+        <tr><td>/postcode/manchester</td><td class="n">2,180</td><td class="n">5</td><td class="n">46.2</td></tr>
+        <tr><td>/postcode/glasgow</td><td class="n">1,676</td><td class="n">7</td><td class="n">24.7</td></tr>
+        <tr><td>/postcode/edinburgh</td><td class="n">1,073</td><td class="n">10</td><td class="n">21.8</td></tr>
+        <tr><td>/postcode/birmingham</td><td class="n">1,003</td><td class="n">7</td><td class="n">30.3</td></tr>
+      </tbody></table></div>
+    </div>
+  </div>
+</section>
+
+<section id="sitemaps">
+  <header>
+    <div class="eyebrow">7 · Sitemaps and technical</div>
+    <h2>Smaller, honest sitemaps Google can report on</h2>
+  </header>
+  <div class="tablewrap panel">
+    <table>
+      <thead><tr><th>Sitemap</th><th class="n">URLs</th><th>Contains</th></tr></thead>
+      <tbody>
+        <tr><td><code>/sitemap.xml</code></td><td class="n">122</td><td>Unchanged: guides, providers, comparisons, tools, trust pages</td></tr>
+        <tr><td><code>/postcode/sitemap-hubs.xml</code></td><td class="n">~131</td><td>/postcode hub, 10 city pages, 121 area hubs</td></tr>
+        <tr><td><code>/postcode/sitemap-districts.xml</code></td><td class="n">~460</td><td>50 curated + ~410 indexed districts, with lastmod set from each page's real data date</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <ul class="plain small">
+    <li>Separate sitemaps give a separate "submitted vs indexed" figure for each group in Search Console.</li>
+    <li>Noindexed districts are removed from every sitemap and carry <code>&lt;meta name="robots" content="noindex, follow"&gt;</code>. robots.txt keeps allowing them, so Google can see the noindex.</li>
+    <li>Canonicals stay self-referencing. Area hubs get BreadcrumbList data (Home › Postcode › Area). District pages keep their deal data, which now passes the structured-data audit.</li>
+    <li>Resubmit both postcode sitemaps in Search Console after launch, and remove the old <code>/postcode/sitemap.xml</code> entry once Google has read the new ones.</li>
+  </ul>
+</section>
+
+<section id="roadmap">
+  <header>
+    <div class="eyebrow">8 · Roadmap</div>
+    <h2>Phased, measured, reversible</h2>
+  </header>
+  <div class="timeline">
+    <div class="phase"><span class="when">Week 1</span><div><h3>Data foundations</h3><ul><li>Add ONS post town and local authority for every district; refresh Ofcom coverage to the latest release.</li><li>Build the "keep list" from Search Console and GA4 (≥10 impressions or a click, plus all curated).</li></ul></div></div>
+    <div class="phase"><span class="when">Weeks 2–3</span><div><h3>Area hubs and localised district template</h3><ul><li>Build the 121 area hubs and the localised district template; link hub → areas → districts.</li><li>Run the quality gate: only passing pages are indexable.</li></ul></div></div>
+    <div class="phase"><span class="when">Week 3</span><div><h3>Consolidate</h3><ul><li>Noindex the ~2,360 low-demand districts; split the sitemaps; resubmit in Search Console.</li><li>Record the change for before/after measurement (7 / 28 / 56 / 90 days).</li></ul></div></div>
+    <div class="phase"><span class="when">Weeks 4–6</span><div><h3>City pages</h3><ul><li>Deals-first city pages, using the TV-guide pilot result.</li></ul></div></div>
+    <div class="phase"><span class="when">Monthly</span><div><h3>Keep it self-correcting</h3><ul><li>Rerun the audit; promote districts that start earning demand; review indexed pages with none.</li></ul></div></div>
+  </div>
+</section>
+
+<section id="measure">
+  <header>
+    <div class="eyebrow">9 · Measurement</div>
+    <h2>How we'll know it worked</h2>
+  </header>
+  <div class="tablewrap panel">
+    <table>
+      <thead><tr><th>Metric</th><th class="n">Baseline (90 days)</th><th>Target</th><th>Guardrail</th></tr></thead>
+      <tbody>
+        <tr><td>Clicks to all postcode pages</td><td class="n">397</td><td>Higher within 90 days</td><td>Must not fall more than 10% in the first 28 days; if it does, reverse the noindex for affected pages</td></tr>
+        <tr><td>Clicks to indexed districts</td><td class="n">214</td><td>Higher, from town-name searches</td><td>Track per page</td></tr>
+        <tr><td>Area-hub impressions</td><td class="n">0 (new)</td><td>Rankings for "broadband [town]"</td><td>—</td></tr>
+        <tr><td>Provider clicks from postcode pages</td><td class="n">125</td><td>Higher; city pages above 0</td><td>No drop on district landings from the site's own checker</td></tr>
+        <tr><td>Sitewide: guide and provider rankings</td><td class="n">current</td><td>Stable or better</td><td>The quality benefit is indirect and may take months</td></tr>
+        <tr><td>Median unique text, indexed districts</td><td class="n">7%</td><td>≥40%</td><td>No filler; every line sourced</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="decisions">
+  <header>
+    <div class="eyebrow">10 · Your decisions</div>
+    <h2>Three things to approve</h2>
+  </header>
+  <div class="grid3">
+    <div class="idea"><span class="tag">Decision 1</span><h3>Approve the noindex of ~2,360 pages</h3><p class="small">Pages stay live for visitors. Reversible per page. This is the step that addresses the quality risk.</p></div>
+    <div class="idea"><span class="tag">Decision 2</span><h3>The threshold</h3><p class="small">Recommended: ≥10 impressions or a click (410 pages). Stricter: ≥20 (239 pages). Looser: ≥5 (875 pages, more localising work).</p></div>
+    <div class="idea"><span class="tag">Decision 3</span><h3>Order of work</h3><p class="small">Recommended: phases 1–3 first (data, hubs, consolidation), city pages after the TV-guide pilot result in mid-November.</p></div>
+  </div>
+</section>
+
+<footer>
+  <p><strong>Method.</strong> <code>scripts/audit_postcode_pages.py</code> classified all 2,832 URLs in /postcode/sitemap.xml, pulled 90 days of Search Console data per URL, inspected 60 URLs with Google's URL Inspection API (10 city, 25 curated, 25 district: all "Submitted and indexed"), and measured visible word count and the share of 5-word phrases unique to each page. GA4 sessions and events cover 17 Jul – 14 Oct 2026. Full data: <code>docs/postcode-page-audit.json</code>, <code>docs/postcode-ga4-by-class.json</code>, <code>docs/postcode-district-gsc-90d.json</code>.</p>
+  <p><strong>Limits.</strong> Search Console hides rare queries, so most district impressions can't be tied to a search term. The unique-text measure is a proxy for duplication, not a Google score. The index-status sample is 60 of 2,832 pages. Google's guidance is quoted from its spam policies, ranking-systems guide, sitemap and noindex documentation as of 2026.</p>
+</footer>
+</div>

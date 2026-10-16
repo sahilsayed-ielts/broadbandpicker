@@ -23,6 +23,12 @@ merely because a shared template or unrelated page contains something similar.
 
 ## 1. Keyword research and live SERP scraping (required every build, not optional)
 
+This is a fresh-research gate for this exact run. Copy `research_gate.run_id` from the page packet
+to `research_gate.run_id` in the research JSON and set `research_gate.completed_at` to the real UTC
+completion time after all research below is finished. Also set every item in
+`research_gate.completed_outputs` to `true`. Never reuse or merely re-date research from an earlier
+page build or update. Compilation and deployment fail when the run ID, time or outputs do not match.
+
 The packet's keyword list is a starting point, not the finished research. Before writing:
 - Search the primary keyword and scrape/read at least three currently ranking UK pages. Note the
   common structural pattern among the top results: roughly how long they are, how they're
@@ -107,6 +113,9 @@ banned above.
 ## 5. Save the research and keyword map (mandatory validation input)
 
 Before running the build, write `docs/page-build-pipeline/current-page-research.json` as valid JSON with:
+- `research_gate`: `run_id` copied exactly from the current page packet, a real ISO-8601 UTC
+  `completed_at` after the packet's `prepared_at`, and `completed_outputs` containing all four
+  required output names from the packet set to `true`;
 - `slug`, `primary_keyword`, and `search_locale` (`UK`);
 - `secondary_keywords`: at least four objects containing `keyword`, `intent`, `page_slot` and
   `coverage_note`;

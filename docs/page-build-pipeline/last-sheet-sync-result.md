@@ -1,8 +1,16 @@
-Successfully updated the existing native Google Sheet in place.
+Updated Google Sheet 1Ke0YWo5T-45JRpuXpfqL_0vwmcBbS0i06Da47quRRH0
 
-- Synchronized all 7 workbook tabs; existing unrelated tabs were preserved.
-- Applied and verified strikethrough on all 33 completed Content Gap Roadmap rows.
-- No active roadmap row currently exists to verify.
-- Local files were not modified.
+https://docs.google.com/spreadsheets/d/1Ke0YWo5T-45JRpuXpfqL_0vwmcBbS0i06Da47quRRH0/edit
 
-[Open the updated Google Sheet](https://docs.google.com/spreadsheets/d/1Ke0YWo5T-45JRpuXpfqL_0vwmcBbS0i06Da47quRRH0/edit)
+Enabled in project broadbandpicker-analytics (547385571119):
+- sheets.googleapis.com
+- drive.googleapis.com
+
+Service account broadbandpicker-ga4@broadbandpicker-analytics.iam.gserviceaccount.com now has:
+- roles/serviceusage.serviceUsageAdmin on the project
+- writer access on this spreadsheet
+
+Content Gap Roadmap live row:
+- Built, live and deployed on Vercel
+- 2026-09-17
+- https://broadbandpicker.co.uk/guides/moving-house-broadband-checklist-uk

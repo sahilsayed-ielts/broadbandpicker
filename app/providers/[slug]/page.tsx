@@ -16,6 +16,8 @@ import PostcodeContextBar from '@/components/PostcodeContextBar'
 import ProviderAvailabilityBadge from '@/components/ProviderAvailabilityBadge'
 import RatingStars from '@/components/RatingStars'
 import ReviewEvidencePanel from '@/components/ReviewEvidencePanel'
+import PageHeroBanner from '@/components/PageHeroBanner'
+import { DEFAULT_GUIDE_CTAS, categoryHero } from '@/lib/pageHero'
 
 export async function generateStaticParams() {
   return providers.map((p) => ({ slug: p.slug }))
@@ -136,12 +138,24 @@ export default async function ProviderPage({
     })
     .filter((x): x is { comparison: (typeof providerComparisons)[number]; other: NonNullable<ReturnType<typeof getProviderBySlug>> } => x !== null)
 
+  const hero = categoryHero('providers-and-comparisons')
+
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div>
       <JsonLd data={articleStructuredData} />
       <JsonLd data={faqJsonLd} />
       {!isRetired && <JsonLd data={offerJsonLd} />}
+      <PageHeroBanner
+        title={`${provider.name} Broadband Review`}
+        kicker="Provider review"
+        lede={`${isRetired ? 'Final range from' : 'From'} £${provider.monthlyPriceFrom.toFixed(2)}/month · Up to ${maxSpeed.download} Mbps · ${isRetired ? 'Regional' : `${provider.coveragePercent}%`} UK coverage`}
+        image={hero.image}
+        imageAlt={hero.imageAlt}
+        accent={hero.accent}
+        ctas={DEFAULT_GUIDE_CTAS}
+      />
 
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <BreadcrumbNav
         items={[
           { name: 'Home', href: '/' },
@@ -152,25 +166,7 @@ export default async function ProviderPage({
 
       <PostcodeContextBar />
 
-      {/* Header */}
-      <div className="flex flex-wrap items-start justify-between gap-4 mb-8">
-        <div>
-          <h1 className="text-3xl font-extrabold text-slate-900 mb-1">
-            {provider.name} Broadband Review
-          </h1>
-          <p className="text-slate-600">
-            {isRetired ? 'Final Brsk range from ' : 'From '}
-            <span className="font-semibold text-slate-900">
-              £{provider.monthlyPriceFrom.toFixed(2)}/month
-            </span>{' '}
-            &middot; Up to{' '}
-            <span className="font-semibold text-slate-900">{maxSpeed.download} Mbps</span> &middot;{' '}
-            <span className="font-semibold text-slate-900">
-              {isRetired ? 'Regional' : `${provider.coveragePercent}%`}
-            </span>{' '}
-            UK coverage
-          </p>
-        </div>
+      <div className="mb-8 flex justify-end">
         <AffiliateCTA
           href={provider.successorUrl ?? provider.affiliateUrl}
           providerName={provider.successorName ?? provider.name}
@@ -481,6 +477,7 @@ export default async function ProviderPage({
         intro="Facts on this review come from the provider, our methodology, and the customer-sentiment sources listed here."
         sources={provider.reviewSources}
       />
+      </div>
     </div>
   )
 }

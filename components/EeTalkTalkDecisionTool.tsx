@@ -81,6 +81,9 @@ export default function EeTalkTalkDecisionTool() {
         Choose the one factor you care about most. The result uses published national offers and
         service evidence, so it is a shortlist rather than an address-level availability result.
       </p>
+      <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-700">
+        In the limited launch area, our <Link href="/postcode/gu1" className="font-semibold text-sky-700 underline">Guildford and GU1 broadband guide</Link> explains the local coverage evidence and exact-address checks for EE&apos;s faster tiers.
+      </p>
 
       <fieldset className="mt-5">
         <legend className="text-sm font-semibold text-slate-900">Your main broadband priority</legend>

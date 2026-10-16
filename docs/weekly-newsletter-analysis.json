@@ -1,0 +1,271 @@
+{
+  "run_at_utc": "2026-09-20T16:24:40+00:00",
+  "pages": [
+    {
+      "name": "BroadbandPicker alerts",
+      "category": "self",
+      "url": "https://broadbandpicker.co.uk/alerts",
+      "status": 200,
+      "title": "Broadband Deal Alerts by Email | BroadbandPicker",
+      "word_count": 3457,
+      "html_bytes": 130240,
+      "js_rendered_suspected": false,
+      "signals_found": [
+        "weekly",
+        "archive",
+        "unsubscribe",
+        "affiliate_disclosure",
+        "postcode_or_geo",
+        "double_opt_in"
+      ],
+      "weekly_mentions": [
+        "Broadband Social Tariffs UK 2026: Who Qualifies and How to Apply Cheaper Broadband If You Claim Benefits: Social Tariffs Explained No Credit Check Broadband in the UK: Options and What to Expect Browse all 56 guides \u2192 To",
+        "Unsubscribe any time.\",\"isPartOf\":{\"@type\":\"WebSite\",\"url\":\"https://broadbandpicker.co.uk/\"}},{\"@type\":\"FAQPage\",\"mainEntity\":[{\"@type\":\"Question\",\"name\":\"What emails will BroadbandPicker send me?\",\"acceptedAnswer\":{\"@ty",
+        "A newsletter is not an availability check, so we do not ask for your street address here.\"}},{\"@type\":\"Question\",\"name\":\"Why is there a confirmation email?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"UK marketing email n",
+        "That also stops a mistyped address from being emailed.\"}},{\"@type\":\"Question\",\"name\":\"How do I stop the emails?\",\"acceptedAnswer\":{\"@type\":\"Answer\",\"text\":\"Every message includes an unsubscribe link."
+      ],
+      "notes": ""
+    },
+    {
+      "name": "MoneySavingExpert weekly archive",
+      "category": "archive",
+      "url": "https://www.moneysavingexpert.com/tips/",
+      "status": 403,
+      "title": "",
+      "word_count": 0,
+      "html_bytes": 5772,
+      "js_rendered_suspected": false,
+      "signals_found": [],
+      "weekly_mentions": [],
+      "notes": "Non-200 or empty (403)"
+    },
+    {
+      "name": "MoneySavingExpert email FAQ",
+      "category": "newsletter",
+      "url": "https://www.moneysavingexpert.com/site/money-tips-email-faqs/",
+      "status": 403,
+      "title": "",
+      "word_count": 0,
+      "html_bytes": 5859,
+      "js_rendered_suspected": false,
+      "signals_found": [],
+      "weekly_mentions": [],
+      "notes": "Non-200 or empty (403)"
+    },
+    {
+      "name": "MoneySavingExpert privacy",
+      "category": "legal",
+      "url": "https://www.moneysavingexpert.com/site/privacy-policy/",
+      "status": 403,
+      "title": "",
+      "word_count": 0,
+      "html_bytes": 5817,
+      "js_rendered_suspected": false,
+      "signals_found": [],
+      "weekly_mentions": [],
+      "notes": "Non-200 or empty (403)"
+    },
+    {
+      "name": "Uswitch broadband",
+      "category": "comparison",
+      "url": "https://www.uswitch.com/broadband/",
+      "status": 200,
+      "title": "Broadband Deals: Compare in September 2026 - Uswitch",
+      "word_count": 14149,
+      "html_bytes": 925997,
+      "js_rendered_suspected": false,
+      "signals_found": [
+        "affiliate_disclosure",
+        "postcode_or_geo"
+      ],
+      "weekly_mentions": [],
+      "notes": ""
+    },
+    {
+      "name": "Uswitch privacy",
+      "category": "legal",
+      "url": "https://www.uswitch.com/privacy/",
+      "status": 200,
+      "title": "Customer Privacy Notice | RVU",
+      "word_count": 11150,
+      "html_bytes": 243677,
+      "js_rendered_suspected": false,
+      "signals_found": [
+        "unsubscribe",
+        "affiliate_disclosure",
+        "postcode_or_geo"
+      ],
+      "weekly_mentions": [
+        "You can unsubscribe from emails by clicking \u2018Unsubscribe\u2019 in any marketing email you have received; can switch off \u2018push\u2019 notifications on your mobile device by going into your settings; and \u2018stop\u2019 SMS messages by follow",
+        "You can unsubscribe from emails by clicking \u2018Unsubscribe\u2019 in any marketing email you have received; can switch off \u2018push\u2019 notifications on your mobile device by going into your settings; and \u2018stop\u2019 SMS messages by follow"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "broadbandchoices privacy",
+      "category": "legal",
+      "url": "https://www.broadbandchoices.co.uk/privacy-policy",
+      "status": 403,
+      "title": "",
+      "word_count": 0,
+      "html_bytes": 5779,
+      "js_rendered_suspected": false,
+      "signals_found": [],
+      "weekly_mentions": [],
+      "notes": "Non-200 or empty (403)"
+    },
+    {
+      "name": "Which? newsletters",
+      "category": "newsletter",
+      "url": "https://www.which.co.uk/newsletters",
+      "status": 200,
+      "title": "Which? Free newsletters for everyone - Which?",
+      "word_count": 12471,
+      "html_bytes": 296576,
+      "js_rendered_suspected": false,
+      "signals_found": [
+        "weekly",
+        "unsubscribe",
+        "postcode_or_geo"
+      ],
+      "weekly_mentions": [
+        "Free newsletters for everyone 30 Mar 2026 Free newsletters for everyone Save article In this article Weekly Scoop newsletter Deals newsletter Retirement Planning newsletter First-time Buyer newsletters Money newsletter S",
+        "\u00e2\u0080\u0093 you don\u00e2\u0080\u0099t have to be a member to have these newsletters emailed to you regularly.",
+        "Weekly Scoop newsletter Weekly Scoop newsletter \u00e2\u0080\u0093 make smarter consumer choices, sign up for our free tips Deals newsletter Deals newsletter \u00e2\u0080\u0093 free tips from our experts, emailed to you monthly and for seasonal sales",
+        "Retirement Planning newsletter Retirement Planning newsletter \u00e2\u0080\u0093 free tips from our experts to help you get your finances ready for the future."
+      ],
+      "notes": ""
+    },
+    {
+      "name": "NerdWallet UK",
+      "category": "editorial",
+      "url": "https://www.nerdwallet.com/uk/",
+      "status": 410,
+      "title": "",
+      "word_count": 0,
+      "html_bytes": 15,
+      "js_rendered_suspected": false,
+      "signals_found": [],
+      "weekly_mentions": [],
+      "notes": "Non-200 or empty (410)"
+    },
+    {
+      "name": "cable.co.uk",
+      "category": "comparison",
+      "url": "https://www.cable.co.uk/",
+      "status": 200,
+      "title": "Best Broadband Deals 2026: Compare & Save Money",
+      "word_count": 6723,
+      "html_bytes": 434817,
+      "js_rendered_suspected": false,
+      "signals_found": [
+        "affiliate_disclosure",
+        "postcode_or_geo"
+      ],
+      "weekly_mentions": [],
+      "notes": ""
+    },
+    {
+      "name": "ICO electronic mail marketing",
+      "category": "legal",
+      "url": "https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/guide-to-pecr/electronic-and-telephone-marketing/electronic-mail-marketing/",
+      "status": 200,
+      "title": "Electronic mail marketing | ICO",
+      "word_count": 1617,
+      "html_bytes": 57062,
+      "js_rendered_suspected": false,
+      "signals_found": [
+        "unsubscribe"
+      ],
+      "weekly_mentions": [
+        "You must not disguise or conceal your identity, and you must provide a valid contact address so they can opt out or unsubscribe.",
+        "\u2610 We offer an opt-out (by reply or unsubscribe link) and act on this promptly.",
+        "\u2610 We keep a \u2018do not contact\u2019 list of anyone who opts out or unsubscribes from our electronic mail.",
+        "Previous Fax marketing Next Using marketing lists Back to top Print this page For the public Official information Nuisance calls For organisations UK GDPR guidance and resources Freedom of information EIR and access to i"
+      ],
+      "notes": ""
+    }
+  ],
+  "our_dns": {
+    "mx": "",
+    "spf": "\"google-site-verification=JxWo4msWeIzvf_XuD0Fy5B07TnOe0K_n33pAd1ibxlA\"",
+    "dmarc": ""
+  },
+  "implementation_spec": {
+    "product": "BroadbandPicker weekly deal roundup",
+    "cadence": "One email a week, Tuesday 09:00 UTC (10:00 UK in BST, 09:00 UK in GMT)",
+    "from_name": "BroadbandPicker",
+    "from_address": "noreply@broadbandpicker.co.uk",
+    "public_web_twin": "/alerts/weekly",
+    "admin_emailer": "/admin/alerts",
+    "consent_named_content": "weekly UK broadband deal roundups and occasional switching guides",
+    "agents": [
+      {
+        "name": "Planner",
+        "job": "Fix the week key, subject and preheader. Pull live providers, newest guides and GEO hubs. Do not invent prices."
+      },
+      {
+        "name": "Editor",
+        "job": "Keep the issue short: one lede, five from-prices, three guides, four area links, tools. British English. No fake social proof."
+      },
+      {
+        "name": "Compliance",
+        "job": "Confirmed subscribers only. Named sender. Affiliate disclosure. Unsubscribe in body and List-Unsubscribe header. No personal Gmail. No pre-ticked anything."
+      },
+      {
+        "name": "Sender",
+        "job": "Preview the live HTML. Test one address. Then send the same issue to the confirmed list via domain SMTP."
+      },
+      {
+        "name": "Analyst",
+        "job": "Track newsletter_signup on confirm, outbound_provider_click from the web twin, and do not treat opens as a PECR basis."
+      }
+    ],
+    "issue_stack": [
+      "Subject: BroadbandPicker weekly roundup, {month year}",
+      "Preheader: Check from-prices at your address. Unsubscribe any time.",
+      "Logo + wordmark header",
+      "Lede: this is a roundup, not a national cheapest promise",
+      "Five provider from-prices with verified date and Check deals CTA",
+      "Three recently updated guides (GEO/switching/speed)",
+      "Four area hubs (London, Manchester, Birmingham, Glasgow)",
+      "Tools: speed test, Broadband Match, cost calculator",
+      "How we make money + unsubscribe + contact page"
+    ],
+    "seo_geo": [
+      "The email is a push copy of a public weekly page so Google and answer engines can cite the same roundup.",
+      "Every deal CTA goes to an address checker, never a fake national from-price as the only action.",
+      "GEO hubs and updated guides recycle high-intent URLs already on the site.",
+      "Month and ISO week in the title keep the page fresh without a new URL every week."
+    ],
+    "affiliate_rules": [
+      "Disclose commission in the email and on the web twin.",
+      "Rank from live provider data, not from who pays more.",
+      "Do not put unnamed partners on the consent tick.",
+      "Primary CTA is Check at your postcode, not a dark-pattern countdown."
+    ],
+    "send_rules": [
+      "Only status=confirmed, never pending or unsubscribed",
+      "Personalise unsubscribe token; do not send a shared unsub link",
+      "If domain SMTP is missing, skip the send rather than use Gmail",
+      "Vercel Cron fires GET /api/newsletter/send every Tuesday 09:00 UTC with CRON_SECRET",
+      "Skip rather than use Gmail if domain SMTP is missing",
+      "Skip if this ISO week was already sent (newsletter_sends.week_key)"
+    ],
+    "send_timing": {
+      "chosen_day": "Tuesday",
+      "chosen_time_utc": "09:00",
+      "cron": "0 9 * * 2",
+      "uk_clock": "10:00 in British Summer Time, 09:00 in GMT",
+      "why_not_monday": "UK and platform benchmarks treat Monday as inbox-backlog: weaker than Tue-Thu. Consent says weekly, not Monday.",
+      "why_not_weekend": "Consumer comparison mail is opened at a desk or on a commute, not Saturday.",
+      "evidence": [
+        "MoneySavingExpert Money Tips FAQ (live): after the first week, emails are usually sent on a Wednesday, sometimes Tuesday night or Thursday.",
+        "UK agency round-up (Echelon Media): Tuesday is the strongest day; 10:00-11:00 and 14:00-16:00 UK; avoid early Monday and Friday afternoon.",
+        "Primo Interactive UK 2026 playbook: newsletter default is Tuesday 10:00 local; Monday is a second choice once Tue/Wed are used.",
+        "Campaign Monitor / Mailchimp-style 2026 summaries: Tuesday or Thursday 09:00-11:00 local for opens; weekday gaps are small, list hygiene matters more.",
+        "Fintech/consumer money niche heatmaps: Tuesday about 09:00 local."
+      ]
+    }
+  }
+}

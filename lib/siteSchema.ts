@@ -3,7 +3,7 @@ export const ORG_ID = `${SITE_URL}/#organisation`
 export const WEBSITE_ID = `${SITE_URL}/#website`
 export const LOGO_URL = `${SITE_URL}/logo.png`
 /** Last material homepage / chrome / schema rebuild. Used by sitemap lastmod. */
-export const HOMEPAGE_UPDATED = '2026-08-31'
+export const HOMEPAGE_UPDATED = '2026-09-19'
 
 export const organizationRef = { '@id': ORG_ID }
 export const websiteRef = { '@id': WEBSITE_ID }

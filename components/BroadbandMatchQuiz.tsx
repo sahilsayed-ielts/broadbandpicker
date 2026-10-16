@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import AffiliateCTA from '@/components/AffiliateCTA'
 import type { Provider } from '@/types'
 import {
   topMatches,
@@ -152,14 +153,14 @@ export default function BroadbandMatchQuiz({ providers }: BroadbandMatchQuizProp
                 ))}
               </ul>
               <div className="mt-4 flex flex-wrap gap-3">
-                <a
+                <AffiliateCTA
                   href={result.provider.affiliateUrl}
-                  target="_blank"
-                  rel="noopener noreferrer sponsored"
+                  providerName={result.provider.name}
+                  providerSlug={result.provider.slug}
+                  placement="broadband_match_quiz"
+                  label={`Get ${result.provider.name} deal →`}
                   className="px-5 py-2.5 bg-sky-500 hover:bg-sky-600 text-white font-bold rounded-lg text-sm transition-colors"
-                >
-                  Get {result.provider.name} deal &rarr;
-                </a>
+                />
                 <Link
                   href={`/providers/${result.provider.slug}`}
                   className="px-5 py-2.5 border border-slate-600 hover:border-slate-500 text-slate-300 font-semibold rounded-lg text-sm transition-colors"

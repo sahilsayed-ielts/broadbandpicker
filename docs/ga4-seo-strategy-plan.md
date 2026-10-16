@@ -1,10 +1,10 @@
 # BroadbandPicker GA4 SEO measurement strategy
 
-Generated: 2026-08-24T22:08:32.885612+00:00
+Generated: 2026-08-29T00:49:03.953938+00:00
 
 ## Audit outcome
 
-The repository contains **16 distinct analytics events** and covers **66.7%** of the proposed SEO/commercial measurement contract. Code presence is not proof of reporting: production events must also be checked in Realtime and DebugView.
+The repository contains **27 distinct analytics events** and covers **66.7%** of the proposed SEO/commercial measurement contract. Code presence is not proof of reporting: production events must also be checked in Realtime and DebugView.
 
 ## Event coverage and priorities
 

@@ -3,6 +3,10 @@ import BreadcrumbNav from '@/components/BreadcrumbNav'
 import ContactForm from '@/components/ContactForm'
 import { JsonLd } from '@/lib/jsonLd'
 import { organizationRef, SITE_URL } from '@/lib/siteSchema'
+import PageHeroBanner from '@/components/PageHeroBanner'
+import { DEFAULT_GUIDE_CTAS, hubHero } from '@/lib/pageHero'
+
+const HERO = hubHero()
 
 export const metadata: Metadata = {
   title: 'Contact BroadbandPicker',
@@ -41,20 +45,24 @@ const contactJsonLd = {
 
 export default function ContactPage() {
   return (
-    <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div>
       <JsonLd data={contactJsonLd} />
+      <PageHeroBanner
+        title="Contact Us"
+        kicker="Company"
+        lede="We're a small team. We aim to respond to all enquiries within 2 business days."
+        image={HERO.image}
+        imageAlt={HERO.imageAlt}
+        accent={HERO.accent}
+        ctas={DEFAULT_GUIDE_CTAS}
+      />
+      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <BreadcrumbNav
         items={[
           { name: 'Home', href: '/' },
           { name: 'Contact', href: '/contact' },
         ]}
       />
-
-      <h1 className="text-3xl font-extrabold text-slate-900 mb-4">Contact Us</h1>
-
-      <p className="text-slate-600 mb-8">
-        We&apos;re a small team. We aim to respond to all enquiries within 2 business days.
-      </p>
 
       <div className="mb-10">
         <ContactForm />
@@ -109,6 +117,7 @@ export default function ContactPage() {
           broadband service, billing disputes, or technical problems. For those issues, please
           contact your broadband provider directly.
         </p>
+      </div>
       </div>
     </div>
   )

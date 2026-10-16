@@ -4,11 +4,16 @@ import { providers, providerDatasetUpdatedDate } from '@/data/providers'
 import BreadcrumbNav from '@/components/BreadcrumbNav'
 import PostcodeChecker from '@/components/PostcodeChecker'
 import DealsClient from '@/components/DealsClient'
+import { getAllDeals } from '@/lib/deals'
 import PostcodeContextBar from '@/components/PostcodeContextBar'
 import { buildDealListJsonLd, buildOfferCatalogJsonLd } from '@/lib/dealSchema'
 import { JsonLd } from '@/lib/jsonLd'
 import CiteableAnswer from '@/components/CiteableAnswer'
+import PageHeroBanner from '@/components/PageHeroBanner'
 import { currentMonthYear } from '@/lib/dates'
+import { DEFAULT_GUIDE_CTAS, categoryHero } from '@/lib/pageHero'
+
+const HERO = categoryHero('deals-and-pricing')
 
 const MONTH_YEAR = currentMonthYear()
 
@@ -39,21 +44,6 @@ const dealsPageJsonLd = {
   ],
 }
 
-function getAllDeals() {
-  return providers.flatMap((p) =>
-    p.speeds.map((s, i) => ({
-      provider: p,
-      packageName: `${p.name} ${s.type} ${s.download}Mbps`,
-      download: s.download,
-      upload: s.upload,
-      type: s.type,
-      monthlyPrice: i === 0 ? p.monthlyPriceFrom : p.monthlyPriceFrom + i * 5,
-      contractLength: p.contractLengths[0],
-      setupFee: p.setupFee,
-    }))
-  )
-}
-
 export default function DealsPage() {
   const allDeals = getAllDeals()
   const dealListJsonLd = buildDealListJsonLd(allDeals.slice(0, 30), 'UK Broadband Deals')
@@ -82,10 +72,20 @@ export default function DealsPage() {
   ]
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div>
       <JsonLd data={dealListJsonLd} />
       <JsonLd data={offerCatalogJsonLd} />
       <JsonLd data={dealsPageJsonLd} />
+      <PageHeroBanner
+        title="All UK Broadband Deals"
+        kicker="Deals snapshot"
+        lede="Browse every broadband package from every major UK provider. Filter by speed, price, or contract length."
+        image={HERO.image}
+        imageAlt={HERO.imageAlt}
+        accent={HERO.accent}
+        ctas={DEFAULT_GUIDE_CTAS}
+      />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <BreadcrumbNav
         items={[
           { name: 'Home', href: '/' },
@@ -95,17 +95,12 @@ export default function DealsPage() {
 
       <PostcodeContextBar />
 
-      <h1 className="text-3xl font-extrabold text-slate-900 mb-2">All UK Broadband Deals</h1>
       <CiteableAnswer>
         This table is a UK snapshot of packages we track, sorted so you can shortlist by price,
         speed or contract. Availability still depends on the address, so enter a postcode before
         you treat any row as orderable. Prices on this page were verified {verifiedDateLabel}.
         Rankings are not sold.
       </CiteableAnswer>
-      <p className="text-slate-600 mb-6 max-w-2xl">
-        Browse every broadband package from every major UK provider. Filter by speed, price, or
-        contract length.
-      </p>
       <div className="flex flex-wrap items-center gap-4 text-sm text-slate-500 mb-6 pb-6 border-b border-slate-200">
         <span>Deals dataset reviewed {verifiedDateLabel}</span>
         <span>&middot;</span>
@@ -173,6 +168,7 @@ export default function DealsPage() {
           <div className="font-semibold text-slate-900 mb-1">Cheapest broadband &rarr;</div>
           <div className="text-slate-500">Our guide to the best budget packages</div>
         </Link>
+      </div>
       </div>
     </div>
   )

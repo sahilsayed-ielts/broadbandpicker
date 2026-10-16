@@ -1,0 +1,659 @@
+<title>Broadband and TV Guide Prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: BroadbandPicker site chrome; 1200px page with a 1fr + 300px article/side-panel grid below the deals block. Brand tokens from the live site. */
+:root {
+  --bg: #F8FAFC;
+  --surface: #FFFFFF;
+  --ink: #0F172A;
+  --muted: #475569;
+  --faint: #64748B;
+  --line: #E2E8F0;
+  --brand: #0EA5E9;
+  --brand-ink: #0369A1;
+  --brand-soft: #E0F2FE;
+  --green: #15803D;
+  --green-bright: #22C55E;
+  --green-soft: #DCFCE7;
+  --amber: #B45309;
+  --amber-soft: #FEF3C7;
+  --on-brand: #FFFFFF;
+  --note: #7C3AED;
+  --note-soft: #EDE9FE;
+  --proto: #0F172A;
+  --proto-ink: #E2E8F0;
+  --font: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0B1220; --surface: #111A2B; --ink: #E5EDF6; --muted: #A3B1C4; --faint: #8796AB; --line: #22314A;
+    --brand: #38BDF8; --brand-ink: #7DD3FC; --brand-soft: #0C2A40; --green: #4ADE80; --green-bright: #22C55E;
+    --green-soft: #0F2E1C; --amber: #FBBF24; --amber-soft: #33270B; --on-brand: #04131F;
+    --note: #C4B5FD; --note-soft: #2A2050; --proto: #020617; --proto-ink: #CBD5E1; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0B1220; --surface: #111A2B; --ink: #E5EDF6; --muted: #A3B1C4; --faint: #8796AB; --line: #22314A;
+  --brand: #38BDF8; --brand-ink: #7DD3FC; --brand-soft: #0C2A40; --green: #4ADE80; --green-bright: #22C55E;
+  --green-soft: #0F2E1C; --amber: #FBBF24; --amber-soft: #33270B; --on-brand: #04131F;
+  --note: #C4B5FD; --note-soft: #2A2050; --proto: #020617; --proto-ink: #CBD5E1; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font); font-size: 16px; line-height: 1.6; }
+h1, h2, h3 { text-wrap: balance; line-height: 1.2; margin: 0; }
+p { margin: 0; }
+a { color: var(--brand-ink); }
+button, input, select { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+.container { max-width: 1200px; margin: 0 auto; padding-inline: 16px; }
+.num { font-variant-numeric: tabular-nums; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Prototype bar */
+.proto { background: var(--proto); color: var(--proto-ink); font-size: .82rem; }
+.proto .container { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; justify-content: space-between; padding-block: 8px; }
+.proto strong { color: #fff; }
+.proto-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.proto button, .proto a.btnlink { background: transparent; border: 1px solid #475569; color: var(--proto-ink); border-radius: 6px; padding: 4px 10px; cursor: pointer; text-decoration: none; font-size: .8rem; }
+.proto button[aria-pressed="true"] { background: var(--note); border-color: var(--note); color: #fff; }
+
+/* Site header */
+.site { background: var(--surface); border-bottom: 1px solid var(--line); }
+.site .container { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; }
+.logo { font-weight: 800; font-size: 1.15rem; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+.logo span { color: var(--brand); }
+.site nav { display: flex; gap: 20px; font-size: .9rem; font-weight: 500; }
+.site nav a { color: var(--muted); text-decoration: none; }
+.site .saved-link { font-size: .85rem; color: var(--muted); text-decoration: none; white-space: nowrap; }
+@media (max-width: 760px) { .site nav { display: none; } }
+
+/* Hero */
+.hero { background: var(--surface); border-bottom: 1px solid var(--line); }
+.hero .container { padding-block: 20px 28px; display: grid; gap: 14px; }
+.crumbs { font-size: .8rem; color: var(--faint); display: flex; gap: 6px; flex-wrap: wrap; }
+.crumbs a { color: var(--faint); text-decoration: none; }
+.hero h1 { font-size: clamp(1.75rem, 3.6vw, 2.5rem); font-weight: 800; letter-spacing: -0.025em; max-width: 24ch; }
+.byline { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; font-size: .85rem; color: var(--muted); }
+.avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--brand-soft); color: var(--brand-ink); display: grid; place-items: center; font-weight: 700; font-size: .8rem; border: 1.5px dashed var(--brand); }
+.byline .who { color: var(--ink); font-weight: 600; }
+.byline .placeholder { border-bottom: 1.5px dashed var(--note); }
+.trust { display: flex; flex-wrap: wrap; gap: 8px; }
+.trust span, .trust a { font-size: .78rem; background: var(--green-soft); color: var(--green); padding: 3px 10px; border-radius: 99px; font-weight: 600; text-decoration: none; }
+
+.hero-grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 16px; align-items: stretch; }
+@media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; } }
+.verdict { border: 1px solid var(--line); border-radius: 12px; padding: 18px; display: grid; gap: 12px; background: var(--bg); }
+.verdict h2 { font-size: 1rem; text-transform: uppercase; letter-spacing: .06em; color: var(--brand-ink); font-weight: 700; }
+.picks { display: grid; gap: 10px; }
+.pick { display: grid; grid-template-columns: 40px 1fr auto; gap: 12px; align-items: center; }
+.pick .why { font-size: .85rem; color: var(--muted); }
+.pick .t { font-weight: 650; font-size: .95rem; }
+.pick .from { font-size: .8rem; color: var(--muted); text-align: right; white-space: nowrap; }
+.pick .from b { display: block; color: var(--ink); font-size: 1rem; }
+.verdict .src { font-size: .78rem; color: var(--faint); }
+
+.mark { width: 40px; height: 40px; border-radius: 8px; display: grid; place-items: center; font-weight: 800; font-size: .8rem; color: #fff; letter-spacing: -0.02em; flex-shrink: 0; }
+.mark.sky { background: #1d4ed8; }
+.mark.virgin-media { background: #c8102e; }
+.mark.ee { background: #007b85; }
+
+.pc { border-radius: 12px; padding: 18px; display: grid; gap: 10px; align-content: start; background: var(--brand-soft); border: 1px solid var(--brand); }
+.pc h2 { font-size: 1.1rem; font-weight: 700; }
+.pc p { font-size: .85rem; color: var(--muted); }
+.pc form { display: flex; gap: 8px; }
+.pc input { flex: 1; min-width: 0; padding: 11px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); text-transform: uppercase; }
+.btn { background: var(--brand); color: var(--on-brand); border: 0; border-radius: 8px; padding: 11px 16px; font-weight: 700; cursor: pointer; white-space: nowrap; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+.btn:hover { filter: brightness(1.05); }
+.btn.ghost { background: transparent; color: var(--brand-ink); border: 1px solid var(--brand); }
+.pc .msg { font-size: .82rem; border-radius: 8px; padding: 8px 10px; background: var(--surface); }
+.pc .msg.err { color: var(--amber); }
+
+/* Deals */
+.deals { padding-block: 32px 8px; }
+.deals-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 8px 16px; margin-bottom: 14px; }
+.deals-head h2 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; }
+.deals-head p { font-size: .85rem; color: var(--muted); }
+.controls { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px; display: grid; gap: 12px; margin-bottom: 16px; }
+.ctrl-row { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; }
+.ctrl-label { font-size: .78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+.chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.chip-btn { border: 1px solid var(--line); background: var(--surface); border-radius: 99px; padding: 6px 12px; font-size: .85rem; cursor: pointer; }
+.chip-btn[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.field { display: flex; gap: 6px; align-items: center; font-size: .85rem; }
+.field select { padding: 6px 8px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.count { font-size: .85rem; color: var(--muted); }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; }
+@media (max-width: 400px) { .cards { grid-template-columns: 1fr; } }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: grid; gap: 12px; align-content: start; position: relative; }
+.card.match { border-color: var(--green-bright); box-shadow: 0 0 0 1px var(--green-bright); }
+.card-top { display: flex; gap: 12px; align-items: start; }
+.card-top .name { display: grid; gap: 2px; min-width: 0; }
+.card-top .prov { font-size: .8rem; color: var(--muted); font-weight: 600; }
+.card-top .pkg { font-weight: 700; font-size: .98rem; line-height: 1.3; }
+.badges { display: flex; flex-wrap: wrap; gap: 6px; min-height: 22px; }
+.badge { font-size: .72rem; font-weight: 700; padding: 2px 8px; border-radius: 99px; background: var(--green-soft); color: var(--green); }
+.badge.pick { background: var(--brand-soft); color: var(--brand-ink); }
+.specs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; border-block: 1px solid var(--line); padding-block: 10px; }
+.spec { display: grid; gap: 0; }
+.spec .k { font-size: .7rem; color: var(--faint); text-transform: uppercase; letter-spacing: .04em; font-weight: 600; }
+.spec .v { font-weight: 700; font-variant-numeric: tabular-nums; }
+.price-row { display: flex; justify-content: space-between; align-items: end; gap: 8px; }
+.price { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.price small { font-size: .85rem; font-weight: 500; color: var(--muted); }
+.total { text-align: right; font-size: .8rem; color: var(--muted); }
+.total b { display: block; font-size: 1rem; color: var(--ink); font-variant-numeric: tabular-nums; }
+.rise { font-size: .8rem; background: var(--amber-soft); color: var(--amber); padding: 8px 10px; border-radius: 8px; }
+.card details { font-size: .85rem; color: var(--muted); }
+.card details summary { cursor: pointer; color: var(--brand-ink); font-weight: 600; }
+.card details ul { margin: 6px 0 0; padding-left: 18px; display: grid; gap: 2px; }
+.card-actions { display: grid; grid-template-columns: 1fr auto; gap: 8px; }
+.save { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 0 12px; cursor: pointer; font-size: .85rem; font-weight: 600; color: var(--muted); }
+.save[aria-pressed="true"] { color: var(--brand-ink); border-color: var(--brand); background: var(--brand-soft); }
+.empty { padding: 28px; text-align: center; color: var(--muted); background: var(--surface); border: 1px dashed var(--line); border-radius: 12px; }
+.results-note { font-size: .8rem; color: var(--faint); margin-top: 12px; display: flex; flex-wrap: wrap; gap: 4px 14px; }
+
+/* Article + side panel */
+.layout { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 32px; padding-block: 32px 48px; align-items: start; }
+@media (max-width: 960px) { .layout { grid-template-columns: 1fr; } .side { display: none; } }
+.toc { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; display: grid; gap: 8px; }
+.toc h2 { font-size: .8rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.toc ol { margin: 0; padding-left: 18px; display: grid; gap: 4px; font-size: .9rem; }
+.toc select { display: none; padding: 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); }
+@media (max-width: 960px) { .toc ol { display: none; } .toc select { display: block; } }
+article { display: grid; gap: 28px; min-width: 0; }
+article section { display: grid; gap: 12px; scroll-margin-top: 16px; }
+article h2 { font-size: 1.4rem; font-weight: 750; letter-spacing: -0.015em; }
+article p, article li { max-width: 68ch; color: var(--ink); }
+article .answer { font-weight: 600; }
+article ul, article ol { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+.src { font-size: .8rem; color: var(--faint); }
+abbr[title] { text-decoration: underline dotted var(--brand); text-underline-offset: 3px; cursor: help; }
+.stat-pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+.stat { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px; display: grid; gap: 2px; }
+.stat b { font-size: 1.5rem; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+.stat span { font-size: .85rem; color: var(--muted); }
+.formula { background: var(--brand-soft); border-radius: 10px; padding: 14px 16px; font-weight: 600; }
+
+.method { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px; }
+.faq details { border-bottom: 1px solid var(--line); padding-block: 12px; }
+.faq summary { cursor: pointer; font-weight: 650; }
+.faq details p { margin-top: 8px; color: var(--muted); }
+
+.author { display: grid; grid-template-columns: 64px 1fr; gap: 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px; }
+.author .avatar { width: 64px; height: 64px; font-size: 1.1rem; }
+.author p { font-size: .9rem; color: var(--muted); }
+.related { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.related a { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px; text-decoration: none; color: var(--ink); font-weight: 600; display: grid; gap: 4px; }
+.related a span { font-size: .8rem; color: var(--muted); font-weight: 400; }
+.helpful { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: grid; gap: 10px; }
+.helpful .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.helpful textarea { width: 100%; min-height: 70px; border: 1px solid var(--line); border-radius: 8px; padding: 10px; background: var(--bg); font: inherit; color: inherit; }
+
+.side { position: sticky; top: 16px; display: grid; gap: 14px; }
+.side .box { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: grid; gap: 10px; }
+.side h2 { font-size: .95rem; font-weight: 700; }
+.side .mini { display: grid; grid-template-columns: 32px 1fr auto; gap: 10px; align-items: center; font-size: .85rem; }
+.side .mini .mark { width: 32px; height: 32px; font-size: .68rem; border-radius: 6px; }
+.side .disclose { font-size: .75rem; color: var(--faint); }
+.side .alert input { width: 100%; padding: 9px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); }
+
+/* Mobile sticky bar */
+.mbar { position: fixed; left: 0; right: 0; bottom: 0; background: var(--surface); border-top: 1px solid var(--line); padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px)); display: none; gap: 10px; align-items: center; z-index: 20; }
+.mbar .btn { flex: 1; }
+.mbar .s { font-size: .8rem; color: var(--muted); white-space: nowrap; }
+@media (max-width: 960px) { .mbar.on { display: flex; } }
+
+.toast { position: fixed; left: 50%; bottom: 84px; transform: translateX(-50%); background: var(--ink); color: var(--bg); padding: 10px 16px; border-radius: 8px; font-size: .85rem; max-width: min(92vw, 520px); z-index: 30; box-shadow: 0 8px 24px rgba(0,0,0,.2); }
+
+/* Design notes (toggle) */
+.note { display: none; background: var(--note-soft); color: var(--ink); border-left: 3px solid var(--note); border-radius: 6px; padding: 8px 12px; font-size: .8rem; line-height: 1.45; }
+.note b { color: var(--note); }
+body.notes .note { display: block; }
+
+footer.site-foot { background: var(--surface); border-top: 1px solid var(--line); padding-block: 24px 96px; font-size: .8rem; color: var(--faint); }
+</style>
+
+<div class="proto" role="region" aria-label="Prototype controls">
+  <div class="container">
+    <span><strong>Prototype, not live.</strong> Redesign of <code>/guides/best-broadband-and-tv-deals</code>. Deals are real example packages (checked 24 Aug and 1 Sep 2026). Buttons don't leave this page.</span>
+    <div class="proto-actions">
+      <button type="button" id="notesBtn" aria-pressed="false">Show design notes</button>
+    </div>
+  </div>
+</div>
+
+<header class="site">
+  <div class="container">
+    <a class="logo" href="#top">Broadband<span>Picker</span></a>
+    <nav aria-label="Main"><a href="#deals">Deals</a><a href="#top">Compare</a><a href="#top">Providers</a><a href="#top">Guides</a><a href="#top">Tools</a></nav>
+    <a class="saved-link" href="#deals" id="savedLink">Saved (0)</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="container">
+    <div class="crumbs"><a href="#top">Home</a> › <a href="#top">Guides</a> › <span>Broadband and TV</span></div>
+    <div class="note"><b>① Title.</b> Keeps the year now. The month ("October 2026") goes in only after prices are rechecked that month, as MoneySuperMarket and CompareTheMarket do. Never auto-bumped.</div>
+    <h1>Best Broadband and TV Deals in the UK for 2026</h1>
+    <div class="byline">
+      <span class="avatar" aria-hidden="true">?</span>
+      <span>By <span class="who placeholder">[Named editor]</span>, Broadband Editor</span>
+      <span>· Prices checked 1 Sep 2026</span>
+      <span>· 6 min read</span>
+    </div>
+    <div class="note"><b>② Named author.</b> 50% of affiliate pages show a named person and 66% mark them up as a Person in schema. We have neither. Needs a real person (your decision).</div>
+    <div class="trust">
+      <span>Independent comparison</span>
+      <a href="#method">How we chose</a>
+      <a href="#method">We may earn a commission. It doesn't change the order.</a>
+      <span>6 bundles from 3 providers</span>
+    </div>
+    <div class="hero-grid">
+      <div class="verdict">
+        <h2>Our verdict</h2>
+        <div class="picks">
+          <div class="pick"><span class="mark sky">Sky</span><div><div class="t">Best for TV-first homes: Sky</div><div class="why">Sky channels and streaming apps in one box, no dish needed.</div></div><div class="from">from<b class="num">£35.00</b>/mo</div></div>
+          <div class="pick"><span class="mark virgin-media">VM</span><div><div class="t">Best for fast broadband + big TV: Virgin Media</div><div class="why">Gigabit-boosted broadband with 230+ channels, where its network reaches.</div></div><div class="from">from<b class="num">£74.99</b>/mo</div></div>
+          <div class="pick"><span class="mark ee">EE</span><div><div class="t">Best for TNT Sports and flexible packs: EE TV</div><div class="why">Change the TV pack without changing the broadband contract.</div></div><div class="from">from<b class="num">£44.99</b>/mo</div></div>
+        </div>
+        <p class="src">The right deal still depends on your address, must-have channels and total contract cost.</p>
+      </div>
+      <div class="pc" id="pcBox">
+        <h2>Check what you can get</h2>
+        <p>Deals differ street by street. Virgin Media in particular doesn't reach every address.</p>
+        <form id="pcForm" novalidate>
+          <label class="sr" for="pc">Postcode</label>
+          <input id="pc" name="pc" placeholder="e.g. M1 1AE" autocomplete="postal-code" maxlength="8">
+          <button class="btn" type="submit">Check</button>
+        </form>
+        <div class="msg" id="pcMsg" hidden></div>
+        <div class="note"><b>④ Postcode in the first screen.</b> 84% of affiliate pages have one; ours sits about 80% down the page. On the live site, unavailable deals move into "Not available at your address" (MoneySavingExpert's pattern).</div>
+      </div>
+    </div>
+    <div class="note"><b>③ Verdict up front.</b> Same picks as today's page, made quotable for Google and AI answers: one pick per need, each with a reason and a price.</div>
+  </div>
+</section>
+
+<section class="deals" id="deals" aria-labelledby="dealsTitle">
+  <div class="container">
+    <div class="deals-head">
+      <div>
+        <h2 id="dealsTitle">Today's broadband and TV bundles</h2>
+        <p>Total cost includes every scheduled price rise we've confirmed.</p>
+      </div>
+      <span class="count" id="count" aria-live="polite"></span>
+    </div>
+    <div class="note" style="margin-bottom:12px"><b>⑤ Deals before advice.</b> Every leading affiliate (Broadband Genie, Broadband Choices, Uswitch, MoneySavingExpert) puts the deal list here. 55% use cards and 59% have filters; our guides have neither. Cards show <em>total contract cost</em> and the rise in pounds: "How much should I pay?" is a top People Also Ask question, and Ofcom requires rises in £ since January 2025.</div>
+    <div class="controls">
+      <div class="ctrl-row">
+        <span class="ctrl-label">I mainly watch</span>
+        <div class="chips" id="watch">
+          <button type="button" class="chip-btn" data-tag="sport" aria-pressed="false">Live sport</button>
+          <button type="button" class="chip-btn" data-tag="movies" aria-pressed="false">Movies &amp; entertainment</button>
+          <button type="button" class="chip-btn" data-tag="general" aria-pressed="false">General viewing</button>
+        </div>
+      </div>
+      <div class="ctrl-row">
+        <label class="field" for="speed">Speed
+          <select id="speed"><option value="0">Any</option><option value="100">100Mbps+</option><option value="300">300Mbps+</option><option value="900">900Mbps+</option></select>
+        </label>
+        <label class="field" for="prov">Provider
+          <select id="prov"><option value="">All</option><option>Sky</option><option>Virgin Media</option><option>EE</option></select>
+        </label>
+        <label class="field" for="start">Start
+          <select id="start"><option value="2026-11">Nov 2026</option><option value="2026-12">Dec 2026</option><option value="2027-01">Jan 2027</option></select>
+        </label>
+        <label class="field" for="sort">Sort
+          <select id="sort"><option value="monthly">Lowest monthly price</option><option value="total">Lowest total cost</option><option value="speed">Fastest broadband</option></select>
+        </label>
+      </div>
+    </div>
+    <div class="cards" id="cards"></div>
+    <div class="results-note">
+      <span>Prices checked against provider sites and trade press: Sky and Virgin Media 24 Aug 2026, EE 1 Sep 2026.</span>
+      <a href="#method">About these results</a>
+      <span>Setup fees vary by address and aren't included.</span>
+    </div>
+  </div>
+</section>
+
+<div class="container layout">
+  <div style="display:grid;gap:28px;min-width:0">
+    <nav class="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <ol>
+        <li><a href="#save">Does bundling save money?</a></li>
+        <li><a href="#truecost">How to compare the true cost</a></li>
+        <li><a href="#speed">What speed you need for TV</a></li>
+        <li><a href="#switch">Switching a TV bundle</a></li>
+        <li><a href="#method">How we chose</a></li>
+        <li><a href="#faq">FAQs</a></li>
+      </ol>
+      <label class="sr" for="jump">Jump to section</label>
+      <select id="jump"><option value="">Jump to section…</option><option value="save">Does bundling save money?</option><option value="truecost">How to compare the true cost</option><option value="speed">What speed you need for TV</option><option value="switch">Switching a TV bundle</option><option value="method">How we chose</option><option value="faq">FAQs</option></select>
+    </nav>
+    <div class="note"><b>⑥–⑦ Advice below the deals.</b> All of today's content stays, reordered under question-shaped headings with a bold one-line answer first. Jargon has tooltips (34% of affiliates do this; we don't). On phones the jump links become a menu.</div>
+
+    <article>
+      <section id="save">
+        <h2>Is it cheaper to bundle broadband and TV?</h2>
+        <p class="answer">Usually, if you watch what you pay for. Ofcom found bundlers typically pay £26 to £48 a month less than buying services separately.</p>
+        <div class="stat-pair">
+          <div class="stat"><b>£26–£48</b><span>a month saved on average by bundling</span></div>
+          <div class="stat"><b>23%</b><span>real-terms fall in pay-TV cost within bundles, to about £12/mo</span></div>
+        </div>
+        <p>A large bundle with sport and cinema packs you rarely watch isn't a saving. It's a bigger bill with extra channels attached. Use Ofcom's figures as a sense check on a live quote, not a promise.</p>
+        <p class="src">Source: Ofcom, "New research reveals how to cut phone and internet bills", February 2026.</p>
+      </section>
+
+      <section id="truecost">
+        <h2>How do I compare the true cost of a bundle?</h2>
+        <p class="answer">Add up every monthly payment for the whole contract, plus fees, minus guaranteed credits. Then divide by the months.</p>
+        <p class="formula">Total cost = all monthly payments + setup and delivery fees + required add-ons − guaranteed credits</p>
+        <ul>
+          <li><strong>Check the broadband</strong>: compare the guaranteed or estimated speed at your address, not the advertised maximum.</li>
+          <li><strong>List must-have content</strong>: name the exact sports, channels and apps you watch.</li>
+          <li><strong>Read the price-rise wording</strong>: Virgin Media's Max Volt rises to £81.49 from March 2027 and £87.99 from April 2028. EE adds £6 a month each 31 March.</li>
+        </ul>
+        <p>The deal cards above already do this sum for the rises we've confirmed.</p>
+      </section>
+
+      <section id="speed">
+        <h2>What broadband speed do I need for streaming TV?</h2>
+        <p class="answer">Sky Stream needs at least 25<abbr title="Megabits per second: how fast data downloads">Mbps</abbr>, or 30Mbps for <abbr title="Ultra HD, also called 4K">UHD</abbr>. Busy homes need more.</p>
+        <p>Add every simultaneous stream, video call, game download and connected device. A stable 50–100Mbps service suits many small households; busy multi-user homes may benefit from faster <abbr title="Fibre to the premises (FTTP): fibre all the way to your home">full fibre</abbr>. Reliability and Wi-Fi coverage can matter more than the top advertised speed.</p>
+      </section>
+
+      <section id="switch">
+        <h2>Does One Touch Switch cancel my old TV service?</h2>
+        <p class="answer">Not always. <abbr title="One Touch Switch: the new provider arranges your broadband switch">One Touch Switch</abbr> moves your broadband, but Ofcom warns you may still need to cancel a linked TV service yourself.</p>
+        <p>Check exit charges, equipment returns and each service's end date before confirming. New orders usually have a 14-day cooling-off period.</p>
+      </section>
+
+      <section id="method" class="method">
+        <h2>How we chose</h2>
+        <p>We compare household fit, not channel counts. Each package was checked against the provider's own site and trade press on the dates shown. We rank by what suits a type of viewer, then show every option so you can sort by price or speed yourself. We may earn a commission when you click through. It never changes which deals appear or their order.</p>
+        <div class="note"><b>⑧ Methodology beside the deals.</b> Uswitch shows "Deals checked by", "About these results" and "How our site works" next to results. It answers "is this rigged?" where the decision happens.</div>
+      </section>
+
+      <section id="faq" class="faq">
+        <h2>Frequently asked questions</h2>
+        <details><summary>Who has the best broadband and TV deals in the UK?</summary><p>It depends on what you watch. Sky suits TV-first homes, Virgin Media suits fast broadband with a big channel line-up where it's available, and EE TV suits TNT Sports fans and people who want to change packs.</p></details>
+        <details><summary>Which broadband and TV provider is best for sport?</summary><p>EE's Big Sport pack combines Sky Sports (via NOW) and TNT Sports. Virgin Media's Max Volt includes Sky Sports HD. Compare the total contract cost, as sports packs are the most expensive add-on.</p></details>
+        <details><summary>Can I get Sky TV with broadband from another provider?</summary><p>Yes. Sky channels are available through NOW and through EE TV packs, so you don't have to take Sky broadband to watch them.</p></details>
+        <details><summary>What should I compare besides the monthly price?</summary><p>Total contract cost, scheduled price rises, setup fees, the speed available at your address, and whether TV and broadband end on the same date.</p></details>
+        <details><summary>What is Virgin Media Max Volt?</summary><p>A bundle of gigabit-boosted broadband, an O2 5G SIM with unlimited data, Virgin TV 360 with 230+ channels including Sky Sports HD and Sky Cinema HD, and free UK calls. It's from £74.99 a month, with rises already scheduled for 2027 and 2028.</p></details>
+      </section>
+
+      <section class="author" aria-label="About the author">
+        <span class="avatar" aria-hidden="true">?</span>
+        <div style="display:grid;gap:6px">
+          <strong class="placeholder" style="border-bottom:1.5px dashed var(--note);justify-self:start">[Named editor], Broadband Editor</strong>
+          <p>[Short bio: years covering UK broadband and consumer money, what they check before recommending a deal, link to profile and LinkedIn.]</p>
+          <p class="src">Sources: Sky, Virgin Media, BT/EE package pages · Ofcom bundling research (Feb 2026) · Ofcom switching guidance</p>
+        </div>
+      </section>
+      <div class="note"><b>⑩ Author box.</b> Broadband Genie, Uswitch and broadband.co.uk all have one. With Person schema, it is the biggest authority signal we're missing.</div>
+
+      <section aria-label="Related guides">
+        <h2>Related guides</h2>
+        <div class="related">
+          <a href="#top">Broadband deals with no mid-contract price rise<span>For readers worried about April rises</span></a>
+          <a href="#top">Cheapest way to watch Sky Sports<span>Sport without the full bundle</span></a>
+          <a href="#top">What broadband speed do I need?<span>Before you pick a speed tier</span></a>
+        </div>
+      </section>
+
+      <section class="helpful" aria-label="Feedback">
+        <strong>Did this help you choose?</strong>
+        <div class="row">
+          <button type="button" class="btn ghost" data-help="yes">Yes</button>
+          <button type="button" class="btn ghost" data-help="no">Not really</button>
+        </div>
+        <div id="helpMore" hidden style="display:grid;gap:8px">
+          <label for="missing">What was missing?</label>
+          <textarea id="missing" placeholder="e.g. I wanted to see BT TV options"></textarea>
+          <button type="button" class="btn" id="sendHelp" style="justify-self:start">Send</button>
+        </div>
+        <div class="note"><b>New idea.</b> None of the 44 affiliate pages we scraped asks this. The answers go to GA4 as a permanent, free research loop.</div>
+      </section>
+    </article>
+  </div>
+
+  <aside class="side" aria-label="Your shortlist">
+    <div class="box">
+      <h2>Top picks</h2>
+      <div class="mini"><span class="mark sky">Sky</span><span>TV-first homes</span><b class="num">£35.00</b></div>
+      <div class="mini"><span class="mark virgin-media">VM</span><span>Fast broadband + TV</span><b class="num">£74.99</b></div>
+      <div class="mini"><span class="mark ee">EE</span><span>TNT Sports</span><b class="num">£44.99</b></div>
+      <a class="btn" href="#deals">See all 6 bundles</a>
+      <p class="disclose">We may earn a commission. It doesn't change the order.</p>
+    </div>
+    <div class="box alert">
+      <h2>Get a price-drop alert</h2>
+      <label class="sr" for="alertEmail">Email</label>
+      <input id="alertEmail" type="email" placeholder="you@example.com">
+      <button type="button" class="btn ghost" id="alertBtn">Alert me</button>
+    </div>
+    <div class="note"><b>⑫ One sticky panel.</b> Desktop only. Phones get a single bottom bar instead, which hides while the deals are on screen. No pop-ups and no fake countdowns.</div>
+  </aside>
+</div>
+</main>
+
+<footer class="site-foot">
+  <div class="container">BroadbandPicker.co.uk is a free comparison service. We may receive a commission when you click through to a provider. Prototype page. Not published.</div>
+</footer>
+
+<div class="mbar" id="mbar">
+  <span class="s" id="mbarSaved">0 saved</span>
+  <a class="btn" href="#deals">See today's 6 bundles</a>
+</div>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+(function () {
+  // Real example packages from data/tvBroadbandBundles.ts. Rise rules:
+  // Virgin Media fixed steps; EE +£6/mo from each April (rise on 31 March); Sky rise not confirmed.
+  var deals = [
+    { id: 'sky-ess', provider: 'Sky', slug: 'sky', mark: 'Sky', pkg: 'Sky Stream, Sky Essential TV + Full Fibre 300', price: 35, speed: 300, months: 24, tags: ['general', 'movies'],
+      highlights: ['No satellite dish needed', 'Netflix and streaming apps built in', 'Minimum 25Mbps recommended for Stream'], rise: { type: 'unknown' }, pick: 'Our pick: TV-first homes' },
+    { id: 'sky-ult', provider: 'Sky', slug: 'sky', mark: 'Sky', pkg: 'Sky Ultimate TV + Full Fibre 500', price: 39, speed: 500, months: 24, tags: ['general', 'movies', 'sport'],
+      highlights: ['Full channel bundle with UHD available', 'Faster full-fibre tier included'], rise: { type: 'unknown' } },
+    { id: 'vm-volt', provider: 'Virgin Media', slug: 'virgin-media', mark: 'VM', pkg: 'Max Volt (broadband, mobile SIM and TV 360)', price: 74.99, speed: 1000, months: 24, tags: ['sport', 'movies', 'general'],
+      highlights: ['Gigabit-boosted broadband plus an O2 5G SIM with unlimited data and calls', '230+ channels including Sky Sports HD and Sky Cinema HD, plus Netflix', 'Free UK landline and mobile calls'],
+      rise: { type: 'steps', steps: [['2027-03', 81.49], ['2028-04', 87.99]] }, pick: 'Our pick: fast broadband + big TV' },
+    { id: 'ee-ent', provider: 'EE', slug: 'ee', mark: 'EE', pkg: 'EE Broadband + Entertainment TV pack', price: 44.99, speed: 100, months: 24, tags: ['general', 'movies'],
+      highlights: ['Netflix included', 'Broadband from £22.99/mo plus the £22/mo Entertainment pack', 'Change the TV pack without changing the broadband contract'], rise: { type: 'april', amount: 6 } },
+    { id: 'ee-sport', provider: 'EE', slug: 'ee', mark: 'EE', pkg: 'EE Broadband + Big Sport TV pack', price: 73.99, speed: 100, months: 24, tags: ['sport'],
+      highlights: ['Sky Sports via NOW plus TNT Sports', 'Broadband from £22.99/mo plus the £51/mo Big Sport pack'], rise: { type: 'april', amount: 6 }, pick: 'Our pick: TNT Sports' },
+    { id: 'ee-full', provider: 'EE', slug: 'ee', mark: 'EE', pkg: 'EE Broadband + Full Works TV pack', price: 110.99, speed: 100, months: 24, tags: ['sport', 'movies', 'general'],
+      highlights: ['Big Sport-level sport plus wider entertainment and Cinema', 'Broadband from £22.99/mo plus the £88/mo Full Works pack'], rise: { type: 'april', amount: 6 } }
+  ];
+
+  var state = { watch: [], speed: 0, prov: '', start: '2026-11', sort: 'monthly', saved: [] };
+  try { state.saved = JSON.parse(localStorage.getItem('bp-proto-saved') || '[]') || []; } catch (e) { state.saved = []; }
+
+  function ym(y, m) { return y * 12 + (m - 1); }
+  function parseYm(s) { var p = s.split('-'); return ym(+p[0], +p[1]); }
+  function gbp(n) { return '£' + n.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+
+  function priceAt(d, idx) {
+    if (d.rise.type === 'steps') {
+      var p = d.price;
+      d.rise.steps.forEach(function (s) { if (idx >= parseYm(s[0])) p = s[1]; });
+      return p;
+    }
+    if (d.rise.type === 'april') {
+      var start = parseYm(state.start), n = 0;
+      for (var i = start + 1; i <= idx; i++) if (i % 12 === 3) n++; // April bills after a 31 March rise
+      return d.price + n * d.rise.amount;
+    }
+    return d.price;
+  }
+  function totals(d) {
+    var start = parseYm(state.start), sum = 0, last = d.price;
+    for (var i = 0; i < d.months; i++) { last = priceAt(d, start + i); sum += last; }
+    return { total: sum, effective: sum / d.months, end: last };
+  }
+  function riseText(d) {
+    if (d.rise.type === 'steps') return 'Scheduled rises: ' + d.rise.steps.map(function (s) {
+      var p = s[0].split('-'); return gbp(s[1]) + '/mo from ' + new Date(+p[0], +p[1] - 1, 1).toLocaleString('en-GB', { month: 'short', year: 'numeric' });
+    }).join(', ') + '.';
+    if (d.rise.type === 'april') return 'Rises £' + d.rise.amount + '/mo each 31 March (broadband +£4, TV +£2).';
+    return 'Annual rise not yet confirmed. Check the in-contract price change before ordering. Total excludes it.';
+  }
+
+  var cardsEl = document.getElementById('cards');
+  function render() {
+    var list = deals.filter(function (d) {
+      if (state.speed && d.speed < state.speed) return false;
+      if (state.prov && d.provider !== state.prov) return false;
+      if (state.watch.length && !state.watch.some(function (t) { return d.tags.indexOf(t) > -1; })) return false;
+      return true;
+    }).map(function (d) { return { d: d, t: totals(d) }; });
+    list.sort(function (a, b) {
+      if (state.sort === 'total') return a.t.total - b.t.total;
+      if (state.sort === 'speed') return b.d.speed - a.d.speed || a.d.price - b.d.price;
+      return a.d.price - b.d.price;
+    });
+    var all = deals.map(function (d) { return d; });
+    var cheapest = all.reduce(function (a, b) { return b.price < a.price ? b : a; });
+    var fastest = all.reduce(function (a, b) { return b.speed > a.speed ? b : a; });
+    var lowestTotal = all.map(function (d) { return { d: d, t: totals(d).total }; }).reduce(function (a, b) { return b.t < a.t ? b : a; }).d;
+
+    document.getElementById('count').textContent = 'Showing ' + list.length + ' of ' + deals.length + ' bundles';
+    if (!list.length) {
+      cardsEl.innerHTML = '<div class="empty">No bundles match these filters. <button type="button" class="btn ghost" id="reset">Clear filters</button></div>';
+      document.getElementById('reset').onclick = resetFilters;
+      return;
+    }
+    cardsEl.innerHTML = list.map(function (row) {
+      var d = row.d, t = row.t, badges = [];
+      if (d.pick) badges.push('<span class="badge pick">' + d.pick + '</span>');
+      if (d === cheapest) badges.push('<span class="badge">Lowest monthly price</span>');
+      if (d === lowestTotal && d !== cheapest) badges.push('<span class="badge">Lowest total cost</span>');
+      if (d === fastest) badges.push('<span class="badge">Fastest broadband</span>');
+      var match = state.watch.length && state.watch.every(function (w) { return d.tags.indexOf(w) > -1; });
+      if (match) badges.push('<span class="badge">Matches what you watch</span>');
+      var saved = state.saved.indexOf(d.id) > -1;
+      return '<div class="card' + (match ? ' match' : '') + '">' +
+        '<div class="card-top"><span class="mark ' + d.slug + '">' + d.mark + '</span><div class="name"><span class="prov">' + d.provider + '</span><span class="pkg">' + d.pkg + '</span></div></div>' +
+        '<div class="badges">' + badges.join('') + '</div>' +
+        '<div class="specs"><div class="spec"><span class="k">Speed</span><span class="v">' + (d.speed >= 1000 ? '1Gbps' : d.speed + 'Mbps') + '</span></div>' +
+        '<div class="spec"><span class="k">Contract</span><span class="v">' + d.months + ' mo</span></div>' +
+        '<div class="spec"><span class="k">Avg / month</span><span class="v">' + gbp(t.effective) + '</span></div></div>' +
+        '<div class="price-row"><div class="price">' + gbp(d.price) + '<small>/mo</small></div>' +
+        '<div class="total">Total over ' + d.months + ' months<b>' + gbp(t.total) + (d.rise.type === 'unknown' ? '*' : '') + '</b></div></div>' +
+        '<div class="rise">' + riseText(d) + '</div>' +
+        '<details><summary>What\'s included</summary><ul>' + d.highlights.map(function (h) { return '<li>' + h + '</li>'; }).join('') + '</ul></details>' +
+        '<div class="card-actions"><button type="button" class="btn" data-go="' + d.provider + '">See deal at ' + d.provider + '</button>' +
+        '<button type="button" class="save" data-save="' + d.id + '" aria-pressed="' + saved + '">' + (saved ? '★ Saved' : '☆ Save') + '</button></div>' +
+        '</div>';
+    }).join('');
+  }
+
+  function resetFilters() {
+    state.watch = []; state.speed = 0; state.prov = '';
+    document.querySelectorAll('#watch .chip-btn').forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
+    document.getElementById('speed').value = '0'; document.getElementById('prov').value = '';
+    render();
+  }
+
+  function updateSaved() {
+    var n = state.saved.length;
+    document.getElementById('savedLink').textContent = 'Saved (' + n + ')';
+    document.getElementById('mbarSaved').textContent = n + ' saved';
+    try { localStorage.setItem('bp-proto-saved', JSON.stringify(state.saved)); } catch (e) {}
+  }
+
+  var toastEl = document.getElementById('toast'), toastTimer;
+  function toast(msg) {
+    toastEl.textContent = msg; toastEl.hidden = false;
+    clearTimeout(toastTimer); toastTimer = setTimeout(function () { toastEl.hidden = true; }, 3200);
+  }
+
+  document.getElementById('watch').addEventListener('click', function (e) {
+    var b = e.target.closest('.chip-btn'); if (!b) return;
+    var tag = b.dataset.tag, on = b.getAttribute('aria-pressed') !== 'true';
+    b.setAttribute('aria-pressed', String(on));
+    state.watch = on ? state.watch.concat(tag) : state.watch.filter(function (t) { return t !== tag; });
+    render();
+  });
+  ['speed', 'prov', 'start', 'sort'].forEach(function (id) {
+    document.getElementById(id).addEventListener('change', function (e) {
+      state[id] = id === 'speed' ? +e.target.value : e.target.value; render();
+    });
+  });
+  cardsEl.addEventListener('click', function (e) {
+    var s = e.target.closest('[data-save]');
+    if (s) {
+      var id = s.dataset.save;
+      state.saved = state.saved.indexOf(id) > -1 ? state.saved.filter(function (x) { return x !== id; }) : state.saved.concat(id);
+      updateSaved(); render();
+      toast(state.saved.indexOf(id) > -1 ? 'Saved. Your shortlist stays on this device.' : 'Removed from your shortlist.');
+      return;
+    }
+    var g = e.target.closest('[data-go]');
+    if (g) toast('Prototype: on the live site this opens ' + g.dataset.go + ' through our tracked affiliate link.');
+  });
+
+  var pcRe = /^[A-Z]{1,2}[0-9][A-Z0-9]? ?[0-9][A-Z]{2}$/i;
+  document.getElementById('pcForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var v = document.getElementById('pc').value.trim().toUpperCase(), m = document.getElementById('pcMsg');
+    m.hidden = false;
+    if (!pcRe.test(v)) { m.className = 'msg err'; m.textContent = 'Enter a full UK postcode, for example M1 1AE.'; return; }
+    m.className = 'msg';
+    m.textContent = 'Prototype: ' + v + ' wasn\'t checked. On the live site, only bundles available at your address show, and the rest move under "Not available at your address".';
+    document.getElementById('deals').scrollIntoView();
+  });
+
+  document.getElementById('jump').addEventListener('change', function (e) {
+    if (e.target.value) document.getElementById(e.target.value).scrollIntoView();
+  });
+
+  document.querySelectorAll('[data-help]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      if (b.dataset.help === 'yes') { toast('Thanks. Logged to GA4 on the live site.'); document.getElementById('helpMore').hidden = true; }
+      else { document.getElementById('helpMore').hidden = false; document.getElementById('missing').focus(); }
+    });
+  });
+  document.getElementById('sendHelp').addEventListener('click', function () {
+    toast('Thanks. On the live site this goes to GA4.'); document.getElementById('helpMore').hidden = true;
+  });
+  document.getElementById('alertBtn').addEventListener('click', function () {
+    var v = document.getElementById('alertEmail').value;
+    toast(/\S+@\S+\.\S+/.test(v) ? 'Prototype: alert not set up. The live site uses the existing deal-alert signup.' : 'Enter an email address first.');
+  });
+
+  var notesBtn = document.getElementById('notesBtn');
+  function setNotes(on) {
+    document.body.classList.toggle('notes', on);
+    notesBtn.setAttribute('aria-pressed', String(on));
+    notesBtn.textContent = on ? 'Hide design notes' : 'Show design notes';
+    try { localStorage.setItem('bp-proto-notes', on ? '1' : '0'); } catch (e) {}
+  }
+  notesBtn.addEventListener('click', function () { setNotes(!document.body.classList.contains('notes')); });
+  var notesPref = '0';
+  try { notesPref = localStorage.getItem('bp-proto-notes') || '0'; } catch (e) {}
+  if (location.hash === '#notes') notesPref = '1';
+  setNotes(notesPref === '1');
+
+  // Mobile bar: visible once past the hero and while the deal list is off screen.
+  var mbar = document.getElementById('mbar'), dealsVisible = false, pastHero = false;
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) { dealsVisible = es[0].isIntersecting; sync(); }).observe(document.getElementById('cards'));
+    new IntersectionObserver(function (es) { pastHero = !es[0].isIntersecting; sync(); }).observe(document.getElementById('pcBox'));
+  }
+  function sync() { mbar.classList.toggle('on', pastHero && !dealsVisible); }
+
+  updateSaved();
+  render();
+})();
+</script>

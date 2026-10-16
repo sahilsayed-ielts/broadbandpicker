@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-06T16:16:54.587543+00:00",
+  "updated_at": "2026-09-27T22:00:31.714594+00:00",
   "reviews": [
     {
       "slug": "postcode/bs1",
@@ -1736,6 +1736,1045 @@
       ],
       "measurement_change_id": "content-2026-09-06-e90f2838",
       "ga4_annotation": "properties/551202232/reportingDataAnnotations/15729007468",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "guides/wifi-7-explained-uk",
+      "url": "https://broadbandpicker.co.uk/guides/wifi-7-explained-uk",
+      "launched_at": "2026-09-11T16:06:55.153942+00:00",
+      "performance_baseline": null,
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-18",
+          "status": "Pending",
+          "check": "Establish the new-page baseline: GSC impressions, queries, CTR and position; GA4 engaged sessions and affiliate clicks; recorded AI/LLM referrals."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-09",
+          "status": "Pending",
+          "check": "Compare primary and mapped secondary query coverage, CTR by device and engagement through the decision table; check affiliate clicks and AI/LLM referrals."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-11-06",
+          "status": "Pending",
+          "check": "Review position and CTR trends for worth-it, comparison, router and UK availability intents; test a CTR candidate only if impressions support it."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-10",
+          "status": "Pending",
+          "check": "Assess sustained GSC visibility, GA4 engagement, affiliate-click contribution and AI/LLM referrals; refresh device or Ofcom facts only where evidence changed."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-11-238b1a4b",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15761342753",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "guides/landline-switch-off-explained-uk",
+      "url": "https://broadbandpicker.co.uk/guides/landline-switch-off-explained-uk",
+      "launched_at": "2026-09-11T21:14:46.422839+00:00",
+      "performance_baseline": null,
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-18",
+          "status": "Pending",
+          "check": "Establish the new/no-data baseline in GSC for impressions, CTR, position and discovered queries; check GA4 engagement, affiliate clicks and attributable AI/LLM referrals."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-09",
+          "status": "Pending",
+          "check": "Compare primary and secondary query impressions, CTR and device split; review engaged sessions, checklist-depth engagement where available, affiliate clicks and AI/LLM referrals."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-11-06",
+          "status": "Pending",
+          "check": "Assess position and CTR for deadline, Digital Voice, copper, power-cut and telecare intents; inspect cannibalisation with existing full-fibre and switching guides before changing copy."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-10",
+          "status": "Pending",
+          "check": "Review sustained GSC and GA4 performance, affiliate contribution and AI/LLM referrals; reverify the January 2027 deadline and safety guidance against Openreach, Ofcom and GOV.UK."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-11-07d86b4b",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15762785003",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "guides/digital-voice-explained-uk",
+      "url": "https://broadbandpicker.co.uk/guides/digital-voice-explained-uk",
+      "launched_at": "2026-09-14T11:34:22.164304+00:00",
+      "performance_baseline": null,
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-21",
+          "status": "Pending",
+          "check": "Establish the new-page baseline in GSC for impressions, CTR, average position and query coverage; compare GA4 engaged sessions, outbound provider clicks and any attributable AI/LLM referrals without rewriting from a tiny sample."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-12",
+          "status": "Pending",
+          "check": "Review whether primary and provider variants receive impressions, compare title CTR by position, inspect GA4 engagement and affiliate clicks, and check current AI answer visibility and cited domains."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-11-09",
+          "status": "Pending",
+          "check": "Compare GSC query coverage and position trend with day 28, inspect scroll/engagement proxies and outbound provider clicks in GA4, and refresh only facts or passages with evidenced gaps."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-13",
+          "status": "Pending",
+          "check": "Evaluate sustained GSC impressions, CTR and position plus GA4 engagement, affiliate clicks and AI/LLM referrals; retain successful copy and schedule source re-verification for any changed provider migration guidance."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-14-46a62b0c",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15774309227",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "guides/does-a-vpn-slow-your-internet",
+      "url": "https://broadbandpicker.co.uk/guides/does-a-vpn-slow-your-internet",
+      "launched_at": "2026-09-14T15:08:35.838203+00:00",
+      "performance_baseline": null,
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-21",
+          "status": "Pending",
+          "check": "Establish the no-data baseline: record GSC impressions, CTR, average position and emerging queries; record GA4 engaged sessions, engagement rate, speed-test exits, affiliate clicks and attributable AI/LLM referrals without rewriting from tiny samples."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-12",
+          "status": "Pending",
+          "check": "Compare GSC coverage for the primary term and mapped variants, inspect CTR by query/device and GA4 engagement, speed-test visits, affiliate clicks and AI/LLM referrals; improve only a clearly mismatched title, snippet or missing answer."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-11-09",
+          "status": "Pending",
+          "check": "Assess trend in impressions, CTR and average position by query, plus GA4 engaged sessions, scroll/engagement proxies, affiliate clicks and AI/LLM referrals; refresh facts or strengthen the section attached to an evidenced query gap."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-13",
+          "status": "Pending",
+          "check": "Evaluate the full baseline against GSC impressions, CTR and position and GA4 engagement, speed-test journeys, affiliate clicks and AI/LLM referrals; retain successful copy and schedule evidence-led updates rather than calendar-led rewriting."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-14-65fae423",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15775670933",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "guides/fix-wifi-dead-spots-uk",
+      "url": "https://broadbandpicker.co.uk/guides/fix-wifi-dead-spots-uk",
+      "launched_at": "2026-09-14T16:30:34.606904+00:00",
+      "performance_baseline": null,
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-21",
+          "status": "Pending",
+          "check": "Record GSC impressions, queries, CTR and average position plus GA4 engaged sessions and speed-test journeys without rewriting from a tiny sample."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-12",
+          "status": "Pending",
+          "check": "Compare coverage of dead spots, upstairs, one-room and weak-signal terms; inspect device CTR, engagement and AI referrals."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-11-09",
+          "status": "Pending",
+          "check": "Review impression and position trends by query and strengthen only sections tied to evidenced gaps or weak engagement."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-13",
+          "status": "Pending",
+          "check": "Evaluate first-page movement, CTR, clicks, engagement and assisted comparison journeys, retaining successful copy and updating only evidence-led gaps."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-14-eb34c937",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15776097073",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "guides/cheapest-way-to-watch-sky-sports-uk",
+      "url": "https://broadbandpicker.co.uk/guides/cheapest-way-to-watch-sky-sports-uk",
+      "launched_at": "2026-09-14T17:11:56.653239+00:00",
+      "performance_baseline": null,
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-21",
+          "status": "Pending",
+          "check": "Establish the no-data baseline: inspect GSC impressions, query variants, CTR and position; compare GA4 engaged sessions and outbound_provider_click counts; note any attributable AI/LLM referrals without claiming causation."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-12",
+          "status": "Pending",
+          "check": "Compare GSC primary and secondary query coverage with day 7, review CTR by title query, GA4 engagement and affiliate clicks by placement/provider, and recheck NOW, Sky and HBO Max prices."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-11-09",
+          "status": "Pending",
+          "check": "Review GSC position and impressions by rights-related query, GA4 scroll/engagement patterns and attributable commercial clicks; inspect AI/LLM referrals and verify platform wording remains current."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-13",
+          "status": "Pending",
+          "check": "Assess quarter-level GSC CTR and position, GA4 engagement, affiliate clicks and conversions, plus AI/LLM referrals; update only where observed evidence or changed rights/prices warrants it."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-14-236843f7",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15776237033",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "guides/broadband-and-mobile-bundle-discounts-uk",
+      "url": "https://broadbandpicker.co.uk/guides/broadband-and-mobile-bundle-discounts-uk",
+      "launched_at": "2026-09-14T21:35:47.119857+00:00",
+      "performance_baseline": null,
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-21",
+          "status": "Pending",
+          "check": "Establish the new-page baseline in GSC for impressions, query variants, CTR and average position; review GA4 engaged sessions, outbound_provider_click and attributable AI/LLM referrals."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-12",
+          "status": "Pending",
+          "check": "Compare GSC coverage of EE Together, Vodafone discount, Volt and worth-it queries with day 7; review CTR by query, GA4 engagement and affiliate clicks by placement and provider; recheck official scheme terms."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-11-09",
+          "status": "Pending",
+          "check": "Review GSC position and impressions for bundle-versus-separate questions, GA4 engagement and outbound clicks, and any attributable AI/LLM referrals; verify the two-horizon worksheet answers observed queries."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-13",
+          "status": "Pending",
+          "check": "Assess quarter-level GSC impressions, CTR and position alongside GA4 engagement, affiliate clicks and conversions and AI/LLM referrals; revise only where first-party evidence or changed provider terms warrants it."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-14-70b0e4ec",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15777507000",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "guides/telecare-alarms-landline-switch-off-uk",
+      "url": "https://broadbandpicker.co.uk/guides/telecare-alarms-landline-switch-off-uk",
+      "launched_at": "2026-09-15T10:48:59.608780+00:00",
+      "performance_baseline": null,
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-22",
+          "status": "Pending",
+          "check": "Establish the new-page baseline in GSC for impressions, CTR, average position and observed query coverage; review GA4 engagement, outbound affiliate clicks and attributable AI/LLM referrals without making a ranking promise."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-13",
+          "status": "Pending",
+          "check": "Compare GSC coverage for house alarm, telecare, Careline, pendant and lift-line queries; inspect CTR by title intent, GA4 engagement and affiliate clicks, and check whether any AI/LLM referral cites the answer or checklist."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-11-10",
+          "status": "Pending",
+          "check": "Review position and CTR trends against the day-7 baseline, search for missing device questions, compare engaged sessions and commercial CTA use, and reverify any changed Ofcom or provider migration guidance before edits."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-14",
+          "status": "Pending",
+          "check": "Assess sustained GSC impressions, CTR and position, GA4 engagement, affiliate clicks and AI/LLM referrals; retain successful copy and prioritise only evidence-backed updates or factual freshness work."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-15-9a6ff288",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15781012254",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "guides/esim-explained-uk",
+      "url": "https://broadbandpicker.co.uk/guides/esim-explained-uk",
+      "launched_at": "2026-09-15T15:37:33.497522+00:00",
+      "performance_baseline": null,
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-22",
+          "status": "Pending",
+          "check": "Establish baseline GSC impressions, queries, CTR and position; check GA4 engaged sessions, compare outbound internal-link use, affiliate clicks and identifiable AI/LLM referrals without rewriting on tiny samples."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-13",
+          "status": "Pending",
+          "check": "Compare GSC coverage for definition, setup, compatibility, provider and physical-SIM variants; review GA4 engagement and affiliate clicks; inspect new PAA/AI answers and referrals."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-11-10",
+          "status": "Pending",
+          "check": "Assess title CTR against position, section engagement proxies and provider-support freshness; improve only where query evidence shows an unmet task; compare affiliate and AI/LLM referral quality."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-14",
+          "status": "Pending",
+          "check": "Evaluate trend in GSC impressions, CTR and position plus GA4 engagement, affiliate clicks and attributable AI/LLM referrals; refresh provider eligibility facts and retain or revise the selected title from evidence."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-15-8ddc846f",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15783061265",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "guides/replace-isp-router-uk",
+      "url": "https://broadbandpicker.co.uk/guides/replace-isp-router-uk",
+      "launched_at": "2026-09-15T16:01:59.123035+00:00",
+      "performance_baseline": null,
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-22",
+          "status": "Pending",
+          "check": "Establish new-page GSC query/impression/CTR/position baseline; review GA4 engaged sessions, scroll/engagement, outbound_provider_click placements and any attributable AI/LLM referrals without making an early ranking assumption."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-13",
+          "status": "Pending",
+          "check": "Compare GSC coverage for the primary and six mapped secondary queries, title CTR, average position, GA4 engagement and affiliate clicks; inspect provider-table use qualitatively only where privacy-safe evidence exists."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-11-10",
+          "status": "Pending",
+          "check": "Review query drift, impressions, CTR and position against day 28; compare GA4 engagement and outbound provider clicks, and record AI/LLM referral landing-page traffic separately from search."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-14",
+          "status": "Pending",
+          "check": "Assess sustained GSC visibility and CTR, GA4 engagement and affiliate conversion contribution; refresh volatile provider compatibility only where sources changed and retain a dated baseline for future tests."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-15-07c9b768",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15783211513",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "guides/freely-and-fetch-tv-explained-uk",
+      "url": "https://broadbandpicker.co.uk/guides/freely-and-fetch-tv-explained-uk",
+      "launched_at": "2026-09-15T18:14:07.540670+00:00",
+      "performance_baseline": null,
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-22",
+          "status": "Pending",
+          "check": "Establish the new-page baseline: GSC impressions, query mix, CTR and average position; GA4 engaged sessions, engagement time, scroll/deal interaction and outbound_provider_click; record any identifiable AI/LLM referrals without expecting rankings."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-13",
+          "status": "Pending",
+          "check": "Compare GSC movement for what is freely tv, freely vs freeview, fetch tv uk, aerial-free and speed queries; review GA4 engagement and affiliate clicks; inspect answer-engine referrals and only adjust a weak title or missing intent with evidence."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-11-10",
+          "status": "Pending",
+          "check": "Review GSC page/query coverage, CTR and position against days 7 and 28; compare GA4 engagement and provider clicks; recheck Freely device/channel facts and Fetch territory; log AI/LLM referrals separately."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-14",
+          "status": "Pending",
+          "check": "Assess sustained GSC impressions, CTR, position and query breadth with GA4 engagement and attributable affiliate clicks; check AI/LLM referral trend; decide retain, refresh or consolidate based on observed performance, not elapsed time alone."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-15-536cb52d",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15785120868",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "guides/moving-house-broadband-checklist-uk",
+      "url": "https://broadbandpicker.co.uk/guides/moving-house-broadband-checklist-uk",
+      "launched_at": "2026-09-17T22:20:24.065419+00:00",
+      "performance_baseline": null,
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-24",
+          "status": "Pending",
+          "check": "Establish the new-page baseline: GSC impressions, query mix, CTR and average position; GA4 engaged sessions, outbound_provider_click and any identifiable AI/LLM referrals without expecting rankings."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-15",
+          "status": "Pending",
+          "check": "Compare GSC movement for moving house broadband checklist, transfer, how far in advance and not available queries; review engagement and affiliate clicks; only change title or intro with evidence."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-11-12",
+          "status": "Pending",
+          "check": "Review GSC coverage and CTR against days 7 and 28; recheck Virgin Media, Sky and BT official move fees; log AI/LLM referrals separately."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-16",
+          "status": "Pending",
+          "check": "Assess sustained GSC impressions, CTR, position and query breadth with GA4 engagement and attributable affiliate clicks; decide retain, refresh or consolidate based on observed performance."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-17-53b066e6",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15798980468",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "guides/pstn-switch-off-small-business-uk",
+      "url": "https://broadbandpicker.co.uk/guides/pstn-switch-off-small-business-uk",
+      "launched_at": "2026-09-19T00:00:00+00:00",
+      "performance_baseline": null,
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-26",
+          "status": "Pending",
+          "check": "Confirm indexing, impressions, query matching and analytics events."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-17",
+          "status": "Pending",
+          "check": "Compare CTR and average position; test title/snippet only when evidence supports it."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-11-14",
+          "status": "Pending",
+          "check": "Review engagement, affiliate clicks, internal links and missing query coverage."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-18",
+          "status": "Pending",
+          "check": "Decide whether to consolidate, expand, refresh or leave unchanged."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-19-0c9e2dbb",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15807206075",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "guides/best-streaming-services-uk",
+      "url": "https://broadbandpicker.co.uk/guides/best-streaming-services-uk",
+      "launched_at": "2026-09-20T15:17:47.407741+00:00",
+      "performance_baseline": null,
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-27",
+          "status": "Pending",
+          "check": "Establish the no-data baseline: inspect GSC impressions, queries, CTR and position; GA4 engaged sessions; outbound_provider_click volume from this page; and any AI/LLM referrals for the exact route."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-18",
+          "status": "Pending",
+          "check": "Compare GSC coverage for the primary and five secondary queries; review whether Netflix's September 2026 price rise remains current or needs a refresh; check GA4 engagement and affiliate clicks."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-11-15",
+          "status": "Pending",
+          "check": "Review query-to-section alignment and CTR against the selected title; refresh any streaming price that has changed since publication; investigate any mapped query with no impressions."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-19",
+          "status": "Pending",
+          "check": "Assess sustained GSC impressions, CTR and position plus GA4 engagement and affiliate clicks; verify the £30.95 combined-cost figure and every listed price are still accurate before leaving the page unchanged."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-20-f29b58c6",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15812221337",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "guides/static-ip-business-broadband-explained",
+      "url": "https://broadbandpicker.co.uk/guides/static-ip-business-broadband-explained",
+      "launched_at": "2026-09-20T16:09:39.508669+00:00",
+      "performance_baseline": null,
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-27",
+          "status": "Pending",
+          "check": "Establish the refreshed baseline: inspect GSC impressions, queries, CTR and position for the primary and five secondary queries; GA4 engaged sessions; and any AI/LLM referrals for the exact route."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-18",
+          "status": "Pending",
+          "check": "Compare GSC coverage for the 'which providers offer static ip' and CGNat-related queries against the pre-refresh baseline; check GA4 engagement and affiliate clicks."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-11-15",
+          "status": "Pending",
+          "check": "Re-verify every provider's static IP price and policy in the table, since several (Sky, TalkTalk, Virgin Media) are independently sourced rather than provider-confirmed; refresh any that have changed."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-19",
+          "status": "Pending",
+          "check": "Assess sustained GSC impressions, CTR and position plus GA4 engagement and affiliate clicks; decide whether to pursue direct provider confirmation of the still-independently-sourced prices."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-20-6190d5d9",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15812350977",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "postcode/edinburgh",
+      "url": "https://broadbandpicker.co.uk/postcode/edinburgh",
+      "launched_at": "2026-09-20T16:39:49.079858+00:00",
+      "performance_baseline": null,
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-27",
+          "status": "Pending",
+          "check": "Establish the refreshed baseline: inspect GSC impressions, queries, CTR and position for the primary and five secondary queries; GA4 engaged sessions and outbound clicks; and any AI/LLM referrals for the exact route."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-18",
+          "status": "Pending",
+          "check": "Compare GSC coverage for coverage-percentage and neighbourhood-named queries against the pre-refresh baseline; check whether the new /postcode city-hub cross-links measurably increase sessions to Edinburgh."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-11-15",
+          "status": "Pending",
+          "check": "Re-verify the thinkbroadband coverage percentages and toob's pricing, since both can change quarterly; refresh any that have moved."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-19",
+          "status": "Pending",
+          "check": "Assess sustained GSC impressions, CTR and position plus GA4 engagement and affiliate clicks; consider adding a bespoke EH1 content block with a reciprocal link back to this page if traffic supports the investment."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-20-0735963a",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15812481351",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "guides/student-broadband-by-university-city",
+      "url": "https://broadbandpicker.co.uk/guides/student-broadband-by-university-city",
+      "launched_at": "2026-09-20T18:59:23.761995+00:00",
+      "performance_baseline": null,
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-27",
+          "status": "Pending",
+          "check": "Establish the refreshed baseline: inspect GSC impressions, queries, CTR and position for the primary and five secondary queries; GA4 engaged sessions; and any AI/LLM referrals for the exact route."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-18",
+          "status": "Pending",
+          "check": "Compare GSC coverage for 'student broadband discount code', 'ee student broadband' and 'vodafone student broadband' queries against the pre-refresh baseline; check GA4 engagement and affiliate clicks."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-11-15",
+          "status": "Pending",
+          "check": "Re-verify EE's and Vodafone's prices, reward-card values and scheduled rise dates, since these are the most likely figures to change ahead of the next academic year; refresh any that have moved."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-19",
+          "status": "Pending",
+          "check": "Assess sustained GSC impressions, CTR and position plus GA4 engagement and affiliate clicks; consider adding Sky's specific student pricing if it becomes available on Sky's own page."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-20-ebdfa915",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15812922950",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "guides/small-office-broadband-setup-uk",
+      "url": "https://broadbandpicker.co.uk/guides/small-office-broadband-setup-uk",
+      "launched_at": "2026-09-20T19:21:42.961851+00:00",
+      "performance_baseline": null,
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-27",
+          "status": "Pending",
+          "check": "Establish the refreshed baseline: inspect GSC impressions, queries, CTR and position for the primary and five secondary queries; GA4 engaged sessions; and any AI/LLM referrals for the exact route."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-18",
+          "status": "Pending",
+          "check": "Compare GSC coverage for connection-type and SLA-related queries against the pre-refresh baseline; confirm the corrected static IP link is being crawled and check GA4 engagement."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-11-15",
+          "status": "Pending",
+          "check": "Re-verify BT Business's SLA terms and Three Business's 5G price and guarantee terms, since these are the figures most likely to change; refresh any that have moved."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-19",
+          "status": "Pending",
+          "check": "Assess sustained GSC impressions, CTR and position plus GA4 engagement and affiliate clicks; consider adding EE Business's specific 5G terms if a comparable offer page becomes available."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-20-f6c10461",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15812927628",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "providers/compare/bt-vs-plusnet",
+      "url": "https://broadbandpicker.co.uk/providers/compare/bt-vs-plusnet",
+      "launched_at": "2026-09-20T19:50:02.219425+00:00",
+      "performance_baseline": null,
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-27",
+          "status": "Pending",
+          "check": "Establish the refreshed baseline: inspect GSC impressions, queries, CTR and position for the primary and five secondary queries; GA4 engaged sessions and outbound provider clicks; and any AI/LLM referrals for the exact route."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-18",
+          "status": "Pending",
+          "check": "Compare GSC coverage for Ofcom-complaints and 'is plusnet being phased out' queries against the pre-refresh baseline; check whether the new badge/pros-cons pattern measurably affects engagement across other comparison pages too."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-11-15",
+          "status": "Pending",
+          "check": "Re-verify BT's and Plusnet's current prices, setup fees and Ofcom Q1 2026 complaints ranking, since these are the figures most likely to change; refresh any that have moved."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-19",
+          "status": "Pending",
+          "check": "Assess sustained GSC impressions, CTR and position plus GA4 engagement and affiliate clicks; consider adding the recommended reciprocal inbound links from plusnet-vs-sky and the Digital Voice guide if traffic supports the investment."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-20-4b65b396",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15813037828",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "postcode/glasgow",
+      "url": "https://broadbandpicker.co.uk/postcode/glasgow",
+      "launched_at": "2026-09-20T20:04:11.629810+00:00",
+      "performance_baseline": null,
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-27",
+          "status": "Pending",
+          "check": "Establish the refreshed baseline: inspect GSC impressions, queries, CTR and position for the primary and five secondary queries; GA4 engaged sessions and outbound clicks; and any AI/LLM referrals for the exact route."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-18",
+          "status": "Pending",
+          "check": "Compare GSC coverage for coverage-percentage and neighbourhood-named queries against the pre-refresh baseline; check whether the new YouFibre/Hyperoptic cross-links measurably increase sessions from the Glasgow page."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-11-15",
+          "status": "Pending",
+          "check": "Re-verify the thinkbroadband coverage percentages and the independently reported YouFibre/Virgin Media figures, since these can change quarterly; refresh any that have moved."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-19",
+          "status": "Pending",
+          "check": "Assess sustained GSC impressions, CTR and position plus GA4 engagement and affiliate clicks; consider adding a bespoke G1 content block with a reciprocal link back to this page if traffic supports the investment."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-20-7697000e",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15813076519",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "postcode/liverpool",
+      "url": "https://broadbandpicker.co.uk/postcode/liverpool",
+      "launched_at": "2026-09-20T20:24:04.738612+00:00",
+      "performance_baseline": null,
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-27",
+          "status": "Pending",
+          "check": "Establish the refreshed baseline: inspect GSC impressions, queries, CTR and position for the primary and five secondary queries; GA4 engaged sessions and outbound clicks; and any AI/LLM referrals for the exact route."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-18",
+          "status": "Pending",
+          "check": "Compare GSC coverage for coverage-percentage and neighbourhood-named queries against the pre-refresh baseline; check whether the Mersey Fibre mention measurably increases relevant sessions."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-11-15",
+          "status": "Pending",
+          "check": "Re-verify the thinkbroadband coverage percentages and Mersey Fibre's coverage area and offer categories, since these can change; consider independently verifying the Baltic Broadband and Giant claims if time allows, and add them only once confirmed."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-19",
+          "status": "Pending",
+          "check": "Assess sustained GSC impressions, CTR and position plus GA4 engagement and affiliate clicks; consider adding a bespoke L1 content block with a reciprocal link back to this page if traffic supports the investment."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-20-926e40fe",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15813111496",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "guides/broadband-for-landlords-and-hmos-uk",
+      "url": "https://broadbandpicker.co.uk/guides/broadband-for-landlords-and-hmos-uk",
+      "launched_at": "2026-09-20T21:12:40.264731+00:00",
+      "performance_baseline": null,
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-27",
+          "status": "Pending",
+          "check": "Establish the refreshed baseline: inspect GSC impressions, queries, CTR and position for the primary and five secondary queries; GA4 engaged sessions; and any AI/LLM referrals for the exact route."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-18",
+          "status": "Pending",
+          "check": "Compare GSC coverage for Renters' Rights Act and network-segmentation queries against the pre-refresh baseline; check GA4 engagement and affiliate clicks."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-11-15",
+          "status": "Pending",
+          "check": "Re-verify Landlord Broadband's and Virgin Media Business's offer details, and check for any further Renters' Rights Act guidance updates from GOV.UK or Shelter; refresh any that have changed."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-19",
+          "status": "Pending",
+          "check": "Assess sustained GSC impressions, CTR and position plus GA4 engagement and affiliate clicks; consider independently verifying the exact residential-vs-business Ofcom fairness-code provider count if a primary Ofcom source becomes identifiable."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-20-098ab31e",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15813326775",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "postcode/leeds",
+      "url": "https://broadbandpicker.co.uk/postcode/leeds",
+      "launched_at": "2026-09-20T21:28:50.933916+00:00",
+      "performance_baseline": null,
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-27",
+          "status": "Pending",
+          "check": "Establish the refreshed baseline: inspect GSC impressions, queries, CTR and position for the primary and five secondary queries; GA4 engaged sessions and outbound clicks; and any AI/LLM referrals for the exact route."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-18",
+          "status": "Pending",
+          "check": "Compare GSC coverage for coverage-percentage and neighbourhood-named queries against the pre-refresh baseline; check whether the new Brsk/Hyperoptic cross-links measurably increase sessions from the Leeds page."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-11-15",
+          "status": "Pending",
+          "check": "Re-verify the thinkbroadband coverage percentages and the independently reported Virgin Media/altnet figures, since these can change quarterly; refresh any that have moved."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-19",
+          "status": "Pending",
+          "check": "Assess sustained GSC impressions, CTR and position plus GA4 engagement and affiliate clicks; consider adding a bespoke LS2 content block with a reciprocal link back to this page if traffic supports the investment."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-20-f6d37bb2",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15813332337",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "providers/compare/ee-vs-talktalk",
+      "url": "https://broadbandpicker.co.uk/providers/compare/ee-vs-talktalk",
+      "launched_at": "2026-09-20T22:01:29.175524+00:00",
+      "performance_baseline": null,
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-27",
+          "status": "Pending",
+          "check": "Confirm the page's strong existing GSC performance (impressions, clicks, average position) has not regressed following the addition, and that the new FAQ/keyDifferences content is being indexed."
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-18",
+          "status": "Pending",
+          "check": "Check whether GSC shows any new impressions for ownership-related or Shell-Energy-related queries specifically, and whether the previously-observed AI-agent-style query pattern continues or grows."
+        },
+        {
+          "day": 56,
+          "due_date": "2026-11-15",
+          "status": "Pending",
+          "check": "Re-verify the Toscafund/BT Group ownership facts and the Shell Energy migration arrangement remain current; refresh only if either has genuinely changed."
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-19",
+          "status": "Pending",
+          "check": "Assess whether the page's already-strong average position and CTR have held or improved, and consider implementing the two recommended reciprocal inbound links (from bt-vs-talktalk and the Shell Energy guide) if this page's performance continues to justify the investment."
+        }
+      ],
+      "measurement_change_id": "content-2026-09-20-8f747cfe",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15813521425",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "postcode/birmingham",
+      "url": "https://broadbandpicker.co.uk/postcode/birmingham",
+      "launched_at": "2026-09-21T20:38:59.515381+00:00",
+      "performance_baseline": null,
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-28",
+          "status": "Pending",
+          "check": "Re-query GSC for /postcode/birmingham impressions, clicks and average position to check for early movement off the 37.7 baseline position"
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-19",
+          "status": "Pending",
+          "check": "Re-query GSC and GA4 for this exact page path to check whether the new content lifted impressions beyond the 296/28-day baseline or produced any first sessions"
+        },
+        {
+          "day": 56,
+          "due_date": "2026-11-16",
+          "status": "Pending",
+          "check": "Check whether 'fibre broadband birmingham', 'cityfibre birmingham' and named-area queries begin appearing higher in the page's GSC query list"
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-20",
+          "status": "Pending",
+          "check": "Re-run a thinkbroadband Labs fetch to refresh the coverage percentages if materially changed, and reassess whether an AI Overview has begun appearing for Birmingham broadband queries"
+        }
+      ],
+      "measurement_change_id": "content-2026-09-21-bfb5ae35",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15820297333",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json",
+      "ai_overview_audit_note": "AI Overview capture (scripts/capture_ai_overview.py, 21 September 2026, raw: docs/geo-serp-research/2026-09-21-postcode-birmingham-ai-overview.json): AI Overview present for 'broadband providers birmingham' (BroadbandPicker not cited; cited domains include broadband.co.uk, gocompare.com, three.co.uk) and 'fibre broadband birmingham' (no extractable AI Overview text returned). The AI Overview named YouFibre reaching up to 7,000 Mbps in Birmingham; this could not be independently confirmed via YouFibre's own site within the available time (page not found), so it was NOT added to the page, per the same editorial-restraint rule applied to Liverpool's Baltic Broadband/Giant claims. Re-attempt independent verification if time allows, and add only once confirmed."
+    },
+    {
+      "slug": "postcode/manchester",
+      "url": "https://broadbandpicker.co.uk/postcode/manchester",
+      "launched_at": "2026-09-21T20:59:14.700941+00:00",
+      "performance_baseline": null,
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-28",
+          "status": "Pending",
+          "check": "Re-query GSC for /postcode/manchester impressions, clicks and average position to check for continued movement off the 49.8 baseline position, given the page's existing growth trend"
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-19",
+          "status": "Pending",
+          "check": "Re-query GSC and GA4 for this exact page path to check whether the new content accelerated the existing growth trend or produced any first sessions"
+        },
+        {
+          "day": 56,
+          "due_date": "2026-11-16",
+          "status": "Pending",
+          "check": "Check whether 'fibre broadband manchester' and named-area queries begin ranking closer to the page's stronger queries"
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-20",
+          "status": "Pending",
+          "check": "Re-run a thinkbroadband Labs fetch to refresh the coverage percentages if materially changed, and reassess whether an AI Overview has begun appearing for Manchester broadband queries"
+        }
+      ],
+      "measurement_change_id": "content-2026-09-21-eaf15233",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15820421309",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json",
+      "ai_overview_audit_note": "AI Overview capture (scripts/capture_ai_overview.py, 21 September 2026, raw: docs/geo-serp-research/2026-09-21-postcode-manchester-ai-overview.json): AI Overview present for both 'broadband providers manchester' and 'fibre broadband manchester' (BroadbandPicker not cited in either; cited domains include broadband.co.uk, gocompare.com, uswitch.com, three.co.uk). The AI Overview named five specific altnets active in Manchester -- Grain Connect, Hyperoptic, YouFibre, brsk and Giant Communications -- none of which could be independently confirmed via their own sites within the available time (each returned a 404, an unrelated redirect, or no named-city mention). None were added to the page; the page instead retains its existing, Switchity-sourced aggregate altnet-share figure (71%+) rather than naming unverified brands. Re-attempt independent verification of these five names if time allows, and add only once confirmed."
+    },
+    {
+      "slug": "postcode/bristol",
+      "url": "https://broadbandpicker.co.uk/postcode/bristol",
+      "launched_at": "2026-09-21T21:18:45.256455+00:00",
+      "performance_baseline": null,
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-09-28",
+          "status": "Pending",
+          "check": "Re-query GSC for /postcode/bristol impressions, clicks and average position; re-run scripts/capture_ai_overview.py for the same two queries to check whether the citation status has changed"
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-19",
+          "status": "Pending",
+          "check": "Re-query GSC and GA4 for this exact page path; check whether 'keynsham broadband', 'portishead broadband' or similar surrounding-town queries begin appearing"
+        },
+        {
+          "day": 56,
+          "due_date": "2026-11-16",
+          "status": "Pending",
+          "check": "Re-verify the Truespeed town list against truespeed.com in case it has changed; attempt independent verification of the excluded Hyperoptic and CityFibre-neighbourhood claims via a different source and add them only if confirmed"
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-20",
+          "status": "Pending",
+          "check": "Re-run a thinkbroadband Labs fetch to refresh the coverage percentages if materially changed, and re-run the AI Overview capture to reassess citation status"
+        }
+      ],
+      "measurement_change_id": "content-2026-09-21-43fc3c00",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15820445160",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "postcode/london",
+      "url": "https://broadbandpicker.co.uk/postcode/london",
+      "launched_at": "2026-09-27T21:44:46.397880+00:00",
+      "performance_baseline": {
+        "source": "docs/weekly-seo-intelligence.json",
+        "generated_at": "2026-09-25T22:04:55.913401+00:00",
+        "clicks": 3.0,
+        "impressions": 1066.0,
+        "ctr": 0.0028142589118198874,
+        "position": 29.29924953095685,
+        "impression_change_pct": -36.5,
+        "sessions": 2.0,
+        "engagement_rate": 1.0,
+        "affiliate_clicks": 2.0,
+        "ai_referral_visits": 0,
+        "score": 81.2,
+        "category": "Page-two opportunity",
+        "recommended_action": "Expand missing subtopics for the leading queries, improve topical internal links and validate intent alignment.",
+        "top_queries": [
+          "internet providers london",
+          "broadband london providers",
+          "broadband providers london",
+          "london broadband providers",
+          "broadband services london"
+        ]
+      },
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-10-04",
+          "status": "Pending",
+          "check": "Re-query GSC for /postcode/london impressions, clicks and average position to check for continued movement off the 29.3 baseline position, given the page's existing growth trend"
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-25",
+          "status": "Pending",
+          "check": "Re-query GSC and GA4 for this exact page path; check whether 'newham' or full-fibre-percentage queries begin appearing, and whether the fragmented 'broadband providers london' word-order cluster begins consolidating"
+        },
+        {
+          "day": 56,
+          "due_date": "2026-11-22",
+          "status": "Pending",
+          "check": "Re-verify the Switchity 82.24% aggregate and Hyperoptic's borough list in case either has changed; attempt independent verification of Community Fibre's '3Gbps' claim via a different fetch method and add only if confirmed"
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-26",
+          "status": "Pending",
+          "check": "Re-run the AI Overview capture to reassess citation status now that the page has more topical depth and a real, sourced borough-level answer to a previously-unaddressed query"
+        }
+      ],
+      "measurement_change_id": "content-2026-09-27-3035b000",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15855352244",
+      "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
+    },
+    {
+      "slug": "guides/leased-line-cost-uk-explained",
+      "url": "https://broadbandpicker.co.uk/guides/leased-line-cost-uk-explained",
+      "launched_at": "2026-09-27T22:00:31.714594+00:00",
+      "performance_baseline": null,
+      "schedule": [
+        {
+          "day": 7,
+          "due_date": "2026-10-04",
+          "status": "Pending",
+          "check": "Re-query GSC for /guides/leased-line-cost-uk-explained impressions, clicks and average position, and re-run the AI Overview capture to check for any change in citation status"
+        },
+        {
+          "day": 28,
+          "due_date": "2026-10-25",
+          "status": "Pending",
+          "check": "Re-query GSC and GA4 for this exact page path; check whether 'bearer size' or 'leased line comparison' queries begin appearing"
+        },
+        {
+          "day": 56,
+          "due_date": "2026-11-22",
+          "status": "Pending",
+          "check": "Independently verify the five AI-Overview-cited domains not checked this build (comparenet.co.uk, coreitech.co.uk, leasedlineandmpls.co.uk, mybusinessdeals.co.uk, netify.co.uk) and add any that provide genuinely new, verifiable pricing detail"
+        },
+        {
+          "day": 90,
+          "due_date": "2026-12-26",
+          "status": "Pending",
+          "check": "Re-verify all advertised prices (BT, Virgin Media Business, AMVIA, Selectra, Leased Line Comparison) since leased-line pricing changes periodically, and update the price-check callout date"
+        }
+      ],
+      "measurement_change_id": "content-2026-09-27-6efea5ff",
+      "ga4_annotation": "properties/551202232/reportingDataAnnotations/15855463970",
       "gsc_annotation_equivalent": "docs/page-build-pipeline/content-change-measurement-log.json"
     }
   ]
